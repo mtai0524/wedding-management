@@ -26,6 +26,33 @@ namespace WeddingRestaurant.Controllers
 			var listUser = new User();
 			return View(listUser);
         }
+        public IActionResult Login()
+        {
+            //var listUser = db.Users.ToList();
+            var listUser = new User();
+            return View(listUser);
+        }
+        [HttpPost]
+        public async Task<IActionResult> LoginAsync(User user)
+        {
+            var username = HttpContext.Request.Form["username"].ToString();
+            var password = HttpContext.Request.Form["password"].ToString();
+
+            // Kiểm tra xem người dùng có tồn tại trong cơ sở dữ liệu không
+            var foundUser = db.Users.FirstOrDefault(u => u.Name == username && u.Password == password);
+
+            if (foundUser != null)
+            {
+                TempData["SuccessMessage"] = "Đăng nhập thành công!";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Tên đăng nhập hoặc mật khẩu không đúng.";
+            }
+            await Task.Delay(5000); // Đợi 5 giây
+            return RedirectToAction("Index", "Home"); // Chuyển hướng đến trang đăng nhập với thông báo
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> UploadAsync(IFormFile imageFile, User user)
@@ -67,33 +94,13 @@ namespace WeddingRestaurant.Controllers
                     //ViewBag.Success = true;
                     //await _hubContext.Clients.All.SendAsync("ReceiveMessage", "Admin", "Tạo tài khoản thành công! Đăng nhập để bắt đầu sử dụng.");
                     // Tải lại trang Index để hiển thị danh sách cùng với hình ảnh vừa tải lên
-                    return View("Login", newUser);
+                    return View("Index");
                 }
             }
 
             return View("Index", db.Users.ToList());
         }
-        [HttpPost]
-        public IActionResult Login(User user)
-        {
-            var username = HttpContext.Request.Form["username"].ToString();
-            var password = HttpContext.Request.Form["password"].ToString();
-
-            // Kiểm tra xem người dùng có tồn tại trong cơ sở dữ liệu không
-            var foundUser = db.Users.FirstOrDefault(u => u.Name == username && u.Password == password);
-
-            if (foundUser != null)
-            {
-
-                TempData["SuccessMessage"] = "Đăng nhập thành công!";
-            }
-            else
-            {
-                TempData["ErrorMessage"] = "Tên đăng nhập hoặc mật khẩu không đúng.";
-            }
-
-            return RedirectToAction("Login"); // Chuyển hướng đến trang đăng nhập với thông báo
-        }
+        
 
     }
 }
