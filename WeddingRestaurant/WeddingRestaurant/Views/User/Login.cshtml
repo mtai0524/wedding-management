@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Login</h1>
+@model User
+<div class="custom-form-container">
+    <form asp-action="Login" method="post" enctype="multipart/form-data" class="d-flex flex-column align-items-center">
+        <div class="form-group">
+            <label for="username">Tên đăng nhập</label>
+            <input asp-for="@Model.Name" type="text" id="username" name="username" class="form-control custom-input" required value="@Model.Name" />
+        </div>
+        <div class="form-group">
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" name="password" class="form-control custom-input" required />
+            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Đăng nhập" class="btn btn-primary custom-button" />
+        </div>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <script>
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    title: '@TempData["SuccessMessage"]',
+                    timer: 5000,
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                    customClass: {
+                        container: 'my-custom-toast-class'
+                    }
+                });
+            </script>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <script>
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'error',
+                    title: '@TempData["ErrorMessage"]',
+                    timer: 5000,
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                    customClass: {
+                        container: 'my-custom-toast-class'
+                    }
+                });
+            </script>
+        }
+    </form>
+</div>

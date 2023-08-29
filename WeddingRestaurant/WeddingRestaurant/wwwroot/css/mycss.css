@@ -1,0 +1,90 @@
+﻿/* custom-styles.css */
+
+/* Thiết lập giao diện cho các thẻ input */
+a{
+    text-decoration:none;
+    color:black;
+}
+    a:hover {
+        color: #397B76;
+    }
+.custom-input {
+    width: 400px;
+    padding: 15px;
+    padding-left:20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+/* Thiết lập giao diện cho nút đăng ký */
+.custom-button {
+    margin-top:20px;
+    padding: 10px 20px;
+    background-color: #397B76;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.custom-button:hover {
+    background-color: #435b59;
+    color: white;
+}
+.custom-form-container {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* CSS for notification */
+.notification {
+    position: fixed;
+    top: 10px;
+    right: -300px; /* Ban đầu ẩn ngoài màn hình */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: right 0.5s ease-in-out; /* Hiệu ứng chuyển động */
+    z-index: 9999;
+}
+
+.show-notification {
+    right: 10px; /* Hiện lên */
+}

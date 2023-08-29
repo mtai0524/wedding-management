@@ -7,6 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\images\bag.svg" />
+    <None Include="wwwroot\images\cart.svg" />
+    <None Include="wwwroot\images\cross.svg" />
+    <None Include="wwwroot\images\dots-green.svg" />
+    <None Include="wwwroot\images\dots-light.svg" />
+    <None Include="wwwroot\images\dots-yellow.svg" />
+    <None Include="wwwroot\images\envelope-outline.svg" />
+    <None Include="wwwroot\images\return.svg" />
+    <None Include="wwwroot\images\support.svg" />
+    <None Include="wwwroot\images\truck.svg" />
+    <None Include="wwwroot\images\user.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CloudinaryDotNet" Version="1.22.0" />
+    <PackageReference Include="dotenv.net" Version="3.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10">
