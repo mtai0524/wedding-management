@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\DO AN NGANH\\WeddingRestaurant\\WeddingRestaurant\\WeddingRestaurant.csproj": {}
+    "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\WeddingRestaurant.csproj": {}
   },
   "projects": {
-    "E:\\DO AN NGANH\\WeddingRestaurant\\WeddingRestaurant\\WeddingRestaurant.csproj": {
+    "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\WeddingRestaurant.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\DO AN NGANH\\WeddingRestaurant\\WeddingRestaurant\\WeddingRestaurant.csproj",
+        "projectUniqueName": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\WeddingRestaurant.csproj",
         "projectName": "WeddingRestaurant",
-        "projectPath": "E:\\DO AN NGANH\\WeddingRestaurant\\WeddingRestaurant\\WeddingRestaurant.csproj",
+        "projectPath": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\WeddingRestaurant.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "E:\\DO AN NGANH\\WeddingRestaurant\\WeddingRestaurant\\obj\\",
+        "outputPath": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -56,11 +56,19 @@
               "target": "Package",
               "version": "[7.0.10, )"
             },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.21, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

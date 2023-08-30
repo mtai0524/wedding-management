@@ -33,7 +33,7 @@ namespace WeddingRestaurant.Controllers
             return View(listUser);
         }
         [HttpPost]
-        public async Task<IActionResult> LoginAsync(User user)
+        public IActionResult Login(User user)
         {
             var username = HttpContext.Request.Form["username"].ToString();
             var password = HttpContext.Request.Form["password"].ToString();
@@ -49,9 +49,10 @@ namespace WeddingRestaurant.Controllers
             {
                 TempData["ErrorMessage"] = "Tên đăng nhập hoặc mật khẩu không đúng.";
             }
-            await Task.Delay(5000); // Đợi 5 giây
-            return RedirectToAction("Index", "Home"); // Chuyển hướng đến trang đăng nhập với thông báo
+
+            return RedirectToAction("Login", "User"); // Chuyển hướng đến trang Login của UserController
         }
+
 
 
         [HttpPost]

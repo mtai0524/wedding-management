@@ -39,12 +39,14 @@
                     position: 'top-end',
                     icon: 'success',
                     title: '@TempData["SuccessMessage"]',
-                    timer: 5000,
+                    timer: 3000, // Thời gian đợi trước khi chuyển hướng (3 giây)
                     showConfirmButton: false,
                     showCloseButton: true,
                     customClass: {
                         container: 'my-custom-toast-class'
                     }
+                }).then(function () {
+                    window.location.href = '@Url.Action("Index", "Home")'; // Chuyển hướng đến trang Index của HomeController
                 });
             </script>
         }

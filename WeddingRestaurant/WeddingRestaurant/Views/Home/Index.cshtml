@@ -4,6 +4,44 @@
 }
 
 @model List<User>
+
+    <div>
+    @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+    {
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                title: '@ViewBag.SuccessMessage',
+                timer: 5000,
+                showConfirmButton: false,
+                showCloseButton: true,
+                customClass: {
+                    container: 'my-custom-toast-class'
+                }
+            });
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'error',
+                title: '@ViewBag.ErrorMessage',
+                timer: 5000,
+                showConfirmButton: false,
+                showCloseButton: true,
+                customClass: {
+                    container: 'my-custom-toast-class'
+                }
+            });
+        </script>
+    }
+    </div>
+
 <div class="text-center">
     <div class="untree_co-section product-section before-footer-section">
         <div class="container">

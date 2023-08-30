@@ -1,6 +1,9 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using dotenv.net;
+using Microsoft.EntityFrameworkCore;
+using WeddingRestaurant.Models;
+using Microsoft.Extensions.Configuration;
 namespace WeddingRestaurant
 {
     public class Startup
@@ -28,6 +31,9 @@ namespace WeddingRestaurant
 
             builder.Services.AddSingleton(cloudinary);
             builder.Services.AddSignalR();
+
+            builder.Services.AddDbContext<RestaurantContext>(options => 
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); // để controller hiểu kết nối mặc định 
         }
 
         private static void Configure(WebApplication app)
@@ -48,6 +54,7 @@ namespace WeddingRestaurant
 
             app.MapControllerRoute(
                 name: "default",
+                //pattern: "{controller=User}/{action=Login}");
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.UseEndpoints(endpoints =>
