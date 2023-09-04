@@ -15,8 +15,6 @@ namespace WeddingRestaurant
             var app = builder.Build();
             Configure(app);
             return app;
-
-
         }
         private static void ConfigureServices(WebApplicationBuilder builder) {
             builder.Services.AddControllersWithViews();
@@ -32,8 +30,20 @@ namespace WeddingRestaurant
             builder.Services.AddSingleton(cloudinary);
             builder.Services.AddSignalR();
 
-            builder.Services.AddDbContext<RestaurantContext>(options => 
+            builder.Services.AddDbContext<RestaurantContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); // để controller hiểu kết nối mặc định 
+
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowReactApp",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:3000")
+                               .AllowAnyHeader()
+                               .AllowAnyMethod();
+                    });
+            });
         }
 
         private static void Configure(WebApplication app)
@@ -44,6 +54,8 @@ namespace WeddingRestaurant
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseCors("AllowReactApp");
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
