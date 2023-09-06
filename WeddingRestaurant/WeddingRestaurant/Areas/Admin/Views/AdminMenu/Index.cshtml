@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WeddingRestaurant.Models.Menu>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+    <h3 style="text-align:center" class="mb-0 fw-bold ">Quản lý thực đơn</h3>
+</div>
+
+
+<a class="btn btn-dark btn-set-task w-sm-100" asp-action="Create"><i class="icofont-plus-circle me-2 fs-6"></i>Thêm món ăn</a>
+
+<div class="card-body basic-custome-color">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Category)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Category.)
+                        </td>
+                        <td>
+                            <a class="btn bg-success text-light btn-lg lift" asp-action="Edit" asp-route-id="@item.Id"><i class="icofont-ui-edit me-2 fs-6"></i>Edit</a> |
+                            <a class="btn bg-primary  text-light btn-lg lift" asp-action="Details" asp-route-id="@item.Id"><i class="icofont-info-circle me-2 fs-6"></i>Details</a> |
+                            <a class="btn bg-danger text-light btn-lg lift" asp-action="Delete" asp-route-id="@item.Id"><i class="icofont-bin me-2 fs-6"></i>Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

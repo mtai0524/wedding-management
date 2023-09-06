@@ -4,6 +4,9 @@ using dotenv.net;
 using Microsoft.EntityFrameworkCore;
 using WeddingRestaurant.Models;
 using Microsoft.Extensions.Configuration;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
+
 namespace WeddingRestaurant
 {
     public class Startup
@@ -16,7 +19,8 @@ namespace WeddingRestaurant
             Configure(app);
             return app;
         }
-        private static void ConfigureServices(WebApplicationBuilder builder) {
+        private static void ConfigureServices(WebApplicationBuilder builder)
+        {
             builder.Services.AddControllersWithViews();
 
             // Cấu hình tài khoản Cloudinary
@@ -32,7 +36,7 @@ namespace WeddingRestaurant
 
             builder.Services.AddDbContext<RestaurantContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); // để controller hiểu kết nối mặc định 
-
+            builder.Services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] {UnicodeRanges.All}));
 
             builder.Services.AddCors(options =>
             {
@@ -44,6 +48,8 @@ namespace WeddingRestaurant
                                .AllowAnyMethod();
                     });
             });
+
+            builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
         private static void Configure(WebApplication app)
@@ -64,15 +70,16 @@ namespace WeddingRestaurant
 
             app.UseAuthorization();
 
-            app.MapControllerRoute(
-                name: "default",
-                //pattern: "{controller=User}/{action=Login}");
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<MyHub>("/myhub");
-                // ... other endpoints ...
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+                endpoints.MapControllerRoute(
+                name: "default",
+                 //pattern: "{controller=User}/{action=Login}");
+                 pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

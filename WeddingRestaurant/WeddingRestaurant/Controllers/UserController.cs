@@ -11,14 +11,11 @@ namespace WeddingRestaurant.Controllers
     public class UserController : Controller
     {
         private readonly Cloudinary _cloudinary;
-        private readonly IHubContext<MyHub> _hubContext;
 
         RestaurantContext db = new RestaurantContext();
-        public UserController(IHubContext<MyHub> hubContext, Cloudinary cloudinary)
+        public UserController(Cloudinary cloudinary)
         {
             _cloudinary = cloudinary;
-            _hubContext = hubContext;
-
         }
         public IActionResult Index()
         {

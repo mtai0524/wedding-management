@@ -12,4 +12,8 @@ public partial class Menu
     public string? Description { get; set; }
 
     public int? Type { get; set; }
+
+    public int? Category { get; set; }
+
+    public virtual MenuCategory? CategoryNavigation { get; set; }
 }

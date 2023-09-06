@@ -1,1583 +1,1975 @@
 {
   "Files": [
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\WeddingRestaurant.bundle.scp.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\WeddingRestaurant.bundle.scp.css",
       "PackagePath": "staticwebassets\\WeddingRestaurant.bundle.scp.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\animate.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\bundles\\apexcharts.bundle.js",
+      "PackagePath": "staticwebassets\\AdminAssets\\bundles\\apexcharts.bundle.js"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\bundles\\dataTables.bundle.js",
+      "PackagePath": "staticwebassets\\AdminAssets\\bundles\\dataTables.bundle.js"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\bundles\\libscripts.bundle.js",
+      "PackagePath": "staticwebassets\\AdminAssets\\bundles\\libscripts.bundle.js"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\bundles\\nestable.bundle.js",
+      "PackagePath": "staticwebassets\\AdminAssets\\bundles\\nestable.bundle.js"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\css\\my-task.style.min.css",
+      "PackagePath": "staticwebassets\\AdminAssets\\css\\my-task.style.min.css"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\fonts\\icofont\\fonts\\icofont-1.eot",
+      "PackagePath": "staticwebassets\\AdminAssets\\fonts\\icofont\\fonts\\icofont-1.eot"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\fonts\\icofont\\fonts\\icofont.eot",
+      "PackagePath": "staticwebassets\\AdminAssets\\fonts\\icofont\\fonts\\icofont.eot"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\fonts\\icofont\\fonts\\icofont.svg",
+      "PackagePath": "staticwebassets\\AdminAssets\\fonts\\icofont\\fonts\\icofont.svg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\fonts\\icofont\\fonts\\icofont.ttf",
+      "PackagePath": "staticwebassets\\AdminAssets\\fonts\\icofont\\fonts\\icofont.ttf"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\fonts\\icofont\\fonts\\icofont.woff",
+      "PackagePath": "staticwebassets\\AdminAssets\\fonts\\icofont\\fonts\\icofont.woff"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\change-log.svg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\change-log.svg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\document\\menu-close.png",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\document\\menu-close.png"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\document\\menu-open.png",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\document\\menu-open.png"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\forgot-password.svg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\forgot-password.svg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\gallery\\1.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\gallery\\1.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\gallery\\10.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\gallery\\10.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\gallery\\2.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\gallery\\2.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\gallery\\3.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\gallery\\3.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\gallery\\4.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\gallery\\4.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\gallery\\5.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\gallery\\5.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\gallery\\6.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\gallery\\6.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\gallery\\7.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\gallery\\7.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\gallery\\8.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\gallery\\8.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\gallery\\9.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\gallery\\9.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\google.svg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\google.svg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\interview.svg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\interview.svg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\lg\\avatar1.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\lg\\avatar1.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\lg\\avatar10.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\lg\\avatar10.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\lg\\avatar11.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\lg\\avatar11.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\lg\\avatar12.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\lg\\avatar12.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\lg\\avatar2.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\lg\\avatar2.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\lg\\avatar3.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\lg\\avatar3.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\lg\\avatar4.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\lg\\avatar4.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\lg\\avatar5.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\lg\\avatar5.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\lg\\avatar6.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\lg\\avatar6.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\lg\\avatar7.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\lg\\avatar7.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\lg\\avatar8.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\lg\\avatar8.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\lg\\avatar9.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\lg\\avatar9.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\login-img.svg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\login-img.svg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\no-data.svg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\no-data.svg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\not_found.svg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\not_found.svg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\profile_av.png",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\profile_av.png"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\task-view.svg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\task-view.svg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\verify.svg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\verify.svg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\xs\\avatar1.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\xs\\avatar1.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\xs\\avatar10.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\xs\\avatar10.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\xs\\avatar11.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\xs\\avatar11.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\xs\\avatar12.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\xs\\avatar12.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\xs\\avatar2.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\xs\\avatar2.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\xs\\avatar3.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\xs\\avatar3.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\xs\\avatar4.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\xs\\avatar4.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\xs\\avatar5.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\xs\\avatar5.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\xs\\avatar6.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\xs\\avatar6.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\xs\\avatar7.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\xs\\avatar7.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\xs\\avatar8.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\xs\\avatar8.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\images\\xs\\avatar9.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\xs\\avatar9.jpg"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\page\\chart-apex.js",
+      "PackagePath": "staticwebassets\\AdminAssets\\page\\chart-apex.js"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\page\\hr.js",
+      "PackagePath": "staticwebassets\\AdminAssets\\page\\hr.js"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\page\\index.js",
+      "PackagePath": "staticwebassets\\AdminAssets\\page\\index.js"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\page\\task.js",
+      "PackagePath": "staticwebassets\\AdminAssets\\page\\task.js"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\plugin\\datatables\\dataTables.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\AdminAssets\\plugin\\datatables\\dataTables.bootstrap5.min.css"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\plugin\\datatables\\responsive.dataTables.min.css",
+      "PackagePath": "staticwebassets\\AdminAssets\\plugin\\datatables\\responsive.dataTables.min.css"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\plugin\\fullcalendar\\main.min.css",
+      "PackagePath": "staticwebassets\\AdminAssets\\plugin\\fullcalendar\\main.min.css"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\plugin\\fullcalendar\\main.min.js",
+      "PackagePath": "staticwebassets\\AdminAssets\\plugin\\fullcalendar\\main.min.js"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\plugin\\nestable\\jquery-nestable.css",
+      "PackagePath": "staticwebassets\\AdminAssets\\plugin\\nestable\\jquery-nestable.css"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\plugin\\parsleyjs\\css\\parsley.css",
+      "PackagePath": "staticwebassets\\AdminAssets\\plugin\\parsleyjs\\css\\parsley.css"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\plugin\\parsleyjs\\js\\parsley.js",
+      "PackagePath": "staticwebassets\\AdminAssets\\plugin\\parsleyjs\\js\\parsley.js"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\plugin\\prism\\prism.css",
+      "PackagePath": "staticwebassets\\AdminAssets\\plugin\\prism\\prism.css"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\plugin\\prism\\prism.js",
+      "PackagePath": "staticwebassets\\AdminAssets\\plugin\\prism\\prism.js"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\template.js",
+      "PackagePath": "staticwebassets\\AdminAssets\\template.js"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\auth-404.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\auth-404.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\auth-password-reset.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\auth-password-reset.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\auth-signin.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\auth-signin.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\auth-signup.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\auth-signup.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\auth-two-step.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\auth-two-step.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\changelog.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\changelog.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\documentation.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\documentation.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\help.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\help.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\index.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\index.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-alerts.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-alerts.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-badge.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-badge.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-breadcrumb.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-breadcrumb.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-buttons.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-buttons.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-card.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-card.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-carousel.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-carousel.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-collapse.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-collapse.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-dropdowns.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-dropdowns.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-listgroup.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-listgroup.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-modal.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-modal.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-navbar.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-navbar.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-navs.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-navs.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-pagination.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-pagination.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-popovers.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-popovers.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-progress.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-progress.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-scrollspy.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-scrollspy.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-spinners.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-spinners.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-toasts.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-toasts.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\AdminAssets\\ui-elements\\ui-tooltips.html",
+      "PackagePath": "staticwebassets\\AdminAssets\\ui-elements\\ui-tooltips.html"
+    },
+    {
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\animate.css",
       "PackagePath": "staticwebassets\\css\\animate.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\bootstrap-select.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\bootstrap-select.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap-select.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\bootstrap.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\custom-animate.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\custom-animate.css",
       "PackagePath": "staticwebassets\\css\\custom-animate.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\font-awesome.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\font-awesome.min.css",
       "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\icomoon.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\icomoon.css",
       "PackagePath": "staticwebassets\\css\\icomoon.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\imp.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\imp.css",
       "PackagePath": "staticwebassets\\css\\imp.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\jquery.bootstrap-touchspin.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\jquery.bootstrap-touchspin.css",
       "PackagePath": "staticwebassets\\css\\jquery.bootstrap-touchspin.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\jquery.fancybox.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\jquery.fancybox.min.css",
       "PackagePath": "staticwebassets\\css\\jquery.fancybox.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\mycss.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\mycss.css",
       "PackagePath": "staticwebassets\\css\\mycss.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\owl.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\owl.css",
       "PackagePath": "staticwebassets\\css\\owl.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\owl.theme.default.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\owl.theme.default.css",
       "PackagePath": "staticwebassets\\css\\owl.theme.default.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\owl.video.play.html",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\owl.video.play.html",
       "PackagePath": "staticwebassets\\css\\owl.video.play.html"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\responsive.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\responsive.css",
       "PackagePath": "staticwebassets\\css\\responsive.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\site.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\style.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\favicon.ico",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\bag.svg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\bag.svg",
       "PackagePath": "staticwebassets\\images\\bag.svg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\author.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\author.png",
       "PackagePath": "staticwebassets\\images\\blog\\author.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\blog-single-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\blog-single-1.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\blog-single-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\blog-single-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\blog-single-2.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\blog-single-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\blog-single.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\blog-single.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\blog-single.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\comment-1.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\comment-1.png",
       "PackagePath": "staticwebassets\\images\\blog\\comment-1.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\comment-2.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\comment-2.png",
       "PackagePath": "staticwebassets\\images\\blog\\comment-2.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\comment-3.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\comment-3.png",
       "PackagePath": "staticwebassets\\images\\blog\\comment-3.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\latest-b-v1-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\latest-b-v1-1.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\latest-b-v1-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\latest-b-v1-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\latest-b-v1-2.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\latest-b-v1-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\latest-b-v1-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\latest-b-v1-3.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\latest-b-v1-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\latest-b-v2-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\latest-b-v2-1.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\latest-b-v2-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\latest-b-v2-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\latest-b-v2-2.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\latest-b-v2-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\latest-b-v2-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\latest-b-v2-3.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\latest-b-v2-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\next-thumb-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\next-thumb-1.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\next-thumb-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\prev-thumb-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\prev-thumb-1.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\prev-thumb-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-1.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v1-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-2.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v1-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-3.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v1-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-4.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v1-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-5.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v1-5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-6.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-6.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v1-6.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-7.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-7.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v1-7.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-8.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-8.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v1-8.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-9.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v1-9.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v1-9.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v2-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v2-1.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v2-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v2-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v2-2.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v2-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v2-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v2-3.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v2-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v2-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v2-4.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v2-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v2-5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\blog\\v2-5.jpg",
       "PackagePath": "staticwebassets\\images\\blog\\v2-5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\bowl-2.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\bowl-2.png",
       "PackagePath": "staticwebassets\\images\\bowl-2.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\bowl-3.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\bowl-3.png",
       "PackagePath": "staticwebassets\\images\\bowl-3.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\brand\\1.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\brand\\1.png",
       "PackagePath": "staticwebassets\\images\\brand\\1.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\brand\\2.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\brand\\2.png",
       "PackagePath": "staticwebassets\\images\\brand\\2.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\brand\\3.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\brand\\3.png",
       "PackagePath": "staticwebassets\\images\\brand\\3.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\brand\\4.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\brand\\4.png",
       "PackagePath": "staticwebassets\\images\\brand\\4.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\brand\\5.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\brand\\5.png",
       "PackagePath": "staticwebassets\\images\\brand\\5.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\brand\\6.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\brand\\6.png",
       "PackagePath": "staticwebassets\\images\\brand\\6.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\cart.svg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\cart.svg",
       "PackagePath": "staticwebassets\\images\\cart.svg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\couch.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\couch.png",
       "PackagePath": "staticwebassets\\images\\couch.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\cross.svg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\cross.svg",
       "PackagePath": "staticwebassets\\images\\cross.svg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\dots-green.svg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\dots-green.svg",
       "PackagePath": "staticwebassets\\images\\dots-green.svg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\dots-light.svg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\dots-light.svg",
       "PackagePath": "staticwebassets\\images\\dots-light.svg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\dots-yellow.svg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\dots-yellow.svg",
       "PackagePath": "staticwebassets\\images\\dots-yellow.svg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\envelope-outline.svg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\envelope-outline.svg",
       "PackagePath": "staticwebassets\\images\\envelope-outline.svg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\favicon\\apple-touch-icon.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\favicon\\apple-touch-icon.png",
       "PackagePath": "staticwebassets\\images\\favicon\\apple-touch-icon.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\favicon\\favicon-16x16.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\favicon\\favicon-16x16.png",
       "PackagePath": "staticwebassets\\images\\favicon\\favicon-16x16.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\favicon\\favicon-32x32.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\favicon\\favicon-32x32.png",
       "PackagePath": "staticwebassets\\images\\favicon\\favicon-32x32.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\brochures-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\brochures-1.jpg",
       "PackagePath": "staticwebassets\\images\\footer\\brochures-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\footer-logo.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\footer-logo.png",
       "PackagePath": "staticwebassets\\images\\footer\\footer-logo.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\footer-shape.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\footer-shape.png",
       "PackagePath": "staticwebassets\\images\\footer\\footer-shape.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\gallery-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\gallery-1.jpg",
       "PackagePath": "staticwebassets\\images\\footer\\gallery-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\gallery-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\gallery-2.jpg",
       "PackagePath": "staticwebassets\\images\\footer\\gallery-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\gallery-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\gallery-3.jpg",
       "PackagePath": "staticwebassets\\images\\footer\\gallery-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\gallery-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\gallery-4.jpg",
       "PackagePath": "staticwebassets\\images\\footer\\gallery-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\gallery-5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\gallery-5.jpg",
       "PackagePath": "staticwebassets\\images\\footer\\gallery-5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\gallery-6.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\gallery-6.jpg",
       "PackagePath": "staticwebassets\\images\\footer\\gallery-6.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\recent-news-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\recent-news-1.jpg",
       "PackagePath": "staticwebassets\\images\\footer\\recent-news-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\recent-news-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\recent-news-2.jpg",
       "PackagePath": "staticwebassets\\images\\footer\\recent-news-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\recent-news-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\footer\\recent-news-3.jpg",
       "PackagePath": "staticwebassets\\images\\footer\\recent-news-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\home-pages\\preloader-2.html",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\home-pages\\preloader-2.html",
       "PackagePath": "staticwebassets\\images\\home-pages\\preloader-2.html"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\home-pages\\preloader-3.html",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\home-pages\\preloader-3.html",
       "PackagePath": "staticwebassets\\images\\home-pages\\preloader-3.html"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\home-pages\\preloader-4.html",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\home-pages\\preloader-4.html",
       "PackagePath": "staticwebassets\\images\\home-pages\\preloader-4.html"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\home-pages\\preloader-5.html",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\home-pages\\preloader-5.html",
       "PackagePath": "staticwebassets\\images\\home-pages\\preloader-5.html"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\arrow-2.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\arrow-2.png",
       "PackagePath": "staticwebassets\\images\\icon\\arrow-2.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\arrow.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\arrow.png",
       "PackagePath": "staticwebassets\\images\\icon\\arrow.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\button-shape.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\button-shape.png",
       "PackagePath": "staticwebassets\\images\\icon\\button-shape.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\dropdown-menu-arrow.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\dropdown-menu-arrow.png",
       "PackagePath": "staticwebassets\\images\\icon\\dropdown-menu-arrow.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\home-1.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\home-1.png",
       "PackagePath": "staticwebassets\\images\\icon\\home-1.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\home.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\home.png",
       "PackagePath": "staticwebassets\\images\\icon\\home.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\k.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\k.png",
       "PackagePath": "staticwebassets\\images\\icon\\k.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\preloader.gif",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\preloader.gif",
       "PackagePath": "staticwebassets\\images\\icon\\preloader.gif"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\signature.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\signature.png",
       "PackagePath": "staticwebassets\\images\\icon\\signature.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\submenu-icon.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\icon\\submenu-icon.png",
       "PackagePath": "staticwebassets\\images\\icon\\submenu-icon.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\img-grid-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\img-grid-1.jpg",
       "PackagePath": "staticwebassets\\images\\img-grid-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\img-grid-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\img-grid-2.jpg",
       "PackagePath": "staticwebassets\\images\\img-grid-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\img-grid-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\img-grid-3.jpg",
       "PackagePath": "staticwebassets\\images\\img-grid-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\coming-soon-bg.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\coming-soon-bg.jpg",
       "PackagePath": "staticwebassets\\images\\parallax-background\\coming-soon-bg.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\contact-details-bg.html",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\contact-details-bg.html",
       "PackagePath": "staticwebassets\\images\\parallax-background\\contact-details-bg.html"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\contact-info-box-bg.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\contact-info-box-bg.jpg",
       "PackagePath": "staticwebassets\\images\\parallax-background\\contact-info-box-bg.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\slogan-bg.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\slogan-bg.jpg",
       "PackagePath": "staticwebassets\\images\\parallax-background\\slogan-bg.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\why-choose-bg.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\why-choose-bg.jpg",
       "PackagePath": "staticwebassets\\images\\parallax-background\\why-choose-bg.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\working-bg.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\working-bg.jpg",
       "PackagePath": "staticwebassets\\images\\parallax-background\\working-bg.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\working-process-bg-style3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\working-process-bg-style3.jpg",
       "PackagePath": "staticwebassets\\images\\parallax-background\\working-process-bg-style3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\working-style2-bg.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\parallax-background\\working-style2-bg.jpg",
       "PackagePath": "staticwebassets\\images\\parallax-background\\working-style2-bg.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\about-style3-bg.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\about-style3-bg.jpg",
       "PackagePath": "staticwebassets\\images\\pattern\\about-style3-bg.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\instagram-title-bg.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\instagram-title-bg.png",
       "PackagePath": "staticwebassets\\images\\pattern\\instagram-title-bg.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\project-description-pattern.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\project-description-pattern.jpg",
       "PackagePath": "staticwebassets\\images\\pattern\\project-description-pattern.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\project-info-patten.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\project-info-patten.jpg",
       "PackagePath": "staticwebassets\\images\\pattern\\project-info-patten.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\timer-area-bg.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\timer-area-bg.jpg",
       "PackagePath": "staticwebassets\\images\\pattern\\timer-area-bg.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\working-process-item-bg.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\working-process-item-bg.png",
       "PackagePath": "staticwebassets\\images\\pattern\\working-process-item-bg.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\working-process-item-hover-bg.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\pattern\\working-process-item-hover-bg.png",
       "PackagePath": "staticwebassets\\images\\pattern\\working-process-item-hover-bg.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\person-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\person-1.jpg",
       "PackagePath": "staticwebassets\\images\\person-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\person-1.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\person-1.png",
       "PackagePath": "staticwebassets\\images\\person-1.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\person_1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\person_1.jpg",
       "PackagePath": "staticwebassets\\images\\person_1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\person_2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\person_2.jpg",
       "PackagePath": "staticwebassets\\images\\person_2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\person_3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\person_3.jpg",
       "PackagePath": "staticwebassets\\images\\person_3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\person_4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\person_4.jpg",
       "PackagePath": "staticwebassets\\images\\person_4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\post-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\post-1.jpg",
       "PackagePath": "staticwebassets\\images\\post-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\post-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\post-2.jpg",
       "PackagePath": "staticwebassets\\images\\post-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\post-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\post-3.jpg",
       "PackagePath": "staticwebassets\\images\\post-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\product-1.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\product-1.png",
       "PackagePath": "staticwebassets\\images\\product-1.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\product-2.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\product-2.png",
       "PackagePath": "staticwebassets\\images\\product-2.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\product-3.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\product-3.png",
       "PackagePath": "staticwebassets\\images\\product-3.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\lat-pro-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-2.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\lat-pro-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-3.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\lat-pro-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-4.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\lat-pro-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-5.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\lat-pro-5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v2-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v2-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\lat-pro-v2-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v2-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v2-2.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\lat-pro-v2-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v2-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v2-3.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\lat-pro-v2-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v3-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v3-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\lat-pro-v3-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v3-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v3-2.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\lat-pro-v3-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v3-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v3-3.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\lat-pro-v3-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v3-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\lat-pro-v3-4.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\lat-pro-v3-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\image-gallery-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\image-gallery-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\project-single\\image-gallery-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\project-description-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\project-description-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\project-single\\project-description-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\project-info-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\project-info-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\project-single\\project-info-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\similar-pro-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\similar-pro-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\project-single\\similar-pro-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\similar-pro-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\similar-pro-2.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\project-single\\similar-pro-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\similar-pro-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\similar-pro-3.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\project-single\\similar-pro-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\similar-pro-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\similar-pro-4.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\project-single\\similar-pro-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\video-gallery-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\project-single\\video-gallery-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\project-single\\video-gallery-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v1-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-2.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v1-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-3.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v1-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-4.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v1-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-5.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v1-5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-6.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-6.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v1-6.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-7.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-7.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v1-7.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-8.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-8.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v1-8.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-9.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v1-9.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v1-9.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v2-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-2.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v2-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-3.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v2-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-4.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v2-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-5.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v2-5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-6.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-6.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v2-6.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-7.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-7.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v2-7.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-8.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-8.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v2-8.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-9.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v2-9.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v2-9.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v3-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-2.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v3-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-3.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v3-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-4.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v3-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-5.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v3-5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-6.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-6.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v3-6.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-7.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-7.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v3-7.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-8.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v3-8.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v3-8.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v4-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-2.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v4-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-3.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v4-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-4.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v4-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-5.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v4-5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-6.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-6.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v4-6.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-7.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-7.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v4-7.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-8.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v4-8.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v4-8.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v5-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-2.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v5-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-3.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v5-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-4.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v5-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-5.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v5-5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-6.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-6.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v5-6.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-7.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-7.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v5-7.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-8.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v5-8.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v5-8.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-1.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v6-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-2.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v6-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-3.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v6-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-4.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v6-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-5.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v6-5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-6.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-6.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v6-6.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-7.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-7.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v6-7.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-8.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\projects\\v6-8.jpg",
       "PackagePath": "staticwebassets\\images\\projects\\v6-8.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\about-image.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\about-image.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\about-image.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\about-style2-image.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\about-style2-image.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\about-style2-image.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\appointment-bg.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\appointment-bg.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\appointment-bg.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\breadcrumb-bg-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\breadcrumb-bg-2.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\breadcrumb-bg-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\breadcrumb-bg.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\breadcrumb-bg.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\breadcrumb-bg.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\featured-1-overlay.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\featured-1-overlay.png",
       "PackagePath": "staticwebassets\\images\\resources\\featured-1-overlay.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\featured-1.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\featured-1.png",
       "PackagePath": "staticwebassets\\images\\resources\\featured-1.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\featured-2-overlay.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\featured-2-overlay.png",
       "PackagePath": "staticwebassets\\images\\resources\\featured-2-overlay.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\featured-2.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\featured-2.png",
       "PackagePath": "staticwebassets\\images\\resources\\featured-2.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\featured-3-overlay.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\featured-3-overlay.png",
       "PackagePath": "staticwebassets\\images\\resources\\featured-3-overlay.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\featured-3.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\featured-3.png",
       "PackagePath": "staticwebassets\\images\\resources\\featured-3.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\history-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\history-1.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\history-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\history-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\history-2.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\history-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\instagram-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\instagram-1.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\instagram-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\instagram-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\instagram-2.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\instagram-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\instagram-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\instagram-3.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\instagram-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\instagram-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\instagram-4.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\instagram-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\instagram-5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\instagram-5.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\instagram-5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\instagram-6.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\instagram-6.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\instagram-6.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\logo-2.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\logo-2.png",
       "PackagePath": "staticwebassets\\images\\resources\\logo-2.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\logo.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\logo.png",
       "PackagePath": "staticwebassets\\images\\resources\\logo.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\map.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\map.png",
       "PackagePath": "staticwebassets\\images\\resources\\map.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-1.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\working-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-2.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\working-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-3.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\working-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-v2-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-v2-1.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\working-v2-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-v2-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-v2-2.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\working-v2-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-v2-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-v2-3.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\working-v2-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-v2-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\resources\\working-v2-4.jpg",
       "PackagePath": "staticwebassets\\images\\resources\\working-v2-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\return.svg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\return.svg",
       "PackagePath": "staticwebassets\\images\\return.svg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\1.jpg",
       "PackagePath": "staticwebassets\\images\\services\\1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\2.jpg",
       "PackagePath": "staticwebassets\\images\\services\\2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\3.jpg",
       "PackagePath": "staticwebassets\\images\\services\\3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\4.jpg",
       "PackagePath": "staticwebassets\\images\\services\\4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\service-single\\how-work.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\service-single\\how-work.jpg",
       "PackagePath": "staticwebassets\\images\\services\\service-single\\how-work.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\service-single\\pricing-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\service-single\\pricing-1.jpg",
       "PackagePath": "staticwebassets\\images\\services\\service-single\\pricing-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\service-single\\pricing-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\service-single\\pricing-2.jpg",
       "PackagePath": "staticwebassets\\images\\services\\service-single\\pricing-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\service-single\\single-service-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\service-single\\single-service-1.jpg",
       "PackagePath": "staticwebassets\\images\\services\\service-single\\single-service-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\v2-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\v2-1.jpg",
       "PackagePath": "staticwebassets\\images\\services\\v2-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\v2-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\v2-2.jpg",
       "PackagePath": "staticwebassets\\images\\services\\v2-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\v2-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\v2-3.jpg",
       "PackagePath": "staticwebassets\\images\\services\\v2-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\v2-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\v2-4.jpg",
       "PackagePath": "staticwebassets\\images\\services\\v2-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\v2-5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\v2-5.jpg",
       "PackagePath": "staticwebassets\\images\\services\\v2-5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\v2-6.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\services\\v2-6.jpg",
       "PackagePath": "staticwebassets\\images\\services\\v2-6.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\1.jpg",
       "PackagePath": "staticwebassets\\images\\shop\\1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\2.jpg",
       "PackagePath": "staticwebassets\\images\\shop\\2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\3.jpg",
       "PackagePath": "staticwebassets\\images\\shop\\3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\4.jpg",
       "PackagePath": "staticwebassets\\images\\shop\\4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\5.jpg",
       "PackagePath": "staticwebassets\\images\\shop\\5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\6.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\6.jpg",
       "PackagePath": "staticwebassets\\images\\shop\\6.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\7.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\7.jpg",
       "PackagePath": "staticwebassets\\images\\shop\\7.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\8.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\8.jpg",
       "PackagePath": "staticwebassets\\images\\shop\\8.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\9.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\9.jpg",
       "PackagePath": "staticwebassets\\images\\shop\\9.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\product-thumb-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\product-thumb-1.jpg",
       "PackagePath": "staticwebassets\\images\\shop\\product-thumb-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\product-thumb-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\product-thumb-2.jpg",
       "PackagePath": "staticwebassets\\images\\shop\\product-thumb-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\review-1.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\review-1.png",
       "PackagePath": "staticwebassets\\images\\shop\\review-1.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\review-2.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\review-2.png",
       "PackagePath": "staticwebassets\\images\\shop\\review-2.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\single-product.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\shop\\single-product.jpg",
       "PackagePath": "staticwebassets\\images\\shop\\single-product.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\instagram-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\instagram-1.jpg",
       "PackagePath": "staticwebassets\\images\\sidebar\\instagram-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\instagram-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\instagram-2.jpg",
       "PackagePath": "staticwebassets\\images\\sidebar\\instagram-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\instagram-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\instagram-3.jpg",
       "PackagePath": "staticwebassets\\images\\sidebar\\instagram-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\instagram-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\instagram-4.jpg",
       "PackagePath": "staticwebassets\\images\\sidebar\\instagram-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\instagram-5.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\instagram-5.jpg",
       "PackagePath": "staticwebassets\\images\\sidebar\\instagram-5.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\instagram-6.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\instagram-6.jpg",
       "PackagePath": "staticwebassets\\images\\sidebar\\instagram-6.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\popular-product-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\popular-product-1.jpg",
       "PackagePath": "staticwebassets\\images\\sidebar\\popular-product-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\popular-product-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\popular-product-2.jpg",
       "PackagePath": "staticwebassets\\images\\sidebar\\popular-product-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\popular-product-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\popular-product-3.jpg",
       "PackagePath": "staticwebassets\\images\\sidebar\\popular-product-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\recent-post-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\recent-post-1.jpg",
       "PackagePath": "staticwebassets\\images\\sidebar\\recent-post-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\recent-post-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\recent-post-2.jpg",
       "PackagePath": "staticwebassets\\images\\sidebar\\recent-post-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\recent-post-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sidebar\\recent-post-3.jpg",
       "PackagePath": "staticwebassets\\images\\sidebar\\recent-post-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v1-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v1-1.jpg",
       "PackagePath": "staticwebassets\\images\\slides\\v1-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v1-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v1-2.jpg",
       "PackagePath": "staticwebassets\\images\\slides\\v1-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v1-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v1-3.jpg",
       "PackagePath": "staticwebassets\\images\\slides\\v1-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v2-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v2-1.jpg",
       "PackagePath": "staticwebassets\\images\\slides\\v2-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v2-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v2-2.jpg",
       "PackagePath": "staticwebassets\\images\\slides\\v2-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v2-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v2-3.jpg",
       "PackagePath": "staticwebassets\\images\\slides\\v2-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v3-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v3-1.jpg",
       "PackagePath": "staticwebassets\\images\\slides\\v3-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v3-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v3-2.jpg",
       "PackagePath": "staticwebassets\\images\\slides\\v3-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v3-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\slides\\v3-3.jpg",
       "PackagePath": "staticwebassets\\images\\slides\\v3-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sofa.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\sofa.png",
       "PackagePath": "staticwebassets\\images\\sofa.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\support.svg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\support.svg",
       "PackagePath": "staticwebassets\\images\\support.svg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\1.jpg",
       "PackagePath": "staticwebassets\\images\\team\\1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\2.jpg",
       "PackagePath": "staticwebassets\\images\\team\\2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\3.jpg",
       "PackagePath": "staticwebassets\\images\\team\\3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\v2-1.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\v2-1.jpg",
       "PackagePath": "staticwebassets\\images\\team\\v2-1.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\v2-2.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\v2-2.jpg",
       "PackagePath": "staticwebassets\\images\\team\\v2-2.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\v2-3.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\v2-3.jpg",
       "PackagePath": "staticwebassets\\images\\team\\v2-3.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\v2-4.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\team\\v2-4.jpg",
       "PackagePath": "staticwebassets\\images\\team\\v2-4.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-1.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-1.png",
       "PackagePath": "staticwebassets\\images\\testimonial\\testi-1.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-2.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-2.png",
       "PackagePath": "staticwebassets\\images\\testimonial\\testi-2.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-3.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-3.png",
       "PackagePath": "staticwebassets\\images\\testimonial\\testi-3.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-style2-1.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-style2-1.png",
       "PackagePath": "staticwebassets\\images\\testimonial\\testi-style2-1.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-style2-2.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-style2-2.png",
       "PackagePath": "staticwebassets\\images\\testimonial\\testi-style2-2.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-style2-3.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-style2-3.png",
       "PackagePath": "staticwebassets\\images\\testimonial\\testi-style2-3.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-style3-1.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-style3-1.png",
       "PackagePath": "staticwebassets\\images\\testimonial\\testi-style3-1.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-style3-2.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\testimonial\\testi-style3-2.png",
       "PackagePath": "staticwebassets\\images\\testimonial\\testi-style3-2.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\truck.svg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\truck.svg",
       "PackagePath": "staticwebassets\\images\\truck.svg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\user.svg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\user.svg",
       "PackagePath": "staticwebassets\\images\\user.svg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\why-choose-us-img.jpg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\images\\why-choose-us-img.jpg",
       "PackagePath": "staticwebassets\\images\\why-choose-us-img.jpg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\animate.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\animate.css",
       "PackagePath": "staticwebassets\\js\\animate.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\bootstrap-select.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\bootstrap-select.min.css",
       "PackagePath": "staticwebassets\\js\\bootstrap-select.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\bootstrap.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\js\\bootstrap.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\custom-animate.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\custom-animate.css",
       "PackagePath": "staticwebassets\\js\\custom-animate.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\font-awesome.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\font-awesome.min.css",
       "PackagePath": "staticwebassets\\js\\font-awesome.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\icomoon.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\icomoon.css",
       "PackagePath": "staticwebassets\\js\\icomoon.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\imp.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\imp.css",
       "PackagePath": "staticwebassets\\js\\imp.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\jquery.bootstrap-touchspin.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\jquery.bootstrap-touchspin.css",
       "PackagePath": "staticwebassets\\js\\jquery.bootstrap-touchspin.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\jquery.fancybox.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\jquery.fancybox.min.css",
       "PackagePath": "staticwebassets\\js\\jquery.fancybox.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\owl.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\owl.css",
       "PackagePath": "staticwebassets\\js\\owl.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\owl.theme.default.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\owl.theme.default.css",
       "PackagePath": "staticwebassets\\js\\owl.theme.default.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\owl.video.play.html",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\owl.video.play.html",
       "PackagePath": "staticwebassets\\js\\owl.video.play.html"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\responsive.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\responsive.css",
       "PackagePath": "staticwebassets\\js\\responsive.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\signalr-client.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\signalr-client.js",
       "PackagePath": "staticwebassets\\js\\signalr-client.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\style.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\js\\style.css",
       "PackagePath": "staticwebassets\\js\\style.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\energy-icon\\fonts\\energy-iconffe0.eot",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\energy-icon\\fonts\\energy-iconffe0.eot",
       "PackagePath": "staticwebassets\\plugins\\energy-icon\\fonts\\energy-iconffe0.eot"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\energy-icon\\fonts\\energy-iconffe0.svg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\energy-icon\\fonts\\energy-iconffe0.svg",
       "PackagePath": "staticwebassets\\plugins\\energy-icon\\fonts\\energy-iconffe0.svg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\energy-icon\\fonts\\energy-iconffe0.ttf",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\energy-icon\\fonts\\energy-iconffe0.ttf",
       "PackagePath": "staticwebassets\\plugins\\energy-icon\\fonts\\energy-iconffe0.ttf"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\energy-icon\\fonts\\energy-iconffe0.woff",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\energy-icon\\fonts\\energy-iconffe0.woff",
       "PackagePath": "staticwebassets\\plugins\\energy-icon\\fonts\\energy-iconffe0.woff"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\energy-icon\\style.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\energy-icon\\style.css",
       "PackagePath": "staticwebassets\\plugins\\energy-icon\\style.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\assets\\coloredbg.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\assets\\coloredbg.png",
       "PackagePath": "staticwebassets\\plugins\\revolution\\assets\\coloredbg.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\assets\\gridtile.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\assets\\gridtile.png",
       "PackagePath": "staticwebassets\\plugins\\revolution\\assets\\gridtile.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\assets\\gridtile_3x3.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\assets\\gridtile_3x3.png",
       "PackagePath": "staticwebassets\\plugins\\revolution\\assets\\gridtile_3x3.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\assets\\gridtile_3x3_white.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\assets\\gridtile_3x3_white.png",
       "PackagePath": "staticwebassets\\plugins\\revolution\\assets\\gridtile_3x3_white.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\assets\\gridtile_white.png",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\assets\\gridtile_white.png",
       "PackagePath": "staticwebassets\\plugins\\revolution\\assets\\gridtile_white.png"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\assets\\loader.gif",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\assets\\loader.gif",
       "PackagePath": "staticwebassets\\plugins\\revolution\\assets\\loader.gif"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\css\\closedhand.html",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\css\\closedhand.html",
       "PackagePath": "staticwebassets\\plugins\\revolution\\css\\closedhand.html"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\css\\layers.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\css\\layers.css",
       "PackagePath": "staticwebassets\\plugins\\revolution\\css\\layers.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\css\\navigation.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\css\\navigation.css",
       "PackagePath": "staticwebassets\\plugins\\revolution\\css\\navigation.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\css\\openhand.html",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\css\\openhand.html",
       "PackagePath": "staticwebassets\\plugins\\revolution\\css\\openhand.html"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\css\\settings.css",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\css\\settings.css",
       "PackagePath": "staticwebassets\\plugins\\revolution\\css\\settings.css"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\fonts\\revicons\\revicons90c6.eot",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\fonts\\revicons\\revicons90c6.eot",
       "PackagePath": "staticwebassets\\plugins\\revolution\\fonts\\revicons\\revicons90c6.eot"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\fonts\\revicons\\revicons90c6.svg",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\fonts\\revicons\\revicons90c6.svg",
       "PackagePath": "staticwebassets\\plugins\\revolution\\fonts\\revicons\\revicons90c6.svg"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\fonts\\revicons\\revicons90c6.ttf",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\fonts\\revicons\\revicons90c6.ttf",
       "PackagePath": "staticwebassets\\plugins\\revolution\\fonts\\revicons\\revicons90c6.ttf"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\fonts\\revicons\\revicons90c6.woff",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\fonts\\revicons\\revicons90c6.woff",
       "PackagePath": "staticwebassets\\plugins\\revolution\\fonts\\revicons\\revicons90c6.woff"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.actions.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.actions.min.js",
       "PackagePath": "staticwebassets\\plugins\\revolution\\js\\extensions\\revolution.extension.actions.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.carousel.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.carousel.min.js",
       "PackagePath": "staticwebassets\\plugins\\revolution\\js\\extensions\\revolution.extension.carousel.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.kenburn.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.kenburn.min.js",
       "PackagePath": "staticwebassets\\plugins\\revolution\\js\\extensions\\revolution.extension.kenburn.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.layeranimation.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.layeranimation.min.js",
       "PackagePath": "staticwebassets\\plugins\\revolution\\js\\extensions\\revolution.extension.layeranimation.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.migration.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.migration.min.js",
       "PackagePath": "staticwebassets\\plugins\\revolution\\js\\extensions\\revolution.extension.migration.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.navigation.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.navigation.min.js",
       "PackagePath": "staticwebassets\\plugins\\revolution\\js\\extensions\\revolution.extension.navigation.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.parallax.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.parallax.min.js",
       "PackagePath": "staticwebassets\\plugins\\revolution\\js\\extensions\\revolution.extension.parallax.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.slideanims.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.slideanims.min.js",
       "PackagePath": "staticwebassets\\plugins\\revolution\\js\\extensions\\revolution.extension.slideanims.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.video.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\extensions\\revolution.extension.video.min.js",
       "PackagePath": "staticwebassets\\plugins\\revolution\\js\\extensions\\revolution.extension.video.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\jquery.themepunch.revolution.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\jquery.themepunch.revolution.min.js",
       "PackagePath": "staticwebassets\\plugins\\revolution\\js\\jquery.themepunch.revolution.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\jquery.themepunch.tools.min.js",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\plugins\\revolution\\js\\jquery.themepunch.tools.min.js",
       "PackagePath": "staticwebassets\\plugins\\revolution\\js\\jquery.themepunch.tools.min.js"
     },
     {
-      "Id": "E:\\DO AN NGANH\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\scss\\style.scss",
+      "Id": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\WeddingRestaurant\\wwwroot\\scss\\style.scss",
       "PackagePath": "staticwebassets\\scss\\style.scss"
     },
     {
