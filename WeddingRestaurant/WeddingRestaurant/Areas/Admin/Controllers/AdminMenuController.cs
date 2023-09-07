@@ -22,9 +22,9 @@ namespace WeddingRestaurant.Areas.Admin.Controllers
         // GET: Admin/AdminMenu
         public async Task<IActionResult> Index()
         {
-              return _context.Menus != null ? 
-                          View(await _context.Menus.ToListAsync()) :
-                          Problem("Entity set 'RestaurantContext.Menus'  is null.");
+            var restaurantContext = _context.Menus.Include(m => m.CategoryNavigation);
+            var menusWithCategoryName = await restaurantContext.ToListAsync();
+            return View(menusWithCategoryName);
         }
 
         // GET: Admin/AdminMenu/Details/5
@@ -36,18 +36,19 @@ namespace WeddingRestaurant.Areas.Admin.Controllers
             }
 
             var menu = await _context.Menus
+                .Include(m => m.CategoryNavigation)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (menu == null)
             {
                 return NotFound();
             }
-
             return View(menu);
         }
 
         // GET: Admin/AdminMenu/Create
         public IActionResult Create()
         {
+            ViewData["Category"] = new SelectList(_context.MenuCategories, "CategoryId", "CategoryName");
             return View();
         }
 
@@ -56,7 +57,7 @@ namespace WeddingRestaurant.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Type")] Menu menu)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Type,Category")] Menu menu)
         {
             if (ModelState.IsValid)
             {
@@ -64,6 +65,7 @@ namespace WeddingRestaurant.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["Category"] = new SelectList(_context.MenuCategories, "CategoryId", "CategoryId", menu.Category);
             return View(menu);
         }
 
@@ -80,6 +82,7 @@ namespace WeddingRestaurant.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+            ViewData["Category"] = new SelectList(_context.MenuCategories, "CategoryId", "CategoryName", menu.Category);
             return View(menu);
         }
 
@@ -88,7 +91,7 @@ namespace WeddingRestaurant.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Type")] Menu menu)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Type,Category")] Menu menu)
         {
             if (id != menu.Id)
             {
@@ -115,6 +118,7 @@ namespace WeddingRestaurant.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["Category"] = new SelectList(_context.MenuCategories, "CategoryId", "CategoryId", menu.Category);
             return View(menu);
         }
 
@@ -127,6 +131,7 @@ namespace WeddingRestaurant.Areas.Admin.Controllers
             }
 
             var menu = await _context.Menus
+                .Include(m => m.CategoryNavigation)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (menu == null)
             {
