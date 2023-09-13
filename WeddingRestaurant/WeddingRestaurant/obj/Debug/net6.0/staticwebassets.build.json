@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "+oBfFiVs4HuOeq7aNX+FVJq8LY7vNLnYxpeTXFIFpJI=",
+  "Hash": "oOf4IbOPL96qdcg0lzCp3HQuvULtbwj4GJpTfqONVgU=",
   "Source": "WeddingRestaurant",
   "BasePath": "_content/WeddingRestaurant",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\DataEmptyCore\\DataEmptyCore.csproj",
+      "Version": 2,
+      "Source": "DataEmptyCore",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
   "DiscoveryPatterns": [
     {
       "Name": "WeddingRestaurant\\wwwroot",

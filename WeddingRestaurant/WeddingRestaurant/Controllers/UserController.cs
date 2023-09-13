@@ -5,6 +5,7 @@ using WeddingRestaurant.Models;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.SignalR;
+using DataEmptyCore.Models.Entities;
 
 namespace WeddingRestaurant.Controllers
 {

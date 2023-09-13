@@ -1,8 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using WeddingRestaurant.Models;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using DataEmptyCore;
+using DataEmptyCore.Models.Entities;
+using WeddingRestaurant.Models;
+
 namespace WeddingRestaurant.Controllers
 {
 	public class HomeController : Controller
@@ -17,7 +22,7 @@ namespace WeddingRestaurant.Controllers
 
         }
 
-		public IActionResult Index()
+        public IActionResult Index()
         {
             var listUser = db.Users.ToList();
             return View(listUser);
@@ -28,7 +33,13 @@ namespace WeddingRestaurant.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-
+        async public Task<IActionResult> API()
+        {
+            HttpClient client = new HttpClient();
+            var data = await client.GetAsync("https://localhost:7271/WeatherForecast");
+            var res = await data.Content.ReadAsStringAsync();
+            var dataJson = JsonConvert.DeserializeObject<IEnumerable<WeatherForecast>>(res);
+            return View(dataJson);
+        }
     }
 }

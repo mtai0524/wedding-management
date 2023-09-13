@@ -6,6 +6,7 @@ using WeddingRestaurant.Models;
 using Microsoft.Extensions.Configuration;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using DataEmptyCore.Models.Entities;
 
 namespace WeddingRestaurant
 {

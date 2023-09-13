@@ -1,4 +1,6 @@
-﻿@{
+﻿@model DataEmptyCore.Models.Entities.User
+
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -7,7 +9,6 @@
     <h1>Đăng ký người dùng</h1>
 </div>
 
-@model User
 <div class="custom-form-container">
     <form asp-action="upload" method="post" enctype="multipart/form-data" class="d-flex flex-column align-items-center">
         <div class="form-group">

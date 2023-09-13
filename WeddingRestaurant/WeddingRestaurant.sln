@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeddingRestaurant", "WeddingRestaurant\WeddingRestaurant.csproj", "{10B5DC8B-9163-4230-8579-7F444D6D85A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectAPI", "ProjectAPI\ProjectAPI.csproj", "{2A4D0C5F-E657-4DDD-8EE3-95C9589D3C08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataEmptyCore", "DataEmptyCore\DataEmptyCore.csproj", "{04529B86-AA01-468A-B473-91C398F9CFD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{10B5DC8B-9163-4230-8579-7F444D6D85A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10B5DC8B-9163-4230-8579-7F444D6D85A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10B5DC8B-9163-4230-8579-7F444D6D85A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A4D0C5F-E657-4DDD-8EE3-95C9589D3C08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A4D0C5F-E657-4DDD-8EE3-95C9589D3C08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A4D0C5F-E657-4DDD-8EE3-95C9589D3C08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A4D0C5F-E657-4DDD-8EE3-95C9589D3C08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04529B86-AA01-468A-B473-91C398F9CFD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04529B86-AA01-468A-B473-91C398F9CFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04529B86-AA01-468A-B473-91C398F9CFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04529B86-AA01-468A-B473-91C398F9CFD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
