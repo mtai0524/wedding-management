@@ -16,9 +16,9 @@ namespace ProjectAPI.Controllers
             _logger = logger;
         }
         [HttpGet(Name = "GetUser")]
-        public IEnumerable<Menu> Get()
+        public IEnumerable<User> Get()
         {
-            var listUser = db.Menus.ToList();
+            var listUser = db.Users.ToList();
             return listUser;
         }
         //[HttpGet]

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "puldzGhygGa44N1PxD1bgHUTuLiVZ6nat39sqDa/p8uViFK9H7i97U4RRu68iukxkr6aJqxdG6EsWtb1LrfxPQ==",
+  "dgSpecHash": "NRiM0hns6OAztIfjTWEtFpTCpIck2gbxv+5x0L7nk7WIDbZ968hfv+tIU505Ni3dVa35rqPZGBi5IW72t4Hu+w==",
   "success": true,
   "projectFilePath": "E:\\DoAnNganh\\WeddingRestaurant_MainProjectASP\\DataEmptyCore\\DataEmptyCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\fluentassertions\\6.12.0\\fluentassertions.6.12.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

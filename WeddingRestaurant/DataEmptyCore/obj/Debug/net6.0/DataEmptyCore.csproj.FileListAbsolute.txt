@@ -80,3 +80,4 @@ E:\DoAnNganh\WeddingRestaurant_MainProjectASP\DataEmptyCore\bin\Debug\net6.0\Sys
 E:\DoAnNganh\WeddingRestaurant_MainProjectASP\DataEmptyCore\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 E:\DoAnNganh\WeddingRestaurant_MainProjectASP\DataEmptyCore\bin\Debug\net6.0\System.Text.Json.dll
 E:\DoAnNganh\WeddingRestaurant_MainProjectASP\DataEmptyCore\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+E:\DoAnNganh\WeddingRestaurant_MainProjectASP\DataEmptyCore\bin\Debug\net6.0\FluentAssertions.dll

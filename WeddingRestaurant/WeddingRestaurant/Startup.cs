@@ -49,7 +49,6 @@ namespace WeddingRestaurant
                                .AllowAnyMethod();
                     });
             });
-
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
