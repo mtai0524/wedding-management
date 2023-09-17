@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
 using CodeFirst.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CodeFirst.Controllers
 {
+    [Authorize(Roles = "administrator system ,admin, employee")]
     public class MenuController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -117,6 +119,7 @@ namespace CodeFirst.Controllers
             }
             return View(menu);
         }
+        [Authorize(Roles = "administrator system")]
 
         // GET: Menu/Delete/5
         public async Task<IActionResult> Delete(int? id)

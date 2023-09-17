@@ -3,16 +3,11 @@
 @{
     ViewData["Title"] = "Đăng ký tài khoản";
 }
-<style>
-    /* Thêm margin cho các trường input */
-    .form-floating {
-        margin-bottom: 10px;
-    }
-</style>
+
 <div class="row">
     <div class="col-md-4 mx-auto">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2 style ="text-align:center">Đăng ký tài khoản    </h2>
+            <h2 style ="text-align:center">Đăng ký tài khoản</h2>
             <hr />
             <div class="row">
                 <!-- Thêm một hàng để chứa các trường FirstName và LastName -->

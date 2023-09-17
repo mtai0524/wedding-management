@@ -4,38 +4,6 @@
 @{
     ViewData["Title"] = "Đăng nhập";
 }
-<style>
-    .form-floating{
-        margin-bottom:10px;
-    }
-    /* CSS cho hiệu ứng đường line xuất hiện từ trái qua phải */
-.custom-link {
-    text-decoration: none;
-    color: blue; /* Màu chữ ban đầu */
-    position: relative; /* Để làm việc với ::before pseudo-element */
-    transition: color 0.3s; /* Hiệu ứng chuyển đổi màu chữ */
-}
-
-.custom-link::before {
-    content: ""; /* Thêm nội dung trống cho pseudo-element */
-    position: absolute;
-    bottom: -2px; /* Vị trí bên dưới văn bản */
-    left: 0;
-    width: 0; /* Bắt đầu với độ dài 0 */
-    height: 2px; /* Độ dày và chiều cao của đường line */
-    background-color: #FF5733; /* Màu đường line */
-    transition: width 0.3s; /* Hiệu ứng chuyển đổi độ dài đường line */
-}
-
-.custom-link:hover {
-    color: #DC3545; /* Màu chữ khi di chuột qua */
-}
-
-.custom-link:hover::before {
-    width: 100%; /* Khi di chuột qua, đường line sẽ mở rộng từ trái qua phải */
-}
-
-</style>
 <div class="row">
     <div class="col-md-4 mx-auto">
         <section>
@@ -54,7 +22,7 @@
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div>
-                    <div class="checkbox">
+                    <div class="checkbox custom-checkbox">
                         <label asp-for="Input.RememberMe" class="form-label">
                             <input class="form-check-input" asp-for="Input.RememberMe" />
                             @Html.DisplayNameFor(m => m.Input.RememberMe)

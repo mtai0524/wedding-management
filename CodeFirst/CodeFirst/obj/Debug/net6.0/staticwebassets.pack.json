@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CodeFirst.bundle.scp.css"
     },
     {
+      "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\css\\mydesign.css",
+      "PackagePath": "staticwebassets\\css\\mydesign.css"
+    },
+    {
       "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

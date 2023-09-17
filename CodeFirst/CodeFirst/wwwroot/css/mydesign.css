@@ -1,0 +1,70 @@
+﻿.form-floating {
+    margin-bottom: 10px !important;
+}
+
+.form-floating input:focus {
+    border-color: rgb(178, 178, 178); /* Màu đậm màu xanh dương */
+    box-shadow: 0 0 0 0.25rem rgb(63, 56, 57); /* Hiệu ứng đổ bóng */
+}
+
+/* Chỉnh đường viền ngoài của input */
+.form-floating input, button {
+    outline-color: black; /* Đặt màu đường viền, ví dụ: đen */
+    outline-style: solid; /* Đặt kiểu đường viền, ví dụ: đứng (solid) */
+    outline-width: 2px; /* Đặt độ dày của đường viền, ví dụ: 2px */
+}
+
+label, h2 {
+    font-weight: bold;
+    color: black;
+}
+#logout:hover {
+    color: white; /* Đổi màu chữ thành màu trắng */
+    background-color: black; /* Đổi màu nền thành màu đen */
+    transition: all 0.3s ease; /* Thêm hiệu ứng chuyển đổi màu */
+}
+#logout {
+    margin-right: 10px;
+    outline-color: black; /* Đặt màu đường viền, ví dụ: đen */
+    outline-style: solid; /* Đặt kiểu đường viền, ví dụ: đứng (solid) */
+    outline-width: 2px;
+}
+.form-floating {
+    margin-bottom: 10px;
+}
+/* CSS cho hiệu ứng đường line xuất hiện từ trái qua phải */
+.custom-link {
+    text-decoration: none;
+    color: black; /* Màu chữ ban đầu */
+    position: relative; /* Để làm việc với ::before pseudo-element */
+    transition: color 0.5s; /* Hiệu ứng chuyển đổi màu chữ */
+}
+
+.custom-link::before {
+    content: ""; /* Thêm nội dung trống cho pseudo-element */
+    position: absolute;
+    bottom: -2px; /* Vị trí bên dưới văn bản */
+    left: 0;
+    width: 0; /* Bắt đầu với độ dài 0 */
+    height: 2px; /* Độ dày và chiều cao của đường line */
+    background-color: black; /* Màu đường line */
+    transition: width 0.3s; /* Hiệu ứng chuyển đổi độ dài đường line */
+}
+
+.custom-link:hover {
+    color: black; /* Màu chữ khi di chuột qua */
+}
+
+.custom-link:hover::before {
+    width: 100%; /* Khi di chuột qua, đường line sẽ mở rộng từ trái qua phải */
+}
+
+.custom-checkbox input[type="checkbox"] {
+    border: 1px solid #000; /* Đường viền đen 1px */
+    /* Các thuộc tính CSS khác cho checkbox */
+}
+.custom-checkbox input[type="checkbox"]:checked {
+    /* Màu nền cho checkbox khi được chọn */
+    background-color: black;
+    /* Các thuộc tính CSS khác cho checkbox khi được chọn */
+}

@@ -46,6 +46,15 @@
           }
         }
       },
+      "BlazorColorPicker/2.3.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/BlazorColorPicker.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/BlazorColorPicker.props": {}
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -4297,6 +4306,25 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "BlazorColorPicker/2.3.0": {
+      "sha512": "LBkbfm1OqtJAu8+WJQFiRIzrCAI1/IdCyOW/PmQM0A0WSnbTIsuGodv37/qhgZmLDWa4ImF4i1+jYLx0RbarHg==",
+      "type": "package",
+      "path": "blazorcolorpicker/2.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazorcolorpicker.2.3.0.nupkg.sha512",
+        "blazorcolorpicker.nuspec",
+        "build/BlazorColorPicker.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/BlazorColorPicker.props",
+        "buildTransitive/BlazorColorPicker.props",
+        "icon.png",
+        "lib/net7.0/BlazorColorPicker.dll",
+        "staticwebassets/BlazorColorPicker.bundle.scp.css",
+        "staticwebassets/colorpicker.css"
       ]
     },
     "Humanizer/2.14.1": {
@@ -11893,6 +11921,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "BlazorColorPicker >= 2.3.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.22",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.21",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.22",
@@ -11942,6 +11971,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "BlazorColorPicker": {
+            "target": "Package",
+            "version": "[2.3.0, )"
+          },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
             "version": "[6.0.22, )"

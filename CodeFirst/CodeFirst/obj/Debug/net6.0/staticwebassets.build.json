@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BiwZ/snHE1uXmAvGhOfKtcT05QNm5mdHtIpxOaw8hTQ=",
+  "Hash": "wAom9F6zV69dcXhqYhvdTA/EMkZV+bvqGp0pZutO60I=",
   "Source": "CodeFirst",
   "BasePath": "_content/CodeFirst",
   "Mode": "Default",
@@ -16,6 +16,40 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\PC\\.nuget\\packages\\blazorcolorpicker\\2.3.0\\staticwebassets\\BlazorColorPicker.bundle.scp.css",
+      "SourceId": "BlazorColorPicker",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\PC\\.nuget\\packages\\blazorcolorpicker\\2.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorColorPicker",
+      "RelativePath": "BlazorColorPicker.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\PC\\.nuget\\packages\\blazorcolorpicker\\2.3.0\\staticwebassets\\BlazorColorPicker.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\.nuget\\packages\\blazorcolorpicker\\2.3.0\\staticwebassets\\colorpicker.css",
+      "SourceId": "BlazorColorPicker",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\PC\\.nuget\\packages\\blazorcolorpicker\\2.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorColorPicker",
+      "RelativePath": "colorpicker.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Always",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\PC\\.nuget\\packages\\blazorcolorpicker\\2.3.0\\staticwebassets\\colorpicker.css"
+    },
     {
       "Identity": "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\6.0.21\\staticwebassets\\V5\\css\\site.css",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
@@ -1069,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Visual Git\\CodeFirst\\CodeFirst\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CodeFirst.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\css\\mydesign.css",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "css/mydesign.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\mydesign.css"
     },
     {
       "Identity": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\css\\site.css",
