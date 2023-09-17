@@ -79,7 +79,7 @@ namespace CodeFirst.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MenuId,Name,Description,Price,CategoryId,DiscountId")] MenuEntity menu, IFormFile imageFile)
+        public async Task<IActionResult> Create([Bind("MenuId,Name,Description,Price,CategoryId,DiscountId")] MenuEntity menu, IFormFile imageFile) // imageFile tên phía form, kh thêm ImageUrl vào Bind vì chưa có dữ liệu nên để thêm vào db sau 
         {
             if (imageFile == null || imageFile.Length == 0)
             {
