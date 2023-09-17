@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0IpCGqHWmba0yciNrKFuCTJLZadMH0ZkJ+1m5y/5gUaMeaRK/aSDJzfn7OmYnoY26rQz9Hk7jXjlAZ4N1w4Ttw==",
+  "dgSpecHash": "X6nxg7rsXefXY9kliMCdEkma9ghl2WO2knicTaQ0EKAc7oYiFxYWS0iLjvn3NxUUNI2/68Yj9gJ7t0MbTv8Xsg==",
   "success": true,
-  "projectFilePath": "E:\\DO AN NGANH\\lam dc\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
+  "projectFilePath": "E:\\Visual Git\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
