@@ -1,4 +1,4 @@
-﻿@model CodeFirst.Models.Menu
+﻿@model CodeFirst.Models.MenuEntity
 
 @{
     ViewData["Title"] = "Create";
@@ -13,9 +13,12 @@
     <div class="col-md-4">
         <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+         
+
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <input asp-for="Name" class="form-control"/>
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -25,12 +28,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
+                <input asp-for="Price" class="form-control"/>
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
-                <input asp-for="CategoryId" class="form-control" />
+                <input asp-for="CategoryId" class="form-control"/>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -38,9 +41,10 @@
                 <input asp-for="DiscountId" class="form-control" />
                 <span asp-validation-for="DiscountId" class="text-danger"></span>
             </div>
+          
             <div class="form-group">
-                <label asp-for="ImageModel.File" class="control-label"></label>
-                <input type="file" asp-for="ImageModel.File" class="form-control" />
+                <label for="imageFile">Chọn hình đại diện</label>
+                <input type="file" id="imageFile" name="imageFile" class="form-control custom-input" required />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

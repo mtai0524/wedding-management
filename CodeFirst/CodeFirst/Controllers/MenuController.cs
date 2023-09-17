@@ -79,28 +79,41 @@ namespace CodeFirst.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MenuId,Name,Description,Price,CategoryId,DiscountId")] Menu menu, ImageUploadModel imageModel)
+        public async Task<IActionResult> Create([Bind("MenuId,Name,Description,Price,CategoryId,DiscountId")] MenuEntity menu, IFormFile imageFile)
         {
+            if (imageFile == null || imageFile.Length == 0)
+            {
+                // Nếu không có hình ảnh được tải lên, bạn có thể thực hiện xử lý phù hợp ở đây
+                ModelState.AddModelError("ImageFile", "Vui lòng chọn một hình ảnh.");
+            }
+
             if (ModelState.IsValid)
             {
-                if (imageModel.File != null && imageModel.File.Length > 0)
+                if (imageFile != null && imageFile.Length > 0)
                 {
-                    // Xử lý tải lên hình ảnh lên Cloudinary ở đây
-                    var result = await UploadImageToCloudinary(imageModel.File);
-
-                    if (result != null)
+                    using (var stream = imageFile.OpenReadStream())
                     {
-                        // Lưu thông tin hình ảnh vào menu nếu tải lên thành công
-                        menu.ImageUrl = result.SecureUri.AbsoluteUri;
-                        menu.ImagePublicId = result.PublicId;
+                        var uploadParams = new ImageUploadParams
+                        {
+                            File = new FileDescription(imageFile.FileName, stream)
+                        };
+
+                        var uploadResult = _cloudinary.Upload(uploadParams);
+
+                        // Lấy đường dẫn của hình ảnh sau khi upload và lưu vào thuộc tính ImageUrl
+                        menu.ImageUrl = uploadResult.SecureUrl.AbsoluteUri;
                     }
                 }
+
                 _context.Add(menu);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(menu);
         }
+
+
 
         // GET: Menu/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -123,7 +136,7 @@ namespace CodeFirst.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MenuId,Name,Description,Price,CategoryId,DiscountId")] Menu menu)
+        public async Task<IActionResult> Edit(int id, [Bind("MenuId,Name,Description,Price,CategoryId,DiscountId")] MenuEntity menu)
         {
             if (id != menu.MenuId)
             {

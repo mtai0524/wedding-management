@@ -1,6 +1,6 @@
 ﻿namespace CodeFirst.Models
 {
-    public class ImageUploadModel
+    public class ImageModel
     {
         public IFormFile File { get; set; }
     }
