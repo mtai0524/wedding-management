@@ -1,5 +1,5 @@
 ﻿@model List<ApplicationUser>
-@{
+@* @{
     ViewData["Title"] = "Home Page";
 }
 
@@ -14,4 +14,41 @@
     <ul>
         <li>@user.FirstName @user.LastName @user.UserName</li>
     </ul>
+} *@
+
+
+<h1>User Roles</h1>
+
+@if (ViewData["UserRoles"] != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Roles</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var userRole in ViewData["UserRoles"] as List<Tuple<ApplicationUser, IList<string>>>)
+            {
+                <tr>
+                    <td>@userRole.Item1.UserName</td>
+                    <td>@userRole.Item1.Email</td>
+                    <td>
+                        <ul>
+                            @foreach (var role in userRole.Item2)
+                            {
+                                <li>@role</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No users found.</p>
 }

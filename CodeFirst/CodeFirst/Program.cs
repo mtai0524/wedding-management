@@ -14,7 +14,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("CodeFirst")));
 
 builder.Services.AddScoped<EmployeeService>();
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>(); ;
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>(); ;
 
 //builder.Services.AddDefaultIdentity<IdentityUser>()
 //    .AddDefaultTokenProviders()

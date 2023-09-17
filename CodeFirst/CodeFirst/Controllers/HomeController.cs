@@ -9,22 +9,33 @@ namespace CodeFirst.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager)
+        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _logger = logger;
             this._userManager = userManager;
+            this._roleManager = roleManager;
         }
-
         public IActionResult Index()
         {
+            // Lấy danh sách tất cả người dùng và danh sách vai trò
             var users = _userManager.Users.ToList();
+            var roles = _roleManager.Roles.ToList();
 
-            // Truyền danh sách người dùng vào view
-            return View(users);
+            // Tạo một danh sách kết hợp giữa người dùng và vai trò
+            var userRoles = new List<Tuple<ApplicationUser, IList<string>>>();
 
-            //ViewData["UserId"] = _userManager.GetUserId(this.User);
-            //return View();
+            foreach (var user in users)
+            {
+                var userRoleNames = _userManager.GetRolesAsync(user).Result;
+                userRoles.Add(new Tuple<ApplicationUser, IList<string>>(user, userRoleNames));
+            }
+
+            // Truyền danh sách kết hợp vào view
+            ViewData["UserRoles"] = userRoles;
+
+            return View();
         }
 
         public IActionResult Privacy()
