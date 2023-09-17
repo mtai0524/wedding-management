@@ -68,3 +68,10 @@ label, h2 {
     background-color: black;
     /* Các thuộc tính CSS khác cho checkbox khi được chọn */
 }
+
+.center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}

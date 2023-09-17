@@ -1455,3 +1455,5 @@ E:\Visual Git\CodeFirst\CodeFirst\obj\Debug\net6.0\CodeFirst.pdb
 E:\Visual Git\CodeFirst\CodeFirst\obj\Debug\net6.0\CodeFirst.genruntimeconfig.cache
 E:\Visual Git\CodeFirst\CodeFirst\obj\Debug\net6.0\ref\CodeFirst.dll
 E:\Visual Git\CodeFirst\CodeFirst\bin\Debug\net6.0\CloudinaryDotNet.dll
+E:\Visual Git\CodeFirst\CodeFirst\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Google.dll
+E:\Visual Git\CodeFirst\CodeFirst\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Facebook.dll

@@ -5,6 +5,8 @@ using CodeFirst.Models;
 using CodeFirst.Service;
 using CloudinaryDotNet;
 using System.Configuration;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +39,18 @@ var cloudinary = new Cloudinary(cloudinaryAccount);
 
 builder.Services.AddSingleton(cloudinary);
 
+builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+{
+    googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
+    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+});
+
+//builder.Services.AddAuthentication().AddFacebook(option =>
+//{
+//    option.AppId = "1016279636383657";
+//    option.AppSecret = "14661687021dceb69eee4ea69fd64dc9";
+//    option.AccessDeniedPath = "/AccessDeniedPathInfo";
+//});
 
 var app = builder.Build();
 
@@ -48,8 +62,7 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication();;
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -57,4 +70,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorPages();
+
+
+
 app.Run();
