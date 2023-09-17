@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
 using CodeFirst.Models;
 using Microsoft.AspNetCore.Authorization;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 
 namespace CodeFirst.Controllers
 {
@@ -15,11 +17,15 @@ namespace CodeFirst.Controllers
     public class MenuController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly Cloudinary _cloudinary;
 
-        public MenuController(ApplicationDbContext context)
+     
+        public MenuController(ApplicationDbContext context, Cloudinary cloudinary)
         {
             _context = context;
+            _cloudinary = cloudinary;
         }
+
 
         // GET: Menu
         public async Task<IActionResult> Index()
@@ -52,16 +58,43 @@ namespace CodeFirst.Controllers
         {
             return View();
         }
+        private async Task<UploadResult> UploadImageToCloudinary(IFormFile file)
+        {
+            var cloudinary = _cloudinary; // Injected Cloudinary instance
 
+            using (var stream = file.OpenReadStream())
+            {
+                var uploadParams = new ImageUploadParams
+                {
+                    File = new FileDescription(file.FileName, stream),
+                    // Các thiết lập khác cho việc tải lên hình ảnh
+                };
+
+                var uploadResult = await cloudinary.UploadAsync(uploadParams);
+                return uploadResult;
+            }
+        }
         // POST: Menu/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MenuId,Name,Description,Price,CategoryId,DiscountId")] Menu menu)
+        public async Task<IActionResult> Create([Bind("MenuId,Name,Description,Price,CategoryId,DiscountId")] Menu menu, ImageUploadModel imageModel)
         {
             if (ModelState.IsValid)
             {
+                if (imageModel.File != null && imageModel.File.Length > 0)
+                {
+                    // Xử lý tải lên hình ảnh lên Cloudinary ở đây
+                    var result = await UploadImageToCloudinary(imageModel.File);
+
+                    if (result != null)
+                    {
+                        // Lưu thông tin hình ảnh vào menu nếu tải lên thành công
+                        menu.ImageUrl = result.SecureUri.AbsoluteUri;
+                        menu.ImagePublicId = result.PublicId;
+                    }
+                }
                 _context.Add(menu);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

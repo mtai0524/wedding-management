@@ -11,8 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CodeFirst.Controllers
 {
-    [Authorize(Roles = "admin, employee")]
-
+    [Authorize(Roles = "administrator system ,admin, employee")]
     public class EmployeeEntitiesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -120,7 +119,7 @@ namespace CodeFirst.Controllers
             }
             return View(employeeEntity);
         }
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "administrator system")]
         // GET: EmployeeEntities/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

@@ -1,7 +1,6 @@
 ﻿using CodeFirst.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-
 namespace CodeFirst.Data
 {
     public class ApplicationDbContext : IdentityDbContext
@@ -15,5 +14,6 @@ namespace CodeFirst.Data
         public DbSet<EmployeeEntity> Employee { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<Menu> Menu { get; set; }
+        public DbSet<ServiceEntity> Service { get; set; }
     }
 }

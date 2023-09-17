@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using CodeFirst.Models;
 using CodeFirst.Service;
+using CloudinaryDotNet;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,16 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
+// Cấu hình tài khoản Cloudinary
+
+Account cloudinaryAccount = new Account(
+    "dl3hvap4a",
+    "834354428788744",
+    "lv7zI6VPru0YhHwUPQsru318SOE");
+
+Cloudinary cloudinary = new Cloudinary(cloudinaryAccount);
+
+builder.Services.AddSingleton(cloudinary);
 
 var app = builder.Build();
 

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 namespace CodeFirst.Controllers
 {
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "administrator system")]
     public class AppRolesController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;
