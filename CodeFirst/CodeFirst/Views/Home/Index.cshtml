@@ -1,52 +1,122 @@
 ﻿@model List<ApplicationUser>
-@* @{
-    ViewData["Title"] = "Home Page";
-}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p>UserId: @ViewData["UserId"]</p>
-</div>
+<style>
+    .rounded-avatar {
+        width: 80px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
 
-@foreach (var user in Model)
-{
-    <ul>
-        <li>@user.FirstName @user.LastName @user.UserName</li>
-    </ul>
-} *@
+        .rounded-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Đảm bảo hình ảnh lấp đầy toàn bộ khu vực tròn */
+        }
+
+    .center-table {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
 
+    thead {
+        position: sticky;
+        top: 0; /* Để header cố định ở đầu trang khi cuộn */
+        background-color: #fff;
+        z-index: 1; /* header hiển thị trên nội dung khác */
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    /* Định dạng cho các cột của bảng */
+    th {
+        text-align: center;
+        color: white;
+        background-color: #DC3545; /* Màu nền của tiêu đề cột */
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0; /* Để tiêu đề cột cố định ở đầu trang khi cuộn */
+    }
+
+    table {
+        margin: 0 auto; /* Để căn giữa theo chiều ngang */
+        border-collapse: collapse; /* Để loại bỏ khoảng cách giữa các đường viền của ô */
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd; /* Đường viền cho các ô trong bảng */
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2; /* Màu nền cho các hàng chẵn */
+    }
+
+    tr:nth-child(odd) {
+        background-color: #ffffff; /* Màu nền cho các hàng lẻ */
+    }
+
+    ul {
+        list-style-type: none; /* Loại bỏ dấu chấm li */
+        padding-left: 0; /* Loại bỏ khoảng cách bên trái của danh sách */
+    }
+</style>
 <h1>User Roles</h1>
 
 @if (ViewData["UserRoles"] != null)
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Roles</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var userRole in ViewData["UserRoles"] as List<Tuple<ApplicationUser, IList<string>>>)
-            {
+    <div class="center-table">
+        <!-- Sử dụng class center-table cho toàn bộ bảng -->
+        <table>
+            <thead>
                 <tr>
-                    <td>@userRole.Item1.UserName</td>
-                    <td>@userRole.Item1.Email</td>
-                    <td>
-                        <ul>
+                    <th>Username</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                    <th>Roles</th>
+                    <th>Avatar</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var userRole in ViewData["UserRoles"] as List<Tuple<ApplicationUser, IList<string>>>)
+                {
+                    <tr>
+                        <td>@userRole.Item1.UserName</td>
+                        <td>@userRole.Item1.FirstName</td>
+                        <td>@userRole.Item1.LastName</td>
+                        <td>@userRole.Item1.Email</td>
+
+                        <td>
                             @foreach (var role in userRole.Item2)
                             {
-                                <li>@role</li>
+                                @role
                             }
-                        </ul>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                        </td>
+                        <td class="center-content">
+                            <!-- Sử dụng class center-content -->
+                            <div class="rounded-avatar">
+                                <img alt="avatar" src="@userRole.Item1.Avatar" />
+                            </div>
+                        </td>
+                        <td>
+                            <button>edit</button>
+                            <button>delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 }
 else
 {

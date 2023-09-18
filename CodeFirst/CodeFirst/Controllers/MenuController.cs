@@ -14,7 +14,7 @@ using CodeFirst.Service;
 
 namespace CodeFirst.Controllers
 {
-    [Authorize(Roles = "administrator system ,admin, employee")]
+    [Authorize(Roles = "administrator system ,admin, employee, user")]
     public class MenuController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -25,7 +25,6 @@ namespace CodeFirst.Controllers
             _context = context;
             _cloudinary = cloudinary;
         }
-
 
         // GET: Menu
         public async Task<IActionResult> Index()
@@ -112,6 +111,7 @@ namespace CodeFirst.Controllers
             return View(menu);
         }
 
+        [Authorize(Roles = "administrator system, employee, admin")]
 
 
         // GET: Menu/Edit/5

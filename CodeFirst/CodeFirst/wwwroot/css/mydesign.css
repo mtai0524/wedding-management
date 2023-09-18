@@ -39,7 +39,10 @@ label, h2 {
     position: relative; /* Để làm việc với ::before pseudo-element */
     transition: color 0.5s; /* Hiệu ứng chuyển đổi màu chữ */
 }
-
+.textcolor {
+    text-decoration: none;
+    color: #DC3545;
+}
 .custom-link::before {
     content: ""; /* Thêm nội dung trống cho pseudo-element */
     position: absolute;

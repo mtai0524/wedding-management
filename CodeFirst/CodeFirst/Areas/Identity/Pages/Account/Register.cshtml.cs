@@ -119,7 +119,6 @@ namespace CodeFirst.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
 
 
-            [Required]
             public string? Role { get; set; }
             [ValidateNever]
             public IEnumerable<SelectListItem> RoleList { get; set; }
@@ -170,6 +169,10 @@ namespace CodeFirst.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    if (string.IsNullOrEmpty(Input.Role))
+                    {
+                        Input.Role = "user"; // Gán vai trò mặc định là "user"
+                    }
                     await _userManager.AddToRoleAsync(user, Input.Role); // thêm role vào db
 
                     _logger.LogInformation("User created a new account with password.");

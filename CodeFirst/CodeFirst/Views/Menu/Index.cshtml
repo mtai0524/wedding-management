@@ -38,7 +38,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                <a class="custom-link text-color" asp-action="Details" asp-route-id="@item.MenuId">@Html.DisplayFor(modelItem => item.Name)</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
@@ -57,7 +57,7 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.MenuId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MenuId">Details</a> |
+                
                 <a asp-action="Delete" asp-route-id="@item.MenuId">Delete</a>
             </td>
         </tr>
