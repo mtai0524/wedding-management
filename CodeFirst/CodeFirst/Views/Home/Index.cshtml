@@ -1,13 +1,14 @@
 ﻿@model List<ApplicationUser>
 
 <style>
+
     .rounded-avatar {
         width: 80px;
-        height: 60px;
-        border-radius: 50%;
-        overflow: hidden;
+        height: 80px; /* Đảm bảo kích thước cao và rộng bằng nhau để tạo hình tròn */
+        border-radius: 50%; /* Đây là thuộc tính quan trọng để làm cho hình tròn */
+        overflow: hidden; /* Đảm bảo hình ảnh không vượt ra khỏi phần tròn */
+        margin: 0 auto;
     }
-
         .rounded-avatar img {
             width: 100%;
             height: 100%;
@@ -20,7 +21,7 @@
         align-items: center;
     }
 
-
+   
     thead {
         position: sticky;
         top: 0; /* Để header cố định ở đầu trang khi cuộn */
@@ -102,8 +103,8 @@
                                 @role
                             }
                         </td>
-                        <td class="center-content">
-                            <!-- Sử dụng class center-content -->
+                        <td class="avatar-cell">
+                            <!-- Sử dụng class avatar-cell -->
                             <div class="rounded-avatar">
                                 <img alt="avatar" src="@userRole.Item1.Avatar" />
                             </div>

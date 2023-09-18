@@ -88,6 +88,13 @@ namespace CodeFirst.Areas.Identity.Pages.Account.Manage
             }
 
             var result = await _userManager.RemoveLoginAsync(user, loginProvider, providerKey);
+            if (result.Succeeded)
+            {
+                // Thêm vai trò "user" cho người dùng mới tạo
+                await _userManager.AddToRoleAsync(user, "user");
+
+                // Rest of your code
+            }
             if (!result.Succeeded)
             {
                 StatusMessage = "The external login was not removed.";
@@ -120,12 +127,20 @@ namespace CodeFirst.Areas.Identity.Pages.Account.Manage
 
             var userId = await _userManager.GetUserIdAsync(user);
             var info = await _signInManager.GetExternalLoginInfoAsync(userId);
+            
             if (info == null)
             {
                 throw new InvalidOperationException($"Unexpected error occurred loading external login info.");
             }
 
             var result = await _userManager.AddLoginAsync(user, info);
+            if (result.Succeeded)
+            {
+                // Thêm vai trò "user" cho người dùng mới tạo
+                await _userManager.AddToRoleAsync(user, "user");
+
+                // Rest of your code
+            }
             if (!result.Succeeded)
             {
                 StatusMessage = "The external login was not added. External logins can only be associated with one account.";

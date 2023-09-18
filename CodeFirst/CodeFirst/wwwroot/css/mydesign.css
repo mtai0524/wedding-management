@@ -1,4 +1,16 @@
-﻿.form-floating {
+﻿.btn {
+    transition: transform 0.5s ease !important; /* Tăng thời gian chuyển đổi */
+}
+
+    .btn:hover {
+        transform: scale(0.95) !important; /* Giảm tỷ lệ khi hover */
+    }
+
+.fa-brands {
+    font-size: 24px !important; /* Độ lớn của biểu tượng */
+}
+
+.form-floating {
     margin-bottom: 10px !important;
 }
 
