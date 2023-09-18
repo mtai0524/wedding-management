@@ -6,7 +6,7 @@
 
 <div class="row center-div">
     <div class="col-md-4 mx-auto">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
             <h2 style ="text-align:center">Đăng ký tài khoản</h2>
             <hr />
             <div class="row">
@@ -47,6 +47,11 @@
                     <option disabled selected>Select role</option>
                 </select>
                 <span asp-validation-for="Input.Role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.imageFile" class="control-label"></label>
+                <input type="file" asp-for="Input.imageFile" class="form-control" accept=".jpg, .jpeg, .png" />
+                <span asp-validation-for="Input.imageFile" class="text-danger"></span>
             </div>
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-success">Register</button>
         </form>

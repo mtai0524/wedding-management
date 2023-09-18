@@ -10,6 +10,8 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using CloudinaryDotNet.Actions;
+using CloudinaryDotNet;
 using CodeFirst.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -21,6 +23,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using CodeFirst.Service;
 
 namespace CodeFirst.Areas.Identity.Pages.Account
 {
@@ -33,13 +36,15 @@ namespace CodeFirst.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly CloudinaryService _cloudinary;
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<IdentityRole> roleManager,
+            CloudinaryService cloudinary)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -48,6 +53,7 @@ namespace CodeFirst.Areas.Identity.Pages.Account
             _logger = logger;
             _emailSender = emailSender;
             _roleManager = roleManager;
+            _cloudinary = cloudinary;
         }
 
         /// <summary>
@@ -117,6 +123,8 @@ namespace CodeFirst.Areas.Identity.Pages.Account
             public string? Role { get; set; }
             [ValidateNever]
             public IEnumerable<SelectListItem> RoleList { get; set; }
+
+            public IFormFile imageFile { get; set; }
         }
 
 
@@ -139,16 +147,25 @@ namespace CodeFirst.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
                 user.FirstName = Input.FirstName;
                 user.LastName= Input.LastName;
-
+                string publicId = $"{user.Id}_profile_picture"; // Tạo tên công khai dựa trên ID của người dùng
+                string imageUrl = await _cloudinary.UploadImageAsync(Input.imageFile, publicId);
+                if (!string.IsNullOrEmpty(imageUrl))
+                {
+                    // Lưu đường dẫn ảnh vào thuộc tính Avatar của người dùng
+                    user.Avatar = imageUrl;
+                }
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)

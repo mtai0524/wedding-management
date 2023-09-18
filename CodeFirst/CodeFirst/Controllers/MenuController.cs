@@ -10,6 +10,7 @@ using CodeFirst.Models;
 using Microsoft.AspNetCore.Authorization;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using CodeFirst.Service;
 
 namespace CodeFirst.Controllers
 {
@@ -19,7 +20,6 @@ namespace CodeFirst.Controllers
         private readonly ApplicationDbContext _context;
         private readonly Cloudinary _cloudinary;
 
-     
         public MenuController(ApplicationDbContext context, Cloudinary cloudinary)
         {
             _context = context;
@@ -97,7 +97,6 @@ namespace CodeFirst.Controllers
                         {
                             File = new FileDescription(imageFile.FileName, stream)
                         };
-
                         var uploadResult = _cloudinary.Upload(uploadParams);
 
                         // Lấy đường dẫn của hình ảnh sau khi upload và lưu vào thuộc tính ImageUrl
