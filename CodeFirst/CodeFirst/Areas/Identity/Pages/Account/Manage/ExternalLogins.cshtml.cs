@@ -90,8 +90,16 @@ namespace CodeFirst.Areas.Identity.Pages.Account.Manage
             var result = await _userManager.RemoveLoginAsync(user, loginProvider, providerKey);
             if (result.Succeeded)
             {
-                // Thêm vai trò "user" cho người dùng mới tạo
-                await _userManager.AddToRoleAsync(user, "user");
+                if (user != null)
+                {
+                    var roles = await _userManager.GetRolesAsync(user);
+
+                    if (roles == null || !roles.Any())
+                    {
+                        // Nếu người dùng không có vai trò nào, thêm vai trò "user"
+                        await _userManager.AddToRoleAsync(user, "user");
+                    }
+                }
 
                 // Rest of your code
             }
@@ -136,8 +144,16 @@ namespace CodeFirst.Areas.Identity.Pages.Account.Manage
             var result = await _userManager.AddLoginAsync(user, info);
             if (result.Succeeded)
             {
-                // Thêm vai trò "user" cho người dùng mới tạo
-                await _userManager.AddToRoleAsync(user, "user");
+                if (user != null)
+                {
+                    var roles = await _userManager.GetRolesAsync(user);
+
+                    if (roles == null || !roles.Any())
+                    {
+                        // Nếu người dùng không có vai trò nào, thêm vai trò "user"
+                        await _userManager.AddToRoleAsync(user, "user");
+                    }
+                }
 
                 // Rest of your code
             }

@@ -19,16 +19,19 @@ namespace CodeFirst.Areas.Identity.Pages.Account.Manage
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly CloudinaryService _cloudinary;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
 
         public IndexModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            CloudinaryService cloudinary)
+            CloudinaryService cloudinary,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _cloudinary = cloudinary;
+            _roleManager = roleManager;
         }
 
         /// <summary>
@@ -71,6 +74,9 @@ namespace CodeFirst.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Last Name")]
             public string LastName { get; set; }
 
+            [Display(Name = "Role")]
+            public string Role { get; set; }
+
             public IFormFile imageFile { get; set; }
         }
 
@@ -80,6 +86,8 @@ namespace CodeFirst.Areas.Identity.Pages.Account.Manage
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             var firstName = user.FirstName;
             var lastName = user.LastName;
+            var role = await _userManager.GetRolesAsync(user);
+
 
             Username = userName;
 
@@ -87,7 +95,8 @@ namespace CodeFirst.Areas.Identity.Pages.Account.Manage
             {
                 PhoneNumber = phoneNumber,
                 FirstName = firstName,
-                LastName = lastName
+                LastName = lastName,
+                Role = role.FirstOrDefault(),
             };
         }
 
