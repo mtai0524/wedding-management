@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wAom9F6zV69dcXhqYhvdTA/EMkZV+bvqGp0pZutO60I=",
+  "Hash": "c0s1AeuvKqtPTxJZJhGEIdJ30Pgk6TCb9DghmtawVgY=",
   "Source": "CodeFirst",
   "BasePath": "_content/CodeFirst",
   "Mode": "Default",
@@ -1154,6 +1154,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.js",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "js/qrcode.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\qrcode.js"
+    },
+    {
+      "Identity": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.min.js",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "js/qrcode.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\qrcode.min.js"
     },
     {
       "Identity": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\js\\site.js",

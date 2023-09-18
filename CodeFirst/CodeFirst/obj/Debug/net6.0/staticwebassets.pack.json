@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.js",
+      "PackagePath": "staticwebassets\\js\\qrcode.js"
+    },
+    {
+      "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.min.js",
+      "PackagePath": "staticwebassets\\js\\qrcode.min.js"
+    },
+    {
       "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
