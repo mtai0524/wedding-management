@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using CodeFirst.Models;
+using CodeFirst.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -17,13 +18,17 @@ namespace CodeFirst.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly CloudinaryService _cloudinary;
+
 
         public IndexModel(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            CloudinaryService cloudinary)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _cloudinary = cloudinary;
         }
 
         /// <summary>
@@ -65,6 +70,8 @@ namespace CodeFirst.Areas.Identity.Pages.Account.Manage
 
             [Display(Name = "Last Name")]
             public string LastName { get; set; }
+
+            public IFormFile imageFile { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
@@ -109,6 +116,15 @@ namespace CodeFirst.Areas.Identity.Pages.Account.Manage
                 await LoadAsync(user);
                 return Page();
             }
+
+            string publicId = $"{user.Id}_profile_picture"; // Tạo tên công khai dựa trên ID của người dùng
+            string imageUrl = await _cloudinary.UploadImageAsync(Input.imageFile, publicId);
+            if (!string.IsNullOrEmpty(imageUrl))
+            {
+                // Lưu đường dẫn ảnh vào thuộc tính Avatar của người dùng
+                user.Avatar = imageUrl;
+            }
+
             var firstName = user.FirstName;
             var lastName = user.LastName;
             if (Input.FirstName != firstName)

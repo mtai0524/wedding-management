@@ -158,6 +158,7 @@ namespace CodeFirst.Areas.Identity.Pages.Account
 
                 user.FirstName = Input.FirstName;
                 user.LastName= Input.LastName;
+
                 string publicId = $"{user.Id}_profile_picture"; // Tạo tên công khai dựa trên ID của người dùng
                 string imageUrl = await _cloudinary.UploadImageAsync(Input.imageFile, publicId);
                 if (!string.IsNullOrEmpty(imageUrl))
@@ -165,6 +166,7 @@ namespace CodeFirst.Areas.Identity.Pages.Account
                     // Lưu đường dẫn ảnh vào thuộc tính Avatar của người dùng
                     user.Avatar = imageUrl;
                 }
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
