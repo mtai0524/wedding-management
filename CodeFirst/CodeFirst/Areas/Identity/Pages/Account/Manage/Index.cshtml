@@ -5,6 +5,23 @@
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
+@using CodeFirst.Models;
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+<style>
+    /* Định dạng ảnh thành hình tròn */
+    .rounded-image {
+        
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto; /* Để căn giữa ảnh theo chiều ngang */
+    }
+
+    /* Định dạng khu vực chứa ảnh */
+    .image-container {
+        text-align: center; /* Để căn giữa ảnh theo chiều ngang */
+    }
+</style>
 <h3>@ViewData["Title"]</h3>
 <partial name="_StatusMessage" for="StatusMessage" />
 <div class="row">
@@ -32,7 +49,20 @@
                 <input asp-for="Input.imageFile" class="form-control" autocomplete="off" aria-required="true" type="file" id="customFile" accept=".jpg, .jpeg, .png">
                 <label for="customFile">Choose file</label>
                 <span asp-validation-for="Input.imageFile" class="text-danger"></span>
+                @*do up ảnh lên cloud nên đường link khác với file chọn trong máy*@
             </div>
+            
+            @{
+                var user = await UserManager.GetUserAsync(User);
+            }
+
+            <div class="image-container">
+                @if (user != null && !string.IsNullOrEmpty(user.Avatar))
+                {
+                    <img src="@user.Avatar" alt="Avatar" class="rounded-image img-fluid" style="width:60%;margin-top: 10px; margin-bottom: 10px;" />
+                }
+            </div>
+
             <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
         </form>
     </div>
