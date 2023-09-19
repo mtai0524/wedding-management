@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[1.22.0, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.Facebook": {
               "target": "Package",
               "version": "[6.0.22, )"

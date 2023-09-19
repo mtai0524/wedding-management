@@ -68,6 +68,18 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireNonAlphanumeric = true; // Yêu cầu ký tự đặc biệt
     options.SignIn.RequireConfirmedEmail = true; // Yêu cầu xác nhận email trước khi đặt lại mật khẩu
 });
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Cấu hình khoáng thời gian và số lần thử lại
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    options.Lockout.AllowedForNewUsers = true;
+
+    // Cấu hình đặc điểm gửi email
+    options.SignIn.RequireConfirmedEmail = true;
+    options.User.RequireUniqueEmail = true;
+});
+
 
 var app = builder.Build();
 
@@ -82,12 +94,19 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorPages();
 
-
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+    endpoints.MapControllerRoute(
+     name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+    );
+});
 
 app.Run();

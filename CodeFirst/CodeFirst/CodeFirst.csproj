@@ -8,9 +8,13 @@
 	<PropertyGroup>
 		<UserSecretsId>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</UserSecretsId>
 	</PropertyGroup>
+	<ItemGroup>
+	  <Content Include="73a9eba69af356c9550dda84a5c139f5.jpg" />
+	</ItemGroup>
   <ItemGroup>
     <PackageReference Include="BlazorColorPicker" Version="2.3.0" />
     <PackageReference Include="CloudinaryDotNet" Version="1.22.0" />
+    <PackageReference Include="MailKit" Version="4.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="6.0.22" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.22" />
     <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.2.0" />
@@ -25,6 +29,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
 
 </Project>
