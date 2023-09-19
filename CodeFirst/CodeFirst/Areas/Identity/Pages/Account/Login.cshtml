@@ -3,11 +3,21 @@
 
 @{
     ViewData["Title"] = "Đăng nhập";
+    Layout = "~/Views/Shared/_EmptyLayout.cshtml";
 }
+<style>
+    .custom-box {
+        border: 6px double black;
+        border-radius: 10px;
+        width: 40%;
+        padding: 100px 40px;
+    }
+</style>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<div class="row center-div">
-    <div class="col-md-4 mx-auto">
+<div class="row center-div" style="margin:50px 0px">
+    <div class="custom-box col-md-4 mx-auto">
         <section>
             <form id="account" method="post">
                 <h2 style="text-align:center">Đăng nhập tài khoản</h2>

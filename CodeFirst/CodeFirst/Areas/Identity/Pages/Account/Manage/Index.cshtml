@@ -4,7 +4,6 @@
     ViewData["Title"] = "Profile";
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
-
 @using CodeFirst.Models;
 @using Microsoft.AspNetCore.Identity
 @inject UserManager<ApplicationUser> UserManager
@@ -38,6 +37,11 @@
         border-radius: 50%;
         width: 90%;
         max-width: 350px; /* Điều chỉnh kích thước tối đa của ảnh */
+    }
+
+    input:disabled {
+        background-color: #ccc !important; /* Đặt màu nền là màu xám (#ccc) cho các trường nhập bị vô hiệu hóa */
+        color: #666; /* Đặt màu chữ là màu xám đậm (#666) cho các trường nhập bị vô hiệu hóa (tuỳ chọn) */
     }
 </style>
 <h3>@ViewData["Title"]</h3>
