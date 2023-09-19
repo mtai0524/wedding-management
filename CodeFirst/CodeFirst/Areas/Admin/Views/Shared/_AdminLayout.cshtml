@@ -1,11 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject UserManager<ApplicationUser> UserManager
 @inject SignInManager<ApplicationUser> SignInManager
-@{
-     var user = await UserManager.GetUserAsync(User);
-    var userRoles = await UserManager.GetRolesAsync(user);
-    var rolesAsString = string.Join(", ", userRoles);
-}
+
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -130,38 +126,49 @@
                                 </div>
                             </div>
                             <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
-                                <div class="u-info me-2">
-                                    <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">@user.FirstName @user.LastName</span></p>
-                                    <small>@rolesAsString</small>
-                                </div>
-                                <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
-                                    <img class="avatar lg rounded-circle img-thumbnail" src="@user.Avatar" alt="profile">
-                                </a>
-                                <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
-                                    <div class="card border-0 w280">
-                                        <div class="card-body pb-0">
-                                            <div class="d-flex py-1">
-                                                <img class="avatar rounded-circle" src="@user.Avatar" alt="profile">
-                                                <div class="flex-fill ms-3">
-                                                    <p class="mb-0"><span class="font-weight-bold">@user.FirstName @user.LastName</span></p>
-                                                    <small class="">@user.UserName</small>
+                                    @if (SignInManager.IsSignedIn(User))
+                                    {
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                        var user = await UserManager.GetUserAsync(User);
+                                        var userRoles = await UserManager.GetRolesAsync(user);
+                                        var rolesAsString = string.Join(", ", userRoles);
+                                        if (user != null)
+                                            {
+                                                <div class="u-info me-2">
+                                                    <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">@user.FirstName @user.LastName</span></p>
+                                                    <small>@rolesAsString</small>
                                                 </div>
-                                            </div>
-                                            <div><hr class="dropdown-divider border-dark"></div>
-                                        </div>
-                                        <div class="list-group m-2 ">
-                                            <a href="task.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-tasks fs-5 me-3"></i>My Task</a>
-                                            <a href="members.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-user-group fs-6 me-3"></i>members</a>
-                                            <a style="outline:none;" asp-area="" asp-controller="Home" asp-action="Index" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-home fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Về trang chủ</span></i></a>
-                                            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                                <button style="outline:none;" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Đăng xuất</span></i></button>
-                                            </form>
-
-                                            <div><hr class="dropdown-divider border-dark"></div>
-                                            <a href="ui-elements/auth-signup.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-contact-add fs-5 me-3"></i>Add personal account</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                                <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
+                                                    <img class="avatar lg rounded-circle img-thumbnail" src="@user.Avatar" alt="profile">
+                                                </a>
+                                                <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
+                                                    <div class="card border-0 w280">
+                                                        <div class="card-body pb-0">
+                                                            <div class="d-flex py-1">
+                                                                <img class="avatar rounded-circle" src="@user.Avatar" alt="profile">
+                                                                <div class="flex-fill ms-3">
+                                                                    <p class="mb-0"><span class="font-weight-bold">@user.FirstName @user.LastName</span></p>
+                                                                    <small class="">@user.UserName</small>
+                                                                </div>
+                                                            </div>
+                                                            <div><hr class="dropdown-divider border-dark"></div>
+                                                        </div>
+                                                        <div class="list-group m-2 ">
+                                                            <a href="task.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-tasks fs-5 me-3"></i>My Task</a>
+                                                            <a href="members.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-user-group fs-6 me-3"></i>members</a>
+                                                            <a style="outline:none;" asp-area="" asp-controller="Home" asp-action="Index" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-home fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Về trang chủ</span></i></a>
+                                                            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                                <button style="outline:none;" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Đăng xuất</span></i></button>
+                                                            </form>
+                                                            <div><hr class="dropdown-divider border-dark"></div>
+                                                            <a href="ui-elements/auth-signup.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-contact-add fs-5 me-3"></i>Add personal account</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                }
                             </div>
                         </div>
 
