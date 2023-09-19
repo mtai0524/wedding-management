@@ -34,6 +34,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="EmployeeEntities" asp-action="Index">Employee</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="ServiceCategory" asp-action="Index">Service Category</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Service" asp-action="Index">Service</a>
+                        </li>
                         @if (User.IsInRole("administrator system"))
                         {
                             <li class="nav-item">

@@ -7,6 +7,7 @@ using CloudinaryDotNet;
 using System.Configuration;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,6 +57,17 @@ builder.Services.AddAuthentication().AddGoogle(googleOptions =>
 //    option.AppSecret = "14661687021dceb69eee4ea69fd64dc9";
 //    option.AccessDeniedPath = "/AccessDeniedPathInfo";
 //});
+
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequiredLength = 6; // Điều chỉnh độ dài mật khẩu tối thiểu
+    options.Password.RequireLowercase = true; // Yêu cầu ký tự thường
+    options.Password.RequireUppercase = true; // Yêu cầu ký tự hoa
+    options.Password.RequireDigit = true; // Yêu cầu chứa ít nhất một số
+    options.Password.RequireNonAlphanumeric = true; // Yêu cầu ký tự đặc biệt
+    options.SignIn.RequireConfirmedEmail = true; // Yêu cầu xác nhận email trước khi đặt lại mật khẩu
+});
 
 var app = builder.Build();
 
