@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
 using CodeFirst.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -122,6 +123,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             ViewData["CategoryId"] = new SelectList(_context.ServiceCategory, "CategoryId", "CategoryId", serviceEntity.CategoryId);
             return View(serviceEntity);
         }
+        [Authorize(Roles = "administrator system,admin, employee")]
 
         // GET: Admin/Service/Delete/5
         public async Task<IActionResult> Delete(int? id)

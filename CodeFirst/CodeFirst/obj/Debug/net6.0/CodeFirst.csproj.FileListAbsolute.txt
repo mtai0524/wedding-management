@@ -1464,3 +1464,5 @@ E:\Visual Git\CodeFirst\CodeFirst\bin\Debug\net6.0\System.Text.Encoding.CodePage
 E:\Visual Git\CodeFirst\CodeFirst\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 E:\Visual Git\CodeFirst\CodeFirst\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
 E:\Visual Git\CodeFirst\CodeFirst\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_AdminLayout.cshtml.rz.scp.css
+E:\Visual Git\CodeFirst\CodeFirst\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.Views.dll
+E:\Visual Git\CodeFirst\CodeFirst\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.dll

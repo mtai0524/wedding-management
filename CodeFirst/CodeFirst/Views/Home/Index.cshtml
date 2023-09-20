@@ -118,8 +118,10 @@
                         </td>
                         <td>
                             <a asp-action="EditUser" asp-controller="Home" asp-route-id="@userRole.Item1.Id" class="btn btn-outline-primary">Edit</a>
-                            <a asp-action="DeleteUser" asp-controller="Home" asp-route-id="@userRole.Item1.Id" class="btn btn-outline-danger">Delete </a>
-
+                            <form method="post" asp-controller="Home" asp-action="DeleteUser" asp-route-id="@userRole.Item1.Id">
+                                <button type="submit" class="btn btn-danger">Delete User</button>
+                            </form>
+                             @* <a asp-action="DeleteUser" asp-controller="Home" asp-route-id="@userRole.Item1.Id" class="btn btn-outline-danger">Delete </a> *@
                         </td>
                     </tr>
                 }

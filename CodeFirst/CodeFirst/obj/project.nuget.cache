@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7bllW1If+chGM5LCbPpe5/f5ppvsb6+I4DYV46UB7YKUBbhrBT9aQlb7FB5gAPg2M/aCvqlOq3x/Jk0Ga06WKA==",
+  "dgSpecHash": "kLc4CbH1O7NfzjPr/1K692ZYINWSNE4n/rr6ZU1IRh5Uhu+8S0L9ZE44QVjgZ1ABGZyIzlKPnF4uaZ4GVdS2hA==",
   "success": true,
   "projectFilePath": "E:\\Visual Git\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\PC\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\blazorcolorpicker\\2.3.0\\blazorcolorpicker.2.3.0.nupkg.sha512",

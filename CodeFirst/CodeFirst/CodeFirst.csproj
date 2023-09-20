@@ -12,6 +12,7 @@
 	  <Content Include="73a9eba69af356c9550dda84a5c139f5.jpg" />
 	</ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="BlazorColorPicker" Version="2.3.0" />
     <PackageReference Include="CloudinaryDotNet" Version="1.22.0" />
     <PackageReference Include="MailKit" Version="4.2.0" />

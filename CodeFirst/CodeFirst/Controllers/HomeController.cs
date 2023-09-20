@@ -1,4 +1,5 @@
-﻿using CodeFirst.Models;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using CodeFirst.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,17 +15,29 @@ namespace CodeFirst.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly INotyfService _notfy;
 
 
-        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager)
+        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager, INotyfService notfy)
         {
             _logger = logger;
             this._userManager = userManager;
             this._roleManager = roleManager;
             this._signInManager = signInManager;
+            this._notfy = notfy;
+            
         }
         public IActionResult Index()
         {
+            _notfy.Success("Success Notification");
+            _notfy.Success("Success Notification that closes in 10 Seconds.", 10);
+            _notfy.Error("Some Error Message");
+            _notfy.Warning("Some Error Message");
+            _notfy.Information("Information Notification - closes in 4 seconds.", 4);
+            _notfy.Custom("Custom Notification <br><b><i>closes in 5 seconds.</i></b></p>", 5, "indigo", "fa fa-gear");
+            _notfy.Custom("Custom Notification - closes in 5 seconds.", 5, "whitesmoke", "fa fa-gear");
+            _notfy.Custom("Custom Notification - closes in 10 seconds.", 10, "#B600FF", "fa fa-home");
+            _notfy.Success("Success Notification");
             // Lấy danh sách tất cả người dùng và danh sách vai trò
             var users = _userManager.Users.ToList();
             var roles = _roleManager.Roles.ToList();
@@ -43,8 +56,28 @@ namespace CodeFirst.Controllers
 
             return View();
         }
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if(user == null)
+            {
+                ViewBag.ErrorMessage = $"User with Id = {id} cannot be found";
+                return View("NotFound");
 
-        [HttpGet]
+            }
+            else
+            {
+                var result = await _userManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    _notfy.Error("Xóa thành công");
+
+                    return RedirectToAction("Index");
+                }
+                return View("Index");
+            }
+        }
+            [HttpGet]
         public async Task<IActionResult> EditUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -81,7 +114,7 @@ namespace CodeFirst.Controllers
 
                 // Cập nhật thông tin người dùng dựa trên model
                 user.UserName = model.UserName;
-
+                var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
                 var currentRoles = await _userManager.GetRolesAsync(user);
                 await _userManager.RemoveFromRolesAsync(user, currentRoles);
                 // Trả về dòng role theo Id truyền từ SelectedRole
@@ -97,7 +130,8 @@ namespace CodeFirst.Controllers
 
                 if (result.Succeeded)
                 {
-                    await _signInManager.RefreshSignInAsync(user);
+                    await _signInManager.RefreshSignInAsync(currentUser);
+                    //await _signInManager.RefreshSignInAsync(user);
                     // Lưu thành công, chuyển hướng đến trang chi tiết người dùng hoặc trang khác
                     return RedirectToAction("Index", new { id = user.Id });
                 }

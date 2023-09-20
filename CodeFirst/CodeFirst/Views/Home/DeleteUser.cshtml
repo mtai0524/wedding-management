@@ -1,0 +1,14 @@
+﻿@* 
+ @{
+     ViewData["Title"] = "DeleteUser";
+     Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+ <h1>DeleteUser</h1>
+
+
+ <form method="post" asp-controller="Home" asp-action="DeleteUser" asp-route-id="@userRole.Item1.Id">
+     <button type="submit" class="btn btn-danger">Delete User</button>
+ </form>
+
+ *@
