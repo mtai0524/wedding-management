@@ -1,6 +1,8 @@
 ﻿using CodeFirst.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace CodeFirst.Controllers
@@ -42,7 +44,13 @@ namespace CodeFirst.Controllers
         public async Task<IActionResult> EditUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
-            if(user == null)
+            var roles = await _roleManager.Roles.ToListAsync();
+            var roleList = roles.Select(r => new SelectListItem
+            {
+                Text = r.Name,
+                Value = r.Id
+            }).ToList();
+            if (user == null)
             {
                 ViewBag.ErrorMsg = $"User with id = {id} cannot by found";
                 return View("NotFound");
@@ -51,6 +59,7 @@ namespace CodeFirst.Controllers
             {
                 Id = user.Id,
                 UserName = user.UserName,
+                Roles = roleList,
                 // Thêm các thuộc tính khác của người dùng vào đây
             };
             return View("EditUser", userViewModel);
@@ -60,41 +69,38 @@ namespace CodeFirst.Controllers
         {
             if (ModelState.IsValid)
             {
-        // Kiểm tra model state để đảm bảo dữ liệu hợp lệ
+                var user = await _userManager.FindByIdAsync(model.Id);
+                //if (user == null)
+                //{
+                //    
+                //}
 
-        // Tìm người dùng cần chỉnh sửa
-        var user = await _userManager.FindByIdAsync(model.Id);
-        //if (user == null)
-        //{
-        //    ViewBag.ErrorMsg = $"User with id = {model.Id} cannot by found";
-        //    return View("NotFound");
-        //}
+                // Cập nhật thông tin người dùng dựa trên model
+                user.UserName = model.UserName;
 
-        // Cập nhật thông tin người dùng dựa trên model
-        user.UserName = model.UserName;
-        // Cập nhật các thông tin người dùng khác ở đây
+                var currentRoles = await _userManager.GetRolesAsync(user);
+                await _userManager.RemoveFromRolesAsync(user, currentRoles);
+                // Trả về dòng role theo Id truyền từ SelectedRole
+                var role = await _roleManager.Roles.SingleOrDefaultAsync(r => r.Id == model.SelectedRole.ToLower());
 
-        // Lưu thay đổi vào cơ sở dữ liệu
-        var result = await _userManager.UpdateAsync(user);
+                // Thêm người dùng vào vai trò
+                await _userManager.AddToRoleAsync(user, role.Name);
+                    // ...
+                //// Sau đó, thêm vai trò mới mà người dùng đã chọn
 
-        if (result.Succeeded)
-        {
-            // Lưu thành công, chuyển hướng đến trang chi tiết người dùng hoặc trang khác
-            return RedirectToAction("Index", new { id = user.Id });
-        }
-        else
-        {
-            // Xử lý lỗi khi cập nhật không thành công
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError(string.Empty, error.Description);
+                // Lưu thay đổi vào cơ sở dữ liệu
+                var result = await _userManager.UpdateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    // Lưu thành công, chuyển hướng đến trang chi tiết người dùng hoặc trang khác
+                    return RedirectToAction("Index", new { id = user.Id });
+                }
             }
-        }
-    }
 
-    // Nếu ModelState không hợp lệ, hiển thị lại form với thông báo lỗi
-    return View("EditUser", model);
-}
+            // Nếu ModelState không hợp lệ, hiển thị lại form với thông báo lỗi
+            return View("EditUser", model);
+        }
 
         public IActionResult Privacy()
         {
