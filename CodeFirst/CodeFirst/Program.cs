@@ -23,7 +23,8 @@ builder.Services.AddScoped<CloudinaryService>();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>(); ;
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
 
 //builder.Services.AddDefaultIdentity<IdentityUser>()
 //    .AddDefaultTokenProviders()

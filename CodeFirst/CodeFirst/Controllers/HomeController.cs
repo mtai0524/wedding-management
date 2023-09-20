@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Diagnostics;
 
 namespace CodeFirst.Controllers
@@ -12,12 +13,15 @@ namespace CodeFirst.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+
+        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager)
         {
             _logger = logger;
             this._userManager = userManager;
             this._roleManager = roleManager;
+            this._signInManager = signInManager;
         }
         public IActionResult Index()
         {
@@ -93,6 +97,7 @@ namespace CodeFirst.Controllers
 
                 if (result.Succeeded)
                 {
+                    await _signInManager.RefreshSignInAsync(user);
                     // Lưu thành công, chuyển hướng đến trang chi tiết người dùng hoặc trang khác
                     return RedirectToAction("Index", new { id = user.Id });
                 }
