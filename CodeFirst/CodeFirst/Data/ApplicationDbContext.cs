@@ -1,4 +1,5 @@
 ﻿using CodeFirst.Models;
+using CodeFirst.Models.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 namespace CodeFirst.Data

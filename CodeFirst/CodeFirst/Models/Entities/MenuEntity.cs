@@ -1,4 +1,4 @@
-﻿namespace CodeFirst.Models
+﻿namespace CodeFirst.Models.Entities
 {
     public class MenuEntity
     {

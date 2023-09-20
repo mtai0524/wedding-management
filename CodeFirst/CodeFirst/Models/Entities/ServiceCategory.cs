@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CodeFirst.Models
+namespace CodeFirst.Models.Entities
 {
     public class ServiceCategory
     {

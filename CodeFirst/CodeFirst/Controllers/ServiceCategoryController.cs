@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
-using CodeFirst.Models;
+using CodeFirst.Models.Entities;
 
 namespace CodeFirst.Controllers
 {

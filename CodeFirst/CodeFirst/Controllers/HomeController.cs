@@ -38,6 +38,64 @@ namespace CodeFirst.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> EditUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if(user == null)
+            {
+                ViewBag.ErrorMsg = $"User with id = {id} cannot by found";
+                return View("NotFound");
+            }
+            var userViewModel = new UserViewModel
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                // Thêm các thuộc tính khác của người dùng vào đây
+            };
+            return View("EditUser", userViewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditUser(UserViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+        // Kiểm tra model state để đảm bảo dữ liệu hợp lệ
+
+        // Tìm người dùng cần chỉnh sửa
+        var user = await _userManager.FindByIdAsync(model.Id);
+        //if (user == null)
+        //{
+        //    ViewBag.ErrorMsg = $"User with id = {model.Id} cannot by found";
+        //    return View("NotFound");
+        //}
+
+        // Cập nhật thông tin người dùng dựa trên model
+        user.UserName = model.UserName;
+        // Cập nhật các thông tin người dùng khác ở đây
+
+        // Lưu thay đổi vào cơ sở dữ liệu
+        var result = await _userManager.UpdateAsync(user);
+
+        if (result.Succeeded)
+        {
+            // Lưu thành công, chuyển hướng đến trang chi tiết người dùng hoặc trang khác
+            return RedirectToAction("Index", new { id = user.Id });
+        }
+        else
+        {
+            // Xử lý lỗi khi cập nhật không thành công
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+        }
+    }
+
+    // Nếu ModelState không hợp lệ, hiển thị lại form với thông báo lỗi
+    return View("EditUser", model);
+}
+
         public IActionResult Privacy()
         {
             return View();

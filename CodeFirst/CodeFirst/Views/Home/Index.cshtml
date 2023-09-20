@@ -106,12 +106,20 @@
                         <td class="avatar-cell">
                             <!-- Sử dụng class avatar-cell -->
                             <div class="rounded-avatar">
-                                <img alt="avatar" src="@userRole.Item1.Avatar" />
+                                @if (string.IsNullOrWhiteSpace(userRole.Item1.Avatar))
+                                {
+                                    <img alt="avatar" src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1695013819/0f7174f5-348a-4977-947f-343ec34b40d9_profile_picture.png" />
+                                }
+                                else
+                                {
+                                    <img alt="avatar" src="@userRole.Item1.Avatar" />
+                                }
                             </div>
                         </td>
                         <td>
-                            <button>edit</button>
-                            <button>delete</button>
+                            <a asp-action="EditUser" asp-controller="Home" asp-route-id="@userRole.Item1.Id" class="btn btn-outline-primary">Edit</a>
+                            <a asp-action="DeleteUser" asp-controller="Home" asp-route-id="@userRole.Item1.Id" class="btn btn-outline-danger">Delete </a>
+
                         </td>
                     </tr>
                 }
