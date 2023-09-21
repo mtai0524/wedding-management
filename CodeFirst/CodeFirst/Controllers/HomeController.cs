@@ -29,15 +29,15 @@ namespace CodeFirst.Controllers
         }
         public IActionResult Index()
         {
-            _notfy.Success("Success Notification");
-            _notfy.Success("Success Notification that closes in 10 Seconds.", 10);
-            _notfy.Error("Some Error Message");
-            _notfy.Warning("Some Error Message");
-            _notfy.Information("Information Notification - closes in 4 seconds.", 4);
-            _notfy.Custom("Custom Notification <br><b><i>closes in 5 seconds.</i></b></p>", 5, "indigo", "fa fa-gear");
-            _notfy.Custom("Custom Notification - closes in 5 seconds.", 5, "whitesmoke", "fa fa-gear");
-            _notfy.Custom("Custom Notification - closes in 10 seconds.", 10, "#B600FF", "fa fa-home");
-            _notfy.Success("Success Notification");
+            //_notfy.Success("Success Notification");
+            //_notfy.Success("Success Notification that closes in 10 Seconds.", 10);
+            //_notfy.Error("Some Error Message");
+            //_notfy.Warning("Some Error Message");
+            //_notfy.Information("Information Notification - closes in 4 seconds.", 4);
+            //_notfy.Custom("Custom Notification <br><b><i>closes in 5 seconds.</i></b></p>", 5, "indigo", "fa fa-gear");
+            //_notfy.Custom("Custom Notification - closes in 5 seconds.", 5, "whitesmoke", "fa fa-gear");
+            //_notfy.Custom("Custom Notification - closes in 10 seconds.", 10, "#B600FF", "fa fa-home");
+            //_notfy.Success("Success Notification");
             // Lấy danh sách tất cả người dùng và danh sách vai trò
             var users = _userManager.Users.ToList();
             var roles = _roleManager.Roles.ToList();

@@ -62,7 +62,23 @@
             <h3>Đăng nhập bằng cách khác.</h3>
             <hr />
             @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <button type="submit" class="btn btn-dark" name="provider" value="Google" title="Log in using your Google account">
+                                <i class="fa-brands fa-google fa-flip" style="color: #f7f7f7;"></i>
+                                <span style="margin-left:10px">Login with Google</span>
+                            </button>
+
+                            <button type="submit" class="btn btn-dark" name="provider" value="Facebook" title="Log in using your Facebook account">
+                                <i class="fa-brands fa-facebook fa-flip" style="color: #f7f7f7;"></i>
+                                <span style="margin-left:10px">Login with Facebook</span>
+                            </button>
+                        </div>
+                    </form>
+                }
+                else
                 {
                     <div>
                         <p>
@@ -72,22 +88,6 @@
                             </a>.
                         </p>
                     </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins!)
-                                {
-                                    <button type="submit" class="btn btn-dark" name="provider" value="Google" title="Log in using your Google account">
-                                        <i class="fa-brands fa-google fa-flip" style="color: #f7f7f7;"></i>
-                                        <span style="margin-left:10px">Login with Google</span>
-                                    </button>
-                                }
-                            </p>
-                        </div>
-                    </form>
                 }
             }
         </section>

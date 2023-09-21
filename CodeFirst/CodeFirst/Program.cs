@@ -47,10 +47,17 @@ var cloudinary = new Cloudinary(cloudinaryAccount);
 
 builder.Services.AddSingleton(cloudinary);
 
-builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+builder.Services.AddAuthentication()
+.AddFacebook(facebookOptions =>
 {
-    googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
-    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+    facebookOptions.AppId = configuration["Authentication:Facebook:AppId"];
+    facebookOptions.AppSecret = configuration["Authentication:Facebook:AppSecret"];
+    facebookOptions.CallbackPath = "/signin-facebook";
+})
+.AddGoogle(googleOptions =>
+{
+googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
+googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
 });
 
 //builder.Services.AddAuthentication().AddFacebook(option =>
