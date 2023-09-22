@@ -15,7 +15,9 @@ namespace CodeFirst.Data
         public DbSet<EmployeeEntity> Employee { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<ServiceCategory> ServiceCategory { get; set; }
+        public DbSet<MenuCategory> MenuCategory { get; set; }
         public DbSet<ServiceEntity> ServiceEntity{ get; set; }
+        public DbSet<MenuEntity> MenuEntity { get; set; }
         public DbSet<Branch> Branch { get; set; }
     }
 }

@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\admin_assets\\bundles\\nestable.bundle.js"
     },
     {
+      "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\StyleSheet.css",
+      "PackagePath": "staticwebassets\\admin_assets\\css\\StyleSheet.css"
+    },
+    {
       "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\my-task.style.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\css\\my-task.style.min.css"
     },

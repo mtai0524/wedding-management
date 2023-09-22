@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wPSxPJqXeczrdI/e43SRZAawyk/+eZ8464evfpHa7Ls=",
+  "Hash": "eULpYyLeKp63GG6i9Ie8FDkeLosakkSz9OmlZmALiMU=",
   "Source": "CodeFirst",
   "BasePath": "_content/CodeFirst",
   "Mode": "Default",
@@ -1256,6 +1256,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin_assets\\css\\my-task.style.min.css"
+    },
+    {
+      "Identity": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\StyleSheet.css",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "admin_assets/css/StyleSheet.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin_assets\\css\\StyleSheet.css"
     },
     {
       "Identity": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.eot",
