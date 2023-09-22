@@ -185,6 +185,22 @@
       "PackagePath": "staticwebassets\\admin_assets\\images\\verify.svg"
     },
     {
+      "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a1.jpg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a1.jpg"
+    },
+    {
+      "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a2.jpg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a2.jpg"
+    },
+    {
+      "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a3.jpg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a3.jpg"
+    },
+    {
+      "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a4.jpg",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a4.jpg"
+    },
+    {
       "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar1.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar1.jpg"
     },

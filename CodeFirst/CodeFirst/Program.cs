@@ -93,7 +93,7 @@ builder.Services.AddNotyf(config =>
 {
     config.DurationInSeconds = 10;
     config.IsDismissable = true;
-    config.Position = NotyfPosition.TopRight;
+    config.Position = NotyfPosition.TopLeft;
 });
 
 var app = builder.Build();

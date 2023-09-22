@@ -70,8 +70,14 @@
         padding-left: 0; /* Loại bỏ khoảng cách bên trái của danh sách */
     }
 </style>
-<h1>User Roles</h1>
 
+
+<h1>Quản lý người dùng</h1>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+    </ol>
+</nav>
 @if (ViewData["UserRoles"] != null)
 {
     <div class="center-table">
@@ -116,12 +122,14 @@
                                 }
                             </div>
                         </td>
-                        <td>
-                            <a asp-action="EditUser" asp-controller="Home" asp-route-id="@userRole.Item1.Id" class="btn btn-outline-primary">Edit</a>
-                            <form method="post" asp-controller="Home" asp-action="DeleteUser" asp-route-id="@userRole.Item1.Id">
-                                <button type="submit" class="btn btn-danger">Delete User</button>
-                            </form>
-                             @* <a asp-action="DeleteUser" asp-controller="Home" asp-route-id="@userRole.Item1.Id" class="btn btn-outline-danger">Delete </a> *@
+                        <td style="text-align: center;">
+                            <div class="btn-group" role="group">
+
+                                <a asp-action="EditUser" asp-controller="Home" asp-route-id="@userRole.Item1.Id" class="btn btn-outline-info" style="margin-right: 15px;">Edit</a>
+                                <form method="post" asp-controller="Home" asp-action="DeleteUser" asp-route-id="@userRole.Item1.Id">
+                                    <button type="submit" class="btn btn-outline-danger" style="outline:none">Delete</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 }

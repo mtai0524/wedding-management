@@ -77,7 +77,7 @@ namespace CodeFirst.Controllers
                 return View("Index");
             }
         }
-            [HttpGet]
+        [HttpGet]
         public async Task<IActionResult> EditUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -122,7 +122,6 @@ namespace CodeFirst.Controllers
 
                 // Thêm người dùng vào vai trò
                 await _userManager.AddToRoleAsync(user, role.Name);
-                    // ...
                 //// Sau đó, thêm vai trò mới mà người dùng đã chọn
 
                 // Lưu thay đổi vào cơ sở dữ liệu
@@ -130,9 +129,11 @@ namespace CodeFirst.Controllers
 
                 if (result.Succeeded)
                 {
+                    _notfy.Success("Sửa thành công");
+
                     await _signInManager.RefreshSignInAsync(currentUser);
                     //await _signInManager.RefreshSignInAsync(user);
-                    // Lưu thành công, chuyển hướng đến trang chi tiết người dùng hoặc trang khác
+                    // Lưu thành công, chuyển hướng đến trang chi tiết người dùng
                     return RedirectToAction("Index", new { id = user.Id });
                 }
             }
