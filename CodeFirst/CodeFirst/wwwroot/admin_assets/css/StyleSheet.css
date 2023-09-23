@@ -1,3 +1,7 @@
 ﻿.my-active-link {
-    color: red !important;
+    color: #F19828 !important;
+    font-weight:700;
+}
+.breadcrumb{
+    background-color:transparent !important;
 }
