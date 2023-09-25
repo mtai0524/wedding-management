@@ -4,11 +4,16 @@
     ViewData["Title"] = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h1>Details</h1>
+<nav aria-label="breadcrumb" >
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Identity" asp-page="/Account/Manage/Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Menu">Quản lý thực đơn</a></li>
+        <li class="breadcrumb-item"><a class="my-active-link" asp-area="Admin" asp-action="Details" asp-controller="Menu">Chi tiết thực đơn</a></li>
+    </ol>
+</nav>
+<h1>Chi tiết món ăn</h1>
 
 <div>
-    <h4>MenuEntity</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">

@@ -19,7 +19,7 @@
 <hr />
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-outline-primary">Thêm món mới</a>
 </p>
 <form asp-action="Index" method="get">
     <div class="row">
@@ -48,9 +48,6 @@
         </div>
     </div>
 </form>
-
-
-
 
 
 <table class="table">
@@ -87,9 +84,9 @@
                 @Html.DisplayFor(modelItem => item.MenuCategory.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.MenuId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MenuId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MenuId">Delete</a>
+                <a class="btn btn-outline-info" asp-action="Edit" asp-route-id="@item.MenuId">Sửa</a> |
+                <a class="btn btn-outline-success" asp-action="Details" asp-route-id="@item.MenuId">Chi tiết</a> |
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.MenuId">Xóa</a>
             </td>
         </tr>
 }
