@@ -16,26 +16,34 @@
 <h1>Sửa món ăn</h1>
 
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+<div class="row" style="margin-top:5rem">
+    <div class="col-md-4" style="margin-left:10%">
+        <form style="margin-right:20%" asp-action="Edit" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="MenuId" />
+
+            <!-- Tên -->
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+
+            <!-- Giá -->
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
+
+            <!-- Mô tả -->
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
+
+            <!-- Danh mục -->
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
                 <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
@@ -43,16 +51,27 @@
             </div>
             <div class="form-group">
                 <label for="imageFile">Chọn hình đại diện</label>
-                <input type="file" id="imageFile" name="imageFile" class="form-control custom-input" required />
+                <input type="file" id="imageFile" name="imageFile" class="form-control custom-input" />
             </div>
+            <!-- Nút Lưu -->
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
+
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
         </form>
+      
+    </div>
+
+    <!-- Hình ảnh -->
+    <div class="col-md-4">
+        <div class="form-group">
+            <img src="@Model.Image" alt="Hình ảnh" class="rounded float-start" style="width:100%; height:23rem" />
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 

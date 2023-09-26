@@ -91,7 +91,7 @@
                 @Html.DisplayFor(modelItem => item.MenuCategory.Name)
             </td>
             <td>
-                <a class="btn btn-outline-info" asp-action="Edit" asp-route-id="@item.MenuId">Sửa</a> |
+                <a class="btn btn-outline-info" asp-action="Edit" asp-area="Admin" asp-route-id="@item.MenuId">Sửa</a> |
                 <a class="btn btn-outline-success" asp-action="Details" asp-route-id="@item.MenuId">Chi tiết</a> |
                 <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.MenuId">Xóa</a>
             </td>

@@ -9,14 +9,22 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using AspNetCoreHero.ToastNotification;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//options.UseSqlServer(builder.Configuration.GetConnectionString("CodeFirst")));
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("CodeFirst")));
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CodeFirst"));
+    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking); // fix lỗi lúc không chọn ảnh, chỉ update thong tin khác
+});
 
 // đăng ký service
 builder.Services.AddScoped<EmployeeService>();
@@ -93,7 +101,7 @@ builder.Services.AddNotyf(config =>
 {
     config.DurationInSeconds = 10;
     config.IsDismissable = true;
-    config.Position = NotyfPosition.TopLeft;
+    config.Position = NotyfPosition.TopRight;
 });
 
 var app = builder.Build();

@@ -11,6 +11,7 @@ using System.Globalization;
 using System.Text;
 using CloudinaryDotNet.Actions;
 using CloudinaryDotNet;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -19,11 +20,13 @@ namespace CodeFirst.Areas.Admin.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly Cloudinary _cloudinary;
+        private readonly INotyfService _noti;
 
-        public MenuController(ApplicationDbContext context, Cloudinary cloudinary)
+        public MenuController(ApplicationDbContext context, Cloudinary cloudinary, INotyfService noti)
         {
             _context = context;
             _cloudinary = cloudinary;
+            _noti = noti;
         }
 
         // Hàm loại bỏ dấu tiếng Việt
@@ -163,6 +166,27 @@ namespace CodeFirst.Areas.Admin.Controllers
         // POST: Admin/Menu/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        private async Task ReloadMenuEntityAsync(MenuEntity menuEntity)
+        {
+            // Sử dụng menuEntity.MenuId hoặc các thuộc tính khác để tải lại thông tin từ cơ sở dữ liệu
+            var updatedMenuEntity = await _context.MenuEntity.FindAsync(menuEntity.MenuId);
+
+            // Kiểm tra xem menuEntity đã được tải lại thành công từ cơ sở dữ liệu chưa
+            if (updatedMenuEntity != null)
+            {
+                // Gán thông tin đã tải lại vào menuEntity
+                menuEntity.Name = updatedMenuEntity.Name;
+                menuEntity.Price = updatedMenuEntity.Price;
+                menuEntity.Description = updatedMenuEntity.Description;
+                menuEntity.CategoryId = updatedMenuEntity.CategoryId;
+                // Gán các thuộc tính khác của menuEntity (nếu có)
+
+                // Cập nhật lại ModelState để loại bỏ lỗi liên quan đến menuEntity
+                ModelState.Clear();
+            }
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("MenuId,Name,Price,Description,CategoryId")] MenuEntity menuEntity, IFormFile imageFile)
@@ -171,31 +195,26 @@ namespace CodeFirst.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            if (imageFile == null || imageFile.Length == 0)
-            {
-                // Nếu không có hình ảnh được tải lên, bạn có thể thực hiện xử lý phù hợp ở đây
-                ModelState.AddModelError("ImageFile", "Vui lòng chọn một hình ảnh.");
-            }
 
-            if (ModelState.IsValid)
+            // Kiểm tra xem người dùng có chọn ảnh mới hay không
+            bool isImageChanged = imageFile != null && imageFile.Length > 0;
+
+            
+            if (!ModelState.IsValid)
             {
-                if (imageFile != null && imageFile.Length > 0)
+                if (!isImageChanged)
                 {
-                    using (var stream = imageFile.OpenReadStream())
+                    // Nếu người dùng không chọn ảnh mới, tìm đối tượng MenuEntity hiện có từ cơ sở dữ liệu
+                    var existingMenuEntity = await _context.MenuEntity.FindAsync(id);
+                    if (existingMenuEntity != null)
                     {
-                        var uploadParams = new ImageUploadParams
-                        {
-                            File = new FileDescription(imageFile.FileName, stream)
-                        };
-
-                        var uploadResult = _cloudinary.Upload(uploadParams);
-
-                        // Lấy đường dẫn của hình ảnh sau khi upload và lưu vào thuộc tính ImageUrl
-                        menuEntity.Image = uploadResult.SecureUrl.AbsoluteUri;
+                        // Sử dụng đường dẫn ảnh từ đối tượng hiện có
+                        menuEntity.Image = existingMenuEntity.Image;
                     }
                 }
                 try
                 {
+                    _noti.Success("Sửa món ăn thành công gòi nha!");
                     _context.Update(menuEntity);
                     await _context.SaveChangesAsync();
                 }
@@ -212,9 +231,50 @@ namespace CodeFirst.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            if (ModelState.IsValid)
+            {
+                if (isImageChanged)
+                {
+                    // Nếu người dùng đã chọn ảnh mới, xử lý việc tải lên và cập nhật đường dẫn hình
+                    using (var stream = imageFile.OpenReadStream())
+                    {
+                        var uploadParams = new ImageUploadParams
+                        {
+                            File = new FileDescription(imageFile.FileName, stream)
+                        };
+
+                        var uploadResult = _cloudinary.Upload(uploadParams);
+
+                        // Lấy đường dẫn của hình ảnh sau khi upload và lưu vào thuộc tính ImageUrl
+                        menuEntity.Image = uploadResult.SecureUrl.AbsoluteUri;
+                    }
+                }
+
+                try
+                {
+                    _noti.Success("Sửa món ăn thành công gòi nha!");
+                    _context.Update(menuEntity);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!MenuEntityExists(menuEntity.MenuId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+
             ViewData["CategoryId"] = new SelectList(_context.MenuCategory, "CategoryId", "CategoryId", menuEntity.CategoryId);
             return View(menuEntity);
         }
+
+
 
         // GET: Admin/Menu/Delete/5
         public async Task<IActionResult> Delete(int? id)

@@ -651,7 +651,8 @@
     <!-- Jquery Page Js -->
     <script src="~/admin_assets/page/hr.js"></script>
     <script src="~/admin_assets/template.js"></script>
-        <script src="~/js/qrcode.js"></script>
-        @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/qrcode.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    @await Component.InvokeAsync("Notyf")
 </body>
 </html> 
