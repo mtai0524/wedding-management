@@ -54,6 +54,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
@@ -65,12 +68,16 @@
             <th>
                 @Html.DisplayNameFor(model => model.MenuCategory)
             </th>
+       
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td width="10%">
+                    <img src="@item.Image" class="rounded float-start" style="width:100%; height:5rem">
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>

@@ -17,7 +17,7 @@ namespace CodeFirst.Service
             {
                 if (imageFile == null || imageFile.Length == 0)
                 {
-                    throw new ArgumentException("Image file is missing or empty.");
+                    throw new ArgumentException("Không có hình ảnh hoặc ảnh không tồn tại.");
                 }
 
                 using (var stream = imageFile.OpenReadStream())

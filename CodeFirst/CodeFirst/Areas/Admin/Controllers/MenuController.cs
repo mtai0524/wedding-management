@@ -9,6 +9,8 @@ using CodeFirst.Data;
 using CodeFirst.Models.Entities;
 using System.Globalization;
 using System.Text;
+using CloudinaryDotNet.Actions;
+using CloudinaryDotNet;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -16,10 +18,12 @@ namespace CodeFirst.Areas.Admin.Controllers
     public class MenuController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly Cloudinary _cloudinary;
 
-        public MenuController(ApplicationDbContext context)
+        public MenuController(ApplicationDbContext context, Cloudinary cloudinary)
         {
             _context = context;
+            _cloudinary = cloudinary;
         }
 
         // Hàm loại bỏ dấu tiếng Việt
@@ -106,10 +110,31 @@ namespace CodeFirst.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MenuId,Name,Price,Description,CategoryId")] MenuEntity menuEntity)
+        public async Task<IActionResult> Create([Bind("MenuId,Name,Price,Description,CategoryId")] MenuEntity menuEntity, IFormFile imageFile)
         {
+            if (imageFile == null || imageFile.Length == 0)
+            {
+                // Nếu không có hình ảnh được tải lên, bạn có thể thực hiện xử lý phù hợp ở đây
+                ModelState.AddModelError("ImageFile", "Vui lòng chọn một hình ảnh.");
+            }
+
             if (ModelState.IsValid)
             {
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    using (var stream = imageFile.OpenReadStream())
+                    {
+                        var uploadParams = new ImageUploadParams
+                        {
+                            File = new FileDescription(imageFile.FileName, stream)
+                        };
+
+                        var uploadResult = _cloudinary.Upload(uploadParams);
+
+                        // Lấy đường dẫn của hình ảnh sau khi upload và lưu vào thuộc tính ImageUrl
+                        menuEntity.Image = uploadResult.SecureUrl.AbsoluteUri;
+                    }
+                }
                 _context.Add(menuEntity);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -140,15 +165,35 @@ namespace CodeFirst.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MenuId,Name,Price,Description,CategoryId")] MenuEntity menuEntity)
+        public async Task<IActionResult> Edit(int id, [Bind("MenuId,Name,Price,Description,CategoryId")] MenuEntity menuEntity, IFormFile imageFile)
         {
             if (id != menuEntity.MenuId)
             {
                 return NotFound();
             }
+            if (imageFile == null || imageFile.Length == 0)
+            {
+                // Nếu không có hình ảnh được tải lên, bạn có thể thực hiện xử lý phù hợp ở đây
+                ModelState.AddModelError("ImageFile", "Vui lòng chọn một hình ảnh.");
+            }
 
             if (ModelState.IsValid)
             {
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    using (var stream = imageFile.OpenReadStream())
+                    {
+                        var uploadParams = new ImageUploadParams
+                        {
+                            File = new FileDescription(imageFile.FileName, stream)
+                        };
+
+                        var uploadResult = _cloudinary.Upload(uploadParams);
+
+                        // Lấy đường dẫn của hình ảnh sau khi upload và lưu vào thuộc tính ImageUrl
+                        menuEntity.Image = uploadResult.SecureUrl.AbsoluteUri;
+                    }
+                }
                 try
                 {
                     _context.Update(menuEntity);
