@@ -3,20 +3,20 @@ import { Card, Spinner } from 'react-bootstrap';
 import Apis, { endpoint } from '../configs/Apis';
 
 export const Header = () => {
-    const [users, setUsers] = useState(null);
-    const loadUsers = async () => {
+    const [menus, setMenus] = useState(null);
+    const loadMenus = async () => {
         // let res =  await fetch("https://localhost:7121/api/ApiUser");
         // let res = await fetch("http://localhost:8080/WeddingRestaurant/api/users");
         // let data = await res.json();
 
-        let res = await Apis.get(endpoint['users']);
+        let res = await Apis.get(endpoint['menus']);
 
-        setUsers(res.data);
+        setMenus(res.data);
     }
     useEffect(() => {
-        loadUsers();
+        loadMenus();
     }, [])
-    if (users === null) {
+    if (menus === null) {
         return <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
         </Spinner>
@@ -42,19 +42,17 @@ export const Header = () => {
         e.target.style.backgroundColor = mystyle.myButton.backgroundColor;
     };
     return (
-
         <>
-
             <h1>header</h1>
             <div class="container">
                 <div class="row">
-                    {users.map(user => (
-                        <Card key={user.userId} style={{ width: '18rem', margin: '20px' }}>
-                            <Card.Img variant="top" src={user.avatar} style={{ height: "190px" }} />
+                    {menus.map(menu => (
+                        <Card key={menu.menuId} style={{ width: '18rem', margin: '20px' }}>
+                            <Card.Img variant="top" src={menu.image} style={{ height: "190px" }} />
                             <Card.Body>
-                                <Card.Title>{user.name}</Card.Title>
+                                <Card.Title>{menu.name}</Card.Title>
                                 <Card.Text>
-                                    Role: {user.role}
+                                   {menu.description}
                                 </Card.Text>
                                 <a href="#" className="btn btn-primary my-button" style={mystyle.myButton}
                                     onMouseEnter={handleMouseEnter}

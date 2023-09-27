@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-const SERVER_CONTEXT = "/WeddingRestaurant";
+const SERVER_CONTEXT = "/WeatherForecast";
 
 export const endpoint = {
     // "users" : `${SERVER_CONTEXT}/api/users`
-    "users" : "api/ApiUser"
+    "menus" : "api/menu"
 }
 export default axios.create({
-    baseURL: "https://localhost:7121"
+    baseURL: "https://localhost:7296"
 })
