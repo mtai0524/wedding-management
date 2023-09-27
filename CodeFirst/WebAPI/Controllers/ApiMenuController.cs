@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CodeFirst.Data;
+using CodeFirst.Models.Entities;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebAPI.Controllers
@@ -15,6 +16,7 @@ namespace WebAPI.Controllers
         {
             _context = context;
         }
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -24,15 +26,29 @@ namespace WebAPI.Controllers
 
         // GET api/<MenuController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            var menuById = _context.MenuEntity.Find(id);
+            if(menuById == null)
+            {
+                return NotFound();
+            }
+            return Ok(menuById);
         }
 
         // POST api/<MenuController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> PostAsync([FromBody] MenuEntity menu)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            _context.MenuEntity.Add(menu);
+            await _context.SaveChangesAsync();
+
+            return Ok(menu); // Trả về menu đã được lưu vào cơ sở dữ liệu (hoặc thông tin thành công khác).
         }
 
         // PUT api/<MenuController>/5

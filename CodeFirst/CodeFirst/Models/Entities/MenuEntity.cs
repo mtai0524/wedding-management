@@ -20,7 +20,7 @@ namespace CodeFirst.Models.Entities
         [ForeignKey("CategoryId")]
         [Display(Name = "Thể loại")]
         public virtual MenuCategory? MenuCategory { get; set; }
-
+        [Display(Name = "Hình ảnh")]
         public string? Image { get; set; }
     }
 }
