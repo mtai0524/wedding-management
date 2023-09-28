@@ -55,7 +55,6 @@ namespace WebAPI.Repositories
             if (model.Password != model.ConfirmPassword)
             {
                 // Xử lý khi mật khẩu và xác nhận mật khẩu không khớp
-                // Ví dụ: Thêm lỗi vào ModelState và trả về kết quả không thành công
                 return IdentityResult.Failed(new IdentityError { Description = "Password and confirmation password do not match." });
             }
             var user = new ApplicationUser
@@ -72,8 +71,8 @@ namespace WebAPI.Repositories
 
             if (result.Succeeded)
             {
-                // Gán quyền mặc định cho người dùng
-                await userManager.AddToRoleAsync(user, "user"); // Thay "user" bằng tên vai trò mặc định của bạn
+                // Gán quyền mặc định cho user khi đăng kí bên react
+                await userManager.AddToRoleAsync(user, "user");
             }
 
             return result;

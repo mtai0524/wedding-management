@@ -22,11 +22,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReactApp", builder =>
+    options.AddPolicy("CorsPolicy", builder =>
     {
-        builder.WithOrigins("http://localhost:3000")
-               .AllowAnyHeader()
-               .AllowAnyMethod();
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
     });
 });
 
@@ -63,8 +63,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllers();
 
-app.UseCors("AllowReactApp"); // cho phép react
+app.UseCors("CorsPolicy");
+
 app.Run();

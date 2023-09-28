@@ -12,6 +12,7 @@ using System.Text;
 using CloudinaryDotNet.Actions;
 using CloudinaryDotNet;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using CodeFirst.Service;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -21,12 +22,14 @@ namespace CodeFirst.Areas.Admin.Controllers
         private readonly ApplicationDbContext _context;
         private readonly Cloudinary _cloudinary;
         private readonly INotyfService _noti;
+        private readonly CloudinaryService _cloudianryService;
 
-        public MenuController(ApplicationDbContext context, Cloudinary cloudinary, INotyfService noti)
+        public MenuController(ApplicationDbContext context, Cloudinary cloudinary, INotyfService noti, CloudinaryService cloudinaryService)
         {
             _context = context;
             _cloudinary = cloudinary;
             _noti = noti;
+            _cloudianryService = cloudinaryService;
         }
 
         // Hàm loại bỏ dấu tiếng Việt
@@ -123,21 +126,7 @@ namespace CodeFirst.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                if (imageFile != null && imageFile.Length > 0)
-                {
-                    using (var stream = imageFile.OpenReadStream())
-                    {
-                        var uploadParams = new ImageUploadParams
-                        {
-                            File = new FileDescription(imageFile.FileName, stream)
-                        };
-
-                        var uploadResult = _cloudinary.Upload(uploadParams);
-
-                        // Lấy đường dẫn của hình ảnh sau khi upload và lưu vào thuộc tính ImageUrl
-                        menuEntity.Image = uploadResult.SecureUrl.AbsoluteUri;
-                    }
-                }
+                menuEntity.Image = await _cloudianryService.UploadImageAsync(imageFile);
                 _context.Add(menuEntity);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -167,25 +156,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 
-        private async Task ReloadMenuEntityAsync(MenuEntity menuEntity)
-        {
-            // Sử dụng menuEntity.MenuId hoặc các thuộc tính khác để tải lại thông tin từ cơ sở dữ liệu
-            var updatedMenuEntity = await _context.MenuEntity.FindAsync(menuEntity.MenuId);
-
-            // Kiểm tra xem menuEntity đã được tải lại thành công từ cơ sở dữ liệu chưa
-            if (updatedMenuEntity != null)
-            {
-                // Gán thông tin đã tải lại vào menuEntity
-                menuEntity.Name = updatedMenuEntity.Name;
-                menuEntity.Price = updatedMenuEntity.Price;
-                menuEntity.Description = updatedMenuEntity.Description;
-                menuEntity.CategoryId = updatedMenuEntity.CategoryId;
-                // Gán các thuộc tính khác của menuEntity (nếu có)
-
-                // Cập nhật lại ModelState để loại bỏ lỗi liên quan đến menuEntity
-                ModelState.Clear();
-            }
-        }
+     
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -236,18 +207,7 @@ namespace CodeFirst.Areas.Admin.Controllers
                 if (isImageChanged)
                 {
                     // Nếu người dùng đã chọn ảnh mới, xử lý việc tải lên và cập nhật đường dẫn hình
-                    using (var stream = imageFile.OpenReadStream())
-                    {
-                        var uploadParams = new ImageUploadParams
-                        {
-                            File = new FileDescription(imageFile.FileName, stream)
-                        };
-
-                        var uploadResult = _cloudinary.Upload(uploadParams);
-
-                        // Lấy đường dẫn của hình ảnh sau khi upload và lưu vào thuộc tính ImageUrl
-                        menuEntity.Image = uploadResult.SecureUrl.AbsoluteUri;
-                    }
+                     menuEntity.Image = await _cloudianryService.UploadImageAsync(imageFile);
                 }
 
                 try

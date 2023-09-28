@@ -11,7 +11,7 @@ namespace CodeFirst.Service
         {
             _cloudinary = cloudinary;
         }
-        public async Task<string> UploadImageAsync(IFormFile imageFile, string publicId)
+        public async Task<string> UploadImageAsync(IFormFile imageFile)
         {
             try
             {
@@ -25,7 +25,6 @@ namespace CodeFirst.Service
                     var uploadParams = new ImageUploadParams
                     {
                         File = new FileDescription(imageFile.FileName, stream),
-                        PublicId = publicId, // Tên công khai cho ảnh
                     };
 
                     var uploadResult = await _cloudinary.UploadAsync(uploadParams);

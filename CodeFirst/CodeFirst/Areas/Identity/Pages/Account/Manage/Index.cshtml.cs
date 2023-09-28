@@ -126,8 +126,7 @@ namespace CodeFirst.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            string publicId = $"{user.Id}_profile_picture"; // Tạo tên công khai dựa trên ID của người dùng
-            string imageUrl = await _cloudinary.UploadImageAsync(Input.imageFile, publicId);
+            string imageUrl = await _cloudinary.UploadImageAsync(Input.imageFile);
             if (!string.IsNullOrEmpty(imageUrl))
             {
                 // Lưu đường dẫn ảnh vào thuộc tính Avatar của người dùng
