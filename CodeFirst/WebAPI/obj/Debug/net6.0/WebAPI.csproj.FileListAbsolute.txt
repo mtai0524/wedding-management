@@ -588,3 +588,7 @@ E:\Visual Git\CodeFirst\WebAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.T
 E:\Visual Git\CodeFirst\WebAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 E:\Visual Git\CodeFirst\WebAPI\bin\Debug\net6.0\CodeFirst.dll
 E:\Visual Git\CodeFirst\WebAPI\bin\Debug\net6.0\CodeFirst.pdb
+E:\Visual Git\CodeFirst\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\Visual Git\CodeFirst\WebAPI\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+E:\Visual Git\CodeFirst\WebAPI\bin\Debug\net6.0\System.Web.Http.dll
+E:\Visual Git\CodeFirst\WebAPI\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
