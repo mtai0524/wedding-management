@@ -1,52 +1,60 @@
-// import React, { useState, useEffect } from 'react';
-// import LoginForm from './LoginForm';
-// import getUserInfo from './getUserInfo'; // Import hàm lấy thông tin người dùng
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
+import Cookies from 'js-cookie';
 
-// const MyApp = () => {
-//   const [token, setToken] = useState('');
-//   const [userInfo, setUserInfo] = useState(null); // Trạng thái lưu thông tin người dùng
+function UserInfo() {
+  const [userInfo, setUserInfo] = useState(null);
 
-//   useEffect(() => {
-//     const storedToken = localStorage.getItem('token');
-//     if (storedToken) {
-//       setToken(storedToken);
+  useEffect(() => {
+    // Lấy token từ cookie
+    const token = Cookies.get('token_user');
+  
+    if (token && !userInfo) {
+      // Giải mã token để lấy thông tin email
+      const decodedToken = jwt_decode(token);
+      const email = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'];
+  
+      // Gọi API để lấy thông tin người dùng dựa trên email
+      axios.post('https://localhost:7296/api/account/GetUserInfo', email, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`, // Thêm token vào tiêu đề
+        },
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          setUserInfo(response.data);
+        } else {
+          console.error('Lỗi khi lấy thông tin người dùng.');
+        }
+      })
+      .catch((error) => {
+        console.error('Lỗi khi gửi yêu cầu:', error);
+      });
+    }
+  }, [userInfo]);
+  
 
-//       // Gọi hàm lấy thông tin người dùng khi token có sẵn
-//       getUserInfo(storedToken)
-//         .then((data) => {
-//           setUserInfo(data); // Lưu thông tin người dùng vào trạng thái
-//         })
-//         .catch((error) => {
-//           console.error('Lỗi khi lấy thông tin người dùng:', error);
-//         });
-//     }
-//   }, []);
+  return (
+    <div>
+      <h2>Thông tin người dùng</h2>
+      {userInfo ? (
+        <div>
+          <h3>Email:</h3>
+          <p>{userInfo.email}</p>
+          <h3>FirstName:</h3>
+          <p>{userInfo.firstName}</p>
+          <h3>LastName:</h3>
+          <p>{userInfo.lastName}</p>
+          <h3>Avatar:</h3>
+          <img src={userInfo.avatar} alt="Avatar" />
+        </div>
+      ) : (
+        <p>Đang tải thông tin người dùng...</p>
+      )}
+    </div>
+  );
+}
 
-//   // Callback để xử lý đăng nhập thành công và lưu token
-//   const handleLogin = (newToken) => {
-//     setToken(newToken);
-//     localStorage.setItem('token', newToken);
-//   };
-
-//   // Đăng xuất
-//   const handleLogout = () => {
-//     setToken('');
-//     setUserInfo(null); // Xóa thông tin người dùng khi đăng xuất
-//     localStorage.removeItem('token');
-//   };
-
-//   return (
-//     <div>
-//       {token ? (
-//         <div>
-//           <h2>Chào mừng {userInfo?.email}!</h2>
-//           <button onClick={handleLogout}>Đăng xuất</button>
-//         </div>
-//       ) : (
-//         <LoginForm onLogin={handleLogin} />
-//       )}
-//     </div>
-//   );
-// };
-
-// export default MyApp;
+export default UserInfo;

@@ -1,8 +1,10 @@
-﻿using CodeFirst.Models;
+﻿using CodeFirst.Data;
+using CodeFirst.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 using WebAPI.Repositories;
 
@@ -14,11 +16,13 @@ namespace WebAPI.Controllers
     {
         private readonly IAccountRepository accountRepo;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ApplicationDbContext _context;
 
-        public AccountsController(IAccountRepository repo, UserManager<ApplicationUser> userManager)
+        public AccountsController(IAccountRepository repo, UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
             accountRepo = repo;
             _userManager = userManager;
+            _context = context;
         }
 
         [HttpPost("SignUp")]
@@ -45,22 +49,36 @@ namespace WebAPI.Controllers
 
             return Ok(new { token });
         }
-        [Authorize] // Đảm bảo chỉ người dùng đã đăng nhập mới có quyền truy cập
-        [HttpGet("GetUserInfo")]
-        public IActionResult GetUserInfo()
+        [HttpPost("GetUserInfo")]
+        public async Task<IActionResult> GetUserInfoAsync([FromBody] string email)
         {
-            var userEmail = User.Identity.Name; // Lấy địa chỉ email của người dùng từ token
-                                                // Tìm và trả về thông tin người dùng dựa trên địa chỉ email (hoặc ID) ở đây
+            // Sử dụng email để truy vấn thông tin người dùng
 
-            // Ví dụ: Trả về thông tin người dùng dưới dạng đối tượng JSON
-            var userInfo = new
+            var user = await _context.ApplicationUser.FirstOrDefaultAsync(u => u.Email == email);
+
+            if (user == null)
             {
-                Email = userEmail,
-                FullName = "John Doe", // Thay thế bằng thông tin người dùng thực tế
-                                       // Các thông tin khác về người dùng
+                return null; // Trả về null nếu không tìm thấy thông tin người dùng
+            }
+
+            // Chuyển đổi thông tin người dùng thành đối tượng UserInfo (hoặc tùy chỉnh cho phù hợp với ứng dụng của bạn)
+            var userInfo = new ApplicationUser
+            {
+                PasswordHash = user.PasswordHash,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Avatar = user.Avatar,
+                //Thêm các thuộc tính khác từ đối tượng User
             };
 
-            return Ok(userInfo);
+
+            if (userInfo == null)
+            {
+                return NotFound(); // Trả về 404 nếu không tìm thấy thông tin người dùng
+            }
+
+            return Ok(userInfo); // Trả về thông tin người dùng nếu tìm thấy
         }
 
     }

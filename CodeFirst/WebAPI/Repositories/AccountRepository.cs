@@ -31,11 +31,12 @@ namespace WebAPI.Repositories
                 return string.Empty;
             }
 
+            // Thêm thông tin username và email vào danh sách claims
             var authClaims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Email, model.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
+    {
+        new Claim(ClaimTypes.Email, model.Email),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+    };
 
             var authenKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
 
@@ -49,6 +50,7 @@ namespace WebAPI.Repositories
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
 
         public async Task<IdentityResult> SignUpAsync(SignUpModel model)
         {
