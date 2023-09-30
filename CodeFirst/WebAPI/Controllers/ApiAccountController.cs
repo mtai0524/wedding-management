@@ -61,7 +61,7 @@ namespace WebAPI.Controllers
                 return null; // Trả về null nếu không tìm thấy thông tin người dùng
             }
 
-            // Chuyển đổi thông tin người dùng thành đối tượng UserInfo (hoặc tùy chỉnh cho phù hợp với ứng dụng của bạn)
+            // Chuyển đổi thông tin người dùng thành đối tượng UserInfo
             var userInfo = new ApplicationUser
             {
                 PasswordHash = user.PasswordHash,
