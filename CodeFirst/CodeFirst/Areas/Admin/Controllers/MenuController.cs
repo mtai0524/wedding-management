@@ -52,7 +52,17 @@ namespace CodeFirst.Areas.Admin.Controllers
 
         // GET: Admin/Menu
 
-        public async Task<IActionResult> Index(int? categoryId, string searchString)
+        public async Task<IActionResult> Index()
+        {
+            // Lấy toàn bộ danh sách menu
+            var menuItems = _context.MenuEntity.Include(m => m.MenuCategory);
+
+            // Lấy danh sách thể loại để hiển thị trong dropdown
+            ViewBag.Categories = _context.MenuCategory.ToList();
+
+            return View(menuItems);
+        }
+        public async Task<IActionResult> Filter(int? categoryId, string searchString)
         {
             IEnumerable<MenuEntity> menuItems = _context.MenuEntity.Include(m => m.MenuCategory);
 
@@ -80,10 +90,8 @@ namespace CodeFirst.Areas.Admin.Controllers
             // Lấy danh sách thể loại để hiển thị trong dropdown
             ViewBag.Categories = await _context.MenuCategory.ToListAsync();
 
-            return View(menuItems.ToList());
+            return PartialView("_MenuPartialView", menuItems.ToList());
         }
-
-
 
         // GET: Admin/Menu/Details/5
         public async Task<IActionResult> Details(int? id)
