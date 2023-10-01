@@ -60,6 +60,7 @@ builder.Services.AddAuthentication()
     facebookOptions.AppSecret = configuration["Authentication:Facebook:AppSecret"];
     facebookOptions.CallbackPath = "/signin-facebook";
 })
+
 .AddGoogle(googleOptions =>
 {
     googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
@@ -139,6 +140,8 @@ app.UseEndpoints(endpoints =>
     pattern: "{controller=Home}/{action=Index}/{id?}"
     );
 });
+app.UseMiddleware<LoadingSpinnerMiddleware>();
+
 app.UseCors("CorsPolicy");
 
 app.Run();

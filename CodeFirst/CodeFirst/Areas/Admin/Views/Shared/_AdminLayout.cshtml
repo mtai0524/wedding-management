@@ -17,11 +17,33 @@
     <link rel="stylesheet" href="~/css/mydesign.css" asp-append-version="true" />
 
     <link rel="stylesheet" href="~/admin_assets/css/my-task.style.min.css">
+    <style>
+        /* CSS cho spinner */
+        .loading-spinner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8); /* Một lớp mờ */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Đảm bảo spinner nằm phía trên cùng */
+        }
+
+        .spinner-image {
+            width: 50px; /* Điều chỉnh kích thước spinner theo mong muốn */
+            height: 50px;
+        }
+    </style>
 </head>
 <body>
-
+   
     <div id="mytask-layout" class="theme-indigo">
-
+        <div class="loading-spinner" id="loading-spinner">
+            <img src="~/admin_assets/images/ZKZg.gif" class="spinner-image" alt="Loading..." />
+        </div>
         @await Html.PartialAsync("_SideBarPartialView.cshtml")
 
         <!-- main body area -->
@@ -652,7 +674,20 @@
     <script src="~/admin_assets/page/hr.js"></script>
     <script src="~/admin_assets/template.js"></script>
     <script src="~/js/qrcode.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @* ajax *@
     @await RenderSectionAsync("Scripts", required: false)
+
     @await Component.InvokeAsync("Notyf")
+        <script>
+        // Bắt đầu hiển thị spinner khi trang bắt đầu tải
+        window.addEventListener("load", function () {
+            var spinner = document.getElementById("loading-spinner");
+            setTimeout(function () {
+            spinner.style.display = "none"; // Ẩn spinner sau 2 giây
+        }, 500); // Điều này đại diện cho 2 giây (2000 milliseconds)
+        });
+        </script>
 </body>
+
 </html> 

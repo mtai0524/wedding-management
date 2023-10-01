@@ -72,7 +72,6 @@ namespace WebAPI.Controllers
                 //Thêm các thuộc tính khác từ đối tượng User
             };
 
-
             if (userInfo == null)
             {
                 return NotFound(); // Trả về 404 nếu không tìm thấy thông tin người dùng

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VH3esLX5PadyKN8Lp6JGFfVeTdl+wG9xKZt8x2XZeBc=",
+  "Hash": "HrTcej0jK9S0R0fl4yYXtZ0vwoIRfJlgFpds5y2HBK0=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -1200,6 +1200,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin_assets\\images\\xs\\avatar9.jpg"
+    },
+    {
+      "Identity": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\ZKZg.gif",
+      "SourceId": "CodeFirst",
+      "SourceType": "Project",
+      "ContentRoot": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "admin_assets/images/ZKZg.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin_assets\\images\\ZKZg.gif"
     },
     {
       "Identity": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\chart-apex.js",

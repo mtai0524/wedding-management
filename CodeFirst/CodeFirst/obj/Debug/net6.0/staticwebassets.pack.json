@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont.woff"
     },
     {
+      "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\ZKZg.gif",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\ZKZg.gif"
+    },
+    {
       "Id": "E:\\Visual Git\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\change-log.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\change-log.svg"
     },
