@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kLc4CbH1O7NfzjPr/1K692ZYINWSNE4n/rr6ZU1IRh5Uhu+8S0L9ZE44QVjgZ1ABGZyIzlKPnF4uaZ4GVdS2hA==",
+  "dgSpecHash": "pPwyVsBA7uU6nSJl0pW+jKpaYhmpPgU4BjaqbWYtpJDNVuwzpDPbdc1QO9QCqoRDkdKh15vwaV16Jk2YXrP5NQ==",
   "success": true,
-  "projectFilePath": "E:\\Visual Git\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
+  "projectFilePath": "E:\\GithubAsp\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",

@@ -128,7 +128,6 @@ namespace CodeFirst.Areas.Admin.Controllers
         {
             if (imageFile == null || imageFile.Length == 0)
             {
-                // Nếu không có hình ảnh được tải lên, bạn có thể thực hiện xử lý phù hợp ở đây
                 ModelState.AddModelError("ImageFile", "Vui lòng chọn một hình ảnh.");
             }
 
@@ -137,11 +136,14 @@ namespace CodeFirst.Areas.Admin.Controllers
                 menuEntity.Image = await _cloudianryService.UploadImageAsync(imageFile);
                 _context.Add(menuEntity);
                 await _context.SaveChangesAsync();
+                _noti.Success("Thêm món ăn thành công gòi nha!");
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoryId"] = new SelectList(_context.MenuCategory, "CategoryId", "Name", menuEntity.CategoryId);
             return View(menuEntity);
+
         }
+
 
         // GET: Admin/Menu/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -164,7 +166,54 @@ namespace CodeFirst.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 
-     
+        [HttpGet]
+        public IActionResult GetMenuForEdit(int id)
+        {
+            var menuEntity = _context.MenuEntity.Find(id);
+            if (menuEntity == null)
+            {
+                return NotFound();
+            }
+            ViewData["CategoryId"] = new SelectList(_context.MenuCategory, "CategoryId", "Name", menuEntity.CategoryId);
+
+            return PartialView("_MenuPartial", menuEntity);
+        }
+        public IActionResult GetMenuForCreate()
+        {
+            // Tạo một đối tượng MenuEntity mới để làm mẫu cho form thêm menu
+            MenuEntity newMenu = new MenuEntity();
+            ViewData["CategoryId"] = new SelectList(_context.MenuCategory, "CategoryId", "Name");
+
+            // Truyền đối tượng newMenu vào view để hiển thị form thêm menu
+            return PartialView("_CreateMenuPartialView", newMenu);
+        }
+        [HttpPost]
+        public IActionResult EditMenu([FromBody] MenuEntity editedMenu)
+        {
+            if (editedMenu == null)
+            {
+                return BadRequest("Invalid data");
+            }
+
+            // Tìm menu theo ID trong cơ sở dữ liệu
+            var menuInDatabase = _context.MenuEntity.FirstOrDefault(m => m.MenuId == editedMenu.MenuId);
+
+            if (menuInDatabase == null)
+            {
+                return NotFound("Menu not found");
+            }
+
+            // Cập nhật các thuộc tính của menu từ dữ liệu chỉnh sửa
+            menuInDatabase.Name = editedMenu.Name;
+            menuInDatabase.Price = editedMenu.Price;
+            menuInDatabase.Description = editedMenu.Description;
+            menuInDatabase.CategoryId = editedMenu.CategoryId;
+
+            // Lưu thay đổi vào cơ sở dữ liệu
+            _context.SaveChanges();
+
+            return Ok("Menu updated successfully");
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -178,7 +227,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             // Kiểm tra xem người dùng có chọn ảnh mới hay không
             bool isImageChanged = imageFile != null && imageFile.Length > 0;
 
-            
+
             if (!ModelState.IsValid)
             {
                 if (!isImageChanged)
@@ -215,7 +264,7 @@ namespace CodeFirst.Areas.Admin.Controllers
                 if (isImageChanged)
                 {
                     // Nếu người dùng đã chọn ảnh mới, xử lý việc tải lên và cập nhật đường dẫn hình
-                     menuEntity.Image = await _cloudianryService.UploadImageAsync(imageFile);
+                    menuEntity.Image = await _cloudianryService.UploadImageAsync(imageFile);
                 }
 
                 try
@@ -277,14 +326,14 @@ namespace CodeFirst.Areas.Admin.Controllers
             {
                 _context.MenuEntity.Remove(menuEntity);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool MenuEntityExists(int id)
         {
-          return (_context.MenuEntity?.Any(e => e.MenuId == id)).GetValueOrDefault();
+            return (_context.MenuEntity?.Any(e => e.MenuId == id)).GetValueOrDefault();
         }
     }
 }

@@ -1,0 +1,85 @@
+﻿@model CodeFirst.Models.Entities.MenuEntity
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Identity" asp-page="/Account/Manage/Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Menu">Quản lý thực đơn</a></li>
+        <li class="breadcrumb-item"><a class="my-active-link" asp-area="Admin" asp-action="Create" asp-controller="Menu">Thêm mới thực đơn</a></li>
+    </ol>
+</nav>
+
+<h1>Thêm món mới</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" id="createForm" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+            <div class="form-group">
+                <label for="imageFile">Chọn hình đại diện</label>
+                <input type="file" id="imageFile" name="imageFile" class="form-control custom-input" required />
+            </div>
+            <div class="form-group">
+                <input style="margin-top:10px" type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Lắng nghe sự kiện submit form
+            $('#createForm').submit(function (e) {
+                e.preventDefault(); // Ngăn chặn submit form mặc định
+
+                // Tạo formData để lưu trữ dữ liệu form
+                var formData = new FormData($(this)[0]);
+
+                // Gửi yêu cầu AJAX để tạo menu mới
+                $.ajax({
+                    url: '/Admin/Menu/Create', // Đường dẫn đến action để tạo menu
+                    type: 'POST',
+                    data: formData,
+                    processData: false,  // Không xử lý dữ liệu
+                    contentType: false,  // Không thiết lập loại dữ liệu
+                    success: function (data) {
+                        // Xử lý phản hồi từ server (có thể là chuyển hướng hoặc thông báo thành công)
+                        alert('Menu đã được tạo thành công!');
+                        // Đóng modal (nếu bạn muốn)
+                        $('#createMenuModal').modal('hide');
+                        // Cập nhật bảng menu hoặc làm bất kỳ điều gì cần thiết để hiển thị danh sách mới
+                        // Ví dụ:
+                        // window.location.reload(); // Tải lại trang để cập nhật danh sách menu
+                    },
+                    error: function (error) {
+                        console.error(error);
+                        alert('Đã xảy ra lỗi khi tạo menu.');
+                    }
+                });
+            });
+        });
+    </script>
+}

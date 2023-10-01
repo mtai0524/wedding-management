@@ -6,7 +6,6 @@
 }
 
 
-
 <nav aria-label="breadcrumb" >
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a asp-area="Identity" asp-page="/Account/Manage/Index">Trang chủ</a></li>
@@ -15,17 +14,18 @@
 </nav>
 
 <h1>Quản lý thực đơn</h1>
-
 <hr />
 
-<p>
+@* <p>
     <a asp-action="Create" class="btn btn-outline-primary">Thêm món mới</a>
-</p>
+</p> *@
+<a class="btn btn-outline-primary" id="addMenuButton">Thêm món mới</a>
+
 <form asp-action="Filter" method="post" id="searchForm">
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
-                <label for="categoryId">Chọn thể loại:</label>
+                <h8 for="categoryId">Chọn thể loại:</h8>
                 <select class="form-control" id="categoryId" name="categoryId">
                     <option value="">Tất cả</option>
                     @foreach (var category in ViewBag.Categories)
@@ -37,18 +37,42 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="searchString">Tìm kiếm:</label>
-                <input type="text" class="form-control" id="searchString" name="searchString">
+                <h8 for="searchString">Tìm kiếm:</h8>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="icofont-search-2 fs-4"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" id="searchString" name="searchString" placeholder="tìm kiếm">
+                </div>
             </div>
         </div>
-        <div class="col-md-4">
+
+@*         <div class="col-md-4">
             <div class="form-group">
                 <button type="submit" class="btn btn-primary" style="margin-top:1.3rem">Tìm kiếm</button>
             </div>
-        </div>
+        </div> *@
     </div>
 </form>
+<!-- Modal -->
+<div class="modal fade" id="editMenuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered custom-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Quản lý thực đơn</h5>
+                <button type="button" class="close" aria-label="Close" id="closeModalButton" style="border-color:transparent;background-color:transparent;outline:none">
+                    <span aria-hidden="true"><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #e62719;"></i></span>
+                </button>
 
+            </div>
+            <div class="modal-body" style="height:40rem">
+                <!-- Dữ liệu được nạp vào -->
+            </div>
+        </div>
+    </div>
+</div>
 
 <table class="table" id="menuTable">
     <thead>
@@ -91,7 +115,7 @@
                 @Html.DisplayFor(modelItem => item.MenuCategory.Name)
             </td>
             <td>
-                <a class="btn btn-outline-info" asp-action="Edit" asp-area="Admin" asp-route-id="@item.MenuId">Sửa</a> |
+                <a class="btn btn-outline-info edit-menu-button" data-menu-id="@item.MenuId">Sửa</a> |
                 <a class="btn btn-outline-success" asp-action="Details" asp-route-id="@item.MenuId">Chi tiết</a> |
                 <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.MenuId">Xóa</a>
             </td>
@@ -101,7 +125,56 @@
 </table>
 @section Scripts{
     <script>
+        // Lấy tham chiếu đến nút close
+        var closeModalButton = document.getElementById('closeModalButton');
+
+        // Lắng nghe sự kiện click trên nút close và đóng modal
+        closeModalButton.addEventListener('click', function () {
+            var modal = document.getElementById('editMenuModal');
+            if (modal) {
+                $(modal).modal('hide'); // Sử dụng Bootstrap JavaScript để đóng modal
+            }
+        });
+
         $(document).ready(function () {
+            $('#addMenuButton').click(function () {
+                // Gửi yêu cầu AJAX để lấy dữ liệu form thêm menu
+                $.ajax({
+                    url: '/Admin/Menu/GetMenuForCreate', // Đường dẫn đến action để lấy form thêm menu
+                    type: 'GET',
+                    success: function (data) {
+                        // Điền dữ liệu vào modal
+                        $('#editMenuModal .modal-body').html(data);
+
+                        // Hiển thị modal
+                        $('#editMenuModal').modal('show');
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            });
+            // Lắng nghe sự kiện khi nút chỉnh sửa được nhấn
+            $('.edit-menu-button').click(function () {
+                var menuId = $(this).data('menu-id');
+
+                // Gửi yêu cầu AJAX để lấy dữ liệu menu cần chỉnh sửa
+                $.ajax({
+                    url: '/Admin/Menu/GetMenuForEdit/' + menuId, // Đường dẫn đến action để lấy dữ liệu menu
+                    type: 'GET',
+                    success: function (data) {
+                        // Điền dữ liệu vào modal
+                        $('#editMenuModal .modal-body').html(data);
+
+                        // Hiển thị modal
+                        $('#editMenuModal').modal('show');
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            });
+
             // Lắng nghe sự kiện khi giá trị của categoryId thay đổi
             $('#categoryId').change(function () {
                 // Gọi hàm để xử lý AJAX cho lọc theo categoryId

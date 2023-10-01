@@ -1,5 +1,22 @@
 ﻿@using CodeFirst.Models.Entities;
 @model IEnumerable<MenuEntity>
+<!-- Modal -->
+<div class="modal fade" id="editMenuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered custom-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa menu</h5>
+                <button type="button" class="close" aria-label="Close" id="closeModalButton" style="border-color:transparent;background-color:transparent;outline:none">
+                    <span aria-hidden="true"><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #e62719;"></i></span>
+                </button>
+
+            </div>
+            <div class="modal-body" style="height:40rem">
+                <!-- Dữ liệu được nạp vào -->
+            </div>
+        </div>
+    </div>
+</div>
 <table class="table" id="menuTable">
     <thead>
         <tr>
@@ -42,7 +59,7 @@
                     @Html.DisplayFor(modelItem => item.MenuCategory.Name)
                 </td>
                 <td>
-                    <a class="btn btn-outline-info" asp-action="Edit" asp-area="Admin" asp-route-id="@item.MenuId">Sửa</a> |
+                    <a class="btn btn-outline-info edit-menu-button" data-menu-id="@item.MenuId">Sửa</a> |
                     <a class="btn btn-outline-success" asp-action="Details" asp-route-id="@item.MenuId">Chi tiết</a> |
                     <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.MenuId">Xóa</a>
                 </td>
@@ -50,3 +67,87 @@
         }
     </tbody>
 </table>
+
+    <script>
+        // Lấy tham chiếu đến nút close
+        var closeModalButton = document.getElementById('closeModalButton');
+
+        // Lắng nghe sự kiện click trên nút close và đóng modal
+        closeModalButton.addEventListener('click', function () {
+            var modal = document.getElementById('editMenuModal');
+            if (modal) {
+                $(modal).modal('hide'); // Sử dụng Bootstrap JavaScript để đóng modal
+            }
+        });
+
+        $(document).ready(function () {
+            // Lắng nghe sự kiện khi nút chỉnh sửa được nhấn
+            $('.edit-menu-button').click(function () {
+                var menuId = $(this).data('menu-id');
+
+                // Gửi yêu cầu AJAX để lấy dữ liệu menu cần chỉnh sửa
+                $.ajax({
+                    url: '/Admin/Menu/GetMenuForEdit/' + menuId, // Đường dẫn đến action để lấy dữ liệu menu
+                    type: 'GET',
+                    success: function (data) {
+                        // Điền dữ liệu vào modal
+                        $('#editMenuModal .modal-body').html(data);
+
+                        // Hiển thị modal
+                        $('#editMenuModal').modal('show');
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            });
+
+            // Lắng nghe sự kiện khi giá trị của categoryId thay đổi
+            $('#categoryId').change(function () {
+                // Gọi hàm để xử lý AJAX cho lọc theo categoryId
+                filterMenuItems();
+            });
+
+            // Lắng nghe sự kiện khi người dùng gõ ký tự vào ô tìm kiếm
+            $('#searchString').on('keyup', function () {
+                // Gọi hàm để xử lý AJAX cho tìm kiếm
+                filterMenuItems();
+            });
+
+            // Lắng nghe sự kiện khi nút tìm kiếm được nhấn
+            $('#searchButton').on('click', function () {
+                // Gọi hàm để xử lý AJAX cho tìm kiếm
+                filterMenuItems();
+            });
+
+            // Lắng nghe sự kiện khi form được submit
+            $('#searchForm').submit(function (e) {
+                e.preventDefault(); // Ngăn chặn submit form mặc định
+
+                // Gọi hàm để xử lý AJAX cho tìm kiếm
+                filterMenuItems();
+            });
+
+            function filterMenuItems() {
+                // Lấy giá trị categoryId đã chọn
+                var selectedCategoryId = $('#categoryId').val();
+                // Lấy giá trị tìm kiếm
+                var searchString = $('#searchString').val();
+
+                // Gửi yêu cầu AJAX đến action Filter của controller
+                $.ajax({
+                    url: '@Url.Action("Filter", "Menu")', // Điều hướng đến action Filter của MenuController
+                    type: 'GET',
+                    data: { categoryId: selectedCategoryId, searchString: searchString },
+                    success: function (data) {
+                        // Cập nhật chỉ phần của trang mà bạn muốn thay đổi (ví dụ: bảng menu)
+                        $('#menuTable').html(data);
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            }
+        });
+
+    </script>

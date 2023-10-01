@@ -1,8 +1,28 @@
 ﻿/*thay doi css phai chay lai chuong trinh*/
 .my-active-link {
     color: #F19828 !important;
-    font-weight:700;
+    font-weight: 700;
 }
-.breadcrumb{
-    background-color:transparent !important;
+
+.breadcrumb {
+    background-color: transparent !important;
+}
+
+.sidebar {
+    border-radius: 8px !important;
+    box-shadow: 5px 6px 6px rgba(0, 0, 0, 0.5); /* Đổ bóng */
+}
+
+.control-label {
+    color: #8F8F8F !important;
+}
+
+.modal-content {
+    margin-top: 70px !important;
+}
+
+.custom-modal {
+    width: 200% !important; /* Thiết lập chiều rộng mong muốn */
+    max-width: 1200px !important; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto !important; /* Canh chỉnh giữa màn hình theo chiều ngang */
 }
