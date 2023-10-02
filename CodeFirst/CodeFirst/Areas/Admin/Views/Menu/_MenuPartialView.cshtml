@@ -101,53 +101,5 @@
                     }
                 });
             });
-
-            // Lắng nghe sự kiện khi giá trị của categoryId thay đổi
-            $('#categoryId').change(function () {
-                // Gọi hàm để xử lý AJAX cho lọc theo categoryId
-                filterMenuItems();
-            });
-
-            // Lắng nghe sự kiện khi người dùng gõ ký tự vào ô tìm kiếm
-            $('#searchString').on('keyup', function () {
-                // Gọi hàm để xử lý AJAX cho tìm kiếm
-                filterMenuItems();
-            });
-
-            // Lắng nghe sự kiện khi nút tìm kiếm được nhấn
-            $('#searchButton').on('click', function () {
-                // Gọi hàm để xử lý AJAX cho tìm kiếm
-                filterMenuItems();
-            });
-
-            // Lắng nghe sự kiện khi form được submit
-            $('#searchForm').submit(function (e) {
-                e.preventDefault(); // Ngăn chặn submit form mặc định
-
-                // Gọi hàm để xử lý AJAX cho tìm kiếm
-                filterMenuItems();
-            });
-
-            function filterMenuItems() {
-                // Lấy giá trị categoryId đã chọn
-                var selectedCategoryId = $('#categoryId').val();
-                // Lấy giá trị tìm kiếm
-                var searchString = $('#searchString').val();
-
-                // Gửi yêu cầu AJAX đến action Filter của controller
-                $.ajax({
-                    url: '@Url.Action("Filter", "Menu")', // Điều hướng đến action Filter của MenuController
-                    type: 'GET',
-                    data: { categoryId: selectedCategoryId, searchString: searchString },
-                    success: function (data) {
-                        // Cập nhật chỉ phần của trang mà bạn muốn thay đổi (ví dụ: bảng menu)
-                        $('#menuTable').html(data);
-                    },
-                    error: function (error) {
-                        console.error(error);
-                    }
-                });
-            }
         });
-
     </script>

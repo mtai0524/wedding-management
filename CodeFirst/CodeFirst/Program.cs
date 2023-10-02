@@ -140,7 +140,7 @@ app.UseEndpoints(endpoints =>
     pattern: "{controller=Home}/{action=Index}/{id?}"
     );
 });
-app.UseMiddleware<LoadingSpinnerMiddleware>();
+//app.UseMiddleware<LoadingSpinnerMiddleware>();
 
 app.UseCors("CorsPolicy");
 
