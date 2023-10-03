@@ -165,7 +165,12 @@ namespace CodeFirst.Areas.Admin.Controllers
         // POST: Admin/Menu/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-
+        [HttpGet]
+        public IActionResult GetMenuList()
+        {
+            var menus = _context.MenuEntity.Include(m => m.MenuCategory).ToList();
+            return PartialView("_MenuListPartial", menus); // Trả về một partial view chứa danh sách món ăn
+        }
         [HttpGet]
         public IActionResult GetMenuForEdit(int id)
         {
@@ -291,45 +296,98 @@ namespace CodeFirst.Areas.Admin.Controllers
             return View(menuEntity);
         }
 
-
-
-        // GET: Admin/Menu/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // Action để xóa món ăn bằng Ajax
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null || _context.MenuEntity == null)
+            try
             {
-                return NotFound();
+                var menu = await _context.MenuEntity.FindAsync(id);
+                if (menu == null)
+                {
+                    return Json(new { success = false }); // Trả về JSON để xử lý lỗi
+                }
+                _noti.Success("Xóa món ăn thành công gòi á!!");
+                _context.MenuEntity.Remove(menu);
+                await _context.SaveChangesAsync();
+                return Json(new { success = true }); // Trả về JSON để xử lý thành công
             }
-
-            var menuEntity = await _context.MenuEntity
-                .Include(m => m.MenuCategory)
-                .FirstOrDefaultAsync(m => m.MenuId == id);
-            if (menuEntity == null)
+            catch (Exception ex)
             {
-                return NotFound();
+                // Xử lý khi có lỗi
+                return Json(new { success = false, error = ex.Message });
             }
-
-            return View(menuEntity);
         }
 
-        // POST: Admin/Menu/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.MenuEntity == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.MenuEntity'  is null.");
-            }
-            var menuEntity = await _context.MenuEntity.FindAsync(id);
-            if (menuEntity != null)
-            {
-                _context.MenuEntity.Remove(menuEntity);
-            }
+        //// GET: Admin/Menu/Delete/5
+        //public async Task<IActionResult> Delete(int? id)
+        //{
+        //    if (id == null || _context.MenuEntity == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+        //    var menuEntity = await _context.MenuEntity
+        //        .Include(m => m.MenuCategory)
+        //        .FirstOrDefaultAsync(m => m.MenuId == id);
+        //    if (menuEntity == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return View(menuEntity);
+        //}
+
+
+
+        //// POST: Admin/Menu/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteConfirmed(int id)
+        //{
+        //    if (_context.MenuEntity == null)
+        //    {
+        //        return Problem("Entity set 'ApplicationDbContext.MenuEntity'  is null.");
+        //    }
+        //    var menuEntity = await _context.MenuEntity.FindAsync(id);
+        //    if (menuEntity != null)
+        //    {
+        //        _context.MenuEntity.Remove(menuEntity);
+        //    }
+
+        //    await _context.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
+
+
+
+
+
+        //// POST: Admin/Menu/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteConfirmed(int id)
+        //{
+        //    try
+        //    {
+        //        var menuEntity = await _context.MenuEntity.FindAsync(id);
+        //        if (menuEntity != null)
+        //        {
+        //            _context.MenuEntity.Remove(menuEntity);
+        //            await _context.SaveChangesAsync();
+        //            return Json(new { success = true });
+        //        }
+        //        else
+        //        {
+        //            return Json(new { success = false });
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Xử lý khi có lỗi
+        //        return Json(new { success = false, error = ex.Message });
+        //    }
+        //}
 
         private bool MenuEntityExists(int id)
         {

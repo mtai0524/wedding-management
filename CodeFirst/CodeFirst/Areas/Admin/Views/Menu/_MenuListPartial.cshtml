@@ -1,0 +1,213 @@
+﻿@model IEnumerable<CodeFirst.Models.Entities.MenuEntity>
+
+@* hiển thị danh sách sau khi xóa thành công *@
+
+@* modal xóa *@
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa mục này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table" id="menuTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MenuCategory)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td width="10%">
+                    <img src="@item.Image" class="rounded float-start" style="width:100%; height:6rem">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MenuCategory.Name)
+                </td>
+                <td>
+                    <a class="btn btn-outline-info edit-menu-button" data-menu-id="@item.MenuId">Sửa</a> |
+                    <a class="btn btn-outline-success" asp-action="Details" asp-route-id="@item.MenuId">Chi tiết</a> |
+                    <button class="btn btn-danger delete-button" data-menu-id="@item.MenuId">Xóa</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+    <script>
+        // Lấy tham chiếu đến nút close
+        var closeModalButton = document.getElementById('closeModalButton');
+
+        // Lắng nghe sự kiện click trên nút close và đóng modal
+        closeModalButton.addEventListener('click', function () {
+            var modal = document.getElementById('editMenuModal');
+            if (modal) {
+                $(modal).modal('hide'); // Sử dụng Bootstrap JavaScript để đóng modal
+            }
+        });
+
+        $(document).ready(function () {
+
+
+            // Xác định menuId của mục cần xóa
+            let menuIdToDelete;
+
+            // Xác định khi nào modal nên hiển thị
+            $('.delete-button').on('click', function () {
+                menuIdToDelete = $(this).data('menu-id');
+                $('#confirmDeleteModal').modal('show');
+            });
+
+            // Xác định hành động khi nút "Xóa" trên modal được nhấn
+            $('#confirmDeleteButton').on('click', function () {
+                $('#confirmDeleteModal').modal('hide'); // Ẩn modal
+
+                // Thực hiện yêu cầu AJAX để xóa
+                $.ajax({
+                    url: `/Admin/Menu/Delete/${menuIdToDelete}`,
+                    type: 'POST', // Chỉ định phương thức POST
+                    success: function (response) {
+                        if (response.success) {
+                            // Xử lý khi xóa thành công
+
+                            // Lấy danh sách món ăn hiện tại từ server bằng AJAX
+                            $.get('/Admin/Menu/GetMenuList', function (data) {
+                                $('#menuTable').html(data); // Cập nhật danh sách món ăn
+                            });
+                        } 
+                    },
+                    error: function (error) {
+                        // Xử lý khi có lỗi
+                        console.error('Lỗi:', error);
+                    }
+                });
+            });
+
+
+
+            $('#addMenuButton').click(function () {
+                // Gửi yêu cầu AJAX để lấy dữ liệu form thêm menu
+                $.ajax({
+                    url: '/Admin/Menu/GetMenuForCreate', // Đường dẫn đến action để lấy form thêm menu
+                    type: 'GET',
+                    success: function (data) {
+                        // Điền dữ liệu vào modal
+                        $('#editMenuModal .modal-body').html(data);
+
+                        // Hiển thị modal
+                        $('#editMenuModal').modal('show');
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            });
+            // Lắng nghe sự kiện khi nút chỉnh sửa được nhấn
+            $('.edit-menu-button').click(function () {
+                var menuId = $(this).data('menu-id');
+
+                // Gửi yêu cầu AJAX để lấy dữ liệu menu cần chỉnh sửa
+                $.ajax({
+                    url: '/Admin/Menu/GetMenuForEdit/' + menuId, // Đường dẫn đến action để lấy dữ liệu menu
+                    type: 'GET',
+                    success: function (data) {
+                        // Điền dữ liệu vào modal
+                        $('#editMenuModal .modal-body').html(data);
+
+                        // Hiển thị modal
+                        $('#editMenuModal').modal('show');
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            });
+
+            // Lắng nghe sự kiện khi giá trị của categoryId thay đổi
+            $('#categoryId').change(function () {
+                // Gọi hàm để xử lý AJAX cho lọc theo categoryId
+                filterMenuItems();
+            });
+
+            // Lắng nghe sự kiện khi người dùng gõ ký tự vào ô tìm kiếm
+            $('#searchString').on('keyup', function () {
+                // Gọi hàm để xử lý AJAX cho tìm kiếm
+                filterMenuItems();
+            });
+
+            // Lắng nghe sự kiện khi nút tìm kiếm được nhấn
+            $('#searchButton').on('click', function () {
+                // Gọi hàm để xử lý AJAX cho tìm kiếm
+                filterMenuItems();
+            });
+
+            // Lắng nghe sự kiện khi form được submit
+            $('#searchForm').submit(function (e) {
+                e.preventDefault(); // Ngăn chặn submit form mặc định
+
+                // Gọi hàm để xử lý AJAX cho tìm kiếm
+                filterMenuItems();
+            });
+
+            function filterMenuItems() {
+                // Lấy giá trị categoryId đã chọn
+                var selectedCategoryId = $('#categoryId').val();
+                // Lấy giá trị tìm kiếm
+                var searchString = $('#searchString').val();
+
+                // Gửi yêu cầu AJAX đến action Filter của controller
+                $.ajax({
+                    url: '@Url.Action("Filter", "Menu")', // Điều hướng đến action Filter của MenuController
+                    type: 'GET',
+                    data: { categoryId: selectedCategoryId, searchString: searchString },
+                    success: function (data) {
+                        // Cập nhật chỉ phần của trang mà bạn muốn thay đổi (ví dụ: bảng menu)
+                        $('#menuTable').html(data);
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            }
+        });
+
+    </script>

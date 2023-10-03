@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CodeFirst.Data;
 using CodeFirst.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebAPI.Controllers
@@ -18,10 +19,31 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> GetAsync()
         {
-            var menuList = _context.MenuEntity.ToList();
-            return Ok(menuList);
+            try
+            {
+                var menuItems = await _context.MenuEntity
+                    .Include(menu => menu.MenuCategory) // Include MenuCategory
+                    .ToListAsync();
+
+                // Map the result to a DTO if needed to shape the response
+                var result = menuItems.Select(menu => new
+                {
+                    MenuId = menu.MenuId,
+                    Name = menu.Name,
+                    Price = menu.Price,
+                    Description = menu.Description,
+                    CategoryName = menu.MenuCategory?.Name, // Get the name from MenuCategory
+                    Image = menu.Image
+                });
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         // GET api/<MenuController>/5
