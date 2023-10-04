@@ -80,16 +80,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <button type="button" class="close" aria-label="Close" id="closeModalButtonDelete" style="border-color:transparent;background-color:transparent;outline:none">
+                    <span aria-hidden="true"><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #e62719;"></i></span>
                 </button>
             </div>
             <div class="modal-body">
                 Bạn có chắc chắn muốn xóa mục này không?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Xóa</button>
+                <a class="btn btn-outline-info" id="cancelButton">Hủy</a>
+                <a class="btn btn-outline-danger" id="confirmDeleteButton">Xóa</a>
             </div>
         </div>
     </div>
@@ -138,7 +138,7 @@
             <td>
                 <a class="btn btn-outline-info edit-menu-button" data-menu-id="@item.MenuId">Sửa</a> |
                 <a class="btn btn-outline-success" asp-action="Details" asp-route-id="@item.MenuId">Chi tiết</a> |
-                <button class="btn btn-danger delete-button" data-menu-id="@item.MenuId">Xóa</button>
+                <a class="btn btn-outline-danger delete-button" data-menu-id="@item.MenuId">Xóa</a>
             </td>
         </tr>
 }
@@ -146,17 +146,37 @@
 </table>
 @section Scripts{
     <script>
-
-
-
         // Lấy tham chiếu đến nút close
         var closeModalButton = document.getElementById('closeModalButton');
 
         // Lắng nghe sự kiện click trên nút close và đóng modal
         closeModalButton.addEventListener('click', function () {
+            alert("Hello")
             var modal = document.getElementById('editMenuModal');
             if (modal) {
                 $(modal).modal('hide'); // Sử dụng Bootstrap JavaScript để đóng modal
+            }
+        });
+
+        // Lấy tham chiếu đến nút close
+        var closeModalButtonDelete = document.getElementById('closeModalButtonDelete');
+
+        // Lắng nghe sự kiện click trên nút close và đóng modal
+        closeModalButtonDelete.addEventListener('click', function () {
+            var modal = document.getElementById('confirmDeleteModal');
+            if (modal) {
+                $(modal).modal('hide'); // Sử dụng Bootstrap JavaScript để đóng modal
+            }
+        });
+
+        // Lấy tham chiếu đến nút "Hủy"
+        var cancelButton = document.getElementById('cancelButton');
+
+        // Lắng nghe sự kiện click trên nút "Hủy" và đóng modal
+        cancelButton.addEventListener('click', function () {
+            var modal = document.getElementById('confirmDeleteModal');
+            if (modal) {
+                $(modal).modal('hide');
             }
         });
 

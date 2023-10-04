@@ -8,16 +8,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <button type="button" class="close" aria-label="Close" id="closeModalButtonDelete" style="border-color:transparent;background-color:transparent;outline:none">
+                    <span aria-hidden="true"><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #e62719;"></i></span>
                 </button>
             </div>
             <div class="modal-body">
                 Bạn có chắc chắn muốn xóa mục này không?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Xóa</button>
+                <a class="btn btn-outline-info" id="cancelButton">Hủy</a>
+                <a class="btn btn-outline-danger" id="confirmDeleteButton">Xóa</a>
             </div>
         </div>
     </div>
@@ -66,148 +66,87 @@
                 <td>
                     <a class="btn btn-outline-info edit-menu-button" data-menu-id="@item.MenuId">Sửa</a> |
                     <a class="btn btn-outline-success" asp-action="Details" asp-route-id="@item.MenuId">Chi tiết</a> |
-                    <button class="btn btn-danger delete-button" data-menu-id="@item.MenuId">Xóa</button>
+                    <a class="btn btn-outline-danger delete-button" data-menu-id="@item.MenuId">Xóa</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-    <script>
-        // Lấy tham chiếu đến nút close
-        var closeModalButton = document.getElementById('closeModalButton');
+<script>
+    // Lấy tham chiếu đến nút close
+    var closeModalButton = document.getElementById('closeModalButton');
 
-        // Lắng nghe sự kiện click trên nút close và đóng modal
-        closeModalButton.addEventListener('click', function () {
-            var modal = document.getElementById('editMenuModal');
-            if (modal) {
-                $(modal).modal('hide'); // Sử dụng Bootstrap JavaScript để đóng modal
-            }
+    // Lắng nghe sự kiện click trên nút close và đóng modal
+    closeModalButton.addEventListener('click', function () {
+        var modal = document.getElementById('editMenuModal');
+        if (modal) {
+            $(modal).modal('hide'); // Sử dụng Bootstrap JavaScript để đóng modal
+        }
+    });
+
+    // Lấy tham chiếu đến nút close
+    var closeModalButtonDelete = document.getElementById('closeModalButtonDelete');
+
+    // Lắng nghe sự kiện click trên nút close và đóng modal
+    closeModalButtonDelete.addEventListener('click', function () {
+        var modal = document.getElementById('confirmDeleteModal');
+        if (modal) {
+            $(modal).modal('hide'); // Sử dụng Bootstrap JavaScript để đóng modal
+        }
+    });
+
+    // Lấy tham chiếu đến nút "Hủy"
+    var cancelButton = document.getElementById('cancelButton');
+
+    // Lắng nghe sự kiện click trên nút "Hủy" và đóng modal
+    cancelButton.addEventListener('click', function () {
+        var modal = document.getElementById('confirmDeleteModal');
+        if (modal) {
+            $(modal).modal('hide');
+        }
+    });
+
+
+    $(document).ready(function () {
+
+
+        // Xác định menuId của mục cần xóa
+        let menuIdToDelete;
+
+        // Xác định khi nào modal nên hiển thị
+        $('.delete-button').on('click', function () {
+            menuIdToDelete = $(this).data('menu-id');
+            $('#confirmDeleteModal').modal('show');
         });
 
-        $(document).ready(function () {
+        // Xác định hành động khi nút "Xóa" trên modal được nhấn
+        $('#confirmDeleteButton').on('click', function () {
+            $('#confirmDeleteModal').modal('hide'); // Ẩn modal
 
+            // Thực hiện yêu cầu AJAX để xóa
+            $.ajax({
+                url: `/Admin/Menu/Delete/${menuIdToDelete}`,
+                type: 'POST', // Chỉ định phương thức POST
+                success: function (response) {
+                if (response.success) {
+                    // Xử lý khi xóa thành công
+                    toastr.options.progressBar = true;
+                    toastr.success('Xóa thành công!', 'Thành công');
 
-            // Xác định menuId của mục cần xóa
-            let menuIdToDelete;
-
-            // Xác định khi nào modal nên hiển thị
-            $('.delete-button').on('click', function () {
-                menuIdToDelete = $(this).data('menu-id');
-                $('#confirmDeleteModal').modal('show');
+                    // Lấy danh sách món ăn hiện tại từ server bằng AJAX
+                    $.get('/Admin/Menu/GetMenuList', function (data) {
+                        $('#menuTable').html(data); // Cập nhật danh sách món ăn
+                    });
+                    } 
+                },
+                error: function (error) {
+                    // Xử lý khi có lỗi
+                    console.error('Lỗi:', error);
+                }
             });
-
-            // Xác định hành động khi nút "Xóa" trên modal được nhấn
-            $('#confirmDeleteButton').on('click', function () {
-                $('#confirmDeleteModal').modal('hide'); // Ẩn modal
-
-                // Thực hiện yêu cầu AJAX để xóa
-                $.ajax({
-                    url: `/Admin/Menu/Delete/${menuIdToDelete}`,
-                    type: 'POST', // Chỉ định phương thức POST
-                    success: function (response) {
-                        if (response.success) {
-                            // Xử lý khi xóa thành công
-
-                            // Lấy danh sách món ăn hiện tại từ server bằng AJAX
-                            $.get('/Admin/Menu/GetMenuList', function (data) {
-                                $('#menuTable').html(data); // Cập nhật danh sách món ăn
-                            });
-                        } 
-                    },
-                    error: function (error) {
-                        // Xử lý khi có lỗi
-                        console.error('Lỗi:', error);
-                    }
-                });
-            });
-
-
-
-            $('#addMenuButton').click(function () {
-                // Gửi yêu cầu AJAX để lấy dữ liệu form thêm menu
-                $.ajax({
-                    url: '/Admin/Menu/GetMenuForCreate', // Đường dẫn đến action để lấy form thêm menu
-                    type: 'GET',
-                    success: function (data) {
-                        // Điền dữ liệu vào modal
-                        $('#editMenuModal .modal-body').html(data);
-
-                        // Hiển thị modal
-                        $('#editMenuModal').modal('show');
-                    },
-                    error: function (error) {
-                        console.error(error);
-                    }
-                });
-            });
-            // Lắng nghe sự kiện khi nút chỉnh sửa được nhấn
-            $('.edit-menu-button').click(function () {
-                var menuId = $(this).data('menu-id');
-
-                // Gửi yêu cầu AJAX để lấy dữ liệu menu cần chỉnh sửa
-                $.ajax({
-                    url: '/Admin/Menu/GetMenuForEdit/' + menuId, // Đường dẫn đến action để lấy dữ liệu menu
-                    type: 'GET',
-                    success: function (data) {
-                        // Điền dữ liệu vào modal
-                        $('#editMenuModal .modal-body').html(data);
-
-                        // Hiển thị modal
-                        $('#editMenuModal').modal('show');
-                    },
-                    error: function (error) {
-                        console.error(error);
-                    }
-                });
-            });
-
-            // Lắng nghe sự kiện khi giá trị của categoryId thay đổi
-            $('#categoryId').change(function () {
-                // Gọi hàm để xử lý AJAX cho lọc theo categoryId
-                filterMenuItems();
-            });
-
-            // Lắng nghe sự kiện khi người dùng gõ ký tự vào ô tìm kiếm
-            $('#searchString').on('keyup', function () {
-                // Gọi hàm để xử lý AJAX cho tìm kiếm
-                filterMenuItems();
-            });
-
-            // Lắng nghe sự kiện khi nút tìm kiếm được nhấn
-            $('#searchButton').on('click', function () {
-                // Gọi hàm để xử lý AJAX cho tìm kiếm
-                filterMenuItems();
-            });
-
-            // Lắng nghe sự kiện khi form được submit
-            $('#searchForm').submit(function (e) {
-                e.preventDefault(); // Ngăn chặn submit form mặc định
-
-                // Gọi hàm để xử lý AJAX cho tìm kiếm
-                filterMenuItems();
-            });
-
-            function filterMenuItems() {
-                // Lấy giá trị categoryId đã chọn
-                var selectedCategoryId = $('#categoryId').val();
-                // Lấy giá trị tìm kiếm
-                var searchString = $('#searchString').val();
-
-                // Gửi yêu cầu AJAX đến action Filter của controller
-                $.ajax({
-                    url: '@Url.Action("Filter", "Menu")', // Điều hướng đến action Filter của MenuController
-                    type: 'GET',
-                    data: { categoryId: selectedCategoryId, searchString: searchString },
-                    success: function (data) {
-                        // Cập nhật chỉ phần của trang mà bạn muốn thay đổi (ví dụ: bảng menu)
-                        $('#menuTable').html(data);
-                    },
-                    error: function (error) {
-                        console.error(error);
-                    }
-                });
-            }
         });
+           
+    });
 
-    </script>
+</script>
