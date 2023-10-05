@@ -80,6 +80,22 @@ namespace CodeFirst.Migrations
                     b.ToTable("Employee");
                 });
 
+            modelBuilder.Entity("CodeFirst.Models.Entities.Invoice", b =>
+                {
+                    b.Property<int?>("InvoiceID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("InvoiceID"));
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("InvoiceID");
+
+                    b.ToTable("Invoice");
+                });
+
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuCategory", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -129,6 +145,29 @@ namespace CodeFirst.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("MenuEntity");
+                });
+
+            modelBuilder.Entity("CodeFirst.Models.Entities.OrderMenu", b =>
+                {
+                    b.Property<int?>("OrderMenuId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("OrderMenuId"));
+
+                    b.Property<int?>("InvoiceID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MenuId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderMenuId");
+
+                    b.HasIndex("InvoiceID");
+
+                    b.HasIndex("MenuId");
+
+                    b.ToTable("OrderMenu");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ServiceCategory", b =>
@@ -414,6 +453,21 @@ namespace CodeFirst.Migrations
                         .IsRequired();
 
                     b.Navigation("MenuCategory");
+                });
+
+            modelBuilder.Entity("CodeFirst.Models.Entities.OrderMenu", b =>
+                {
+                    b.HasOne("CodeFirst.Models.Entities.Invoice", "Invoice")
+                        .WithMany()
+                        .HasForeignKey("InvoiceID");
+
+                    b.HasOne("CodeFirst.Models.Entities.MenuEntity", "MenuEntity")
+                        .WithMany()
+                        .HasForeignKey("MenuId");
+
+                    b.Navigation("Invoice");
+
+                    b.Navigation("MenuEntity");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ServiceEntity", b =>

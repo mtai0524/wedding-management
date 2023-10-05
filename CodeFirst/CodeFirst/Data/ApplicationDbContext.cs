@@ -19,5 +19,7 @@ namespace CodeFirst.Data
         public DbSet<ServiceEntity> ServiceEntity{ get; set; }
         public DbSet<MenuEntity> MenuEntity { get; set; }
         public DbSet<Branch> Branch { get; set; }
+        public DbSet<Invoice> Invoice { get; set; }
+        public DbSet<OrderMenu> OrderMenu { get; set; }
     }
 }
