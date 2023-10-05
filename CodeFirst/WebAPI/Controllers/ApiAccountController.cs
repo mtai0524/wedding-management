@@ -64,6 +64,7 @@ namespace WebAPI.Controllers
             // Chuyển đổi thông tin người dùng thành đối tượng UserInfo
             var userInfo = new ApplicationUser
             {
+                Id = user.Id,
                 PasswordHash = user.PasswordHash,
                 FirstName = user.FirstName,
                 LastName = user.LastName,

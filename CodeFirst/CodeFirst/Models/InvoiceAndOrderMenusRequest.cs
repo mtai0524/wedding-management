@@ -2,7 +2,7 @@
 {
     public class InvoiceAndOrderMenusRequest
     {
-        public int? UserId { get; set; }
+        public string? UserId { get; set; }
         public List<OrderMenuRequest> OrderMenus { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CodeFirst.Models.Entities
 {
@@ -6,6 +7,9 @@ namespace CodeFirst.Models.Entities
     {
         [Key]
         public int? InvoiceID { get; set; }
-        public int? UserId { get; set; }
+
+        public string? UserId { get; set; } // nhớ get set dùm
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser? Id { get; set; }
     }
 }
