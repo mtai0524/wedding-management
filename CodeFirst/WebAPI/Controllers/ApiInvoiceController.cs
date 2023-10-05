@@ -30,18 +30,16 @@ namespace WebAPI.Controllers
             _context.Invoice.Add(invoice);
             await _context.SaveChangesAsync();
 
-            //// Tạo danh sách các món đã đặt từ dữ liệu gửi từ React
-            //var orderMenus = request.OrderMenus.Select(orderMenu => new OrderMenu
-            //{
-            //    Price = orderMenu.Price,
-            //    Quantity = orderMenu.Quantity,
-            //    InvoiceID = invoice.InvoiceID, // Liên kết với hóa đơn mới tạo
-            //    MenuID = orderMenu.MenuID
-            //}).ToList();
+            // Tạo danh sách các món đã đặt từ dữ liệu gửi từ React
+            var orderMenus = request.OrderMenus.Select(orderMenu => new OrderMenu
+            {
+                InvoiceID = invoice.InvoiceID, // Liên kết với hóa đơn mới tạo
+                MenuId = orderMenu.MenuID
+            }).ToList();
 
-            //// Thêm danh sách các món đã đặt vào DbContext và lưu vào cơ sở dữ liệu
-            //_context.OrderMenus.AddRange(orderMenus);
-            //await _context.SaveChangesAsync();
+            // Thêm danh sách các món đã đặt vào DbContext và lưu vào cơ sở dữ liệu
+            _context.OrderMenu.AddRange(orderMenus);
+            await _context.SaveChangesAsync();
 
             return Ok(new { message = "Hóa đơn và món đã đặt đã được tạo thành công!" });
         }
