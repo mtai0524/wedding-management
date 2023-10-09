@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Text.Json.Serialization;
 using WebAPI.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -51,6 +52,12 @@ builder.Services.AddAuthentication(options => {
 });
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+
+//builder.Services.AddControllers().AddJsonOptions(options =>
+//{
+//    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+//}); // tránh bị vòng lặp khi lấy api các mốt quan hệ
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
