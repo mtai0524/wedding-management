@@ -67,6 +67,9 @@ namespace CodeFirst.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BranchId"));
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -75,6 +78,9 @@ namespace CodeFirst.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BranchId");
@@ -479,7 +485,7 @@ namespace CodeFirst.Migrations
             modelBuilder.Entity("CodeFirst.Models.Entities.Hall", b =>
                 {
                     b.HasOne("CodeFirst.Models.Entities.Branch", "Branch")
-                        .WithMany()
+                        .WithMany("Halls")
                         .HasForeignKey("BranchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -582,6 +588,11 @@ namespace CodeFirst.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CodeFirst.Models.Entities.Branch", b =>
+                {
+                    b.Navigation("Halls");
                 });
 #pragma warning restore 612, 618
         }

@@ -30,21 +30,17 @@
            
             @if (!userRole)
             {
-                <li><a class="m-link" asp-area="Admin" asp-action="Index" asp-controller="Branch"><i class="icofont-paint"></i> <span>Chi nhánh</span></a></li>
-                <li><a class="m-link" asp-area="Admin" asp-action="Index" asp-controller="Hall"><i class="icofont-paint"></i> <span>Sảnh cưới</span></a></li>
+                <li><a class="m-link" asp-area="Admin" asp-action="Index" asp-controller="Branch"><i class="icofont-building-alt"></i> <span>Chi nhánh</span></a></li>
+                <li><a class="m-link" asp-area="Admin" asp-action="Index" asp-controller="Hall"><i class="icofont-institution"></i> <span>Sảnh cưới</span></a></li>
 
                 <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#project-Components" href="#">
-                        <i class="icofont-briefcase"></i><span>Thực đơn</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span>
+                        <i class="icofont-restaurant-menu"></i><span>Thực đơn</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span>
                     </a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="project-Components">
                         <li><a class="ms-link" asp-area="Admin" asp-action="Index" asp-controller="MenuCategory" ><span>Quản lý thể loại</span></a></li>
                         <li><a class="ms-link" asp-area="Admin" asp-action="Index" asp-controller="Menu"><span>Quản lý thực đơn</span></a></li>
-
-
-                        <li><a class="ms-link" href="timesheet.html"><span>Timesheet</span></a></li>
-                        <li><a class="ms-link" href="team-leader.html"><span>Leaders</span></a></li>
                     </ul>
                 </li>
 

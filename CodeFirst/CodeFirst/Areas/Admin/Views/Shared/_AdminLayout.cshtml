@@ -61,7 +61,7 @@
                         <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
                             <div class="d-flex">
                                 <a class="nav-link text-primary collapsed" href="help.html" title="Get Help">
-                                    <i class="icofont-info-square fs-5"></i>
+                                    
                                 </a>
                                 <div class="avatar-list avatar-list-stacked px-3">
                                     <img class="avatar rounded-circle" src="~/admin_assets/images/xs/avatar2.jpg" alt="">
@@ -180,14 +180,13 @@
                                                             <div><hr class="dropdown-divider border-dark"></div>
                                                         </div>
                                                         <div class="list-group m-2 ">
-                                                            <a href="task.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-tasks fs-5 me-3"></i>My Task</a>
-                                                            <a href="members.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-user-group fs-6 me-3"></i>members</a>
+                                                        <a style="outline:none;" asp-area="Identity" asp-page="/Account/Manage/ChangePassword" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-key fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Đổi mật khẩu</span></i></a>
+
                                                             <a style="outline:none;" asp-area="" asp-controller="Home" asp-action="Index" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-home fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Về trang chủ</span></i></a>
                                                             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                                                                 <button style="outline:none;" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Đăng xuất</span></i></button>
                                                             </form>
                                                             <div><hr class="dropdown-divider border-dark"></div>
-                                                            <a href="ui-elements/auth-signup.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-contact-add fs-5 me-3"></i>Add personal account</a>
                                                         </div>
                                                     </div>
                                                 </div>
