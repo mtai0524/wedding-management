@@ -10,7 +10,7 @@
 <h1>Thêm món mới</h1>
 
 <hr />
-<div class="row">
+<div class="row" style="width:300%; max-width:2500px; padding-left:2rem;padding-right:4rem">
     <div class="col-md-4">
         <form asp-action="Create" id="createForm" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -38,15 +38,12 @@
                 <input type="file" id="imageFile" name="imageFile" class="form-control custom-input" required />
             </div>
             <div class="form-group">
-                <input style="margin-top:10px" type="submit" value="Create" class="btn btn-primary" />
+                <input style="margin-top:15px;display:block; width:100%" type="submit" value="Thêm món" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     <script>

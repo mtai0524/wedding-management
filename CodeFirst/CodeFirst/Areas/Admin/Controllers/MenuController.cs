@@ -319,75 +319,19 @@ namespace CodeFirst.Areas.Admin.Controllers
             }
         }
 
-        //// GET: Admin/Menu/Delete/5
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null || _context.MenuEntity == null)
-        //    {
-        //        return NotFound();
-        //    }
+        public IActionResult GetMenuDetails(int id)
+        {
+            var menuEntity = _context.MenuEntity
+                .Include(m => m.MenuCategory)
+                .FirstOrDefault(m => m.MenuId == id);
 
-        //    var menuEntity = await _context.MenuEntity
-        //        .Include(m => m.MenuCategory)
-        //        .FirstOrDefaultAsync(m => m.MenuId == id);
-        //    if (menuEntity == null)
-        //    {
-        //        return NotFound();
-        //    }
+            if (menuEntity == null)
+            {
+                return NotFound();
+            }
 
-        //    return View(menuEntity);
-        //}
-
-
-
-        //// POST: Admin/Menu/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    if (_context.MenuEntity == null)
-        //    {
-        //        return Problem("Entity set 'ApplicationDbContext.MenuEntity'  is null.");
-        //    }
-        //    var menuEntity = await _context.MenuEntity.FindAsync(id);
-        //    if (menuEntity != null)
-        //    {
-        //        _context.MenuEntity.Remove(menuEntity);
-        //    }
-
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
-
-
-
-
-
-        //// POST: Admin/Menu/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    try
-        //    {
-        //        var menuEntity = await _context.MenuEntity.FindAsync(id);
-        //        if (menuEntity != null)
-        //        {
-        //            _context.MenuEntity.Remove(menuEntity);
-        //            await _context.SaveChangesAsync();
-        //            return Json(new { success = true });
-        //        }
-        //        else
-        //        {
-        //            return Json(new { success = false });
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Xử lý khi có lỗi
-        //        return Json(new { success = false, error = ex.Message });
-        //    }
-        //}
+            return PartialView("_MenuDetailsPartial", menuEntity);
+        }
 
         private bool MenuEntityExists(int id)
         {

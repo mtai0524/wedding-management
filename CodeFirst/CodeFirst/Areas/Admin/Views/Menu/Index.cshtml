@@ -5,7 +5,6 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-
 <nav aria-label="breadcrumb" >
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a asp-area="Identity" asp-page="/Account/Manage/Index">Trang chủ</a></li>
@@ -95,6 +94,41 @@
     </div>
 </div>
 
+@* Modal tạo món *@
+<div class="modal fade" id="createMenuModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">Thêm món ăn</h5>
+                <button type="button" class="close" aria-label="Close" id="closeModalButtonCreate" style="border-color:transparent;background-color:transparent;outline:none">
+                    <span aria-hidden="true"><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #e62719;"></i></span>
+                </button>
+            </div>
+            <div class="modal-body" id="createMenuModalBody">
+                <!-- Dữ liệu chi tiết món ăn sẽ được hiển thị ở đây -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* modal xem chi tiết *@
+<div class="modal fade" id="detailMenuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Chi tiết món ăn</h5>
+                <button type="button" class="close" aria-label="Close" id="closeModalButtonDetail" style="border-color:transparent;background-color:transparent;outline:none">
+                    <span aria-hidden="true"><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #e62719;"></i></span>
+                </button>
+            </div>
+            <div class="modal-body" id="menuDetailContent">
+                <!-- Dữ liệu chi tiết món ăn sẽ được hiển thị ở đây -->
+            </div>
+        </div>
+    </div>
+</div>
+
 <table class="table" id="menuTable">
     <thead>
         <tr>
@@ -137,7 +171,7 @@
             </td>
             <td>
                 <a class="btn btn-outline-info edit-menu-button" data-menu-id="@item.MenuId">Sửa</a> |
-                <a class="btn btn-outline-success" asp-action="Details" asp-route-id="@item.MenuId">Chi tiết</a> |
+                <a class="btn btn-outline-success show-detail-button" data-menu-id="@item.MenuId">Chi tiết</a> |
                 <a class="btn btn-outline-danger delete-button" data-menu-id="@item.MenuId">Xóa</a>
             </td>
         </tr>
@@ -146,6 +180,29 @@
 </table>
 @section Scripts{
     <script>
+
+        // Lấy tham chiếu đến nút close
+        var closeModalCreateButton = document.getElementById('closeModalButtonCreate');
+
+        // Lắng nghe sự kiện click trên nút close và đóng modal
+        closeModalCreateButton.addEventListener('click', function () {
+            var modal = document.getElementById('createMenuModal');
+            if (modal) {
+                $(modal).modal('hide'); // Sử dụng Bootstrap JavaScript để đóng modal
+            }
+        });
+
+        // Lấy tham chiếu đến nút close
+        var closeModalDetailButton = document.getElementById('closeModalButtonDetail');
+
+        // Lắng nghe sự kiện click trên nút close và đóng modal
+        closeModalDetailButton.addEventListener('click', function () {
+            var modal = document.getElementById('detailMenuModal');
+            if (modal) {
+                $(modal).modal('hide'); // Sử dụng Bootstrap JavaScript để đóng modal
+            }
+        });
+
         // Lấy tham chiếu đến nút close
         var closeModalButton = document.getElementById('closeModalButton');
 
@@ -218,6 +275,26 @@
                 });
             });
 
+            // Lắng nghe sự kiện khi nút "Chi tiết" được nhấp
+            $('.show-detail-button').on('click', function () {
+                var menuId = $(this).data('menu-id');
+
+                // Gửi yêu cầu AJAX để lấy dữ liệu chi tiết món ăn
+                $.ajax({
+                    url: `/Admin/Menu/GetMenuDetails/${menuId}`, // Điều hướng đến action để lấy dữ liệu chi tiết món ăn
+                    type: 'GET',
+                    success: function (data) {
+                        // Hiển thị dữ liệu chi tiết món ăn trong modal
+                        $('#menuDetailContent').html(data);
+
+                        // Hiển thị modal
+                        $('#detailMenuModal').modal('show');
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            });
 
 
             $('#addMenuButton').click(function () {
@@ -227,10 +304,10 @@
                     type: 'GET',
                     success: function (data) {
                         // Điền dữ liệu vào modal
-                        $('#editMenuModal .modal-body').html(data);
+                        $('#createMenuModal .modal-body').html(data);
 
                         // Hiển thị modal
-                        $('#editMenuModal').modal('show');
+                        $('#createMenuModal').modal('show');
                     },
                     error: function (error) {
                         console.error(error);
