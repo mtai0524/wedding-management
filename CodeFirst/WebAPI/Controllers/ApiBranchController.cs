@@ -38,6 +38,8 @@ namespace WebAPI.Controllers
                 Name = branch.Name,
                 Description = branch.Description,
                 Image = branch.Image,
+                Phone = branch.Phone,
+                Address = branch.Address,
                 Halls = branch.Halls.Select(hall => new Hall
                 {
                     HallId = hall.HallId,
