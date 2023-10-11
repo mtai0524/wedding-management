@@ -31,12 +31,40 @@ namespace WebAPI.Repositories
                 return string.Empty;
             }
 
+            var user = await userManager.FindByEmailAsync(model.Email);
+
+            if (user == null)
+            {
+                // Xử lý lỗi nếu không tìm thấy người dùng
+                return string.Empty;
+            }
+
+            // Lấy FirstName từ thông tin người dùng
+            var firstName = user.FirstName;
+            var lastName = user.LastName;
+            var avatar = user.Avatar;
+            var phone = user.PhoneNumber;
+
             // Thêm thông tin username và email vào danh sách claims
             var authClaims = new List<Claim>
-    {
-        new Claim(ClaimTypes.Email, model.Email),
-        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-    };
+            {
+                new Claim(ClaimTypes.Email, model.Email),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.Name, firstName),
+                new Claim(ClaimTypes.Surname, lastName),
+            };
+
+            if (!string.IsNullOrEmpty(avatar))
+            {
+                // Chỉ thêm Claim cho avatar nếu nó không null hoặc rỗng
+                authClaims.Add(new Claim(ClaimTypes.Uri, avatar));
+            }
+
+            if (!string.IsNullOrEmpty(phone))
+            {
+                // Chỉ thêm Claim cho số điện thoại nếu nó không null hoặc rỗng
+                authClaims.Add(new Claim(ClaimTypes.MobilePhone, phone));
+            }
 
             var authenKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
 

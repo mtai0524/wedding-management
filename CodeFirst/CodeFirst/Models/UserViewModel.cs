@@ -10,7 +10,6 @@ namespace CodeFirst.Models
 
         public string? SelectedRole { get; set; }
         [ValidateNever]
-        public IEnumerable<SelectListItem> Roles { get; set; }
-        //// Thêm các thuộc tính khác của người dùng mà bạn muốn hiển thị trên view
+        public IEnumerable<SelectListItem> Roles { get; set; } // Role khi submit sẽ không validate
     }
 }
