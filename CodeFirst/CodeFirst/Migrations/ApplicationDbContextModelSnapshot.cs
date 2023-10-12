@@ -218,6 +218,29 @@ namespace CodeFirst.Migrations
                     b.ToTable("OrderMenu");
                 });
 
+            modelBuilder.Entity("CodeFirst.Models.Entities.OrderService", b =>
+                {
+                    b.Property<int?>("OrderServiceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("OrderServiceId"));
+
+                    b.Property<int?>("InvoiceID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ServiceId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderServiceId");
+
+                    b.HasIndex("InvoiceID");
+
+                    b.HasIndex("ServiceId");
+
+                    b.ToTable("OrderService");
+                });
+
             modelBuilder.Entity("CodeFirst.Models.Entities.ServiceCategory", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -555,6 +578,21 @@ namespace CodeFirst.Migrations
                     b.Navigation("Invoice");
 
                     b.Navigation("MenuEntity");
+                });
+
+            modelBuilder.Entity("CodeFirst.Models.Entities.OrderService", b =>
+                {
+                    b.HasOne("CodeFirst.Models.Entities.Invoice", "Invoice")
+                        .WithMany()
+                        .HasForeignKey("InvoiceID");
+
+                    b.HasOne("CodeFirst.Models.Entities.ServiceEntity", "ServiceEntity")
+                        .WithMany()
+                        .HasForeignKey("ServiceId");
+
+                    b.Navigation("Invoice");
+
+                    b.Navigation("ServiceEntity");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ServiceEntity", b =>

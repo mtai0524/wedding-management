@@ -6,5 +6,6 @@
         public int? BranchId { get; set; } // Thêm BranchId
         public int? HallId { get; set; } // Thêm HallId
         public List<OrderMenuRequest> OrderMenus { get; set; }
+        public List<OrderServiceRequest> OrderServices { get; set; }
     }
 }

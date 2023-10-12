@@ -22,5 +22,6 @@ namespace CodeFirst.Data
         public DbSet<Branch> Branch { get; set; }
         public DbSet<Invoice> Invoice { get; set; }
         public DbSet<OrderMenu> OrderMenu { get; set; }
+        public DbSet<OrderService> OrderService { get; set; }
     }
 }

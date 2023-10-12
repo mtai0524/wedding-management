@@ -43,6 +43,18 @@ namespace WebAPI.Controllers
             _context.OrderMenu.AddRange(orderMenus);
             await _context.SaveChangesAsync();
 
+
+
+            var orderServices = request.OrderServices.Select(orderService => new OrderService
+            {
+                InvoiceID = invoice.InvoiceID, // Liên kết với hóa đơn mới tạo
+                ServiceId = orderService.ServiceId
+            }).ToList();
+
+            // Thêm danh sách các món đã đặt vào DbContext và lưu vào cơ sở dữ liệu
+            _context.OrderService.AddRange(orderServices);
+            await _context.SaveChangesAsync();
+
             return Ok(new { message = "Hóa đơn và món đã đặt đã được tạo thành công!" });
         }
     }
