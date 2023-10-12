@@ -23,14 +23,16 @@ namespace WebAPI.Controllers
             // Tạo một đối tượng Invoice từ dữ liệu gửi từ React
             var invoice = new Invoice
             {
-                UserId = request.UserId
+                UserId = request.UserId,
+                BranchId = (int)request.BranchId,
+                HallId = (int)request.HallId
             };
 
             // Thêm đối tượng Invoice vào DbContext và lưu vào cơ sở dữ liệu
             _context.Invoice.Add(invoice);
             await _context.SaveChangesAsync();
 
-            // Tạo danh sách các món đã đặt từ dữ liệu gửi từ React
+            //// Tạo danh sách các món đã đặt từ dữ liệu gửi từ React
             var orderMenus = request.OrderMenus.Select(orderMenu => new OrderMenu
             {
                 InvoiceID = invoice.InvoiceID, // Liên kết với hóa đơn mới tạo

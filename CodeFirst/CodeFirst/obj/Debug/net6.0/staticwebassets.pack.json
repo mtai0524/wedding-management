@@ -1,587 +1,587 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CodeFirst.bundle.scp.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CodeFirst.bundle.scp.css",
       "PackagePath": "staticwebassets\\CodeFirst.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\apexcharts.bundle.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\apexcharts.bundle.js",
       "PackagePath": "staticwebassets\\admin_assets\\bundles\\apexcharts.bundle.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\dataTables.bundle.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\dataTables.bundle.js",
       "PackagePath": "staticwebassets\\admin_assets\\bundles\\dataTables.bundle.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\libscripts.bundle.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\libscripts.bundle.js",
       "PackagePath": "staticwebassets\\admin_assets\\bundles\\libscripts.bundle.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\nestable.bundle.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\nestable.bundle.js",
       "PackagePath": "staticwebassets\\admin_assets\\bundles\\nestable.bundle.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\StyleSheet.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\StyleSheet.css",
       "PackagePath": "staticwebassets\\admin_assets\\css\\StyleSheet.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\my-task.style.min.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\my-task.style.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\css\\my-task.style.min.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont-1.eot",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont-1.eot",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont-1.eot"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.eot",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.eot",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont.eot"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.svg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.svg",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont.svg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.ttf",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.ttf",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont.ttf"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.woff",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.woff",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont.woff"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\ZKZg.gif",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\ZKZg.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\ZKZg.gif"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cat.gif",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cat.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\cat.gif"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cf.gif",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cf.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\cf.gif"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\change-log.svg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\change-log.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\change-log.svg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\document\\menu-close.png",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\document\\menu-close.png",
       "PackagePath": "staticwebassets\\admin_assets\\images\\document\\menu-close.png"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\document\\menu-open.png",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\document\\menu-open.png",
       "PackagePath": "staticwebassets\\admin_assets\\images\\document\\menu-open.png"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\dragonball.gif",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\dragonball.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\dragonball.gif"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\forgot-password.svg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\forgot-password.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\forgot-password.svg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\1.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\1.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\1.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\10.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\10.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\10.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\2.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\2.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\2.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\3.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\3.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\3.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\4.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\4.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\4.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\5.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\5.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\5.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\6.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\6.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\6.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\7.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\7.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\7.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\8.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\8.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\8.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\9.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\9.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\9.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\google.svg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\google.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\google.svg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\interview.svg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\interview.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\interview.svg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar1.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar1.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar1.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar10.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar10.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar10.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar11.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar11.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar11.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar12.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar12.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar12.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar2.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar2.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar2.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar3.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar3.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar3.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar4.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar4.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar4.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar5.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar5.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar5.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar6.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar6.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar6.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar7.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar7.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar7.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar8.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar8.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar8.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar9.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar9.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar9.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\profile_av.png",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\profile_av.png",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\profile_av.png"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\login-img.svg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\login-img.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\login-img.svg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\mario.gif",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\mario.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\mario.gif"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\no-data.svg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\no-data.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\no-data.svg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\not_found.svg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\not_found.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\not_found.svg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\pika.gif",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\pika.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\pika.gif"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\profile_av.png",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\profile_av.png",
       "PackagePath": "staticwebassets\\admin_assets\\images\\profile_av.png"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\task-view.svg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\task-view.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\task-view.svg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\verify.svg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\verify.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\verify.svg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a1.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a1.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a1.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a2.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a2.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a2.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a3.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a3.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a3.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a4.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a4.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a4.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar1.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar1.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar1.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar10.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar10.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar10.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar11.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar11.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar11.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar12.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar12.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar12.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar2.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar2.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar2.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar3.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar3.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar3.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar4.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar4.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar4.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar5.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar5.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar5.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar6.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar6.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar6.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar7.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar7.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar7.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar8.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar8.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar8.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar9.jpg",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar9.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar9.jpg"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\chart-apex.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\chart-apex.js",
       "PackagePath": "staticwebassets\\admin_assets\\page\\chart-apex.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\hr.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\hr.js",
       "PackagePath": "staticwebassets\\admin_assets\\page\\hr.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\index.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\index.js",
       "PackagePath": "staticwebassets\\admin_assets\\page\\index.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\task.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\task.js",
       "PackagePath": "staticwebassets\\admin_assets\\page\\task.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\datatables\\dataTables.bootstrap5.min.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\datatables\\dataTables.bootstrap5.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\datatables\\dataTables.bootstrap5.min.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\datatables\\responsive.dataTables.min.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\datatables\\responsive.dataTables.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\datatables\\responsive.dataTables.min.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\fullcalendar\\main.min.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\fullcalendar\\main.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\fullcalendar\\main.min.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\fullcalendar\\main.min.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\fullcalendar\\main.min.js",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\fullcalendar\\main.min.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\nestable\\jquery-nestable.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\nestable\\jquery-nestable.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\nestable\\jquery-nestable.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\parsleyjs\\css\\parsley.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\parsleyjs\\css\\parsley.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\parsleyjs\\css\\parsley.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\parsleyjs\\js\\parsley.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\parsleyjs\\js\\parsley.js",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\parsleyjs\\js\\parsley.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\prism\\prism.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\prism\\prism.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\prism\\prism.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\prism\\prism.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\prism\\prism.js",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\prism\\prism.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\template.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\template.js",
       "PackagePath": "staticwebassets\\admin_assets\\template.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\css\\mydesign.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\mydesign.css",
       "PackagePath": "staticwebassets\\css\\mydesign.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\css\\site.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\favicon.ico",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.js",
       "PackagePath": "staticwebassets\\js\\qrcode.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.min.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.min.js",
       "PackagePath": "staticwebassets\\js\\qrcode.min.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\js\\site.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Downloads\\Computer-Science-main (8)\\Computer-Science-main\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
