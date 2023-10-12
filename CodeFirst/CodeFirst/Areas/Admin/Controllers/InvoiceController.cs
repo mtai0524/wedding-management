@@ -34,11 +34,8 @@ namespace CodeFirst.Areas.Admin.Controllers
                         .Include(i => i.Branch)
                         .Include(i => i.Hall)
                         .FirstOrDefault(i => i.InvoiceID == invoiceId);
-
             return invoice;
         }
-
-
         public async Task<IActionResult> GenerateInvoicePDFAsync(int invoiceId)
         {
             var invoice = GetInvoiceFromDatabase(invoiceId);

@@ -1,55 +1,123 @@
-﻿@model IEnumerable<CodeFirst.Models.Entities.Invoice>
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+@model IEnumerable<CodeFirst.Models.Entities.Invoice>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Quản lý hóa đơn</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<hr />
+<table class="table" id="invoiceTable">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.InvoiceID)
+                <a href="#" class="sortable" data-column="InvoiceID">Id hóa đơn</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                <a href="#" class="sortable" data-column="Id">Id người đặt</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Branch)
+                <a href="#" class="sortable" data-column="Id">Email người đặt</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Hall)
+                <a href="#" class="sortable" data-column="Branch">Chi nhánh</a>
+            </th>
+            <th>
+                <a href="#" class="sortable" data-column="Hall">Sảnh</a>
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
+        @foreach (var item in Model)
+        {
+            <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.InvoiceID)
+                    <a asp-action="Details" asp-route-id="@item.InvoiceID">@Html.DisplayFor(modelItem => item.InvoiceID)</a>
                 </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Branch.BranchId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hall.HallId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.InvoiceID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.InvoiceID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.InvoiceID">Delete</a>
-                    <a asp-action="GenerateInvoicePDF" asp-route-invoiceId="@item.InvoiceID">Print</a>
-            </td>
-        </tr>
-}
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id.Id)
+                </td>
+                <td>
+                    @{
+
+                        var user = UserManager.FindByIdAsync(item.Id.Id).Result;
+                        if (user != null)
+                        {
+                            @user.Email
+                        }
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Branch.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hall.Name)
+                </td>
+                <td>
+                    <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@item.InvoiceID">Edit</a> |
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.InvoiceID">Delete</a> |
+                    <a class="btn btn-outline-info" asp-action="GenerateInvoicePDF" asp-route-invoiceId="@item.InvoiceID">
+                        <i class="icofont-printer"></i> In hóa đơn
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $(".sortable").click(function () {
+                var column = $(this).data("column");
+                var direction = "asc"; // Mặc định là sắp xếp tăng dần
+
+                if ($(this).hasClass("sorted")) {
+                    direction = $(this).hasClass("asc") ? "desc" : "asc";
+                }
+
+                $(".sortable").removeClass("sorted asc desc");
+                $(this).addClass("sorted " + direction);
+
+                sortTable(column, direction);
+            });
+
+            function sortTable(column, direction) {
+                var table = $("#invoiceTable");
+                var rows = table.find('tbody > tr').get();
+
+                rows.sort(function (a, b) {
+                    var keyA, keyB;
+
+                    if (column === "InvoiceID") {
+                        keyA = $(a).find("td:eq(0)").text();
+                        keyB = $(b).find("td:eq(0)").text();
+                    } else if (column === "Id") {
+                        keyA = $(a).find("td:eq(1)").text();
+                        keyB = $(b).find("td:eq(1)").text();
+                    } else if (column === "Branch") {
+                        keyA = $(a).find("td:eq(2)").text();
+                        keyB = $(b).find("td:eq(2)").text();
+                    } else if (column === "Hall") {
+                        keyA = $(a).find("td:eq(3)").text();
+                        keyB = $(b).find("td:eq(3)").text();
+                    }
+
+                    if (column === "InvoiceID") {
+                        return (parseInt(keyA, 10) > parseInt(keyB, 10)) ? (direction === "asc" ? 1 : -1) : (direction === "asc" ? -1 : 1);
+                    } else {
+                        return (direction === "asc" ? keyA.localeCompare(keyB) : keyB.localeCompare(keyA));
+                    }
+                });
+
+                $.each(rows, function (index, row) {
+                    table.children('tbody').append(row);
+                });
+            }
+        });
+    </script>
+}
