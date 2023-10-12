@@ -8,6 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
 using CodeFirst.Models.Entities;
 using Microsoft.AspNetCore.Authorization;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using CloudinaryDotNet;
+using CodeFirst.Service;
+using CodeFirst.Migrations;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -15,10 +19,17 @@ namespace CodeFirst.Areas.Admin.Controllers
     public class ServiceController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly Cloudinary _cloudinary;
+        private readonly INotyfService _noti;
+        private readonly CloudinaryService _cloudianryService;
 
-        public ServiceController(ApplicationDbContext context)
+
+        public ServiceController(ApplicationDbContext context, Cloudinary cloudinary, INotyfService noti, CloudinaryService cloudinaryService)
         {
             _context = context;
+            _cloudinary = cloudinary;
+            _noti = noti;
+            _cloudianryService = cloudinaryService;
         }
 
         // GET: Admin/Service
@@ -50,7 +61,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         // GET: Admin/Service/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.ServiceCategory, "CategoryId", "CategoryId");
+            ViewData["CategoryId"] = new SelectList(_context.ServiceCategory, "CategoryId", "Name");
             return View();
         }
 
@@ -59,15 +70,21 @@ namespace CodeFirst.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ServiceId,Name,Price,Description,CategoryId")] ServiceEntity serviceEntity)
+        public async Task<IActionResult> Create([Bind("ServiceId,Name,Price,Description,CategoryId")] ServiceEntity serviceEntity, IFormFile imageFile)
         {
+            if (imageFile == null || imageFile.Length == 0)
+            {
+                ModelState.AddModelError("ImageFile", "Vui lòng chọn một hình ảnh.");
+            }
             if (ModelState.IsValid)
             {
+                serviceEntity.Image = await _cloudianryService.UploadImageAsync(imageFile);
                 _context.Add(serviceEntity);
                 await _context.SaveChangesAsync();
+                _noti.Success("Thêm dịch vụ thành công gòi nha!");
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.ServiceCategory, "CategoryId", "CategoryId", serviceEntity.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.ServiceCategory, "CategoryId", "Name", serviceEntity.CategoryId);
             return View(serviceEntity);
         }
 
@@ -84,7 +101,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.ServiceCategory, "CategoryId", "CategoryId", serviceEntity.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.ServiceCategory, "CategoryId", "Name", serviceEntity.CategoryId);
             return View(serviceEntity);
         }
 
@@ -93,17 +110,30 @@ namespace CodeFirst.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ServiceId,Name,Price,Description,CategoryId")] ServiceEntity serviceEntity)
+        public async Task<IActionResult> Edit(int id, [Bind("ServiceId,Name,Price,Description,CategoryId")] ServiceEntity serviceEntity, IFormFile imageFile)
         {
             if (id != serviceEntity.ServiceId)
             {
                 return NotFound();
             }
+            // Kiểm tra xem người dùng có chọn ảnh mới hay không
+            bool isImageChanged = imageFile != null && imageFile.Length > 0;
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
+                if (!isImageChanged)
+                {
+                    // Nếu người dùng không chọn ảnh mới, tìm đối tượng MenuEntity hiện có từ cơ sở dữ liệu
+                    var existingMenuEntity = await _context.Branch.FindAsync(id);
+                    if (existingMenuEntity != null)
+                    {
+                        // Sử dụng đường dẫn ảnh từ đối tượng hiện có
+                        serviceEntity.Image = existingMenuEntity.Image;
+                    }
+                }
                 try
                 {
+                    _noti.Success("Sửa chi nhánh thành công gòi nha!");
                     _context.Update(serviceEntity);
                     await _context.SaveChangesAsync();
                 }
@@ -120,7 +150,34 @@ namespace CodeFirst.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.ServiceCategory, "CategoryId", "CategoryId", serviceEntity.CategoryId);
+            if (ModelState.IsValid)
+            {
+                if (isImageChanged)
+                {
+                    // Nếu người dùng đã chọn ảnh mới, xử lý việc tải lên và cập nhật đường dẫn hình
+                    serviceEntity.Image = await _cloudianryService.UploadImageAsync(imageFile);
+                }
+
+                try
+                {
+                    _noti.Success("Sửa chi nhánh thành công gòi nha!");
+                    _context.Update(serviceEntity);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ServiceEntityExists(serviceEntity.ServiceId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["CategoryId"] = new SelectList(_context.ServiceCategory, "CategoryId", "Name", serviceEntity.CategoryId);
             return View(serviceEntity);
         }
         [Authorize(Roles = "administrator system,admin, employee")]

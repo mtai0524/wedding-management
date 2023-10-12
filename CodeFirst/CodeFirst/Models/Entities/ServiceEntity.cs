@@ -13,5 +13,7 @@ namespace CodeFirst.Models.Entities
         public int CategoryId { get; set; } // nhớ get set dùm
         [ForeignKey("CategoryId")]
         public virtual ServiceCategory? ServiceCategory { get; set; }
+
+        public string? Image { get; set; }
     }
 }
