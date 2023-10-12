@@ -40,6 +40,7 @@ namespace WebAPI.Repositories
             }
 
             // Lấy FirstName từ thông tin người dùng
+            var userId = user.Id;
             var firstName = user.FirstName;
             var lastName = user.LastName;
             var avatar = user.Avatar;
@@ -48,6 +49,7 @@ namespace WebAPI.Repositories
             // Thêm thông tin username và email vào danh sách claims
             var authClaims = new List<Claim>
             {
+                new Claim(ClaimTypes.NameIdentifier, userId),
                 new Claim(ClaimTypes.Email, model.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.Name, firstName),

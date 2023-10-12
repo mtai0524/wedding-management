@@ -124,10 +124,20 @@ namespace CodeFirst.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("InvoiceID"));
 
+                    b.Property<int>("BranchId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HallId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("InvoiceID");
+
+                    b.HasIndex("BranchId");
+
+                    b.HasIndex("HallId");
 
                     b.HasIndex("UserId");
 
@@ -495,9 +505,25 @@ namespace CodeFirst.Migrations
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Invoice", b =>
                 {
+                    b.HasOne("CodeFirst.Models.Entities.Branch", "Branch")
+                        .WithMany()
+                        .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CodeFirst.Models.Entities.Hall", "Hall")
+                        .WithMany()
+                        .HasForeignKey("HallId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("CodeFirst.Models.ApplicationUser", "Id")
                         .WithMany()
                         .HasForeignKey("UserId");
+
+                    b.Navigation("Branch");
+
+                    b.Navigation("Hall");
 
                     b.Navigation("Id");
                 });
