@@ -113,6 +113,7 @@ builder.Services.AddCors(options =>
                .AllowAnyHeader();
     });
 });
+builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools())); // service cho pdf
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
