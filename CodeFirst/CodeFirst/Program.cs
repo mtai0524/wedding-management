@@ -10,6 +10,8 @@ using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using AspNetCoreHero.ToastNotification;
 using System;
+using DinkToPdf.Contracts;
+using DinkToPdf;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -113,7 +115,9 @@ builder.Services.AddCors(options =>
                .AllowAnyHeader();
     });
 });
+
 builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools())); // service cho pdf
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

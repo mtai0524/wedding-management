@@ -9,11 +9,11 @@ namespace CodeFirst.Models.Entities
         public int? OrderMenuId { get; set; }
 
         public int? InvoiceID { get; set; } // nhớ get set dùm
-        [ForeignKey("InvoiceID ")]
+        [ForeignKey("InvoiceID")]
         public virtual Invoice? Invoice { get; set; }
 
         public int? MenuId { get; set; } // nhớ get set dùm
-        [ForeignKey("MenuId ")]
+        [ForeignKey("MenuId")]
         public virtual MenuEntity? MenuEntity { get; set; }
     }
 }

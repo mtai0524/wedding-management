@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "25mWfdoqM0jWvp6V6i+6vQ4YGPAE7LdfZPR+KSCDPnT5hN4UeM3TW+FXE4I4Df/1zhKlnmzFMiCULL7uXHsCqg==",
+  "dgSpecHash": "cJuyN/gfoycZ49WorXrcq3ckVC/1fPb7la8+gb9obF/7zv8GK2ncghpHoJ/9RHUKsRXONjcp46RQ7zZ4giH6bw==",
   "success": true,
   "projectFilePath": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,8 @@
     "C:\\Users\\PC\\.nuget\\packages\\blazorcolorpicker\\2.3.0\\blazorcolorpicker.2.3.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\cloudinarydotnet\\1.22.0\\cloudinarydotnet.1.22.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\dinktopdf\\1.0.8\\dinktopdf.1.0.8.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\dinktopdfcopydependencies\\1.0.8\\dinktopdfcopydependencies.1.0.8.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -263,6 +265,7 @@
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.tasks.dataflow\\6.0.0\\system.threading.tasks.dataflow.6.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\system.threading.thread\\4.0.0\\system.threading.thread.4.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",

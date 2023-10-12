@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D+J6k3L70ZcAYJVnn99UL6SiJOfEgPxVEH6CUZhrdY1zffq11+p7Y4yKpPQ0Fbh0vV8TFOdotnLxD6Jbhf+mTg==",
+  "dgSpecHash": "ai6I6cPUOAx0Vqm8lCUQyWzEpIFGhutPK7FliKqkYl2MSx8P2gbDKEXzwpJlVnmk1isgchldVj3vPVR2MW9tNA==",
   "success": true,
-  "projectFilePath": "E:\\github asp .net core\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "E:\\AspDoAnNganh\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
@@ -10,6 +10,8 @@
     "C:\\Users\\PC\\.nuget\\packages\\blazorcolorpicker\\2.3.0\\blazorcolorpicker.2.3.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\cloudinarydotnet\\1.22.0\\cloudinarydotnet.1.22.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\dinktopdf\\1.0.8\\dinktopdf.1.0.8.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\dinktopdfcopydependencies\\1.0.8\\dinktopdfcopydependencies.1.0.8.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -269,6 +271,7 @@
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.tasks.dataflow\\6.0.0\\system.threading.tasks.dataflow.6.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\system.threading.thread\\4.0.0\\system.threading.thread.4.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",

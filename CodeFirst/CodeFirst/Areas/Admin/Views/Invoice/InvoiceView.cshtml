@@ -1,0 +1,43 @@
+﻿@* @model InvoiceViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice</title>
+    <style>
+        body {
+            position: relative;
+        }
+
+        .invoice {
+            letter-spacing: 1px;
+            color: red;
+        }
+
+        .date-time {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="invoice">Invoice</h1>
+    <p class="invoice">Invoice ID: @Model.InvoiceID</p>
+    <p class="invoice">Email khách hàng: @Model.Email</p>
+    <p class="invoice">Branch Name: @Model.BranchName</p>
+    <p class="invoice">Hall Name: @Model.HallName</p>
+    <p class="invoice">Nhân viên in hóa đơn: @Model.EmployeeName</p>
+    <p class="date-time">Ngày giờ: @Model.DateTime</p>
+
+    <h2 class="invoice">Danh sách món ăn đã đặt:</h2>
+    <ul class="invoice">
+        @foreach (var menu in Model.OrderedMenus)
+        {
+            <li>@menu.Name - @menu.Price VNĐ</li>
+        }
+    </ul>
+</body>
+</html>
+ *@
