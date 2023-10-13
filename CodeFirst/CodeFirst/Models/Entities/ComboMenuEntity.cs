@@ -12,5 +12,6 @@ namespace CodeFirst.Models.Entities
         public string Name { get; set; }
 
         public virtual ICollection<MenuItemComboMenu> MenuItemComboMenus { get; set; }
+
     }
 }

@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmNoXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuNe/AddMenuToCombo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51TmVcQWRkTWVudVRvQ29tYm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Hall/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSGFsbFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -98,6 +102,30 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuCategory/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUNhdGVnb3J5XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/AddMenuToCombo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUl0ZW1Db21ib01lbnVcQWRkTWVudVRvQ29tYm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUl0ZW1Db21ib01lbnVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUl0ZW1Db21ib01lbnVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUl0ZW1Db21ib01lbnVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUl0ZW1Db21ib01lbnVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUl0ZW1Db21ib01lbnVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/Create.cshtml]

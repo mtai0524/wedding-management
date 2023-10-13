@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CodeFirst.Models.Entities.MenuItemComboMenu>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-outline-primary" asp-action="AddMenuToCombo">Thêm combo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MenuEntity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComboMenuEntity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MenuEntity.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComboMenuEntity.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MenuItemComboMenuId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MenuItemComboMenuId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MenuItemComboMenuId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
