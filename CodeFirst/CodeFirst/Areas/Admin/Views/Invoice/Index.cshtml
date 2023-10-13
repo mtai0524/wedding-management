@@ -197,6 +197,10 @@
                     } else if (column === "Hall") {
                         keyA = $(a).find("td:eq(3)").text();
                         keyB = $(b).find("td:eq(3)").text();
+                    } else if (column === "InvoiceDate") {
+                        // Lấy thời gian đặt từ data-attribute
+                        keyA = $(a).find("td:eq(4)").data("invoice-date");
+                        keyB = $(b).find("td:eq(4)").data("invoice-date");
                     }
 
                     if (column === "InvoiceID") {
@@ -210,6 +214,7 @@
                     table.children('tbody').append(row);
                 });
             }
+
         });
     </script>
 }

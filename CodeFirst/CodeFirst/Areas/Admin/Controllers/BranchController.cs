@@ -50,6 +50,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             if (branch != null)
             {
                 branch.IsLocked = false; // Mở khóa chi nhánh
+                _context.Entry(branch).State = EntityState.Modified;
                 _context.SaveChanges();
             }
 
