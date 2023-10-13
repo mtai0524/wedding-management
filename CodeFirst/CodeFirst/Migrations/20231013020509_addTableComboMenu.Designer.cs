@@ -4,6 +4,7 @@ using CodeFirst.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodeFirst.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231013020509_addTableComboMenu")]
+    partial class addTableComboMenu
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -194,6 +197,9 @@ namespace CodeFirst.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ComboMenuEntityComboMenuId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -212,30 +218,9 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("ComboMenuEntityComboMenuId");
+
                     b.ToTable("MenuEntity");
-                });
-
-            modelBuilder.Entity("CodeFirst.Models.Entities.MenuItemComboMenu", b =>
-                {
-                    b.Property<int>("MenuItemComboMenuId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MenuItemComboMenuId"));
-
-                    b.Property<int>("ComboMenuId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MenuId")
-                        .HasColumnType("int");
-
-                    b.HasKey("MenuItemComboMenuId");
-
-                    b.HasIndex("ComboMenuId");
-
-                    b.HasIndex("MenuId");
-
-                    b.ToTable("MenuItemComboMenu");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.OrderMenu", b =>
@@ -605,26 +590,11 @@ namespace CodeFirst.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("CodeFirst.Models.Entities.ComboMenuEntity", null)
+                        .WithMany("MenuItems")
+                        .HasForeignKey("ComboMenuEntityComboMenuId");
+
                     b.Navigation("MenuCategory");
-                });
-
-            modelBuilder.Entity("CodeFirst.Models.Entities.MenuItemComboMenu", b =>
-                {
-                    b.HasOne("CodeFirst.Models.Entities.ComboMenuEntity", "ComboMenuEntity")
-                        .WithMany("MenuItemComboMenus")
-                        .HasForeignKey("ComboMenuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CodeFirst.Models.Entities.MenuEntity", "MenuEntity")
-                        .WithMany()
-                        .HasForeignKey("MenuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ComboMenuEntity");
-
-                    b.Navigation("MenuEntity");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.OrderMenu", b =>
@@ -726,7 +696,7 @@ namespace CodeFirst.Migrations
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ComboMenuEntity", b =>
                 {
-                    b.Navigation("MenuItemComboMenus");
+                    b.Navigation("MenuItems");
                 });
 #pragma warning restore 612, 618
         }
