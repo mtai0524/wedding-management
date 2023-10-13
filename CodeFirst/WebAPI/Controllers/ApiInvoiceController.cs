@@ -25,7 +25,8 @@ namespace WebAPI.Controllers
             {
                 UserId = request.UserId,
                 BranchId = (int)request.BranchId,
-                HallId = (int)request.HallId
+                HallId = (int)request.HallId,
+                InvoiceDate = DateTime.Now
             };
 
             // Thêm đối tượng Invoice vào DbContext và lưu vào cơ sở dữ liệu

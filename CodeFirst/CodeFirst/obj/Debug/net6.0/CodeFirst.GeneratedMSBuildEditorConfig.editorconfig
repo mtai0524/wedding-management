@@ -80,10 +80,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Invoice/InvoiceView.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZVxJbnZvaWNlVmlldy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuCategory/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUNhdGVnb3J5XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

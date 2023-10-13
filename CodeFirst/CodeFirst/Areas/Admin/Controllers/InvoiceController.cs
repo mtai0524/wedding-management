@@ -27,6 +27,29 @@ namespace CodeFirst.Areas.Admin.Controllers
             _pdfConverter = pdfConverter;
             _userManager = userManager;
         }
+        [HttpPost]
+        public IActionResult CalculateChange(decimal total, decimal amountPaid)
+        {
+            decimal changeAmount = CalculateChangeAmount(total, amountPaid);
+            if (changeAmount < 0)
+            {
+                return Json(new { error = "Số tiền khách đưa không đủ." });
+            }
+            return Json(new { change = changeAmount });
+        }
+        private decimal CalculateChangeAmount(decimal total, decimal amountPaid)
+        {
+            if (total > amountPaid)
+            {
+                // Trường hợp số tiền khách đưa không đủ để trả tiền
+                return -1;
+            }
+
+            // Tính số tiền thừa
+            decimal changeAmount = amountPaid - total;
+            return changeAmount;
+        }
+
         private Invoice GetInvoiceFromDatabase(int invoiceId)
         {
             // Sử dụng Entity Framework để lấy hóa đơn từ cơ sở dữ liệu

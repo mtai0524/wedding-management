@@ -24,5 +24,8 @@ namespace CodeFirst.Models.Entities
         public int HallId { get; set; } // Thêm HallId
         [ForeignKey("HallId")]
         public virtual Hall? Hall { get; set; } // Thêm liên kết đến Hall
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Ngày tạo hóa đơn")]
+        public DateTime? InvoiceDate { get; set; }
     }
 }

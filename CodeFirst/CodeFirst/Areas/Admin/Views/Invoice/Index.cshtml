@@ -8,7 +8,9 @@
 }
 
 <h1>Quản lý hóa đơn</h1>
-
+<a class="btn btn-outline-info" id="openModalButton">
+    Tính tiền thừa
+</a>
 <hr />
 <table class="table" id="invoiceTable">
     <thead>
@@ -27,6 +29,9 @@
             </th>
             <th>
                 <a href="#" class="sortable" data-column="Hall">Sảnh</a>
+            </th>
+            <th>
+                <a href="#" class="sortable" data-column="InvoiceDate">Thời gian đặt</a>
             </th>
             <th></th>
         </tr>
@@ -58,7 +63,10 @@
                     @Html.DisplayFor(modelItem => item.Hall.Name)
                 </td>
                 <td>
-                    <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@item.InvoiceID">Edit</a> |
+                    @Html.DisplayFor(modelItem => item.InvoiceDate)
+                </td>
+                <td>
+               
                     <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.InvoiceID">Delete</a> |
                     <a class="btn btn-outline-info" asp-action="GenerateInvoicePDF" asp-route-invoiceId="@item.InvoiceID">
                         <i class="icofont-printer"></i> In hóa đơn
@@ -69,9 +77,93 @@
     </tbody>
 </table>
 
+<!-- Modal -->
+<div class="modal fade" id="calculateChangeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tính Tiền Thừa</h5>
+                <button type="button" class="close" aria-label="Close" id="closeModalButtonDetail" style="border-color:transparent;background-color:transparent;outline:none">
+                    <span aria-hidden="true"><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #e62719;"></i></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="changeForm">
+                    <div class="form-group">
+                        <label for="total">Giá Tổng:</label>
+                        <input type="text" class="form-control" id="total" name="total">
+                    </div>
+                    <div class="form-group">
+                        <label for="amountPaid">Số Tiền Khách Đưa:</label>
+                        <input type="text" class="form-control" id="amountPaid" name="amountPaid">
+                    </div>
+                    <div>
+                        <label for="changeResult">Tiền thừa:</label>
+                        <div id="changeResult"></div> <!-- Đây là phần tử để hiển thị kết quả -->
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelButton" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="calculateChangeButton">Tính Tiền Thừa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 @section Scripts{
     <script>
         $(document).ready(function () {
+
+            // Lấy tham chiếu đến nút "Hủy"
+            var cancelButton = document.getElementById('cancelButton');
+
+            // Lắng nghe sự kiện click trên nút "Hủy" và đóng modal
+            cancelButton.addEventListener('click', function () {
+                var modal = document.getElementById('calculateChangeModal');
+                if (modal) {
+                    $(modal).modal('hide');
+                }
+            });
+
+            // Lấy tham chiếu đến nút close
+            var closeModalButton = document.getElementById('closeModalButtonDetail');
+
+            // Lắng nghe sự kiện click trên nút close và đóng modal
+            closeModalButton.addEventListener('click', function () {
+                var modal = document.getElementById('calculateChangeModal');
+                if (modal) {
+                    $(modal).modal('hide'); // Sử dụng Bootstrap JavaScript để đóng modal
+                }
+            });
+
+            // Xử lý khi nút "Tính Tiền Thừa" trên modal được nhấn
+            $("#calculateChangeButton").click(function () {
+                var total = $("#total").val();
+                var amountPaid = $("#amountPaid").val();
+
+                $.ajax({
+                    url: "/Admin/Invoice/CalculateChange",
+                    type: "POST",
+                    data: { total: total, amountPaid: amountPaid },
+                    success: function (data) {
+                        if (data.error) {
+                            alert(data.error);
+                        } else {
+                            $("#changeResult").text("Tiền thừa: " + data.change.toFixed(2));
+                        }
+                    }
+                });
+            });
+
+            // Mở modal khi cần
+            $("#openModalButton").click(function () {
+                $("#calculateChangeModal").modal("show");
+            });
+
+
             $(".sortable").click(function () {
                 var column = $(this).data("column");
                 var direction = "asc"; // Mặc định là sắp xếp tăng dần
