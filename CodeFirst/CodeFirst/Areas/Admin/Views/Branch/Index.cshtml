@@ -47,6 +47,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Address)
                 </td>
+
             <td style="width:15%">
                     <img src="@item.Image" class="rounded float-start" style="width:100%; height:10rem">
             </td>
@@ -55,6 +56,20 @@
                 <a asp-action="Details" asp-route-id="@item.BranchId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.BranchId">Delete</a>
             </td>
+                <td>
+                    @if (item.IsLocked)
+                    {
+                        <form asp-action="UnlockBranch" asp-route-branchId="@item.BranchId" method="post">
+                            <button type="submit" class="btn btn-success">Mở khóa</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-action="LockBranch" asp-route-branchId="@item.BranchId" method="post">
+                            <button type="submit" class="btn btn-warning">Tạm khóa</button>
+                        </form>
+                    }
+                </td>
         </tr>
 }
     </tbody>

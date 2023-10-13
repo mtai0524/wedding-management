@@ -13,5 +13,6 @@ namespace CodeFirst.Models.Entities
         public string? Phone { get; set; }
 
         public List<Hall>? Halls { get; set; } = null;
+        public bool IsLocked { get; set; }
     }
 }

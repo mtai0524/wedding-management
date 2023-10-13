@@ -76,6 +76,9 @@ namespace CodeFirst.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool?>("IsLocked")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -95,6 +98,9 @@ namespace CodeFirst.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ComboMenuId"));
+
+                    b.Property<double>("ComboPrice")
+                        .HasColumnType("float");
 
                     b.Property<string>("Name")
                         .IsRequired()

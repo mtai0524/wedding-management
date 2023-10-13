@@ -36,6 +36,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmNoXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51RW50aXR5XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51RW50aXR5XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51RW50aXR5XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51RW50aXR5XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51RW50aXR5XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuNe/AddMenuToCombo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51TmVcQWRkTWVudVRvQ29tYm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

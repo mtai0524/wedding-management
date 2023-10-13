@@ -11,7 +11,8 @@ namespace CodeFirst.Models.Entities
         [Display(Name = "Tên combo menu")]
         public string Name { get; set; }
 
-        public virtual ICollection<MenuItemComboMenu> MenuItemComboMenus { get; set; }
+        public virtual ICollection<MenuItemComboMenu>? MenuItemComboMenus { get; set; }
+        public double ComboPrice { get; set; }
 
     }
 }

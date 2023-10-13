@@ -28,6 +28,33 @@ namespace CodeFirst.Areas.Admin.Controllers
             _noti = noti;
             _cloudianryService = cloudinaryService;
         }
+        [HttpPost]
+        public IActionResult LockBranch(int branchId)
+        {
+            var branch = _context.Branch.Find(branchId);
+
+            if (branch != null)
+            {
+                branch.IsLocked = true; // Tạm khóa chi nhánh
+                _context.Entry(branch).State = EntityState.Modified;
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index"); // Chuyển hướng đến trang danh sách chi nhánh
+        }
+        [HttpPost]
+        public IActionResult UnlockBranch(int branchId)
+        {
+            var branch = _context.Branch.Find(branchId);
+
+            if (branch != null)
+            {
+                branch.IsLocked = false; // Mở khóa chi nhánh
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index"); // Chuyển hướng đến trang danh sách chi nhánh
+        }
 
         // GET: Admin/Branch
         public async Task<IActionResult> Index()

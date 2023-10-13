@@ -26,10 +26,11 @@ namespace WebAPI.Controllers
         }
         // GET: api/<ApiBranchController>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Branch>>> GetBranchesWithHalls()
+        public async Task<ActionResult<IEnumerable<Branch>>> GetUnlockedBranchesWithHalls()
         {
             var branches = await _context.Branch
-                .Include(b => b.Halls) // Tải danh sách các hall thuộc về branch
+                .Where(b => b.IsLocked == false) // Lọc các chi nhánh có IsLocked == false
+                .Include(b => b.Halls)
                 .ToListAsync();
 
             var branchDtos = branches.Select(branch => new Branch
@@ -52,6 +53,7 @@ namespace WebAPI.Controllers
 
             return branchDtos;
         }
+
 
         // GET api/<ApiBranchController>/5
         [HttpGet("{id}")]
