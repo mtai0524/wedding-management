@@ -7,6 +7,17 @@
 
 <h1>Index</h1>
 
+<style>
+    .btn {
+        border: none;
+        outline: none;
+        color:white;
+        margin-left:5px;
+    }
+    i{
+        margin-right: 3px;
+    }
+</style>
 <p>
     <a asp-action="Create">Thêm chi nhánh mới</a>
 </p>
@@ -29,6 +40,7 @@
                 @Html.DisplayNameFor(model => model.Image)
             </th>
 
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -60,13 +72,13 @@
                     @if (item.IsLocked)
                     {
                         <form asp-action="UnlockBranch" asp-route-branchId="@item.BranchId" method="post">
-                            <button type="submit" class="btn btn-success">Mở khóa</button>
+                            <button type="submit" class="btn btn-success"><i class="icofont-key"></i>  Mở khóa</button>
                         </form>
                     }
                     else
                     {
                         <form asp-action="LockBranch" asp-route-branchId="@item.BranchId" method="post">
-                            <button type="submit" class="btn btn-warning">Tạm khóa</button>
+                            <button type="submit" class="btn btn-danger"><i class="icofont-ui-block"></i>  Tạm khóa</button>
                         </form>
                     }
                 </td>
@@ -74,3 +86,5 @@
 }
     </tbody>
 </table>
+
+
