@@ -23,7 +23,11 @@ namespace CodeFirst.Areas.Admin.Controllers
         // GET: Admin/Feedback
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Feedback.Include(f => f.Id);
+            var branches = _context.Branch.ToList();
+
+            // Đưa danh sách chi nhánh vào ViewBag
+            ViewBag.Branches = branches;
+            var applicationDbContext = _context.Feedback.Include(f => f.Branch).Include(f => f.Id);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -36,6 +40,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             }
 
             var feedback = await _context.Feedback
+                .Include(f => f.Branch)
                 .Include(f => f.Id)
                 .FirstOrDefaultAsync(m => m.FeedbackId == id);
             if (feedback == null)
@@ -49,6 +54,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         // GET: Admin/Feedback/Create
         public IActionResult Create()
         {
+            ViewData["BranchId"] = new SelectList(_context.Branch, "BranchId", "BranchId");
             ViewData["UserId"] = new SelectList(_context.ApplicationUser, "Id", "Id");
             return View();
         }
@@ -58,7 +64,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FeedbackId,UserId,FeedbackDate,Content,Rating")] Feedback feedback)
+        public async Task<IActionResult> Create([Bind("FeedbackId,UserId,FeedbackDate,Content,Rating,BranchId")] Feedback feedback)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +72,7 @@ namespace CodeFirst.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["BranchId"] = new SelectList(_context.Branch, "BranchId", "BranchId", feedback.BranchId);
             ViewData["UserId"] = new SelectList(_context.ApplicationUser, "Id", "Id", feedback.UserId);
             return View(feedback);
         }
@@ -83,6 +90,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+            ViewData["BranchId"] = new SelectList(_context.Branch, "BranchId", "BranchId", feedback.BranchId);
             ViewData["UserId"] = new SelectList(_context.ApplicationUser, "Id", "Id", feedback.UserId);
             return View(feedback);
         }
@@ -92,7 +100,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FeedbackId,UserId,FeedbackDate,Content,Rating")] Feedback feedback)
+        public async Task<IActionResult> Edit(int id, [Bind("FeedbackId,UserId,FeedbackDate,Content,Rating,BranchId")] Feedback feedback)
         {
             if (id != feedback.FeedbackId)
             {
@@ -119,6 +127,7 @@ namespace CodeFirst.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["BranchId"] = new SelectList(_context.Branch, "BranchId", "BranchId", feedback.BranchId);
             ViewData["UserId"] = new SelectList(_context.ApplicationUser, "Id", "Id", feedback.UserId);
             return View(feedback);
         }
@@ -132,6 +141,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             }
 
             var feedback = await _context.Feedback
+                .Include(f => f.Branch)
                 .Include(f => f.Id)
                 .FirstOrDefaultAsync(m => m.FeedbackId == id);
             if (feedback == null)

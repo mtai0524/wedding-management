@@ -345,6 +345,10 @@
       "PackagePath": "staticwebassets\\css\\stylethongke.css"
     },
     {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\down-filled-triangular-arrow.png",
+      "PackagePath": "staticwebassets\\down-filled-triangular-arrow.png"
+    },
+    {
       "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

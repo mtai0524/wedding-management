@@ -4,6 +4,27 @@
     ViewData["Title"] = "Danh sách phản hồi người dùng";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+@{
+    Dictionary<string, (double totalRating, int numberOfRatings)> branchRatings = new Dictionary<string, (double, int)>();
+
+    foreach (var item in Model)
+    {
+        var branchName = item.Branch.Name;
+        var rating = item.Rating ?? 0.0;
+
+        if (!branchRatings.ContainsKey(branchName))
+        {
+            branchRatings[branchName] = (rating, 1);
+        }
+        else
+        {
+            var (totalRating, numberOfRatings) = branchRatings[branchName];
+            branchRatings[branchName] = (totalRating + rating, numberOfRatings + 1);
+        }
+    }
+}
 
 <style>
     .feedback-container {
@@ -11,14 +32,16 @@
         flex-direction: column;
         gap: 20px; /* Khoảng cách giữa các phản hồi */
         width: 80%;
-        margin: 0 auto; /* Căn giữa theo chiều ngang */
         padding: 20px;
- /*        border: 1px solid rgba(0, 0, 0, 0.2); /* Đường viền mờ */ */
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Shadow 3D */
+        margin:0 auto;
     }
-
+    .feedback-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
     .feedback-item {
-        margin-bottom:8px;
+        margin-bottom: 8px;
         display: flex;
         flex-direction: column;
         gap: 10px; /* Khoảng cách giữa các phần tử bên trong */
@@ -34,14 +57,10 @@
     }
 
     .avatar {
-        margin-right:8px;
+        margin-right: 8px;
         width: 50px; /* Điều chỉnh kích thước hình ảnh avatar theo mong muốn */
         height: 50px;
         border-radius: 50%; /* Làm tròn góc cho hình ảnh */
-    }
-
-    .feedback-content {
-        /* Không cần điều chỉnh, mặc định sẽ nằm dưới email */
     }
 
     .feedback-date {
@@ -55,29 +74,27 @@
 
     .sorting-options select {
         border: none;
-        border-radius: 8px; /* Làm tròn góc */
+        border-radius: 8px;
         padding: 10px 20px;
-        background-color: #f2f2f2; /* Màu nền */
-        color: #333; /* Màu chữ */
-        -webkit-appearance: none; /* Loại bỏ giao diện mặc định trên Safari */
-        -moz-appearance: none; /* Loại bỏ giao diện mặc định trên Firefox */
-        appearance: none; /* Loại bỏ giao diện mặc định trên các trình duyệt khác */
-        background-image: url('~/wwwroot/down-filled-triangular-arrow.png'); /* Thêm một biểu tượng mũi tên */
+        background-color: #f2f2f2;
+        color: #333;
+        -webkit-appearance: none;
+        -moz-appearance: none
+        appearance: none;
+        background-image: url('~/wwwroot/down-filled-triangular-arrow.png');
         background-position: 95% center;
         background-repeat: no-repeat;
         cursor: pointer;
     }
-        /* Tùy chỉnh giao diện cho option */
-     .sorting-options select option {
-        background-color: #f2f2f2; /* Màu nền cho từng option */
-        color: #333; /* Màu chữ cho từng option */
-    }
+        .sorting-options select option {
+            background-color: #f2f2f2;
+            color: #333;
+        }
 
-            /* Hover effect cho option */
-    .sorting-options select option:hover {
-        background-color: #ddd; /* Màu nền khi hover */
-        color: #000; /* Màu chữ khi hover */
-     }
+        .sorting-options select option:hover {
+            background-color: #ddd;
+            color: #000;
+        }
 
     .sorting-options {
         display: flex;
@@ -103,23 +120,45 @@
     .custom-input {
         padding: 10px;
         border: 2px solid #ccc;
-        border-radius: 8px; /* Làm tròn góc */
+        border-radius: 8px;
         font-size: 16px;
-        outline: none; /* Loại bỏ đường viền mặc định khi focus */
+        outline: none;
     }
 
-        /* Màu nền và màu chữ khi focus */
-        .custom-input:focus {
-            background-color: #f2f2f2;
-            color: #333;
-        }
+    .custom-input:focus {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+
+    .feedback-list {
+        width:80%;
+    }
+
+   
+    .content-container {
+        display: flex;
+        flex-direction: row;
+    }
+    li{
+        list-style-type:none;
+    }
 </style>
 
 <h1>Danh sách phản hồi</h1>
-<a asp-action="Create">Create New</a>
+@* <a asp-action="Create">Create New</a> *@
 
 <div class="feedback-container">
     <div class="sorting-options">
+        <div class="branch-filter">
+            <label for="branchFilter">Lọc theo chi nhánh: </label>
+            <select id="branchFilter" onchange="filterFeedbacks()">
+                <option value="all">Tất cả</option>
+                @foreach (var branch in ViewBag.Branches)
+                {
+                    <option value="@branch.BranchId">@branch.Name</option>
+                }
+            </select>
+        </div>
         <div class="sorting-options-left">
             <label>Sắp xếp theo: </label>
             <select id="sortOptions">
@@ -137,37 +176,91 @@
             </div>
         </div>
     </div>
+    <div class="content-container">
+
     <div class="feedback-list">
         @foreach (var item in Model)
         {
             <div class="feedback-item">
                 <div class="feedback-email">
-                    <img class="avatar" src="@item.Id.Avatar" alt="Avatar" />
-                    <b>@item.Id.Email:</b>
+                    <img class="avatar" src="@item.Id?.Avatar" alt="Avatar" />
+                    <span style="color:#999" >@item.Id?.Email</span>
                     <span class="feedback-date">@item.FeedbackDate</span>
                 </div>
-                <div class="feedback-content">@item.Content</div>
-                <div class="star-rating">
-                    @for (int i = 0; i < Math.Floor((double)item.Rating); i++)
-                    {
-                        <i class="fas fa-star"></i>
-                    }
-                    @if ((double)item.Rating % 1 > 0)
-                    {
-                        <i class="fas fa-star-half-alt"></i>
-                    }
-                    @for (int i = 0; i < 5 - Math.Ceiling((double)item.Rating); i++)
-                    {
-                        <i class="far fa-star"></i>
-                    }
+                <div style="margin-top:5px" class="feedback-content">@item.Content</div>
+                <div class="feedback-rating">
+                    <div class="star-rating">
+                        @for (int i = 0; i < Math.Floor((double)item.Rating); i++)
+                        {
+                            <i class="fas fa-star"></i>
+                        }
+                        @if ((double)item.Rating % 1 > 0)
+                        {
+                            <i class="fas fa-star-half-alt"></i>
+                        }
+                        @for (int i = 0; i < 5 - Math.Ceiling((double)item.Rating); i++)
+                        {
+                            <i class="far fa-star"></i>
+                        }
+                    </div>
+                    <div class="branch-name">
+                        @item.Branch.Name
+                    </div>
                 </div>
             </div>
         }
     </div>
+    <div class="branch-averages">
+        <ul>
+            @foreach (var branchRating in branchRatings)
+            {
+                var (branchName, (totalRating, numberOfRatings)) = branchRating;
+                var averageRating = numberOfRatings > 0 ? totalRating / numberOfRatings : 0.0;
+
+                <li>
+                    @branchName: 
+                    <span class="star-rating">
+                        @for (int i = 0; i < Math.Floor(averageRating); i++)
+                        {
+                            <i class="fas fa-star"></i>
+                        }
+                        @if (averageRating % 1 > 0)
+                        {
+                            <i class="fas fa-star-half-alt"></i>
+                        }
+                        @for (int i = 0; i < 5 - Math.Ceiling(averageRating); i++)
+                        {
+                            <i class="far fa-star"></i>
+                        }
+                    </span>
+                </li>
+            }
+        </ul>
+    </div>
+    </div>
 </div>
 
 
+
 <script>
+    function filterFeedbacks() {
+        var branchFilter = document.getElementById("branchFilter");
+        var selectedBranchName = branchFilter.options[branchFilter.selectedIndex].text; // Lấy giá trị tên chi nhánh đã chọn
+
+        var feedbackItems = document.querySelectorAll(".feedback-item"); // Lấy danh sách các phản hồi
+
+        feedbackItems.forEach(function (item) {
+            var branchName = item.querySelector(".branch-name").textContent.trim(); // Lấy tên chi nhánh của phản hồi
+            if (selectedBranchName === "Tất cả" || branchName === selectedBranchName) {
+                // Hiển thị phản hồi nếu nó thuộc chi nhánh đã chọn hoặc chọn "Tất cả"
+                item.style.display = "block";
+            } else {
+                // Ẩn phản hồi nếu không thuộc chi nhánh đã chọn
+                item.style.display = "none";
+            }
+        });
+    }
+
     document.getElementById("searchButton").addEventListener("click", function () {
         searchFeedback();
     });

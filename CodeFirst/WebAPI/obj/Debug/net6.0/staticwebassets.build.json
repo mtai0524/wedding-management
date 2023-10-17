@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "W+yd8/4te/WqsQnZvpa7H23siDrvuKDp9KVdLN0m2i8=",
+  "Hash": "t3DkH7Cjma4+7xC9IQu6gnLbvv+H7qKJQbaUtcBsqws=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -1591,6 +1591,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\stylethongke.css"
+    },
+    {
+      "Identity": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\down-filled-triangular-arrow.png",
+      "SourceId": "CodeFirst",
+      "SourceType": "Project",
+      "ContentRoot": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "down-filled-triangular-arrow.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\down-filled-triangular-arrow.png"
     },
     {
       "Identity": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\favicon.ico",

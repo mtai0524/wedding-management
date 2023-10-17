@@ -1,0 +1,228 @@
+﻿@model IEnumerable<CodeFirst.Models.Entities.Feedback>
+
+@{
+    ViewData["Title"] = "Danh sách phản hồi người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .feedback-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px; /* Khoảng cách giữa các phản hồi */
+        width: 80%;
+        margin: 0 auto; /* Căn giữa theo chiều ngang */
+        padding: 20px;
+ /*        border: 1px solid rgba(0, 0, 0, 0.2); /* Đường viền mờ */ */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Shadow 3D */
+    }
+
+    .feedback-item {
+        margin-bottom:8px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Khoảng cách giữa các phần tử bên trong */
+        padding: 15px; /* Tạo khoảng cách giữa shadow và nội dung */
+        border: 1px solid #ccc; /* Đường viền phần tử */
+        border-radius: 8px; /* Làm tròn các góc */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Shadow 3D */
+    }
+
+    .feedback-email {
+        display: flex;
+        align-items: center; /* Canh giữa nội dung và hình ảnh */
+    }
+
+    .avatar {
+        margin-right:8px;
+        width: 50px; /* Điều chỉnh kích thước hình ảnh avatar theo mong muốn */
+        height: 50px;
+        border-radius: 50%; /* Làm tròn góc cho hình ảnh */
+    }
+
+    .feedback-content {
+        /* Không cần điều chỉnh, mặc định sẽ nằm dưới email */
+    }
+
+    .feedback-date {
+        margin-left: auto; /* Đẩy ngày nằm bên phải */
+        color: #999; /* Màu chữ xám cho ngày */
+    }
+
+    .star-rating {
+        color: gold; /* Màu vàng cho rating */
+    }
+
+    .sorting-options select {
+        border: none;
+        border-radius: 8px; /* Làm tròn góc */
+        padding: 10px 20px;
+        background-color: #f2f2f2; /* Màu nền */
+        color: #333; /* Màu chữ */
+        -webkit-appearance: none; /* Loại bỏ giao diện mặc định trên Safari */
+        -moz-appearance: none; /* Loại bỏ giao diện mặc định trên Firefox */
+        appearance: none; /* Loại bỏ giao diện mặc định trên các trình duyệt khác */
+        background-image: url('~/wwwroot/down-filled-triangular-arrow.png'); /* Thêm một biểu tượng mũi tên */
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+        /* Tùy chỉnh giao diện cho option */
+     .sorting-options select option {
+        background-color: #f2f2f2; /* Màu nền cho từng option */
+        color: #333; /* Màu chữ cho từng option */
+    }
+
+            /* Hover effect cho option */
+    .sorting-options select option:hover {
+        background-color: #ddd; /* Màu nền khi hover */
+        color: #000; /* Màu chữ khi hover */
+     }
+
+    .sorting-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .sorting-options-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .sorting-options-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-box {
+        display: flex;
+        align-items: center;
+    }
+
+    .custom-input {
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 8px; /* Làm tròn góc */
+        font-size: 16px;
+        outline: none; /* Loại bỏ đường viền mặc định khi focus */
+    }
+
+        /* Màu nền và màu chữ khi focus */
+        .custom-input:focus {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+</style>
+
+<h1>Danh sách phản hồi</h1>
+<a asp-action="Create">Create New</a>
+
+<div class="feedback-container">
+    <div class="sorting-options">
+        <div class="sorting-options-left">
+            <label>Sắp xếp theo: </label>
+            <select id="sortOptions">
+                <option value="dateAsc">Ngày tăng dần</option>
+                <option value="dateDesc">Ngày giảm dần</option>
+                <option value="ratingAsc">Rating tăng dần</option>
+                <option value="ratingDesc">Rating giảm dần</option>
+            </select>
+        </div>
+        <div class="sorting-options-right">
+            <div class="search-box">
+                <label style="margin-right:10px" for="searchKeyword">Tìm kiếm: </label>
+                <input class="custom-input" style="margin-right:10px" type="text" id="searchKeyword" placeholder="Nhập từ khóa...">
+                <button id="searchButton" class="btn btn-primary">Tìm</button>
+            </div>
+        </div>
+    </div>
+    <div class="feedback-list">
+        @foreach (var item in Model)
+        {
+            <div class="feedback-item">
+                <div class="feedback-email">
+                    <img class="avatar" src="@item.Id.Avatar" alt="Avatar" />
+                    <b>@item.Id.Email:</b>
+                    <span class="feedback-date">@item.FeedbackDate</span>
+                </div>
+                <div class="feedback-content">@item.Content</div>
+                <div class="star-rating">
+                    @for (int i = 0; i < Math.Floor((double)item.Rating); i++)
+                    {
+                        <i class="fas fa-star"></i>
+                    }
+                    @if ((double)item.Rating % 1 > 0)
+                    {
+                        <i class="fas fa-star-half-alt"></i>
+                    }
+                    @for (int i = 0; i < 5 - Math.Ceiling((double)item.Rating); i++)
+                    {
+                        <i class="far fa-star"></i>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("searchButton").addEventListener("click", function () {
+        searchFeedback();
+    });
+
+    document.getElementById("searchKeyword").addEventListener("input", function () {
+        searchFeedback();
+    });
+
+    function searchFeedback() {
+        var searchKeyword = document.getElementById("searchKeyword").value.toLowerCase();
+        var feedbackList = document.querySelector(".feedback-list");
+        var feedbackItems = Array.from(feedbackList.querySelectorAll(".feedback-item"));
+
+        feedbackItems.forEach(function (item) {
+            var content = item.querySelector(".feedback-content").textContent.toLowerCase();
+
+            if (content.includes(searchKeyword)) {
+                item.style.display = "block"; // Hiển thị phản hồi nếu nội dung chứa từ khóa
+            } else {
+                item.style.display = "none"; // Ẩn phản hồi nếu nội dung không chứa từ khóa
+            }
+        });
+    }
+
+    document.getElementById("sortOptions").addEventListener("change", function () {
+        var selectedOption = this.value;
+        var feedbackList = document.querySelector(".feedback-list");
+        var feedbackItems = Array.from(feedbackList.querySelectorAll(".feedback-item"));
+
+        feedbackItems.sort(function (a, b) {
+            if (selectedOption === "dateAsc") {
+                var dateA = new Date(a.querySelector(".feedback-date").textContent);
+                var dateB = new Date(b.querySelector(".feedback-date").textContent);
+                return dateA - dateB;
+            } else if (selectedOption === "dateDesc") {
+                var dateA = new Date(a.querySelector(".feedback-date").textContent);
+                var dateB = new Date(b.querySelector(".feedback-date").textContent);
+                return dateB - dateA;
+            } else if (selectedOption === "ratingAsc") {
+                var ratingA = a.querySelector(".star-rating").querySelectorAll(".fas.fa-star").length +
+                    0.5 * a.querySelector(".star-rating").querySelectorAll(".fas.fa-star-half-alt").length;
+                var ratingB = b.querySelector(".star-rating").querySelectorAll(".fas.fa-star").length +
+                    0.5 * b.querySelector(".star-rating").querySelectorAll(".fas.fa-star-half-alt").length;
+                return ratingA - ratingB;
+            } else if (selectedOption === "ratingDesc") {
+                var ratingA = a.querySelector(".star-rating").querySelectorAll(".fas.fa-star").length +
+                    0.5 * a.querySelector(".star-rating").querySelectorAll(".fas.fa-star-half-alt").length;
+                var ratingB = b.querySelector(".star-rating").querySelectorAll(".fas.fa-star").length +
+                    0.5 * b.querySelector(".star-rating").querySelectorAll(".fas.fa-star-half-alt").length;
+                return ratingB - ratingA;
+            }
+        });
+
+        feedbackItems.forEach(function (item) {
+            feedbackList.appendChild(item);
+        });
+    });
+</script>

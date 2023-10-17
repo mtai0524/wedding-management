@@ -3554,7 +3554,6 @@ E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.Generate
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.AssemblyInfoInputs.cache
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.AssemblyInfo.cs
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.csproj.CoreCompileInputs.cache
-E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.MvcApplicationPartsAssemblyInfo.cache
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.WebAPI.props
@@ -3570,3 +3569,4 @@ E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\refint\WebAPI.d
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
+E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs

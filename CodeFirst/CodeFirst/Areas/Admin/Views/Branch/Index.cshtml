@@ -67,6 +67,8 @@
                 <a asp-action="Edit" asp-route-id="@item.BranchId">Sửa</a> |
                 <a asp-action="Details" asp-route-id="@item.BranchId">Chi tiết</a> |
                 <a asp-action="Delete" asp-route-id="@item.BranchId">Xóa</a>
+                    <a asp-action="FeedbackByBranch" asp-route-id="@item.BranchId">Feedback</a>
+
             </td>
                 <td>
                     @if (item.IsLocked)

@@ -28,6 +28,8 @@ namespace CodeFirst.Areas.Admin.Controllers
             _noti = noti;
             _cloudianryService = cloudinaryService;
         }
+   
+
         [HttpPost]
         public IActionResult LockBranch(int branchId)
         {
@@ -73,15 +75,27 @@ namespace CodeFirst.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var branch = await _context.Branch
-                .FirstOrDefaultAsync(m => m.BranchId == id);
+            var branch = await _context.Branch.FirstOrDefaultAsync(m => m.BranchId == id);
             if (branch == null)
             {
                 return NotFound();
             }
 
-            return View(branch);
+            // Truy vấn danh sách phản hồi thuộc về chi nhánh có BranchId tương ứng
+            var feedbackForBranch = await _context.Feedback
+                .Where(f => f.BranchId == id)
+                .ToListAsync();
+
+            // Tạo một ViewModel chứa thông tin chi nhánh và danh sách phản hồi
+            var branchWithFeedbackViewModel = new BranchWithFeedbackViewModel
+            {
+                Branch = branch,
+                FeedbackList = feedbackForBranch
+            };
+
+            return View(branchWithFeedbackViewModel);
         }
+
 
         // GET: Admin/Branch/Create
         public IActionResult Create()

@@ -119,6 +119,9 @@ namespace CodeFirst.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedbackId"));
 
+                    b.Property<int?>("BranchId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
@@ -132,6 +135,8 @@ namespace CodeFirst.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("FeedbackId");
+
+                    b.HasIndex("BranchId");
 
                     b.HasIndex("UserId");
 
@@ -596,9 +601,15 @@ namespace CodeFirst.Migrations
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Feedback", b =>
                 {
+                    b.HasOne("CodeFirst.Models.Entities.Branch", "Branch")
+                        .WithMany()
+                        .HasForeignKey("BranchId");
+
                     b.HasOne("CodeFirst.Models.ApplicationUser", "Id")
                         .WithMany()
                         .HasForeignKey("UserId");
+
+                    b.Navigation("Branch");
 
                     b.Navigation("Id");
                 });
