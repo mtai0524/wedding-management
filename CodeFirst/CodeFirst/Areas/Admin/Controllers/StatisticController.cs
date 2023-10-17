@@ -1,4 +1,5 @@
-﻿using CodeFirst.Models;
+﻿using CodeFirst.Data;
+using CodeFirst.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ namespace CodeFirst.Areas.Admin.Controllers
     public class StatisticController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager; // Sử dụng UserManager để quản lý người dùng
+        
 
         public StatisticController(UserManager<ApplicationUser> userManager)
         {

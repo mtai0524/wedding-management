@@ -25,5 +25,6 @@ namespace CodeFirst.Data
         public DbSet<OrderService> OrderService { get; set; }
         public DbSet<ComboMenuEntity> ComboMenuEntity{ get; set; }
         public DbSet<MenuItemComboMenu> MenuItemComboMenu { get; set; }
+        public DbSet<Feedback> Feedback { get; set; }
     }
 }

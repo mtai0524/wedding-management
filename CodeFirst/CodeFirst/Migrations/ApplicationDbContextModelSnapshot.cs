@@ -76,7 +76,7 @@ namespace CodeFirst.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("IsLocked")
+                    b.Property<bool>("IsLocked")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
@@ -109,6 +109,33 @@ namespace CodeFirst.Migrations
                     b.HasKey("ComboMenuId");
 
                     b.ToTable("ComboMenuEntity");
+                });
+
+            modelBuilder.Entity("CodeFirst.Models.Entities.Feedback", b =>
+                {
+                    b.Property<int>("FeedbackId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedbackId"));
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("FeedbackDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double?>("Rating")
+                        .HasColumnType("float");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("FeedbackId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Feedback");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Hall", b =>
@@ -565,6 +592,15 @@ namespace CodeFirst.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
+            modelBuilder.Entity("CodeFirst.Models.Entities.Feedback", b =>
+                {
+                    b.HasOne("CodeFirst.Models.ApplicationUser", "Id")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Id");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Hall", b =>
