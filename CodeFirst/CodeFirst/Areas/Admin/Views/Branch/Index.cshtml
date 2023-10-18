@@ -5,12 +5,10 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Quản lý chi nhánh</h1>
 
 <style>
     .btn {
-        border: none;
-        outline: none;
         color:white;
         margin-left:5px;
     }
@@ -19,7 +17,7 @@
     }
 </style>
 <p>
-    <a asp-action="Create">Thêm chi nhánh mới</a>
+    <a class="btn btn-outline-primary" asp-action="Create">Thêm chi nhánh mới</a>
 </p>
 <table class="table">
     <thead>
@@ -64,10 +62,9 @@
                     <img src="@item.Image" class="rounded float-start" style="width:100%; height:10rem">
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.BranchId">Sửa</a> |
-                <a asp-action="Details" asp-route-id="@item.BranchId">Chi tiết</a> |
-                <a asp-action="Delete" asp-route-id="@item.BranchId">Xóa</a>
-                    <a asp-action="FeedbackByBranch" asp-route-id="@item.BranchId">Feedback</a>
+                    <a class="btn btn-outline-info" asp-action="Edit" asp-route-id="@item.BranchId">Sửa</a> |
+                    <a class="btn btn-outline-success" asp-action="Details" asp-route-id="@item.BranchId">Chi tiết</a> |
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.BranchId">Xóa</a>
 
             </td>
                 <td>
