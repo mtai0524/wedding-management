@@ -1,65 +1,64 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using CodeFirst.Controllers;
 using CodeFirst.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Diagnostics;
 
-namespace CodeFirst.Controllers
+namespace CodeFirst.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    [Area("Admin")]
+    public class ManageUserController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<ManageUserController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly INotyfService _notfy;
-
-
-        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager, INotyfService notfy)
+        public ManageUserController(ILogger<ManageUserController> logger, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager, INotyfService notfy)
         {
             _logger = logger;
             this._userManager = userManager;
             this._roleManager = roleManager;
             this._signInManager = signInManager;
             this._notfy = notfy;
-            
+
         }
         public IActionResult Index()
         {
-            ////_notfy.Success("Success Notification");
-            ////_notfy.Success("Success Notification that closes in 10 Seconds.", 10);
-            ////_notfy.Error("Some Error Message");
-            ////_notfy.Warning("Some Error Message");
-            ////_notfy.Information("Information Notification - closes in 4 seconds.", 4);
-            ////_notfy.Custom("Custom Notification <br><b><i>closes in 5 seconds.</i></b></p>", 5, "indigo", "fa fa-gear");
-            ////_notfy.Custom("Custom Notification - closes in 5 seconds.", 5, "whitesmoke", "fa fa-gear");
-            ////_notfy.Custom("Custom Notification - closes in 10 seconds.", 10, "#B600FF", "fa fa-home");
-            ////_notfy.Success("Success Notification");
-            //// Lấy danh sách tất cả người dùng và danh sách vai trò
-            //var users = _userManager.Users.ToList();
-            //var roles = _roleManager.Roles.ToList();
+            //_notfy.Success("Success Notification");
+            //_notfy.Success("Success Notification that closes in 10 Seconds.", 10);
+            //_notfy.Error("Some Error Message");
+            //_notfy.Warning("Some Error Message");
+            //_notfy.Information("Information Notification - closes in 4 seconds.", 4);
+            //_notfy.Custom("Custom Notification <br><b><i>closes in 5 seconds.</i></b></p>", 5, "indigo", "fa fa-gear");
+            //_notfy.Custom("Custom Notification - closes in 5 seconds.", 5, "whitesmoke", "fa fa-gear");
+            //_notfy.Custom("Custom Notification - closes in 10 seconds.", 10, "#B600FF", "fa fa-home");
+            //_notfy.Success("Success Notification");
+            // Lấy danh sách tất cả người dùng và danh sách vai trò
+            var users = _userManager.Users.ToList();
+            var roles = _roleManager.Roles.ToList();
 
-            //// Tạo một danh sách kết hợp giữa người dùng và vai trò
-            //var userRoles = new List<Tuple<ApplicationUser, IList<string>>>();
+            // Tạo một danh sách kết hợp giữa người dùng và vai trò
+            var userRoles = new List<Tuple<ApplicationUser, IList<string>>>();
 
-            //foreach (var user in users)
-            //{
-            //    var userRoleNames = _userManager.GetRolesAsync(user).Result;
-            //    userRoles.Add(new Tuple<ApplicationUser, IList<string>>(user, userRoleNames));
-            //}
+            foreach (var user in users)
+            {
+                var userRoleNames = _userManager.GetRolesAsync(user).Result;
+                userRoles.Add(new Tuple<ApplicationUser, IList<string>>(user, userRoleNames));
+            }
 
-            //// Truyền danh sách kết hợp vào view
-            //ViewData["UserRoles"] = userRoles;
+            // Truyền danh sách kết hợp vào view
+            ViewData["UserRoles"] = userRoles;
 
             return View();
         }
         public async Task<IActionResult> DeleteUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
-            if(user == null)
+            if (user == null)
             {
                 ViewBag.ErrorMessage = $"User with Id = {id} cannot be found";
                 return View("NotFound");

@@ -3,16 +3,13 @@
 
 @{
     ViewData["Title"] = "Role";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+
 }
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><a asp-action="Index" asp-controller="AppRoles">Role</a></li>
-    </ol>
-</nav>
-<h1>View Roles</h1>
+
+<h1>Quản lý quyền</h1>
 <p>
-    <a asp-area="Admin" asp-controller="ManageRole" asp-action="Create">Create role</a>
+    <a class="btn btn-outline-primary" asp-action="Create">Thêm quyền mới</a>
 </p>
 
 <table class="table">
@@ -28,7 +25,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var item in Model)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem=>item.Id)</td>

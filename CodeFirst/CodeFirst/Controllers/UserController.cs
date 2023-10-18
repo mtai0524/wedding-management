@@ -8,11 +8,11 @@ namespace CodeFirst.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class ManageUserController : ControllerBase
     {
 
         private readonly EmployeeService _employeeService;
-        public UserController(EmployeeService employeeService)
+        public ManageUserController(EmployeeService employeeService)
         {
             _employeeService = employeeService;
         }
