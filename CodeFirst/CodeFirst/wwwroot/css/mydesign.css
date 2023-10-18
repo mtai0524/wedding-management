@@ -13,6 +13,7 @@
 @import url(../plugins/animate/animate.min.css);
 @import url(../plugins/metismenu/css/metisMenu.min.css);
 @import url(../plugins/bootstrap-select/dist/css/bootstrap-select.min.css);
+
 .fa {
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
