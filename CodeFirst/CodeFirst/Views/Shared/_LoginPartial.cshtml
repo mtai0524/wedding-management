@@ -48,8 +48,6 @@
                                     <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                                         <button style="outline:none;" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Đăng xuất</span></i></button>
                                     </form>
-                                    <div><hr class="dropdown-divider border-dark"></div>
-                                    <a href="ui-elements/auth-signup.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-contact-add fs-5 me-3"></i>Add personal account</a>
                                 </div>
                             </div>
                         </div>
@@ -61,10 +59,10 @@
 else
 {
     <li class="nav-item">
-            <a id="logout" type="submit" class="nav-link btn" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a id="logout" type="submit" class="nav-link btn" id="register" asp-area="Identity" asp-page="/Account/Register">Đăng ký</a>
     </li>
     <li class="nav-item">
-            <a id="logout" type="submit" class="nav-link btn" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            <a id="logout" type="submit" class="nav-link btn" id="login" asp-area="Identity" asp-page="/Account/Login">Đăng nhập</a>
     </li>
 }
 </ul>

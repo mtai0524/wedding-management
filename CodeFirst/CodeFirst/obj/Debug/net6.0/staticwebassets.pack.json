@@ -333,28 +333,20 @@
       "PackagePath": "staticwebassets\\admin_assets\\template.js"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\bootstrap.min.css",
-      "PackagePath": "staticwebassets\\assets\\css\\bootstrap.min.css"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\animated.css",
+      "PackagePath": "staticwebassets\\assets\\css\\animated.css"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\flex-slider.css",
-      "PackagePath": "staticwebassets\\assets\\css\\flex-slider.css"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\fontawesome.css",
+      "PackagePath": "staticwebassets\\assets\\css\\fontawesome.css"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\font-awesome.css",
-      "PackagePath": "staticwebassets\\assets\\css\\font-awesome.css"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\owl.css",
+      "PackagePath": "staticwebassets\\assets\\css\\owl.css"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\lightbox.css",
-      "PackagePath": "staticwebassets\\assets\\css\\lightbox.css"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\owl-carousel.css",
-      "PackagePath": "staticwebassets\\assets\\css\\owl-carousel.css"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\templatemo-hexashop.css",
-      "PackagePath": "staticwebassets\\assets\\css\\templatemo-hexashop.css"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\templatemo-plot-listing.css",
+      "PackagePath": "staticwebassets\\assets\\css\\templatemo-plot-listing.css"
     },
     {
       "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\Flaticon.woff",
@@ -417,244 +409,88 @@
       "PackagePath": "staticwebassets\\assets\\fonts\\slick.woff"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\about-left-image.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\about-left-image.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\100x100.png",
+      "PackagePath": "staticwebassets\\assets\\images\\demo\\100x100.png"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\about-us-page-heading.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\about-us-page-heading.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\348x261.png",
+      "PackagePath": "staticwebassets\\assets\\images\\demo\\348x261.png"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\b1.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\b1.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\348x400.png",
+      "PackagePath": "staticwebassets\\assets\\images\\demo\\348x400.png"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\b2.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\b2.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\546x356.png",
+      "PackagePath": "staticwebassets\\assets\\images\\demo\\546x356.png"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\b3.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\b3.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\avatar.png",
+      "PackagePath": "staticwebassets\\assets\\images\\demo\\avatar.png"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\b4.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\b4.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\backgrounds\\01.png",
+      "PackagePath": "staticwebassets\\assets\\images\\demo\\backgrounds\\01.png"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\baner-right-image-01.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\baner-right-image-01.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\backgrounds\\f1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\demo\\backgrounds\\f1.jpg"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\baner-right-image-02.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\baner-right-image-02.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\backgrounds\\index.html",
+      "PackagePath": "staticwebassets\\assets\\images\\demo\\backgrounds\\index.html"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\baner-right-image-03.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\baner-right-image-03.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\gallery\\01.png",
+      "PackagePath": "staticwebassets\\assets\\images\\demo\\gallery\\01.png"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\baner-right-image-04.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\baner-right-image-04.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\gallery\\index.html",
+      "PackagePath": "staticwebassets\\assets\\images\\demo\\gallery\\index.html"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\close.png",
-      "PackagePath": "staticwebassets\\assets\\images\\close.png"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\imgl.gif",
+      "PackagePath": "staticwebassets\\assets\\images\\demo\\imgl.gif"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\explore-image-01.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\explore-image-01.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\imgr.gif",
+      "PackagePath": "staticwebassets\\assets\\images\\demo\\imgr.gif"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\explore-image-02.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\explore-image-02.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\index.html",
+      "PackagePath": "staticwebassets\\assets\\images\\demo\\index.html"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\instagram-01.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\instagram-01.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\f1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\f1.jpg"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\instagram-02.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\instagram-02.jpg"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\index.html",
+      "PackagePath": "staticwebassets\\assets\\images\\index.html"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\instagram-03.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\instagram-03.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\instagram-04.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\instagram-04.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\instagram-05.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\instagram-05.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\instagram-06.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\instagram-06.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\kid-01.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\kid-01.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\kid-02.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\kid-02.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\kid-03.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\kid-03.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\left-banner-image.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\left-banner-image.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\loading.gif",
-      "PackagePath": "staticwebassets\\assets\\images\\loading.gif"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\logo.png",
-      "PackagePath": "staticwebassets\\assets\\images\\logo.png"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\men-01.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\men-01.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\men-02.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\men-02.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\men-03.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\men-03.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\next.png",
-      "PackagePath": "staticwebassets\\assets\\images\\next.png"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\prev.png",
-      "PackagePath": "staticwebassets\\assets\\images\\prev.png"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\products-page-heading.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\products-page-heading.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\s1.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\s1.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\service-01.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\service-01.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\service-02.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\service-02.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\service-03.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\service-03.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\single-product-01.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\single-product-01.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\single-product-02.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\single-product-02.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\team-member-01.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\team-member-01.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\team-member-02.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\team-member-02.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\team-member-03.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\team-member-03.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\u1.png",
-      "PackagePath": "staticwebassets\\assets\\images\\u1.png"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\white-logo.png",
-      "PackagePath": "staticwebassets\\assets\\images\\white-logo.png"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\women-01.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\women-01.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\women-02.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\women-02.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\women-03.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\women-03.jpg"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\accordions.js",
-      "PackagePath": "staticwebassets\\assets\\js\\accordions.js"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\bootstrap.min.js",
-      "PackagePath": "staticwebassets\\assets\\js\\bootstrap.min.js"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\animation.js",
+      "PackagePath": "staticwebassets\\assets\\js\\animation.js"
     },
     {
       "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\custom.js",
       "PackagePath": "staticwebassets\\assets\\js\\custom.js"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\datepicker.js",
-      "PackagePath": "staticwebassets\\assets\\js\\datepicker.js"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\imgfix.min.js",
-      "PackagePath": "staticwebassets\\assets\\js\\imgfix.min.js"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\imagesloaded.js",
+      "PackagePath": "staticwebassets\\assets\\js\\imagesloaded.js"
     },
     {
       "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\isotope.js",
       "PackagePath": "staticwebassets\\assets\\js\\isotope.js"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\jquery-2.1.0.min.js",
-      "PackagePath": "staticwebassets\\assets\\js\\jquery-2.1.0.min.js"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\jquery.counterup.min.js",
-      "PackagePath": "staticwebassets\\assets\\js\\jquery.counterup.min.js"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\lightbox.js",
-      "PackagePath": "staticwebassets\\assets\\js\\lightbox.js"
-    },
-    {
       "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\owl-carousel.js",
       "PackagePath": "staticwebassets\\assets\\js\\owl-carousel.js"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\popper.js",
-      "PackagePath": "staticwebassets\\assets\\js\\popper.js"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\quantity.js",
-      "PackagePath": "staticwebassets\\assets\\js\\quantity.js"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\scrollreveal.min.js",
-      "PackagePath": "staticwebassets\\assets\\js\\scrollreveal.min.js"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\slick.js",
-      "PackagePath": "staticwebassets\\assets\\js\\slick.js"
-    },
-    {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\waypoints.min.js",
-      "PackagePath": "staticwebassets\\assets\\js\\waypoints.min.js"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\tabs.js",
+      "PackagePath": "staticwebassets\\assets\\js\\tabs.js"
     },
     {
       "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\mydesign.css",
@@ -677,6 +513,62 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\100x100.png",
+      "PackagePath": "staticwebassets\\images\\demo\\100x100.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\348x261.png",
+      "PackagePath": "staticwebassets\\images\\demo\\348x261.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\348x400.png",
+      "PackagePath": "staticwebassets\\images\\demo\\348x400.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\546x356.png",
+      "PackagePath": "staticwebassets\\images\\demo\\546x356.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\avatar.png",
+      "PackagePath": "staticwebassets\\images\\demo\\avatar.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\backgrounds\\01.png",
+      "PackagePath": "staticwebassets\\images\\demo\\backgrounds\\01.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\backgrounds\\f1.jpg",
+      "PackagePath": "staticwebassets\\images\\demo\\backgrounds\\f1.jpg"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\backgrounds\\index.html",
+      "PackagePath": "staticwebassets\\images\\demo\\backgrounds\\index.html"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\gallery\\01.png",
+      "PackagePath": "staticwebassets\\images\\demo\\gallery\\01.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\gallery\\index.html",
+      "PackagePath": "staticwebassets\\images\\demo\\gallery\\index.html"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\imgl.gif",
+      "PackagePath": "staticwebassets\\images\\demo\\imgl.gif"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\imgr.gif",
+      "PackagePath": "staticwebassets\\images\\demo\\imgr.gif"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\index.html",
+      "PackagePath": "staticwebassets\\images\\demo\\index.html"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\index.html",
+      "PackagePath": "staticwebassets\\images\\index.html"
+    },
+    {
       "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.js",
       "PackagePath": "staticwebassets\\js\\qrcode.js"
     },
@@ -687,6 +579,118 @@
     {
       "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\index.html",
+      "PackagePath": "staticwebassets\\layout\\index.html"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\index.html",
+      "PackagePath": "staticwebassets\\layout\\scripts\\index.html"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\jquery.backtotop.js",
+      "PackagePath": "staticwebassets\\layout\\scripts\\jquery.backtotop.js"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\jquery.easypiechart.min.js",
+      "PackagePath": "staticwebassets\\layout\\scripts\\jquery.easypiechart.min.js"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\jquery.min.js",
+      "PackagePath": "staticwebassets\\layout\\scripts\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\jquery.mobilemenu.js",
+      "PackagePath": "staticwebassets\\layout\\scripts\\jquery.mobilemenu.js"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\css\\fontawesome-all.min.css",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\css\\fontawesome-all.min.css"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\css\\index.html",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\css\\index.html"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\index.html",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\index.html"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\index.html",
+      "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\index.html"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\framework.css",
+      "PackagePath": "staticwebassets\\layout\\styles\\framework.css"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\index.html",
+      "PackagePath": "staticwebassets\\layout\\styles\\index.html"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\layout.css",
+      "PackagePath": "staticwebassets\\layout\\styles\\layout.css"
     },
     {
       "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\LICENSE",
@@ -915,6 +919,50 @@
     {
       "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\vendor\\bootstrap\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\vendor\\bootstrap\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\vendor\\bootstrap\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.js",
+      "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.js"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.min.js",
+      "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.min.map",
+      "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.min.map"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.slim.js"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.slim.min.js"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.slim.min.map"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CodeFirst.Microsoft.AspNetCore.StaticWebAssets.props",
