@@ -14,5 +14,8 @@ namespace CodeFirst.Models.Entities
         public int BranchId { get; set; } // nhớ get set dùm
         [ForeignKey("BranchId")]
         public virtual Branch? Branch{ get; set; }
+        public int? Capacity { get; set; }
+        [DisplayFormat(DataFormatString = "{0:#,##0} VNĐ")]
+        public double? Price { get; set; }
     }
 }

@@ -162,16 +162,16 @@
             <th>
                 @Html.DisplayNameFor(model => model.Items[0].Name)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].Price)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.Items[0].Description)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Items[0].MenuCategory)
             </th>
-       
+            <th>
+                @Html.DisplayNameFor(model => model.Items[0].Price)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -185,15 +185,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
-                @item.Price.Value.ToString("#,##0") VNĐ
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MenuCategory.Name)
             </td>
+                <td>
+                    @item.Price.Value.ToString("#,##0") VNĐ
+                </td>
             <td>
                 <a class="btn btn-outline-info edit-menu-button" data-menu-id="@item.MenuId">Sửa</a> |
                 <a class="btn btn-outline-success show-detail-button" data-menu-id="@item.MenuId">Chi tiết</a> |

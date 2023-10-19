@@ -68,7 +68,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HallId,Name,Description,Image,BranchId")] Hall hall, IFormFile imageFile)
+        public async Task<IActionResult> Create([Bind("HallId,Name,Description,Image,BranchId,Capacity,Price")] Hall hall, IFormFile imageFile)
         {
             if (imageFile == null || imageFile.Length == 0)
             {
@@ -112,7 +112,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("HallId,Name,Description,Image,BranchId")] Hall hall, IFormFile imageFile)
+        public async Task<IActionResult> Edit(int id, [Bind("HallId,Name,Description,Image,BranchId,Capacity,Price")] Hall hall, IFormFile imageFile)
         {
             if (id != hall.HallId)
             {

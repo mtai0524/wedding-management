@@ -38,6 +38,8 @@ namespace WebAPI.Controllers
                     hall.Name,
                     hall.Description,
                     hall.Image,
+                    hall.Price,
+                    hall.Capacity,
                     BranchName = hall.Branch != null ? hall.Branch.Name : null // Lấy tên của Branch hoặc null nếu không có Branch
                 })
                 .ToList();

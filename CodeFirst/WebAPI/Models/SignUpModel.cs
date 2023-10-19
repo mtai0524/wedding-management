@@ -18,5 +18,7 @@ namespace WebAPI.Models
         public string ConfirmPassword { get; set; }
         [Required]
         public string Avatar { get; set; } = null!;
+        [Required]
+        public string PhoneNumber { get; set; } = null!;
     }
 }

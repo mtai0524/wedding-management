@@ -95,7 +95,8 @@ namespace WebAPI.Repositories
                 LastName = model.LastName,
                 Email = model.Email,
                 UserName = model.Email,
-                Avatar = model.Avatar
+                Avatar = model.Avatar,
+                PhoneNumber = model.PhoneNumber
             };
             user.EmailConfirmed = true;
 

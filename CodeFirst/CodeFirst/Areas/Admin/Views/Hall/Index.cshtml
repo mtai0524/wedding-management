@@ -14,16 +14,23 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
+         
             <th>
                 @Html.DisplayNameFor(model => model.Branch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
             </th>
             <th></th>
         </tr>
@@ -31,18 +38,25 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+                <td style="width:15%">
+                    <img src="@item.Image" class="rounded float-start" style="width:100%; height:10rem">
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
-            <td style="width:15%">
-                <img src="@item.Image" class="rounded float-start" style="width:100%; height:10rem">
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.Branch.Name)
             </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
             <td>
                     <a class="btn btn-outline-info" asp-action="Edit" asp-route-id="@item.HallId">Sửa</a> |
                     <a class="btn btn-outline-success" asp-action="Details" asp-route-id="@item.HallId">Chi tiết</a> |
