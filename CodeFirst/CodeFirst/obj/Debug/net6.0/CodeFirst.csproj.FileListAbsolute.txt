@@ -5016,3 +5016,6 @@ E:\AspNetCore\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\refint\CodeF
 E:\AspNetCore\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\CodeFirst.pdb
 E:\AspNetCore\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\CodeFirst.genruntimeconfig.cache
 E:\AspNetCore\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\ref\CodeFirst.dll
+E:\AspNetCore\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\AspNetCore\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\AspNetCore\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

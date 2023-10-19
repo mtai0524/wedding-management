@@ -12,6 +12,7 @@ namespace CodeFirst.Models.Entities
         public string? Name { get; set; }
         [Required(ErrorMessage = "Vui lòng nhập giá món ăn")]
         [Display(Name = "Giá món ăn")]
+        [DisplayFormat(DataFormatString = "{0:#,##0} VNĐ")]
         public double? Price { get; set; }
         [Display(Name = "Mô tả món ăn")]
         public string? Description { get; set; }

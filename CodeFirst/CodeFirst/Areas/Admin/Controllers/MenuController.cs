@@ -13,6 +13,7 @@ using CloudinaryDotNet.Actions;
 using CloudinaryDotNet;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using CodeFirst.Service;
+using CodeFirst.Models;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -52,7 +53,7 @@ namespace CodeFirst.Areas.Admin.Controllers
 
         // GET: Admin/Menu
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
             // Lấy toàn bộ danh sách menu
             var menuItems = _context.MenuEntity.Include(m => m.MenuCategory);
@@ -60,7 +61,27 @@ namespace CodeFirst.Areas.Admin.Controllers
             // Lấy danh sách thể loại để hiển thị trong dropdown
             ViewBag.Categories = _context.MenuCategory.ToList();
 
-            return View(menuItems);
+            // Thay đổi giá trị pageSize thành 2
+            int pageSize = 3;
+
+            // Thực hiện phân trang
+            var paginatedMenuItems = await menuItems.Skip((page - 1) * pageSize)
+                                                    .Take(pageSize)
+                                                    .ToListAsync();
+            int totalItems = menuItems.Count();
+            int totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+            var model = new PaginatedList<MenuEntity>
+            {
+                Items = paginatedMenuItems,
+                PageIndex = page,
+                TotalItems = totalItems,
+                PageSize = pageSize,
+                TotalPages = totalPages // Thêm TotalPages vào model
+            };
+          
+
+            return View(model);
         }
         public async Task<IActionResult> Filter(int? categoryId, string searchString)
         {

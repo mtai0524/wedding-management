@@ -3569,4 +3569,5 @@ E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\refint\WebAPI.d
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
-E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
+E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll

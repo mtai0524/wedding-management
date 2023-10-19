@@ -469,6 +469,22 @@
       "PackagePath": "staticwebassets\\assets\\images\\index.html"
     },
     {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\s1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\s1.jpg"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\s2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\s2.jpg"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\s3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\s3.jpg"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\s4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\s4.jpg"
+    },
+    {
       "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\animation.js",
       "PackagePath": "staticwebassets\\assets\\js\\animation.js"
     },
