@@ -11,6 +11,7 @@ using DinkToPdf.Contracts;
 using DinkToPdf;
 using CodeFirst.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Text;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -71,54 +72,143 @@ namespace CodeFirst.Areas.Admin.Controllers
 
             // Lấy danh sách OrderMenu dựa trên InvoiceID
             var orderMenus = _context.OrderMenu.Where(om => om.InvoiceID == invoiceId).ToList();
-  
+            var orderServices = _context.OrderService.Where(om => om.InvoiceID == invoiceId).ToList();
 
-            // Tạo một chuỗi HTML trực tiếp thay vì render một view
+            var htmlBuilder1 = new StringBuilder();
+            var htmlBuilder2 = new StringBuilder();
+            var htmlBuilder3 = new StringBuilder();
+
+            htmlBuilder3.Append("<tr>");
+            htmlBuilder3.Append("<td>" + invoice.Hall.Name + "</td>");
+            htmlBuilder3.Append("<td style='text-align: right;'>" + string.Format("{0:0,0}", invoice.Hall.Price) + " VNĐ</td>");
+            htmlBuilder3.Append("</tr>");
+
+            foreach (var orderMenu in orderMenus)
+            {
+                var menuEntity = _context.MenuEntity.Find(orderMenu.MenuId);
+                if (menuEntity != null)
+                {
+                    htmlBuilder1.Append("<tr>");
+                    htmlBuilder1.Append("<td>" + menuEntity.Name + "</td>");
+                    htmlBuilder1.Append("<td style='text-align: right;'>" + string.Format("{0:0,0}", menuEntity.Price) + " VNĐ</td>");
+                    htmlBuilder1.Append("</tr>");
+                }
+            }
+
+            foreach (var orderService in orderServices)
+            {
+                var serviceEntity = _context.ServiceEntity.Find(orderService.ServiceId);
+                if (serviceEntity != null)
+                {
+                    htmlBuilder2.Append("<tr>");
+                    htmlBuilder2.Append("<td>" + serviceEntity.Name + "</td>");
+                    htmlBuilder2.Append("<td style='text-align: right;'>" + string.Format("{0:0,0}", serviceEntity.Price) + " VNĐ</td>");
+                    htmlBuilder2.Append("</tr>");
+                }
+            }
+
             var html = @"
 <!DOCTYPE html>
 <html>
 <head>
     <title>Invoice</title>
     <style>
+  table {
+width: 100%;
+        border-collapse: collapse;
+        border: none; /* Xóa border của table */
+    }
+
+    th, td {
+        border: none; /* Xóa border của các ô */
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2; /* Màu nền cho header */
+    }
         body {
             position: relative;
         }
 
-        .invoice {
+        .invoice, td,th {
             letter-spacing: 1px;
-            color: red;
         }
-
-        .date-time {
+.idinvoice{
+            letter-spacing: 0.5px;
             position: absolute;
             top: 10px;
-            right: 10px;
-            font-size: 10px;
+            left: 1px;
+            font-size: 13px;
+color:gray;
+}
+        .date-time {
+            letter-spacing: 0.5px;
+            position: absolute;
+            top: 10px;
+            right: 1px;
+            font-size: 13px;
+color:gray;
+
         }
+
+      
+h1, h2, h5{
+    text-align:center;
+}
+span{
+font-weight:bold;
+}
     </style>
 </head>
 <body>
-    <h1 class=""invoice"">Invoice</h1>
-    <p class=""invoice"">Invoice ID: " + invoice.InvoiceID + @"</p>
-    <p class=""invoice"">Email khách hàng: " + user.Email + @"</p>
-    <p class=""invoice"">Branch Name: " + invoice.Branch.Name + @"</p>
-    <p class=""invoice"">Hall Name: " + invoice.Hall.Name + @"</p>
-    <p class=""invoice"">Nhân viên in hóa đơn: " + userCurrent.ToString() + @"</p>
+<br/>
+    <h2 class=""invoice"">Hóa đơn thanh toán</h2>
+    <p class=""idinvoice"">Mã hóa đơn: " + invoice.InvoiceID + @"</p>
+    <p class=""invoice""><span>Email khách hàng: </span>" + user.Email + @"</p>
+    <p class=""invoice""><span>Chi nhánh: </span>" + invoice.Branch.Name + @"</p>
+    <p class=""invoice""><span>Nhân viên in hóa đơn: </span>" + userCurrent.ToString() + @"</p>
     <p class=""date-time"">Ngày giờ: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + @"</p>
     
-    <h2 class=""invoice"">Danh sách món ăn đã đặt:</h2>
-    <ul class=""invoice""> ";
-            foreach (var orderMenu in orderMenus)
-            {
-                var menuEntity = _context.MenuEntity.Find(orderMenu.MenuId);
-                if (menuEntity != null)
-                {
-                    html += $"<li>{menuEntity.Name} - {menuEntity.Price} VNĐ</li>";
-                }
-            }
+
+   <h2 class=""invoice"">Sảnh đã đặt</h2>
+    <table>
+        <tr>
+            <th>Tên sảnh</th>
+            <th style='text-align: right;'>Giá</th>
+        </tr>";
+
+            html += htmlBuilder3.ToString();
 
             html += @"
-    </ul>
+    </table>
+
+    <h2 class=""invoice"">Danh sách món ăn đã đặt</h2>
+    <table>
+        <tr>
+            <th>Tên món ăn</th>
+            <th style='text-align: right;'>Giá</th>
+        </tr>";
+
+            html += htmlBuilder1.ToString();
+
+            html += @"
+    </table>
+
+    <h2 class=""invoice"">Danh sách dịch vụ đã đặt</h2>
+    <table>
+        <tr>
+            <th>Tên dịch vụ</th>
+            <th style='text-align: right;'>Giá</th>
+        </tr>";
+
+            html += htmlBuilder2.ToString();
+
+            html += @"
+    </table>
+    <h3 style='text-align: right;' class=""invoice"">Tổng tiền: " + string.Format("{0:0,0}", invoice.Total) +" VNĐ" + @"</h3>
+<h2>~ Xin hẹn gặp lại quý khách ~</h2>
 </body>
 </html>
 ";
@@ -126,7 +216,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             var globalSettings = new GlobalSettings
             {
                 ColorMode = ColorMode.Color,
-                PaperSize = PaperKind.A6,
+                PaperSize = PaperKind.A5,
                 Orientation = Orientation.Portrait,
                 Margins = new MarginSettings { Top = 10 },
             };
@@ -136,7 +226,7 @@ namespace CodeFirst.Areas.Admin.Controllers
                 PagesCount = true,
                 HtmlContent = html,
                 WebSettings = { DefaultEncoding = "utf-8" },
-                HeaderSettings = { FontName = "Tahoma", FontSize = 12, Right = "Page [page] of [toPage]", Line = true },
+                HeaderSettings = { FontName = "Tahoma", FontSize = 12, Right = "", Line = true },
             };
 
             var pdf = new HtmlToPdfDocument()
@@ -174,7 +264,13 @@ namespace CodeFirst.Areas.Admin.Controllers
                 .Include(i => i.Branch)
                 .Include(i => i.Hall)
                 .Include(i => i.Id)
+                .Include(i => i.OrderMenus)
+                .ThenInclude(o => o.MenuEntity) // nạp MenuEntity
+                  .Include(i => i.OrderServices)
+                .ThenInclude(o => o.ServiceEntity) // nạp ServiceEntity
                 .FirstOrDefaultAsync(m => m.InvoiceID == id);
+
+
             if (invoice == null)
             {
                 return NotFound();
@@ -182,6 +278,7 @@ namespace CodeFirst.Areas.Admin.Controllers
 
             return View(invoice);
         }
+
 
         // GET: Admin/Invoice/Create
         public IActionResult Create()

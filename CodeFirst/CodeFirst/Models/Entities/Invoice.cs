@@ -30,7 +30,7 @@ namespace CodeFirst.Models.Entities
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Ngày đến tham dự")]
         public DateTime? AttendanceDate { get; set; }
-        [Display(Name = "Giá món ăn")]
+        [Display(Name = "Tổng thanh toán")]
         [DisplayFormat(DataFormatString = "{0:#,##0} VNĐ")]
         public double? Total { get; set; }
         [Display(Name = "Họ và tên")]
@@ -39,6 +39,10 @@ namespace CodeFirst.Models.Entities
         public string? PhoneNumber { get; set; }
         [Display(Name = "Ghi chú")]
         public string? Note { get; set; }
+        [Display(Name = "Danh sách các món ăn")]
+        public virtual List<OrderMenu> OrderMenus { get; set; }
+        [Display(Name = "Danh sách các dịch vụ")]
+        public virtual List<OrderService> OrderServices { get; set; }
 
     }
 }

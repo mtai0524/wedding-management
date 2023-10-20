@@ -4,34 +4,192 @@
     ViewData["Title"] = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<style>
+    /* CSS */
+    .invoice-container {
+        border: 1px solid #000;
+        padding: 20px;
+        margin: 20px;
+        width: 80%;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-<h1>Details</h1>
+    .menu-item, .service-item {
+        margin-bottom: 10px;
+    }
 
-<div>
-    <h4>Invoice</h4>
+    .menu-name, .service-name {
+        font-weight: bold;
+    }
+
+    .total-amount {
+        font-size: 18px;
+        color: #FF5733;
+    }
+
+    .hall-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .hall-name {
+        flex: 1; /* Tên sảnh chiếm toàn bộ không gian trái */
+    }
+
+    .hall-price {
+        flex: 1; /* Giá sảnh chiếm toàn bộ không gian phải */
+        text-align: right; /* Căn giữa bên phải */
+    }
+
+    .menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu-name {
+        flex: 1; /* Tên món ăn chiếm toàn bộ không gian bên trái */
+    }
+
+    .menu-price {
+        flex: 1; /* Giá món ăn chiếm toàn bộ không gian bên phải */
+        text-align: right; /* Căn giữa bên phải */
+    }
+
+    .service-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .service-name {
+        flex: 1; /* Tên món ăn chiếm toàn bộ không gian bên trái */
+    }
+
+    .service-price {
+        flex: 1; /* Giá món ăn chiếm toàn bộ không gian bên phải */
+        text-align: right; /* Căn giữa bên phải */
+    }
+
+    .total-amount.float-right {
+        float: right;
+        font-size: 18px;
+        color: #FF5733;
+    }
+    #btnExportPdf{
+        float: right;
+    }
+    .invoice-container{
+        margin:0 auto;
+    }
+</style>
+<h1>Chi tiết hóa đơn</h1>
+
+<div class="invoice-container">
+    <a id="btnExportPdf" class="btn btn-success" asp-action="GenerateInvoicePDF" asp-route-invoiceId="@Model.InvoiceID">
+        <i style="color:white" class="icofont-printer"></i> <span style="color:white">  In hóa đơn</span>
+    </a>
+    <div style="margin-left:90px;text-align:center;">
+        <h4>Hóa đơn thanh toán</h4>
+    </div>
+    
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InvoiceID)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id.Id)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InvoiceID)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Branch)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id.Email)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Branch.BranchId)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id.Email)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Hall)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FullName)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Hall.HallId)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AttendanceDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AttendanceDate)
+        </dd>
+       
+            <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BranchId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Branch.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HallId)
+        </dt>
+        <dd class="col-sm-10">
+            <div class="hall-info">
+                <div class="hall-name">@Html.DisplayFor(model => model.Hall.Name)</div>
+                <div class="hall-price">@Html.DisplayFor(model => model.Hall.Price)</div>
+            </div>
+        </dd>
+     
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderMenus)
+        </dt>
+        <dd class="col-sm-10">
+            <hr />
+            @foreach (var orderMenu in Model.OrderMenus)
+            {
+                <div class="menu-item">
+                    <div class="menu-name">@orderMenu.MenuEntity.Name</div>
+                    <div class="menu-price">@string.Format("{0:0,0} VND", @orderMenu.MenuEntity.Price.Value)</div>
+                </div>
+                <hr />
+            }
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderServices)
+        </dt>
+        <dd class="col-sm-10">
+            <hr />
+            @foreach (var orderService in Model.OrderServices)
+            {
+                <div class="service-item">
+                    <span class="service-name">@orderService.ServiceEntity.Name</span>
+                    <span class="service-price">@string.Format("{0:0,0} VND", orderService.ServiceEntity.Price.Value)</span>
+                </div>
+                <hr />
+            }
+        </dd>
+        <dt class="col-sm-2">
+            Tổng thanh toán
+        </dt>
+        <dd class="col-sm-10">
+            <span class="total-amount float-right">@string.Format("{0:0,0} VND", @Model.Total)</span>
+        </dd>
+       
     </dl>
+   
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.InvoiceID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a style="margin-top:60px; margin-left:160px" asp-action="Index">Trở về danh sách hóa đơn</a>
 </div>

@@ -36,9 +36,6 @@
             <th>
                 <a href="#" class="sortable" data-column="InvoiceDate">Thời gian tham dự</a>
             </th>
-            <th>
-                <a href="#" class="sortable" data-column="InvoiceDate">Tổng tiền</a>
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -74,9 +71,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.AttendanceDate)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Total)
-                </td>
+              
                 <td>
                
                     <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.InvoiceID">Xóa</a> |
