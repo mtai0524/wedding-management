@@ -2,7 +2,11 @@
 @model ConfirmEmailModel
 @{
     ViewData["Title"] = "Confirm email";
+    Layout = "~/Views/Shared/_EmptyLayout.cshtml";
 }
 
 <h1>@ViewData["Title"]</h1>
 <partial name="_StatusMessage" model="Model.StatusMessage" />
+
+<a style="outline:none;" asp-area="" asp-controller="Home" asp-action="Index" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-home fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Về trang chủ</span></i></a>
+
