@@ -16,10 +16,35 @@ namespace WebAPI.Controllers
         {
             _context = context;
         }
+        [HttpPost("checked")]
+        public IActionResult CheckDuplicateInvoice([FromBody] CheckDuplicateInvoice request)
+        {
+            var existingInvoice = _context.Invoice.FirstOrDefault(i =>
+                i.AttendanceDate.Value.Date == request.AttendanceDate.Date &&
+                i.BranchId == request.BranchId &&
+                i.HallId == request.HallId);
 
+            if (existingInvoice != null)
+            {
+                return BadRequest(new { message = "Chi nhánh và sảnh ngày hôm đó đã có người đặt" });
+            }
+
+            return Ok(new { message = "Không có hóa đơn trùng." });
+        }
         [HttpPost]
         public async Task<IActionResult> CreateInvoiceAndOrderMenus([FromBody] InvoiceAndOrderMenusRequest request)
         {
+
+            // Kiểm tra xem đã có hóa đơn nào cùng ngày, cùng sảnh và cùng chi nhánh chưa
+            var existingInvoice = _context.Invoice
+                .FirstOrDefault(i => i.AttendanceDate.HasValue &&
+                    i.AttendanceDate.Value.Date == request.AttendanceDate.Value.Date &&
+                    i.BranchId == request.BranchId &&
+                    i.HallId == request.HallId);
+            if (existingInvoice != null)
+            {
+                return BadRequest(new { message = "Đã có hóa đơn được tạo trong cùng một ngày, cùng chi nhánh và cùng sảnh." });
+            }
             // Tạo một đối tượng Invoice từ dữ liệu gửi từ React
             var invoice = new Invoice
             {
@@ -72,6 +97,22 @@ namespace WebAPI.Controllers
 
             return Ok(new { message = "Hóa đơn và món đã đặt đã được tạo thành công!" });
         }
+        [HttpGet("booked-hall")]
+        public IActionResult GetBookedHalls()
+        {
+            // Truy vấn cơ sở dữ liệu để lấy danh sách các sảnh đã có người đặt
+            var bookedHalls = _context.Invoice
+                .Where(i => i.HallId != null)
+                .Select(i => new
+                {
+                    HallId = i.HallId,
+                    HallName = i.Hall.Name,
+                    BookingDate = i.AttendanceDate
+                })
+                .Distinct()
+                .ToList();
 
+            return Ok(bookedHalls);
+        }
     }
 }

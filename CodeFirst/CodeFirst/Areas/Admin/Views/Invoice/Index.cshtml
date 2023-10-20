@@ -6,7 +6,12 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Identity" asp-page="/Account/Manage/Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a class="my-active-link" asp-area="Admin" asp-action="Index" asp-controller="Invoice">Danh sách hóa đơn</a></li>
+    </ol>
+</nav>
 <h1>Quản lý hóa đơn</h1>
 <a class="btn btn-outline-info" id="openModalButton">
     Tính tiền thừa

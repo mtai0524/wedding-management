@@ -12,6 +12,7 @@ using DinkToPdf;
 using CodeFirst.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Text;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -21,12 +22,14 @@ namespace CodeFirst.Areas.Admin.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IConverter _pdfConverter;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly INotyfService _noti;
 
-        public InvoiceController(ApplicationDbContext context, IConverter pdfConverter, UserManager<ApplicationUser> userManager)
+        public InvoiceController(ApplicationDbContext context, IConverter pdfConverter, UserManager<ApplicationUser> userManager, INotyfService noti)
         {
             _context = context;
             _pdfConverter = pdfConverter;
             _userManager = userManager;
+            _noti = noti;
         }
         [HttpPost]
         public IActionResult CalculateChange(decimal total, decimal amountPaid)
@@ -395,15 +398,31 @@ font-weight:bold;
             {
                 return Problem("Entity set 'ApplicationDbContext.Invoice'  is null.");
             }
+
             var invoice = await _context.Invoice.FindAsync(id);
-            if (invoice != null)
+
+            if (invoice == null)
             {
-                _context.Invoice.Remove(invoice);
+                return NotFound();
             }
-            
+
+            // Lấy danh sách các bản ghi OrderMenu liên quan đến hóa đơn cần xóa
+            var orderMenus = _context.OrderMenu.Where(om => om.InvoiceID == id);
+            var orderServices = _context.OrderService.Where(om => om.InvoiceID == id);
+
+            // Xóa các bản ghi OrderMenu
+            _context.OrderMenu.RemoveRange(orderMenus);
+            _context.OrderService.RemoveRange(orderServices);
+
+            // Xóa hóa đơn
+            _context.Invoice.Remove(invoice);
+
             await _context.SaveChangesAsync();
+            _noti.Success("Xóa hóa đơn gòi nha!");
+
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool InvoiceExists(int? id)
         {

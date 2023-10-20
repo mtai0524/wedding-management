@@ -85,6 +85,14 @@
         margin:0 auto;
     }
 </style>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Identity" asp-page="/Account/Manage/Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a  asp-area="Admin" asp-action="Index" asp-controller="Invoice">Danh sách hóa đơn</a></li>
+
+        <li class="breadcrumb-item"><a class="my-active-link" asp-area="Admin" asp-action="Details" asp-controller="Invoice" >Chi tiết hóa đơn @Model.InvoiceID</a></li>
+    </ol>
+</nav>
 <h1>Chi tiết hóa đơn</h1>
 
 <div class="invoice-container">
@@ -189,7 +197,4 @@
        
     </dl>
    
-</div>
-<div>
-    <a style="margin-top:60px; margin-left:160px" asp-action="Index">Trở về danh sách hóa đơn</a>
 </div>
