@@ -100,13 +100,17 @@ namespace WebAPI.Controllers
         [HttpGet("booked-hall")]
         public IActionResult GetBookedHalls()
         {
-            // Truy vấn cơ sở dữ liệu để lấy danh sách các sảnh đã có người đặt
+            // Lấy ngày hiện tại
+            var currentDate = DateTime.Now.Date;
+
+            // Truy vấn cơ sở dữ liệu để lấy danh sách các sảnh đã có người đặt từ ngày hiện tại trở về sau
             var bookedHalls = _context.Invoice
-                .Where(i => i.HallId != null)
+                .Where(i => i.HallId != null && i.AttendanceDate >= currentDate)
                 .Select(i => new
                 {
                     HallId = i.HallId,
                     HallName = i.Hall.Name,
+                    BranchName = i.Branch.Name,
                     BookingDate = i.AttendanceDate
                 })
                 .Distinct()
@@ -114,5 +118,6 @@ namespace WebAPI.Controllers
 
             return Ok(bookedHalls);
         }
+
     }
 }
