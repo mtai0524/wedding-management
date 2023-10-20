@@ -3,6 +3,7 @@ using CodeFirst.Models;
 using CodeFirst.Models.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebAPI.Controllers
 {
@@ -117,6 +118,31 @@ namespace WebAPI.Controllers
                 .ToList();
 
             return Ok(bookedHalls);
+        }
+
+        [HttpGet("get-invoice/{userId}")]
+        public IActionResult GetInvoicesByUser(string userId)
+        {
+            try
+            {
+                // Truy vấn danh sách hóa đơn dựa trên UserId và kèm theo thông tin OrderMenu và OrderService
+                var invoices = _context.Invoice
+                    .Where(i => i.UserId == userId)
+                    .Include(i => i.Branch)
+                    .Include(i => i.Hall)
+                    .Include(i => i.OrderMenus) // Kèm thông tin OrderMenu
+                        .ThenInclude(om => om.MenuEntity) // Kèm thông tin MenuEntity
+                    .Include(i => i.OrderServices) // Kèm thông tin OrderService
+                        .ThenInclude(os => os.ServiceEntity) // Kèm thông tin ServiceEntity
+                    .ToList();
+
+                return Ok(invoices);
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu cần
+                return StatusCode(500, new { message = "Lỗi server: " + ex.Message });
+            }
         }
 
     }
