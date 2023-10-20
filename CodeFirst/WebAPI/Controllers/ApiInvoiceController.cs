@@ -104,7 +104,7 @@ namespace WebAPI.Controllers
             // Lấy ngày hiện tại
             var currentDate = DateTime.Now.Date;
 
-            // Truy vấn cơ sở dữ liệu để lấy danh sách các sảnh đã có người đặt từ ngày hiện tại trở về sau
+            // Truy vấn cơ sở dữ liệu để lấy danh sách các sảnh đã có người đặt từ ngày hiện tại trở về sau và sắp xếp theo AttendanceDate tăng dần
             var bookedHalls = _context.Invoice
                 .Where(i => i.HallId != null && i.AttendanceDate >= currentDate)
                 .Select(i => new
@@ -114,11 +114,13 @@ namespace WebAPI.Controllers
                     BranchName = i.Branch.Name,
                     BookingDate = i.AttendanceDate
                 })
-                .Distinct()
+                .OrderBy(i => i.BookingDate)
                 .ToList();
 
             return Ok(bookedHalls);
         }
+
+
 
         [HttpGet("get-invoice/{userId}")]
         public IActionResult GetInvoicesByUser(string userId)
