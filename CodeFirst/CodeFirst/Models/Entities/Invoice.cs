@@ -27,5 +27,12 @@ namespace CodeFirst.Models.Entities
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}", ApplyFormatInEditMode = true)]
         [Display(Name = "Ngày tạo hóa đơn")]
         public DateTime? InvoiceDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Ngày đến tham dự")]
+        public DateTime? AttendanceDate { get; set; }
+        [Display(Name = "Giá món ăn")]
+        [DisplayFormat(DataFormatString = "{0:#,##0} VNĐ")]
+        public double? Total { get; set; }
+
     }
 }

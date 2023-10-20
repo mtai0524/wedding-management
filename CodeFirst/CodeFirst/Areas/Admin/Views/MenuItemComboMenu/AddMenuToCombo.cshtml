@@ -4,7 +4,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>AddMenuToCombo</h1>
+<h1>Thêm món ăn vào combo</h1>
 
 <form method="post">
     <div class="form-group">
@@ -17,5 +17,5 @@
         <select asp-for="SelectedMenuIds" asp-items="ViewBag.Menus" class="form-control" multiple></select>
     </div>
 
-    <button type="submit" class="btn btn-primary">Thêm Menu vào Combo</button>
+    <button style="margin-top:10px" type="submit" class="btn btn-primary">Thêm món ăn vào Combo</button>
 </form>

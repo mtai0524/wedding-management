@@ -26,14 +26,27 @@ namespace WebAPI.Controllers
                 UserId = request.UserId,
                 BranchId = (int)request.BranchId,
                 HallId = (int)request.HallId,
-                InvoiceDate = DateTime.Now
+                InvoiceDate = DateTime.Now,
+                Total = request.Total,
             };
+
+            // Kiểm tra ngày AttendanceDate
+            if (request.AttendanceDate.HasValue)
+            {
+                // Kiểm tra nếu AttendanceDate cách ngày hiện tại ít nhất 20 ngày
+                TimeSpan difference = request.AttendanceDate.Value - DateTime.Now;
+                if (difference.Days < 20)
+                {
+                    return BadRequest(new { message = "Ngày đến tham dự phải cách ngày hiện tại ít nhất 20 ngày." });
+                }
+                invoice.AttendanceDate = request.AttendanceDate;
+            }
 
             // Thêm đối tượng Invoice vào DbContext và lưu vào cơ sở dữ liệu
             _context.Invoice.Add(invoice);
             await _context.SaveChangesAsync();
 
-            //// Tạo danh sách các món đã đặt từ dữ liệu gửi từ React
+            // Tạo danh sách các món đã đặt từ dữ liệu gửi từ React
             var orderMenus = request.OrderMenus.Select(orderMenu => new OrderMenu
             {
                 InvoiceID = invoice.InvoiceID, // Liên kết với hóa đơn mới tạo
@@ -43,8 +56,6 @@ namespace WebAPI.Controllers
             // Thêm danh sách các món đã đặt vào DbContext và lưu vào cơ sở dữ liệu
             _context.OrderMenu.AddRange(orderMenus);
             await _context.SaveChangesAsync();
-
-
 
             var orderServices = request.OrderServices.Select(orderService => new OrderService
             {
@@ -58,5 +69,6 @@ namespace WebAPI.Controllers
 
             return Ok(new { message = "Hóa đơn và món đã đặt đã được tạo thành công!" });
         }
+
     }
 }

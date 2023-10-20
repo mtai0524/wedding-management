@@ -12,6 +12,7 @@ namespace CodeFirst.Models.Entities
         public string Name { get; set; }
 
         public virtual ICollection<MenuItemComboMenu>? MenuItemComboMenus { get; set; }
+        [DisplayFormat(DataFormatString = "{0:#,##0} VNĐ")]
         public double ComboPrice { get; set; }
 
     }

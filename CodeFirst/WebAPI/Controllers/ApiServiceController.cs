@@ -23,17 +23,16 @@ namespace WebAPI.Controllers
             try
             {
                 var serviceItems = await _context.ServiceEntity
-                    .Include(service => service.ServiceCategory) // Include MenuCategory
+                    .Include(service => service.ServiceCategory)
                     .ToListAsync();
 
-                // Map the result to a DTO if needed to shape the response
                 var result = serviceItems.Select(service => new
                 {
                     ServiceId = service.ServiceId,
                     Name = service.Name,
                     Price = service.Price,
                     Description = service.Description,
-                    CategoryName = service.ServiceCategory?.Name, // Get the name from MenuCategory
+                    CategoryName = service.ServiceCategory?.Name,
                     Image = service.Image
                 });
 

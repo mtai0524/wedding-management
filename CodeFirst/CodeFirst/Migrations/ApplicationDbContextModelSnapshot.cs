@@ -185,6 +185,9 @@ namespace CodeFirst.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("InvoiceID"));
 
+                    b.Property<DateTime?>("AttendanceDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("BranchId")
                         .HasColumnType("int");
 
@@ -193,6 +196,9 @@ namespace CodeFirst.Migrations
 
                     b.Property<DateTime?>("InvoiceDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<double?>("Total")
+                        .HasColumnType("float");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
