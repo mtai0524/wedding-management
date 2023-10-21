@@ -192,6 +192,12 @@
             Tổng thanh toán
         </dt>
         <dd class="col-sm-10">
+            <span class="total-amount float-right">@string.Format("{0:0,0} VND", @Model.TotalBeforeDiscount)</span>
+        </dd>
+        <dt class="col-sm-2">
+            Tổng sau khi giảm
+        </dt>
+        <dd class="col-sm-10">
             <span class="total-amount float-right">@string.Format("{0:0,0} VND", @Model.Total)</span>
         </dd>
        

@@ -12,6 +12,7 @@ namespace CodeFirst.Models
         public List<InvoiceCodeRequest> InvoiceCodeRequest { get; set; }
         public DateTime? AttendanceDate { get; set; }
         public double? Total { get; set; }
+        public double? TotalBeforeDiscount { get; set; }
         public string? FullName { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Note { get; set; }

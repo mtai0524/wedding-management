@@ -34,6 +34,9 @@ namespace CodeFirst.Models.Entities
         [Display(Name = "Tổng thanh toán")]
         [DisplayFormat(DataFormatString = "{0:#,##0} VNĐ")]
         public double? Total { get; set; }
+        [Display(Name = "Tổng thanh toán trước giảm giá")]
+        [DisplayFormat(DataFormatString = "{0:#,##0} VNĐ")]
+        public double? TotalBeforeDiscount { get; set; }
         [Display(Name = "Họ và tên")]
         public string? FullName { get; set; }
         [Display(Name = "Số điện thoại")]

@@ -54,6 +54,7 @@ namespace WebAPI.Controllers
                 HallId = (int)request.HallId,
                 InvoiceDate = DateTime.Now,
                 Total = request.Total,
+                TotalBeforeDiscount = request.TotalBeforeDiscount,
                 FullName = request.FullName,
                 PhoneNumber = request.PhoneNumber,
                 Note = request.Note,

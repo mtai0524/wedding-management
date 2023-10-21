@@ -210,7 +210,17 @@ font-weight:bold;
 
             html += @"
     </table>
-    <h3 style='text-align: right;' class=""invoice"">Tổng tiền: " + string.Format("{0:0,0}", invoice.Total) +" VNĐ" + @"</h3>
+<table>
+<tr>
+<th style='background-color:white;text-align: left;' class=""invoice"">Tổng tiền:</th>
+    <td style='color:red;text-align: right;' class=""invoice"">" + string.Format("{0:0,0}", invoice.TotalBeforeDiscount) +" VNĐ" + @"</td>
+</tr>
+<tr>
+<th style='background-color:white;text-align: left;' class=""invoice"">Tổng tiền sau khi giảm giá:</th>
+
+    <td style='color:red;text-align: right;' class=""invoice"">" + string.Format("{0:0,0}", invoice.Total) +" VNĐ" + @"</td>
+</tr>
+</table>
 <h2>~ Xin hẹn gặp lại quý khách ~</h2>
 </body>
 </html>
