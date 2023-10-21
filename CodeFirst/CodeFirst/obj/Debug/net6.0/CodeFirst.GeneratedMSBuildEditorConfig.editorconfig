@@ -36,6 +36,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmNoXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29kZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29kZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29kZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29kZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29kZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51RW50aXR5XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -122,6 +142,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZUNvZGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZUNvZGVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZUNvZGVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZUNvZGVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZUNvZGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/AspNetCore/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Invoice/Create.cshtml]

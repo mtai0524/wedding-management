@@ -120,8 +120,6 @@ namespace WebAPI.Controllers
             return Ok(bookedHalls);
         }
 
-
-
         [HttpGet("get-invoice/{userId}")]
         public IActionResult GetInvoicesByUser(string userId)
         {
@@ -146,6 +144,29 @@ namespace WebAPI.Controllers
                 return StatusCode(500, new { message = "Lỗi server: " + ex.Message });
             }
         }
+        [HttpGet("promo-code")]
+        public async Task<ActionResult<IEnumerable<Code>>> GetPromoCodes()
+        {
+            var promoCodes = await _context.Code.ToListAsync();
+            return Ok(promoCodes);
+        }
+        [HttpPost("use-promo-code")]
+        public async Task<ActionResult> UsePromoCode(int codeId)
+        {
+            var code = await _context.Code.FindAsync(codeId);
 
+            if (code != null && code.Quantity > 0)
+            {
+                code.Quantity--; // Giảm số lượng mã giảm giá
+                if (code.Quantity <= 0)
+                {
+                    _context.Code.Remove(code); // Xóa mã nếu hết lượt sử dụng
+                }
+                await _context.SaveChangesAsync();
+                return Ok("Mã giảm giá đã được sử dụng.");
+            }
+
+            return BadRequest("Mã giảm giá không hợp lệ hoặc đã hết lượt sử dụng.");
+        }
     }
 }

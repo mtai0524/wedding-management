@@ -4,6 +4,7 @@ using CodeFirst.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodeFirst.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231021054848_addTableCode")]
+    partial class addTableCode
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,12 +107,6 @@ namespace CodeFirst.Migrations
 
                     b.Property<double?>("Discount")
                         .HasColumnType("float");
-
-                    b.Property<DateTime?>("ExpirationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("Quantity")
-                        .HasColumnType("int");
 
                     b.HasKey("CodeId");
 
@@ -246,29 +243,6 @@ namespace CodeFirst.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Invoice");
-                });
-
-            modelBuilder.Entity("CodeFirst.Models.Entities.InvoiceCode", b =>
-                {
-                    b.Property<int>("InvoiceCodeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InvoiceCodeId"));
-
-                    b.Property<int?>("CodeId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("InvoiceId")
-                        .HasColumnType("int");
-
-                    b.HasKey("InvoiceCodeId");
-
-                    b.HasIndex("CodeId");
-
-                    b.HasIndex("InvoiceId");
-
-                    b.ToTable("InvoiceCode");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuCategory", b =>
@@ -719,21 +693,6 @@ namespace CodeFirst.Migrations
                     b.Navigation("Id");
                 });
 
-            modelBuilder.Entity("CodeFirst.Models.Entities.InvoiceCode", b =>
-                {
-                    b.HasOne("CodeFirst.Models.Entities.Code", "Code")
-                        .WithMany("InvoiceCode")
-                        .HasForeignKey("CodeId");
-
-                    b.HasOne("CodeFirst.Models.Entities.Invoice", "Invoice")
-                        .WithMany("InvoiceCode")
-                        .HasForeignKey("InvoiceId");
-
-                    b.Navigation("Code");
-
-                    b.Navigation("Invoice");
-                });
-
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuEntity", b =>
                 {
                     b.HasOne("CodeFirst.Models.Entities.MenuCategory", "MenuCategory")
@@ -861,11 +820,6 @@ namespace CodeFirst.Migrations
                     b.Navigation("Halls");
                 });
 
-            modelBuilder.Entity("CodeFirst.Models.Entities.Code", b =>
-                {
-                    b.Navigation("InvoiceCode");
-                });
-
             modelBuilder.Entity("CodeFirst.Models.Entities.ComboMenuEntity", b =>
                 {
                     b.Navigation("MenuItemComboMenus");
@@ -873,8 +827,6 @@ namespace CodeFirst.Migrations
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Invoice", b =>
                 {
-                    b.Navigation("InvoiceCode");
-
                     b.Navigation("OrderMenus");
 
                     b.Navigation("OrderServices");

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CodeFirst.Models.Entities.InvoiceCode>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Invoice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Invoice.InvoiceID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code.CodeId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.InvoiceCodeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.InvoiceCodeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.InvoiceCodeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

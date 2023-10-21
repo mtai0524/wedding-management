@@ -43,6 +43,7 @@ namespace CodeFirst.Models.Entities
         public virtual List<OrderMenu> OrderMenus { get; set; }
         [Display(Name = "Danh sách các dịch vụ")]
         public virtual List<OrderService> OrderServices { get; set; }
+        public virtual ICollection<InvoiceCode> InvoiceCode { get; set; }
 
     }
 }

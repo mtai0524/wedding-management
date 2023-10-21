@@ -72,6 +72,17 @@
                         <li><a class="ms-link" asp-area="Admin" asp-action="Index" asp-controller="MenuItemComboMenu"><span>Quản lý combo</span></a></li>
                     </ul>
                 </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#code-Components" href="#">
+                        <i class="icofont-bar-code"></i><span>Mã khuyến mãi</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span>
+                    </a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="code-Components">
+                        <li><a class="ms-link" asp-area="Admin" asp-action="Index" asp-controller="Code"><span>Quản lý mã khuyến mãi</span></a></li>
+                        <li><a class="ms-link" asp-area="Admin" asp-action="Index" asp-controller="InvoiceCode"><span>Danh sách hóa đơn dùng mã khuyến mãi</span></a></li>
+                    </ul>
+
+                </li>
             }
             <li><a class="m-link" asp-area="" asp-action="Index" asp-controller="Home"><i class="icofont-ui-home"></i> <span>Về trang chủ</span></a></li>
 

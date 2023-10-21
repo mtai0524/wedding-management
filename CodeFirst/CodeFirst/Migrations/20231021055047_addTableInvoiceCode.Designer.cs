@@ -4,6 +4,7 @@ using CodeFirst.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodeFirst.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231021055047_addTableInvoiceCode")]
+    partial class addTableInvoiceCode
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,12 +107,6 @@ namespace CodeFirst.Migrations
 
                     b.Property<double?>("Discount")
                         .HasColumnType("float");
-
-                    b.Property<DateTime?>("ExpirationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("Quantity")
-                        .HasColumnType("int");
 
                     b.HasKey("CodeId");
 
@@ -256,10 +253,10 @@ namespace CodeFirst.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InvoiceCodeId"));
 
-                    b.Property<int?>("CodeId")
+                    b.Property<int>("CodeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("InvoiceId")
+                    b.Property<int>("InvoiceId")
                         .HasColumnType("int");
 
                     b.HasKey("InvoiceCodeId");
@@ -722,12 +719,16 @@ namespace CodeFirst.Migrations
             modelBuilder.Entity("CodeFirst.Models.Entities.InvoiceCode", b =>
                 {
                     b.HasOne("CodeFirst.Models.Entities.Code", "Code")
-                        .WithMany("InvoiceCode")
-                        .HasForeignKey("CodeId");
+                        .WithMany()
+                        .HasForeignKey("CodeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CodeFirst.Models.Entities.Invoice", "Invoice")
-                        .WithMany("InvoiceCode")
-                        .HasForeignKey("InvoiceId");
+                        .WithMany()
+                        .HasForeignKey("InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Code");
 
@@ -861,11 +862,6 @@ namespace CodeFirst.Migrations
                     b.Navigation("Halls");
                 });
 
-            modelBuilder.Entity("CodeFirst.Models.Entities.Code", b =>
-                {
-                    b.Navigation("InvoiceCode");
-                });
-
             modelBuilder.Entity("CodeFirst.Models.Entities.ComboMenuEntity", b =>
                 {
                     b.Navigation("MenuItemComboMenus");
@@ -873,8 +869,6 @@ namespace CodeFirst.Migrations
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Invoice", b =>
                 {
-                    b.Navigation("InvoiceCode");
-
                     b.Navigation("OrderMenus");
 
                     b.Navigation("OrderServices");
