@@ -1,4 +1,6 @@
-﻿namespace CodeFirst.Models
+﻿using CodeFirst.Models.Entities;
+
+namespace CodeFirst.Models
 {
     public class InvoiceAndOrderMenusRequest
     {
@@ -7,6 +9,7 @@
         public int? HallId { get; set; } // Thêm HallId
         public List<OrderMenuRequest> OrderMenus { get; set; }
         public List<OrderServiceRequest> OrderServices { get; set; }
+        public List<InvoiceCodeRequest> InvoiceCodeRequest { get; set; }
         public DateTime? AttendanceDate { get; set; }
         public double? Total { get; set; }
         public string? FullName { get; set; }

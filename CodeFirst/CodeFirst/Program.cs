@@ -35,6 +35,8 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
+//builder.Services.AddHangFire(config => config
+//        .UseSqlServerStorage(Configuration.GetConnectionString("YourConnectionString")));
 //builder.Services.AddDefaultIdentity<IdentityUser>()
 //    .AddDefaultTokenProviders()
 //    .AddRoles<IdentityRole>()

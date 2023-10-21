@@ -96,6 +96,20 @@ namespace WebAPI.Controllers
             _context.OrderService.AddRange(orderServices);
             await _context.SaveChangesAsync();
 
+            //if (request.InvoiceCode != null && request.InvoiceCode.Any())
+            //{
+            // Tạo danh sách các đối tượng InvoiceCode và thêm thông tin mã giảm giá
+            var invoiceCodes = request.InvoiceCodeRequest.Select(codeId => new InvoiceCode
+            {
+                InvoiceId = invoice.InvoiceID,
+                CodeId = codeId.CodeId
+            }).ToList();
+
+            // Thêm danh sách các InvoiceCode vào DbContext và lưu vào cơ sở dữ liệu
+            _context.InvoiceCode.AddRange(invoiceCodes);
+            await _context.SaveChangesAsync();
+            //}
+
             return Ok(new { message = "Hóa đơn và món đã đặt đã được tạo thành công!" });
         }
         [HttpGet("booked-hall")]
@@ -168,5 +182,7 @@ namespace WebAPI.Controllers
 
             return BadRequest("Mã giảm giá không hợp lệ hoặc đã hết lượt sử dụng.");
         }
+
+        
     }
 }
