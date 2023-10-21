@@ -124,7 +124,7 @@ namespace CodeFirst.Areas.Admin.Controllers
                 if (!isImageChanged)
                 {
                     // Nếu người dùng không chọn ảnh mới, tìm đối tượng MenuEntity hiện có từ cơ sở dữ liệu
-                    var existingMenuEntity = await _context.Branch.FindAsync(id);
+                    var existingMenuEntity = await _context.ServiceEntity.FindAsync(id);
                     if (existingMenuEntity != null)
                     {
                         // Sử dụng đường dẫn ảnh từ đối tượng hiện có

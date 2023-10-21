@@ -239,22 +239,34 @@ namespace CodeFirst.Areas.Admin.Controllers
             return View(branch);
         }
 
-        // POST: Admin/Branch/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int? id)
         {
             if (_context.Branch == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Branch'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Branch' is null.");
             }
+
             var branch = await _context.Branch.FindAsync(id);
-            if (branch != null)
+
+            if (branch == null)
             {
-                _context.Branch.Remove(branch);
+                return NotFound();
             }
-            
+
+            // Lấy danh sách các bản ghi Feedback liên quan đến chi nhánh cần xóa
+            var feedbacks = _context.Feedback.Where(f => f.BranchId == id);
+
+            // Xóa các bản ghi Feedback
+            _context.Feedback.RemoveRange(feedbacks);
+
+            // Xóa chi nhánh
+            _context.Branch.Remove(branch);
+
             await _context.SaveChangesAsync();
+            _noti.Success("Xóa chi nhánh thành công!");
+
             return RedirectToAction(nameof(Index));
         }
 

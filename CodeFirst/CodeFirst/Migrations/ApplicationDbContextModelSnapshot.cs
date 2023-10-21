@@ -675,7 +675,8 @@ namespace CodeFirst.Migrations
                 {
                     b.HasOne("CodeFirst.Models.Entities.Branch", "Branch")
                         .WithMany()
-                        .HasForeignKey("BranchId");
+                        .HasForeignKey("BranchId").
+                        OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("CodeFirst.Models.ApplicationUser", "Id")
                         .WithMany()

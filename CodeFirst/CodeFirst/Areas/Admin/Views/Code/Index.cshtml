@@ -37,16 +37,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CodeString)
+                Id
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Discount)
+                Mã khuyến mãi
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Quantity)
+                Giảm
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ExpirationDate)
+                Số lượng
+            </th>
+            <th>
+                Ngày hết hạn
             </th>
             <th></th>
         </tr>
@@ -54,11 +57,14 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.CodeId)
+                </th>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.CodeId">@Html.DisplayFor(modelItem => item.CodeString)</a>
                 </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Discount)
+                @Html.DisplayFor(modelItem => item.Discount) %
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)

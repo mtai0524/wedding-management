@@ -10,20 +10,20 @@
     }
 
     .left-column {
-        flex: 80%; /* Chia trái 80% chiều rộng của row */
+        flex: 80%;
     }
 
     .right-column {
-        flex: 30%; /* Chia phải 20% chiều rộng của row */
+        flex: 30%;
         padding: 0 15px;
     }
 
     .menu-image {
         max-width: 100%;
         height: auto;
-        width: 100%; /* Thiết lập chiều rộng tối đa là 100% */
+        width: 100%;
         max-height: 330px;
-        object-fit: cover; /* Đảm bảo hình ảnh đổ đều và căn giữa trong phần tử */
+        object-fit: cover;
     }
 </style>
 
@@ -48,12 +48,7 @@
                 <dd class="col-sm-9">
                     @Html.DisplayFor(model => model.Name)
                 </dd>
-                <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.Price)
-                </dt>
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Price)
-                </dd>
+               
                 <dt class="col-sm-3">
                     @Html.DisplayNameFor(model => model.Description)
                 </dt>
@@ -65,6 +60,12 @@
                 </dt>
                 <dd class="col-sm-9">
                     @Html.DisplayFor(model => model.MenuCategory.Name)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Price)
                 </dd>
             </dl>
         </div>

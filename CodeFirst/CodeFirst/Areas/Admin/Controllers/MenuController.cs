@@ -61,8 +61,8 @@ namespace CodeFirst.Areas.Admin.Controllers
             // Lấy danh sách thể loại để hiển thị trong dropdown
             ViewBag.Categories = _context.MenuCategory.ToList();
 
-            // Thay đổi giá trị pageSize thành 2
-            int pageSize = 3;
+            // số item trong 1 page
+            int pageSize = 4;
 
             // Thực hiện phân trang
             var paginatedMenuItems = await menuItems.Skip((page - 1) * pageSize)
@@ -328,6 +328,12 @@ namespace CodeFirst.Areas.Admin.Controllers
                 {
                     return Json(new { success = false }); // Trả về JSON để xử lý lỗi
                 }
+                // Lấy danh sách các bản ghi OrderMenu liên quan đến món ăn
+                var orderMenus = _context.OrderMenu.Where(om => om.MenuId == id);
+
+                // Xóa các bản ghi OrderMenu
+                _context.OrderMenu.RemoveRange(orderMenus);
+
                 _noti.Success("Xóa món ăn thành công gòi á!!");
                 _context.MenuEntity.Remove(menu);
                 await _context.SaveChangesAsync();

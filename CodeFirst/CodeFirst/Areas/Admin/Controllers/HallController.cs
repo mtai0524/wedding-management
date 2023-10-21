@@ -87,6 +87,7 @@ namespace CodeFirst.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BranchId"] = new SelectList(_context.Branch, "BranchId", "BranchId", hall.BranchId);
+
             return View(hall);
         }
 
