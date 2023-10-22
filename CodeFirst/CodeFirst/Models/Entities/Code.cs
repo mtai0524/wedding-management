@@ -17,7 +17,7 @@ namespace CodeFirst.Models.Entities
 
         public int? Quantity { get; set; } // Số lượng mã giảm giá
         [Display(Name = "Ngày hết hạn")]
-
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime? ExpirationDate { get; set; } // Ngày hết hạn
         public virtual ICollection<InvoiceCode>? InvoiceCode { get; set; }
     }

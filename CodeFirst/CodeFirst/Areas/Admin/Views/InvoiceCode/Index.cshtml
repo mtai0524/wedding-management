@@ -5,10 +5,9 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Quản lý các hóa đơn có dùng mã giảm giá</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -32,9 +31,6 @@
                 @Html.DisplayFor(modelItem => item.Code.CodeId)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.InvoiceCodeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.InvoiceCodeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.InvoiceCodeId">Delete</a>
             </td>
         </tr>
 }
