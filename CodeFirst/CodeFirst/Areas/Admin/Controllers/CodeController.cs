@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
 using CodeFirst.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -62,7 +63,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         {
             return View();
         }
-
+        [Authorize(Roles = "administrator system, admin")]
         // POST: Admin/Code/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -98,6 +99,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         // POST: Admin/Code/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "administrator system, admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("CodeId,CodeString,Discount,Quantity,ExpirationDate")] Code code)
@@ -147,7 +149,7 @@ namespace CodeFirst.Areas.Admin.Controllers
 
             return View(code);
         }
-
+        [Authorize(Roles = "administrator system, admin")]
         // POST: Admin/Code/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

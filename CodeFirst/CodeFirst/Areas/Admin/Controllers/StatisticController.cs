@@ -1,5 +1,6 @@
 ﻿using CodeFirst.Data;
 using CodeFirst.Models;
+using CodeFirst.Models.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,28 +11,47 @@ namespace CodeFirst.Areas.Admin.Controllers
     [Area("Admin")]
     public class StatisticController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager; // Sử dụng UserManager để quản lý người dùng
+        private readonly ApplicationDbContext _context;
         
 
-        public StatisticController(UserManager<ApplicationUser> userManager)
+        public StatisticController(ApplicationDbContext context )
         {
-            _userManager = userManager;
+            _context = context;
         }
-        // GET: StatisticController
+
         public async Task<ActionResult> IndexAsync()
         {
             try
             {
-                // Sử dụng UserManager để đếm số lượng người dùng
-                var userCount = await _userManager.Users.CountAsync();
-
-                // Trả về kết quả
+                var userCount = await _context.ApplicationUser.CountAsync();
                 ViewData["UserCount"] = userCount;
+
+                // Lấy ngày hiện tại
+                DateTime currentDate = DateTime.Now;
+
+                // Lấy tháng và năm từ ngày hiện tại
+                int currentMonth = currentDate.Month;
+                int currentYear = currentDate.Year;
+                ViewData["CurrentMonth"] = currentMonth;
+                ViewData["CurrentYear"] = currentYear;
+
+                var invoiceCount = await _context.Invoice.CountAsync();
+                ViewData["InvoiceCount"] = invoiceCount;
+
+                var invoices = await _context.Invoice.ToListAsync();
+                double total = invoices.Sum(invoice => invoice.TotalBeforeDiscount ?? 0);
+                ViewData["Total"] = string.Format("{0:0,0}", total) + " đ";
+
+                int numberOfCustomers = _context.Invoice
+                        .Select(i => i.UserId) // UserId của hóa đơn
+                        .Distinct() // Loại trùng lặp
+                        .Count(); // Đếm số lượng user
+                ViewData["CustomerInvoice"] = numberOfCustomers;
+
                 return View();
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi nếu có
                 ViewData["Error"] = ex.Message;
                 return View();
             }

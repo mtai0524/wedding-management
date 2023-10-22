@@ -28,13 +28,13 @@
 
     .float-right {
         position: absolute;
-        top: 100px;
+        top: 92px;
         right: 20px;
     }
 
     .float-right i {
         opacity: 0.6;
-        font-size: 60px;
+        font-size: 40px;
     }
 </style>
 
@@ -46,7 +46,7 @@
                     <h3 class="card-title text-white">Số người dùng</h3>
                     <div class="d-inline-block">
                         <h2 class="text-white">@ViewData["UserCount"]</h2>
-                        <p class="text-white mb-0">Jan - March 2019</p>
+                        <p class="text-white mb-0">Tháng @ViewData["CurrentMonth"] - Năm @ViewData["CurrentYear"]</p>
                     </div>
                     <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
                 </div>
@@ -55,34 +55,34 @@
         <div class="col-lg-3 col-sm-6">
             <div class="card gradient-2">
                 <div class="card-body">
-                    <h3 class="card-title text-white">Net Profit</h3>
+                    <h3 class="card-title text-white">Số hóa đơn</h3>
                     <div class="d-inline-block">
-                        <h2 class="text-white">$ 8541</h2>
-                        <p class="text-white mb-0">Jan - March 2019</p>
+                        <h2 class="text-white">@ViewData["InvoiceCount"]</h2>
+                        <p class="text-white mb-0">Tháng @ViewData["CurrentMonth"] - Năm @ViewData["CurrentYear"]</p>
                     </div>
-                    <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
+                    <span class="float-right display-5 opacity-5"><i class="fa-solid fa-file-invoice-dollar"></i></span>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-sm-6">
             <div class="card gradient-3">
                 <div class="card-body">
-                    <h3 class="card-title text-white">New Customers</h3>
+                    <h3 class="card-title text-white">Doanh thu</h3>
                     <div class="d-inline-block">
-                        <h2 class="text-white">4565</h2>
-                        <p class="text-white mb-0">Jan - March 2019</p>
+                        <h3 class="text-white">@ViewData["Total"]</h3>
+                        <p class="text-white mb-0">Tháng @ViewData["CurrentMonth"] - Năm @ViewData["CurrentYear"]</p>
                     </div>
-                    <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                    <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-sm-6">
             <div class="card gradient-9">
                 <div class="card-body">
-                    <h3 class="card-title text-white">Customer Satisfaction</h3>
+                    <h3 class="card-title text-white">Khách / Hóa đơn</h3>
                     <div class="d-inline-block">
-                        <h2 class="text-white">99%</h2>
-                        <p class="text-white mb-0">Jan - March 2019</p>
+                        <h2 class="text-white">@ViewData["CustomerInvoice"]</h2>
+                        <p class="text-white mb-0">Tháng @ViewData["CurrentMonth"] - Năm @ViewData["CurrentYear"]</p>
                     </div>
                     <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
                 </div>
@@ -92,71 +92,6 @@
 
    
 </div>
-<div style="display: flex; justify-content: space-between;">
-    <div style="width: 40%;">
-        <h1>Biểu đồ cột</h1>
-        <canvas id="myChart"></canvas>
-    </div>
- @*    <div style="width: 48%;">
-        <h1>Biểu đồ hình tròn</h1>
-        <canvas id="myPieChart"></canvas>
-
-    </div> *@
-</div>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    var ctx = document.getElementById('myChart').getContext('2d');
 
-    // Định nghĩa dữ liệu biểu đồ cột
-    var data = {
-        labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4'],
-        datasets: [{
-            label: 'Doanh thu',
-            data: [1000, 1500, 2000, 1200],
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-        }]
-    };
 
-    // Cấu hình biểu đồ
-    var options = {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    };
-
-    // Tạo biểu đồ cột
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: options
-    });
-
-    var ctxPie = document.getElementById('myPieChart').getContext('2d');
-
-    // Định nghĩa dữ liệu biểu đồ hình tròn
-    var dataPie = {
-        labels: ['Loại A', 'Loại B', 'Loại C'],
-        datasets: [{
-            data: [30, 40, 30],
-            backgroundColor: ['rgba(255, 99, 132, 0.7)', 'rgba(75, 192, 192, 0.7)', 'rgba(255, 206, 86, 0.7)']
-        }]
-    };
-
-    // Cấu hình biểu đồ hình tròn
-    var optionsPie = {
-        responsive: true,
-        maintainAspectRatio: false
-    };
-
-    // Tạo biểu đồ hình tròn
-    var myPieChart = new Chart(ctxPie, {
-        type: 'pie',
-        data: dataPie,
-        options: optionsPie
-    });
-</script>

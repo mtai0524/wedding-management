@@ -1,6 +1,7 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using CodeFirst.Controllers;
 using CodeFirst.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -55,6 +56,8 @@ namespace CodeFirst.Areas.Admin.Controllers
 
             return View();
         }
+        [Authorize(Roles = "administrator system, admin")]
+
         public async Task<IActionResult> DeleteUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -62,20 +65,28 @@ namespace CodeFirst.Areas.Admin.Controllers
             {
                 ViewBag.ErrorMessage = $"User with Id = {id} cannot be found";
                 return View("NotFound");
-
             }
-            else
+
+            // Kiểm tra xem người dùng đang đăng nhập có cùng ID với người dùng được xóa không
+            var currentUser = await _userManager.GetUserAsync(User); // Lấy người dùng đang đăng nhập
+            if (currentUser.Id == user.Id)
             {
-                var result = await _userManager.DeleteAsync(user);
-                if (result.Succeeded)
-                {
-                    _notfy.Error("Xóa thành công");
-
-                    return RedirectToAction("Index");
-                }
-                return View("Index");
+                // Người dùng đang đăng nhập cố gắng xóa chính mình
+                _notfy.Error("Xóa chính mình để chi?");
+                return RedirectToAction("Index");
             }
+
+            var result = await _userManager.DeleteAsync(user);
+            if (result.Succeeded)
+            {
+                _notfy.Error("Xóa thành công");
+                return RedirectToAction("Index");
+            }
+            return View("Index");
         }
+
+        [Authorize(Roles = "administrator system, admin")]
+
         [HttpGet]
         public async Task<IActionResult> EditUser(string id)
         {
@@ -101,6 +112,8 @@ namespace CodeFirst.Areas.Admin.Controllers
             return View("EditUser", userViewModel);
         }
         [HttpPost]
+        [Authorize(Roles = "administrator system, admin")]
+
         public async Task<IActionResult> EditUser(UserViewModel model)
         {
             if (ModelState.IsValid)

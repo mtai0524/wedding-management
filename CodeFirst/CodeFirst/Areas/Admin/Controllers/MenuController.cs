@@ -14,6 +14,7 @@ using CloudinaryDotNet;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using CodeFirst.Service;
 using CodeFirst.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -143,6 +144,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         // POST: Admin/Menu/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "administrator system, admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("MenuId,Name,Price,Description,CategoryId")] MenuEntity menuEntity, IFormFile imageFile)
@@ -240,7 +242,7 @@ namespace CodeFirst.Areas.Admin.Controllers
 
             return Ok("Menu updated successfully");
         }
-
+        [Authorize(Roles = "administrator system, admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("MenuId,Name,Price,Description,CategoryId")] MenuEntity menuEntity, IFormFile imageFile)
@@ -318,6 +320,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // Action để xóa món ăn bằng Ajax
+        [Authorize(Roles = "administrator system, admin")]
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {

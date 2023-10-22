@@ -10,6 +10,7 @@ using CodeFirst.Models.Entities;
 using CodeFirst.Service;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using CloudinaryDotNet;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -130,6 +131,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // GET: Admin/Branch/Edit/5
+        [Authorize(Roles = "administrator system, admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Branch == null)
@@ -222,6 +224,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // GET: Admin/Branch/Delete/5
+        [Authorize(Roles = "administrator system, admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Branch == null)
