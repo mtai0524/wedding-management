@@ -56,11 +56,6 @@ namespace WebAPI.Repositories
                 new Claim(ClaimTypes.Surname, lastName),
             };
 
-            if (!string.IsNullOrEmpty(avatar))
-            {
-                // Chỉ thêm Claim cho avatar nếu nó không null hoặc rỗng
-                authClaims.Add(new Claim(ClaimTypes.Uri, avatar));
-            }
 
             if (!string.IsNullOrEmpty(phone))
             {

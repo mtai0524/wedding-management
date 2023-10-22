@@ -24,6 +24,20 @@ namespace WebAPI.Controllers
             _userManager = userManager;
             _context = context;
         }
+        [HttpGet("GetAvatar")]
+        public async Task<IActionResult> GetAvatarAsync([FromQuery] string id)
+        {
+            // Find the user by email
+            var user = await _context.ApplicationUser.FirstOrDefaultAsync(u => u.Id == id);
+
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            // Return the user's avatar URL
+            return Ok(new { avatar = user.Avatar });
+        }
 
         [HttpPost("SignUp")]
         public async Task<IActionResult> SignUp(SignUpModel signUpModel)
