@@ -34,7 +34,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         // GET: Admin/Code
         public async Task<IActionResult> Index()
         {
-            CheckAndRemoveExpiredCodes();
+            //CheckAndRemoveExpiredCodes();
               return _context.Code != null ? 
                           View(await _context.Code.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Code'  is null.");
