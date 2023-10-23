@@ -1,6 +1,6 @@
 USE [codefirst]
 GO
-/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 10/23/2023 10:52:35 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -14,7 +14,7 @@ CREATE TABLE [dbo].[__EFMigrationsHistory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 10/23/2023 10:52:35 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -30,7 +30,7 @@ CREATE TABLE [dbo].[AspNetRoleClaims](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 10/23/2023 10:52:35 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -46,7 +46,7 @@ CREATE TABLE [dbo].[AspNetRoles](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 10/23/2023 10:52:35 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -62,7 +62,7 @@ CREATE TABLE [dbo].[AspNetUserClaims](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 10/23/2023 10:52:35 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -79,7 +79,7 @@ CREATE TABLE [dbo].[AspNetUserLogins](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -94,7 +94,7 @@ CREATE TABLE [dbo].[AspNetUserRoles](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -125,7 +125,7 @@ CREATE TABLE [dbo].[AspNetUsers](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserTokens]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[AspNetUserTokens]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -143,7 +143,7 @@ CREATE TABLE [dbo].[AspNetUserTokens](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Branch]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[Branch]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -162,7 +162,7 @@ CREATE TABLE [dbo].[Branch](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Code]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[Code]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -179,7 +179,7 @@ CREATE TABLE [dbo].[Code](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ComboMenuEntity]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[ComboMenuEntity]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -194,7 +194,7 @@ CREATE TABLE [dbo].[ComboMenuEntity](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Employee]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[Employee]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -213,7 +213,7 @@ CREATE TABLE [dbo].[Employee](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Feedback]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[Feedback]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -231,7 +231,7 @@ CREATE TABLE [dbo].[Feedback](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Hall]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[Hall]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -250,7 +250,7 @@ CREATE TABLE [dbo].[Hall](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Invoice]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[Invoice]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -273,7 +273,7 @@ CREATE TABLE [dbo].[Invoice](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[InvoiceCode]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[InvoiceCode]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -288,7 +288,7 @@ CREATE TABLE [dbo].[InvoiceCode](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MenuCategory]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[MenuCategory]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -303,7 +303,7 @@ CREATE TABLE [dbo].[MenuCategory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MenuEntity]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[MenuEntity]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -321,7 +321,7 @@ CREATE TABLE [dbo].[MenuEntity](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MenuItemComboMenu]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[MenuItemComboMenu]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -336,7 +336,7 @@ CREATE TABLE [dbo].[MenuItemComboMenu](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OrderMenu]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[OrderMenu]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -351,7 +351,7 @@ CREATE TABLE [dbo].[OrderMenu](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OrderService]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[OrderService]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -366,7 +366,7 @@ CREATE TABLE [dbo].[OrderService](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ServiceCategory]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[ServiceCategory]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -381,7 +381,7 @@ CREATE TABLE [dbo].[ServiceCategory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ServiceEntity]    Script Date: 10/23/2023 5:25:26 PM ******/
+/****** Object:  Table [dbo].[ServiceEntity]    Script Date: 10/23/2023 10:52:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -543,7 +543,7 @@ INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [No
 INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar]) VALUES (N'e82addd3-05ce-4891-a1a1-119caa481b0f', N'mt2405@gmail.com', N'MT2405@GMAIL.COM', N'mt2405@gmail.com', N'MT2405@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEAW3BMF0j6f5+OrUK7SZxfQzl1xIxm68zlKkQ8eAysCCs5Ge79Fn24MJleUrko0efg==', N'KTKHAVKONLJIX3IMQD5P4R3I4GDIHAEM', N'088601fe-ebb4-4664-83b8-2e50292b24d9', NULL, 0, 0, NULL, 1, 0, N'ApplicationUser', N'minh', N'tai', NULL)
 INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar]) VALUES (N'ef107c32-cb8d-43e4-8e0f-5c6315a01490', N'dahjdsb@gmail.com', N'DAHJDSB@GMAIL.COM', N'dahjdsb@gmail.com', N'DAHJDSB@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAEJKoAu4Nce2x4FKDzmVj3SZqwU+I5NaUhnB6ciUL2nk5oIf9TJlAWw4SxRjwnvGo6A==', N'GQT4U45JJJIKLR7GRPVNCM2ZAL6BVG5V', N'bf079bb3-90df-4391-a75d-48f683ba8e8c', N'3123123', 0, 0, NULL, 1, 0, N'ApplicationUser', N'213', N'2312', N'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAACxAAAAsQHGLUmNAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAftJREFUSImd1d9rj3EUB/DXbGNMihtR5AaF7YokiRQlS8malOQPkEvlQinKbrl1hxRu5krJcqUopGmRpJmM+TU/xvLju7k4n23fvp5nz/P1rqen55zPeZ/z+bzP5zwUYwmu4Qt+og/HMKtEbCFa8RwTGc89vMMz7Pkf8gaczSGvfUaxqB7yRlxHpWSCCezOIso7xw6x7UqGbwTHcQgva4oqjSOmtz5Z4VucxMKqdcvxFd8xv54E6xPpAC6gE3Ny1l7Br3rIJ9GPiyXWncPDPGfWubVjF97jD+5gL5qwDENYiR34gA0YFF3UIFp3Clkir8NH3Ej+b1ghLtiqZHuRkg2jBT1Cr7ZasrwueiIE/JG+bwlNKhhP79vJN5bWPs0iykrQi21i+yPJ9iC9h9IOq21jeJVienMKzkzchgNVtsacgg5ibY4v94jG8RjNVbYWdKWkS2vi+1NM3WjH5hn8+xXMoKKR2ycm6pYM3z4xST/NRNBQkGASR7Eav8VRzBMiny8ZX4iukrZ/0FQyQYfolCZxB5qF0FeLAsv89jaJSTmM+6K7BrEAG4uC8zRoxQksxiMxMbcm0tn4jJviDrTjDU6bvvkzohuXhKhlsQaXcarWkTVN76aqtosfyUAB+U4cxmucEZ02haI27RRHUxE6jArd5qbkjWL+9OQR/AWT3IFlSMu8xAAAAABJRU5ErkJggg==')
 INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar]) VALUES (N'f70dbb2e-c608-4f62-8dc1-fedf520bbfe7', N'testimg7@gmail.com', N'TESTIMG7@GMAIL.COM', N'testimg7@gmail.com', N'TESTIMG7@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAEB5y4m+a5SY1DQCsbCG6qKAhAEI0y02jSKHZ9KuUP8o6+cfmFxpb0OjRiQtp6KetoA==', N'SYTSIGRIHWRA3YXFENHSWVDLFII2PCSA', N'd1afdf1c-cdc7-4513-920f-2d309696df58', N'21321', 0, 0, NULL, 1, 0, N'ApplicationUser', N'213', N'3123', N'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAATcSURBVFiFvZZrbBRVGIafc2Z2d7bdtrS7vdiWptwvtYASpbURhaLID+MPAQ1EBDU0BkjkIoRoAoYYY4hBogVRfyCCBiGQtKlBgykBFSRI1BQKlEIL1LZYKJeuuzs7O8cfpYCUdHap+P7bnfd7v2fOOfPNCBLQ7KGLUqWhZikhpiEYiyITUKDaQRwVUBP26dt3HFwXijdTxGucVbxgokRWAWkO1ou2rU396tiHv/1nALPHLMoXinrAF48faI+4IyN2/PrpVSejjCdNKN6+W3PD0DA8+t1Ksj1RY3E82Xetvl0zZszQOMF0gDHFWfbT5YNldlYS6QO8iBv4MVvR2RmivT1IVU2DdbqxUxdKvQCsdsp3XAHvqawhgB/gyYkFctRIPxkZt5oDaFIQ8CdRNDqTsscG6gAKRs4YP9/pvDgDWJaWB6DrkhHDAk52HhwdQIjuo+UOe/L6DSBFTAcoK83HMDRHgIx0L+PGZt8oVo4FjgBCihjAlMmDsG34/mgrG6pPcvFK5KbnTFsXG6tPcaDuIgBPTS4EQJfK7jfAmvnDCzPSPV0pKW7MmI1QMLpgAP5U901Pnt/LiIGpBMMWACkpbnIyjY733hj1cL8BsgL6W+OGp/k0TWC4JMPyUmhqu44Vu3Vzl6+ZNLV1UVaUCYAQgpKitMCAJLmq3wC2Zbvz/RqaFGDFKEiWzCnJxaMUdigMKHKSdeaW5uKzLLBtNF2SkyKwLeV2ynceRC59Z8EDhqrdfw6kACEREpQQRDsuAQKk6P5PCpQQVNc0WKOHJ4MmdvQbIPmKWJ6sy9LDh1vCSIn0GQSli+bWLprbIzQ1X6G5LUjUMJDJBqZp03LhWpfH8I5Pzr64wik/7pfR0vKVp6eUFw5x6ZLtO48TCln/up6R7mXWi0WcarhEY2Pnnneq1kyLJ9dxFPcoFIlu3fZ13SoAKSUrP19IINcPwJm6ZiqXb+bjjUcA8HldlfHmOk+WGxqa+ki9prEYhVRKUX+4ASPJTVP9BXZt+BYzHAXAMPTLnYUXKo4fP67iyY17CwBeGrPwC6XEnL48SrFsW91HH8SbGdfruEfCVEuAP/to/0tLwL8+kcyEALacqLyka1pZXnbSCSluLZ6uS/JyfT9E3ObUfftWW31E9FJCW9Cj8J7t71/viixvv2whDYP8/DQMj5znLpu2OdGshAFUba1huiL7EEy4I+qQ23RPEpMmhRPJS2gLwge+e9Z0R+p7NwdQJaY70mj+vGeOUiruG4vLuO7d3XPPXbXWvlLqDQzP6nt0HGmOsvP3cOfQgHvFgjef+6xfABvW7x5/tjX25ZHz5ihbgS4FL08wmPmQF3FHZWdQ8dnBIHtPmt3BAopzXRdGZMvZC5c9vz8hgC1rd2WdCdqbD56NPhOO9l7O0kIXS8t9pBoCpWDvyQibfgpxLdz7+8Otw6MFnkP5GbHpry+Z2dInwOra1br+Y/EnR5rMeZ0h1ef5yEqRvFqSRFVdmGOtzk9eulfYJYM9W9MDf71WUVER7QVQWfmN749Gzp5os5y/PPuhUTlaR/EQMWjBgpldcNtT0Noua+53c4D6tligtU1W9/yW0L3nR89Zj9/v5j06ej76xKZN1YGbAB0Ws4OmfU9T8V4UNJWIXInOuglg2rFB/1fzHv1ticEA/wDXja24ntTn1QAAAABJRU5ErkJggg==')
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar]) VALUES (N'fa3cca06-fba5-48a1-a7e0-4fb9d5b54594', N'nguyentai24052002@gmail.com', N'NGUYENTAI24052002@GMAIL.COM', N'nguyentai24052002@gmail.com', N'NGUYENTAI24052002@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAEJa6LGrv1NLJ9iE2zUxHIENSZkCE6QJv9Gl6GSVIUj3qepOpbK95JdjVtaX9F33vPQ==', N'JA64HETXCRFTR7MJSYQYCAH2Z7KDWZUL', N'4a4b6f04-0181-49d2-bb64-0fca53b5d921', N'0795896039', 0, 1, NULL, 1, 0, N'ApplicationUser', N'minh', N'tai', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1697942464/ca7vliyllb5a5g4dssfh.jpg')
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar]) VALUES (N'fa3cca06-fba5-48a1-a7e0-4fb9d5b54594', N'nguyentai24052002@gmail.com', N'NGUYENTAI24052002@GMAIL.COM', N'nguyentai24052002@gmail.com', N'NGUYENTAI24052002@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAEJa6LGrv1NLJ9iE2zUxHIENSZkCE6QJv9Gl6GSVIUj3qepOpbK95JdjVtaX9F33vPQ==', N'GLZZMZNT2FTFZA54PACC7NBHCYEUV25A', N'dfca9e10-0176-444e-94ef-2ababa3556a7', N'0795896039', 0, 0, NULL, 1, 0, N'ApplicationUser', N'minh', N'tai', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1697942464/ca7vliyllb5a5g4dssfh.jpg')
 INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar]) VALUES (N'fc1f5777-0aa8-4e20-920a-a048e2eb4c1c', N'lytiulong@gmail.com', N'LYTIULONG@GMAIL.COM', N'lytiulong@gmail.com', N'LYTIULONG@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAEPWi+uxrqwjA0FrXiXuzM4ohyOoGPS51GgHocFHLxEG/H/9PoPmjasrvNGyWOE1tcA==', N'2TMLDQNH4BWNPQK4EKYN4LQZ5VTHP7TT', N'16336d7b-40d3-4a57-9147-3e1d661bc5b5', NULL, 0, 0, NULL, 1, 0, N'ApplicationUser', N'Lý', N'Long', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1695020410/fc1f5777-0aa8-4e20-920a-a048e2eb4c1c_profile_picture.jpg')
 GO
 INSERT [dbo].[AspNetUserTokens] ([UserId], [LoginProvider], [Name], [Value]) VALUES (N'08f3f05d-b266-4c3e-99b4-12c0d926a8d3', N'[AspNetUserStore]', N'AuthenticatorKey', N'DXCEHXIG4K7LUNXOPIM5JZUOYQEEIDHQ')
