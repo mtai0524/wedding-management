@@ -1,4 +1,4 @@
-﻿using CodeFirst.Models.Chat;
+﻿using CodeFirst.Chat;
 using Microsoft.AspNetCore.Identity;
 
 namespace CodeFirst.Models
@@ -10,6 +10,5 @@ namespace CodeFirst.Models
         public string? Avatar{ get; set; }
         public ICollection<Room>? Rooms { get; set; }
         public ICollection<Message>? Messages { get; set; }
-
     }
 }
