@@ -57,8 +57,8 @@ namespace CodeFirst.Areas.Admin.Controllers
 
             return View(code);
         }
+        [Authorize(Roles = "administrator system, admin")]
 
-        // GET: Admin/Code/Create
         public IActionResult Create()
         {
             return View();
@@ -79,6 +79,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             }
             return View(code);
         }
+        [Authorize(Roles = "administrator system, admin")]
 
         // GET: Admin/Code/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -131,8 +132,8 @@ namespace CodeFirst.Areas.Admin.Controllers
             }
             return View(code);
         }
+        [Authorize(Roles = "administrator system, admin")]
 
-        // GET: Admin/Code/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Code == null)

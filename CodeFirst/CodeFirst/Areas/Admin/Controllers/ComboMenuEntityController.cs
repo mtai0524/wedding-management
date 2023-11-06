@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
 using CodeFirst.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -47,6 +48,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // GET: Admin/ComboMenuEntity/Create
+        [Authorize(Roles = "administrator system, admin")]
+
         public IActionResult Create()
         {
             return View();
@@ -67,6 +70,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             }
             return View(comboMenuEntity);
         }
+        [Authorize(Roles = "administrator system, admin")]
 
         // GET: Admin/ComboMenuEntity/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -89,6 +93,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "administrator system, admin")]
+
         public async Task<IActionResult> Edit(int id, [Bind("ComboMenuId,Name,ComboPrice")] ComboMenuEntity comboMenuEntity)
         {
             if (id != comboMenuEntity.ComboMenuId)
@@ -119,6 +125,8 @@ namespace CodeFirst.Areas.Admin.Controllers
             return View(comboMenuEntity);
         }
 
+        [Authorize(Roles = "administrator system, admin")]
+
         // GET: Admin/ComboMenuEntity/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -138,6 +146,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // POST: Admin/ComboMenuEntity/Delete/5
+        [Authorize(Roles = "administrator system, admin")]
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

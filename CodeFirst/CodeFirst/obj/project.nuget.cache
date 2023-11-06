@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "TxkaeEn22BkQhyMnAK/gcC15QeV/EsWRDkRn0L1CYqhN+HhhgLjl42thzG7J67q8yZMwSw+oA2+aUuSQ6YNO3g==",
+  "dgSpecHash": "4+m/v4BRzCPqmJeTX9tfb2SENyoAfKTjY3tP41rIM0KtDmmZjD3cj5O+nAKxj7OHisHfEldkpj+os6LVjZ9ziQ==",
   "success": true,
   "projectFilePath": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\blazorcolorpicker\\2.3.0\\blazorcolorpicker.2.3.0.nupkg.sha512",

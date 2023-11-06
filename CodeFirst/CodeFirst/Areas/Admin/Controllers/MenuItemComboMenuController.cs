@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
 using CodeFirst.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -19,6 +20,7 @@ namespace CodeFirst.Areas.Admin.Controllers
         {
             _context = context;
         }
+        [Authorize(Roles = "administrator system, admin")]
 
         public IActionResult AddMenuToCombo()
         {
@@ -91,6 +93,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // GET: Admin/MenuItemComboMenu/Create
+        [Authorize(Roles = "administrator system, admin")]
+
         public IActionResult Create()
         {
             ViewData["ComboMenuId"] = new SelectList(_context.ComboMenuEntity, "ComboMenuId", "Name");
@@ -117,6 +121,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // GET: Admin/MenuItemComboMenu/Edit/5
+        [Authorize(Roles = "administrator system, admin")]
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.MenuItemComboMenu == null)
@@ -139,6 +145,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "administrator system, admin")]
+
         public async Task<IActionResult> Edit(int id, [Bind("MenuItemComboMenuId,MenuId,ComboMenuId")] MenuItemComboMenu menuItemComboMenu)
         {
             if (id != menuItemComboMenu.MenuItemComboMenuId)
@@ -170,6 +178,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             ViewData["MenuId"] = new SelectList(_context.MenuEntity, "MenuId", "Name", menuItemComboMenu.MenuId);
             return View(menuItemComboMenu);
         }
+        [Authorize(Roles = "administrator system, admin")]
 
         // GET: Admin/MenuItemComboMenu/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -190,6 +199,7 @@ namespace CodeFirst.Areas.Admin.Controllers
 
             return View(menuItemComboMenu);
         }
+        [Authorize(Roles = "administrator system, admin")]
 
         // POST: Admin/MenuItemComboMenu/Delete/5
         [HttpPost, ActionName("Delete")]

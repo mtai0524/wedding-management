@@ -593,6 +593,14 @@
       "PackagePath": "staticwebassets\\js\\qrcode.min.js"
     },
     {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",
+      "PackagePath": "staticwebassets\\js\\signalr\\dist\\browser\\signalr.js"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\signalr\\dist\\browser\\signalr.min.js",
+      "PackagePath": "staticwebassets\\js\\signalr\\dist\\browser\\signalr.min.js"
+    },
+    {
       "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

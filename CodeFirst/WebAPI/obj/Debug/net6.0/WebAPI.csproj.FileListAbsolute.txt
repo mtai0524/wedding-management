@@ -3572,3 +3572,6 @@ E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
+E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\libman.json
+E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\AutoMapper.dll
+E:\AspNetCore\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

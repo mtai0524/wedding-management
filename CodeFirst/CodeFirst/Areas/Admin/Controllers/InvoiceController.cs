@@ -13,6 +13,7 @@ using CodeFirst.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Text;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -129,7 +130,7 @@ width: 100%;
     }
 
     th {
-        background-color: #f2f2f2; /* Màu nền cho header */
+        background-color: #f2f2f2;
     }
         body {
             position: relative;
@@ -379,6 +380,8 @@ font-weight:bold;
         }
 
         // GET: Admin/Invoice/Delete/5
+        [Authorize(Roles = "administrator system, admin")]
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Invoice == null)
@@ -400,6 +403,8 @@ font-weight:bold;
         }
 
         // POST: Admin/Invoice/Delete/5
+        [Authorize(Roles = "administrator system, admin")]
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id)

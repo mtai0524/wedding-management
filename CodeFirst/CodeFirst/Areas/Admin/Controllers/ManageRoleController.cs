@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodeFirst.Areas.Admin.Controllers
@@ -12,12 +13,15 @@ namespace CodeFirst.Areas.Admin.Controllers
         {
             _roleManager = roleManager;
         }
+        [Authorize(Roles = "administrator system, admin")]
 
         public IActionResult Index()
         {
             var roles = _roleManager.Roles;
             return View(roles);
         }
+        [Authorize(Roles = "administrator system, admin")]
+
         [HttpGet]
         public IActionResult Create()
         {

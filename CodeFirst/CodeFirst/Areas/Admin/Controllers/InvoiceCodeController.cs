@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
 using CodeFirst.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {

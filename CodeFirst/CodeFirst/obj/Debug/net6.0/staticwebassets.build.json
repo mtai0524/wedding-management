@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SjdMlxKOAaAuXsx9MMxVLOgnN4sBYLOCVuYF6H+WcSM=",
+  "Hash": "GV1XMiEbTa3V++/ueMA7KMRFPoUD3rCwp8tVKERiQrc=",
   "Source": "CodeFirst",
   "BasePath": "_content/CodeFirst",
   "Mode": "Default",
@@ -3670,6 +3670,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\qrcode.min.js"
+    },
+    {
+      "Identity": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "js/signalr/dist/browser/signalr.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\signalr\\dist\\browser\\signalr.js"
+    },
+    {
+      "Identity": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\signalr\\dist\\browser\\signalr.min.js",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "js/signalr/dist/browser/signalr.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\signalr\\dist\\browser\\signalr.min.js"
     },
     {
       "Identity": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\site.js",

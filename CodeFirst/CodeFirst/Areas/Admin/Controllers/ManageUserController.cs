@@ -27,6 +27,8 @@ namespace CodeFirst.Areas.Admin.Controllers
             this._notfy = notfy;
 
         }
+        [Authorize(Roles = "administrator system, admin")]
+
         public IActionResult Index()
         {
             //_notfy.Success("Success Notification");
@@ -56,7 +58,7 @@ namespace CodeFirst.Areas.Admin.Controllers
 
             return View();
         }
-        [Authorize(Roles = "administrator system, admin")]
+        [Authorize(Roles = "administrator system")]
 
         public async Task<IActionResult> DeleteUser(string id)
         {
@@ -68,10 +70,10 @@ namespace CodeFirst.Areas.Admin.Controllers
             }
 
             // Kiểm tra xem người dùng đang đăng nhập có cùng ID với người dùng được xóa không
-            var currentUser = await _userManager.GetUserAsync(User); // Lấy người dùng đang đăng nhập
+            var currentUser = await _userManager.GetUserAsync(User); // Lấy user đang đăng nhập
             if (currentUser.Id == user.Id)
             {
-                // Người dùng đang đăng nhập cố gắng xóa chính mình
+                // Xóa chính mình
                 _notfy.Error("Xóa chính mình để chi?");
                 return RedirectToAction("Index");
             }
@@ -85,7 +87,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             return View("Index");
         }
 
-        [Authorize(Roles = "administrator system, admin")]
+        [Authorize(Roles = "administrator system")]
 
         [HttpGet]
         public async Task<IActionResult> EditUser(string id)

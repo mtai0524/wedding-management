@@ -59,6 +59,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // GET: Admin/Service/Create
+        [Authorize(Roles = "administrator system, admin")]
+
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.ServiceCategory, "CategoryId", "Name");
@@ -87,6 +89,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             ViewData["CategoryId"] = new SelectList(_context.ServiceCategory, "CategoryId", "Name", serviceEntity.CategoryId);
             return View(serviceEntity);
         }
+        [Authorize(Roles = "administrator system, admin")]
 
         // GET: Admin/Service/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -180,7 +183,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             ViewData["CategoryId"] = new SelectList(_context.ServiceCategory, "CategoryId", "Name", serviceEntity.CategoryId);
             return View(serviceEntity);
         }
-        [Authorize(Roles = "administrator system,admin, employee")]
+        [Authorize(Roles = "administrator system, admin")]
 
         // GET: Admin/Service/Delete/5
         public async Task<IActionResult> Delete(int? id)

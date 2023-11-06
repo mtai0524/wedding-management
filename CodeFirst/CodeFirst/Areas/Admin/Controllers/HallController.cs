@@ -11,6 +11,7 @@ using AspNetCoreHero.ToastNotification.Abstractions;
 using CloudinaryDotNet;
 using CodeFirst.Service;
 using CodeFirst.Migrations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -57,6 +58,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // GET: Admin/Hall/Create
+
+        [Authorize(Roles = "administrator system, admin")]
         public IActionResult Create()
         {
             ViewData["BranchId"] = new SelectList(_context.Branch, "BranchId", "Name");
@@ -90,6 +93,7 @@ namespace CodeFirst.Areas.Admin.Controllers
 
             return View(hall);
         }
+        [Authorize(Roles = "administrator system, admin")]
 
         // GET: Admin/Hall/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -108,9 +112,9 @@ namespace CodeFirst.Areas.Admin.Controllers
             return View(hall);
         }
 
-        // POST: Admin/Hall/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [Authorize(Roles = "administrator system, admin")]
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("HallId,Name,Description,Image,BranchId,Capacity,Price")] Hall hall, IFormFile imageFile)
@@ -186,6 +190,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // GET: Admin/Hall/Delete/5
+        [Authorize(Roles = "administrator system, admin")]
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Hall == null)
@@ -205,6 +211,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // POST: Admin/Hall/Delete/5
+        [Authorize(Roles = "administrator system, admin")]
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

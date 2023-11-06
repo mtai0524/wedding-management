@@ -29,7 +29,8 @@ namespace CodeFirst.Areas.Admin.Controllers
             _noti = noti;
             _cloudianryService = cloudinaryService;
         }
-   
+
+        [Authorize(Roles = "administrator system, admin")]
 
         [HttpPost]
         public IActionResult LockBranch(int branchId)
@@ -45,6 +46,8 @@ namespace CodeFirst.Areas.Admin.Controllers
 
             return RedirectToAction("Index"); // Chuyển hướng đến trang danh sách chi nhánh
         }
+        [Authorize(Roles = "administrator system, admin")]
+
         [HttpPost]
         public IActionResult UnlockBranch(int branchId)
         {
@@ -76,33 +79,24 @@ namespace CodeFirst.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var branch = await _context.Branch.FirstOrDefaultAsync(m => m.BranchId == id);
+            var branch = await _context.Branch
+                .FirstOrDefaultAsync(m => m.BranchId == id);
             if (branch == null)
             {
                 return NotFound();
             }
 
-            // Truy vấn danh sách phản hồi thuộc về chi nhánh có BranchId tương ứng
-            var feedbackForBranch = await _context.Feedback
-                .Where(f => f.BranchId == id)
-                .ToListAsync();
-
-            // Tạo một ViewModel chứa thông tin chi nhánh và danh sách phản hồi
-            var branchWithFeedbackViewModel = new BranchWithFeedbackViewModel
-            {
-                Branch = branch,
-                FeedbackList = feedbackForBranch
-            };
-
-            return View(branchWithFeedbackViewModel);
+            return View(branch);
         }
 
+        [Authorize(Roles = "administrator system, admin")]
 
         // GET: Admin/Branch/Create
         public IActionResult Create()
         {
             return View();
         }
+        [Authorize(Roles = "administrator system, admin")]
 
         // POST: Admin/Branch/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -147,9 +141,9 @@ namespace CodeFirst.Areas.Admin.Controllers
             return View(branch);
         }
 
-        // POST: Admin/Branch/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [Authorize(Roles = "administrator system, admin")]
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("BranchId,Name,Description,Image, Address, Phone")] Branch branch, IFormFile imageFile)
@@ -222,9 +216,8 @@ namespace CodeFirst.Areas.Admin.Controllers
             }
             return View(branch);
         }
-
-        // GET: Admin/Branch/Delete/5
         [Authorize(Roles = "administrator system, admin")]
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Branch == null)
@@ -241,6 +234,7 @@ namespace CodeFirst.Areas.Admin.Controllers
 
             return View(branch);
         }
+        [Authorize(Roles = "administrator system, admin")]
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

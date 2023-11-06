@@ -167,6 +167,7 @@ namespace CodeFirst.Areas.Admin.Controllers
 
         }
 
+        [Authorize(Roles = "administrator system, admin")]
 
         // GET: Admin/Menu/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -344,6 +345,8 @@ namespace CodeFirst.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
+                _noti.Success("Xoa that bai!!");
+
                 // Xử lý khi có lỗi
                 return Json(new { success = false, error = ex.Message });
             }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
 using CodeFirst.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -47,6 +48,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // GET: Admin/ServiceCategory/Create
+        [Authorize(Roles = "administrator system, admin")]
+
         public IActionResult Create()
         {
             return View();
@@ -69,6 +72,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // GET: Admin/ServiceCategory/Edit/5
+        [Authorize(Roles = "administrator system, admin")]
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.ServiceCategory == null)
@@ -118,6 +123,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             }
             return View(serviceCategory);
         }
+        [Authorize(Roles = "administrator system, admin")]
 
         // GET: Admin/ServiceCategory/Delete/5
         public async Task<IActionResult> Delete(int? id)

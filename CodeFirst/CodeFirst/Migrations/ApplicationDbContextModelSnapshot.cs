@@ -22,6 +22,59 @@ namespace CodeFirst.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CodeFirst.Models.Chat.Message", b =>
+                {
+                    b.Property<int>("MessageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageId"));
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RoomId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MessageId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("Message");
+                });
+
+            modelBuilder.Entity("CodeFirst.Models.Chat.Room", b =>
+                {
+                    b.Property<int>("RoomId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomId"));
+
+                    b.Property<string>("AdminId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("RoomId");
+
+                    b.HasIndex("AdminId");
+
+                    b.ToTable("Room");
+                });
+
             modelBuilder.Entity("CodeFirst.Models.EmployeeEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -671,12 +724,35 @@ namespace CodeFirst.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
+            modelBuilder.Entity("CodeFirst.Models.Chat.Message", b =>
+                {
+                    b.HasOne("CodeFirst.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Messages")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("CodeFirst.Models.Chat.Room", "Room")
+                        .WithMany("Messages")
+                        .HasForeignKey("RoomId");
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("CodeFirst.Models.Chat.Room", b =>
+                {
+                    b.HasOne("CodeFirst.Models.ApplicationUser", "Admin")
+                        .WithMany("Rooms")
+                        .HasForeignKey("AdminId");
+
+                    b.Navigation("Admin");
+                });
+
             modelBuilder.Entity("CodeFirst.Models.Entities.Feedback", b =>
                 {
                     b.HasOne("CodeFirst.Models.Entities.Branch", "Branch")
                         .WithMany()
-                        .HasForeignKey("BranchId").
-                        OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("BranchId");
 
                     b.HasOne("CodeFirst.Models.ApplicationUser", "Id")
                         .WithMany()
@@ -860,6 +936,11 @@ namespace CodeFirst.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("CodeFirst.Models.Chat.Room", b =>
+                {
+                    b.Navigation("Messages");
+                });
+
             modelBuilder.Entity("CodeFirst.Models.Entities.Branch", b =>
                 {
                     b.Navigation("Halls");
@@ -882,6 +963,13 @@ namespace CodeFirst.Migrations
                     b.Navigation("OrderMenus");
 
                     b.Navigation("OrderServices");
+                });
+
+            modelBuilder.Entity("CodeFirst.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Messages");
+
+                    b.Navigation("Rooms");
                 });
 #pragma warning restore 612, 618
         }

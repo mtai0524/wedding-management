@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
 using CodeFirst.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -47,6 +48,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // GET: Admin/MenuCategory/Create
+        [Authorize(Roles = "administrator system, admin")]
+
         public IActionResult Create()
         {
             return View();
@@ -69,6 +72,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // GET: Admin/MenuCategory/Edit/5
+        [Authorize(Roles = "administrator system, admin")]
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.MenuCategory == null)
@@ -120,6 +125,8 @@ namespace CodeFirst.Areas.Admin.Controllers
         }
 
         // GET: Admin/MenuCategory/Delete/5
+        [Authorize(Roles = "administrator system, admin")]
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.MenuCategory == null)
