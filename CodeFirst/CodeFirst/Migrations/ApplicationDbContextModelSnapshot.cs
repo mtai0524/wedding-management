@@ -22,955 +22,867 @@ namespace CodeFirst.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CodeFirst.Models.Chat.Message", b =>
-                {
-                    b.Property<int>("MessageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageId"));
-
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("RoomId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("Timestamp")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("MessageId");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.HasIndex("RoomId");
-
-                    b.ToTable("Message");
-                });
-
-            modelBuilder.Entity("CodeFirst.Models.Chat.Room", b =>
-                {
-                    b.Property<int>("RoomId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomId"));
-
-                    b.Property<string>("AdminId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("RoomId");
-
-                    b.HasIndex("AdminId");
-
-                    b.ToTable("Room");
-                });
-
             modelBuilder.Entity("CodeFirst.Models.EmployeeEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Address")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Avatar")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Avatar")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Email")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("FirstName")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("LastName")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Mobile")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Mobile")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Employee");
-                });
+                b.ToTable("Employee");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Branch", b =>
-                {
-                    b.Property<int>("BranchId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("BranchId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BranchId"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BranchId"));
 
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Address")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Description")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Image")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsLocked")
-                        .HasColumnType("bit");
+                b.Property<bool>("IsLocked")
+                    .HasColumnType("bit");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Phone")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("BranchId");
+                b.HasKey("BranchId");
 
-                    b.ToTable("Branch");
-                });
+                b.ToTable("Branch");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Code", b =>
-                {
-                    b.Property<int>("CodeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("CodeId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CodeId"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CodeId"));
 
-                    b.Property<string>("CodeString")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("CodeString")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Discount")
-                        .HasColumnType("float");
+                b.Property<double?>("Discount")
+                    .HasColumnType("float");
 
-                    b.Property<DateTime?>("ExpirationDate")
-                        .HasColumnType("datetime2");
+                b.Property<DateTime?>("ExpirationDate")
+                    .HasColumnType("datetime2");
 
-                    b.Property<int?>("Quantity")
-                        .HasColumnType("int");
+                b.Property<int?>("Quantity")
+                    .HasColumnType("int");
 
-                    b.HasKey("CodeId");
+                b.HasKey("CodeId");
 
-                    b.ToTable("Code");
-                });
+                b.ToTable("Code");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ComboMenuEntity", b =>
-                {
-                    b.Property<int>("ComboMenuId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("ComboMenuId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ComboMenuId"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ComboMenuId"));
 
-                    b.Property<double>("ComboPrice")
-                        .HasColumnType("float");
+                b.Property<double>("ComboPrice")
+                    .HasColumnType("float");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ComboMenuId");
+                b.HasKey("ComboMenuId");
 
-                    b.ToTable("ComboMenuEntity");
-                });
+                b.ToTable("ComboMenuEntity");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Feedback", b =>
-                {
-                    b.Property<int>("FeedbackId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("FeedbackId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedbackId"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedbackId"));
 
-                    b.Property<int?>("BranchId")
-                        .HasColumnType("int");
+                b.Property<int?>("BranchId")
+                    .HasColumnType("int");
 
-                    b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Content")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("FeedbackDate")
-                        .HasColumnType("datetime2");
+                b.Property<DateTime?>("FeedbackDate")
+                    .HasColumnType("datetime2");
 
-                    b.Property<double?>("Rating")
-                        .HasColumnType("float");
+                b.Property<double?>("Rating")
+                    .HasColumnType("float");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                b.Property<string>("UserId")
+                    .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("FeedbackId");
+                b.HasKey("FeedbackId");
 
-                    b.HasIndex("BranchId");
+                b.HasIndex("BranchId");
 
-                    b.HasIndex("UserId");
+                b.HasIndex("UserId");
 
-                    b.ToTable("Feedback");
-                });
+                b.ToTable("Feedback");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Hall", b =>
-                {
-                    b.Property<int>("HallId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("HallId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HallId"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HallId"));
 
-                    b.Property<int>("BranchId")
-                        .HasColumnType("int");
+                b.Property<int>("BranchId")
+                    .HasColumnType("int");
 
-                    b.Property<int?>("Capacity")
-                        .HasColumnType("int");
+                b.Property<int?>("Capacity")
+                    .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Description")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Image")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Price")
-                        .HasColumnType("float");
+                b.Property<double?>("Price")
+                    .HasColumnType("float");
 
-                    b.HasKey("HallId");
+                b.HasKey("HallId");
 
-                    b.HasIndex("BranchId");
+                b.HasIndex("BranchId");
 
-                    b.ToTable("Hall");
-                });
+                b.ToTable("Hall");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Invoice", b =>
-                {
-                    b.Property<int?>("InvoiceID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int?>("InvoiceID")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("InvoiceID"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("InvoiceID"));
 
-                    b.Property<DateTime?>("AttendanceDate")
-                        .HasColumnType("datetime2");
+                b.Property<DateTime?>("AttendanceDate")
+                    .HasColumnType("datetime2");
 
-                    b.Property<int>("BranchId")
-                        .HasColumnType("int");
+                b.Property<int>("BranchId")
+                    .HasColumnType("int");
 
-                    b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("FullName")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("HallId")
-                        .HasColumnType("int");
+                b.Property<int>("HallId")
+                    .HasColumnType("int");
 
-                    b.Property<DateTime?>("InvoiceDate")
-                        .HasColumnType("datetime2");
+                b.Property<DateTime?>("InvoiceDate")
+                    .HasColumnType("datetime2");
 
-                    b.Property<string>("Note")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Note")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("PhoneNumber")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Total")
-                        .HasColumnType("float");
+                b.Property<double?>("Total")
+                    .HasColumnType("float");
 
-                    b.Property<double?>("TotalBeforeDiscount")
-                        .HasColumnType("float");
+                b.Property<double?>("TotalBeforeDiscount")
+                    .HasColumnType("float");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                b.Property<string>("UserId")
+                    .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("InvoiceID");
+                b.HasKey("InvoiceID");
 
-                    b.HasIndex("BranchId");
+                b.HasIndex("BranchId");
 
-                    b.HasIndex("HallId");
+                b.HasIndex("HallId");
 
-                    b.HasIndex("UserId");
+                b.HasIndex("UserId");
 
-                    b.ToTable("Invoice");
-                });
+                b.ToTable("Invoice");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.InvoiceCode", b =>
-                {
-                    b.Property<int>("InvoiceCodeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("InvoiceCodeId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InvoiceCodeId"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InvoiceCodeId"));
 
-                    b.Property<int?>("CodeId")
-                        .HasColumnType("int");
+                b.Property<int?>("CodeId")
+                    .HasColumnType("int");
 
-                    b.Property<int?>("InvoiceId")
-                        .HasColumnType("int");
+                b.Property<int?>("InvoiceId")
+                    .HasColumnType("int");
 
-                    b.HasKey("InvoiceCodeId");
+                b.HasKey("InvoiceCodeId");
 
-                    b.HasIndex("CodeId");
+                b.HasIndex("CodeId");
 
-                    b.HasIndex("InvoiceId");
+                b.HasIndex("InvoiceId");
 
-                    b.ToTable("InvoiceCode");
-                });
+                b.ToTable("InvoiceCode");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuCategory", b =>
-                {
-                    b.Property<int>("CategoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("CategoryId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Description")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CategoryId");
+                b.HasKey("CategoryId");
 
-                    b.ToTable("MenuCategory");
-                });
+                b.ToTable("MenuCategory");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuEntity", b =>
-                {
-                    b.Property<int>("MenuId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("MenuId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MenuId"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MenuId"));
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                b.Property<int>("CategoryId")
+                    .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Description")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Image")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Price")
-                        .IsRequired()
-                        .HasColumnType("float");
+                b.Property<double?>("Price")
+                    .IsRequired()
+                    .HasColumnType("float");
 
-                    b.HasKey("MenuId");
+                b.HasKey("MenuId");
 
-                    b.HasIndex("CategoryId");
+                b.HasIndex("CategoryId");
 
-                    b.ToTable("MenuEntity");
-                });
+                b.ToTable("MenuEntity");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuItemComboMenu", b =>
-                {
-                    b.Property<int>("MenuItemComboMenuId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("MenuItemComboMenuId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MenuItemComboMenuId"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MenuItemComboMenuId"));
 
-                    b.Property<int>("ComboMenuId")
-                        .HasColumnType("int");
+                b.Property<int>("ComboMenuId")
+                    .HasColumnType("int");
 
-                    b.Property<int>("MenuId")
-                        .HasColumnType("int");
+                b.Property<int>("MenuId")
+                    .HasColumnType("int");
 
-                    b.HasKey("MenuItemComboMenuId");
+                b.HasKey("MenuItemComboMenuId");
 
-                    b.HasIndex("ComboMenuId");
+                b.HasIndex("ComboMenuId");
 
-                    b.HasIndex("MenuId");
+                b.HasIndex("MenuId");
 
-                    b.ToTable("MenuItemComboMenu");
-                });
+                b.ToTable("MenuItemComboMenu");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.OrderMenu", b =>
-                {
-                    b.Property<int?>("OrderMenuId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int?>("OrderMenuId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("OrderMenuId"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("OrderMenuId"));
 
-                    b.Property<int?>("InvoiceID")
-                        .HasColumnType("int");
+                b.Property<int?>("InvoiceID")
+                    .HasColumnType("int");
 
-                    b.Property<int?>("MenuId")
-                        .HasColumnType("int");
+                b.Property<int?>("MenuId")
+                    .HasColumnType("int");
 
-                    b.HasKey("OrderMenuId");
+                b.HasKey("OrderMenuId");
 
-                    b.HasIndex("InvoiceID");
+                b.HasIndex("InvoiceID");
 
-                    b.HasIndex("MenuId");
+                b.HasIndex("MenuId");
 
-                    b.ToTable("OrderMenu");
-                });
+                b.ToTable("OrderMenu");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.OrderService", b =>
-                {
-                    b.Property<int?>("OrderServiceId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int?>("OrderServiceId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("OrderServiceId"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("OrderServiceId"));
 
-                    b.Property<int?>("InvoiceID")
-                        .HasColumnType("int");
+                b.Property<int?>("InvoiceID")
+                    .HasColumnType("int");
 
-                    b.Property<int?>("ServiceId")
-                        .HasColumnType("int");
+                b.Property<int?>("ServiceId")
+                    .HasColumnType("int");
 
-                    b.HasKey("OrderServiceId");
+                b.HasKey("OrderServiceId");
 
-                    b.HasIndex("InvoiceID");
+                b.HasIndex("InvoiceID");
 
-                    b.HasIndex("ServiceId");
+                b.HasIndex("ServiceId");
 
-                    b.ToTable("OrderService");
-                });
+                b.ToTable("OrderService");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ServiceCategory", b =>
-                {
-                    b.Property<int>("CategoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("CategoryId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Description")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CategoryId");
+                b.HasKey("CategoryId");
 
-                    b.ToTable("ServiceCategory");
-                });
+                b.ToTable("ServiceCategory");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ServiceEntity", b =>
-                {
-                    b.Property<int>("ServiceId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("ServiceId")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceId"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceId"));
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                b.Property<int>("CategoryId")
+                    .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Description")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Image")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Price")
-                        .HasColumnType("float");
+                b.Property<double?>("Price")
+                    .HasColumnType("float");
 
-                    b.HasKey("ServiceId");
+                b.HasKey("ServiceId");
 
-                    b.HasIndex("CategoryId");
+                b.HasIndex("CategoryId");
 
-                    b.ToTable("ServiceEntity");
-                });
+                b.ToTable("ServiceEntity");
+            });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+            {
+                b.Property<string>("Id")
+                    .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("ConcurrencyStamp")
+                    .IsConcurrencyToken()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                b.Property<string>("Name")
+                    .HasMaxLength(256)
+                    .HasColumnType("nvarchar(256)");
 
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                b.Property<string>("NormalizedName")
+                    .HasMaxLength(256)
+                    .HasColumnType("nvarchar(256)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                b.HasIndex("NormalizedName")
+                    .IsUnique()
+                    .HasDatabaseName("RoleNameIndex")
+                    .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.ToTable("AspNetRoles", (string)null);
-                });
+                b.ToTable("AspNetRoles", (string)null);
+            });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("ClaimType")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("ClaimValue")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                b.Property<string>("RoleId")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("RoleId");
+                b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetRoleClaims", (string)null);
-                });
+                b.ToTable("AspNetRoleClaims", (string)null);
+            });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+            {
+                b.Property<string>("Id")
+                    .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
+                b.Property<int>("AccessFailedCount")
+                    .HasColumnType("int");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("ConcurrencyStamp")
+                    .IsConcurrencyToken()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Discriminator")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                b.Property<string>("Email")
+                    .HasMaxLength(256)
+                    .HasColumnType("nvarchar(256)");
 
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+                b.Property<bool>("EmailConfirmed")
+                    .HasColumnType("bit");
 
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+                b.Property<bool>("LockoutEnabled")
+                    .HasColumnType("bit");
 
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                b.Property<DateTimeOffset?>("LockoutEnd")
+                    .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                b.Property<string>("NormalizedEmail")
+                    .HasMaxLength(256)
+                    .HasColumnType("nvarchar(256)");
 
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                b.Property<string>("NormalizedUserName")
+                    .HasMaxLength(256)
+                    .HasColumnType("nvarchar(256)");
 
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("PasswordHash")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("PhoneNumber")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
+                b.Property<bool>("PhoneNumberConfirmed")
+                    .HasColumnType("bit");
 
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("SecurityStamp")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
+                b.Property<bool>("TwoFactorEnabled")
+                    .HasColumnType("bit");
 
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                b.Property<string>("UserName")
+                    .HasMaxLength(256)
+                    .HasColumnType("nvarchar(256)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
+                b.HasIndex("NormalizedEmail")
+                    .HasDatabaseName("EmailIndex");
 
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                b.HasIndex("NormalizedUserName")
+                    .IsUnique()
+                    .HasDatabaseName("UserNameIndex")
+                    .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("AspNetUsers", (string)null);
+                b.ToTable("AspNetUsers", (string)null);
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
+                b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
 
-                    b.UseTphMappingStrategy();
-                });
+                b.UseTphMappingStrategy();
+            });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("ClaimType")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("ClaimValue")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                b.Property<string>("UserId")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims", (string)null);
-                });
+                b.ToTable("AspNetUserClaims", (string)null);
+            });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+            {
+                b.Property<string>("LoginProvider")
+                    .HasMaxLength(128)
+                    .HasColumnType("nvarchar(128)");
 
-                    b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                b.Property<string>("ProviderKey")
+                    .HasMaxLength(128)
+                    .HasColumnType("nvarchar(128)");
 
-                    b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("ProviderDisplayName")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                b.Property<string>("UserId")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("LoginProvider", "ProviderKey");
+                b.HasKey("LoginProvider", "ProviderKey");
 
-                    b.HasIndex("UserId");
+                b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins", (string)null);
-                });
+                b.ToTable("AspNetUserLogins", (string)null);
+            });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+            {
+                b.Property<string>("UserId")
+                    .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                b.Property<string>("RoleId")
+                    .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("UserId", "RoleId");
+                b.HasKey("UserId", "RoleId");
 
-                    b.HasIndex("RoleId");
+                b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles", (string)null);
-                });
+                b.ToTable("AspNetUserRoles", (string)null);
+            });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+            {
+                b.Property<string>("UserId")
+                    .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                b.Property<string>("LoginProvider")
+                    .HasMaxLength(128)
+                    .HasColumnType("nvarchar(128)");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                b.Property<string>("Name")
+                    .HasMaxLength(128)
+                    .HasColumnType("nvarchar(128)");
 
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Value")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId", "LoginProvider", "Name");
+                b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens", (string)null);
-                });
+                b.ToTable("AspNetUserTokens", (string)null);
+            });
 
             modelBuilder.Entity("CodeFirst.Models.ApplicationUser", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+            {
+                b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<string>("Avatar")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Avatar")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("FirstName")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("LastName")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasDiscriminator().HasValue("ApplicationUser");
-                });
-
-            modelBuilder.Entity("CodeFirst.Models.Chat.Message", b =>
-                {
-                    b.HasOne("CodeFirst.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany("Messages")
-                        .HasForeignKey("ApplicationUserId");
-
-                    b.HasOne("CodeFirst.Models.Chat.Room", "Room")
-                        .WithMany("Messages")
-                        .HasForeignKey("RoomId");
-
-                    b.Navigation("ApplicationUser");
-
-                    b.Navigation("Room");
-                });
-
-            modelBuilder.Entity("CodeFirst.Models.Chat.Room", b =>
-                {
-                    b.HasOne("CodeFirst.Models.ApplicationUser", "Admin")
-                        .WithMany("Rooms")
-                        .HasForeignKey("AdminId");
-
-                    b.Navigation("Admin");
-                });
+                b.HasDiscriminator().HasValue("ApplicationUser");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Feedback", b =>
-                {
-                    b.HasOne("CodeFirst.Models.Entities.Branch", "Branch")
-                        .WithMany()
-                        .HasForeignKey("BranchId");
+            {
+                b.HasOne("CodeFirst.Models.Entities.Branch", "Branch")
+                    .WithMany()
+                    .HasForeignKey("BranchId").
+                    OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("CodeFirst.Models.ApplicationUser", "Id")
-                        .WithMany()
-                        .HasForeignKey("UserId");
+                b.HasOne("CodeFirst.Models.ApplicationUser", "Id")
+                    .WithMany()
+                    .HasForeignKey("UserId");
 
-                    b.Navigation("Branch");
+                b.Navigation("Branch");
 
-                    b.Navigation("Id");
-                });
+                b.Navigation("Id");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Hall", b =>
-                {
-                    b.HasOne("CodeFirst.Models.Entities.Branch", "Branch")
-                        .WithMany("Halls")
-                        .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            {
+                b.HasOne("CodeFirst.Models.Entities.Branch", "Branch")
+                    .WithMany("Halls")
+                    .HasForeignKey("BranchId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.Navigation("Branch");
-                });
+                b.Navigation("Branch");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Invoice", b =>
-                {
-                    b.HasOne("CodeFirst.Models.Entities.Branch", "Branch")
-                        .WithMany()
-                        .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            {
+                b.HasOne("CodeFirst.Models.Entities.Branch", "Branch")
+                    .WithMany()
+                    .HasForeignKey("BranchId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.HasOne("CodeFirst.Models.Entities.Hall", "Hall")
-                        .WithMany()
-                        .HasForeignKey("HallId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                b.HasOne("CodeFirst.Models.Entities.Hall", "Hall")
+                    .WithMany()
+                    .HasForeignKey("HallId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.HasOne("CodeFirst.Models.ApplicationUser", "Id")
-                        .WithMany()
-                        .HasForeignKey("UserId");
+                b.HasOne("CodeFirst.Models.ApplicationUser", "Id")
+                    .WithMany()
+                    .HasForeignKey("UserId");
 
-                    b.Navigation("Branch");
+                b.Navigation("Branch");
 
-                    b.Navigation("Hall");
+                b.Navigation("Hall");
 
-                    b.Navigation("Id");
-                });
+                b.Navigation("Id");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.InvoiceCode", b =>
-                {
-                    b.HasOne("CodeFirst.Models.Entities.Code", "Code")
-                        .WithMany("InvoiceCode")
-                        .HasForeignKey("CodeId");
+            {
+                b.HasOne("CodeFirst.Models.Entities.Code", "Code")
+                    .WithMany("InvoiceCode")
+                    .HasForeignKey("CodeId");
 
-                    b.HasOne("CodeFirst.Models.Entities.Invoice", "Invoice")
-                        .WithMany("InvoiceCode")
-                        .HasForeignKey("InvoiceId");
+                b.HasOne("CodeFirst.Models.Entities.Invoice", "Invoice")
+                    .WithMany("InvoiceCode")
+                    .HasForeignKey("InvoiceId");
 
-                    b.Navigation("Code");
+                b.Navigation("Code");
 
-                    b.Navigation("Invoice");
-                });
+                b.Navigation("Invoice");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuEntity", b =>
-                {
-                    b.HasOne("CodeFirst.Models.Entities.MenuCategory", "MenuCategory")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            {
+                b.HasOne("CodeFirst.Models.Entities.MenuCategory", "MenuCategory")
+                    .WithMany()
+                    .HasForeignKey("CategoryId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.Navigation("MenuCategory");
-                });
+                b.Navigation("MenuCategory");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuItemComboMenu", b =>
-                {
-                    b.HasOne("CodeFirst.Models.Entities.ComboMenuEntity", "ComboMenuEntity")
-                        .WithMany("MenuItemComboMenus")
-                        .HasForeignKey("ComboMenuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            {
+                b.HasOne("CodeFirst.Models.Entities.ComboMenuEntity", "ComboMenuEntity")
+                    .WithMany("MenuItemComboMenus")
+                    .HasForeignKey("ComboMenuId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.HasOne("CodeFirst.Models.Entities.MenuEntity", "MenuEntity")
-                        .WithMany()
-                        .HasForeignKey("MenuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                b.HasOne("CodeFirst.Models.Entities.MenuEntity", "MenuEntity")
+                    .WithMany()
+                    .HasForeignKey("MenuId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.Navigation("ComboMenuEntity");
+                b.Navigation("ComboMenuEntity");
 
-                    b.Navigation("MenuEntity");
-                });
+                b.Navigation("MenuEntity");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.OrderMenu", b =>
-                {
-                    b.HasOne("CodeFirst.Models.Entities.Invoice", "Invoice")
-                        .WithMany("OrderMenus")
-                        .HasForeignKey("InvoiceID");
+            {
+                b.HasOne("CodeFirst.Models.Entities.Invoice", "Invoice")
+                    .WithMany("OrderMenus")
+                    .HasForeignKey("InvoiceID");
 
-                    b.HasOne("CodeFirst.Models.Entities.MenuEntity", "MenuEntity")
-                        .WithMany()
-                        .HasForeignKey("MenuId");
+                b.HasOne("CodeFirst.Models.Entities.MenuEntity", "MenuEntity")
+                    .WithMany()
+                    .HasForeignKey("MenuId");
 
-                    b.Navigation("Invoice");
+                b.Navigation("Invoice");
 
-                    b.Navigation("MenuEntity");
-                });
+                b.Navigation("MenuEntity");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.OrderService", b =>
-                {
-                    b.HasOne("CodeFirst.Models.Entities.Invoice", "Invoice")
-                        .WithMany("OrderServices")
-                        .HasForeignKey("InvoiceID");
+            {
+                b.HasOne("CodeFirst.Models.Entities.Invoice", "Invoice")
+                    .WithMany("OrderServices")
+                    .HasForeignKey("InvoiceID");
 
-                    b.HasOne("CodeFirst.Models.Entities.ServiceEntity", "ServiceEntity")
-                        .WithMany()
-                        .HasForeignKey("ServiceId");
+                b.HasOne("CodeFirst.Models.Entities.ServiceEntity", "ServiceEntity")
+                    .WithMany()
+                    .HasForeignKey("ServiceId");
 
-                    b.Navigation("Invoice");
+                b.Navigation("Invoice");
 
-                    b.Navigation("ServiceEntity");
-                });
+                b.Navigation("ServiceEntity");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ServiceEntity", b =>
-                {
-                    b.HasOne("CodeFirst.Models.Entities.ServiceCategory", "ServiceCategory")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            {
+                b.HasOne("CodeFirst.Models.Entities.ServiceCategory", "ServiceCategory")
+                    .WithMany()
+                    .HasForeignKey("CategoryId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.Navigation("ServiceCategory");
-                });
+                b.Navigation("ServiceCategory");
+            });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+            {
+                b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    .WithMany()
+                    .HasForeignKey("RoleId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+            });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+            {
+                b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    .WithMany()
+                    .HasForeignKey("UserId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+            });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+            {
+                b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    .WithMany()
+                    .HasForeignKey("UserId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+            });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            {
+                b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    .WithMany()
+                    .HasForeignKey("RoleId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+                b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    .WithMany()
+                    .HasForeignKey("UserId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+            });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("CodeFirst.Models.Chat.Room", b =>
-                {
-                    b.Navigation("Messages");
-                });
+            {
+                b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    .WithMany()
+                    .HasForeignKey("UserId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Branch", b =>
-                {
-                    b.Navigation("Halls");
-                });
+            {
+                b.Navigation("Halls");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Code", b =>
-                {
-                    b.Navigation("InvoiceCode");
-                });
+            {
+                b.Navigation("InvoiceCode");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ComboMenuEntity", b =>
-                {
-                    b.Navigation("MenuItemComboMenus");
-                });
+            {
+                b.Navigation("MenuItemComboMenus");
+            });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Invoice", b =>
-                {
-                    b.Navigation("InvoiceCode");
+            {
+                b.Navigation("InvoiceCode");
 
-                    b.Navigation("OrderMenus");
+                b.Navigation("OrderMenus");
 
-                    b.Navigation("OrderServices");
-                });
-
-            modelBuilder.Entity("CodeFirst.Models.ApplicationUser", b =>
-                {
-                    b.Navigation("Messages");
-
-                    b.Navigation("Rooms");
-                });
+                b.Navigation("OrderServices");
+            });
 #pragma warning restore 612, 618
         }
     }
