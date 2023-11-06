@@ -581,8 +581,52 @@
       "PackagePath": "staticwebassets\\images\\demo\\index.html"
     },
     {
-      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\index.html",
-      "PackagePath": "staticwebassets\\images\\index.html"
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji1.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji1.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji2.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji2.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji3.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji3.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji4.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji4.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji5.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji5.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji6.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji6.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji7.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji7.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar1.png",
+      "PackagePath": "staticwebassets\\images\\icons\\avatar1.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar2.png",
+      "PackagePath": "staticwebassets\\images\\icons\\avatar2.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar3.png",
+      "PackagePath": "staticwebassets\\images\\icons\\avatar3.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar4.png",
+      "PackagePath": "staticwebassets\\images\\icons\\avatar4.png"
+    },
+    {
+      "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\default-avatar.png",
+      "PackagePath": "staticwebassets\\images\\icons\\default-avatar.png"
     },
     {
       "Id": "E:\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.js",

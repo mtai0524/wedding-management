@@ -10,12 +10,12 @@ namespace CodeFirst.Models.Chat
         public string? Content { get; set; }
         public DateTime? Timestamp { get; set; }
 
-        [ForeignKey("RoomId")]
         public int? RoomId { get; set; }
+        [ForeignKey("RoomId")]
         public virtual Room? Room { get; set; }
 
-        [ForeignKey("UserId")]
         public string? UserId { get; set; }
+        [ForeignKey("UserId")]
         public virtual ApplicationUser? ApplicationUser { get; set; }
     }
 }
