@@ -1,6 +1,6 @@
 ﻿using CodeFirst.Models;
 
-namespace CodeFirst.Chat
+namespace CodeFirst.Chat.Entities
 {
     public class Message
     {

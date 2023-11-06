@@ -1,4 +1,4 @@
-﻿using CodeFirst.Chat;
+﻿using CodeFirst.Chat.Entities;
 using CodeFirst.Models;
 using CodeFirst.Models.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

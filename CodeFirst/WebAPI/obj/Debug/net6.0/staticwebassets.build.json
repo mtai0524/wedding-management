@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GJ7XJdeSLRh8ZbN9A56tribVX2Rny2CkWYr68VL65tY=",
+  "Hash": "sAKME/N3Y2bZ8AVDGMf1Q9ilPHr/r16LNq827xk7WkY=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -2290,6 +2290,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\tabs.js"
     },
     {
+      "Identity": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\chat\\site.css",
+      "SourceId": "CodeFirst",
+      "SourceType": "Project",
+      "ContentRoot": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "chat/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\chat\\site.css"
+    },
+    {
       "Identity": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\mydesign.css",
       "SourceId": "CodeFirst",
       "SourceType": "Project",
@@ -2798,6 +2815,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\icons\\default-avatar.png"
+    },
+    {
+      "Identity": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\chat.js",
+      "SourceId": "CodeFirst",
+      "SourceType": "Project",
+      "ContentRoot": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "js/chat.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\chat.js"
     },
     {
       "Identity": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.js",

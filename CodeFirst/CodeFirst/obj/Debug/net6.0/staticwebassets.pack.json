@@ -509,6 +509,10 @@
       "PackagePath": "staticwebassets\\assets\\js\\tabs.js"
     },
     {
+      "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\chat\\site.css",
+      "PackagePath": "staticwebassets\\chat\\site.css"
+    },
+    {
       "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\mydesign.css",
       "PackagePath": "staticwebassets\\css\\mydesign.css"
     },
@@ -627,6 +631,10 @@
     {
       "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\default-avatar.png",
       "PackagePath": "staticwebassets\\images\\icons\\default-avatar.png"
+    },
+    {
+      "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\chat.js",
+      "PackagePath": "staticwebassets\\js\\chat.js"
     },
     {
       "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.js",
