@@ -949,6 +949,30 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\chat\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\chat\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\chat\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\chat\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\chat\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\chat\\jquery.min.map"
+    },
+    {
       "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },

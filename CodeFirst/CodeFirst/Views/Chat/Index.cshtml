@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_EmptyLayout.cshtml";
 }
 <link href="~/chat/site.css" rel="stylesheet" />
-<h1>Index</h1>
 
 <div class="alert alert-warning alert-dismissible d-none"
      id="errorAlert" role="alert">
@@ -181,7 +180,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: createRoom">Create</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Create</button>
             </div>
         </div>
     </div>
@@ -236,7 +235,6 @@
                 </button>
                 <button type="button" class="btn btn-danger"
                         data-dismiss="modal"
-                        data-bind="click: deleteRoom">
                     Delete
                 </button>
             </div>
@@ -250,5 +248,22 @@
     <script src="~/lib/KnockoutJS/knockout-3.5.1.js"></script>
     <script src="~/js/site.js"></script>
     <script src="~/js/chat.js"></script>
+    <script src="~/lib/chat/bootstrap.bundle.min.js"></script>
+    <a href="~/lib/chat/bootstrap.bundle.min.js.map">~/lib/chat/bootstrap.bundle.min.js.map</a>
+    <script src="~/lib/chat/jquery.min.js"></script>
+    <a href="~/lib/chat/jquery.min.map">~/lib/chat/jquery.min.map</a>
+    <script src="~/lib/chat/bootstrap.min.js"></script>
+    <a href="~/lib/chat/bootstrap.min.js.map">~/lib/chat/bootstrap.min.js.map</a>
 }
 
+<script>
+    document.getElementById('create-room').addEventListener('click', function () {
+        $('#create-room-modal').modal('show');
+    });
+    document.getElementById('rename-room').addEventListener('click', function () {
+        $('#rename-room-modal').modal('show');
+    });
+    document.getElementById('delete-room').addEventListener('click', function () {
+        $('#remove-room-modal').modal('show');
+    });
+</script>
