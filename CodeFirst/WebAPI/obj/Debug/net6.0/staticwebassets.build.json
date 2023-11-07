@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1yB9+9DfUdlmyvlHMGu9JoOjbyQ7riHgvsuXuSCizrs=",
+  "Hash": "iRPjBZkZqVVfQI+ZqMqzbahalP6BqGM4feRGLDspUeM=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -4464,6 +4464,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\KnockoutJS\\knockout-3.5.1.js",
+      "SourceId": "CodeFirst",
+      "SourceType": "Project",
+      "ContentRoot": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "lib/KnockoutJS/knockout-3.5.1.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\KnockoutJS\\knockout-3.5.1.js"
     },
     {
       "Identity": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\css\\bootstrap.min.css",

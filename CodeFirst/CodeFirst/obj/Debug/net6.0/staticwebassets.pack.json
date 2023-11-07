@@ -769,6 +769,10 @@
       "PackagePath": "staticwebassets\\layout\\styles\\layout.css"
     },
     {
+      "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\KnockoutJS\\knockout-3.5.1.js",
+      "PackagePath": "staticwebassets\\lib\\KnockoutJS\\knockout-3.5.1.js"
+    },
+    {
       "Id": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

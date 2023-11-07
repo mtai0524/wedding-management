@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CodeFirst.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace CodeFirst.Chat.Model
 {

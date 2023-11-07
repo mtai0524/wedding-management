@@ -1,4 +1,5 @@
 using CodeFirst.Data;
+using CodeFirst.Hubs;
 using CodeFirst.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -63,6 +64,7 @@ builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 //    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
 //}); // tránh bị vòng lặp khi lấy api các mốt quan hệ
 builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -72,6 +74,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.MapHub<ChatHub>("/chatHub");
 
 app.UseHttpsRedirection();
 

@@ -10,16 +10,18 @@ using System.Text.RegularExpressions;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Messages")]
     [ApiController]
     public class ApiMessageController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
-        public ApiMessageController(ApplicationDbContext context, IMapper mapper)
+        private readonly IHubContext _hubContext;
+        public ApiMessageController(ApplicationDbContext context, IMapper mapper, IHubContext hubContext)
         {
             _context = context;
             _mapper = mapper;
+            _hubContext = hubContext;
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<Room>> Get(int id)
@@ -54,31 +56,31 @@ namespace WebAPI.Controllers
             return Ok(messagesViewModel);
         }
 
-        //[HttpPost]
-        //public async Task<ActionResult<Message>> Create(MessageViewModel messageViewModel)
-        //{
-        //    var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-        //    var room = _context.Rooms.FirstOrDefault(r => r.Name == messageViewModel.Room);
-        //    if (room == null)
-        //        return BadRequest();
+        [HttpPost]
+        public async Task<ActionResult<Message>> Create(MessageViewModel messageViewModel)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+            var room = _context.Room.FirstOrDefault(r => r.Name == messageViewModel.Room);
+            if (room == null)
+                return BadRequest();
 
-        //    var msg = new Message()
-        //    {
-        //        Content = Regex.Replace(messageViewModel.Content, @"<.*?>", string.Empty),
-        //        FromUser = user,
-        //        ToRoom = room,
-        //        Timestamp = DateTime.Now
-        //    };
+            var msg = new Message()
+            {
+                Content = Regex.Replace(messageViewModel.Content, @"<.*?>", string.Empty),
+                FromUser = (CodeFirst.Models.ApplicationUser)user,
+                ToRoom = room,
+                Timestamp = DateTime.Now
+            };
 
-        //    _context.Message.Add(msg);
-        //    await _context.SaveChangesAsync();
+            _context.Message.Add(msg);
+            await _context.SaveChangesAsync();
 
-        //    // Broadcast the message
-        //    var createdMessage = _mapper.Map<Message, MessageViewModel>(msg);
-        //    await _hubContext.Clients.Group(room.Name).SendAsync("newMessage", createdMessage);
+            // Broadcast the message
+            var createdMessage = _mapper.Map<Message, MessageViewModel>(msg);
+            await _hubContext.Clients.Group(room.Name).SendAsync("newMessage", createdMessage);
 
-        //    return CreatedAtAction(nameof(Get), new { id = msg.Id }, createdMessage);
-        //}
+            return CreatedAtAction(nameof(Get), new { id = msg.Id }, createdMessage);
+        }
 
 
         [HttpDelete("{id}")]

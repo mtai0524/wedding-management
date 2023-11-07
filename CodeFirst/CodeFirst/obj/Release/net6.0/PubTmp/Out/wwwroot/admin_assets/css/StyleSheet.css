@@ -1,0 +1,150 @@
+﻿/*thay doi css phai chay lai chuong trinh*/
+.my-active-link {
+    color: #F19828 !important;
+    font-weight: 700;
+}
+
+.breadcrumb {
+    background-color: transparent !important;
+}
+
+.sidebar {
+    border-radius: 8px !important;
+    box-shadow: 5px 6px 6px rgba(0, 0, 0, 0.5); /* Đổ bóng */
+}
+
+.control-label {
+    color: #8F8F8F !important;
+}
+
+.modal-content {
+    margin-top: 70px !important;
+}
+
+.custom-modal {
+    width: 200% !important; /* Thiết lập chiều rộng mong muốn */
+    max-width: 1200px !important; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto !important; /* Canh chỉnh giữa màn hình theo chiều ngang */
+}
+.feedback-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Khoảng cách giữa các phản hồi */
+    width: 80%;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.feedback-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feedback-item {
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Khoảng cách giữa các phần tử bên trong */
+    padding: 15px; /* Tạo khoảng cách giữa shadow và nội dung */
+    border: 1px solid #ccc; /* Đường viền phần tử */
+    border-radius: 8px; /* Làm tròn các góc */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Shadow 3D */
+}
+
+.feedback-email {
+    display: flex;
+    align-items: center; /* Canh giữa nội dung và hình ảnh */
+}
+
+.avatar {
+    margin-right: 8px;
+    width: 50px; /* Điều chỉnh kích thước hình ảnh avatar theo mong muốn */
+    height: 50px;
+    border-radius: 50%; /* Làm tròn góc cho hình ảnh */
+}
+
+.feedback-date {
+    margin-left: auto; /* Đẩy ngày nằm bên phải */
+    color: #999; /* Màu chữ xám cho ngày */
+}
+
+.star-rating {
+    color: gold; /* Màu vàng cho rating */
+}
+
+.sorting-options select {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    background-color: #f2f2f2;
+    color: #333;
+    -webkit-appearance: none;
+    -moz-appearance: none appearance: none;
+    background-image: url('~/wwwroot/down-filled-triangular-arrow.png');
+    background-position: 95% center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+    .sorting-options select option {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+
+        .sorting-options select option:hover {
+            background-color: #ddd;
+            color: #000;
+        }
+
+.sorting-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sorting-options-left {
+    display: flex;
+    align-items: center;
+}
+
+.sorting-options-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+}
+
+.custom-input {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+    .custom-input:focus {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+
+.feedback-list {
+    width: 80%;
+}
+
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+}
+
+li {
+    list-style-type: none;
+}
+.feedback-content {
+    max-height: 200px; /* Đặt chiều cao tối đa trước khi thanh trượt xuất hiện */
+    overflow-y: auto; /* Tạo thanh trượt dọc khi nội dung vượt quá chiều cao tối đa */
+}

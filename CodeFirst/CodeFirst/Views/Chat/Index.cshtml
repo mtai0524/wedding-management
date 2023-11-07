@@ -20,7 +20,7 @@
 <div class="app">
     <div class="sidebar">
         <div class="header">
-            <h5>Chat Rooms</h5>
+            <h5>Phòng chat</h5>
             <a href="#" id="create-room" data-toggle="modal" data-target="#create-room-modal">
                 <i class="fas fa-plus"></i>
 
@@ -53,17 +53,17 @@
     </div>
     <div class="main-content" data-bind="visible: joinedRoom().length == 0">
         <span class="m-auto">
-            Please select room to join!
+            Chọn phòng để tham gia
         </span>
     </div>
     <div class="main-content" data-bind="visible: joinedRoom().length > 0">
         <div class="header">
             <h5 id="joinedRoom" data-bind="text: joinedRoom()">Lobby</h5>
             <div class="room-actions">
-                <button type="button" class="btn btn-link text-secondary px-1" data-toggle="modal" data-target="#rename-room-modal">
+                <button style="outline:none" type="button" class="btn btn-link text-secondary px-1" data-toggle="modal" data-target="#rename-room-modal">
                     <i class="fas fa-edit"></i>
                 </button>
-                <button type="button" class="btn btn-link text-secondary px-1" data-toggle="modal" data-target="#remove-room-modal">
+                <button style="outline:none" type="button" class="btn btn-link text-secondary px-1" data-toggle="modal" data-target="#remove-room-modal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -145,7 +145,7 @@
     </div>
     <div class="users-container">
         <div class="header">
-            <h5>Who's Here (<span data-bind="text: filteredChatUsers().length">0</span>)</h5>
+            <h5>Đang online (<span data-bind="text: filteredChatUsers().length">0</span>)</h5>
         </div>
         @*list-unstyled là mất dấu chấm và ko có số*@
         <ul id="users-list" class="list-unstyled" data-bind="foreach: filteredChatUsers">
@@ -161,11 +161,10 @@
                 </div>
             </li>
         </ul>
-        <input type="text" class="" placeholder="Search someone..." data-bind="value: filter, valueUpdate: 'afterkeydown'" />
+        <input type="text" class="" placeholder="Tìm người dùng..." data-bind="value: filter, valueUpdate: 'afterkeydown'" />
     </div>
 </div>
 
-@*https://getbootstrap.com/docs/4.0/components/modal/*@
 <div class="modal" id="create-room-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -180,7 +179,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Create</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: createRoom">Create</button>
             </div>
         </div>
     </div>
@@ -235,6 +234,7 @@
                 </button>
                 <button type="button" class="btn btn-danger"
                         data-dismiss="modal"
+                        data-bind="click: deleteRoom">
                     Delete
                 </button>
             </div>
@@ -244,26 +244,15 @@
 
 
 @section Scripts{
+    <script src="~/js/signalr/dist/browser/signalr.min.js"></script>
     <script src="~/js/signalr/dist/browser/signalr.js"></script>
-    <script src="~/lib/KnockoutJS/knockout-3.5.1.js"></script>
+    <script src="~/lib/knockoutjs/knockout-3.5.1.js"></script>
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/site.js"></script>
     <script src="~/js/chat.js"></script>
     <script src="~/lib/chat/bootstrap.bundle.min.js"></script>
-    <a href="~/lib/chat/bootstrap.bundle.min.js.map">~/lib/chat/bootstrap.bundle.min.js.map</a>
     <script src="~/lib/chat/jquery.min.js"></script>
-    <a href="~/lib/chat/jquery.min.map">~/lib/chat/jquery.min.map</a>
     <script src="~/lib/chat/bootstrap.min.js"></script>
-    <a href="~/lib/chat/bootstrap.min.js.map">~/lib/chat/bootstrap.min.js.map</a>
 }
 
-<script>
-    document.getElementById('create-room').addEventListener('click', function () {
-        $('#create-room-modal').modal('show');
-    });
-    document.getElementById('rename-room').addEventListener('click', function () {
-        $('#rename-room-modal').modal('show');
-    });
-    document.getElementById('delete-room').addEventListener('click', function () {
-        $('#remove-room-modal').modal('show');
-    });
-</script>
+

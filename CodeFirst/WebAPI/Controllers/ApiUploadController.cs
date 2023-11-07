@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Upload")]
     [ApiController]
     public class ApiUploadController : ControllerBase
     {
@@ -19,10 +19,13 @@ namespace WebAPI.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _environment;
+        private readonly IHubContext _hubContext;
+
         public ApiUploadController(ApplicationDbContext context,
             IMapper mapper,
             IWebHostEnvironment environment,
-            IConfiguration configruation)
+            IConfiguration configruation,
+            IHubContext hubContext)
         {
             _context = context;
             _mapper = mapper;
@@ -30,6 +33,7 @@ namespace WebAPI.Controllers
 
             FileSizeLimit = configruation.GetSection("FileUpload").GetValue<int>("FileSizeLimit");
             AllowedExtensions = configruation.GetSection("FileUpload").GetValue<string>("AllowedExtensions").Split(",");
+            _hubContext = hubContext;
         }
 
 
@@ -78,7 +82,7 @@ namespace WebAPI.Controllers
 
                 // Send image-message to group
                 var messageViewModel = _mapper.Map<Message, MessageViewModel>(message);
-                //await _hubContext.Clients.Group(room.Name).SendAsync("newMessage", messageViewModel);
+                await _hubContext.Clients.Group(room.Name).SendAsync("newMessage", messageViewModel);
 
                 return Ok();
             }
