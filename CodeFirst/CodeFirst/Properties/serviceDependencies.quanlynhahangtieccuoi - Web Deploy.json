@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "mssql1": {
-      "serviceConnectorResourceId": "",
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/quanlynhahangtieccuoi/providers/Microsoft.ServiceLinker/linkers/CodeFirst_AE3CE90231",
       "secretStore": "AzureAppSettings",
-      "type": "mssql.onprem",
-      "connectionId": "ConnectionStrings:CodeFirst",
-      "dynamicId": null
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/mt2405/databases/quanlynhahangtieccuoi",
+      "type": "mssql.azure",
+      "connectionId": "CodeFirst"
     }
   }
 }

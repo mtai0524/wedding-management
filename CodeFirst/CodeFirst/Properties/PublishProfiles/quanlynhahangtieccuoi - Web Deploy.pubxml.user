@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAcsQT6QUHZkCsL1cVtFofTgAAAAACAAAAAAAQZgAAAAEAACAAAADPsq6LEVXBrQ6rcVD7alLko+dQDolayPQrBdp5bCvvuwAAAAAOgAAAAAIAACAAAAB9djwLB6VqEfE6//fajuZJr3t3AvnNpRSx4vfjAVKAF4AAAAACcTEksfNj5TGmnx9136MriWcPp6KxyeZkInOg77uta8Uy/c51ALPipvgnitEfOJvw6BJffhwboPnbWLZ2+oBItbR4uIfVIOyLoGYlFtpJntBB1bZb1tWEV6P2MbsDUfrUIslY7mkxf7cFz9vJsLvPam1EP/4klIKZJbgUbUeCN0AAAABOXOdkR/+ygqOHnGCQdBI1dipIEGSX1rTaHUi/Uj9nRLkSrkH+gSv8/mue+/euk8dcNfNqwyLywLd87ZoTWNg9</EncryptedPassword>
-    <History>True|2023-11-07T17:56:37.3487718Z;True|2023-11-08T00:48:49.1824283+07:00;</History>
+    <History>True|2023-11-07T19:56:54.1293348Z;True|2023-11-08T02:30:06.6959342+07:00;True|2023-11-08T00:56:37.3487718+07:00;True|2023-11-08T00:48:49.1824283+07:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
