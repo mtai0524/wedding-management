@@ -13,6 +13,8 @@ using System;
 using DinkToPdf.Contracts;
 using DinkToPdf;
 using CodeFirst.Hubs;
+using MailKit;
+using CodeFirst.Areas.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,7 +37,7 @@ builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
-
+builder.Services.AddTransient<IEmailSender, EmailSender>(); // thêm dịch vụ gửi mail xác nhận đăng kí
 
 //builder.Services.AddHangFire(config => config
 //        .UseSqlServerStorage(Configuration.GetConnectionString("YourConnectionString")));
