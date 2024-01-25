@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj": {}
+    "E:\\Khoa luan\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj": {}
   },
   "projects": {
-    "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj": {
+    "E:\\Khoa luan\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
+        "projectUniqueName": "E:\\Khoa luan\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
         "projectName": "CodeFirst",
-        "projectPath": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
+        "projectPath": "E:\\Khoa luan\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "E:\\Source code do an hien tai\\AspNetCore\\Computer-Science\\CodeFirst\\CodeFirst\\obj\\",
+        "outputPath": "E:\\Khoa luan\\Computer-Science\\CodeFirst\\CodeFirst\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -142,7 +142,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
