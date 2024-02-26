@@ -122,6 +122,10 @@
               "target": "Package",
               "version": "[6.0.16, )"
             },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[6.16.0, )"
+            },
             "Quick.AspNetCore.Components.Web.Extensions": {
               "target": "Package",
               "version": "[6.0.2, )"

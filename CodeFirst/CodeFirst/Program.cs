@@ -16,7 +16,11 @@ using CodeFirst.Hubs;
 using MailKit;
 using CodeFirst.Areas.Services;
 using Microsoft.AspNetCore.ResponseCompression;
+using MudBlazor.Services;
+
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddMudServices();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

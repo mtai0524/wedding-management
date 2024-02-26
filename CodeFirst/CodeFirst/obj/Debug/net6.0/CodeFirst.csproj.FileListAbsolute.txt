@@ -6243,13 +6243,9 @@ E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCo
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Authentication.Core.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Authentication.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Authentication.OAuth.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Authorization.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Authorization.Policy.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Components.Authorization.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Components.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Components.Forms.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Components.Server.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Components.Web.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.CookiePolicy.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cors.dll
@@ -6280,7 +6276,6 @@ E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCo
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Identity.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Localization.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Localization.Routing.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Metadata.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Mvc.Abstractions.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Mvc.ApiExplorer.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Mvc.Core.dll
@@ -6341,8 +6336,6 @@ E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Extensio
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Extensions.Http.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Extensions.Localization.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Extensions.Logging.Configuration.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Extensions.Logging.Console.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Extensions.Logging.Debug.dll
@@ -6353,7 +6346,6 @@ E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Extensio
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Extensions.Options.ConfigurationExtensions.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Extensions.Options.DataAnnotations.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Extensions.WebEncoders.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.JSInterop.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.Net.Http.Headers.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.VisualBasic.Core.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\refs\Microsoft.VisualBasic.dll
@@ -6836,3 +6828,9 @@ E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\Microsoft.AspNetCore.Co
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\Microsoft.JSInterop.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.Extensions.dll
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\Microsoft.Extensions.Localization.dll
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\Microsoft.Extensions.Localization.Abstractions.dll
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\MudBlazor.dll
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\System.IO.Pipelines.dll
