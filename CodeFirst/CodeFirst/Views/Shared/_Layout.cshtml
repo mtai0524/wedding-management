@@ -9,167 +9,29 @@
 <link href="~/chat/site.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/mydesign.css" asp-append-version="true" />
+    @* <link rel="stylesheet" href="~/css/mydesign.css" asp-append-version="true" /> *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CodeFirst.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
    
-    <link href="~/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+    @* <link href="~/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all"> *@
+    <base href="~/" />
+    <component type="typeof(Microsoft.AspNetCore.Components.Web.HeadOutlet)"
+               render-mode="ServerPrerendered" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <div class="one_quarter first">
-                    <h1 class="logoname"><a href="#"><span style="color:gray;font-size:20px">The</span><span>I</span><span style="color:gray;font-size:20px">relia</span><span>K</span><span style="color:gray;font-size:20px">ing</span></a></h1>
-                </div>
-                <button asp-area="" asp-controller="Home" asp-action="Index" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <a asp-action="Index" asp-controller="Chat" asp-area="">Chat</a>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="bgded overlay" style="margin-top:-20px;background-image:url('https://fiftyflowers.com/cdn/shop/articles/DIY-Wedding-Centerpieces-Flower-Ideas_1100x.jpg?v=1645559236');">
-  <div id="pageintro" class="hoc clear"> 
-    <!-- ################################################################################################ -->
-    <article>
-      <h3 class="heading">Nhà hàng tiệc cưới</h3>
-                <h2>The IreliaKing</h2>
-    </article>
-    <!-- ################################################################################################ -->
-  </div>
-</div>
-
-
-    <div class="wrapper row3">
-        <main class="hoc container clear">
-            <!-- main body -->
-            <!-- ################################################################################################ -->
-            <section id="introblocks">
-                <ul class="nospace group btmspace-80 elements elements-four">
-                    <li class="one_quarter">
-                        <article>
-                            <a href="#"><i class="fas fa-hand-rock"></i></a>
-                            <h6 class="heading">Tận tâm phục vụ</h6>
-                        </article>
-                    </li>
-                    <li class="one_quarter">
-                        <article>
-                            <a href="#"><i class="fas fa-dove"></i></a>
-                            <h6 class="heading">Lưu giữ kỷ niệm</h6>
-                        </article>
-                    </li>
-                    <li class="one_quarter">
-                        <article>
-                            <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                            <h6 class="heading">Thực đơn đa dạng</h6>
-                        </article>
-                    </li>
-                    <li class="one_quarter">
-                        <article>
-                            <a href="#"><i class="fas fa-heartbeat"></i></a>
-                            <h6 class="heading">lãng mạn hạnh phúc</h6>
-                        </article>
-                    </li>
-                </ul>
-            </section>
-            <!-- ################################################################################################ -->
-            <section class="group shout">
-                <figure class="one_half first">
-                    <img src="~/assets/images/s3.jpg" alt="">
-                    <figcaption class="heading"><a href="#">The Rose Garden</a></figcaption>
-                </figure>
-                <figure class="one_half">
-                    <img src="~/assets/images/s4.jpg" alt="">
-                    <figcaption class="heading"><a href="#">White Castle</a></figcaption>
-                </figure>
-            </section>
-            <!-- ################################################################################################ -->
-            <!-- / main body -->
-            <div class="clear"></div>
-        </main>
-    </div>
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-  
-    <div style="margin-top:-100px; margin-bottom:60px" class="wrapper row3">
-        <section class="hoc container clear">
-            <!-- ################################################################################################ -->
-            <div class="sectiontitle">
-                <h6 class="heading font-x2">Đánh giá từ khách hàng</h6>
-            </div>
-            <ul class="pr-charts nospace group center">
-                <li class="pr-chart-ctrl" data-animate="false">
-                    <div class="pr-chart" data-percent="90"><i></i></div>
-                    <p>Phục vụ</p>
-                </li>
-                <li class="pr-chart-ctrl" data-animate="false">
-                    <div class="pr-chart" data-percent="80"><i></i></div>
-                    <p>Thực đơn</p>
-                </li>
-                <li class="pr-chart-ctrl" data-animate="false">
-                    <div class="pr-chart" data-percent="75"><i></i></div>
-                    <p>Dịch vụ</p>
-                </li>
-                <li class="pr-chart-ctrl" data-animate="false">
-                    <div class="pr-chart" data-percent="100"><i></i></div>
-                    <p>Trang trí</p>
-                </li>
-            </ul>
-            <!-- ################################################################################################ -->
-        </section>
-    </div>
-    <div style="height:1px; margin-top:-200px" class="container">
-        <main role="main" class="pb-3">
+   
             @RenderBody()
-        </main>
-    </div>
 
 
-    <div class="bgded overlay row4" style="background-image:url('https://wallpapers.com/images/hd/plain-black-background-02fh7564l8qq4m6d.jpg');">
-        <footer id="footer" class="hoc clear">
-            <!-- ################################################################################################ -->
-            <div class="one_quarter first">
-                <h1 class="logoname"><a href="#">The<span>I</span>relia<span>K</span>ing</a></h1>
-                <ul class="faico clear">
-                    <li><a class="faicon-facebook" href="#"><i class="fab fa-facebook"></i></a></li>
-                    <li><a class="faicon-google-plus" href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                    <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a class="faicon-vk" href="#"><i class="fab fa-vk"></i></a></li>
-                </ul>
-            </div>
-        </footer>
-    </div>
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <div class="wrapper row5">
-        <div id="copyright" class="hoc clear">
-            <!-- ################################################################################################ -->
-            <p class="fl_left">Copyright &copy; 2023 - Đồ án ngành Khoa Học Máy Tính - <a href="#">Quản lý nhà hàng tiệc cưới</a></p>
-            <!-- ################################################################################################ -->
-        </div>
-    </div>
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
-    <!-- JAVASCRIPTS -->
-    
-
-
+    <script src="~/microsoft/signalr/dist/browser/signalr.js"></script>
+    <base href="~/" />
+    <script src="_framework/blazor.server.js"></script>
+    <script src="_content/Microsoft.AspNetCore.Components.Web.Extensions/script.js"></script>
+    <script src="~/js/site.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -185,7 +47,7 @@
     <!-- Jquery Core Js -->
     <script src="~/js/qrcode.js"></script>
     @await Component.InvokeAsync("Notyf")
-    @await RenderSectionAsync("Scripts", required: false)
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         // Bắt đầu hiển thị spinner khi trang bắt đầu tải

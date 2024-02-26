@@ -29,118 +29,97 @@ namespace CodeFirst.Controllers
         }
         public IActionResult Index()
         {
-            ////_notfy.Success("Success Notification");
-            ////_notfy.Success("Success Notification that closes in 10 Seconds.", 10);
-            ////_notfy.Error("Some Error Message");
-            ////_notfy.Warning("Some Error Message");
-            ////_notfy.Information("Information Notification - closes in 4 seconds.", 4);
-            ////_notfy.Custom("Custom Notification <br><b><i>closes in 5 seconds.</i></b></p>", 5, "indigo", "fa fa-gear");
-            ////_notfy.Custom("Custom Notification - closes in 5 seconds.", 5, "whitesmoke", "fa fa-gear");
-            ////_notfy.Custom("Custom Notification - closes in 10 seconds.", 10, "#B600FF", "fa fa-home");
-            ////_notfy.Success("Success Notification");
-            //// Lấy danh sách tất cả người dùng và danh sách vai trò
-            //var users = _userManager.Users.ToList();
-            //var roles = _roleManager.Roles.ToList();
-
-            //// Tạo một danh sách kết hợp giữa người dùng và vai trò
-            //var userRoles = new List<Tuple<ApplicationUser, IList<string>>>();
-
-            //foreach (var user in users)
-            //{
-            //    var userRoleNames = _userManager.GetRolesAsync(user).Result;
-            //    userRoles.Add(new Tuple<ApplicationUser, IList<string>>(user, userRoleNames));
-            //}
-
-            //// Truyền danh sách kết hợp vào view
-            //ViewData["UserRoles"] = userRoles;
-
-            return View();
+            return View("_Host");
         }
-        public async Task<IActionResult> DeleteUser(string id)
+        public IActionResult Blazor()
         {
-            var user = await _userManager.FindByIdAsync(id);
-            if(user == null)
-            {
-                ViewBag.ErrorMessage = $"User with Id = {id} cannot be found";
-                return View("NotFound");
-
-            }
-            else
-            {
-                var result = await _userManager.DeleteAsync(user);
-                if (result.Succeeded)
-                {
-                    _notfy.Error("Xóa thành công");
-
-                    return RedirectToAction("Index");
-                }
-                return View("Index");
-            }
+            return View("_Host");
         }
-        [HttpGet]
-        public async Task<IActionResult> EditUser(string id)
-        {
-            var user = await _userManager.FindByIdAsync(id);
-            var roles = await _roleManager.Roles.ToListAsync();
-            var roleList = roles.Select(r => new SelectListItem
-            {
-                Text = r.Name,
-                Value = r.Id
-            }).ToList();
-            if (user == null)
-            {
-                ViewBag.ErrorMsg = $"User with id = {id} cannot by found";
-                return View("NotFound");
-            }
-            var userViewModel = new UserViewModel
-            {
-                Id = user.Id,
-                UserName = user.UserName,
-                Roles = roleList,
-                // Thêm các thuộc tính khác của người dùng vào đây
-            };
-            return View("EditUser", userViewModel);
-        }
-        [HttpPost]
-        public async Task<IActionResult> EditUser(UserViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = await _userManager.FindByIdAsync(model.Id);
-                //if (user == null)
-                //{
-                //    
-                //}
+        //public async Task<IActionResult> DeleteUser(string id)
+        //{
+        //    var user = await _userManager.FindByIdAsync(id);
+        //    if(user == null)
+        //    {
+        //        ViewBag.ErrorMessage = $"User with Id = {id} cannot be found";
+        //        return View("NotFound");
 
-                // Cập nhật thông tin người dùng dựa trên model
-                user.UserName = model.UserName;
-                var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-                var currentRoles = await _userManager.GetRolesAsync(user);
-                await _userManager.RemoveFromRolesAsync(user, currentRoles);
-                // Trả về dòng role theo Id truyền từ SelectedRole
-                var role = await _roleManager.Roles.SingleOrDefaultAsync(r => r.Id == model.SelectedRole.ToLower());
+        //    }
+        //    else
+        //    {
+        //        var result = await _userManager.DeleteAsync(user);
+        //        if (result.Succeeded)
+        //        {
+        //            _notfy.Error("Xóa thành công");
 
-                // Thêm người dùng vào vai trò
-                await _userManager.AddToRoleAsync(user, role.Name);
-                //// Sau đó, thêm vai trò mới mà người dùng đã chọn
+        //            return RedirectToAction("Index");
+        //        }
+        //        return View("Index");
+        //    }
+        //}
+        //[HttpGet]
+        //public async Task<IActionResult> EditUser(string id)
+        //{
+        //    var user = await _userManager.FindByIdAsync(id);
+        //    var roles = await _roleManager.Roles.ToListAsync();
+        //    var roleList = roles.Select(r => new SelectListItem
+        //    {
+        //        Text = r.Name,
+        //        Value = r.Id
+        //    }).ToList();
+        //    if (user == null)
+        //    {
+        //        ViewBag.ErrorMsg = $"User with id = {id} cannot by found";
+        //        return View("NotFound");
+        //    }
+        //    var userViewModel = new UserViewModel
+        //    {
+        //        Id = user.Id,
+        //        UserName = user.UserName,
+        //        Roles = roleList,
+        //        // Thêm các thuộc tính khác của người dùng vào đây
+        //    };
+        //    return View("EditUser", userViewModel);
+        //}
+        //[HttpPost]
+        //public async Task<IActionResult> EditUser(UserViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = await _userManager.FindByIdAsync(model.Id);
+        //        //if (user == null)
+        //        //{
+        //        //    
+        //        //}
 
-                // Lưu thay đổi vào cơ sở dữ liệu
-                var result = await _userManager.UpdateAsync(user);
+        //        // Cập nhật thông tin người dùng dựa trên model
+        //        user.UserName = model.UserName;
+        //        var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
+        //        var currentRoles = await _userManager.GetRolesAsync(user);
+        //        await _userManager.RemoveFromRolesAsync(user, currentRoles);
+        //        // Trả về dòng role theo Id truyền từ SelectedRole
+        //        var role = await _roleManager.Roles.SingleOrDefaultAsync(r => r.Id == model.SelectedRole.ToLower());
 
-                if (result.Succeeded)
-                {
-                    _notfy.Success("Sửa thành công");
+        //        // Thêm người dùng vào vai trò
+        //        await _userManager.AddToRoleAsync(user, role.Name);
+        //        //// Sau đó, thêm vai trò mới mà người dùng đã chọn
 
-                    await _signInManager.RefreshSignInAsync(currentUser);
-                    //await _signInManager.RefreshSignInAsync(user);
-                    // Lưu thành công, chuyển hướng đến trang chi tiết người dùng
-                    return RedirectToAction("Index", new { id = user.Id });
-                }
-            }
+        //        // Lưu thay đổi vào cơ sở dữ liệu
+        //        var result = await _userManager.UpdateAsync(user);
 
-            // Nếu ModelState không hợp lệ, hiển thị lại form với thông báo lỗi
-            return View("EditUser", model);
-        }
+        //        if (result.Succeeded)
+        //        {
+        //            _notfy.Success("Sửa thành công");
+
+        //            await _signInManager.RefreshSignInAsync(currentUser);
+        //            //await _signInManager.RefreshSignInAsync(user);
+        //            // Lưu thành công, chuyển hướng đến trang chi tiết người dùng
+        //            return RedirectToAction("Index", new { id = user.Id });
+        //        }
+        //    }
+
+        //    // Nếu ModelState không hợp lệ, hiển thị lại form với thông báo lỗi
+        //    return View("EditUser", model);
+        //}
 
         public IActionResult Privacy()
         {

@@ -10,7 +10,10 @@ namespace CodeFirst.Controllers
         {
             return View();
         }
-
+        public IActionResult Blazor()
+        {
+            return View("_Host");
+        }
         // GET: ChatController/Details/5
         public ActionResult Details(int id)
         {

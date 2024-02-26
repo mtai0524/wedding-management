@@ -15,7 +15,7 @@ using DinkToPdf;
 using CodeFirst.Hubs;
 using MailKit;
 using CodeFirst.Areas.Services;
-
+using Microsoft.AspNetCore.ResponseCompression;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -124,6 +124,24 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools())); // service cho pdf
 
+
+// intergrated blazor server
+builder.Services.AddServerSideBlazor();
+builder.Services.AddRazorPages();
+builder.Services.AddResponseCompression(options =>
+{
+    options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[]
+    {
+        "application/octet-stream"
+    });
+});
+
+// using signalr change data
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.PropertyNamingPolicy = null;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -131,6 +149,8 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -138,7 +158,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 
-app.MapRazorPages();
 app.UseCors("CorsPolicy");
 app.MapHub<ChatHub>("/chatHub");
 
@@ -155,7 +174,10 @@ app.UseEndpoints(endpoints =>
 });
 
 //app.UseMiddleware<LoadingSpinnerMiddleware>();
-
-
+app.UseResponseCompression();
+app.UseHttpsRedirection();
+app.MapRazorPages();
+app.MapBlazorHub();
+app.MapFallbackToController("Blazor", "Chat");
 
 app.Run();

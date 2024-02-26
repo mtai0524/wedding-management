@@ -41,6 +41,8 @@
             height: 150px;
         }
     </style>
+    <component type="typeof(Microsoft.AspNetCore.Components.Web.HeadOutlet)"
+               render-mode="ServerPrerendered" />
 </head>
 <body>
    
@@ -581,6 +583,10 @@
             </div> *@
         </div>
     </div>
+
+    <script src="_framework/blazor.server.js"></script>
+    <script src="_content/Microsoft.AspNetCore.Components.Web.Extensions/script.js"></script>
+
     <script type="text/javascript">
 
         (function () {
