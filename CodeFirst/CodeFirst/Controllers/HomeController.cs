@@ -29,7 +29,7 @@ namespace CodeFirst.Controllers
         }
         public IActionResult Index()
         {
-            return View("_Host");
+            return View("Index");
         }
         public IActionResult Blazor()
         {
