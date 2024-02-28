@@ -1,1071 +1,1071 @@
 {
   "Files": [
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CodeFirst.bundle.scp.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CodeFirst.bundle.scp.css",
       "PackagePath": "staticwebassets\\CodeFirst.bundle.scp.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\apexcharts.bundle.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\apexcharts.bundle.js",
       "PackagePath": "staticwebassets\\admin_assets\\bundles\\apexcharts.bundle.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\dataTables.bundle.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\dataTables.bundle.js",
       "PackagePath": "staticwebassets\\admin_assets\\bundles\\dataTables.bundle.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\libscripts.bundle.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\libscripts.bundle.js",
       "PackagePath": "staticwebassets\\admin_assets\\bundles\\libscripts.bundle.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\nestable.bundle.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\nestable.bundle.js",
       "PackagePath": "staticwebassets\\admin_assets\\bundles\\nestable.bundle.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\StyleSheet.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\StyleSheet.css",
       "PackagePath": "staticwebassets\\admin_assets\\css\\StyleSheet.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\my-task.style.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\my-task.style.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\css\\my-task.style.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont-1.eot",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont-1.eot",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont-1.eot"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.eot",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.eot",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont.eot"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.svg",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.ttf",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.ttf",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont.ttf"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.woff",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.woff",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont.woff"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\ZKZg.gif",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\ZKZg.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\ZKZg.gif"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cat.gif",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cat.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\cat.gif"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cf.gif",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cf.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\cf.gif"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\change-log.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\change-log.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\change-log.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\document\\menu-close.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\document\\menu-close.png",
       "PackagePath": "staticwebassets\\admin_assets\\images\\document\\menu-close.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\document\\menu-open.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\document\\menu-open.png",
       "PackagePath": "staticwebassets\\admin_assets\\images\\document\\menu-open.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\dragonball.gif",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\dragonball.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\dragonball.gif"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\forgot-password.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\forgot-password.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\forgot-password.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\1.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\1.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\1.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\10.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\10.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\10.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\2.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\2.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\2.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\3.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\3.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\3.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\4.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\4.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\4.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\5.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\5.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\5.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\6.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\6.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\6.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\7.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\7.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\7.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\8.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\8.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\8.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\9.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\9.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\9.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\google.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\google.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\google.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\interview.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\interview.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\interview.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar1.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar1.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar1.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar10.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar10.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar10.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar11.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar11.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar11.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar12.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar12.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar12.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar2.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar2.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar2.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar3.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar3.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar3.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar4.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar4.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar4.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar5.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar5.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar5.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar6.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar6.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar6.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar7.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar7.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar7.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar8.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar8.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar8.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar9.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar9.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar9.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\profile_av.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\profile_av.png",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\profile_av.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\login-img.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\login-img.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\login-img.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\mario.gif",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\mario.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\mario.gif"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\no-data.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\no-data.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\no-data.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\not_found.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\not_found.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\not_found.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\pika.gif",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\pika.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\pika.gif"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\profile_av.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\profile_av.png",
       "PackagePath": "staticwebassets\\admin_assets\\images\\profile_av.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\task-view.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\task-view.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\task-view.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\verify.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\verify.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\verify.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a1.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a1.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a1.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a2.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a2.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a2.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a3.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a3.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a3.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a4.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a4.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a4.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar1.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar1.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar1.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar10.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar10.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar10.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar11.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar11.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar11.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar12.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar12.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar12.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar2.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar2.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar2.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar3.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar3.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar3.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar4.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar4.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar4.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar5.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar5.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar5.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar6.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar6.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar6.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar7.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar7.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar7.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar8.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar8.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar8.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar9.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar9.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar9.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\chart-apex.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\chart-apex.js",
       "PackagePath": "staticwebassets\\admin_assets\\page\\chart-apex.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\hr.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\hr.js",
       "PackagePath": "staticwebassets\\admin_assets\\page\\hr.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\index.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\index.js",
       "PackagePath": "staticwebassets\\admin_assets\\page\\index.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\task.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\task.js",
       "PackagePath": "staticwebassets\\admin_assets\\page\\task.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\datatables\\dataTables.bootstrap5.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\datatables\\dataTables.bootstrap5.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\datatables\\dataTables.bootstrap5.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\datatables\\responsive.dataTables.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\datatables\\responsive.dataTables.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\datatables\\responsive.dataTables.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\fullcalendar\\main.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\fullcalendar\\main.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\fullcalendar\\main.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\fullcalendar\\main.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\fullcalendar\\main.min.js",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\fullcalendar\\main.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\nestable\\jquery-nestable.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\nestable\\jquery-nestable.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\nestable\\jquery-nestable.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\parsleyjs\\css\\parsley.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\parsleyjs\\css\\parsley.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\parsleyjs\\css\\parsley.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\parsleyjs\\js\\parsley.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\parsleyjs\\js\\parsley.js",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\parsleyjs\\js\\parsley.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\prism\\prism.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\prism\\prism.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\prism\\prism.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\prism\\prism.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\prism\\prism.js",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\prism\\prism.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\template.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\template.js",
       "PackagePath": "staticwebassets\\admin_assets\\template.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\animated.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\animated.css",
       "PackagePath": "staticwebassets\\assets\\css\\animated.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\fontawesome.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\fontawesome.css",
       "PackagePath": "staticwebassets\\assets\\css\\fontawesome.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\owl.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\owl.css",
       "PackagePath": "staticwebassets\\assets\\css\\owl.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\templatemo-plot-listing.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\css\\templatemo-plot-listing.css",
       "PackagePath": "staticwebassets\\assets\\css\\templatemo-plot-listing.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\Flaticon.woff",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\Flaticon.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\Flaticon.woff"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\FontAwesome.otf",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\FontAwesome.otf",
       "PackagePath": "staticwebassets\\assets\\fonts\\FontAwesome.otf"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\flexslider-icon.eot",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\flexslider-icon.eot",
       "PackagePath": "staticwebassets\\assets\\fonts\\flexslider-icon.eot"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\flexslider-icon.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\flexslider-icon.svg",
       "PackagePath": "staticwebassets\\assets\\fonts\\flexslider-icon.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\flexslider-icon.ttf",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\flexslider-icon.ttf",
       "PackagePath": "staticwebassets\\assets\\fonts\\flexslider-icon.ttf"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\flexslider-icon.woff",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\flexslider-icon.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\flexslider-icon.woff"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\fontawesome-webfont.eot",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\fontawesome-webfont.eot",
       "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.eot"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\fontawesome-webfont.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\fontawesome-webfont.svg",
       "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\fontawesome-webfont.ttf",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\fontawesome-webfont.ttf",
       "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.ttf"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\fontawesome-webfont.woff",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\fontawesome-webfont.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.woff"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\fontawesome-webfont.woff2",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\fontawesome-webfont.woff2",
       "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.woff2"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\slick.eot",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\slick.eot",
       "PackagePath": "staticwebassets\\assets\\fonts\\slick.eot"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\slick.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\slick.svg",
       "PackagePath": "staticwebassets\\assets\\fonts\\slick.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\slick.ttf",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\slick.ttf",
       "PackagePath": "staticwebassets\\assets\\fonts\\slick.ttf"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\slick.woff",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\fonts\\slick.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\slick.woff"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\100x100.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\100x100.png",
       "PackagePath": "staticwebassets\\assets\\images\\demo\\100x100.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\348x261.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\348x261.png",
       "PackagePath": "staticwebassets\\assets\\images\\demo\\348x261.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\348x400.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\348x400.png",
       "PackagePath": "staticwebassets\\assets\\images\\demo\\348x400.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\546x356.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\546x356.png",
       "PackagePath": "staticwebassets\\assets\\images\\demo\\546x356.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\avatar.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\avatar.png",
       "PackagePath": "staticwebassets\\assets\\images\\demo\\avatar.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\backgrounds\\01.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\backgrounds\\01.png",
       "PackagePath": "staticwebassets\\assets\\images\\demo\\backgrounds\\01.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\backgrounds\\f1.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\backgrounds\\f1.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\demo\\backgrounds\\f1.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\backgrounds\\index.html",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\backgrounds\\index.html",
       "PackagePath": "staticwebassets\\assets\\images\\demo\\backgrounds\\index.html"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\gallery\\01.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\gallery\\01.png",
       "PackagePath": "staticwebassets\\assets\\images\\demo\\gallery\\01.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\gallery\\index.html",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\gallery\\index.html",
       "PackagePath": "staticwebassets\\assets\\images\\demo\\gallery\\index.html"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\imgl.gif",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\imgl.gif",
       "PackagePath": "staticwebassets\\assets\\images\\demo\\imgl.gif"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\imgr.gif",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\imgr.gif",
       "PackagePath": "staticwebassets\\assets\\images\\demo\\imgr.gif"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\index.html",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\demo\\index.html",
       "PackagePath": "staticwebassets\\assets\\images\\demo\\index.html"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\f1.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\f1.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\f1.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\index.html",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\index.html",
       "PackagePath": "staticwebassets\\assets\\images\\index.html"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\s1.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\s1.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\s1.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\s2.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\s2.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\s2.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\s3.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\s3.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\s3.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\s4.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\images\\s4.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\s4.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\animation.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\animation.js",
       "PackagePath": "staticwebassets\\assets\\js\\animation.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\custom.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\custom.js",
       "PackagePath": "staticwebassets\\assets\\js\\custom.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\imagesloaded.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\imagesloaded.js",
       "PackagePath": "staticwebassets\\assets\\js\\imagesloaded.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\isotope.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\isotope.js",
       "PackagePath": "staticwebassets\\assets\\js\\isotope.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\owl-carousel.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\owl-carousel.js",
       "PackagePath": "staticwebassets\\assets\\js\\owl-carousel.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\tabs.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets\\js\\tabs.js",
       "PackagePath": "staticwebassets\\assets\\js\\tabs.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\chat\\site.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\chat\\site.css",
       "PackagePath": "staticwebassets\\chat\\site.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\mydesign.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\mydesign.css",
       "PackagePath": "staticwebassets\\css\\mydesign.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\site.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylethongke.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylethongke.css",
       "PackagePath": "staticwebassets\\css\\stylethongke.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\down-filled-triangular-arrow.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\down-filled-triangular-arrow.png",
       "PackagePath": "staticwebassets\\down-filled-triangular-arrow.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\favicon.ico",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\100x100.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\100x100.png",
       "PackagePath": "staticwebassets\\images\\demo\\100x100.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\348x261.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\348x261.png",
       "PackagePath": "staticwebassets\\images\\demo\\348x261.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\348x400.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\348x400.png",
       "PackagePath": "staticwebassets\\images\\demo\\348x400.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\546x356.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\546x356.png",
       "PackagePath": "staticwebassets\\images\\demo\\546x356.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\avatar.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\avatar.png",
       "PackagePath": "staticwebassets\\images\\demo\\avatar.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\backgrounds\\01.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\backgrounds\\01.png",
       "PackagePath": "staticwebassets\\images\\demo\\backgrounds\\01.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\backgrounds\\f1.jpg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\backgrounds\\f1.jpg",
       "PackagePath": "staticwebassets\\images\\demo\\backgrounds\\f1.jpg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\backgrounds\\index.html",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\backgrounds\\index.html",
       "PackagePath": "staticwebassets\\images\\demo\\backgrounds\\index.html"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\gallery\\01.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\gallery\\01.png",
       "PackagePath": "staticwebassets\\images\\demo\\gallery\\01.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\gallery\\index.html",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\gallery\\index.html",
       "PackagePath": "staticwebassets\\images\\demo\\gallery\\index.html"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\imgl.gif",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\imgl.gif",
       "PackagePath": "staticwebassets\\images\\demo\\imgl.gif"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\imgr.gif",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\imgr.gif",
       "PackagePath": "staticwebassets\\images\\demo\\imgr.gif"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\index.html",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\index.html",
       "PackagePath": "staticwebassets\\images\\demo\\index.html"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji1.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji1.png",
       "PackagePath": "staticwebassets\\images\\emojis\\emoji1.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji2.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji2.png",
       "PackagePath": "staticwebassets\\images\\emojis\\emoji2.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji3.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji3.png",
       "PackagePath": "staticwebassets\\images\\emojis\\emoji3.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji4.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji4.png",
       "PackagePath": "staticwebassets\\images\\emojis\\emoji4.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji5.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji5.png",
       "PackagePath": "staticwebassets\\images\\emojis\\emoji5.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji6.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji6.png",
       "PackagePath": "staticwebassets\\images\\emojis\\emoji6.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji7.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji7.png",
       "PackagePath": "staticwebassets\\images\\emojis\\emoji7.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar1.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar1.png",
       "PackagePath": "staticwebassets\\images\\icons\\avatar1.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar2.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar2.png",
       "PackagePath": "staticwebassets\\images\\icons\\avatar2.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar3.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar3.png",
       "PackagePath": "staticwebassets\\images\\icons\\avatar3.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar4.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar4.png",
       "PackagePath": "staticwebassets\\images\\icons\\avatar4.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\default-avatar.png",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\default-avatar.png",
       "PackagePath": "staticwebassets\\images\\icons\\default-avatar.png"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\chat.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\chat.js",
       "PackagePath": "staticwebassets\\js\\chat.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.js",
       "PackagePath": "staticwebassets\\js\\qrcode.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.min.js",
       "PackagePath": "staticwebassets\\js\\qrcode.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",
       "PackagePath": "staticwebassets\\js\\signalr\\dist\\browser\\signalr.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\signalr\\dist\\browser\\signalr.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\signalr\\dist\\browser\\signalr.min.js",
       "PackagePath": "staticwebassets\\js\\signalr\\dist\\browser\\signalr.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\site.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\index.html",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\index.html",
       "PackagePath": "staticwebassets\\layout\\index.html"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\index.html",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\index.html",
       "PackagePath": "staticwebassets\\layout\\scripts\\index.html"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\jquery.backtotop.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\jquery.backtotop.js",
       "PackagePath": "staticwebassets\\layout\\scripts\\jquery.backtotop.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\jquery.easypiechart.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\jquery.easypiechart.min.js",
       "PackagePath": "staticwebassets\\layout\\scripts\\jquery.easypiechart.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\jquery.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\jquery.min.js",
       "PackagePath": "staticwebassets\\layout\\scripts\\jquery.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\jquery.mobilemenu.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\scripts\\jquery.mobilemenu.js",
       "PackagePath": "staticwebassets\\layout\\scripts\\jquery.mobilemenu.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\css\\fontawesome-all.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\css\\fontawesome-all.min.css",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\css\\fontawesome-all.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\css\\index.html",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\css\\index.html",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\css\\index.html"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\index.html",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\index.html",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\index.html"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.eot",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.eot",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.eot"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.svg",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.ttf",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.ttf",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.ttf"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.woff",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.woff",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.woff"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.woff2",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.woff2",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-brands-400.woff2"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.eot",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.eot",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.eot"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.svg",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.ttf",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.ttf",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.ttf"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.woff",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.woff",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.woff"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.woff2",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.woff2",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-regular-400.woff2"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.eot",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.eot",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.eot"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.svg",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.svg",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.svg"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.ttf",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.ttf",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.ttf"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.woff",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.woff",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.woff"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.woff2",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.woff2",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\fa-solid-900.woff2"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\index.html",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\fontawesome-free\\webfonts\\index.html",
       "PackagePath": "staticwebassets\\layout\\styles\\fontawesome-free\\webfonts\\index.html"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\framework.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\framework.css",
       "PackagePath": "staticwebassets\\layout\\styles\\framework.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\index.html",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\index.html",
       "PackagePath": "staticwebassets\\layout\\styles\\index.html"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\layout.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\layout\\styles\\layout.css",
       "PackagePath": "staticwebassets\\layout\\styles\\layout.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\KnockoutJS\\knockout-3.5.1.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\KnockoutJS\\knockout-3.5.1.js",
       "PackagePath": "staticwebassets\\lib\\KnockoutJS\\knockout-3.5.1.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\bootstrap.bundle.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\chat\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\bootstrap.bundle.min.js.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\chat\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\bootstrap.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\chat\\bootstrap.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\bootstrap.min.js.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\chat\\bootstrap.min.js.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\jquery.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\chat\\jquery.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\jquery.min.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\chat\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\chat\\jquery.min.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\css\\bootstrap.min.css",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\css\\bootstrap.min.css"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\css\\bootstrap.min.css.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\js\\bootstrap.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.js",
       "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.min.js",
       "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.min.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.min.map",
       "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.min.map"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.js",
       "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.slim.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.min.js",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.min.js",
       "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.slim.min.js"
     },
     {
-      "Id": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.min.map",
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.min.map",
       "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.slim.min.map"
     },
     {

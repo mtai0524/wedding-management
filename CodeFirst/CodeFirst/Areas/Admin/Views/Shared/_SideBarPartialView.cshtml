@@ -3,32 +3,25 @@
 
 @{
     bool userRole = User.IsInRole("user");
+    var isAuthenticated = User.Identity.IsAuthenticated;
+    var username = isAuthenticated ? (await UserManager.GetUserAsync(User))?.UserName : "admin";
+    var avatarUrl = isAuthenticated ? (await UserManager.GetUserAsync(User))?.Avatar : "https://i.pinimg.com/236x/e1/6c/70/e16c704fc0b655e553dd7a1a8a00475d.jpg";
 }
 <!-- sidebar -->
 <div class="sidebar px-4 py-4 py-md-5 me-0">
     <div class="d-flex flex-column h-100">
         <a asp-controller="Account" asp-action="Manage" asp-area="Identity" class="mb-0 brand-icon" style="display: inline-block; text-align: center;">
-            @{
-                var user = await UserManager.GetUserAsync(User);
-
-                if (user != null)
-                {
-                    var username = user.UserName;
-                    var avatarUrl = user.Avatar; // Thay bằng thuộc tính tương ứng trong ApplicationUser của bạn
-
-                    <div style="display: flex; flex-direction: column; align-items: center;">
-                        <img style="border: 2px solid #000; width: 50%; border-radius: 50%;" src="@avatarUrl" alt="User Avatar" />
-                        <span style="padding:0px; margin-top:5px;font-size:15px" class="logo-text">@username</span>
-                    </div>
-                }
-            }
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <img style="border: 2px solid #000; width: 50%; border-radius: 50%;" src="@avatarUrl" alt="User Avatar" />
+                <span style="padding:0px; margin-top:5px;font-size:15px" class="logo-text">@username</span>
+            </div>
         </a>
         <!-- Menu: main ul -->
 
         <ul class="menu-list flex-grow-1 mt-3">
             <li><a class="m-link" asp-controller="Account" asp-action="Manage" asp-area="Identity"><i class="icofont-user"></i> <span>Thông tin của tôi</span></a></li>
 
-            @if (!userRole)
+            @if (User.Identity.IsAuthenticated && !userRole)
             {
                 <li><a class="m-link" asp-area="Admin" asp-action="Index" asp-controller="Branch"><i class="icofont-building-alt"></i> <span>Chi nhánh</span></a></li>
                 <li><a class="m-link" asp-area="Admin" asp-action="Index" asp-controller="Hall"><i class="icofont-institution"></i> <span>Sảnh cưới</span></a></li>
@@ -84,6 +77,7 @@
 
                 </li>
             }
+           
             <li><a class="m-link" asp-area="" asp-action="Index" asp-controller="Home"><i class="icofont-ui-home"></i> <span>Về trang chủ</span></a></li>
 
         </ul>
@@ -93,13 +87,7 @@
             <li class="d-flex align-items-center justify-content-center">
                 <div class="form-check form-switch theme-switch">
                     <input class="form-check-input" type="checkbox" id="theme-switch">
-                    <label class="form-check-label" for="theme-switch">Enable Dark Mode!</label>
-                </div>
-            </li>
-            <li class="d-flex align-items-center justify-content-center">
-                <div class="form-check form-switch theme-rtl">
-                    <input class="form-check-input" type="checkbox" id="theme-rtl">
-                    <label class="form-check-label" for="theme-rtl">Enable RTL Mode!</label>
+                    <label class="form-check-label" for="theme-switch">Chế độ tối</label>
                 </div>
             </li>
         </ul>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\SettingUI\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj": {}
+    "E:\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj": {
+    "E:\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
+        "projectUniqueName": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
         "projectName": "CodeFirst",
-        "projectPath": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
+        "projectPath": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\obj\\",
+        "outputPath": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -154,14 +154,14 @@
         }
       }
     },
-    "E:\\SettingUI\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj": {
+    "E:\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SettingUI\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "E:\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "E:\\SettingUI\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj",
+        "projectPath": "E:\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "E:\\SettingUI\\Computer-Science\\CodeFirst\\WebAPI\\obj\\",
+        "outputPath": "E:\\Computer-Science\\CodeFirst\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -178,8 +178,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj": {
-                "projectPath": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj"
+              "E:\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj": {
+                "projectPath": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj"
               }
             }
           }

@@ -1,7 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject UserManager<ApplicationUser> UserManager
 @inject SignInManager<ApplicationUser> SignInManager
-
+@{
+    var isAuthenticated = User.Identity.IsAuthenticated;
+    var avatarUrl = isAuthenticated ? (await UserManager.GetUserAsync(User))?.Avatar : "https://i.pinimg.com/236x/e1/6c/70/e16c704fc0b655e553dd7a1a8a00475d.jpg";
+}
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -46,7 +49,7 @@
     </style>
 </head>
 <body>
-   
+
     <div id="mytask-layout" class="theme-indigo">
         <div class="loading-spinner" id="loading-spinner">
             <img src="~/admin_assets/images/cf.gif" class="spinner-image" alt="Loading..." />
@@ -152,49 +155,87 @@
                                 </div>
                             </div>
                             <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
-                                    @if (SignInManager.IsSignedIn(User))
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                    @if (User.Identity.IsAuthenticated)
                                     {
-                                        @if (User.Identity.IsAuthenticated)
-                                        {
                                         var user = await UserManager.GetUserAsync(User);
                                         var userRoles = await UserManager.GetRolesAsync(user);
                                         var rolesAsString = string.Join(", ", userRoles);
                                         if (user != null)
-                                            {
-                                                <div class="u-info me-2">
-                                                    <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">@user.FirstName @user.LastName</span></p>
-                                                    <small>@rolesAsString</small>
-                                                </div>
-                                                <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
-                                                    <img class="avatar lg rounded-circle img-thumbnail" src="@user.Avatar" alt="profile">
-                                                </a>
-                                                <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
-                                                    <div class="card border-0 w280">
-                                                        <div class="card-body pb-0">
-                                                            <div class="d-flex py-1">
-                                                                <img class="avatar rounded-circle" src="@user.Avatar" alt="profile">
-                                                                <div class="flex-fill ms-3">
-                                                                    <p class="mb-0"><span class="font-weight-bold">@user.FirstName @user.LastName</span></p>
-                                                                    <small class="">@user.UserName</small>
-                                                                </div>
+                                        {
+                                            <div class="u-info me-2">
+                                                <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">@user.FirstName @user.LastName</span></p>
+                                                <small>@rolesAsString</small>
+                                            </div>
+                                            <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
+                                                <img class="avatar lg rounded-circle img-thumbnail" src="@avatarUrl" alt="profile">
+                                            </a>
+                                            <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
+                                                <div class="card border-0 w280">
+                                                    <div class="card-body pb-0">
+                                                        <div class="d-flex py-1">
+                                                            <img class="avatar rounded-circle" src="@avatarUrl" alt="profile">
+                                                            <div class="flex-fill ms-3">
+                                                                <p class="mb-0"><span class="font-weight-bold">@user.FirstName @user.LastName</span></p>
+                                                                <small class="">@user.UserName</small>
                                                             </div>
-                                                            <div><hr class="dropdown-divider border-dark"></div>
                                                         </div>
-                                                        <div class="list-group m-2 ">
+                                                        <div><hr class="dropdown-divider border-dark"></div>
+                                                    </div>
+                                                    <div class="list-group m-2 ">
                                                         <a style="outline:none;" asp-area="Identity" asp-page="/Account/Manage/Index" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-info-circle fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Thông tin của tôi</span></i></a>
 
                                                         <a style="outline:none;" asp-area="Identity" asp-page="/Account/Manage/ChangePassword" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-key fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Đổi mật khẩu</span></i></a>
 
-                                                            <a style="outline:none;" asp-area="" asp-controller="Home" asp-action="Index" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-home fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Về trang chủ</span></i></a>
-                                                            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                                                <button style="outline:none;" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Đăng xuất</span></i></button>
-                                                            </form>
-                                                            <div><hr class="dropdown-divider border-dark"></div>
-                                                        </div>
+                                                        <a style="outline:none;" asp-area="" asp-controller="Home" asp-action="Index" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-home fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Về trang chủ</span></i></a>
+                                                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                            <button style="outline:none;" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Đăng xuất</span></i></button>
+                                                        </form>
+                                                        <div><hr class="dropdown-divider border-dark"></div>
                                                     </div>
                                                 </div>
-                                            }
+                                            </div>
                                         }
+                                    }
+                                }
+                                else
+                                {
+                                    var defaultAvatarUrl = "https://i.pinimg.com/236x/e1/6c/70/e16c704fc0b655e553dd7a1a8a00475d.jpg"; // Đường dẫn đến ảnh mặc định
+                                    var adminUsername = "admin";
+
+                                    <div class="u-info me-2">
+                                        <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">@adminUsername</span></p>
+                                        <small>Admin</small>
+                                    </div>
+                                    <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
+                                        <img class="avatar lg rounded-circle img-thumbnail" src="@defaultAvatarUrl" alt="profile">
+                                    </a>
+                                    <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
+                                        <div class="card border-0 w280">
+                                            <div class="card-body pb-0">
+                                                <div class="d-flex py-1">
+                                                    <img class="avatar rounded-circle" src="@avatarUrl" alt="profile">
+                                                    <div class="flex-fill ms-3">
+                                                        <p class="mb-0"><span class="font-weight-bold">admin</span></p>
+                                                        <small class="">admin</small>
+                                                    </div>
+                                                </div>
+                                                <div><hr class="dropdown-divider border-dark"></div>
+                                            </div>
+                                            <div class="list-group m-2 ">
+                                                <a style="outline:none;" asp-area="Identity" asp-page="/Account/Manage/Index" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-info-circle fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Thông tin của tôi</span></i></a>
+
+                                                <a style="outline:none;" asp-area="Identity" asp-page="/Account/Manage/ChangePassword" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-key fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Đổi mật khẩu</span></i></a>
+
+                                                <a style="outline:none;" asp-area="" asp-controller="Home" asp-action="Index" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-home fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Về trang chủ</span></i></a>
+                                                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                    <button style="outline:none;" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Đăng xuất</span></i></button>
+                                                </form>
+                                                <div><hr class="dropdown-divider border-dark"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 }
                             </div>
                         </div>
@@ -206,7 +247,6 @@
 
                         <!-- main menu Search-->
                         <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
-                           
                         </div>
 
                     </div>
@@ -214,7 +254,7 @@
             </div>
             @RenderBody()
 
-  
+
         </div>
     </div>
     <script src="_content/MudBlazor/MudBlazor.min.js"></script>
@@ -254,15 +294,15 @@
     @await RenderSectionAsync("Scripts", required: false)
 
     @await Component.InvokeAsync("Notyf")
-        <script>
+    <script>
         // Bắt đầu hiển thị spinner khi trang bắt đầu tải
         window.addEventListener("load", function () {
             var spinner = document.getElementById("loading-spinner");
             setTimeout(function () {
-            spinner.style.display = "none"; // Ẩn spinner sau 2 giây
-        }, 500); // Điều này đại diện cho 2 giây (2000 milliseconds)
+                spinner.style.display = "none"; // Ẩn spinner sau 2 giây
+            }, 500); // Điều này đại diện cho 2 giây (2000 milliseconds)
         });
-        </script>
+    </script>
 </body>
 
 </html> 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZcQdTJINAIu8p7nbazLdjDFqntKOxe97Zy1IoA2jfT3SubbeFO/MFyMf1oV0acXiyoPLQHLAtR3bZ7t3Eubp9Q==",
+  "dgSpecHash": "Qh5TGKQETp5uu/+UT+q15mbfVw3ihBGJUeAyO8M5gwZ9Dd1sSnk54J4bP90ZG6tA+2yOiE7XEszmhu5qMb9UBA==",
   "success": true,
-  "projectFilePath": "E:\\SettingUI\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
+  "projectFilePath": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
