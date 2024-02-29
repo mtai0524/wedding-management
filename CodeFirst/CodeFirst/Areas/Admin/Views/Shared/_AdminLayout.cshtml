@@ -13,8 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Quản lý nhà hàng tiệc cưới</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
-    <!-- project css file  -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/admin_assets/css/stylesheet.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/mydesign.css" asp-append-version="true" />
@@ -28,22 +27,21 @@
     <component type="typeof(Microsoft.AspNetCore.Components.Web.HeadOutlet)"
                render-mode="ServerPrerendered" />
     <style>
-        /* CSS cho spinner */
         .loading-spinner {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.8); /* Một lớp mờ */
+            background-color: rgba(255, 255, 255, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999; /* Đảm bảo spinner nằm phía trên cùng */
+            z-index: 9999;
         }
 
         .spinner-image {
-            width: 190px; /* Điều chỉnh kích thước spinner theo mong muốn */
+            width: 190px;
             height: 150px;
         }
     </style>
@@ -247,6 +245,11 @@
 
                         <!-- main menu Search-->
                         <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
+                            <div  class="input-group flex-nowrap input-group-lg">
+                                <button type="button" class="input-group-text" id="addon-wrapping"><i class="fa fa-search"></i></button>
+                                <input type="search" class="form-control" placeholder="Search" aria-label="search" aria-describedby="addon-wrapping">
+                                <button type="button" class="input-group-text add-member-top" id="addon-wrappingone" data-bs-toggle="modal" data-bs-target="#addUser"><i class="fa fa-plus"></i></button>
+                            </div>
                         </div>
 
                     </div>
@@ -277,30 +280,26 @@
         })();
 
     </script>
-    <!-- Jquery Core Js -->
     <script src="~/admin_assets/bundles/libscripts.bundle.js"></script>
-
-    <!-- Plugin Js-->
     <script src="~/admin_assets/bundles/apexcharts.bundle.js"></script>
-
-    <!-- Jquery Page Js -->
     <script src="~/admin_assets/page/hr.js"></script>
     <script src="~/admin_assets/template.js"></script>
     <script src="~/js/qrcode.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js" integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
+    
     @* ajax *@
     @await RenderSectionAsync("Scripts", required: false)
 
     @await Component.InvokeAsync("Notyf")
     <script>
-        // Bắt đầu hiển thị spinner khi trang bắt đầu tải
         window.addEventListener("load", function () {
             var spinner = document.getElementById("loading-spinner");
             setTimeout(function () {
-                spinner.style.display = "none"; // Ẩn spinner sau 2 giây
-            }, 500); // Điều này đại diện cho 2 giây (2000 milliseconds)
+                spinner.style.display = "none";
+            }, 500);
         });
     </script>
 </body>

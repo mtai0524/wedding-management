@@ -41,7 +41,7 @@ builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddTransient<IEmailSender, EmailSender>(); // thêm dịch vụ gửi mail xác nhận đăng kí
+builder.Services.AddTransient<IEmailSender, EmailSender>(); //  dịch vụ gửi mail xác nhận đăng kí
 
 //builder.Services.AddHangFire(config => config
 //        .UseSqlServerStorage(Configuration.GetConnectionString("YourConnectionString")));

@@ -1637,10 +1637,6 @@
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_virtual-reality.scss"
     },
     {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\chat\\site.css",
-      "PackagePath": "staticwebassets\\chat\\site.css"
-    },
-    {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\mydesign.css",
       "PackagePath": "staticwebassets\\css\\mydesign.css"
     },
@@ -1659,106 +1655,6 @@
     {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\100x100.png",
-      "PackagePath": "staticwebassets\\images\\demo\\100x100.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\348x261.png",
-      "PackagePath": "staticwebassets\\images\\demo\\348x261.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\348x400.png",
-      "PackagePath": "staticwebassets\\images\\demo\\348x400.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\546x356.png",
-      "PackagePath": "staticwebassets\\images\\demo\\546x356.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\avatar.png",
-      "PackagePath": "staticwebassets\\images\\demo\\avatar.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\backgrounds\\01.png",
-      "PackagePath": "staticwebassets\\images\\demo\\backgrounds\\01.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\backgrounds\\f1.jpg",
-      "PackagePath": "staticwebassets\\images\\demo\\backgrounds\\f1.jpg"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\backgrounds\\index.html",
-      "PackagePath": "staticwebassets\\images\\demo\\backgrounds\\index.html"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\gallery\\01.png",
-      "PackagePath": "staticwebassets\\images\\demo\\gallery\\01.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\gallery\\index.html",
-      "PackagePath": "staticwebassets\\images\\demo\\gallery\\index.html"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\imgl.gif",
-      "PackagePath": "staticwebassets\\images\\demo\\imgl.gif"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\imgr.gif",
-      "PackagePath": "staticwebassets\\images\\demo\\imgr.gif"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\demo\\index.html",
-      "PackagePath": "staticwebassets\\images\\demo\\index.html"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji1.png",
-      "PackagePath": "staticwebassets\\images\\emojis\\emoji1.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji2.png",
-      "PackagePath": "staticwebassets\\images\\emojis\\emoji2.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji3.png",
-      "PackagePath": "staticwebassets\\images\\emojis\\emoji3.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji4.png",
-      "PackagePath": "staticwebassets\\images\\emojis\\emoji4.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji5.png",
-      "PackagePath": "staticwebassets\\images\\emojis\\emoji5.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji6.png",
-      "PackagePath": "staticwebassets\\images\\emojis\\emoji6.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\emojis\\emoji7.png",
-      "PackagePath": "staticwebassets\\images\\emojis\\emoji7.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar1.png",
-      "PackagePath": "staticwebassets\\images\\icons\\avatar1.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar2.png",
-      "PackagePath": "staticwebassets\\images\\icons\\avatar2.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar3.png",
-      "PackagePath": "staticwebassets\\images\\icons\\avatar3.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\avatar4.png",
-      "PackagePath": "staticwebassets\\images\\icons\\avatar4.png"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\icons\\default-avatar.png",
-      "PackagePath": "staticwebassets\\images\\icons\\default-avatar.png"
     },
     {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\chat.js",

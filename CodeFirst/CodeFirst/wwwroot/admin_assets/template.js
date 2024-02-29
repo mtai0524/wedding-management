@@ -2,7 +2,7 @@ if (typeof jQuery === "undefined") {
     throw new Error("jQuery plugins need to be before this file");
 }
 
-$(function() {
+$(function () {
     "use strict";
 
     // main sidebar toggle js
@@ -22,43 +22,43 @@ $(function() {
         $('.card-chat').toggleClass('open');
     });
 
-    $(".theme-rtl input").on('change',function() {
-        if(this.checked) {
+    $(".theme-rtl input").on('change', function () {
+        if (this.checked) {
             $("body").addClass('rtl_mode');
-        }else{
+        } else {
             $("body").removeClass('rtl_mode');
         }
-       
+
     });
 
     // cSidebar overflow daynamic height
-    
+
     overFlowDynamic();
 
-    $(window).resize(function(){
+    $(window).resize(function () {
         overFlowDynamic();
     });
 
-    function overFlowDynamic(){ 
-        var sideheight=$(".sidebar.sidebar-mini").height() + 48;
-        
-        if(sideheight <= 760) {  
-            $(".sidebar.sidebar-mini").css( "overflow", "scroll");  
+    function overFlowDynamic() {
+        var sideheight = $(".sidebar.sidebar-mini").height() + 48;
+
+        if (sideheight <= 760) {
+            $(".sidebar.sidebar-mini").css("overflow", "scroll");
         }
-        else{
-            $(".sidebar.sidebar-mini").css( "overflow", "visible"); 
+        else {
+            $(".sidebar.sidebar-mini").css("overflow", "visible");
         }
     }
-    
+
 
     // Dropdown scroll hide using table responsive
-    
+
     $('.table-responsive').on('show.bs.dropdown', function () {
-        $('.table-responsive').css( "overflow", "inherit" );
+        $('.table-responsive').css("overflow", "inherit");
     });
-   
+
     $('.table-responsive').on('hide.bs.dropdown', function () {
-            $('.table-responsive').css( "overflow", "auto" );
+        $('.table-responsive').css("overflow", "auto");
     })
 
     // light and dark theme setting js
@@ -67,7 +67,7 @@ $(function() {
     var currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         document.documentElement.setAttribute('data-theme', currentTheme);
-    
+
         if (currentTheme === 'dark') {
             toggleSwitch.checked = true;
         }
@@ -82,10 +82,10 @@ $(function() {
             localStorage.setItem('theme', 'dark');
             $('.theme-high-contrast input[type="checkbox"]').prop("checked", false);
         }
-        else {        
+        else {
             document.documentElement.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
-        }    
+        }
     }
     toggleSwitch.addEventListener('change', switchTheme, false);
     // end
@@ -93,18 +93,15 @@ $(function() {
 
 // live support team js
 var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-<script type="text/javascript">
-
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-    s1.src ='https://embed.tawk.to/654a847da84dd54dc489870d/1helhb2rj';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
+(function () {
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/654a847da84dd54dc489870d/1helhb2rj';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
 })();
 
-</script>
 
 
 
