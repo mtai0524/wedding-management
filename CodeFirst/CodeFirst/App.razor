@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNetCore.Components.Routing
+﻿@using CodeFirst.Components
+@using Microsoft.AspNetCore.Components.Routing
 @using CodeFirst.Views.Shared
 
 <Router AppAssembly="@typeof(App).Assembly">
@@ -9,7 +10,7 @@
     <NotFound>
         <PageTitle>Not found</PageTitle>
         <LayoutView Layout="@typeof(MainLayout)">
-            <p role="alert">Sorry, there's nothing at this address.</p>
+            <Error404/>
         </LayoutView>
     </NotFound>
 </Router>
