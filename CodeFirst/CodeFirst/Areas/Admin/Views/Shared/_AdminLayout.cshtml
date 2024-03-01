@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Quản lý nhà hàng tiệc cưới</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="~/css/site.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/admin_assets/css/stylesheet.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/mydesign.css" asp-append-version="true" />
@@ -90,6 +91,7 @@
             }
 
     </style>
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
 </head>
 <body>
 
@@ -111,14 +113,7 @@
                         <!-- header rightbar icon -->
                         <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
                             <div class="d-flex">
-                                <div class="avatar-list avatar-list-stacked px-3">
-                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar2.jpg" alt="">
-                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar1.jpg" alt="">
-                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar3.jpg" alt="">
-                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar4.jpg" alt="">
-                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar7.jpg" alt="">
-                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar8.jpg" alt="">
-                                    <span class="avatar rounded-circle text-center pointer" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                        <div class="avatar-list avatar-list-stacked px-3">
                                 </div>
                             </div>
                             <div class="dropdown notifications zindex-popover">
@@ -301,7 +296,37 @@
                         </div>
                 </nav>
             </div>
+                <button class="bg-indigo-500">
+                    Save changes
+                </button>
             @RenderBody()
+                <p class="text-orange-400 bg-red-1200">The quick brown fox...</p>
+              <table class="table-auto border border-gray-500">
+    <thead class="bg-gray-200">
+        <tr>
+            <th class="px-4 py-2">Song</th>
+            <th class="px-4 py-2">Artist</th>
+            <th class="px-4 py-2">Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="px-4 py-2">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+            <td class="px-4 py-2">Malcolm Lockyer</td>
+            <td class="px-4 py-2">1961</td>
+        </tr>
+        <tr>
+            <td class="px-4 py-2">Witchy Woman</td>
+            <td class="px-4 py-2">The Eagles</td>
+            <td class="px-4 py-2">1972</td>
+        </tr>
+        <tr>
+            <td class="px-4 py-2">Shining Star</td>
+            <td class="px-4 py-2">Earth, Wind, and Fire</td>
+            <td class="px-4 py-2">1975</td>
+        </tr>
+    </tbody>
+</table>
 
 
         </div>
@@ -315,6 +340,20 @@
     <script src="~/js/site.js"></script>
 
     <script type="text/javascript">
+            function getRandomImageUrl(width, height) {
+                return `https://picsum.photos/${width}/${height}?random=${Math.floor(Math.random() * 1000)}`;
+            }
+            var numberOfImages = 6;
+            var avatarList = document.querySelector('.avatar-list');
+
+            for (var i = 0; i < numberOfImages; i++) {
+                var img = document.createElement('img');
+                img.classList.add('avatar', 'rounded-circle');
+                img.src = getRandomImageUrl(50, 50);
+                img.alt = 'Avatar';
+                avatarList.appendChild(img);
+            }
+
 
         (function () {
             var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
@@ -345,7 +384,7 @@
             var spinner = document.getElementById("loading-spinner");
             setTimeout(function () {
                 spinner.style.display = "none";
-            }, 500);
+            }, 10);
         });
     </script>
 </body>

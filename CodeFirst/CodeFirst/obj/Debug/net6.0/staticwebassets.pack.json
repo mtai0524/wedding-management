@@ -585,6 +585,10 @@
       "PackagePath": "staticwebassets\\assets_argon\\img\\kal-visuals-square.jpg"
     },
     {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\img\\login.jpg",
+      "PackagePath": "staticwebassets\\assets_argon\\img\\login.jpg"
+    },
+    {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\img\\logo-ct-dark.png",
       "PackagePath": "staticwebassets\\assets_argon\\img\\logo-ct-dark.png"
     },
@@ -1467,6 +1471,10 @@
     {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
     },
     {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylethongke.css",

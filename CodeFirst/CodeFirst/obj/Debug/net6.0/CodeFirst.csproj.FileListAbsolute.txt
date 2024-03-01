@@ -8053,3 +8053,4 @@ E:\SettingUI\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\CodeFirst.pdb
 E:\SettingUI\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\CodeFirst.genruntimeconfig.cache
 E:\SettingUI\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\ref\CodeFirst.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\scopedcss\Components\Error404.razor.rz.scp.css
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\package.json
