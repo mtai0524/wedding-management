@@ -44,6 +44,51 @@
             width: 190px;
             height: 150px;
         }
+
+    
+
+        .height {
+            height: 100vh;
+        }
+
+        .form {
+            position: relative;
+        }
+
+            .form .fa-search {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                color: #9ca3af;
+            }
+
+            .form span {
+                position: absolute;
+                right: 17px;
+                top: 13px;
+                padding: 2px;
+                border-left: 1px solid #d1d5db;
+            }
+
+        .left-pan {
+            padding-left: 7px;
+        }
+
+            .left-pan i {
+                padding-left: 10px;
+            }
+
+        .form-input {
+            height: 55px;
+            text-indent: 33px;
+            border-radius: 10px;
+        }
+
+            .form-input:focus {
+                box-shadow: none;
+                border: none;
+            }
+
     </style>
 </head>
 <body>
@@ -56,7 +101,8 @@
 
         <!-- main body area -->
         <div class="main px-lg-4 px-md-4">
-
+            <div class="container">
+                <div class="row">
             <!-- Body: Header -->
             <div class="header">
                 <nav class="navbar py-4">
@@ -242,17 +288,17 @@
                         <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
                             <span class="fa fa-bars"></span>
                         </button>
+                 
 
                         <!-- main menu Search-->
-                        <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
-                            <div  class="input-group flex-nowrap input-group-lg">
-                                <button type="button" class="input-group-text" id="addon-wrapping"><i class="fa fa-search"></i></button>
-                                <input type="search" class="form-control" placeholder="Search" aria-label="search" aria-describedby="addon-wrapping">
-                                <button type="button" class="input-group-text add-member-top" id="addon-wrappingone" data-bs-toggle="modal" data-bs-target="#addUser"><i class="fa fa-plus"></i></button>
+                                <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+                            <div class="form">
+                                <i class="fa fa-search"></i>
+                                <input type="text" class="form-control form-input" placeholder="Tìm kiếm...">
                             </div>
                         </div>
-
-                    </div>
+                        </div>
+                        </div>
                 </nav>
             </div>
             @RenderBody()
