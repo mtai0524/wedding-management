@@ -14,14 +14,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Quản lý nhà hàng tiệc cưới</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="~/css/site.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/admin_assets/css/stylesheet.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/mydesign.css" asp-append-version="true" />
     <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="~/admin_assets/css/my-task.style.min.css">
-
+    <link href="~/css/site.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <base href="~/" />
@@ -46,7 +45,7 @@
             height: 150px;
         }
 
-    
+
 
         .height {
             height: 100vh;
@@ -91,10 +90,9 @@
             }
 
     </style>
-    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
 </head>
-<body>
 
+<body>
     <div id="mytask-layout" class="theme-indigo">
         <div class="loading-spinner" id="loading-spinner">
             <img src="~/admin_assets/images/cf.gif" class="spinner-image" alt="Loading..." />
@@ -296,37 +294,9 @@
                         </div>
                 </nav>
             </div>
-                <button class="bg-indigo-500">
-                    Save changes
-                </button>
+         
             @RenderBody()
-                <p class="text-orange-400 bg-red-1200">The quick brown fox...</p>
-              <table class="table-auto border border-gray-500">
-    <thead class="bg-gray-200">
-        <tr>
-            <th class="px-4 py-2">Song</th>
-            <th class="px-4 py-2">Artist</th>
-            <th class="px-4 py-2">Year</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="px-4 py-2">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-            <td class="px-4 py-2">Malcolm Lockyer</td>
-            <td class="px-4 py-2">1961</td>
-        </tr>
-        <tr>
-            <td class="px-4 py-2">Witchy Woman</td>
-            <td class="px-4 py-2">The Eagles</td>
-            <td class="px-4 py-2">1972</td>
-        </tr>
-        <tr>
-            <td class="px-4 py-2">Shining Star</td>
-            <td class="px-4 py-2">Earth, Wind, and Fire</td>
-            <td class="px-4 py-2">1975</td>
-        </tr>
-    </tbody>
-</table>
+        
 
 
         </div>
@@ -365,17 +335,16 @@
         })();
 
     </script>
-    <script src="~/admin_assets/bundles/libscripts.bundle.js"></script>
-    <script src="~/admin_assets/bundles/apexcharts.bundle.js"></script>
-    <script src="~/admin_assets/page/hr.js"></script>
-    <script src="~/admin_assets/template.js"></script>
-    <script src="~/js/qrcode.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js" integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-   
-    
-    @* ajax *@
+        <script src="~/admin_assets/bundles/libscripts.bundle.js"></script>
+        <script src="~/admin_assets/bundles/apexcharts.bundle.js"></script>
+        <script src="~/admin_assets/page/hr.js"></script>
+        <script src="~/admin_assets/template.js"></script>
+        <script src="~/js/qrcode.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js" integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        @* ajax *@
     @await RenderSectionAsync("Scripts", required: false)
 
     @await Component.InvokeAsync("Notyf")

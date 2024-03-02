@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\admin_assets\\css\\StyleSheet.css"
     },
     {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\login.css",
+      "PackagePath": "staticwebassets\\admin_assets\\css\\login.css"
+    },
+    {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\my-task.style.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\css\\my-task.style.min.css"
     },
