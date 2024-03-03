@@ -77,7 +77,10 @@
 
                 </li>
             }
-           
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <li><a class="m-link" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })"><i class="icofont-login"></i> <span>Đăng nhập</span></a></li>
+            }
             <li><a class="m-link" asp-area="" asp-action="Index" asp-controller="Home"><i class="icofont-ui-home"></i> <span>Về trang chủ</span></a></li>
 
         </ul>

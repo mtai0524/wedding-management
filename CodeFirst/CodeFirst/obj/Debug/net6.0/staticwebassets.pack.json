@@ -1493,6 +1493,30 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\bear.png",
+      "PackagePath": "staticwebassets\\images\\bear.png"
+    },
+    {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\border-collie.png",
+      "PackagePath": "staticwebassets\\images\\border-collie.png"
+    },
+    {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\cat.png",
+      "PackagePath": "staticwebassets\\images\\cat.png"
+    },
+    {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\chicken.png",
+      "PackagePath": "staticwebassets\\images\\chicken.png"
+    },
+    {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\dog.png",
+      "PackagePath": "staticwebassets\\images\\dog.png"
+    },
+    {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\rabbit.png",
+      "PackagePath": "staticwebassets\\images\\rabbit.png"
+    },
+    {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\chat.js",
       "PackagePath": "staticwebassets\\js\\chat.js"
     },

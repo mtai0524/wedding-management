@@ -151,14 +151,11 @@ namespace CodeFirst.Areas.Identity.Pages.Account
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
-                user.Avatar = Input.ImageUrl;
-
-                //string imageUrl = await _cloudinary.UploadImageAsync(Input.imageFile);
-                //if (!string.IsNullOrEmpty(imageUrl))
-                //{
-                //    // Lưu đường dẫn ảnh vào thuộc tính Avatar của người dùng
-                //    user.Avatar = imageUrl;
-                //}
+                string imageUrl = await _cloudinary.UploadImageByString(Input.ImageUrl);
+                if (!string.IsNullOrEmpty(imageUrl))
+                {
+                    user.Avatar = imageUrl;
+                }
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
