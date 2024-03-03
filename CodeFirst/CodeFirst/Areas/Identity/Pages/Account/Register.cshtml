@@ -4,83 +4,191 @@
     ViewData["Title"] = "Đăng ký tài khoản";
     Layout = "~/Views/Shared/_EmptyLayout.cshtml";
 }
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets_argon/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/assets_argon/img/favicon.png">
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="~/admin_assets/css/login.css" rel="stylesheet" />
+    <link href="~/assets_argon/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="~/assets_argon/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="~/assets_argon/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="~/assets_argon/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+
+</head>
+
+
 <style>
-    .custom-box {
-        border: 6px double black;
-        border-radius: 10px;
-        padding: 100px 40px;
+    .fa-facebook {
+        color: #1775F1;
+        font-size: 30px;
+    }
+
+
+    body {
+        overflow: hidden;
+    }
+
+    .avatar-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .avatar-option {
+        display: none;
+    }
+
+    .avatar-option-label {
+        cursor: pointer;
+        margin: 10px;
+    }
+
+        .avatar-option-label img {
+            border-radius: 50%;
+            border: 3px solid transparent;
+            width: 50px;
+            height: 50px;
+            transition: border-color 0.3s ease;
+        }
+
+    .avatar-option:checked + .avatar-option-label img {
+        border-color: black; /* Change border color when selected */
     }
 </style>
+<main class="main-content mt-0">
+    <section>
+        <div class="page-header min-vh-100">
+            <div class="container-fluid">
+                <div class="row d-flex p-2 align-items-center justify-content-center">
+                    <div class="col-xl-5 col-lg-5 col-md-7 d-flex justify-content-center mx-lg-0 mx-auto" style="border:2px solid #e8e9eb; border-radius:8px; box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+-webkit-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+-moz-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);">
+                        <div class="card card-plain" >
+                            <div class="card-header pb-0 text-start">
+                                <h4 class="font-weight-bolder">Đăng kí</h4>
+                                <p class="mb-0">Vui lòng nhập đầy đủ thông tin đăng kí tài khoản</p>
+                            </div>
 
- <div class="row center-div" style="margin:100px 0px">
-    <div class="custom-box col-md-4 mx-auto">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
-            <h2 style ="text-align:center">Đăng ký tài khoản</h2>
-            <hr />
-            <div class="row">
-                <!-- Thêm một hàng để chứa các trường FirstName và LastName -->
-                <div class="col-md-6">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-floating">
-                        <input asp-for="Input.FirstName" class="form-control" autocomplete="FirstName" aria-required="true" />
-                        <label asp-for="Input.FirstName"></label>
-                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                            <div class="card-body">
+                                <form id="account" method="post" enctype="multipart/form-data">
+                                    <div class="mb-3">
+                                        <input asp-for="Input.Email" class="form-control form-control-lg" placeholder="Email" autocomplete="username" aria-required="true" />
+                                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input asp-for="Input.Password" class="form-control form-control-lg" placeholder="Mật khẩu" autocomplete="current-password" aria-required="true" />
+                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input asp-for="Input.ConfirmPassword" class="form-control form-control-lg" placeholder="Xác nhận mật khẩu" autocomplete="new-password" aria-required="true">
+                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                    <div class="avatar-container">
+                                        <input type="radio" asp-for="Input.ImageUrl" id="avatar1" class="avatar-option" value="https://bizweb.dktcdn.net/100/438/408/files/meme-meo-cute-yody-vn-1.jpg?v=1690276113335">
+                                        <label for="avatar1" class="avatar-option-label"><img src="https://bizweb.dktcdn.net/100/438/408/files/meme-meo-cute-yody-vn-1.jpg?v=1690276113335" alt="Avatar 1"></label>
+
+
+                                        <input type="radio" asp-for="Input.ImageUrl" id="avatar2" class="avatar-option" value="https://mcdn.coolmate.me/image/March2023/meme-meo-cute-hai-huoc-1297_599.jpg">
+                                        <label for="avatar2" class="avatar-option-label"><img src="https://mcdn.coolmate.me/image/March2023/meme-meo-cute-hai-huoc-1297_599.jpg" alt="Avatar 2"></label>
+
+                                        <input type="radio" asp-for="Input.ImageUrl" id="avatar3" class="avatar-option" value="https://devo.vn/wp-content/uploads/2023/01/xien-chet-ba-may-gio.jpg">
+                                        <label for="avatar3" class="avatar-option-label"><img src="https://devo.vn/wp-content/uploads/2023/01/xien-chet-ba-may-gio.jpg" alt="Avatar 3"></label>
+
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Đăng kí</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                <p class="mb-4 text-sm mx-auto">
+                                    Đã có tài khoản?
+                                    <a class="text-primary text-gradient font-weight-bold" asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Đăng nhập</a>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-center mb-3 mt-2">Đăng kí khác</p>
+                                @{
+                                        @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+                                    {
+                                            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                                <div class="row mx-auto justify-content-center">
+                                                    <div class="col-3">
+                                                        <button style="margin-bottom:20px; background-color:transparent; border:none; outline:none" type="submit" class="d-flex justify-content-center align-items-center w-100" name="provider" value="Facebook" title="Log in using your Facebook account">
+                                                            <i class="fab fa-facebook" style="margin-right: 5px;"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <button style="margin-bottom:20px;background-color:transparent; border:none; outline:none" type="submit" class="d-flex justify-content-center align-items-center w-100" name="provider" value="Google" title="Log in using your Google account">
+                                                            <img width="30" height="30" style="margin-right: 5px;" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                    }
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input asp-for="Input.LastName" class="form-control" autocomplete="LastName" aria-required="true" />
-                        <label asp-for="Input.LastName"></label>
-                        <span asp-validation-for="Input.LastName" class="text-danger"></span>
-                    </div>
-                </div>
             </div>
-            <div class="form-floating">
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-                <label asp-for="Input.Email"></label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-floating">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="Input.Password"></label>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-floating">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true">
-                <label asp-for="Input.ConfirmPassword"></label>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-           @*  <div class="form-group">
-                <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-control" aria-required="true" style="padding:15px; margin-bottom:10px">
-                    <option disabled selected>Select role</option>
-                </select>
-                <span asp-validation-for="Input.Role" class="text-danger"></span>
-            </div> *@
-            <div class="form-floating">
-                <input asp-for="Input.imageFile" class="form-control" autocomplete="off" aria-required="true" type="file" id="customFile" accept=".jpg, .jpeg, .png">
-                <label for="customFile">Choose file</label>
-                <span asp-validation-for="Input.imageFile" class="text-danger"></span>
-            </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-success">Register</button>
-        </form>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Đăng nhập nếu đã có tài khoản.</h3>
-            <hr />
-            <div>
-                <p>
-                    <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-dark">
-                        <span >Đăng nhập</span>
-                    </a>
-                </p>
-            </div>
-        </section>
-    </div>
 
-</div>
+        </div>
+    </section>
+
+</main>
+@* <script>
+    function updateImage(radioButton) {
+        if (radioButton.checked) {
+            var imageUrl = radioButton.value;
+            // Tìm input file và gán giá trị là đường dẫn của hình ảnh đã chọn
+            document.getElementById("customFile").value = imageUrl;
+            console.log(imageUrl);
+        }
+    }
+</script> *@
+<!--   Core JS Files   -->
+<script src="~/assets_argon/js/core/popper.min.js"></script>
+<script src="~/assets_argon/js/core/bootstrap.min.js"></script>
+<script src="~/assets_argon/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="~/assets_argon/js/plugins/smooth-scrollbar.min.js"></script>
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+    window.onload = function () {
+        // Tìm phần tử HTML có lớp 'content'
+        var content = document.querySelector('.main-content');
+
+        // Thêm thuộc tính overflow-y: scroll để cuộn nội dung khi cần
+        content.style.overflowY = 'scroll';
+
+        // Đảm bảo rằng nội dung không vượt quá chiều rộng của trang
+        content.style.maxHeight = '100vh';
+    };
 
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+</script>
+
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="~/assets_argon/js/argon-dashboard.min.js?v=2.0.4"></script>

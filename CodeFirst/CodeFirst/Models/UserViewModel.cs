@@ -11,5 +11,6 @@ namespace CodeFirst.Models
         public string? SelectedRole { get; set; }
         [ValidateNever]
         public IEnumerable<SelectListItem> Roles { get; set; } // Role khi submit sẽ không validate
+
     }
 }

@@ -24,6 +24,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using CodeFirst.Service;
+using CodeFirst.ChatApp;
 
 namespace CodeFirst.Areas.Identity.Pages.Account
 {
@@ -81,15 +82,6 @@ namespace CodeFirst.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
-            [Required]
-            [Display(Name = "First Name")]
-            public string FirstName { get; set; }
-
-            [Required]
-            [Display(Name = "Last Name")]
-            public string LastName { get; set; }
-
-
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -124,6 +116,9 @@ namespace CodeFirst.Areas.Identity.Pages.Account
             public IEnumerable<SelectListItem> RoleList { get; set; }
 
             public IFormFile imageFile { get; set; }
+
+            [BindProperty] // lấy thuộc tính từ trang cshtml
+            public string ImageUrl { get; set; }
         }
 
 
@@ -141,7 +136,7 @@ namespace CodeFirst.Areas.Identity.Pages.Account
                 })
             };
         }
-
+       
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
@@ -156,15 +151,14 @@ namespace CodeFirst.Areas.Identity.Pages.Account
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
-                user.FirstName = Input.FirstName;
-                user.LastName= Input.LastName;
+                user.Avatar = Input.ImageUrl;
 
-                string imageUrl = await _cloudinary.UploadImageAsync(Input.imageFile);
-                if (!string.IsNullOrEmpty(imageUrl))
-                {
-                    // Lưu đường dẫn ảnh vào thuộc tính Avatar của người dùng
-                    user.Avatar = imageUrl;
-                }
+                //string imageUrl = await _cloudinary.UploadImageAsync(Input.imageFile);
+                //if (!string.IsNullOrEmpty(imageUrl))
+                //{
+                //    // Lưu đường dẫn ảnh vào thuộc tính Avatar của người dùng
+                //    user.Avatar = imageUrl;
+                //}
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
