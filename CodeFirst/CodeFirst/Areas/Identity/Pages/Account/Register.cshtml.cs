@@ -145,11 +145,14 @@ namespace CodeFirst.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             // Kiểm tra xem email đã tồn tại trong hệ thống hay chưa
-            var existingUser = await _userManager.FindByEmailAsync(Input.Email);
-            if (existingUser != null)
+            if (Input.Email != null)
             {
-                ModelState.AddModelError(string.Empty, "Email đã được sử dụng cho một tài khoản khác.");
-                return Page();
+                var existingUser = await _userManager.FindByEmailAsync(Input.Email);
+                if (existingUser != null)
+                {
+                    ModelState.AddModelError(string.Empty, "Email đã được sử dụng cho một tài khoản khác.");
+                    return Page();
+                }
             }
             if (ModelState.IsValid)
             {
