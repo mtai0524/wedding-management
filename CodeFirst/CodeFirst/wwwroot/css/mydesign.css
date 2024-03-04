@@ -368,7 +368,7 @@ label, h2 {
 /* CSS cho hiệu ứng đường line xuất hiện từ trái qua phải */
 .custom-link {
     text-decoration: none;
-    color: black; /* Màu chữ ban đầu */
+    color: #666DE4; /* Màu chữ ban đầu */
     position: relative; /* Để làm việc với ::before pseudo-element */
     transition: color 0.5s; /* Hiệu ứng chuyển đổi màu chữ */
 }
@@ -382,13 +382,13 @@ label, h2 {
     bottom: -2px; /* Vị trí bên dưới văn bản */
     left: 0;
     width: 0; /* Bắt đầu với độ dài 0 */
-    height: 2px; /* Độ dày và chiều cao của đường line */
-    background-color: black; /* Màu đường line */
+    height: 1px; /* Độ dày và chiều cao của đường line */
+    background-color: #666DE4; /* Màu đường line */
     transition: width 0.3s; /* Hiệu ứng chuyển đổi độ dài đường line */
 }
 
 .custom-link:hover {
-    color: black; /* Màu chữ khi di chuột qua */
+    color: #666DE4; /* Màu chữ khi di chuột qua */
 }
 
 .custom-link:hover::before {

@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using CloudinaryDotNet.Actions;
 using CloudinaryDotNet;
 using CodeFirst.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -89,13 +90,14 @@ namespace CodeFirst.Areas.Identity.Pages.Account
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
+            [UniqueEmail(ErrorMessage = "Email đã được sử dụng cho một tài khoản khác.")]
             public string Email { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "Vui lòng nhập mật khẩu.")]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
@@ -142,7 +144,13 @@ namespace CodeFirst.Areas.Identity.Pages.Account
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
-
+            // Kiểm tra xem email đã tồn tại trong hệ thống hay chưa
+            var existingUser = await _userManager.FindByEmailAsync(Input.Email);
+            if (existingUser != null)
+            {
+                ModelState.AddModelError(string.Empty, "Email đã được sử dụng cho một tài khoản khác.");
+                return Page();
+            }
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
@@ -150,7 +158,7 @@ namespace CodeFirst.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-
+                
                 string imageUrl = await _cloudinary.UploadImageByString(Input.ImageUrl);
                 if (!string.IsNullOrEmpty(imageUrl))
                 {
@@ -180,10 +188,8 @@ namespace CodeFirst.Areas.Identity.Pages.Account
 
                     await _emailSender.SendEmailAsync(Input.Email, "Xác nhận đăng kí tài khoản",
                         $"Vui lòng xác nhận tài khoản email của bạn để hoàn thành việc đăng kí <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Chọn vào đây</a>.");
-
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
                     }
                     else

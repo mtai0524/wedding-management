@@ -47,7 +47,7 @@
     }
 
     .avatar-option {
-        display: none;
+        display: none; /* ẩn dấu tròn của radio button */
     }
 
     .avatar-option-label {
@@ -58,20 +58,28 @@
         .avatar-option-label img {
             border-radius: 50%;
             border: 3px solid transparent;
-            width: 50px;
-            height: 50px;
-            transition: border-color 0.3s ease;
+            width: 55px;
+            height: 55px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            padding: 4px;
         }
 
     .avatar-option:checked + .avatar-option-label img {
-        border-color: black; /* Change border color when selected */
+        border: 2px dashed gray;
+        transform: scale(1.2);
     }
+    .btn{
+        background-color: #666DE4;
+        outline:none;
+    }
+}
+
 </style>
 <main class="main-content mt-0">
     <section>
         <div class="page-header min-vh-100">
-            <div class="container-fluid">
-                <div class="row d-flex p-2 align-items-center justify-content-center">
+            <div class="container">
+                <div class="row d-flex align-items-center justify-content-center">
                     <div class="col-xl-5 col-lg-5 col-md-7 d-flex justify-content-center mx-lg-0 mx-auto" style="border:2px solid #e8e9eb; border-radius:8px; box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
 -webkit-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
 -moz-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);">
@@ -83,19 +91,27 @@
 
                             <div class="card-body">
                                 <form id="account" method="post" enctype="multipart/form-data">
-                                    <div class="mb-3">
+                                    <div class="mb-4">
                                         <input asp-for="Input.Email" class="form-control form-control-lg" placeholder="Email" autocomplete="username" aria-required="true" />
                                         <span asp-validation-for="Input.Email" class="text-danger"></span>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-4">
                                         <input asp-for="Input.Password" class="form-control form-control-lg" placeholder="Mật khẩu" autocomplete="current-password" aria-required="true" />
                                         <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                      
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-4">
                                         <input asp-for="Input.ConfirmPassword" class="form-control form-control-lg" placeholder="Xác nhận mật khẩu" autocomplete="new-password" aria-required="true">
                                         <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                     </div>
-                                    <div class="avatar-container">
+                                    <div class="form-check" style="margin-top:-10px">
+                                        <input class="form-check-input" type="checkbox" id="showPasswordCheckbox">
+                                        <label class="form-check-label" for="showPasswordCheckbox">
+                                            Hiển thị mật khẩu
+                                        </label>
+                                    </div>
+                                    <p class="mb-4 text-sm text-center" >Chọn ảnh đại diện</p>
+                                    <div class="avatar-container" style="margin-top:-20px">
                                         <input type="radio" asp-for="Input.ImageUrl" id="avatar1" class="avatar-option" value="/images/cat.png">
                                         <label for="avatar1" class="avatar-option-label">
                                             <img src="/images/cat.png" alt="Avatar 1">
@@ -119,14 +135,15 @@
                                     </div>
                                 </form>
                             </div>
+                         
                             <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                 <p class="mb-4 text-sm mx-auto">
                                     Đã có tài khoản?
-                                    <a class="text-primary text-gradient font-weight-bold" asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Đăng nhập</a>
+                                    <a class="text-primary text-gradient font-weight-bold custom-link" asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Đăng nhập</a>
                                 </p>
                             </div>
                             <div>
-                                <p class="text-center mb-3 mt-2">Đăng kí khác</p>
+                                <p class="text-center mb-3 mt-2 text-sm">Đăng kí khác</p>
                                 @{
                                         @if ((Model.ExternalLogins?.Count ?? 0) > 0)
                                     {
@@ -154,6 +171,8 @@
             </div>
 
         </div>
+
+
     </section>
 
 </main>
@@ -167,6 +186,23 @@
         }
     }
 </script> *@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var showPasswordCheckbox = document.getElementById('showPasswordCheckbox');
+        showPasswordCheckbox.addEventListener('change', function () {
+            var passwordInput = document.getElementById('Input_Password');
+            var confirmPasswordInput = document.getElementById('Input_ConfirmPassword');
+            if (showPasswordCheckbox.checked) {
+                passwordInput.type = 'text';
+                confirmPasswordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+                confirmPasswordInput.type = 'password';
+            }
+        });
+    });
+</script>
+
 <!--   Core JS Files   -->
 <script src="~/assets_argon/js/core/popper.min.js"></script>
 <script src="~/assets_argon/js/core/bootstrap.min.js"></script>

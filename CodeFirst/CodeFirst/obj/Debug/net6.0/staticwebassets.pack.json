@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets\\admin_assets\\images\\ZKZg.gif"
     },
     {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\bear-removebg.png",
+      "PackagePath": "staticwebassets\\admin_assets\\images\\bear-removebg.png"
+    },
+    {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cat.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\cat.gif"
     },
@@ -1495,6 +1499,10 @@
     {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\bear.png",
       "PackagePath": "staticwebassets\\images\\bear.png"
+    },
+    {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\bear2.png",
+      "PackagePath": "staticwebassets\\images\\bear2.png"
     },
     {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\border-collie.png",

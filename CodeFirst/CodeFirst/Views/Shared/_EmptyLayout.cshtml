@@ -15,6 +15,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <style>
+        .loading-spinner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .spinner-image {
+            width: 190px;
+            height: 150px;
+        }
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -91,6 +108,9 @@
     
     <div class="container">
         <main role="main" class="pb-3">
+            <div class="loading-spinner" id="loading-spinner">
+                <img src="~/admin_assets/images/cf.gif" class="spinner-image" alt="Loading..." />
+            </div>
             @RenderBody()
         </main>
         <div class="floating-container">
@@ -125,5 +145,13 @@
     <script src="~/js/qrcode.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        window.addEventListener("load", function () {
+            var spinner = document.getElementById("loading-spinner");
+            setTimeout(function () {
+                spinner.style.display = "none";
+            }, 10);
+        });
+    </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xRJMeCPAIHMF3QwVDWPbV1YwneQnIqw8SDxuthl+BoU=",
+  "Hash": "dRjZetPqAS2X/qF+CBIlqAhys68WFMgoggSVm/4xzNc=",
   "Source": "CodeFirst",
   "BasePath": "_content/CodeFirst",
   "Mode": "Default",
@@ -1592,6 +1592,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont-1.eot"
+    },
+    {
+      "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\bear-removebg.png",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "admin_assets/images/bear-removebg.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin_assets\\images\\bear-removebg.png"
     },
     {
       "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cat.gif",
@@ -8451,6 +8470,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\bear.png"
+    },
+    {
+      "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\bear2.png",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "images/bear2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bear2.png"
     },
     {
       "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\border-collie.png",

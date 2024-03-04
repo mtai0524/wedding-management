@@ -1,4 +1,7 @@
-﻿
+﻿.btn {
+    background-color: #666DE4;
+    outline: none;
+}
 .blob {
     position: absolute;
     width: 500px;
