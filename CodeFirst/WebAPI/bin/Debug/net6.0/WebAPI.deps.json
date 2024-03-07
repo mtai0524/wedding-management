@@ -46,13 +46,9 @@
           "Microsoft.AspNetCore.Authentication.Core": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.OAuth": "6.0.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.0.0",
           "Microsoft.AspNetCore.Authorization.Policy": "6.0.0.0",
           "Microsoft.AspNetCore.Components.Authorization": "6.0.0.0",
-          "Microsoft.AspNetCore.Components": "6.0.0.0",
-          "Microsoft.AspNetCore.Components.Forms": "6.0.0.0",
           "Microsoft.AspNetCore.Components.Server": "6.0.0.0",
-          "Microsoft.AspNetCore.Components.Web": "6.0.0.0",
           "Microsoft.AspNetCore.Connections.Abstractions": "6.0.0.0",
           "Microsoft.AspNetCore.CookiePolicy": "6.0.0.0",
           "Microsoft.AspNetCore.Cors": "6.0.0.0",
@@ -83,7 +79,6 @@
           "Microsoft.AspNetCore.Identity": "6.0.0.0",
           "Microsoft.AspNetCore.Localization": "6.0.0.0",
           "Microsoft.AspNetCore.Localization.Routing": "6.0.0.0",
-          "Microsoft.AspNetCore.Metadata": "6.0.0.0",
           "Microsoft.AspNetCore.Mvc.Abstractions": "6.0.0.0",
           "Microsoft.AspNetCore.Mvc.ApiExplorer": "6.0.0.0",
           "Microsoft.AspNetCore.Mvc.Core": "6.0.0.0",
@@ -144,8 +139,6 @@
           "Microsoft.Extensions.Http": "6.0.0.0",
           "Microsoft.Extensions.Identity.Core.Reference": "6.0.0.0",
           "Microsoft.Extensions.Identity.Stores.Reference": "6.0.0.0",
-          "Microsoft.Extensions.Localization.Abstractions": "6.0.0.0",
-          "Microsoft.Extensions.Localization": "6.0.0.0",
           "Microsoft.Extensions.Logging.Configuration": "6.0.0.0",
           "Microsoft.Extensions.Logging.Console": "6.0.0.0",
           "Microsoft.Extensions.Logging.Debug": "6.0.0.0",
@@ -156,7 +149,6 @@
           "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0.0",
           "Microsoft.Extensions.Options.DataAnnotations": "6.0.0.0",
           "Microsoft.Extensions.WebEncoders": "6.0.0.0",
-          "Microsoft.JSInterop": "6.0.0.0",
           "Microsoft.Net.Http.Headers.Reference": "6.0.0.0",
           "Microsoft.VisualBasic.Core": "11.0.0.0",
           "Microsoft.VisualBasic": "10.0.0.0",
@@ -1121,6 +1113,70 @@
           "lib/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authorization/6.0.27": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "6.0.27",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Options": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.2724.7002"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components/6.0.27": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "6.0.27",
+          "Microsoft.AspNetCore.Components.Analyzers": "6.0.27"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.2724.7002"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Analyzers/6.0.27": {},
+      "Microsoft.AspNetCore.Components.Forms/6.0.27": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.27"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.2724.7002"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Web/6.0.27": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.27",
+          "Microsoft.AspNetCore.Components.Forms": "6.0.27",
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "Microsoft.JSInterop": "6.0.27",
+          "System.IO.Pipelines": "6.0.3"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.2724.7002"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/6.0.22": {
         "runtime": {
           "lib/net6.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
@@ -1238,6 +1294,17 @@
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.JsonPatch.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/6.0.27": {
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.2724.7002"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {}
         }
       },
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson/6.0.23": {
@@ -1736,7 +1803,7 @@
           "Microsoft.Bcl.AsyncInterfaces": "5.0.0",
           "Microsoft.CodeAnalysis.Common": "4.0.0",
           "System.Composition": "1.0.31",
-          "System.IO.Pipelines": "5.0.1"
+          "System.IO.Pipelines": "6.0.3"
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.CodeAnalysis.Workspaces.dll": {
@@ -2131,6 +2198,34 @@
           }
         }
       },
+      "Microsoft.Extensions.Localization/6.0.27": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Localization.Abstractions": "6.0.27",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Options": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.Localization.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.2724.7002"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.Extensions.Localization.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Localization.Abstractions/6.0.27": {
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.Localization.Abstractions.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.2724.7002"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.Extensions.Localization.Abstractions.dll": {}
+        }
+      },
       "Microsoft.Extensions.Logging/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
@@ -2303,6 +2398,17 @@
         },
         "compile": {
           "lib/net6.0/Microsoft.IdentityModel.Tokens.dll": {}
+        }
+      },
+      "Microsoft.JSInterop/6.0.27": {
+        "runtime": {
+          "lib/net6.0/Microsoft.JSInterop.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.2724.7002"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.JSInterop.dll": {}
         }
       },
       "Microsoft.Net.Http.Headers/2.2.0": {
@@ -2520,6 +2626,22 @@
           "lib/net6.0/MimeKit.dll": {}
         }
       },
+      "MudBlazor/6.16.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.27",
+          "Microsoft.AspNetCore.Components.Web": "6.0.27",
+          "Microsoft.Extensions.Localization": "6.0.27"
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {
+            "assemblyVersion": "6.16.0.0",
+            "fileVersion": "6.16.0.0"
+          }
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.1",
@@ -2719,6 +2841,21 @@
         },
         "compile": {
           "lib/netstandard2.0/NuGet.Versioning.dll": {}
+        }
+      },
+      "Quick.AspNetCore.Components.Web.Extensions/6.0.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.27",
+          "Microsoft.JSInterop": "6.0.27"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.Web.Extensions.dll": {
+            "assemblyVersion": "6.0.2.0",
+            "fileVersion": "6.0.2.0"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.Web.Extensions.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
@@ -3315,7 +3452,14 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.IO.Pipelines/5.0.1": {},
+      "System.IO.Pipelines/6.0.3": {
+        "runtime": {
+          "lib/net6.0/System.IO.Pipelines.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.522.21309"
+          }
+        }
+      },
       "System.Linq/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -3885,7 +4029,9 @@
           "Microsoft.EntityFrameworkCore": "7.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.11",
           "Microsoft.EntityFrameworkCore.Sqlite": "6.0.23",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",
+          "MudBlazor": "6.16.0",
+          "Quick.AspNetCore.Components.Web.Extensions": "6.0.2"
         },
         "runtime": {
           "CodeFirst.dll": {}
@@ -3930,12 +4076,6 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Authorization/6.0.0.0": {
-        "compile": {
-          "Microsoft.AspNetCore.Authorization.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.AspNetCore.Authorization.Policy/6.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Authorization.Policy.dll": {}
@@ -3948,27 +4088,9 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Components/6.0.0.0": {
-        "compile": {
-          "Microsoft.AspNetCore.Components.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.AspNetCore.Components.Forms/6.0.0.0": {
-        "compile": {
-          "Microsoft.AspNetCore.Components.Forms.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.AspNetCore.Components.Server/6.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Components.Server.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.AspNetCore.Components.Web/6.0.0.0": {
-        "compile": {
-          "Microsoft.AspNetCore.Components.Web.dll": {}
         },
         "compileOnly": true
       },
@@ -4149,12 +4271,6 @@
       "Microsoft.AspNetCore.Localization.Routing/6.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Localization.Routing.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.AspNetCore.Metadata/6.0.0.0": {
-        "compile": {
-          "Microsoft.AspNetCore.Metadata.dll": {}
         },
         "compileOnly": true
       },
@@ -4518,18 +4634,6 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Localization.Abstractions/6.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Localization.Abstractions.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Localization/6.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Localization.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.Extensions.Logging.Configuration/6.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Logging.Configuration.dll": {}
@@ -4587,12 +4691,6 @@
       "Microsoft.Extensions.WebEncoders/6.0.0.0": {
         "compile": {
           "Microsoft.Extensions.WebEncoders.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.JSInterop/6.0.0.0": {
-        "compile": {
-          "Microsoft.JSInterop.dll": {}
         },
         "compileOnly": true
       },
@@ -6047,6 +6145,41 @@
       "path": "microsoft.aspnetcore.authentication.jwtbearer/6.0.22",
       "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.6.0.22.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Authorization/6.0.27": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zOIWawSst65SPe/E/iv4EVdXFBFw0GTK7RKhu8kHkAL2ph4Ghx91Z++hDocMHZai0yVzKdhxXtYrM9g/D7E9gA==",
+      "path": "microsoft.aspnetcore.authorization/6.0.27",
+      "hashPath": "microsoft.aspnetcore.authorization.6.0.27.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components/6.0.27": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qcdDAISl9TUaXCjdJd34PMGJ482JzL0pc/2aTThkvi4PK2TLhZONl/YmNc+6GBriBJQpa74LO6q/wzvMXf7WJw==",
+      "path": "microsoft.aspnetcore.components/6.0.27",
+      "hashPath": "microsoft.aspnetcore.components.6.0.27.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Analyzers/6.0.27": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-s3wTat0GXdYY2LiYHOCh4MSRKoBbBbrUVWCoBON8hFzVPh407CC8F31Vn6aDOqeaxZGdrjuRK3s48MmaPaaBCw==",
+      "path": "microsoft.aspnetcore.components.analyzers/6.0.27",
+      "hashPath": "microsoft.aspnetcore.components.analyzers.6.0.27.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Forms/6.0.27": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XK7Ako09GGI20I2GE2JDr6tclE/8aDtOkWAhEZwIRcO9X4fd4V/8QWjW4dhRbEruQVffzc8KB5IRVBoCvPSMUA==",
+      "path": "microsoft.aspnetcore.components.forms/6.0.27",
+      "hashPath": "microsoft.aspnetcore.components.forms.6.0.27.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Web/6.0.27": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ja/C5D7MBoEPyWdtsTPGgMCvVP7PlmU1QUSqf04Q7aN/zlb3/8LFTyzl2PLuvMzj58jNrJSVIG2ozJIIW/t+EQ==",
+      "path": "microsoft.aspnetcore.components.web/6.0.27",
+      "hashPath": "microsoft.aspnetcore.components.web.6.0.27.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/6.0.22": {
       "type": "package",
       "serviceable": true,
@@ -6137,6 +6270,13 @@
       "sha512": "sha512-NV2w9DCCqNJDVRgjE28MkKN6KjRSKaPsXChP4rIE0AFAkAnj2KS+aOqXnwNDS1D2UVX/An6fBhnCXRMzIG/2Sg==",
       "path": "microsoft.aspnetcore.jsonpatch/6.0.23",
       "hashPath": "microsoft.aspnetcore.jsonpatch.6.0.23.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Metadata/6.0.27": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KOJN6fWA3vixOSRXbKowWSKroEkLo5/D11wzflkxcIrRNU/0/k+ysgKGSDQpuajfrn0VdQIPzzKBmRQKpmmJ8g==",
+      "path": "microsoft.aspnetcore.metadata/6.0.27",
+      "hashPath": "microsoft.aspnetcore.metadata.6.0.27.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Mvc.NewtonsoftJson/6.0.23": {
       "type": "package",
@@ -6453,6 +6593,20 @@
       "path": "microsoft.extensions.identity.stores/6.0.22",
       "hashPath": "microsoft.extensions.identity.stores.6.0.22.nupkg.sha512"
     },
+    "Microsoft.Extensions.Localization/6.0.27": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sqwoeaqGTeSMBTrUV8ysD8JPfUcH8sdkmv4oCfz9i5WHAGfsS/eHCpoff87sukoxwgaEBBd9YPhTwdaFE9njlw==",
+      "path": "microsoft.extensions.localization/6.0.27",
+      "hashPath": "microsoft.extensions.localization.6.0.27.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Localization.Abstractions/6.0.27": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-virsfnfbV6uJASaNKUXLQpdY0qGr48R6dUFwY00Qja5ea+kgntRgm7qzAH6GLeJjfW3zjoltrTiTrCbrAP3KCA==",
+      "path": "microsoft.extensions.localization.abstractions/6.0.27",
+      "hashPath": "microsoft.extensions.localization.abstractions.6.0.27.nupkg.sha512"
+    },
     "Microsoft.Extensions.Logging/7.0.0": {
       "type": "package",
       "serviceable": true,
@@ -6543,6 +6697,13 @@
       "sha512": "sha512-ZPqHi86UYuqJXJ7bLnlEctHKkPKT4lGUFbotoCNiXNCSL02emYlcxzGYsRGWWmbFEcYDMi2dcTLLYNzHqWOTsw==",
       "path": "microsoft.identitymodel.tokens/6.24.0",
       "hashPath": "microsoft.identitymodel.tokens.6.24.0.nupkg.sha512"
+    },
+    "Microsoft.JSInterop/6.0.27": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cDhjL/+TjEB+9AD4JvY6bPaIIkIvLfbIjjBl+jzjxxrVJv/raIMtlw752FrgWqESbC1fYbuoXPgZfbcHy37lrg==",
+      "path": "microsoft.jsinterop/6.0.27",
+      "hashPath": "microsoft.jsinterop.6.0.27.nupkg.sha512"
     },
     "Microsoft.Net.Http.Headers/2.2.0": {
       "type": "package",
@@ -6663,6 +6824,13 @@
       "path": "mimekit/4.2.0",
       "hashPath": "mimekit.4.2.0.nupkg.sha512"
     },
+    "MudBlazor/6.16.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xOgh6oPWXVcjJ+8tzPniXLlz64skRpPgh5x/jY5s54Xy0fy7/WVWI5YwKirvJgJAl8CvJzikvEpNXVXTAStCqA==",
+      "path": "mudblazor/6.16.0",
+      "hashPath": "mudblazor.6.16.0.nupkg.sha512"
+    },
     "NETStandard.Library/1.6.1": {
       "type": "package",
       "serviceable": true,
@@ -6746,6 +6914,13 @@
       "sha512": "sha512-Wm/AOFICTIrCgbVxv9dNWusraTzcggbo5W4ao7hD8NNVq911an9TGwW+uNuYc8I5PkpTeMuSXneV2u6hbi1P4w==",
       "path": "nuget.versioning/6.6.1",
       "hashPath": "nuget.versioning.6.6.1.nupkg.sha512"
+    },
+    "Quick.AspNetCore.Components.Web.Extensions/6.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ppLXEca1BL48Sgq0MZyBsQlH0TJXkqY8uqoXl4xv5mpJDBbft6aa4ACOQNztWXwjX0ry13ebDfQLQIgmfekK2w==",
+      "path": "quick.aspnetcore.components.web.extensions/6.0.2",
+      "hashPath": "quick.aspnetcore.components.web.extensions.6.0.2.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",
@@ -7111,12 +7286,12 @@
       "path": "system.io.filesystem.primitives/4.3.0",
       "hashPath": "system.io.filesystem.primitives.4.3.0.nupkg.sha512"
     },
-    "System.IO.Pipelines/5.0.1": {
+    "System.IO.Pipelines/6.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qEePWsaq9LoEEIqhbGe6D5J8c9IqQOUuTzzV6wn1POlfdLkJliZY3OlB0j0f17uMWlqZYjH7txj+2YbyrIA8Yg==",
-      "path": "system.io.pipelines/5.0.1",
-      "hashPath": "system.io.pipelines.5.0.1.nupkg.sha512"
+      "sha512": "sha512-ryTgF+iFkpGZY1vRQhfCzX0xTdlV3pyaTTqRu2ETbEv+HlV7O6y7hyQURnghNIXvctl5DuZ//Dpks6HdL/Txgw==",
+      "path": "system.io.pipelines/6.0.3",
+      "hashPath": "system.io.pipelines.6.0.3.nupkg.sha512"
     },
     "System.Linq/4.3.0": {
       "type": "package",
@@ -7531,11 +7706,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Authorization/6.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Microsoft.AspNetCore.Authorization.Policy/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
@@ -7546,22 +7716,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Components/6.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.AspNetCore.Components.Forms/6.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Microsoft.AspNetCore.Components.Server/6.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.AspNetCore.Components.Web/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -7712,11 +7867,6 @@
       "sha512": ""
     },
     "Microsoft.AspNetCore.Localization.Routing/6.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.AspNetCore.Metadata/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -8021,16 +8171,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Localization.Abstractions/6.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Localization/6.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Microsoft.Extensions.Logging.Configuration/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
@@ -8077,11 +8217,6 @@
       "sha512": ""
     },
     "Microsoft.Extensions.WebEncoders/6.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.JSInterop/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
