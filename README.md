@@ -5,6 +5,17 @@
  - **Frontend**: `ReactJS`
  - **Database**: `SQL Server`
  ---
+
+ ## User Interface     
+
+  - __Dashboard__
+    
+     ![Dashboard](./Images/UI.png)
+
+  - __Register and login__
+    
+     ![Register](./Images/register.png) ![Login](./Images/login.png) 
+---
 ## How to run project
  1. **_Get server name in SSMS_**
     - Open SSMS 
@@ -34,25 +45,16 @@
         ![package manage console](./Images/update.png)
 ---
 
-## User Interface     
 
-  - __Dashboard__
-    
-     ![Dashboard](./Images/UI.png)
 
-  - __Register and login__
-    
-     ![Register](./Images/register.png) ![Login](./Images/login.png) 
----
-
-## Tài khoản đăng nhập quản trị:
+## Account administrator
 nguyentai24052002@gmail.com
-Tai12345.
+**`Tai12345.`**
 
-## Tài khoản đăng nhập nhân viên
+## Account employee
 duaconcuagio@yahoo.com
-Tai12345.
+**`Tai12345.`**
 
-## Tài khoản đăng nhập user
+## Account user
 demodoan@gmail.com
-Tai12345.
+**`Tai12345.`**
