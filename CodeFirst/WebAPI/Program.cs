@@ -23,7 +23,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CodeFirst"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("HShop"));
 });
 builder.Services.AddCors(options =>
 {
