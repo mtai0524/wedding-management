@@ -31,6 +31,7 @@ namespace CodeFirst.Data
         public DbSet<InvoiceCode> InvoiceCode { get; set; }
         public DbSet<Room> Room { get; set; }
         public DbSet<Message> Message { get; set; }
+        public virtual DbSet<HubConnection> HubConnections { get; set; } = null!;
 
     }
 }

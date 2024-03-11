@@ -23,16 +23,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMudServices();
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-builder.Services.AddRazorPages();
 builder.Services.AddSignalR();
 
+var connectionString = builder.Configuration.GetConnectionString("CodeFirst");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CodeFirst"));
+    options.UseSqlServer(connectionString);
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking); // fix lỗi lúc không chọn ảnh, chỉ update thong tin khác
-});
+}, ServiceLifetime.Singleton, ServiceLifetime.Transient);
+//builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.AddSingleton<ChatHub>(); // phải add vào mới gọi chatHub được
 
 // đăng ký service
 builder.Services.AddScoped<EmployeeService>();
@@ -41,6 +42,7 @@ builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddTransient<IEmailSender, EmailSender>(); //  dịch vụ gửi mail xác nhận đăng kí
 
 //builder.Services.AddHangFire(config => config
@@ -139,12 +141,19 @@ builder.Services.AddResponseCompression(options =>
         "application/octet-stream"
     });
 });
-
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 // using signalr change data
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.PropertyNamingPolicy = null;
 });
+
+// Session
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<ApplicationDbContext>();
 
 var app = builder.Build();
 
@@ -183,5 +192,5 @@ app.UseHttpsRedirection();
 app.MapRazorPages();
 app.MapBlazorHub();
 app.MapFallbackToController("Blazor", "Chat");
-
+app.UseSession();
 app.Run();

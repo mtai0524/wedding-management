@@ -1537,14 +1537,6 @@
       "PackagePath": "staticwebassets\\js\\qrcode.min.js"
     },
     {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",
-      "PackagePath": "staticwebassets\\js\\signalr\\dist\\browser\\signalr.js"
-    },
-    {
-      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\signalr\\dist\\browser\\signalr.min.js",
-      "PackagePath": "staticwebassets\\js\\signalr\\dist\\browser\\signalr.min.js"
-    },
-    {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
@@ -1915,6 +1907,10 @@
     {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js"
     },
     {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\css\\bootstrap.min.css",
