@@ -10,9 +10,6 @@ namespace CodeFirst.Hubs
     public class ChatHub: Hub
     {
         public readonly static List<UserViewChatModel> _Connections = new List<UserViewChatModel>();
-        private readonly static Dictionary<string, string> _ConnectionsMap = new Dictionary<string, string>();
-        private readonly ApplicationDbContext _context;
-        private readonly IMapper _mapper;
 
         public ChatHub(ApplicationDbContext context, IMapper mapper)
         {
