@@ -1,0 +1,140 @@
+﻿@page "/branch-list"
+@using CodeFirst.Data
+@using CodeFirst.Service
+@using Microsoft.AspNetCore.Components.Web.Extensions
+@inherits Microsoft.AspNetCore.Components.ComponentBase
+<h1>Quản lý chi nhánh</h1>
+
+<style>
+    .btn {
+        color: white;
+        margin-left: 5px;
+    }
+
+    i {
+        margin-right: 3px;
+    }
+</style>
+
+<p>
+    <a class="btn btn-outline-primary" @onclick="CreateBranch">Thêm chi nhánh mới</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên
+            </th>
+            <th>
+                Điện thoại
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Hình ảnh
+            </th>
+
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Branches)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Phone
+                </td>
+                <td>
+                    @item.Address
+                </td>
+                <td style="width:15%">
+                    <img src="@item.Image" class="rounded float-start" style="width:100%; height:10rem">
+                </td>
+                <td>
+                    <button class="btn btn-outline-info" @onclick="() => EditBranch(item.BranchId)">Sửa</button>
+                    <button class="btn btn-outline-success" @onclick="() => ShowDetails(item.BranchId)">Chi tiết</button>
+                    <button class="btn btn-outline-danger" @onclick="() => DeleteBranch(item.BranchId)">Xóa</button>
+                </td>
+                <td>
+                    @if (item.IsLocked)
+                    {
+                        <button class="btn btn-success" @onclick="() => UnlockBranch(item.BranchId)"><i class="icofont-key"></i>  Mở khóa</button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-danger" @onclick="() => LockBranch(item.BranchId)"><i class="icofont-ui-block"></i>  Tạm khóa</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    // Define a property to hold branches
+    List<CodeFirst.Models.Entities.Branch> Branches { get; set; } = new List<CodeFirst.Models.Entities.Branch>();
+    [Inject]
+    private ApplicationDbContext _context { get; set; }
+
+    // Method to load branches, you need to call this method from OnInitializedAsync or OnInitialized lifecycle event
+    // Example: protected override async Task OnInitializedAsync() { await LoadBranches(); }
+
+    protected async Task LoadBranches()
+    {
+        // Giả sử bạn có một dịch vụ để lấy dữ liệu chi nhánh
+        var branchService = new BranchService(_context); // Thay thế BranchService bằng tên dịch vụ thực tế của bạn
+        Branches = await branchService.GetBranchesAsync(); // Phương thức này trả về danh sách các chi nhánh từ dịch vụ
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadBranches();
+    }
+
+    // Method to create a new branch
+    void CreateBranch()
+    {
+        // Navigate to the create branch page or show a modal to create a new branch
+        // Example: NavigationManager.NavigateTo("/branches/create");
+    }
+
+    // Method to edit a branch
+    void EditBranch(int branchId)
+    {
+        // Navigate to the edit branch page with the provided branch ID
+        // Example: NavigationManager.NavigateTo($"/branches/edit/{branchId}");
+    }
+
+    // Method to show details of a branch
+    void ShowDetails(int branchId)
+    {
+        // Navigate to the details page of the provided branch ID
+        // Example: NavigationManager.NavigateTo($"/branches/details/{branchId}");
+    }
+
+    // Method to delete a branch
+    void DeleteBranch(int branchId)
+    {
+        // Perform delete operation here
+        // Example: await SomeDataService.DeleteBranch(branchId);
+    }
+
+    // Method to unlock a branch
+    void UnlockBranch(int branchId)
+    {
+        // Perform unlock operation here
+        // Example: await SomeDataService.UnlockBranch(branchId);
+    }
+
+    // Method to lock a branch
+    void LockBranch(int branchId)
+    {
+        // Perform lock operation here
+        // Example: await SomeDataService.LockBranch(branchId);
+    }
+}
