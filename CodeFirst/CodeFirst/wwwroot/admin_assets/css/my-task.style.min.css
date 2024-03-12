@@ -21605,8 +21605,8 @@ body.rtl_mode table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td
     .avatar-list .avatar {
         color: var(--secondary-color);
         font-weight: 600;
-        width: 2rem;
-        height: 2rem;
+        width: 2.3rem;
+        height: 2.3rem;
         line-height: 2rem;
         border-radius: 50%;
         display: inline-block;
@@ -21627,7 +21627,7 @@ body.rtl_mode table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td
     }
 
 .avatar-list-stacked .avatar {
-    margin-right: -.6em !important;
+    margin-right: -.3em !important;
     box-shadow: 0 0 0 2px #fff
 }
 

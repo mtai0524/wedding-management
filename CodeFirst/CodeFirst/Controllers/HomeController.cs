@@ -31,7 +31,8 @@ namespace CodeFirst.Controllers
         [Authorize]
         public IActionResult Index()
         {
-            return RedirectToAction("Manage", "Account", new { area = "Identity" });
+            //return RedirectToAction("Manage", "Account", new { area = "Identity" });
+            return View("_Host");
         }
         public IActionResult Blazor()
         {
