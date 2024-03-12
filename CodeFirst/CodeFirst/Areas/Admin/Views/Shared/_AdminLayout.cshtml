@@ -89,6 +89,39 @@
                 border: none;
             }
 
+        .custom-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            right: -50rem; /* Hiển thị phía bên phải */
+            top: 0; /* Hiển thị phía dưới */
+            width: 100%; /* Độ rộng của modal box */
+            height: 1000%; /* Chiều cao của modal box */
+            overflow: auto;
+        }
+
+        .modal-content {
+            width:100px;
+            background-color: #fefefe;
+            border: 1px solid #888;
+            position: relative;
+        }
+
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+
     </style>
 </head>
 
@@ -103,6 +136,12 @@
         <div class="main px-lg-4 px-md-4">
             <div class="container">
                 <div class="row">
+                    <div id="customModal" class="custom-modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <div id="userInfo"></div>
+                        </div>
+                    </div>
                     <!-- Body: Header -->
                     <div class="header">
                         <nav class="navbar py-4">
@@ -114,8 +153,11 @@
                                         </div>
                                     </div>
                                     <div class="dropdown notifications zindex-popover">
-                                        <a class="nav-link dropdown-toggle pulse" href="#" role="button" data-bs-toggle="dropdown">
-                                            <i class="icofont-alarm fs-5"></i>
+                                        <a class="nav-link dropdown-toggle pulse" href="#" role="button" data-bs-toggle="dropdown" onclick="hideNotificationCount()">
+                                            <span class="icon-container">
+                                                <i class="icofont-alarm fs-5"></i>
+                                                <span class="notification-count">16</span>
+                                            </span>
                                             <span class="pulse-ring"></span>
                                         </a>
                                         <div id="NotificationsDiv" class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-sm-end p-0 m-0">
@@ -302,6 +344,28 @@
         <script src="_content/Microsoft.AspNetCore.Components.Web.Extensions/script.js"></script>
 
         <script type="text/javascript">
+            // Khởi tạo biến
+            let isClicked = localStorage.getItem('isClicked') === 'true';
+
+            function hideNotificationCount() {
+                // Cập nhật trạng thái
+                isClicked = true;
+                localStorage.setItem('isClicked', 'true');
+
+                // Ẩn notification-count
+                const notificationCount = document.querySelector('.notification-count');
+                notificationCount.style.visibility = 'hidden';
+
+            }
+
+            // Hiển thị notification-count dựa trên trạng thái
+            const notificationCount = document.querySelector('.notification-count');
+            if (isClicked) {
+                notificationCount.style.visibility = 'hidden';
+            } else {
+                notificationCount.style.visibility = 'visible';
+            }
+
             // function getRandomImageUrl(width, height) {
             //     return `https://picsum.photos/${width}/${height}?random=${Math.floor(Math.random() * 1000)}`;
             // }

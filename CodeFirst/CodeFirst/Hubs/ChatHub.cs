@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
+using CodeFirst.ViewModels;
 namespace CodeFirst.Hubs
 {
     public class ChatHub: Hub
@@ -18,49 +19,65 @@ namespace CodeFirst.Hubs
             _context = context;
         }
 
-        private static readonly HashSet<string> ConnectedUsers = new HashSet<string>();
+        private static readonly Dictionary<string, UserInformation> ConnectedUsers = new Dictionary<string, UserInformation>();
 
         public override async Task OnConnectedAsync()
         {
             Clients.Caller.SendAsync("OnConnected");
 
-            string username = await GetUsernameFromContext(); // Implement logic to retrieve username
+            UserInformation userInfo = await GetUserInfoFromContext(); 
 
-            ConnectedUsers.Add(username);
+            string connectionId = Context.ConnectionId;
+            ConnectedUsers[connectionId] = userInfo;
 
-            await UpdateConnectedUsersList(); // Broadcast the updated list to all clients
+            await UpdateConnectedUsersList(); 
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
-            string username = await GetUsernameFromContext(); // Implement logic to retrieve username
+            string connectionId = Context.ConnectionId;
+            if (ConnectedUsers.ContainsKey(connectionId))
+            {
+                UserInformation userInfo = ConnectedUsers[connectionId];
+                ConnectedUsers.Remove(connectionId);
 
-            ConnectedUsers.Remove(username);
-
-            await UpdateConnectedUsersList(); // Broadcast the updated list to all clients
+                await UpdateConnectedUsersList(); 
+            }
 
             await base.OnDisconnectedAsync(exception);
         }
 
         private async Task UpdateConnectedUsersList()
         {
-            List<string> userList = ConnectedUsers.ToList(); // Convert to a list for easier client-side handling
+            List<UserInformation> userList = ConnectedUsers.Values.ToList();
             await Clients.All.SendAsync("UpdateUsersList", userList);
         }
-        private async Task<string> GetUsernameFromContext()
+
+
+        private async Task<UserInformation> GetUserInfoFromContext()
         {
             var email = Context.User.Identity.Name;
             var user = await _context.ApplicationUser.FirstOrDefaultAsync(u => u.Email == email);
 
             if (user != null)
             {
-                return user.Avatar;
+                return new UserInformation
+                {
+                    Email = user.Email,
+                    Avatar = user.Avatar
+                };
             }
             else
             {
-                return "Guest";
+                return new UserInformation
+                {
+                    Email = "guest@example.com",
+                    Avatar = null 
+                };
             }
         }
+
+
 
 
         //public async Task Join(string roomName)
