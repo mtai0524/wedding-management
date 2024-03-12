@@ -94,7 +94,14 @@
         .main .sidebar {
             display: none;
         }
+      
 
+        #btn-show-navbar {
+            position: fixed;
+            top: 42px;
+            right: 10px;
+            z-index: 1000; 
+        }
     </style>
 </head>
 
@@ -103,11 +110,7 @@
         <div class="loading-spinner" id="loading-spinner">
             <img src="~/admin_assets/images/cf.gif" class="spinner-image" alt="Loading..." />
         </div>
-        <div class="row shadow-sm p-3">
-            <div class="col-md-6">
                 @(await Html.RenderComponentAsync<MainLayout>(RenderMode.Server))
-            </div>
-        </div>
         <!-- main body area -->
         <div class="main px-lg-4 px-md-4">
             <div class="container">
@@ -116,9 +119,9 @@
                     <!-- Body: Header -->
                     <div class="header">
                         <nav class="navbar py-4">
-                            <div class="container-xxl">
+                            <div class="container-xxl d-flex align-items-center justify-content-between">
                                 <!-- header rightbar icon -->
-                                <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
+                                <div class="h-right d-flex align-items-center order-3">
                                     <div class="d-flex">
                                         <div class="avatar-list avatar-list-stacked px-3">
                                         </div>
@@ -286,13 +289,13 @@
                                 </div>
 
                                 <!-- menu toggler -->
-                                <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
+                                <button id="btn-show-navbar" class="navbar-toggler p-0 border-0 menu-toggle order-2" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
                                     <span class="fa fa-bars"></span>
                                 </button>
 
 
                                 <!-- main menu Search-->
-                                <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+                                <div class="col-xl-6 col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12">
                                     <div class="form">
                                         <i class="fa fa-search"></i>
                                         <input type="text" class="form-control form-input" placeholder="Tìm kiếm...">

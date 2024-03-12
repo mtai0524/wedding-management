@@ -1,5 +1,6 @@
 ﻿@page "/branch-list"
 @using CodeFirst.Data
+@using CodeFirst.Models.Entities
 @using CodeFirst.Service
 @using Microsoft.AspNetCore.Components.Web.Extensions
 @inherits Microsoft.AspNetCore.Components.ComponentBase
@@ -77,19 +78,15 @@
 </table>
 
 @code {
-    // Define a property to hold branches
-    List<CodeFirst.Models.Entities.Branch> Branches { get; set; } = new List<CodeFirst.Models.Entities.Branch>();
+    List<Branch> Branches { get; set; } = new List<Branch>();
     [Inject]
     private ApplicationDbContext _context { get; set; }
 
-    // Method to load branches, you need to call this method from OnInitializedAsync or OnInitialized lifecycle event
-    // Example: protected override async Task OnInitializedAsync() { await LoadBranches(); }
 
     protected async Task LoadBranches()
     {
-        // Giả sử bạn có một dịch vụ để lấy dữ liệu chi nhánh
-        var branchService = new BranchService(_context); // Thay thế BranchService bằng tên dịch vụ thực tế của bạn
-        Branches = await branchService.GetBranchesAsync(); // Phương thức này trả về danh sách các chi nhánh từ dịch vụ
+        var branchService = new BranchService(_context);
+        Branches = await branchService.GetBranchesAsync(); 
     }
     protected override async Task OnInitializedAsync()
     {

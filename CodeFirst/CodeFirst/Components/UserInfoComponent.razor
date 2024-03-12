@@ -1,0 +1,28 @@
+﻿@* @inject AuthenticationStateProvider AuthenticationStateProvider
+
+<div class="user-info">
+    @if (authenticationState.User.Identity.IsAuthenticated)
+    {
+        <img src="@userAvatarUrl" alt="User Avatar" />
+        <span>@userName</span>
+    }
+</div>
+
+@code {
+    private AuthenticationState authenticationState;
+    private string userAvatarUrl;
+    private string userName;
+
+    protected override async Task OnInitializedAsync()
+    {
+        authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+
+        if (authenticationState.User.Identity.IsAuthenticated)
+        {
+            // Lấy thông tin người dùng từ claims
+            userName = authenticationState.User.FindFirst(ClaimTypes.Name)?.Value;
+            userAvatarUrl = authenticationState.User.FindFirst("avatar")?.Value; // Thay "avatar" bằng claim chứa URL avatar
+        }
+    }
+}
+ *@

@@ -145,6 +145,85 @@ li {
     list-style-type: none;
 }
 .feedback-content {
-    max-height: 200px; /* Đặt chiều cao tối đa trước khi thanh trượt xuất hiện */
-    overflow-y: auto; /* Tạo thanh trượt dọc khi nội dung vượt quá chiều cao tối đa */
+    max-height: 200px;
+    overflow-y: auto;
 }
+
+
+.icon-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .icon-container .fs-5 {
+        margin-right: -5px;
+    }
+.notification-count {
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+    .notification-count.hidden {
+        width: 0;
+        height: 0;
+    }
+.icon-container {
+    animation: swing 2s linear infinite;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotateZ(-5deg);
+    }
+
+    50% {
+        transform: rotateZ(5deg);
+    }
+
+    100% {
+        transform: rotateZ(-5deg);
+    }
+}
+
+.nav-item {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item a {
+        color: #d7d7d7;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+    }
+
+        .nav-item a.active {
+            background-color: rgba(255, 255, 255, 0.25);
+            color: white;
+        }
+
+        .nav-item a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: gray;
+        }
+
