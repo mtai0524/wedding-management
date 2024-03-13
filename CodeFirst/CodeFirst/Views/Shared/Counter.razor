@@ -7,15 +7,7 @@
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
-<MudBreadcrumbs Items="_items"></MudBreadcrumbs>
-@code {
-    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
-    {
-        new BreadcrumbItem("Home", href: "#", icon: Icons.Material.Filled.Home),
-        new BreadcrumbItem("Videos", href: "#", icon: Icons.Material.Filled.VideoLibrary),
-        new BreadcrumbItem("Create", href: null, disabled: true, icon: Icons.Material.Filled.Create)
-    };
-}
+
 <h1>Counter</h1>
 
 <p role="status">Current count: @currentCount</p>
@@ -54,6 +46,7 @@
         <MudTh><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<Branch, object>(x=>x.Name)">Name</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Address)">Position</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Description)">Mass</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Image)">Image</MudTableSortLabel></MudTh>
     </HeaderContent>
     <RowTemplate>
         <MudTd DataLabel="Nr">@context.Name</MudTd>
@@ -61,9 +54,12 @@
         <MudTd DataLabel="Name">@context.Name</MudTd>
             <MudTd DataLabel="Position">@context.Address</MudTd>
             <MudTd DataLabel="Molar mass">@context.Description</MudTd>
+            <MudTd DataLabel="Image">
+                <MudImage  Src="@context.Image" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-sm" />
+            </MudTd>
     </RowTemplate>
     <PagerContent>
-        <MudTablePager PageSizeOptions="new int[] { 10, 25, 50, 100 }" />
+        <MudTablePager PageSizeOptions="new int[] { 4, 10, 50, 100 }" />
     </PagerContent>
 </MudTable>
 
@@ -82,4 +78,65 @@
         var branchService = new BranchService(_context);
         Elements = await branchService.GetBranchesAsync();
     }
+}
+
+<MudDropContainer T="DropItem" Items="_items" ItemsSelector="@((item,dropzone) => item.Identifier == dropzone)" ItemDropped="ItemUpdated" Class="d-flex flex-wrap flex-grow-1">
+    <ChildContent>
+        <MudDropZone T="DropItem" Identifier="Drop Zone 1" Class="rounded mud-background-gray pa-6 ma-8 flex-grow-1">
+            <MudText Typo="Typo.h6" Class="mb-4">Drop Zone 1</MudText>
+        </MudDropZone>
+        <MudDropZone T="DropItem" Identifier="Drop Zone 2" Class="rounded mud-background-gray pa-6 ma-8 flex-grow-1">
+            <MudText Typo="Typo.h6" Class="mb-4">Drop Zone 2</MudText>
+        </MudDropZone>
+    </ChildContent>
+    <ItemRenderer>
+        <MudPaper Elevation="25" Class="pa-4 my-4">@context.Name</MudPaper>
+        </ItemRenderer>
+    </MudDropContainer>
+    @code {
+    private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
+    {
+        dropItem.Item.Identifier = dropItem.DropzoneIdentifier;
+    }
+
+    private List<DropItem> _items = new()
+    {
+        new DropItem(){ Name = "Drag me!", Identifier = "Drop Zone 1" },
+        new DropItem(){ Name = "Or me!", Identifier = "Drop Zone 2" },
+        new DropItem(){ Name = "Just Mud", Identifier = "Drop Zone 1" },
+    };
+
+    public class DropItem
+    {
+        public string Name { get; init; }
+        public string Identifier { get; set; }
+    }
+}
+    <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="OnButtonClicked">Delete</MudButton>
+
+<MudChip>@state</MudChip>
+    @code
+    {
+    [Inject] private IDialogService DialogService { get; set; }
+
+    string state = "Message box hasn't been opened yet";
+
+
+    private async void OnButtonClicked()
+    {
+        var dialogOptions = new DialogOptions
+            {
+                Position = DialogPosition.Center,  // Set the position to Center
+            };
+        bool? result = await DialogService.ShowMessageBox(
+        "Warning",
+        "Deleting can not be undone!",
+        yesText: "Delete!",
+        cancelText: "Cancel",
+        options: dialogOptions);  // Pass the dialog options
+
+        state = result == null ? "Canceled" : "Deleted!";
+        StateHasChanged();
+    }
+
 }
