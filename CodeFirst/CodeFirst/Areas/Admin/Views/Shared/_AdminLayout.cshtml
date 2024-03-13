@@ -324,6 +324,14 @@
         <script src="_content/Microsoft.AspNetCore.Components.Web.Extensions/script.js"></script>
 
         <script type="text/javascript">
+         
+            var paginationInformation = document.querySelector('.mud-table-pagination-information');
+
+            // Kiểm tra xem phần tử có tồn tại không
+            if (paginationInformation) {
+                // Thay đổi nội dung của phần tử
+                paginationInformation.textContent = "Custom Text Here";
+            }
 
             // Khởi tạo biến
             let isClicked = localStorage.getItem('isClicked') === 'true';

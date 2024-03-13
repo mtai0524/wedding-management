@@ -39,7 +39,7 @@
     }
 }
 
-    <MudTable Items="@Elements" Hover="true" SortLabel="Sort By">
+<MudTable Items="@Elements" Hover="true" SortLabel="Sort By">
     <HeaderContent>
         <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Name)">Nr</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel Enabled="@enabled" SortBy="new Func<Branch, object>(x=>x.BranchId)">Sign</MudTableSortLabel></MudTh>
@@ -51,20 +51,20 @@
     <RowTemplate>
         <MudTd DataLabel="Nr">@context.Name</MudTd>
             <MudTd DataLabel="Sign">@context.BranchId</MudTd>
-        <MudTd DataLabel="Name">@context.Name</MudTd>
+            <MudTd DataLabel="Name">@context.Name</MudTd>
             <MudTd DataLabel="Position">@context.Address</MudTd>
             <MudTd DataLabel="Molar mass">@context.Description</MudTd>
             <MudTd DataLabel="Image">
-                <MudImage  Src="@context.Image" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-sm" />
+                <MudImage Src="@context.Image" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-md" />
             </MudTd>
-    </RowTemplate>
-    <PagerContent>
-        <MudTablePager PageSizeOptions="new int[] { 4, 10, 50, 100 }" />
-    </PagerContent>
-</MudTable>
+        </RowTemplate>
+        <PagerContent>
+            <MudTablePager PageSizeOptions="new int[] { 2, 4, 5, 100 }" />
+        </PagerContent>
+    </MudTable>
 
-<MudSwitch @bind-Checked="enabled" Color="Color.Info">Enable sorting on the Sign Column</MudSwitch>
-@code {
+    <MudSwitch @bind-Checked="enabled" Color="Color.Info">Enable sorting on the Sign Column</MudSwitch>
+    @code {
     List<Branch> Branches { get; set; } = new List<Branch>();
     [Inject]
     private ApplicationDbContext _context { get; set; }
@@ -112,31 +112,27 @@
         public string Identifier { get; set; }
     }
 }
-    <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="OnButtonClicked">Delete</MudButton>
-
+<MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="OnButtonClicked">Delete</MudButton>
 <MudChip>@state</MudChip>
-    @code
+
+    <MudMessageBox @ref="mbox" Title="Warning" CancelText="Cancel">
+        <MessageContent>
+            Deleting can <b><i>not</i></b> be undone!
+        </MessageContent>
+        <YesButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Delete!</MudButton>
+        </YesButton>
+    </MudMessageBox>
+@code
     {
-    [Inject] private IDialogService DialogService { get; set; }
-
+    MudMessageBox mbox { get; set; }
     string state = "Message box hasn't been opened yet";
-
 
     private async void OnButtonClicked()
     {
-        var dialogOptions = new DialogOptions
-            {
-                Position = DialogPosition.Center,  // Set the position to Center
-            };
-        bool? result = await DialogService.ShowMessageBox(
-        "Warning",
-        "Deleting can not be undone!",
-        yesText: "Delete!",
-        cancelText: "Cancel",
-        options: dialogOptions);  // Pass the dialog options
-
+        bool? result = await mbox.Show();
         state = result == null ? "Canceled" : "Deleted!";
         StateHasChanged();
     }
-
 }
+

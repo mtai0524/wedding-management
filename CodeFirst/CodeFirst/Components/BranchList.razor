@@ -88,8 +88,7 @@
 
 @code {
     List<Branch> Branches { get; set; } = new List<Branch>();
-    [Inject]
-    private ApplicationDbContext _context { get; set; }
+    [Inject] private ApplicationDbContext _context { get; set; }
 
 
     protected async Task LoadBranches()
