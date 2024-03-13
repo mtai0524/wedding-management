@@ -23,10 +23,6 @@
     <link rel="stylesheet" href="~/admin_assets/css/my-task.style.min.css">
     <link href="~/css/site.css" rel="stylesheet" />
 
-  @* radzen *@
-    <link rel="stylesheet" href="_content/Radzen.Blazor/css/material-base.css">
-    <link rel="stylesheet" href="_content/Radzen.Blazor/css/standard-base.css">
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -117,7 +113,7 @@
         <div class="loading-spinner" id="loading-spinner">
             <img src="~/admin_assets/images/cf.gif" class="spinner-image" alt="Loading..." />
         </div>
-                @(await Html.RenderComponentAsync<MainLayout>(RenderMode.Server))
+        @(await Html.RenderComponentAsync<MainLayout>(RenderMode.Server))
         <!-- main body area -->
         <div class="main px-lg-4 px-md-4">
             <div class="container">
@@ -321,7 +317,6 @@
 
             </div>
         </div>
-        <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
         <script src="_content/MudBlazor/MudBlazor.min.js"></script>
 
         <base href="~/" />

@@ -4,6 +4,15 @@
 @using CodeFirst.Service
 @using Microsoft.AspNetCore.Components.Web.Extensions
 @inherits Microsoft.AspNetCore.Components.ComponentBase
+<MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#", icon: Icons.Material.Filled.Home),
+        new BreadcrumbItem("Videos", href: "#", icon: Icons.Material.Filled.VideoLibrary),
+        new BreadcrumbItem("Create", href: null, disabled: true, icon: Icons.Material.Filled.Create)
+    };
+}
 <h1>Quản lý chi nhánh</h1>
 
 <style>
