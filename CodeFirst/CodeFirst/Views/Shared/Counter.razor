@@ -16,12 +16,14 @@
         <MudIcon Icon="@Icons.Material.Filled.Email" Color="Color.Default" />
     </MudBadge>
     <MudBadge Icon="@Icons.Material.Filled.Lock" Color="Color.Error" Overlap="true" Bordered="true" Class="mx-6 my-4">
-        <MudButton Color="Color.Error" Variant="Variant.Filled" DisableElevation="true">Security Issues</MudButton>
+        <MudButton Color="Color.Error" Variant="MudBlazor.Variant.Filled" DisableElevation="true">Security Issues</MudButton>
     </MudBadge>
     <MudBadge Dot="true" Color="Color.Info" Class="mx-6 my-4">
         <MudText>Bug Reports</MudText>
     </MudBadge>
 </div>
+<CodeFirst.Components.ProgressBar></CodeFirst.Components.ProgressBar>
+
 @code {
     private int currentCount = 0;
 

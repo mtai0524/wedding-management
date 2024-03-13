@@ -135,6 +135,10 @@
             "Quick.AspNetCore.Components.Web.Extensions": {
               "target": "Package",
               "version": "[6.0.2, )"
+            },
+            "Radzen.Blazor": {
+              "target": "Package",
+              "version": "[4.26.1, )"
             }
           },
           "imports": [

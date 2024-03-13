@@ -22,6 +22,13 @@
 
     <link rel="stylesheet" href="~/admin_assets/css/my-task.style.min.css">
     <link href="~/css/site.css" rel="stylesheet" />
+
+  @* radzen *@
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/material-base.css">
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/standard-base.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <base href="~/" />
@@ -130,10 +137,13 @@
                                         <a class="nav-link dropdown-toggle pulse" href="#" role="button" data-bs-toggle="dropdown" onclick="hideNotificationCount()">
                                             <span class="icon-container">
                                                 <i class="icofont-alarm fs-5"></i>
+                                             
+
                                                 <span class="notification-count">16</span>
                                             </span>
                                             <span class="pulse-ring"></span>
                                         </a>
+
                                         <div id="NotificationsDiv" class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-sm-end p-0 m-0">
                                             <div class="card border-0 w380">
                                                 <div class="card-header border-0 p-3">
@@ -311,6 +321,7 @@
 
             </div>
         </div>
+        <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
         <script src="_content/MudBlazor/MudBlazor.min.js"></script>
 
         <base href="~/" />

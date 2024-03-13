@@ -8054,3 +8054,5 @@ E:\SettingUI\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\CodeFirst.gen
 E:\SettingUI\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\ref\CodeFirst.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\scopedcss\Components\Error404.razor.rz.scp.css
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\package.json
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\Radzen.Blazor.dll
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll

@@ -17,10 +17,12 @@ using MailKit;
 using CodeFirst.Areas.Services;
 using Microsoft.AspNetCore.ResponseCompression;
 using MudBlazor.Services;
+using Radzen;
 
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMudServices();
+builder.Services.AddRadzenComponents();
 
 // Add services to the container.
 builder.Services.AddSignalR();
