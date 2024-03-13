@@ -1,4 +1,7 @@
 ﻿@page "/counter"
+@using CodeFirst.Data
+@using CodeFirst.Models.Entities
+@using CodeFirst.Service
 
 <PageTitle>Counter</PageTitle>
 <MudThemeProvider />
@@ -41,5 +44,42 @@
     private void IncrementCount()
     {
         currentCount++;
+    }
+}
+
+    <MudTable Items="@Elements" Hover="true" SortLabel="Sort By">
+    <HeaderContent>
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Name)">Nr</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel Enabled="@enabled" SortBy="new Func<Branch, object>(x=>x.BranchId)">Sign</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<Branch, object>(x=>x.Name)">Name</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Address)">Position</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Description)">Mass</MudTableSortLabel></MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Nr">@context.Name</MudTd>
+            <MudTd DataLabel="Sign">@context.BranchId</MudTd>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+            <MudTd DataLabel="Position">@context.Address</MudTd>
+            <MudTd DataLabel="Molar mass">@context.Description</MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager PageSizeOptions="new int[] { 10, 25, 50, 100 }" />
+    </PagerContent>
+</MudTable>
+
+<MudSwitch @bind-Checked="enabled" Color="Color.Info">Enable sorting on the Sign Column</MudSwitch>
+@code {
+    List<Branch> Branches { get; set; } = new List<Branch>();
+    [Inject]
+    private ApplicationDbContext _context { get; set; }
+
+
+    private bool enabled = true;
+    private IEnumerable<Branch> Elements = new List<Branch>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var branchService = new BranchService(_context);
+        Elements = await branchService.GetBranchesAsync();
     }
 }
