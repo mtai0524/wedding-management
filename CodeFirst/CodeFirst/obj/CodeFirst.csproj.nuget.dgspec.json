@@ -68,6 +68,14 @@
               "target": "Package",
               "version": "[1.0.8, )"
             },
+            "Hangfire": {
+              "target": "Package",
+              "version": "[1.8.9, )"
+            },
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.8.9, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[4.2.0, )"
@@ -79,6 +87,10 @@
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",
               "version": "[6.0.22, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.18, )"
             },
             "Microsoft.AspNetCore.HttpsPolicy": {
               "target": "Package",
@@ -99,6 +111,10 @@
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[6.0.22, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

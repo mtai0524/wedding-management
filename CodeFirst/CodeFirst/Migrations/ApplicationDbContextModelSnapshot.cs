@@ -513,7 +513,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HubConnections");
+                    b.ToTable("HubConnection");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Notifications.Notification", b =>
@@ -541,7 +541,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Notifications");
+                    b.ToTable("Notification");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -33,6 +33,6 @@ namespace CodeFirst.Data
 
 
         public DbSet<HubConnection> HubConnections { get; set; } = null!;
-        public DbSet<Notification> Notifications { get; set; } = null!;
+        public DbSet<Models.Notifications.Notification> Notifications { get; set; } = null!;
     }
 }

@@ -69,6 +69,7 @@ namespace SignalRYoutube.Controllers
 
                 switch (notification.MessageType)
                 {
+
                     case "Personal":
                         await hubContext.Clients.User(notification.Username).SendAsync("ReceivedPersonalNotification", notification.Message, notification.Username);
                         break;

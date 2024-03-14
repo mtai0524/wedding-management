@@ -130,6 +130,7 @@ $(() => {
 
 
     connection.on("ReceivedNotification", function (message) {
+        console.log("hehehe");
         DisplayGeneralNotification(message, 'General Message');
     });
 

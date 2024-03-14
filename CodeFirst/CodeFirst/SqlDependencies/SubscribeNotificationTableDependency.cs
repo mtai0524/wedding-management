@@ -1,5 +1,5 @@
 ﻿using CodeFirst.Hubs;
-using CodeFirst.Models.Notifications;
+using CodeFirst.Models;
 using TableDependency.SqlClient;
 
 namespace CodeFirst.SqlDependencies
@@ -16,7 +16,7 @@ namespace CodeFirst.SqlDependencies
 
         public void SubscribeTableDependency(string connectionString)
         {
-            tableDependency = new SqlTableDependency<CodeFirst.Models.Notifications.Notification>(connectionString);
+            tableDependency = new SqlTableDependency<Notification>(connectionString);
             tableDependency.OnChanged += TableDependency_OnChanged;
             tableDependency.OnError += TableDependency_OnError;
             tableDependency.Start();

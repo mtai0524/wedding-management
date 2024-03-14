@@ -34,7 +34,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString);
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking); // fix lỗi lúc không chọn ảnh, chỉ update thong tin khác
 }, ServiceLifetime.Singleton, ServiceLifetime.Transient);
-//builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddSingleton<ChatHub>(); // phải add vào mới gọi chatHub được
 
 // đăng ký service
@@ -194,6 +194,6 @@ app.UseResponseCompression();
 app.UseHttpsRedirection();
 app.MapRazorPages();
 app.MapBlazorHub();
-app.MapFallbackToController("Blazor", "Chat");
+app.MapFallbackToController("Blazor", "Home");
 app.UseSession();
 app.Run();

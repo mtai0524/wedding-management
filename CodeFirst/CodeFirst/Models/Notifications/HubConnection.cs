@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CodeFirst.Models.Notifications
 {
+    [Table("HubConnection")]
     public partial class HubConnection
     {
         [Key]
