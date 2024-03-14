@@ -8054,3 +8054,8 @@ E:\SettingUI\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\CodeFirst.gen
 E:\SettingUI\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\ref\CodeFirst.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\scopedcss\Components\Error404.razor.rz.scp.css
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\package.json
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\TableDependency.SqlClient.dll
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\runtimes\win7-x64\native\sni.dll
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\runtimes\win7-x86\native\sni.dll
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\runtimes\unix\lib\netstandard1.3\System.Data.SqlClient.dll
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\runtimes\win\lib\netstandard1.3\System.Data.SqlClient.dll

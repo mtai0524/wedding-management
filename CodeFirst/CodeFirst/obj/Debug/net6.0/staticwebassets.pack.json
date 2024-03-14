@@ -1529,6 +1529,10 @@
       "PackagePath": "staticwebassets\\js\\chat.js"
     },
     {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\notification.js",
+      "PackagePath": "staticwebassets\\js\\notification.js"
+    },
+    {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.js",
       "PackagePath": "staticwebassets\\js\\qrcode.js"
     },

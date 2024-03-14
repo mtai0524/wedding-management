@@ -22,7 +22,7 @@ namespace CodeFirst.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CodeFirst.Chat.Message", b =>
+            modelBuilder.Entity("CodeFirst.Chat.Entities.Message", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -52,7 +52,7 @@ namespace CodeFirst.Migrations
                     b.ToTable("Message");
                 });
 
-            modelBuilder.Entity("CodeFirst.Chat.Room", b =>
+            modelBuilder.Entity("CodeFirst.Chat.Entities.Room", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -60,7 +60,7 @@ namespace CodeFirst.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AdminId")
+                    b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
@@ -69,7 +69,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AdminId");
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Room");
                 });
@@ -495,6 +495,55 @@ namespace CodeFirst.Migrations
                     b.ToTable("ServiceEntity");
                 });
 
+            modelBuilder.Entity("CodeFirst.Models.Notifications.HubConnection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ConnectionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HubConnections");
+                });
+
+            modelBuilder.Entity("CodeFirst.Models.Notifications.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MessageType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("NotificationDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notifications");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -723,13 +772,13 @@ namespace CodeFirst.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
-            modelBuilder.Entity("CodeFirst.Chat.Message", b =>
+            modelBuilder.Entity("CodeFirst.Chat.Entities.Message", b =>
                 {
                     b.HasOne("CodeFirst.Models.ApplicationUser", "FromUser")
                         .WithMany("Messages")
                         .HasForeignKey("FromUserId");
 
-                    b.HasOne("CodeFirst.Chat.Room", "ToRoom")
+                    b.HasOne("CodeFirst.Chat.Entities.Room", "ToRoom")
                         .WithMany("Messages")
                         .HasForeignKey("ToRoomId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -740,13 +789,11 @@ namespace CodeFirst.Migrations
                     b.Navigation("ToRoom");
                 });
 
-            modelBuilder.Entity("CodeFirst.Chat.Room", b =>
+            modelBuilder.Entity("CodeFirst.Chat.Entities.Room", b =>
                 {
-                    b.HasOne("CodeFirst.Models.ApplicationUser", "Admin")
+                    b.HasOne("CodeFirst.Models.ApplicationUser", null)
                         .WithMany("Rooms")
-                        .HasForeignKey("AdminId");
-
-                    b.Navigation("Admin");
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Feedback", b =>
@@ -937,7 +984,7 @@ namespace CodeFirst.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CodeFirst.Chat.Room", b =>
+            modelBuilder.Entity("CodeFirst.Chat.Entities.Room", b =>
                 {
                     b.Navigation("Messages");
                 });

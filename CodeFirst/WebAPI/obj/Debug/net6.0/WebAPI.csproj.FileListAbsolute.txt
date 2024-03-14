@@ -5398,3 +5398,8 @@ E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Microsoft.JSInterop.dll
 E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\MudBlazor.dll
 E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.Extensions.dll
 E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\System.IO.Pipelines.dll
+E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\TableDependency.SqlClient.dll
+E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\runtimes\win7-x64\native\sni.dll
+E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\runtimes\win7-x86\native\sni.dll
+E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\runtimes\unix\lib\netstandard1.3\System.Data.SqlClient.dll
+E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\runtimes\win\lib\netstandard1.3\System.Data.SqlClient.dll

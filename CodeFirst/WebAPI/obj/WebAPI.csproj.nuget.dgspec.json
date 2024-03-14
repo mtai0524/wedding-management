@@ -135,6 +135,10 @@
             "Quick.AspNetCore.Components.Web.Extensions": {
               "target": "Package",
               "version": "[6.0.2, )"
+            },
+            "SqlTableDependency": {
+              "target": "Package",
+              "version": "[8.5.6, )"
             }
           },
           "imports": [
