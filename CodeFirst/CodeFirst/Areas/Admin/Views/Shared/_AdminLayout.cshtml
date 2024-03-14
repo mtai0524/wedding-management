@@ -115,6 +115,10 @@
             font-size: 16px; /* Thiết lập kích thước chữ */
             width: 400px; /* Thiết lập chiều rộng */
         }
+
+        .toast-on-top {
+            z-index: 9999; /* Set a high z-index value */
+        }
     </style>
 </head>
 
@@ -134,7 +138,7 @@
                         <nav class="navbar py-4">
                             <div class="container-xxl d-flex align-items-center justify-content-between">
                                 <!-- header rightbar icon -->
-                                <div class="h-right d-flex align-items-center order-3">
+                                <div class="h-right d-flex align-items-center order-3" style="z-index:1">
                                     <div class="d-flex">
                                         <div class="avatar-list avatar-list-stacked px-3">
                                         </div>

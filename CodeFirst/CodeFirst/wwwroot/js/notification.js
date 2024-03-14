@@ -4,18 +4,28 @@
 // Write your JavaScript code.
 
 
-function DisplayGeneralNotification(message, title, duration) {
-    const currentTime = new Date().toLocaleTimeString();
-    Toastify({
-        text: `${message} ${currentTime}`,
-        duration: duration,
-        close: true,
-        gravity: "top",
-        position: 'right',
-        backgroundColor: "linear-gradient(to right, #FFD700, #FFA500)", // Thay đổi màu sắc của thanh chạy thông báo
-        stopOnFocus: true, // Dừng thanh chạy khi người dùng tương tác với trang
-        onClick: function () { } // Chức năng được gọi khi toast được nhấp
-    }).showToast();
+function DisplayGeneralNotification(message, title) {
+    setTimeout(function () {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            showCloseButton: true,
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                toast.classList.add('toast-on-top');
+            }
+        });
+
+        Toast.fire({
+            icon: 'info',
+            title: title,
+            text: message
+        });
+    }, 1300);
 }
 
 
