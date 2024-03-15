@@ -14,5 +14,6 @@ namespace CodeFirst.Models.Notifications
         public string Message { get; set; } = null!;
         public string MessageType { get; set; } = null!;
         public DateTime NotificationDateTime { get; set; }
+        public string Avatar { get; set; } = null!;
     }
 }

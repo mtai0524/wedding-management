@@ -54,8 +54,8 @@ function DisplayGeneralNotification(message, title) {
 function DisplayGeneralNotificationUserOnline(message, title) {
     setTimeout(function () {
         iziToast.show({
-            title: title,
-            message: message,
+            title: message,
+            message: 'đang online',
             backgroundColor: '#FFFFFF',
             position: 'bottomLeft', // Đặt vị trí hiển thị
             timeout: 4000,

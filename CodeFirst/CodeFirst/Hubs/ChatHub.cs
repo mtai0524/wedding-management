@@ -58,7 +58,7 @@ namespace CodeFirst.Hubs
             {
                 await Clients.Caller.SendAsync("ReceivedNotificationWelcome", $"xin chào {userInfo.FirstName} {userInfo.LastName} hehe");
             }
-            await Clients.Others.SendAsync("ReceivedNotificationUserOnline", $"{userInfo.FirstName} {userInfo.LastName} đang online");
+            await Clients.Others.SendAsync("ReceivedNotificationUserOnline", $"{userInfo.FirstName} {userInfo.LastName}");
             string connectionId = Context.ConnectionId;
             ConnectedUsers[connectionId] = userInfo;
 

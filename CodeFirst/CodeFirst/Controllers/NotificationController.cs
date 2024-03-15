@@ -40,6 +40,7 @@ namespace SignalRYoutube.Controllers
                     n.Message,
                     n.MessageType,
                     NotificationDateTime = n.NotificationDateTime.ToString("HH:mm dd/MM/yyyy"),
+                    n.Avatar,
                 });
 
 
@@ -68,13 +69,14 @@ namespace SignalRYoutube.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (ModelState.IsValid)
             {
-                // Convert the view model to the Notification entity
                 var notification = new Notification
                 {
                     Username = $"{user.FirstName} {user.LastName}",
                     Message = model.Message,
                     MessageType = model.MessageType,
-                    NotificationDateTime = DateTime.Now
+                    NotificationDateTime = DateTime.Now,
+                    Avatar = !string.IsNullOrEmpty(user.Avatar) ? user.Avatar : "https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg",
+
                 };
                 dbContext.Notifications.Add(notification);
                 await dbContext.SaveChangesAsync();

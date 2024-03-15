@@ -9,17 +9,10 @@ $(() => {
         return console.error(err.toString());
     });
 
-    LoadNotificationData();
-
     connection.on("ReceiveNotificationRealtime", function (notifications) {
         LoadNotificationData();
-
-        UpdateNotificationList(notifications);
-        LoadNotificationData();
-
     });
 
-    LoadNotificationData();
 
     function LoadNotificationData() {
         $.ajax({
@@ -31,20 +24,21 @@ $(() => {
                 $.each(result, (k, v) => {
                     li += `<li class="py-2 mb-1 border-bottom">
                     <a href="javascript:void(0);" class="d-flex">
-                        <img class="avatar rounded-circle" src="https://source.unsplash.com/random/200x200?sig=${v.Id}" alt="img">
+
+                        <img class="avatar rounded-circle" src="${v.Avatar}" alt="img">
                         <div class="flex-fill ms-2">
                             <p class="d-flex justify-content-between mb-0">
                                 <span class="font-weight-bold">${v.Username}</span>
                                 <small>${v.NotificationDateTime}</small>
                             </p>
-                            <span>${v.Message} <span class="badge bg-success">${v.MessageType}</span></span>
+                            <span>${v.Message} </span>
                         </div>
                     </a>
                 </li>`;
                 });
                 $("#notification-list").html(li);
 
-                // Đếm số lượng thông báo và hiển thị trong badge
+                // Đếm số lượng thông báo
                 var notificationCount = result.length;
                 $(".badge-count").text(notificationCount);
             },
@@ -55,24 +49,6 @@ $(() => {
     }
 
 
-    function UpdateNotificationList(notifications) {
-        var li = '';
-        $.each(notifications, (k, v) => {
-            li += `<li class="py-2 mb-1 border-bottom">
-            <a href="javascript:void(0);" class="d-flex">
-                <img class="avatar rounded-circle" src="https://source.unsplash.com/random/200x200?sig=${v.Id}" alt="img">
-                <div class="flex-fill ms-2">
-                    <p class="d-flex justify-content-between mb-0">
-                        <span class="font-weight-bold">${v.Username}</span>
-                        <small>${v.NotificationDateTime}</small>
-                    </p>
-                    <span>${v.Message} <span class="badge bg-success">${v.MessageType}</span></span>
-                </div>
-            </a>
-        </li>`;
-        });
-        $("#notification-list").html(li);
-    }
     connection.on("OnConnected", function () {
         OnConnected();
         UpdateUsersList();
