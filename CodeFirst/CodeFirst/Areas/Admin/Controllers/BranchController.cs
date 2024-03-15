@@ -8,9 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
 using CodeFirst.Models.Entities;
 using CodeFirst.Service;
-using AspNetCoreHero.ToastNotification.Abstractions;
 using CloudinaryDotNet;
 using Microsoft.AspNetCore.Authorization;
+using CodeFirst.Models.Notifications;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace CodeFirst.Areas.Admin.Controllers
 {
@@ -118,7 +119,6 @@ namespace CodeFirst.Areas.Admin.Controllers
                 _context.Add(branch);
                 await _context.SaveChangesAsync();
                 _noti.Success("Thêm chi nhánh thành công gòi nha!");
-
                 return RedirectToAction(nameof(Index));
             }
             return View(branch);

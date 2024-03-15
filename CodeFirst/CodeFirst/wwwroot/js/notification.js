@@ -4,29 +4,29 @@
 // Write your JavaScript code.
 
 
-function DisplayGeneralNotificationUserOnline(message, title) {
-    setTimeout(function () {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'bottom-left',
-            showConfirmButton: false,
-            showCloseButton: true,
-            timer: 4000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-                toast.classList.add('toast-on-top');
-            }
-        });
+//function DisplayGeneralNotificationUserOnline(message, title) {
+//    setTimeout(function () {
+//        const Toast = Swal.mixin({
+//            toast: true,
+//            position: 'bottom-left',
+//            showConfirmButton: false,
+//            showCloseButton: true,
+//            timer: 4000,
+//            timerProgressBar: true,
+//            didOpen: (toast) => {
+//                toast.addEventListener('mouseenter', Swal.stopTimer)
+//                toast.addEventListener('mouseleave', Swal.resumeTimer)
+//                toast.classList.add('toast-on-top');
+//            }
+//        });
 
-        Toast.fire({
-            icon: 'info',
-            title: title,
-            text: message
-        });
-    }, 1300);
-}
+//        Toast.fire({
+//            icon: 'info',
+//            title: title,
+//            text: message
+//        });
+//    }, 1300);
+//}
 function DisplayGeneralNotification(message, title) {
     setTimeout(function () {
         const Toast = Swal.mixin({
@@ -47,6 +47,24 @@ function DisplayGeneralNotification(message, title) {
             icon: 'info',
             title: title,
             text: message
+        });
+    }, 1300);
+}
+
+function DisplayGeneralNotificationUserOnline(message, title) {
+    setTimeout(function () {
+        iziToast.show({
+            title: title,
+            message: message,
+            backgroundColor: '#FFFFFF',
+            position: 'bottomLeft', // Đặt vị trí hiển thị
+            timeout: 4000,
+            close: true,
+            theme: 'light',
+            iconUrl:'https://static-00.iconduck.com/assets.00/user-online-icon-512x512-7yugpwo5.png',
+            progressBar: true,
+            animateInside: true,
+            pauseOnHover: true,
         });
     }, 1300);
 }

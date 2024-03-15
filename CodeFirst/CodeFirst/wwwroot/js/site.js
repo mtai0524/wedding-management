@@ -73,12 +73,7 @@ $(() => {
         UpdateUsersList();
     });
    
-    function OnConnected() {
-        var username = $('#hfUsername').val();
-        connection.invoke("SaveUserConnection", username).catch(function (err) {
-            return console.error(err.toString());
-        })
-    }
+  
     connection.on("UpdateUsersList", function (userList) {
         var avatarList = document.querySelector('.avatar-list');
         avatarList.innerHTML = ""; // Xóa hết các thẻ img cũ trước khi cập nhật
@@ -96,36 +91,6 @@ $(() => {
         });
     });
 
-    //connection.on("UpdateUsersList", function (userList) {
-    //    var avatarList = document.querySelector('.avatar-list');
-    //    avatarList.innerHTML = ""; // Xóa hết các thẻ img cũ trước khi cập nhật
-    //    console.log("hehehe");
-    //    console.log(userList);
-
-    //    userList.forEach(function (user) {
-
-    //        // Tạo một thẻ li để chứa thông tin người dùng và avatar
-    //        var userInfo = $("<li>");
-
-    //        // Thêm email của người dùng vào userInfo
-    //        userInfo.text(user.email);
-
-    //        // Nếu avatar có sẵn, hiển thị avatar
-    //        if (user.avatar) {
-    //            console.log(user.avatar);
-    //            console.log(user.email);
-
-    //            // Tạo thẻ img để hiển thị avatar và thiết lập các thuộc tính src và alt
-    //            var avatarImg = $("<img>").attr("src", user.avatar).attr("alt", user.email + "'s Avatar").addClass("avatar");
-
-    //            // Thêm thẻ img vào userInfo
-    //            userInfo.append(avatarImg);
-    //        }
-
-    //        // Thêm userInfo vào danh sách avatar
-    //        avatarList.appendChild(userInfo);
-    //    });
-    //});
     connection.on("ReceivedNotificationWelcome", function (message) {
         console.log("Received Notification Welcome: ", message);
         // Hiển thị thông báo chào mừng
@@ -137,15 +102,15 @@ $(() => {
         DisplayGeneralNotificationUserOnline(message, 'cốc cốc cốc');
     });
 
-
+    // Send All user 
     connection.on("ReceivedNotification", function (message) {
         console.log("hehehe");
         DisplayGeneralNotification(message, 'General Message');
     });
 
-    connection.on("ReceivedPersonalNotification", function (message, username) {
-        DisplayPersonalNotification(message, 'Hey ' + username);
-    });
+    //connection.on("ReceivedPersonalNotification", function (message, username) {
+    //    DisplayPersonalNotification(message, 'Hey ' + username);
+    //});
 
     //connection.on("ReceivedGroupNotification", function (message, username) {
     //    DisplayGroupNotification(message, 'Team ' + username);

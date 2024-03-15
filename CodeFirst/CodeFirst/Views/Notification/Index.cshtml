@@ -1,0 +1,32 @@
+﻿@using CodeFirst.Models.Notifications
+@model NotificationViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<h2>Send Notification</h2>
+
+<form asp-controller="Notification" asp-action="SendNotification" method="post">
+    <!-- Your form fields, update names accordingly -->
+    <label for="Username">Username:</label>
+    <input type="text" asp-for="Username" class="form-control" />
+    <br />
+
+    <label for="MessageType">Message Type:</label>
+    <select asp-for="MessageType" class="form-control">
+        <option value="All">All</option>
+        <option value="Personal">Personal</option>
+        <option value="Group">Group</option>
+    </select>
+    <br />
+
+    <label for="Message">Message:</label>
+    <textarea asp-for="Message" class="form-control"></textarea>
+    <br />
+
+    <button type="submit" class="btn btn-primary">Send Notification</button>
+</form>
+

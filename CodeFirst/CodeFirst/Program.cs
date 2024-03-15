@@ -17,8 +17,8 @@ using MailKit;
 using CodeFirst.Areas.Services;
 using Microsoft.AspNetCore.ResponseCompression;
 using MudBlazor.Services;
-using CodeFirst.SqlDependencies;
-using SignalRYoutube.MiddlewareExtensions;
+//using CodeFirst.SqlDependencies;
+//using SignalRYoutube.MiddlewareExtensions;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,7 +41,7 @@ builder.Services.AddSingleton<ChatHub>(); // phải add vào mới gọi chatHub
 builder.Services.AddScoped<EmployeeService>();
 builder.Services.AddScoped<CloudinaryService>();
 
-builder.Services.AddSingleton<SubscribeNotificationTableDependency>();
+//builder.Services.AddSingleton<SubscribeNotificationTableDependency>();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -117,7 +117,7 @@ builder.Services.AddNotyf(config =>
 {
     config.DurationInSeconds = 10;
     config.IsDismissable = true;
-    config.Position = NotyfPosition.TopRight;
+    config.Position = NotyfPosition.BottomLeft;
 });
 
 
@@ -187,7 +187,7 @@ app.UseEndpoints(endpoints =>
     pattern: "{controller=Home}/{action=Index}/{id?}"
     );
 });
-app.UseSqlTableDependency<SubscribeNotificationTableDependency>(connectionString);
+//app.UseSqlTableDependency<SubscribeNotificationTableDependency>(connectionString);
 
 //app.UseMiddleware<LoadingSpinnerMiddleware>();
 app.UseResponseCompression();

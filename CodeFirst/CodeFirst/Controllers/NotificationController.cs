@@ -66,7 +66,7 @@ namespace SignalRYoutube.Controllers
                 dbContext.Notifications.Add(notification);
                 await dbContext.SaveChangesAsync();
                 await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", new List<Notification> { notification });
-
+                await hubContext.Clients.All.SendAsync("ReceivedNotification", "đại ka ơi có thông tin mới!!");
                 switch (notification.MessageType)
                 {
 

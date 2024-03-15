@@ -29,14 +29,14 @@ namespace CodeFirst.Hubs
             await Clients.All.SendAsync("ReceivedNotification", message);
         }
 
-        public async Task SendNotificationToClient(string message, string username)
-        {
-            var hubConnections = await _context.HubConnections.Where(con => con.Username == username).ToListAsync();
-            foreach (var hubConnection in hubConnections)
-            {
-                await Clients.Client(hubConnection.ConnectionId).SendAsync("ReceivedPersonalNotification", message, username);
-            }
-        }
+        //public async Task SendNotificationToClient(string message, string username)
+        //{
+        //    var hubConnections = await _context.HubConnections.Where(con => con.Username == username).ToListAsync();
+        //    foreach (var hubConnection in hubConnections)
+        //    {
+        //        await Clients.Client(hubConnection.ConnectionId).SendAsync("ReceivedPersonalNotification", message, username);
+        //    }
+        //}
         //public async Task SendNotificationToGroup(string message, string group)
         //{
         //    var hubConnections = await _context.HubConnections.Join(_context.ApplicationUser, c => c.Username, o => o.Username, (c, o) => new { c.Username, c.ConnectionId, o.Dept }).Where(o => o.Dept == group).ToListAsync();
@@ -62,7 +62,9 @@ namespace CodeFirst.Hubs
             string connectionId = Context.ConnectionId;
             ConnectedUsers[connectionId] = userInfo;
 
-            await UpdateConnectedUsersList(); 
+            await UpdateConnectedUsersList();
+
+         
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)
