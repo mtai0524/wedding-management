@@ -46,10 +46,12 @@ namespace CodeFirst.SqlDependencies
                 //    await notificationHub.SendNotificationToGroup(notification.Message, notification.Username);
                 //}
             }
-            else // Nếu không có thay đổi, gửi thông báo chào mừng cho người dùng mới đăng nhập
+            else
             {
                 await notificationHub.SendNotificationToAll("Welcome to our system!");
             }
+            List<Notification> updatedNotifications = new List<Notification>();
+            await notificationHub.SendUpdatedNotifications(updatedNotifications);
         }
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using CodeFirst.ViewModels;
+using CodeFirst.Models.Notifications;
 namespace CodeFirst.Hubs
 {
     public class ChatHub: Hub
@@ -18,6 +19,11 @@ namespace CodeFirst.Hubs
         {
             _context = context;
         }
+        public async Task SendUpdatedNotifications(List<Notification> notifications)
+        {
+            await Clients.All.SendAsync("ReceiveNotificationRealtime", notifications);
+        }
+
         public async Task SendNotificationToAll(string message)
         {
             await Clients.All.SendAsync("ReceivedNotification", message);
