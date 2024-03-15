@@ -47,8 +47,12 @@ namespace CodeFirst.Hubs
         {
             Clients.Caller.SendAsync("OnConnected");
 
-            UserInformation userInfo = await GetUserInfoFromContext(); 
-
+            UserInformation userInfo = await GetUserInfoFromContext();
+            if (!ConnectedUsers.ContainsKey(Context.ConnectionId))
+            {
+                await Clients.Caller.SendAsync("ReceivedNotificationWelcome", $"xin chào {userInfo.FirstName} {userInfo.LastName} hehe");
+            }
+            await Clients.Others.SendAsync("ReceivedNotificationUserOnline", $"{userInfo.FirstName} {userInfo.LastName} đang online");
             string connectionId = Context.ConnectionId;
             ConnectedUsers[connectionId] = userInfo;
 
@@ -86,7 +90,9 @@ namespace CodeFirst.Hubs
                 return new UserInformation
                 {
                     Email = user.Email,
-                    Avatar = user.Avatar
+                    Avatar = user.Avatar,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName
                 };
             }
             else

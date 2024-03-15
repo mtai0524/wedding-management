@@ -1,5 +1,6 @@
 ﻿using CodeFirst.Hubs;
 using CodeFirst.Models;
+using CodeFirst.Models.Notifications;
 using TableDependency.SqlClient;
 
 namespace CodeFirst.SqlDependencies
@@ -44,6 +45,10 @@ namespace CodeFirst.SqlDependencies
                 //{
                 //    await notificationHub.SendNotificationToGroup(notification.Message, notification.Username);
                 //}
+            }
+            else // Nếu không có thay đổi, gửi thông báo chào mừng cho người dùng mới đăng nhập
+            {
+                await notificationHub.SendNotificationToAll("Welcome to our system!");
             }
         }
     }

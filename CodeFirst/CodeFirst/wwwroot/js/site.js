@@ -126,7 +126,16 @@ $(() => {
     //        avatarList.appendChild(userInfo);
     //    });
     //});
-
+    connection.on("ReceivedNotificationWelcome", function (message) {
+        console.log("Received Notification Welcome: ", message);
+        // Hiển thị thông báo chào mừng
+        DisplayGeneralNotification(message, 'quéo cơm');
+    });
+    connection.on("ReceivedNotificationUserOnline", function (message) {
+        console.log("Received Notification Welcome: ", message);
+        // Hiển thị thông báo user online
+        DisplayGeneralNotificationUserOnline(message, 'cốc cốc cốc');
+    });
 
 
     connection.on("ReceivedNotification", function (message) {
