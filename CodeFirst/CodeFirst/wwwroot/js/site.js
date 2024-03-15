@@ -22,12 +22,12 @@ $(() => {
     LoadNotificationData();
 
     function LoadNotificationData() {
-        var li = '';
         $.ajax({
             url: '/Notification/GetNotifications',
             method: 'GET',
             success: (result) => {
                 console.log(result);
+                var li = '';
                 $.each(result, (k, v) => {
                     li += `<li class="py-2 mb-1 border-bottom">
                     <a href="javascript:void(0);" class="d-flex">
@@ -43,12 +43,17 @@ $(() => {
                 </li>`;
                 });
                 $("#notification-list").html(li);
+
+                // Đếm số lượng thông báo và hiển thị trong badge
+                var notificationCount = result.length;
+                $(".badge-count").text(notificationCount);
             },
             error: (error) => {
                 console.log(error);
             }
         });
     }
+
 
     function UpdateNotificationList(notifications) {
         var li = '';

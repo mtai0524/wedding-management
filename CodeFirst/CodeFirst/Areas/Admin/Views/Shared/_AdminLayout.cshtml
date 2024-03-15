@@ -149,7 +149,7 @@
                                                 <i class="icofont-alarm fs-5"></i>
                                              
 
-                                                <span class="notification-count">16</span>
+                                                <span class="notification-count badge-count">16</span>
                                             </span>
                                             <span class="pulse-ring"></span>
                                         </a>
@@ -158,8 +158,8 @@
                                             <div class="card border-0 w380">
                                                 <div class="card-header border-0 p-3">
                                                     <h5 class="mb-0 font-weight-light d-flex justify-content-between">
-                                                        <span>Notifications</span>
-                                                        <span class="badge text-white">11</span>
+                                                        <span>Thông báo</span>
+                                                        <span class="badge-count text-white"></span>
                                                     </h5>
                                                 </div>
                                                 <div class="tab-content card-body">
@@ -169,7 +169,7 @@
                                                     </div>
                                                 </div>
 
-                                                <a class="card-footer text-center border-top-0" href="#"> View all notifications</a>
+                                                @* <a class="card-footer text-center border-top-0" href="#"> View all notifications</a> *@
                                             </div>
                                         </div>
                                     </div>
@@ -293,27 +293,26 @@
                 // Thay đổi nội dung của phần tử
                 paginationInformation.textContent = "Custom Text Here";
             }
-            // Khởi tạo biến
-            let isClicked = localStorage.getItem('isClicked') === 'true';
+            // let isClicked = localStorage.getItem('isClicked') === 'true';
 
-            function hideNotificationCount() {
-                // Cập nhật trạng thái
-                isClicked = true;
-                localStorage.setItem('isClicked', 'true');
+            // function hideNotificationCount() {
+            //     // Cập nhật trạng thái
+            //     isClicked = true;
+            //     localStorage.setItem('isClicked', 'true');
 
-                // Ẩn notification-count
-                const notificationCount = document.querySelector('.notification-count');
-                notificationCount.style.visibility = 'hidden';
+            //     // Ẩn notification-count
+            //     const notificationCount = document.querySelector('.notification-count');
+            //     notificationCount.style.visibility = 'hidden';
 
-            }
+            // }
 
-            // Hiển thị notification-count dựa trên trạng thái
-            const notificationCount = document.querySelector('.notification-count');
-            if (isClicked) {
-                notificationCount.style.visibility = 'hidden';
-            } else {
-                notificationCount.style.visibility = 'visible';
-            }
+            // // Hiển thị notification-count dựa trên trạng thái
+            // const notificationCount = document.querySelector('.notification-count');
+            // if (isClicked) {
+            //     notificationCount.style.visibility = 'hidden';
+            // } else {
+            //     notificationCount.style.visibility = 'visible';
+            // }
 
             // function getRandomImageUrl(width, height) {
             //     return `https://picsum.photos/${width}/${height}?random=${Math.floor(Math.random() * 1000)}`;
