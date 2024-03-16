@@ -17,7 +17,7 @@ $(() => {
 
     function LoadChatData() {
         $.ajax({
-            url: '/Notification/GetNotifications',
+            url: '/Chat/GetMessages',
             method: 'GET',
             success: (result) => {
                 console.log(result);
@@ -28,7 +28,7 @@ $(() => {
                                 <div>
                                     <img src="${v.Avatar}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
                                 </div>
-                                <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
+                                <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3" style="max-width:90%">
                                     <div class="font-weight-bold mb-1">${v.Username}</div>
                                     ${v.Message}
                                     <div class="message-details d-flex justify-content-between">
@@ -47,7 +47,7 @@ $(() => {
     }
 
 
-   
+
 
     function LoadNotificationData() {
         $.ajax({
@@ -120,7 +120,7 @@ $(() => {
 
             var onlineStatusSpan = document.createElement("span");
             onlineStatusSpan.classList.add("small", "online-status", "chat-online");
-            onlineStatusSpan.textContent ='Online';
+            onlineStatusSpan.textContent = 'Online';
 
             textStatusDiv.appendChild(onlineStatusSpan);
 
@@ -134,18 +134,18 @@ $(() => {
             listGroupOnline.appendChild(listGroupItem);
         });
     });
-   
+
     connection.on("UpdateUsersList", function (userList) {
         var avatarList = document.querySelector('.avatar-list');
         avatarList.innerHTML = ""; // Xóa hết các thẻ img cũ trước khi cập nhật
-        console.log("this is userList",userList);
+        console.log("this is userList", userList);
         userList.forEach(function (user) {
             if (user.avatar) {
                 var avatarImg = document.createElement("img");
                 avatarImg.src = user.avatar;
                 avatarImg.alt = user.email + "'s Avatar";
                 avatarImg.classList.add("avatar");
-                 avatarImg.title = user.email; // Hiển thị email khi hover vào ảnh
+                avatarImg.title = user.email; // Hiển thị email khi hover vào ảnh
 
                 avatarList.appendChild(avatarImg);
             }

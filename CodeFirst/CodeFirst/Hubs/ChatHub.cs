@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using CodeFirst.Data;
 using Microsoft.AspNetCore.SignalR;
-using CodeFirst.Chat.Model;
 using CodeFirst.Models;
 using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;

@@ -25,7 +25,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using CodeFirst.Service;
-using CodeFirst.ChatApp;
 
 namespace CodeFirst.Areas.Identity.Pages.Account
 {

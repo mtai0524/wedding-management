@@ -1,5 +1,4 @@
-﻿using CodeFirst.Chat.Entities;
-using CodeFirst.Models;
+﻿using CodeFirst.Models;
 using CodeFirst.Models.Entities;
 using CodeFirst.Models.Notifications;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -34,5 +33,7 @@ namespace CodeFirst.Data
 
         public DbSet<HubConnection> HubConnections { get; set; } = null!;
         public DbSet<Models.Notifications.Notification> Notifications { get; set; } = null!;
+        public DbSet<Chat> Chats { get; set; } = null!;
+
     }
 }
