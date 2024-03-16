@@ -73,7 +73,7 @@ namespace SignalRYoutube.Controllers
                 {
                     Username = $"{user.FirstName} {user.LastName}",
                     Message = model.Message,
-                    MessageType = model.MessageType,
+                    MessageType = "All",
                     NotificationDateTime = DateTime.Now,
                     Avatar = !string.IsNullOrEmpty(user.Avatar) ? user.Avatar : "https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg",
 
@@ -99,10 +99,8 @@ namespace SignalRYoutube.Controllers
                 }
 
                 await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", new List<Notification> { notification });
-                return RedirectToAction("Index");
             }
-
-            return View("Index", model);
+            return RedirectToAction("Index", "Chat", model);
         }
     }
 }
