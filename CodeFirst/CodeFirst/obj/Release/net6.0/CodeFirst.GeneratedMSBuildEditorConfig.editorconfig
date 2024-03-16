@@ -118,30 +118,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51RW50aXR5XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuNe/AddMenuToCombo.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51TmVcQWRkTWVudVRvQ29tYm8uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback Ne/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmVlZGJhY2sgTmVcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback Ne/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmVlZGJhY2sgTmVcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback Ne/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmVlZGJhY2sgTmVcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback Ne/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmVlZGJhY2sgTmVcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback Ne/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmVlZGJhY2sgTmVcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmVlZGJhY2tcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -600,6 +576,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/Computer-Science/CodeFirst/CodeFirst/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Computer-Science/CodeFirst/CodeFirst/Views/Notification/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2F0aW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Computer-Science/CodeFirst/CodeFirst/Views/Shared/Error.cshtml]

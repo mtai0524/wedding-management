@@ -21605,8 +21605,8 @@ body.rtl_mode table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td
     .avatar-list .avatar {
         color: var(--secondary-color);
         font-weight: 600;
-        width: 2.3rem;
-        height: 2.3rem;
+        width: 2.5rem;
+        height: 2.5rem;
         line-height: 2rem;
         border-radius: 50%;
         display: inline-block;
@@ -21632,17 +21632,15 @@ body.rtl_mode table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td
 }
 
 /*@media only screen and (max-width: 490px) {
-    .header .avatar-list-stacked {
-        display: show
-    }
+   
 }*/
 
 @media only screen and (min-width: 490px) {
     .add-member-top {
         display: none
     }
+   
 }
-
 .dropdown-item:hover, .dropdown-item:focus {
     background-color: rgba(33,37,41,0.1)
 }

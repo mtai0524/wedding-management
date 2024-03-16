@@ -1,69 +1,23 @@
-﻿@using CodeFirst.Models
-@using Microsoft.AspNetCore.Components.Authorization
-@using Microsoft.AspNetCore.Identity
-@inject AuthenticationStateProvider AuthenticationStateProvider
-@inject UserManager<ApplicationUser> UserManager
-
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid d-flex justify-content-center align-items-center">
-        @* <img style="outline:3px solid white;margin-right: 8px; margin-top: 5px; border: 5px solid transparent; width: 100px; height: 100px; border-radius: 50%;" src="@AvatarUrl" alt="User Avatar" /> *@
-        <a class="navbar-brand" style="font-size:15px" href="">@UserName</a>
+﻿﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">BlazorApp1</a>
     </div>
 </div>
 
 <nav class="flex-column">
-    @if (IsAuthenticated())
-    {
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <i class="icofont-login fs-6 me-3"></i> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <i class="icofont-login fs-6 me-3"></i> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="branch-list">
-                <i class="icofont-building-alt fs-6 me-3"></i> Chi nhánh
-            </NavLink>
-        </div>
-    }
-    else
-    {
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <i class="icofont-login fs-6 me-3"></i> Home
-            </NavLink>
-        </div>
-    }
+    <div class="nav-item px-3">
+        <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+            <i class="icofont-login fs-6 me-3"</i> Home
+        </NavLink>
+    </div>
+    <div class="nav-item px-3">
+        <NavLink class="nav-link" href="counter">
+            <i class="icofont-login fs-6 me-3"</i> Counter
+        </NavLink>
+    </div>
+    <div class="nav-item px-3">
+        <NavLink class="nav-link" href="branch-list">
+            <i class="icofont-building-alt fs-6 me-3"></i> Chi nhánh
+        </NavLink>
+    </div>
 </nav>
-
-@code {
-    private string UserName { get; set; }
-    private string AvatarUrl { get; set; }
-    protected override async Task OnInitializedAsync()
-    {
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        var user = authState.User;
-
-        if (user.Identity.IsAuthenticated)
-        {
-            UserName = user.Identity.Name;
-            var applicationUser = await UserManager.GetUserAsync(user);
-            AvatarUrl = applicationUser?.Avatar;
-        }
-        else
-        {
-            UserName = "meoww meoww ẩn danh";
-            AvatarUrl = "https://i.pinimg.com/236x/e1/6c/70/e16c704fc0b655e553dd7a1a8a00475d.jpg";
-        }
-    }
-
-    private bool IsAuthenticated()
-    {
-        var authState = AuthenticationStateProvider.GetAuthenticationStateAsync().Result;
-        return authState.User.Identity.IsAuthenticated;
-    }
-}

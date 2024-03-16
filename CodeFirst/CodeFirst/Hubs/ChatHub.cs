@@ -63,8 +63,9 @@ namespace CodeFirst.Hubs
             ConnectedUsers[connectionId] = userInfo;
 
             await UpdateConnectedUsersList();
+            await UpdateConnectedUsersOnlineList();
 
-         
+
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)
@@ -76,6 +77,7 @@ namespace CodeFirst.Hubs
                 ConnectedUsers.Remove(connectionId);
 
                 await UpdateConnectedUsersList(); 
+                await UpdateConnectedUsersOnlineList();
             }
 
             await base.OnDisconnectedAsync(exception);
@@ -86,7 +88,11 @@ namespace CodeFirst.Hubs
             List<UserInformation> userList = ConnectedUsers.Values.ToList();
             await Clients.All.SendAsync("UpdateUsersList", userList);
         }
-
+        private async Task UpdateConnectedUsersOnlineList()
+        {
+            List<UserInformation> userList = ConnectedUsers.Values.ToList();
+            await Clients.All.SendAsync("UpdateUsersOnlineList", userList);
+        }
 
         private async Task<UserInformation> GetUserInfoFromContext()
         {
