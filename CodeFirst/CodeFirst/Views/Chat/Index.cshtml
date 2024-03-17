@@ -20,7 +20,7 @@
     .chat-messages {
         display: flex;
         flex-direction: column;
-        max-height: 550px;
+        height:70vh;
         overflow-y: scroll
     }
 
@@ -41,6 +41,24 @@
         border-right: 1px solid #EEEEEE;
     }
 
+    .status {
+        width: 10px;
+        height: 10px;
+        border-radius: 100px;
+        border-radius: 100px;
+        background: #e6ecf3;
+        position: absolute;
+        top: 2.2rem;
+        left: 3rem;
+    }
+
+        .status.online {
+            background: #9ec94a;
+        }
+
+        .status.offline {
+            background: #fd7274;
+        }
     
 </style>
 
@@ -52,12 +70,14 @@
 
                     <div style="border-right: 1px solid #EEEEEE;" class="px-4 d-none d-md-block">
                         <div class="d-flex align-items-center">
-                            @*  <div class="flex-grow-1">
+                             <div class="flex-grow-1">
                             <input type="text" class="form-control my-3" placeholder="Search...">
-                            </div> *@
+                            </div>
                         </div>
                     </div>
                     <div class="list-group-online">
+                    </div>
+                    <div class="list-group-offline">
                     </div>
                     <hr class="d-block d-lg-none mt-1 mb-0">
                 </div>
@@ -83,8 +103,6 @@
                         <div class="chat-messages p-4">
                         </div>
                     </div>
-
-
 
                     <div class="flex-grow-0 py-3 px-4 border-top">
 
