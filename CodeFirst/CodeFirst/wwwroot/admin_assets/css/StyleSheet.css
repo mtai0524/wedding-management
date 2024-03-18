@@ -1,4 +1,201 @@
-﻿
+﻿<style type="text/css" >
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow: hidden;
+    background: #080808;
+    scroll-behavior: smooth;
+}
+
+#click {
+    display: none;
+}
+
+label {
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+    height: 55px;
+    width: 55px;
+    background: #218aff;
+    text-align: center;
+    line-height: 55px;
+    border-radius: 50px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+    label:hover {
+        background: #218aff;
+    }
+
+    label i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.4s ease;
+    }
+
+        label i.fas {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+#click:checked ~ label i.fas {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+#click:checked ~ label i.fa-comment-dots {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.wrapper {
+    scroll-behavior: smooth;
+    position: absolute;
+    right: 30px;
+    bottom: 0px;
+    width: 400px; /* Đã điều chỉnh kích thước box chat */
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+    overflow: hidden; /* Để nội dung chat vượt ra nếu có quá nhiều tin nhắn */
+}
+
+#click:checked ~ .wrapper {
+    opacity: 1;
+    bottom: 85px;
+    pointer-events: auto;
+}
+
+.wrapper .head-text {
+    line-height: 60px;
+    color: #fff;
+    border-radius: 15px 15px 0 0;
+    padding: 0 20px;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    background: green;
+}
+
+.wrapper .chat-box {
+    padding: 20px;
+    width: 100%;
+    height: 300px; /* Đã điều chỉnh chiều cao của khung chat */
+    overflow-y: auto; /* Cho phép cuộn khi nội dung vượt quá kích thước */
+}
+
+.chat-box .chat-message {
+    margin-bottom: 10px;
+}
+
+    .chat-box .chat-message.user1 {
+        text-align: right;
+    }
+
+    .chat-box .chat-message.user2 {
+        text-align: left;
+    }
+
+    .chat-box .chat-message.user1 .message-bubble {
+        background-color: green;
+    }
+
+    .chat-box .chat-message.user2 .message-bubble {
+        background-color: gray;
+    }
+
+.chat-box .message-bubble {
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+
+@media screen and (max-width: 480px) {
+    .wrapper {
+        width: 90%; /* Điều chỉnh kích thước box chat cho thiết bị di động */
+        right: 5%; /* Canh chỉnh box chat giữa màn hình */
+    }
+
+    .chat-box form .field textarea {
+        width: calc(100% - 20px);
+    }
+
+    .chat-box form .field button {
+        width: calc(100% - 20px);
+        margin-top: 10px;
+    }
+}
+/* Thiết lập thanh trượt */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Thiết lập ống trượt */
+::-webkit-scrollbar-thumb {
+    background: #6c757d; /* Màu nền của thanh trượt */
+    border-radius: 2px; /* Bo góc của thanh trượt */
+    transition: background 0.3s; /* Áp dụng hiệu ứng chuyển động cho màu nền */
+}
+
+    /* Thiết lập hiệu ứng chuyển động khi di chuột vào thanh trượt */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #495057; /* Màu nền thay đổi khi di chuột vào */
+    }
+
+/* Thiết lập màu nền của phần tử thanh trượt */
+::-webkit-scrollbar-track {
+    background: white; /* Màu nền của phần tử thanh trượt */
+}
+
+
+.message-container {
+    scroll-behavior: smooth;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+}
+
+    .message-container textarea {
+        flex: 1; /* Makes the textarea take up most of the space */
+        margin-right: 10px; /* Add some spacing between textarea and button */
+        border-radius: 10px;
+        border: none;
+        background-color: white;
+    }
+
+        .message-container textarea:focus {
+            box-shadow: none;
+            outline: none;
+            border: none;
+            background-color: transparent;
+        }
+
+.modal-footer {
+    display: inline-block !important;
+}
+
+.modal-xl {
+    --bs-modal-width: 1500px !important;
+}
+
+</style >
 /* Hide avatar on smaller screens */
 @media (max-width: 990px) {
     .list-user-status {
@@ -40,9 +237,6 @@
     color: #8F8F8F !important;
 }
 
-.modal-content {
-    margin-top: 70px !important;
-}
 
 .custom-modal {
     width: 200% !important; /* Thiết lập chiều rộng mong muốn */

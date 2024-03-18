@@ -15,35 +15,35 @@ $(() => {
     });
 
 
-    function LoadChatData() {
-        $.ajax({
-            url: '/Chat/GetMessages',
-            method: 'GET',
-            success: (result) => {
-                console.log(result);
-                var listItems = '';
+    //function LoadChatData() {
+    //    $.ajax({
+    //        url: '/Chat/GetMessages',
+    //        method: 'GET',
+    //        success: (result) => {
+    //            console.log(result);
+    //            var listItems = '';
 
-                $.each(result, (k, v) => {
-                    listItems += `<div class="chat-message-right pb-4">
-                                <div>
-                                    <img src="${v.Avatar}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                </div>
-                                <div class="flex-shrink-1 box-messages bg-light rounded py-2 px-3 ml-3" style="max-width:90%">
-                                    <div class="font-weight-bold mb-1" style="text-color:#8CB2B2;">${v.Username}</div>
-                                    ${v.Message}
-                                    <div class="message-details d-flex justify-content-between">
-                                        <div class="text-muted small text-nowrap mt-2">${v.NotificationDateTime}</div>
-                                    </div>
-                                </div>
-                            </div>`;
-                });
-                $(".chat-messages").html(listItems);
-            },
-            error: (error) => {
-                console.log(error);
-            }
-        });
-    }
+    //            $.each(result, (k, v) => {
+    //                listItems += `<div class="chat-message-right pb-4">
+    //                            <div>
+    //                                <img src="${v.Avatar}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+    //                            </div>
+    //                            <div class="flex-shrink-1 box-messages bg-light rounded py-2 px-3 ml-3" style="max-width:90%">
+    //                                <div class="font-weight-bold mb-1" style="text-color:#8CB2B2;">${v.Username}</div>
+    //                                ${v.Message}
+    //                                <div class="message-details d-flex justify-content-between">
+    //                                    <div class="text-muted small text-nowrap mt-2">${v.NotificationDateTime}</div>
+    //                                </div>
+    //                            </div>
+    //                        </div>`;
+    //            });
+    //            $(".chat-messages").html(listItems);
+    //        },
+    //        error: (error) => {
+    //            console.log(error);
+    //        }
+    //    });
+    //}
 
     function LoadNotificationData() {
         $.ajax({
