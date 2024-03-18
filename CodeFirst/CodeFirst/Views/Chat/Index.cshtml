@@ -17,7 +17,7 @@
         color: #e4606d
     }
 
-    .chat-messages {
+    .chat-messages-list {
         display: flex;
         flex-direction: column;
         height: 70vh;
@@ -36,7 +36,7 @@
     }
 
     .list-group {
-        max-height: 550px;
+        height: 86vh;
         overflow-y: auto;
         border-right: 1px solid #EEEEEE;
     }
@@ -44,12 +44,13 @@
     .status {
         width: 10px;
         height: 10px;
+        outline:1px solid black;
         border-radius: 100px;
         border-radius: 100px;
         background: #e6ecf3;
         position: absolute;
         top: 2.2rem;
-        left: 3rem;
+        left: 2.8rem;
     }
 
         .status.online {
@@ -61,13 +62,28 @@
             background: #fd7274;
         }
 
-</style>
+    .chat-container {
+        margin-bottom: 50px;
+    }
 
-<main class="content">
-    <div class="container p-0">
-        <div class="card">
+    .list-group-item:hover {
+        background-color: #E1DBDA;
+    }
+
+    .box-messages:hover {
+        background-color: #BDBDBD !important;
+    }
+
+        .box-messages:hover .date-time {
+        color:white !important 
+    }
+    </style>
+
+<main class="content" >
+    <div class="container p-0 " style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;">
+        <div class="card chat-container">
             <div class="row g-0">
-                <div class="col-12 col-lg-5 col-xl-3" style="border-right:1px solid #EEEEEE">
+                <div class="col-12 col-lg-5 col-xl-3 list-group" style="border-right:1px solid #EEEEEE">
 
                     <div style="border-right: 1px solid #EEEEEE;" class="px-4 d-none d-md-block">
                         <div class="d-flex align-items-center">
@@ -76,7 +92,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="list-user-status">
+                    <div class="list-user-status" >
                         <div class="list-group-online">
                         </div>
                         <div class="list-group-offline">
@@ -110,17 +126,18 @@
                     </div>
 
                     <div class="position-relative">
-                        <div class="chat-messages p-4">
+                        <div class="chat-messages-list p-4">
                         </div>
                     </div>
 
-                    <div class="flex-grow-0 py-3 px-4 border-top">
+
+
+                    <div class="flex-grow-0 py-3 px-4 border-top" >
 
                         <form asp-controller="Chat" asp-action="SendMessages" method="post">
                             <div class="input-group">
-                                <label for="Message"></label>
-                                <input asp-for="Message" type="text" class="form-control" placeholder="Type your message">
-                                <button type="submit" class="btn btn-primary">Send</button>
+                                <input asp-for="Message" style="padding:30px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
+                                <button style="margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-primary">Send</button>
                             </div>
                         </form>
                     </div>

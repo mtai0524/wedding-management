@@ -74,7 +74,7 @@ namespace CodeFirst.Hubs
 
         private async Task UpdateConnectedUsersOfflineList()
         {
-            List<ApplicationUser> userList = await _context.ApplicationUser.Take(10).ToListAsync();
+            List<ApplicationUser> userList = await _context.ApplicationUser.Take(15).ToListAsync();
             await Clients.All.SendAsync("UpdateUsersOfflineList", userList);
         }
 

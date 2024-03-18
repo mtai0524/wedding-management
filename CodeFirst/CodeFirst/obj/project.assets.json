@@ -107,6 +107,9 @@
           "buildMultiTargeting/BlazorColorPicker.props": {}
         }
       },
+      "Bootstrap.Colorpicker.2/2.0.1": {
+        "type": "package"
+      },
       "BouncyCastle.Cryptography/2.2.1": {
         "type": "package",
         "compile": {
@@ -5623,6 +5626,26 @@
         "lib/net7.0/BlazorColorPicker.dll",
         "staticwebassets/BlazorColorPicker.bundle.scp.css",
         "staticwebassets/colorpicker.css"
+      ]
+    },
+    "Bootstrap.Colorpicker.2/2.0.1": {
+      "sha512": "CbUl83NLzHdTr4ofJ5DXarAaK3KB4bRDENqVRWfmzNsTzrC0ATTFmIXgO2qttHuk55GLosJ1kRMVKrt8deLc7A==",
+      "type": "package",
+      "path": "bootstrap.colorpicker.2/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bootstrap.colorpicker.2.2.0.1.nupkg.sha512",
+        "bootstrap.colorpicker.2.nuspec",
+        "content/Content/css/bootstrap-colorpicker.css",
+        "content/Content/css/bootstrap-colorpicker.min.css",
+        "content/Content/img/bootstrap-colorpicker/alpha-horizontal.png",
+        "content/Content/img/bootstrap-colorpicker/alpha.png",
+        "content/Content/img/bootstrap-colorpicker/hue-horizontal.png",
+        "content/Content/img/bootstrap-colorpicker/hue.png",
+        "content/Content/img/bootstrap-colorpicker/saturation.png",
+        "content/Scripts/bootstrap-colorpicker.js",
+        "content/Scripts/bootstrap-colorpicker.min.js"
       ]
     },
     "BouncyCastle.Cryptography/2.2.1": {
@@ -14669,6 +14692,7 @@
       "AutoMapper >= 12.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "BlazorColorPicker >= 2.3.0",
+      "Bootstrap.Colorpicker.2 >= 2.0.1",
       "CloudinaryDotNet >= 1.22.0",
       "DinkToPdf >= 1.0.8",
       "DinkToPdfCopyDependencies >= 1.0.8",
@@ -14749,6 +14773,10 @@
           "BlazorColorPicker": {
             "target": "Package",
             "version": "[2.3.0, )"
+          },
+          "Bootstrap.Colorpicker.2": {
+            "target": "Package",
+            "version": "[2.0.1, )"
           },
           "CloudinaryDotNet": {
             "target": "Package",

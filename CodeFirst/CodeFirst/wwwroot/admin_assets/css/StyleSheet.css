@@ -1,10 +1,10 @@
-﻿<style type="text/css" >
+﻿
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Consolas','sans-serif';
 }
 
 body {
@@ -62,6 +62,7 @@ label {
 }
 
 .wrapper {
+    z-index:999;
     scroll-behavior: smooth;
     position: absolute;
     right: 30px;
@@ -195,277 +196,317 @@ label {
     --bs-modal-width: 1500px !important;
 }
 
-</style >
-/* Hide avatar on smaller screens */
 @media (max-width: 990px) {
+    .chat-container {
+        margin-bottom: 50px;
+    }
+
+    .list-group {
+        max-height: 140px;
+    }
+
     .list-user-status {
         display: flex;
         justify-content: start;
-        overflow-y: auto;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap; /* Đảm bảo các phần tử con không xuống dòng */
     }
+
+        .list-user-status::-webkit-scrollbar {
+            height: 8px; /* Chiều cao của thanh trượt ngang */
+        }
+
+        .list-user-status::-webkit-scrollbar-track {
+            background: #f1f1f1; /* Màu nền của thanh trượt */
+        }
+
+        .list-user-status::-webkit-scrollbar-thumb {
+            background: #888; /* Màu của thanh trượt */
+            border-radius: 4px; /* Độ cong của viền thanh trượt */
+        }
+
+            .list-user-status::-webkit-scrollbar-thumb:hover {
+                background: #555; /* Màu của thanh trượt khi di chuột qua */
+            }
+
+    .username {
+        display: none;
+    }
+
     .list-group-online {
         display: flex;
         justify-content: start;
     }
+
     .list-group-offline {
         display: flex;
         justify-content: start;
     }
-    .text-status{
-        display:none;
+
+    .text-status {
+        display: none;
     }
- 
-   
 }
 
-/*thay doi css phai chay lai chuong trinh*/
-.my-active-link {
-    color: #F19828 !important;
-    font-weight: 700;
-}
+    @media (max-width: 760px) {
+        .list-group {
+            max-height: 70px;
+        }
+    }
+    /*thay doi css phai chay lai chuong trinh*/
+    .my-active-link {
+        color: #F19828 !important;
+        font-weight: 700;
+    }
 
-.breadcrumb {
-    background-color: transparent !important;
-}
+    .breadcrumb {
+        background-color: transparent !important;
+    }
 
-.sidebar {
-    border-radius: 8px !important;
-    box-shadow: 5px 6px 6px rgba(0, 0, 0, 0.5); /* Đổ bóng */
-}
+    .sidebar {
+        border-radius: 8px !important;
+        box-shadow: 5px 6px 6px rgba(0, 0, 0, 0.5); /* Đổ bóng */
+    }
 
-.control-label {
-    color: #8F8F8F !important;
-}
+    .control-label {
+        color: #8F8F8F !important;
+    }
 
 
-.custom-modal {
-    width: 200% !important; /* Thiết lập chiều rộng mong muốn */
-    max-width: 1200px !important; /* Giới hạn chiều rộng tối đa */
-    margin: 0 auto !important; /* Canh chỉnh giữa màn hình theo chiều ngang */
-}
-.feedback-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Khoảng cách giữa các phản hồi */
-    width: 80%;
-    padding: 20px;
-    margin: 0 auto;
-}
+    .custom-modal {
+        width: 200% !important; /* Thiết lập chiều rộng mong muốn */
+        max-width: 1200px !important; /* Giới hạn chiều rộng tối đa */
+        margin: 0 auto !important; /* Canh chỉnh giữa màn hình theo chiều ngang */
+    }
 
-.feedback-rating {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    .feedback-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px; /* Khoảng cách giữa các phản hồi */
+        width: 80%;
+        padding: 20px;
+        margin: 0 auto;
+    }
 
-.feedback-item {
-    margin-bottom: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Khoảng cách giữa các phần tử bên trong */
-    padding: 15px; /* Tạo khoảng cách giữa shadow và nội dung */
-    border: 1px solid #ccc; /* Đường viền phần tử */
-    border-radius: 8px; /* Làm tròn các góc */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Shadow 3D */
-}
+    .feedback-rating {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-.feedback-email {
-    display: flex;
-    align-items: center; /* Canh giữa nội dung và hình ảnh */
-}
+    .feedback-item {
+        margin-bottom: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Khoảng cách giữa các phần tử bên trong */
+        padding: 15px; /* Tạo khoảng cách giữa shadow và nội dung */
+        border: 1px solid #ccc; /* Đường viền phần tử */
+        border-radius: 8px; /* Làm tròn các góc */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Shadow 3D */
+    }
 
-.avatar {
-    margin-right: 8px;
-    width: 50px; /* Điều chỉnh kích thước hình ảnh avatar theo mong muốn */
-    height: 50px;
-    border-radius: 50%; /* Làm tròn góc cho hình ảnh */
-}
+    .feedback-email {
+        display: flex;
+        align-items: center; /* Canh giữa nội dung và hình ảnh */
+    }
 
-.feedback-date {
-    margin-left: auto; /* Đẩy ngày nằm bên phải */
-    color: #999; /* Màu chữ xám cho ngày */
-}
+    .avatar {
+        margin-right: 8px;
+        width: 50px; /* Điều chỉnh kích thước hình ảnh avatar theo mong muốn */
+        height: 50px;
+        border-radius: 50%; /* Làm tròn góc cho hình ảnh */
+    }
 
-.star-rating {
-    color: gold; /* Màu vàng cho rating */
-}
+    .feedback-date {
+        margin-left: auto; /* Đẩy ngày nằm bên phải */
+        color: #999; /* Màu chữ xám cho ngày */
+    }
 
-.sorting-options select {
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    background-color: #f2f2f2;
-    color: #333;
-    -webkit-appearance: none;
-    -moz-appearance: none appearance: none;
-    background-image: url('~/wwwroot/down-filled-triangular-arrow.png');
-    background-position: 95% center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
+    .star-rating {
+        color: gold; /* Màu vàng cho rating */
+    }
 
-    .sorting-options select option {
+    .sorting-options select {
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
         background-color: #f2f2f2;
         color: #333;
+        -webkit-appearance: none;
+        -moz-appearance: none appearance: none;
+        background-image: url('~/wwwroot/down-filled-triangular-arrow.png');
+        background-position: 95% center;
+        background-repeat: no-repeat;
+        cursor: pointer;
     }
 
-        .sorting-options select option:hover {
-            background-color: #ddd;
-            color: #000;
+        .sorting-options select option {
+            background-color: #f2f2f2;
+            color: #333;
         }
 
-.sorting-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+            .sorting-options select option:hover {
+                background-color: #ddd;
+                color: #000;
+            }
 
-.sorting-options-left {
-    display: flex;
-    align-items: center;
-}
-
-.sorting-options-right {
-    display: flex;
-    align-items: center;
-}
-
-.search-box {
-    display: flex;
-    align-items: center;
-}
-
-.custom-input {
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
-}
-
-    .custom-input:focus {
-        background-color: #f2f2f2;
-        color: #333;
+    .sorting-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-.feedback-list {
-    width: 80%;
-}
-
-
-.content-container {
-    display: flex;
-    flex-direction: row;
-}
-
-li {
-    list-style-type: none;
-}
-.feedback-content {
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-
-.icon-container {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-    .icon-container .fs-5 {
-        margin-right: -5px;
-    }
-.notification-count {
-    display: inline-block;
-    margin-bottom: 10px;
-    width: 15px;
-    height: 15px;
-    text-align: center;
-    line-height: 15px;
-    border-radius: 50%;
-    background-color: red;
-    color: white;
-    font-size: 10px;
-    transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-}
-    .notification-count.hidden {
-        width: 0;
-        height: 0;
-    }
-.icon-container {
-    animation: swing 2s linear infinite;
-}
-
-@keyframes swing {
-    0% {
-        transform: rotateZ(-5deg);
-    }
-
-    50% {
-        transform: rotateZ(5deg);
-    }
-
-    100% {
-        transform: rotateZ(-5deg);
-    }
-}
-
-.nav-item {
-    font-size: 0.9rem;
-    padding-bottom: 0.5rem;
-}
-
-    .nav-item:first-of-type {
-        padding-top: 1rem;
-    }
-
-    .nav-item:last-of-type {
-        padding-bottom: 1rem;
-    }
-
-    .nav-item a {
-        color: #d7d7d7;
-        border-radius: 4px;
-        height: 3rem;
+    .sorting-options-left {
         display: flex;
         align-items: center;
-        line-height: 3rem;
     }
 
-        .nav-item a.active {
-            background-color: rgba(255, 255, 255, 0.25);
-            color: white;
+    .sorting-options-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-box {
+        display: flex;
+        align-items: center;
+    }
+
+    .custom-input {
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        outline: none;
+    }
+
+        .custom-input:focus {
+            background-color: #f2f2f2;
+            color: #333;
         }
 
-        .nav-item a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #F19828;
+    .feedback-list {
+        width: 80%;
+    }
+
+
+    .content-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    .feedback-content {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+
+    .icon-container {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .icon-container .fs-5 {
+            margin-right: -5px;
         }
 
-.mud-dialog-container {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: var(--mud-zindex-dialog);
-    justify-content: center;
-    align-items: center;
-}
-
-.avatar-option-label {
-    cursor: pointer;
-    margin: 10px;
-}
-
-    .avatar-option-label img {
+    .notification-count {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        line-height: 15px;
         border-radius: 50%;
-        border: 3px solid transparent;
-        width: 55px;
-        height: 55px;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-        padding: 4px;
+        background-color: red;
+        color: white;
+        font-size: 10px;
+        transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
     }
+
+        .notification-count.hidden {
+            width: 0;
+            height: 0;
+        }
+
+    .icon-container {
+        animation: swing 2s linear infinite;
+    }
+
+    @keyframes swing {
+        0% {
+            transform: rotateZ(-5deg);
+        }
+
+        50% {
+            transform: rotateZ(5deg);
+        }
+
+        100% {
+            transform: rotateZ(-5deg);
+        }
+    }
+
+    .nav-item {
+        font-size: 0.9rem;
+        padding-bottom: 0.5rem;
+    }
+
+        .nav-item:first-of-type {
+            padding-top: 1rem;
+        }
+
+        .nav-item:last-of-type {
+            padding-bottom: 1rem;
+        }
+
+        .nav-item a {
+            color: #d7d7d7;
+            border-radius: 4px;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            line-height: 3rem;
+        }
+
+            .nav-item a.active {
+                background-color: rgba(255, 255, 255, 0.25);
+                color: white;
+            }
+
+            .nav-item a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #F19828;
+            }
+
+    .mud-dialog-container {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: var(--mud-zindex-dialog);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .avatar-option-label {
+        cursor: pointer;
+        margin: 10px;
+    }
+
+        .avatar-option-label img {
+            border-radius: 50%;
+            border: 3px solid transparent;
+            width: 55px;
+            height: 55px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            padding: 4px;
+        }

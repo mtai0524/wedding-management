@@ -95,7 +95,6 @@
 
         .main .sidebar {
             display: none;
-
         }
     
 
@@ -120,10 +119,9 @@
             z-index: 9999;
         }
 
-        .form-check-input {
+       /*  .form-check-input {
             display: none;
         }
-        /* Hiển thị icon */
         .form-check-label {
             cursor: pointer;
         }
@@ -157,7 +155,7 @@
             position: fixed;
             bottom: 89px;
             right: 56px;
-            z-index: 9999;
+            z-index: 9999999999999999;
             background-color: transparent;
             color: #fff;
             border: none;
@@ -171,7 +169,7 @@
           position:absolute;
           top:0;
           left:0;
-      }
+      } */
     </style>
 </head>
 
@@ -265,11 +263,11 @@
             </div>
         </div>
     </div>
-    <input type="checkbox" id="click">
-    <label for="click">
-        <i class="fa-regular fa-comment-dots"></i>
+    <input type="checkbox" id="click" >
+    <label for="click" style="z-index:999999;background-color:green">
+        <i class="fa-regular fa-comment-dots" style="z-index:999999;color:white"></i>
 
-        <i class="fas fa-times"></i>
+        <i class="fas fa-times" style="z-index:999999;color:white"></i>
     </label>
     <div class="wrapper">
         <div class="head-text d-flex justify-content-center">
@@ -277,7 +275,7 @@
                 Let's have a Chat!
             </div>
             <div>
-                <button style="background-color: transparent;outline: none;border:none;position: absolute;top:0;left:1rem" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+                <button style="background-color: transparent;outline: none;border:none;position: absolute;top:20px;left:1rem" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
             </div>
 
         </div>
@@ -312,16 +310,14 @@
                     <div class="message-bubble">Hello there!</div>
                 </div>
 
-
-                <!-- More chat messages here -->
+                  <!-- More chat messages here -->
             </div>
-        </div>
+      </div>
         <form action="#">
             <div class="message-container">
                 <textarea placeholder="Type your message..." rows="3" required></textarea>
                 <button style="margin-right: 15px;" class="btn btn-success" type="submit">
                     <i class="icofont-publish"></i>
-
                 </button>
             </div>
         </form>
