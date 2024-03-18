@@ -1,4 +1,27 @@
-﻿/*thay doi css phai chay lai chuong trinh*/
+﻿
+/* Hide avatar on smaller screens */
+@media (max-width: 990px) {
+    .list-user-status {
+        display: flex;
+        justify-content: start;
+        overflow-y: auto;
+    }
+    .list-group-online {
+        display: flex;
+        justify-content: start;
+    }
+    .list-group-offline {
+        display: flex;
+        justify-content: start;
+    }
+    .text-status{
+        display:none;
+    }
+ 
+   
+}
+
+/*thay doi css phai chay lai chuong trinh*/
 .my-active-link {
     color: #F19828 !important;
     font-weight: 700;
