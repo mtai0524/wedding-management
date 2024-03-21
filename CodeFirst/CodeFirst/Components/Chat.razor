@@ -31,7 +31,7 @@
                     </div>
                     <div class="list-user-status">
                         <div class="list-group-online">
-                       @*      @foreach (var item in onlineUsers)
+                         @*    @foreach (var item in onlineUsers)
                             {
                                 <a href="#" class="list-group-item list-group-item-action border-0">
                                     <div class="current-user">
@@ -121,7 +121,6 @@
     private HubConnection hubConnection;
     private bool isDataLoaded = false;
     private List<Models.Entities.Chat> chatMessages = new List<Models.Entities.Chat>();
-    private List<UserInformation> onlineUsers = new List<UserInformation>();
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender && !isDataLoaded)
@@ -131,22 +130,23 @@
             await LoadChatData();
             isDataLoaded = true;
         }
+
     }
+    private bool isHubConnectionStarted = false;
     protected override async Task OnInitializedAsync()
     {
-        hubConnection = new HubConnectionBuilder()
-            .WithUrl(NavigationManager.ToAbsoluteUri("/chatHub"))
-            .Build();
+      
+            hubConnection = new HubConnectionBuilder()
+                .WithUrl(NavigationManager.ToAbsoluteUri("/chatHub"))
+                .Build();
 
-        hubConnection.On<Models.Entities.Chat>("ReceiveMessage", async (newMessage) =>
-        {
-            await UpdateChatMessages(newMessage);
-        });
+            hubConnection.On<Models.Entities.Chat>("ReceiveMessage", async (newMessage) =>
+            {
+                await UpdateChatMessages(newMessage);
+            });
 
-
-        await hubConnection.StartAsync();
+            await hubConnection.StartAsync();
     }
-
 
 
     public async Task UpdateChatMessages(Models.Entities.Chat newMessage)
@@ -158,17 +158,19 @@
 
     private async Task LoadChatData()
     {
+
         var result = await chatService.GetMessagesAsync();
         chatMessages = result.ToList();
-        onlineUsers = await OnlineUserService.GetOnlineUsersAsync();
         StateHasChanged();
+        await JS.InvokeVoidAsync("scrollToBottom");
+
     }
 
     private async Task SendMessage()
     {
         await chatService.SendMessage(chatMessageModel);
         chatMessageModel.Message = string.Empty;
-        await JS.InvokeVoidAsync("scrollToBottom");
+        await JS.InvokeVoidAsync("scrollToBottomWhenSendMessage");
 
     }
 

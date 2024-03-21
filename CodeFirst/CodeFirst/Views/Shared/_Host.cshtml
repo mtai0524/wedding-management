@@ -14,12 +14,20 @@
 </script>
 
 <script>
+    function scrollToBottomWhenSendMessage() {
+        setTimeout(() => {
+            const chatMessagesList = document.querySelector('.chat-messages-list');
+            if (chatMessagesList) {
+                chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
+            }
+        }, 300);
+    }
     function scrollToBottom() {
         setTimeout(() => {
             const chatMessagesList = document.querySelector('.chat-messages-list');
             if (chatMessagesList) {
                 chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
             }
-        }, 300); 
+        }, 1000); 
     }
 </script>

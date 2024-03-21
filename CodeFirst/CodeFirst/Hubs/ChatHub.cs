@@ -15,10 +15,9 @@ namespace CodeFirst.Hubs
     {
         private readonly ApplicationDbContext _context;
         private readonly OnlineUserService _onlineUserService;
-        public ChatHub(ApplicationDbContext context, OnlineUserService onlineUserService)
+        public ChatHub(ApplicationDbContext context)
         {
             _context = context;
-            _onlineUserService = onlineUserService;
         }
         public async Task CallLoadChatData()
         {
@@ -46,10 +45,14 @@ namespace CodeFirst.Hubs
                 await Clients.Caller.SendAsync("ReceivedNotificationWelcome", $"xin chào {userInfo.FirstName} {userInfo.LastName} hehe");
                 await Clients.All.SendAsync("LoadChatData");
             }
-            await Clients.Others.SendAsync("ReceivedNotificationUserOnline", $"{userInfo.FirstName} {userInfo.LastName}");
+
+            if (!string.IsNullOrEmpty(userInfo.FirstName) && !string.IsNullOrEmpty(userInfo.LastName))
+            {
+                await Clients.Others.SendAsync("ReceivedNotificationUserOnline", $"{userInfo.FirstName} {userInfo.LastName}");
+            }
+
             string connectionId = Context.ConnectionId;
             ConnectedUsers[connectionId] = userInfo;
-            _onlineUserService.AddUser(connectionId, userInfo);
             await UpdateConnectedUsersList();
             await UpdateConnectedUsersOnlineList();
             await UpdateConnectedUsersOfflineList();
@@ -85,11 +88,23 @@ namespace CodeFirst.Hubs
             await Clients.All.SendAsync("UpdateUsersOfflineList", userList);
         }
 
+    
+
         private async Task UpdateConnectedUsersOnlineList()
         {
-            List<UserInformation> userList = ConnectedUsers.Values.ToList();
+            List<UserInformation> userList = new List<UserInformation>();
+
+            foreach (var userInfo in ConnectedUsers.Values)
+            {
+                if (!string.IsNullOrEmpty(userInfo.FirstName) && !string.IsNullOrEmpty(userInfo.LastName))
+                {
+                    userList.Add(userInfo);
+                }
+            }
+
             await Clients.All.SendAsync("UpdateUsersOnlineList", userList);
         }
+
 
         private async Task<UserInformation> GetUserInfoFromContext()
         {

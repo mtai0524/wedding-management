@@ -1,12 +1,16 @@
-﻿using CodeFirst.ViewModels;
+﻿using CodeFirst.Data;
+using CodeFirst.ViewModels;
 using System.Collections.Concurrent;
 
 namespace CodeFirst.Service
 {
     public class OnlineUserService
     {
-        public OnlineUserService()
+        private readonly ApplicationDbContext _dbContext;
+
+        public OnlineUserService(ApplicationDbContext dbContext)
         {
+            _dbContext = dbContext;
         }
         private readonly Dictionary<string, UserInformation> _connectedUsers = new Dictionary<string, UserInformation>();
         public void AddUser(string connectionId, UserInformation userInfo)
