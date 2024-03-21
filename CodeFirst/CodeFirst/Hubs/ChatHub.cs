@@ -8,15 +8,21 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using CodeFirst.ViewModels;
 using CodeFirst.Models.Notifications;
+using CodeFirst.Service;
 namespace CodeFirst.Hubs
 {
     public class ChatHub: Hub
     {
         private readonly ApplicationDbContext _context;
-
-        public ChatHub(ApplicationDbContext context)
+        private readonly OnlineUserService _onlineUserService;
+        public ChatHub(ApplicationDbContext context, OnlineUserService onlineUserService)
         {
             _context = context;
+            _onlineUserService = onlineUserService;
+        }
+        public async Task CallLoadChatData()
+        {
+            await Clients.All.SendAsync("LoadChatData");
         }
         public async Task SendUpdatedNotifications(List<Notification> notifications)
         {
@@ -28,7 +34,7 @@ namespace CodeFirst.Hubs
             await Clients.All.SendAsync("ReceivedNotification", message);
         }
      
-        private static readonly Dictionary<string, UserInformation> ConnectedUsers = new Dictionary<string, UserInformation>();
+        public static readonly Dictionary<string, UserInformation> ConnectedUsers = new Dictionary<string, UserInformation>();
 
         public override async Task OnConnectedAsync()
         {
@@ -38,15 +44,15 @@ namespace CodeFirst.Hubs
             if (!ConnectedUsers.ContainsKey(Context.ConnectionId))
             {
                 await Clients.Caller.SendAsync("ReceivedNotificationWelcome", $"xin chào {userInfo.FirstName} {userInfo.LastName} hehe");
+                await Clients.All.SendAsync("LoadChatData");
             }
             await Clients.Others.SendAsync("ReceivedNotificationUserOnline", $"{userInfo.FirstName} {userInfo.LastName}");
             string connectionId = Context.ConnectionId;
             ConnectedUsers[connectionId] = userInfo;
-
+            _onlineUserService.AddUser(connectionId, userInfo);
             await UpdateConnectedUsersList();
             await UpdateConnectedUsersOnlineList();
             await UpdateConnectedUsersOfflineList();
-
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)
@@ -68,13 +74,14 @@ namespace CodeFirst.Hubs
         private async Task UpdateConnectedUsersList()
         {
             List<UserInformation> userList = ConnectedUsers.Values.ToList();
+
             await Clients.All.SendAsync("UpdateUsersList", userList);
         }
 
 
         private async Task UpdateConnectedUsersOfflineList()
         {
-            List<ApplicationUser> userList = await _context.ApplicationUser.Take(15).ToListAsync();
+            List<ApplicationUser> userList = await _context.ApplicationUser.Take(8).ToListAsync();
             await Clients.All.SendAsync("UpdateUsersOfflineList", userList);
         }
 

@@ -1,0 +1,75 @@
+body[b-mcqe6qptzc] {
+    margin-top: 20px;
+}
+
+.chat-online[b-mcqe6qptzc] {
+    color: #34ce57
+}
+
+.chat-offline[b-mcqe6qptzc] {
+    color: #e4606d
+}
+
+.chat-messages-list[b-mcqe6qptzc] {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    overflow-y: scroll
+}
+
+
+.chat-message-left[b-mcqe6qptzc],
+.chat-message-right[b-mcqe6qptzc] {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.chat-message-left[b-mcqe6qptzc] {
+    margin-right: auto;
+}
+
+.list-group[b-mcqe6qptzc] {
+    height: 86vh;
+    overflow-y: auto;
+    border-right: 1px solid #EEEEEE;
+}
+
+.status[b-mcqe6qptzc] {
+    width: 10px;
+    height: 10px;
+    outline: 2px solid white;
+    border-radius: 100px;
+    border-radius: 100px;
+    background: #e6ecf3;
+    position: absolute;
+    top: 2.3rem;
+    left: 2.9rem;
+}
+
+    .status.online[b-mcqe6qptzc] {
+        background: #34ce57;
+    }
+
+    .status.offline[b-mcqe6qptzc] {
+        background: #fd7274;
+    }
+
+.chat-container[b-mcqe6qptzc] {
+    margin-bottom: 50px;
+}
+
+.list-group-item:hover[b-mcqe6qptzc] {
+    background-color: #E1DBDA;
+}
+
+.box-messages:hover[b-mcqe6qptzc] {
+    background-color: #BDBDBD !important;
+}
+
+    .box-messages:hover .date-time[b-mcqe6qptzc] {
+        color: white !important
+    }
+
+.img-list-user[b-mcqe6qptzc] {
+}
+

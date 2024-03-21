@@ -1055,6 +1055,23 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Connections.Abstractions/6.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Features": "6.0.11",
+          "System.IO.Pipelines": "6.0.3"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Connections.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Connections.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/6.0.22": {
         "type": "package",
         "compile": {
@@ -1224,6 +1241,40 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Connections.Client/6.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Connections.Common": "6.0.11",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.3",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Http.Connections.Client.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Http.Connections.Client.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Connections.Common/6.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Connections.Abstractions": "6.0.11"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Http.Connections.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Http.Connections.Common.dll": {
             "related": ".xml"
           }
         }
@@ -1440,6 +1491,76 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Session.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Client/6.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Connections.Client": "6.0.11",
+          "Microsoft.AspNetCore.SignalR.Client.Core": "6.0.11"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.SignalR.Client.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.SignalR.Client.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Client.Core/6.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Common": "6.0.11",
+          "Microsoft.AspNetCore.SignalR.Protocols.Json": "6.0.11",
+          "Microsoft.Extensions.DependencyInjection": "6.0.1",
+          "Microsoft.Extensions.Logging": "6.0.0",
+          "System.Threading.Channels": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.SignalR.Client.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.SignalR.Client.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Common/6.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Connections.Abstractions": "6.0.11",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.SignalR.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.SignalR.Common.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Protocols.Json/6.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Common": "6.0.11"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll": {
             "related": ".xml"
           }
         }
@@ -2380,6 +2501,19 @@
         },
         "build": {
           "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Features/6.0.11": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.Extensions.Features.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.Features.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.FileProviders.Abstractions/6.0.0": {
@@ -5336,6 +5470,22 @@
           "lib/netstandard1.3/System.Threading.dll": {}
         }
       },
+      "System.Threading.Channels/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/System.Threading.Channels.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Threading.Channels.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
       "System.Threading.Overlapped/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -6828,6 +6978,27 @@
         "microsoft.aspnetcore.components.web.nuspec"
       ]
     },
+    "Microsoft.AspNetCore.Connections.Abstractions/6.0.11": {
+      "sha512": "dARPGAzgwU8uQAkWjoOoQ4BsHLraMlqk3nfVmCoa09XITzVjpd2o342XxmBar3jS3bR4fgpTfxf0YYt+C9azIA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.connections.abstractions/6.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Connections.Abstractions.dll",
+        "lib/net461/Microsoft.AspNetCore.Connections.Abstractions.xml",
+        "lib/net6.0/Microsoft.AspNetCore.Connections.Abstractions.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Connections.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Connections.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Connections.Abstractions.xml",
+        "lib/netstandard2.1/Microsoft.AspNetCore.Connections.Abstractions.dll",
+        "lib/netstandard2.1/Microsoft.AspNetCore.Connections.Abstractions.xml",
+        "microsoft.aspnetcore.connections.abstractions.6.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.connections.abstractions.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/6.0.22": {
       "sha512": "ETWoB5bvBkTlZ3nWp62/7e4kmtp/SqNaY1IINlORT8Z1z6oAO51KkXMMmBl5ZTl/1fOXZI8+jVC1AqIGiSuTQQ==",
       "type": "package",
@@ -6970,6 +7141,46 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.xml",
         "microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
         "microsoft.aspnetcore.http.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Http.Connections.Client/6.0.11": {
+      "sha512": "kv8eOXVk3Nkhh51iIQwW1SirTt/GIpFRHuf+Blg0HNaL6Y/cesi1FacMsue+U55fxxx2se/nVF9t/A7PAiP9Bg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.connections.client/6.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Http.Connections.Client.dll",
+        "lib/net461/Microsoft.AspNetCore.Http.Connections.Client.xml",
+        "lib/net6.0/Microsoft.AspNetCore.Http.Connections.Client.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Http.Connections.Client.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Connections.Client.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Connections.Client.xml",
+        "lib/netstandard2.1/Microsoft.AspNetCore.Http.Connections.Client.dll",
+        "lib/netstandard2.1/Microsoft.AspNetCore.Http.Connections.Client.xml",
+        "microsoft.aspnetcore.http.connections.client.6.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.http.connections.client.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Http.Connections.Common/6.0.11": {
+      "sha512": "/i1wo/aBSS4ZI66Vg1Yir1t+GjVyar4IIW0LrHbjmjdDtDSmri68ok+eftCd9n07g9fWEiS9Sm8aCYPQbQVhyQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.connections.common/6.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Http.Connections.Common.dll",
+        "lib/net461/Microsoft.AspNetCore.Http.Connections.Common.xml",
+        "lib/net6.0/Microsoft.AspNetCore.Http.Connections.Common.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Http.Connections.Common.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Connections.Common.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Connections.Common.xml",
+        "microsoft.aspnetcore.http.connections.common.6.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.http.connections.common.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Http.Extensions/2.2.0": {
@@ -7253,6 +7464,84 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Session.xml",
         "microsoft.aspnetcore.session.2.2.0.nupkg.sha512",
         "microsoft.aspnetcore.session.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.SignalR.Client/6.0.11": {
+      "sha512": "yjmkAGgooP08pH2Nn1y99bdvO8crAe81s9TcTLGd5A0tqoj233MSH6gzO8NTXaIXUtt6FwM/wE8zEc39pD0eMA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.signalr.client/6.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.SignalR.Client.dll",
+        "lib/net461/Microsoft.AspNetCore.SignalR.Client.xml",
+        "lib/net6.0/Microsoft.AspNetCore.SignalR.Client.dll",
+        "lib/net6.0/Microsoft.AspNetCore.SignalR.Client.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Client.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Client.xml",
+        "microsoft.aspnetcore.signalr.client.6.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.client.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.SignalR.Client.Core/6.0.11": {
+      "sha512": "oPziKUy2l3mjwnfDGCjXr5hG3ChHUnqkDYn5azoAcC5kirQwpOi7jmCcoH4b+srY9W5j4urirdNQCZuaz8Aiag==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.signalr.client.core/6.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.SignalR.Client.Core.dll",
+        "lib/net461/Microsoft.AspNetCore.SignalR.Client.Core.xml",
+        "lib/net6.0/Microsoft.AspNetCore.SignalR.Client.Core.dll",
+        "lib/net6.0/Microsoft.AspNetCore.SignalR.Client.Core.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Client.Core.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Client.Core.xml",
+        "lib/netstandard2.1/Microsoft.AspNetCore.SignalR.Client.Core.dll",
+        "lib/netstandard2.1/Microsoft.AspNetCore.SignalR.Client.Core.xml",
+        "microsoft.aspnetcore.signalr.client.core.6.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.client.core.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.SignalR.Common/6.0.11": {
+      "sha512": "FyS6qfRmPGN8/atOfc2aRUK99RJziZBq6lioZPkSpJs58I145dhG58GPwMrdxl9sScK0JKDAAURJXEsHeO83lA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.signalr.common/6.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.SignalR.Common.dll",
+        "lib/net461/Microsoft.AspNetCore.SignalR.Common.xml",
+        "lib/net6.0/Microsoft.AspNetCore.SignalR.Common.dll",
+        "lib/net6.0/Microsoft.AspNetCore.SignalR.Common.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Common.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Common.xml",
+        "microsoft.aspnetcore.signalr.common.6.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.common.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.SignalR.Protocols.Json/6.0.11": {
+      "sha512": "5JqdNzJiP+cY7A2EUJ65Fjff1MOHP2Ew0WzRVQLGo8tLejS+5FL6qAfKs+rsqQDBpDFs8RV1sLOhKrOCZrEKyA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.signalr.protocols.json/6.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.SignalR.Protocols.Json.dll",
+        "lib/net461/Microsoft.AspNetCore.SignalR.Protocols.Json.xml",
+        "lib/net6.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll",
+        "lib/net6.0/Microsoft.AspNetCore.SignalR.Protocols.Json.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.xml",
+        "microsoft.aspnetcore.signalr.protocols.json.6.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.protocols.json.nuspec"
       ]
     },
     "Microsoft.AspNetCore.WebUtilities/2.2.0": {
@@ -8319,6 +8608,25 @@
         "microsoft.extensions.dependencymodel.7.0.0.nupkg.sha512",
         "microsoft.extensions.dependencymodel.nuspec",
         "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Features/6.0.11": {
+      "sha512": "ZDHIvHxsk4HBl3Xgw6Oo/wSZeFnJVDFhrJQWfH0n7euDRoW+8ER93oUp5oFWSnNR+uG9aSkxtgO/L0M7VwG0OA==",
+      "type": "package",
+      "path": "microsoft.extensions.features/6.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Features.dll",
+        "lib/net461/Microsoft.Extensions.Features.xml",
+        "lib/net6.0/Microsoft.Extensions.Features.dll",
+        "lib/net6.0/Microsoft.Extensions.Features.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Features.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Features.xml",
+        "microsoft.extensions.features.6.0.11.nupkg.sha512",
+        "microsoft.extensions.features.nuspec"
       ]
     },
     "Microsoft.Extensions.FileProviders.Abstractions/6.0.0": {
@@ -14225,6 +14533,33 @@
         "system.threading.nuspec"
       ]
     },
+    "System.Threading.Channels/6.0.0": {
+      "sha512": "TY8/9+tI0mNaUMgntOxxaq2ndTkdXqLSxvPmas7XEqOlv9lQtB7wLjYGd756lOaO7Dvb5r/WXhluM+0Xe87v5Q==",
+      "type": "package",
+      "path": "system.threading.channels/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Threading.Channels.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Threading.Channels.dll",
+        "lib/net461/System.Threading.Channels.xml",
+        "lib/net6.0/System.Threading.Channels.dll",
+        "lib/net6.0/System.Threading.Channels.xml",
+        "lib/netcoreapp3.1/System.Threading.Channels.dll",
+        "lib/netcoreapp3.1/System.Threading.Channels.xml",
+        "lib/netstandard2.0/System.Threading.Channels.dll",
+        "lib/netstandard2.0/System.Threading.Channels.xml",
+        "lib/netstandard2.1/System.Threading.Channels.dll",
+        "lib/netstandard2.1/System.Threading.Channels.xml",
+        "system.threading.channels.6.0.0.nupkg.sha512",
+        "system.threading.channels.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Threading.Overlapped/4.3.0": {
       "sha512": "m3HQ2dPiX/DSTpf+yJt8B0c+SRvzfqAJKx+QDWi+VLhz8svLT23MVjEOHPF/KiSLeArKU/iHescrbLd3yVgyNg==",
       "type": "package",
@@ -14708,6 +15043,7 @@
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 6.0.23",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.22",
       "Microsoft.AspNetCore.Session >= 2.2.0",
+      "Microsoft.AspNetCore.SignalR.Client >= 6.0.11",
       "Microsoft.EntityFrameworkCore >= 7.0.11",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.11",
@@ -14837,6 +15173,10 @@
           "Microsoft.AspNetCore.Session": {
             "target": "Package",
             "version": "[2.2.0, )"
+          },
+          "Microsoft.AspNetCore.SignalR.Client": {
+            "target": "Package",
+            "version": "[6.0.11, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",

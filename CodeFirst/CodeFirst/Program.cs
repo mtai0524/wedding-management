@@ -17,6 +17,8 @@ using MailKit;
 using CodeFirst.Areas.Services;
 using Microsoft.AspNetCore.ResponseCompression;
 using MudBlazor.Services;
+using CodeFirst.Services;
+using CodeFirst.MiddlewareExtensions;
 //using CodeFirst.SqlDependencies;
 //using SignalRYoutube.MiddlewareExtensions;
 
@@ -40,6 +42,8 @@ builder.Services.AddSingleton<ChatHub>(); // phải add vào mới gọi chatHub
 // đăng ký service
 builder.Services.AddScoped<EmployeeService>();
 builder.Services.AddScoped<CloudinaryService>();
+builder.Services.AddScoped<ChatService>();
+builder.Services.AddSingleton<OnlineUserService>();
 
 //builder.Services.AddSingleton<SubscribeNotificationTableDependency>();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -132,7 +136,6 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools())); // service cho pdf
-
 
 // intergrated blazor server
 builder.Services.AddServerSideBlazor();

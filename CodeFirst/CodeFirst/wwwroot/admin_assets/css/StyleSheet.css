@@ -1,4 +1,79 @@
 ﻿
+/*chat*/
+
+
+.chat-online {
+    color: #34ce57
+}
+
+.chat-offline {
+    color: #e4606d
+}
+
+.chat-messages-list {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    overflow-y: scroll
+}
+
+
+.chat-message-left,
+.chat-message-right {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.chat-message-left {
+    margin-right: auto;
+}
+
+.list-group-container {
+    height: 86vh;
+    overflow-y: auto;
+    border-right: 1px solid #EEEEEE;
+}
+
+.status {
+    width: 10px;
+    height: 10px;
+    outline: 2px solid white;
+    border-radius: 100px;
+    border-radius: 100px;
+    background: #e6ecf3;
+    position: absolute;
+    top: 2.3rem;
+    left: 2.9rem;
+}
+
+    .status.online {
+        background: #34ce57;
+    }
+
+    .status.offline {
+        background: #fd7274;
+    }
+
+.chat-container {
+    margin-bottom: 50px;
+}
+
+.list-group-item:hover {
+    background-color: #E1DBDA;
+}
+
+.box-messages:hover {
+    background-color: #BDBDBD !important;
+}
+
+    .box-messages:hover .date-time {
+        color: white !important
+    }
+
+.img-list-user {
+}
+/*chat*/
+
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 * {
     margin: 0;
@@ -142,6 +217,7 @@ label {
         width: calc(100% - 20px);
         margin-top: 10px;
     }
+    
 }
 /* Thiết lập thanh trượt */
 ::-webkit-scrollbar {
@@ -196,12 +272,28 @@ label {
     --bs-modal-width: 1500px !important;
 }
 
+@media (max-width: 3000px) {
+    .current-user{
+        display:flex;
+        align-items:start;
+    }
+}
+
 @media (max-width: 990px) {
+    .list-group-item {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .current-user {
+        display: block;
+        align-items: center;
+    }
     .chat-container {
         margin-bottom: 50px;
     }
 
-    .list-group {
+    .list-group-container {
         max-height: 140px;
     }
 
@@ -250,7 +342,7 @@ label {
 }
 
     @media (max-width: 760px) {
-        .list-group {
+        .list-group-container {
             max-height: 70px;
         }
     }
