@@ -38,7 +38,7 @@
 .status {
     width: 10px;
     height: 10px;
-    outline: 2px solid white;
+    outline: 3px solid white;
     border-radius: 100px;
     border-radius: 100px;
     background: #e6ecf3;
@@ -93,7 +93,7 @@ body {
     display: none;
 }
 
-label {
+label.floatting-btn {
     position: absolute;
     right: 30px;
     bottom: 20px;

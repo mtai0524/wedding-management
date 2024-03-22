@@ -36,7 +36,7 @@ $(() => {
                       <div class="message-bubble" style="overflow: auto; background-color:#E6E6E6; border: 1px solid transparent; border-radius:  0px 25px 15px 25px; ">
                          <div class="font-weight-bold" style="text-color:#8CB2B2;margin-top:-5px">${v.Username}</div>
                             ${v.Message}
-                            <div style="float:right; margin-top:20px" class="message-time">${v.NotificationDateTime}</div>
+                            <div style="float:right; margin-top:20px; font-size:10px; font-weight:700;color:gray" class="message-time">${v.NotificationDateTime}</div>
                         </div>
 
                     </div>`;
@@ -73,8 +73,8 @@ $(() => {
                             <div class="flex-shrink-1 box-messages bg-light rounded py-2 px-3 ml-3" style="max-width:90%">
                                 <div class="font-weight-bold mb-1" style="text-color:#8CB2B2;">${v.Username}</div>
                                 ${v.Message}
-                                <div class="message-details d-flex justify-content-between">
-                                    <div class="text-muted small text-nowrap mt-2 date-time">${v.NotificationDateTime}</div>
+                                <div class="message-details">
+                                    <div class="text-muted small text-nowrap mt-2 date-time" style="float:right">${v.NotificationDateTime}</div>
                                 </div>
                             </div>
                         </div>`;

@@ -1,5 +1,6 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using CodeFirst.Controllers;
+using CodeFirst.Data;
 using CodeFirst.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -18,14 +19,16 @@ namespace CodeFirst.Areas.Admin.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly INotyfService _notfy;
-        public ManageUserController(ILogger<ManageUserController> logger, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager, INotyfService notfy)
+        private readonly ApplicationDbContext _context;
+
+        public ManageUserController(ILogger<ManageUserController> logger, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager, INotyfService notfy, ApplicationDbContext context)
         {
             _logger = logger;
             this._userManager = userManager;
             this._roleManager = roleManager;
             this._signInManager = signInManager;
             this._notfy = notfy;
-
+            _context = context;
         }
         [Authorize(Roles = "administrator system, admin")]
 
@@ -77,6 +80,13 @@ namespace CodeFirst.Areas.Admin.Controllers
                 _notfy.Error("Xóa chính mình để chi?");
                 return RedirectToAction("Index");
             }
+            var feedbacks = await _context.Feedback.Where(f => f.UserId == id).ToListAsync();
+            _context.Feedback.RemoveRange(feedbacks);
+            await _context.SaveChangesAsync();
+
+            var invoices = await _context.Invoice.Where(f => f.UserId == id).ToListAsync();
+            _context.Invoice.RemoveRange(invoices);
+            await _context.SaveChangesAsync();
 
             var result = await _userManager.DeleteAsync(user);
             if (result.Succeeded)

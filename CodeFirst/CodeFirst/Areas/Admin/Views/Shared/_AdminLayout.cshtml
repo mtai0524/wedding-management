@@ -6,7 +6,6 @@
     var isAuthenticated = User.Identity.IsAuthenticated;
     var avatarUrl = isAuthenticated ? (await UserManager.GetUserAsync(User))?.Avatar : "https://i.pinimg.com/236x/e1/6c/70/e16c704fc0b655e553dd7a1a8a00475d.jpg";
 }
-@model CodeFirst.ViewModels.ChatViewModel
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -33,6 +32,7 @@
     <component type="typeof(Microsoft.AspNetCore.Components.Web.HeadOutlet)"
                render-mode="ServerPrerendered" />
     <style>
+        
         .loading-spinner {
             position: fixed;
             top: 0;
@@ -135,7 +135,7 @@
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
                         <div class="head-text">
-                            Let's have a Chat!
+                   
                         </div>
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -193,8 +193,8 @@
                                     <div class="flex-grow-0  border-top" style="margin-top:20px">
                                         <form class="chatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
                                             <div class="input-group" style="margin-top:20px">
-                                                <input asp-for="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
-                                                <button style="margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-primary">Send</button>
+                                                <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
+                                                <button style="margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
                                             </div>
                                         </form>
                                     </div>
@@ -204,13 +204,12 @@
                         </div>
                     </main>
                 </div>
-
             </div>
         </div>
     </div>
 
     <input type="checkbox" id="click">
-    <label for="click" style="z-index:999999;background-color:#484C7F">
+    <label class="floatting-btn" for="click" style="z-index:999999;background-color:#484C7F">
         <i class="fa-regular fa-comment-dots" style="z-index:999999;color:white"></i>
 
         <i class="fas fa-times" style="z-index:999999;color:white"></i>
@@ -230,8 +229,8 @@
         </div>
         <form class="chatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
             <div class="input-group" style="margin-top:20px">
-                <input asp-for="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
-                <button style="margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success"><i class="fa-solid fa-paper-plane"></i> Send</button>
+                <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
+                <button style="margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
             </div>
         </form>
     </div>
