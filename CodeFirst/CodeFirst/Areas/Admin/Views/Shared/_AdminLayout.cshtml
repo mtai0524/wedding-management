@@ -120,14 +120,17 @@
             z-index: 9999;
         }
 
-     
+        .message-bubble {
+            word-wrap: break-word; /* Tự động ngắt dòng khi cần thiết */
+        }
+
     </style>
 </head>
 
 <body>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog  modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-dialog  modal-xl modal-dialog-centered modal-dialog-scrollable" style="overflow:hidden !important">
             <div class="modal-content" style="height: 100vh !important;">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
@@ -137,7 +140,7 @@
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="overflow:hidden !important">
                         <div class="container p-0">
                             <div class="card chat-container">
                                 <div class="row g-0">
@@ -187,10 +190,10 @@
                                             <div class="chat-messages-list p-4">
                                             </div>
                                         </div>
-                                    <div class="flex-grow-0 py-3 px-4 border-top">
-                                        <form id="chatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
-                                            <div class="input-group">
-                                                <input asp-for="Message" style="padding:30px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
+                                    <div class="flex-grow-0  border-top" style="margin-top:20px">
+                                        <form class="chatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
+                                            <div class="input-group" style="margin-top:20px">
+                                                <input asp-for="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
                                                 <button style="margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-primary">Send</button>
                                             </div>
                                         </form>
@@ -206,12 +209,32 @@
         </div>
     </div>
 
-    <input type="checkbox" id="click" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <input type="checkbox" id="click">
     <label for="click" style="z-index:999999;background-color:#484C7F">
         <i class="fa-regular fa-comment-dots" style="z-index:999999;color:white"></i>
 
         <i class="fas fa-times" style="z-index:999999;color:white"></i>
     </label>
+    <div class="wrapper">
+        <div class="head-text d-flex justify-content-center">
+            <div>
+                Chát chit xuyên lục địa
+            </div>
+            <div>
+                <button style="background-color: transparent;outline: none;border:none;position: absolute;top:20px;left:1rem" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+            </div>
+
+        </div>
+        <div class="chat-box">
+           
+        </div>
+        <form class="chatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
+            <div class="input-group" style="margin-top:20px">
+                <input asp-for="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
+                <button style="margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success"><i class="fa-solid fa-paper-plane"></i> Send</button>
+            </div>
+        </form>
+    </div>
     
     <div id="mytask-layout" class="theme-indigo">
         <div class="loading-spinner" id="loading-spinner">
@@ -387,6 +410,49 @@
         <script src="_content/Microsoft.AspNetCore.Components.Web.Extensions/script.js"></script>
 
         <script type="text/javascript">
+            $(document).ready(function () {
+                // Bắt sự kiện submit của form
+                $(".chatForm").submit(function (e) {
+                    e.preventDefault(); // Ngăn chặn việc gửi form theo cách thông thường
+
+                    // Lấy dữ liệu từ form
+                    var formData = $(this).serialize();
+
+                    // Gửi yêu cầu AJAX
+                    $.ajax({
+                        url: $(this).attr('action'), // Lấy đường dẫn từ thuộc tính action của form
+                        type: $(this).attr('method'), // Lấy phương thức từ thuộc tính method của form
+                        data: formData, // Dữ liệu form đã được serialized
+                        success: function (response) {
+                            // Xử lý kết quả nếu thành công
+                            console.log("Message sent successfully!");
+                            console.log(response);
+
+                            // Xóa nội dung của input sau khi gửi thành công
+                            $("#chatForm input[name='Message']").val('');
+
+                            // Cuộn xuống cuối trang
+                            scrollToBottomWhenSendMessage();
+                        },
+                        error: function (xhr, status, error) {
+                            // Xử lý lỗi nếu có
+                            console.error("AJAX Error:", error);
+                        }
+                    });
+                });
+            });
+            function scrollToBottomWhenSendMessage() {
+                setTimeout(() => {
+                    const chatMessagesList = document.querySelector('.chat-messages-list');
+                    if (chatMessagesList) {
+                        chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
+                    }
+                    const chatMessagesListMini = document.querySelector('.chat-message');
+                    if (chatMessagesListMini) {
+                        chatMessagesListMini.scrollTop = chatMessagesListMini.scrollHeight;
+                    }
+                }, 1000);
+            }
 
             const themeSwitch = document.getElementById('theme-switch');
 
