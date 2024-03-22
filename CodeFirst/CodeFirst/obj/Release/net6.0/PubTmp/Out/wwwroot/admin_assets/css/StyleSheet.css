@@ -13,8 +13,9 @@
 .chat-messages-list {
     display: flex;
     flex-direction: column;
-    height: 70vh;
-    overflow-y: scroll
+    height: 65vh;
+    overflow-y: scroll;
+    overflow-x:hidden;
 }
 
 
@@ -29,7 +30,7 @@
 }
 
 .list-group-container {
-    height: 86vh;
+    height: 80vh;
     overflow-y: auto;
     border-right: 1px solid #EEEEEE;
 }
@@ -208,7 +209,9 @@ label {
         width: 90%; /* Điều chỉnh kích thước box chat cho thiết bị di động */
         right: 5%; /* Canh chỉnh box chat giữa màn hình */
     }
-
+    .chat-messages-list{
+        height:58vh;
+    }
     .chat-box form .field textarea {
         width: calc(100% - 20px);
     }
@@ -284,6 +287,9 @@ label {
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
+    }
+    .chat-messages-list {
+        height: 55vh;
     }
     .current-user {
         display: block;

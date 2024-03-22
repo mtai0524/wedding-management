@@ -33,7 +33,8 @@ $(() => {
                     chatBoxContent += `
                     <div class="chat-message user2 d-flex">
                         <img src="${v.Avatar}" class="avatar" alt="Avatar">
-                      <div class="message-bubble" style="overflow: auto; background-color:#E6E6E6; border: 1px solid transparent; border-radius:  0px 15px 15px 15px; ">
+                      <div class="message-bubble" style="overflow: auto; background-color:#E6E6E6; border: 1px solid transparent; border-radius:  0px 25px 15px 25px; ">
+                         <div class="font-weight-bold" style="text-color:#8CB2B2;margin-top:-5px">${v.Username}</div>
                             ${v.Message}
                             <div style="float:right; margin-top:20px" class="message-time">${v.NotificationDateTime}</div>
                         </div>

@@ -1,7 +1,8 @@
 ﻿
 $(() => {
    LoadNotificationData();
-   LoadChatData();
+    LoadChatData();
+    LoadChatDataToChatBox();
 
     var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
     connection.start().then(function () {
@@ -13,10 +14,46 @@ $(() => {
     connection.on("ReceiveNotificationRealtime", function (notifications) {
         LoadNotificationData();
         LoadChatData();
+        LoadChatDataToChatBox();
     });
 
 
     var isFirstLoad = true;
+    var isFirstLoadToChatBox = true;
+
+    function LoadChatDataToChatBox() {
+        $.ajax({
+            url: '/Chat/GetMessages',
+            method: 'GET',
+            success: (result) => {
+                console.log(result);
+                var chatBoxContent = '';
+
+                $.each(result, (k, v) => {
+                    chatBoxContent += `
+                    <div class="chat-message user2 d-flex">
+                        <img src="${v.Avatar}" class="avatar" alt="Avatar">
+                      <div class="message-bubble" style="overflow: auto; background-color:#E6E6E6; border: 1px solid transparent; border-radius:  0px 15px 15px 15px; ">
+                            ${v.Message}
+                            <div style="float:right; margin-top:20px" class="message-time">${v.NotificationDateTime}</div>
+                        </div>
+
+                    </div>`;
+                });
+
+                $(".chat-box").html(chatBoxContent);
+
+                if (isFirstLoadToChatBox) {
+                    scrollToBottomWhenSendMessage();
+                    isFirstLoadToChatBox = false;
+                }
+            },
+            error: (error) => {
+                console.log(error);
+            }
+        });
+    }
+
 
     // Function to load chat data
     function LoadChatData() {
@@ -56,7 +93,7 @@ $(() => {
     // Event listener for form submission
     $(document).ready(function () {
         // Bắt sự kiện submit của form
-        $("#chatForm").submit(function (e) {
+        $(".chatForm").submit(function (e) {
             e.preventDefault(); // Ngăn chặn việc gửi form theo cách thông thường
 
             // Lấy dữ liệu từ form
@@ -73,7 +110,7 @@ $(() => {
                     console.log(response);
 
                     // Xóa nội dung của input sau khi gửi thành công
-                    $("#chatForm input[name='Message']").val('');
+                    $(".chatForm input[name='Message']").val('');
 
                     // Cuộn xuống cuối trang
                     scrollToBottomWhenSendMessage();
@@ -85,20 +122,26 @@ $(() => {
             });
         });
     });
+
     function scrollToBottomWhenSendMessage() {
         setTimeout(() => {
             const chatMessagesList = document.querySelector('.chat-messages-list');
             if (chatMessagesList) {
                 chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
             }
+            const chatMessagesListMini = document.querySelector('.chat-box');
+            if (chatMessagesListMini) {
+                chatMessagesListMini.scrollTop = chatMessagesListMini.scrollHeight;
+            }
         }, 1000);
     }
-
     function scrollToBottom() {
-        const chatMessagesList = document.querySelector('.chat-messages-list');
-        if (chatMessagesList) {
-            chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
-        }
+        setTimeout(() => {
+            const chatMessagesList = document.querySelector('.chat-messages-list');
+            if (chatMessagesList) {
+                chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
+            }
+        }, 1000);
     }
     function LoadNotificationData() {
         $.ajax({
@@ -141,6 +184,7 @@ $(() => {
         UpdateUsersOnlineList();
         UpdateUsersOfflineList();
         LoadChatData();
+        LoadChatDataToChatBox();
     });
 
 
