@@ -18,6 +18,7 @@ $(() => {
 
     var isFirstLoad = true;
 
+ 
     // Function to load chat data
     function LoadChatData() {
         $.ajax({
@@ -95,10 +96,12 @@ $(() => {
     }
 
     function scrollToBottom() {
-        const chatMessagesList = document.querySelector('.chat-messages-list');
-        if (chatMessagesList) {
-            chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
-        }
+        setTimeout(() => {
+            const chatMessagesList = document.querySelector('.chat-messages-list');
+            if (chatMessagesList) {
+                chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
+            }
+        }, 1000);
     }
     function LoadNotificationData() {
         $.ajax({
