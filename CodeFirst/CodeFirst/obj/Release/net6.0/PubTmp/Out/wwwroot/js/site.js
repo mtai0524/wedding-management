@@ -1,6 +1,6 @@
 ﻿
 $(() => {
-    LoadNotificationData();
+   LoadNotificationData();
    LoadChatData();
 
     var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
@@ -18,6 +18,7 @@ $(() => {
 
     var isFirstLoad = true;
 
+    // Function to load chat data
     function LoadChatData() {
         $.ajax({
             url: '/Chat/GetMessages',
@@ -46,12 +47,51 @@ $(() => {
                     scrollToBottom();
                     isFirstLoad = false;
                 }
-
             },
             error: (error) => {
                 console.log(error);
             }
         });
+    }
+    // Event listener for form submission
+    $(document).ready(function () {
+        // Bắt sự kiện submit của form
+        $("#chatForm").submit(function (e) {
+            e.preventDefault(); // Ngăn chặn việc gửi form theo cách thông thường
+
+            // Lấy dữ liệu từ form
+            var formData = $(this).serialize();
+
+            // Gửi yêu cầu AJAX
+            $.ajax({
+                url: $(this).attr('action'), // Lấy đường dẫn từ thuộc tính action của form
+                type: $(this).attr('method'), // Lấy phương thức từ thuộc tính method của form
+                data: formData, // Dữ liệu form đã được serialized
+                success: function (response) {
+                    // Xử lý kết quả nếu thành công
+                    console.log("Message sent successfully!");
+                    console.log(response);
+
+                    // Xóa nội dung của input sau khi gửi thành công
+                    $("#chatForm input[name='Message']").val('');
+
+                    // Cuộn xuống cuối trang
+                    scrollToBottomWhenSendMessage();
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi nếu có
+                    console.error("AJAX Error:", error);
+                }
+            });
+        });
+    });
+    function scrollToBottomWhenSendMessage() {
+        setTimeout(() => {
+            const chatMessagesList = document.querySelector('.chat-messages-list');
+            if (chatMessagesList) {
+                chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
+            }
+        }, 1000);
     }
 
     function scrollToBottom() {
