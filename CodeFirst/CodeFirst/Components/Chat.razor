@@ -119,59 +119,13 @@
 
     private ChatViewModel chatMessageModel = new ChatViewModel();
     private HubConnection hubConnection;
-    private bool isDataLoaded = false;
     private List<Models.Entities.Chat> chatMessages = new List<Models.Entities.Chat>();
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender && !isDataLoaded)
-        {
-            await JS.InvokeVoidAsync("scrollToBottom");
-
-            await LoadChatData();
-            isDataLoaded = true;
-        }
-
-    }
-    private bool isHubConnectionStarted = false;
-    protected override async Task OnInitializedAsync()
-    {
-      
-            hubConnection = new HubConnectionBuilder()
-                .WithUrl(NavigationManager.ToAbsoluteUri("/chatHub"))
-                .Build();
-
-            hubConnection.On<Models.Entities.Chat>("ReceiveMessage", async (newMessage) =>
-            {
-                await UpdateChatMessages(newMessage);
-            });
-
-            await hubConnection.StartAsync();
-    }
-
-
-    public async Task UpdateChatMessages(Models.Entities.Chat newMessage)
-    {
-        chatMessages.Add(newMessage);
-
-        StateHasChanged();
-    }
-
-    private async Task LoadChatData()
-    {
-
-        var result = await chatService.GetMessagesAsync();
-        chatMessages = result.ToList();
-        StateHasChanged();
-        await JS.InvokeVoidAsync("scrollToBottom");
-
-    }
 
     private async Task SendMessage()
     {
         await chatService.SendMessage(chatMessageModel);
         chatMessageModel.Message = string.Empty;
         await JS.InvokeVoidAsync("scrollToBottomWhenSendMessage");
-
     }
 
 }
