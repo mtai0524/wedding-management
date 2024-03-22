@@ -64,14 +64,20 @@ namespace CodeFirst.Controllers
                     MessageType = "All",
                     NotificationDateTime = DateTime.Now,
                     Avatar = !string.IsNullOrEmpty(user.Avatar) ? user.Avatar : "https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg",
-
                 };
                 dbContext.Chats.Add(notification);
                 await dbContext.SaveChangesAsync();
-                await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", new List<Chat> { notification });
+                await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", notification);
+
+                // Trả về một JsonResult để xử lý bên phía client
+                return Json(new { success = true, notification });
             }
-            return RedirectToAction("Index", "Chat", model);
+
+            // Trả về lỗi nếu ModelState không hợp lệ
+            return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors) });
         }
+
+
         public IActionResult Index()
         {
             return View();

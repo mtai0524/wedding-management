@@ -1,5 +1,7 @@
 ﻿
 $(() => {
+    LoadNotificationData();
+   LoadChatData();
 
     var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
     connection.start().then(function () {
@@ -8,10 +10,98 @@ $(() => {
         return console.error(err.toString());
     });
 
+    connection.on("ReceiveNotificationRealtime", function (notifications) {
+        LoadNotificationData();
+        LoadChatData();
+    });
 
 
-   
+    var isFirstLoad = true;
 
+    function LoadChatData() {
+        $.ajax({
+            url: '/Chat/GetMessages',
+            method: 'GET',
+            success: (result) => {
+                console.log(result);
+                var listItems = '';
+
+                $.each(result, (k, v) => {
+                    listItems += `<div class="chat-message-right pb-4">
+                            <div>
+                                <img src="${v.Avatar}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+                            </div>
+                            <div class="flex-shrink-1 box-messages bg-light rounded py-2 px-3 ml-3" style="max-width:90%">
+                                <div class="font-weight-bold mb-1" style="text-color:#8CB2B2;">${v.Username}</div>
+                                ${v.Message}
+                                <div class="message-details d-flex justify-content-between">
+                                    <div class="text-muted small text-nowrap mt-2 date-time">${v.NotificationDateTime}</div>
+                                </div>
+                            </div>
+                        </div>`;
+                });
+                $(".chat-messages-list").html(listItems);
+
+                if (isFirstLoad) {
+                    scrollToBottom();
+                    isFirstLoad = false;
+                }
+
+            },
+            error: (error) => {
+                console.log(error);
+            }
+        });
+    }
+
+    function scrollToBottom() {
+        const chatMessagesList = document.querySelector('.chat-messages-list');
+        if (chatMessagesList) {
+            chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
+        }
+    }
+    function LoadNotificationData() {
+        $.ajax({
+            url: '/Notification/GetNotifications',
+            method: 'GET',
+            success: (result) => {
+                console.log(result);
+                var li = '';
+                $.each(result, (k, v) => {
+                    li += `<li class="py-2 mb-1 border-bottom">
+                    <a href="javascript:void(0);" class="d-flex">
+
+                        <img class="avatar rounded-circle" src="${v.Avatar}" alt="img">
+                        <div class="flex-fill ms-2">
+                            <p class="d-flex justify-content-between mb-0">
+                                <span class="font-weight-bold">${v.Username}</span>
+                                <small>${v.NotificationDateTime}</small>
+                            </p>
+                            <span>${v.Message} </span>
+                        </div>
+                    </a>
+                </li>`;
+                });
+                $("#notification-list").html(li);
+
+                // Đếm số lượng thông báo
+                var notificationCount = result.length;
+                $(".badge-count").text(notificationCount);
+            },
+            error: (error) => {
+                console.log(error);
+            }
+        });
+    }
+
+
+    connection.on("OnConnected", function () {
+        OnConnected();
+        UpdateUsersList();
+        UpdateUsersOnlineList();
+        UpdateUsersOfflineList();
+        LoadChatData();
+    });
 
 
     connection.on("UpdateUsersOfflineList", function (userList) {
@@ -72,6 +162,7 @@ $(() => {
         var listGroupOnline = document.querySelector('.list-group-online');
         listGroupOnline.innerHTML = ""; // Xóa hết các thẻ a cũ trước khi cập nhật
 
+
         userList.forEach(function (item) {
             var listGroupItem = document.createElement("a");
             listGroupItem.href = "#";
@@ -90,6 +181,7 @@ $(() => {
             avatarImg.width = "40";
             avatarImg.height = "40";
             avatarImg.title = item.email;
+            avatarImg.appendChild(spanStatus);
 
             var flexGrowContainer = document.createElement("div");
             flexGrowContainer.classList.add("flex-grow-1", "ml-3");
@@ -138,4 +230,29 @@ $(() => {
         });
     });
 
+    connection.on("ReceivedNotificationWelcome", function (message) {
+        console.log("Received Notification Welcome: ", message);
+        // Hiển thị thông báo chào mừng
+        DisplayGeneralNotification(message, 'quéo cơm');
+
+    });
+    connection.on("ReceivedNotificationUserOnline", function (message) {
+        console.log("Received Notification Welcome: ", message);
+        // Hiển thị thông báo user online
+        DisplayGeneralNotificationUserOnline(message, 'cốc cốc cốc');
+    });
+
+    // Send All user
+    connection.on("ReceivedNotification", function (message) {
+        console.log("hehehe");
+        DisplayGeneralNotification(message, 'General Message');
+    });
+
+    //connection.on("ReceivedPersonalNotification", function (message, username) {
+    //    DisplayPersonalNotification(message, 'Hey ' + username);
+    //});
+
+    //connection.on("ReceivedGroupNotification", function (message, username) {
+    //    DisplayGroupNotification(message, 'Team ' + username);
+    //});
 });

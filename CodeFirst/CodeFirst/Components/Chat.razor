@@ -15,7 +15,6 @@
 @inject IJSRuntime JS
 @inject NavigationManager NavigationManager
 @inject IHubContext<ChatHub> hubContext
-@inject OnlineUserService OnlineUserService
 <main id="mainContent" class="content">
     <div class="container p-0 " style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;">
         <div class="card chat-container">
@@ -31,21 +30,6 @@
                     </div>
                     <div class="list-user-status">
                         <div class="list-group-online">
-                         @*    @foreach (var item in onlineUsers)
-                            {
-                                <a href="#" class="list-group-item list-group-item-action border-0">
-                                    <div class="current-user">
-                                        <img src="@item.Avatar ?? 'https://as2.ftcdn.net/v2/jpg/04/10/43/77/1000_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg'" class="rounded-circle mr-1 img-list-user"  width="40" height="40" title="@item.Email">
-                                        <div class="flex-grow-1 ml-3">
-                                            <div class="username">@($"{item.FirstName} {item.LastName}")</div>
-                                            <div class="text-status">
-                                                <span class="small online-status chat-online">Online</span>
-                                            </div>
-                                        </div>
-                                        <span class="status online"></span>
-                                    </div>
-                                </a>
-                            } *@
                         </div>
                         <div class="list-group-offline">
                         </div>

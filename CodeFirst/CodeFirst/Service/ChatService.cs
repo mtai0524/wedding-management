@@ -38,7 +38,6 @@ namespace CodeFirst.Services
             {
                 var notifications = await _dbContext.Chats.ToListAsync();
 
-                // Format notifications as Chat objects
                 var formattedNotifications = notifications.Select(n => new Chat
                 {
                     Id = n.Id,

@@ -14,11 +14,9 @@ namespace CodeFirst.Hubs
     public class ChatHub : Hub
     {
         private readonly ApplicationDbContext _context;
-        private readonly OnlineUserService _onlineUserService;
-        public ChatHub(ApplicationDbContext context, OnlineUserService onlineUserService)
+        public ChatHub(ApplicationDbContext context)
         {
             _context = context;
-            _onlineUserService = onlineUserService;
         }
         public async Task CallLoadChatData()
         {
@@ -49,7 +47,6 @@ namespace CodeFirst.Hubs
             await Clients.Others.SendAsync("ReceivedNotificationUserOnline", $"{userInfo.FirstName} {userInfo.LastName}");
             string connectionId = Context.ConnectionId;
             ConnectedUsers[connectionId] = userInfo;
-            _onlineUserService.AddUser(connectionId, userInfo);
             await UpdateConnectedUsersList();
             await UpdateConnectedUsersOnlineList();
             await UpdateConnectedUsersOfflineList();
