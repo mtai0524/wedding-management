@@ -8040,9 +8040,19 @@ textarea.form-control-lg {
     background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important
 }
 
-.bg-light {
+.bg-gray {
     --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important
+}
+
+.bg-chats {
+    --bs-bg-opacity: 1;
+    background-color: #8CB2B2 !important
+}
+
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: #E5E7EB !important
 }
 
 .bg-dark {
@@ -22548,7 +22558,7 @@ body.rtl_mode table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td
     -webkit-transition: ease 0.1s;
     transition: ease 0.1s;
     background: var(--primary-color);
-    z-index: 99999;
+    z-index: 999;
     margin: 25px;
     height: calc(100vh - 50px);
     width: 260px;

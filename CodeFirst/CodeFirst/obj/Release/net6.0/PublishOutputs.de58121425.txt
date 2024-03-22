@@ -305,9 +305,12 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Components.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Components.Forms.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Components.Web.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Connections.Abstractions.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Http.Connections.Client.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Http.Connections.Common.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Identity.UI.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.JsonPatch.dll
@@ -316,6 +319,10 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.SignalR.Client.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.SignalR.Client.Core.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.SignalR.Common.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.Build.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.Build.Framework.dll
@@ -343,6 +350,7 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.DependencyInjection.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.DependencyModel.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Features.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.FileProviders.Embedded.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Identity.Core.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Identity.Stores.dll
