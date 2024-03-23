@@ -177,11 +177,20 @@ $(() => {
 
     // chat box mini
     document.querySelector('.input-current-user').addEventListener('input', function () {
-        if (!isTyping) {
-            isTyping = true;
-            connection.invoke("NotifyTyping", true).catch(function (err) {
-                return console.error(err.toString());
+        var messageInput = this.value.trim(); // Lấy giá trị của input và loại bỏ các khoảng trắng ở đầu và cuối
+        if (messageInput === '') {
+            isTyping = false;
+            connection.invoke("NotifyTyping", false).catch(function (err) {
+                console.error(err.toString());
             });
+        } else {
+            if (!isTyping) {
+                isTyping = true;
+                connection.invoke("NotifyTyping", true).catch(function (err) {
+                    console.error(err.toString());
+                });
+            }
+
         }
     });
     document.querySelector('.input-current-user').addEventListener('blur', function () {
@@ -197,13 +206,23 @@ $(() => {
     // chat box main
 
     document.querySelector('input[name="Message"]').addEventListener('input', function () {
-        if (!isTyping) {
-            isTyping = true;
-            connection.invoke("NotifyTyping", true).catch(function (err) {
-                return console.error(err.toString());
+        var messageInput = this.value.trim(); // Lấy giá trị của input và loại bỏ các khoảng trắng ở đầu và cuối
+        if (messageInput === '') {
+            isTyping = false;
+            connection.invoke("NotifyTyping", false).catch(function (err) {
+                console.error(err.toString());
             });
+        } else {
+            if (!isTyping) {
+                isTyping = true;
+                connection.invoke("NotifyTyping", true).catch(function (err) {
+                    console.error(err.toString());
+                });
+            }
+
         }
     });
+
  
 
     // Xử lý khi người dùng ngừng nhập
@@ -224,21 +243,20 @@ $(() => {
 
     connection.on("ReceiveTypingNotification", function (userCurrent, isTyping) {
         var userCurrentChatElement = document.querySelector('.user-current-chat');
-        var textUserCurrentChatElement = document.querySelector('.text-user-current-chat');
         var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
+        var dotChatContainer = document.querySelector('.dot-chat-container');
         if (isTyping) {
             console.log(userCurrent.firstName + " is typing...");
             userCurrentChatElement.textContent = userCurrent.firstName + " " + userCurrent.lastName;
-            textUserCurrentChatElement.textContent = "Đang nhập tin nhắn...";
             avatarUserCurrentChat.style.visibility = "visible";
+            dotChatContainer.style.visibility = "visible";
             avatarUserCurrentChat.src = userCurrent.avatar;
         } else {
             console.log(userCurrent.firstName + " stopped typing.");
-            userCurrentChatElement.textContent = "";
-            textUserCurrentChatElement.textContent = "";
             avatarUserCurrentChat.src = "";
-
+            userCurrentChatElement.textContent = "";
             avatarUserCurrentChat.style.visibility = "hidden"; 
+            dotChatContainer.style.visibility = "hidden"; 
         }
     });
 
