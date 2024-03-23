@@ -13,8 +13,8 @@ $(() => {
 
     connection.on("ReceiveNotificationRealtime", function (notifications) {
         LoadNotificationData();
-        LoadChatData();
         LoadChatDataToChatBox();
+        LoadChatData();
     });
 
 
@@ -33,7 +33,7 @@ $(() => {
                     chatBoxContent += `
                     <div class="chat-message user2 d-flex">
                         <img src="${v.Avatar}" class="avatar" alt="Avatar">
-                      <div class="message-bubble" style="overflow: auto; background-color:#E6E6E6; border: 1px solid transparent; border-radius:  0px 25px 15px 25px; ">
+                      <div class="message-bubble" style="overflow: auto; background-color:#E6E6E6; border: 1px solid transparent; border-radius:  0px 13px 13px 13px; ">
                          <div class="font-weight-bold" style="text-color:#8CB2B2;margin-top:-5px">${v.Username}</div>
                             ${v.Message}
                             <div style="float:right; margin-top:20px; font-size:10px; font-weight:700;color:gray" class="message-time">${v.NotificationDateTime}</div>
@@ -70,7 +70,7 @@ $(() => {
                             <div>
                                 <img src="${v.Avatar}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
                             </div>
-                            <div class="flex-shrink-1 box-messages bg-light rounded py-2 px-3 ml-3" style="max-width:90%">
+                            <div class="flex-shrink-1 box-messages rounded py-2 px-3 ml-3" style="max-width:90%; background-color:#E6E6E6; border: 1px solid transparent; border-radius: 0px 13px 13px 13px !important;">
                                 <div class="font-weight-bold mb-1" style="text-color:#8CB2B2;">${v.Username}</div>
                                 ${v.Message}
                                 <div class="message-details">
@@ -104,9 +104,8 @@ $(() => {
             $.ajax({
                 url: $(this).attr('action'), // Lấy đường dẫn từ thuộc tính action của form
                 type: $(this).attr('method'), // Lấy phương thức từ thuộc tính method của form
-                data: formData, // Dữ liệu form đã được serialized
+                data: formData,
                 success: function (response) {
-                    // Xử lý kết quả nếu thành công
                     console.log("Message sent successfully!");
                     console.log(response);
 
@@ -117,7 +116,6 @@ $(() => {
                     scrollToBottomWhenSendMessage();
                 },
                 error: function (xhr, status, error) {
-                    // Xử lý lỗi nếu có
                     console.error("AJAX Error:", error);
                 }
             });
@@ -181,9 +179,6 @@ $(() => {
 
     connection.on("OnConnected", function () {
         OnConnected();
-        UpdateUsersList();
-        UpdateUsersOnlineList();
-        UpdateUsersOfflineList();
         LoadChatData();
         LoadChatDataToChatBox();
     });

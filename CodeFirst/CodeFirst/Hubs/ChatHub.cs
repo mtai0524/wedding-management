@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using CodeFirst.ViewModels;
 using CodeFirst.Models.Notifications;
 using CodeFirst.Service;
+using System.Linq;
 namespace CodeFirst.Hubs
 {
     public class ChatHub : Hub
@@ -47,9 +48,12 @@ namespace CodeFirst.Hubs
             await Clients.Others.SendAsync("ReceivedNotificationUserOnline", $"{userInfo.FirstName} {userInfo.LastName}");
             string connectionId = Context.ConnectionId;
             ConnectedUsers[connectionId] = userInfo;
+            userList = ConnectedUsers.Values.ToList();
+            userOnlineList = userList;
             await UpdateConnectedUsersList();
             await UpdateConnectedUsersOnlineList();
-            await UpdateConnectedUsersOfflineList();
+            await UpdateConnectedUsersOfflineList(userOnlineList);
+           
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)
@@ -62,32 +66,43 @@ namespace CodeFirst.Hubs
 
                 await UpdateConnectedUsersList();
                 await UpdateConnectedUsersOnlineList();
-                await UpdateConnectedUsersOfflineList();
+                userList = ConnectedUsers.Values.ToList();
+                userOnlineList = userList;
+                await UpdateConnectedUsersOfflineList(userOnlineList);
             }
-
-            await base.OnDisconnectedAsync(exception);
         }
+        List<UserInformation> userList = new List<UserInformation>();
+        List<UserInformation> userOnlineList = new List<UserInformation>();
 
         private async Task UpdateConnectedUsersList()
         {
-            List<UserInformation> userList = ConnectedUsers.Values.ToList();
-
-            await Clients.All.SendAsync("UpdateUsersList", userList);
+            List<UserInformation> userOnline = ConnectedUsers.Values.ToList();
+            await Clients.All.SendAsync("UpdateUsersList", userOnline);
         }
 
 
-        private async Task UpdateConnectedUsersOfflineList()
+        private async Task UpdateConnectedUsersOfflineList(List<UserInformation> userOnlineList)
         {
-            List<ApplicationUser> userList = await _context.ApplicationUser.Take(8).ToListAsync();
-            await Clients.All.SendAsync("UpdateUsersOfflineList", userList);
+            var userOfflineList = await _context.ApplicationUser
+                                    .Select(user => new UserInformation
+                                    {
+                                        Email = user.Email,
+                                        Avatar = user.Avatar,
+                                        FirstName = user.FirstName,
+                                        LastName = user.LastName
+                                    })
+                                    .ToListAsync();
+
+            var offlineUsers = userOfflineList.Where(user => !userOnlineList.Any(u => u.Email == user.Email)).ToList();
+
+            await Clients.All.SendAsync("UpdateUsersOfflineList", offlineUsers);
         }
 
         private async Task UpdateConnectedUsersOnlineList()
         {
-            List<UserInformation> userList = ConnectedUsers.Values.ToList();
-            await Clients.All.SendAsync("UpdateUsersOnlineList", userList);
+            List<UserInformation> userOnline = ConnectedUsers.Values.ToList();
+            await Clients.All.SendAsync("UpdateUsersOnlineList", userOnline);
         }
-
         private async Task<UserInformation> GetUserInfoFromContext()
         {
             var email = Context.User.Identity.Name;

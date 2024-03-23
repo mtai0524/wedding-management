@@ -123,7 +123,7 @@
         .message-bubble {
             word-wrap: break-word; /* Tự động ngắt dòng khi cần thiết */
         }
-
+      
     </style>
 </head>
 
@@ -442,7 +442,7 @@
             });
             function scrollToBottomWhenSendMessage() {
                 setTimeout(() => {
-                    const chatMessagesList = document.querySelector('.chat-messages-list');
+                    const chatMessagesList = document.querySelector('chat-message-right');
                     if (chatMessagesList) {
                         chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
                     }
@@ -452,7 +452,14 @@
                     }
                 }, 1000);
             }
-
+            function scrollToBottom() {
+                setTimeout(() => {
+                    const chatMessagesList = document.querySelector('.chat-messages-list');
+                    if (chatMessagesList) {
+                        chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
+                    }
+                }, 1000);
+            }
             const themeSwitch = document.getElementById('theme-switch');
 
             themeSwitch.addEventListener('change', function () {

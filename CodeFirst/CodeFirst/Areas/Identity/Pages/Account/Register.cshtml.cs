@@ -25,6 +25,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using CodeFirst.Service;
+using System.Collections;
 
 namespace CodeFirst.Areas.Identity.Pages.Account
 {
@@ -156,8 +157,17 @@ namespace CodeFirst.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+                List<string> arrayName = new List<string>();
+                string[] valuesToAdd = { "Mèo con", "Gấu trúc", "Cá sấu", "Gà con", "Đại bàng", "Chó sói" };
+                arrayName.AddRange(valuesToAdd);
 
+                Random random = new Random();
 
+                int randomIndex = random.Next(0, valuesToAdd.Length);
+                string randomValue = valuesToAdd[randomIndex];
+
+                user.FirstName = randomValue;
+                user.LastName = "ẩn danh";
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 

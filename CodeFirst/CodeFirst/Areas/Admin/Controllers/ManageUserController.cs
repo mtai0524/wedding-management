@@ -84,9 +84,29 @@ namespace CodeFirst.Areas.Admin.Controllers
             _context.Feedback.RemoveRange(feedbacks);
             await _context.SaveChangesAsync();
 
+
+
             var invoices = await _context.Invoice.Where(f => f.UserId == id).ToListAsync();
+
+            foreach (var invoice in invoices)
+            {
+                var orderMenus = await _context.OrderMenu.Where(om => om.InvoiceID == invoice.InvoiceID).ToListAsync();
+                _context.OrderMenu.RemoveRange(orderMenus);
+
+                var orderServices = await _context.OrderService.Where(om => om.InvoiceID == invoice.InvoiceID).ToListAsync();
+                _context.OrderService.RemoveRange(orderServices);
+
+                //var invoiceCodes = await _context.InvoiceCode.Where(om => om.InvoiceCodeId == invoice.InvoiceID).ToListAsync();
+                //_context.InvoiceCode.RemoveRange(invoiceCodes);
+
+                var invoiceCodes = await _context.InvoiceCode.Where(ic => ic.InvoiceId == invoice.InvoiceID).ToListAsync();
+                _context.InvoiceCode.RemoveRange(invoiceCodes);
+            }
+
             _context.Invoice.RemoveRange(invoices);
             await _context.SaveChangesAsync();
+           
+
 
             var result = await _userManager.DeleteAsync(user);
             if (result.Succeeded)
