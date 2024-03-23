@@ -173,12 +173,73 @@ $(() => {
             }
         });
     }
+    var isTyping = false; // Biến đánh dấu liệu người dùng có đang nhập hay không
 
+    // chat box mini
+    document.querySelector('.input-current-user').addEventListener('input', function () {
+        if (!isTyping) {
+            isTyping = true;
+            connection.invoke("NotifyTyping", true).catch(function (err) {
+                return console.error(err.toString());
+            });
+        }
+    });
+    document.querySelector('.input-current-user').addEventListener('blur', function () {
+        if (isTyping) {
+            isTyping = false;
+            connection.invoke("NotifyTyping", false).catch(function (err) {
+                return console.error(err.toString());
+            });
+        }
+    });
+
+
+    // chat box main
+
+    document.querySelector('input[name="Message"]').addEventListener('input', function () {
+        if (!isTyping) {
+            isTyping = true;
+            connection.invoke("NotifyTyping", true).catch(function (err) {
+                return console.error(err.toString());
+            });
+        }
+    });
+ 
+
+    // Xử lý khi người dùng ngừng nhập
+    document.querySelector('input[name="Message"]').addEventListener('blur', function () {
+        if (isTyping) {
+            isTyping = false;
+            connection.invoke("NotifyTyping", false).catch(function (err) {
+                return console.error(err.toString());
+            });
+        }
+    });
 
     connection.on("OnConnected", function () {
         OnConnected();
         LoadChatData();
         LoadChatDataToChatBox();
+    });
+
+    connection.on("ReceiveTypingNotification", function (userCurrent, isTyping) {
+        var userCurrentChatElement = document.querySelector('.user-current-chat');
+        var textUserCurrentChatElement = document.querySelector('.text-user-current-chat');
+        var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
+        if (isTyping) {
+            console.log(userCurrent.firstName + " is typing...");
+            userCurrentChatElement.textContent = userCurrent.firstName + " " + userCurrent.lastName;
+            textUserCurrentChatElement.textContent = "Đang nhập tin nhắn...";
+            avatarUserCurrentChat.style.visibility = "visible";
+            avatarUserCurrentChat.src = userCurrent.avatar;
+        } else {
+            console.log(userCurrent.firstName + " stopped typing.");
+            userCurrentChatElement.textContent = "";
+            textUserCurrentChatElement.textContent = "";
+            avatarUserCurrentChat.src = "";
+
+            avatarUserCurrentChat.style.visibility = "hidden"; 
+        }
     });
 
 
@@ -206,7 +267,15 @@ $(() => {
             avatarImg.title = item.email;
 
             avatarImg.appendChild(spanStatus);
+            // Tạo div chứa email popup
+            var emailPopup = document.createElement("div");
+            emailPopup.classList.add("email-popup");
+            emailPopup.textContent = item.email;
+            emailPopup.style.display = "none"; // Ẩn popup ban đầu
 
+            avatarImg.addEventListener("click", function () {
+                emailPopup.style.display = emailPopup.style.display === "none" ? "block" : "none";
+            });
             var flexGrowContainer = document.createElement("div");
             flexGrowContainer.classList.add("flex-grow-1", "ml-3");
 
@@ -227,6 +296,7 @@ $(() => {
             flexGrowContainer.appendChild(textStatusDiv);
             flexGrowContainer.appendChild(spanStatus);
 
+            dFlexContainer.appendChild(emailPopup);
             dFlexContainer.appendChild(avatarImg);
             dFlexContainer.appendChild(flexGrowContainer);
 
@@ -260,6 +330,15 @@ $(() => {
             avatarImg.height = "40";
             avatarImg.title = item.email;
             avatarImg.appendChild(spanStatus);
+            var emailPopup = document.createElement("div");
+            emailPopup.classList.add("email-popup");
+            emailPopup.textContent = item.email;
+            emailPopup.style.display = "none";
+            avatarImg.addEventListener("click", function () {
+                emailPopup.style.display = emailPopup.style.display === "none" ? "block" : "none";
+            });
+            dFlexContainer.appendChild(emailPopup);
+
 
             var flexGrowContainer = document.createElement("div");
             flexGrowContainer.classList.add("flex-grow-1", "ml-3");
