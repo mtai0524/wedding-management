@@ -56,7 +56,6 @@ $(() => {
     }
 
 
-    // Function to load chat data
     function LoadChatData() {
         $.ajax({
             url: '/Chat/GetMessages',
@@ -91,7 +90,6 @@ $(() => {
             }
         });
     }
-    // Event listener for form submission
     $(document).ready(function () {
         // Bắt sự kiện submit của form
         $(".chatForm").submit(function (e) {

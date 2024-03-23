@@ -97,7 +97,7 @@ namespace CodeFirst.Hubs
 
             await Clients.All.SendAsync("UpdateUsersOfflineList", offlineUsers);
         }
-
+       
         private async Task UpdateConnectedUsersOnlineList()
         {
             List<UserInformation> userOnline = ConnectedUsers.Values.ToList();
