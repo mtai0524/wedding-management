@@ -93,11 +93,11 @@ namespace CodeFirst.Migrations
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Chat", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ChatId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ChatId"));
 
                     b.Property<string>("Avatar")
                         .IsRequired()
@@ -114,11 +114,12 @@ namespace CodeFirst.Migrations
                     b.Property<DateTime>("NotificationDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ChatId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Chat");
                 });
@@ -754,6 +755,15 @@ namespace CodeFirst.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
+            modelBuilder.Entity("CodeFirst.Models.Entities.Chat", b =>
+                {
+                    b.HasOne("CodeFirst.Models.ApplicationUser", "Id")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Id");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Feedback", b =>

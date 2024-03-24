@@ -1,4 +1,50 @@
 ﻿
+.jumping-dots span {
+    position: relative;
+
+    animation: jump 1s ease-in-out infinite; /* Điều chỉnh thời gian và hàm easing */
+    display: inline-block;
+}
+
+.jumping-dots .dot-1 {
+    background-color: #E6E6E6;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation-delay: 200ms;
+}
+
+.jumping-dots .dot-2 {
+    background-color: #E6E6E6;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation-delay: 400ms;
+    margin-left:2px;
+}
+
+.jumping-dots .dot-3 {
+    background-color: #E6E6E6;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation-delay: 600ms;
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0px;
+    }
+
+    20% {
+        bottom: 5px;
+    }
+
+    40% {
+        bottom: 0px;
+    }
+}
+
 /*chat*/
 
 
@@ -38,7 +84,7 @@
 .status {
     width: 10px;
     height: 10px;
-    outline: 2px solid white;
+    outline: 3px solid white;
     border-radius: 100px;
     border-radius: 100px;
     background: #e6ecf3;
@@ -93,7 +139,7 @@ body {
     display: none;
 }
 
-label {
+label.floatting-btn {
     position: absolute;
     right: 30px;
     bottom: 20px;

@@ -1,6 +1,6 @@
 ﻿
 $(() => {
-   LoadNotificationData();
+    LoadNotificationData();
     LoadChatData();
     LoadChatDataToChatBox();
 
@@ -32,13 +32,12 @@ $(() => {
                 $.each(result, (k, v) => {
                     chatBoxContent += `
                     <div class="chat-message user2 d-flex">
-                        <img src="${v.Avatar}" class="avatar" alt="Avatar">
+                        <img src="${v.AvatarChat}" class="avatar" alt="${v.FirstNameChat} ${v.LastNameChat}">
                       <div class="message-bubble" style="overflow: auto; background-color:#E6E6E6; border: 1px solid transparent; border-radius:  0px 13px 13px 13px; ">
-                         <div class="font-weight-bold" style="text-color:#8CB2B2;margin-top:-5px">${v.Username}</div>
+                         <div class="font-weight-bold" style="text-color:#8CB2B2;margin-top:-5px">${v.FirstNameChat} ${v.LastNameChat}</div>
                             ${v.Message}
                             <div style="float:right; margin-top:20px; font-size:10px; font-weight:700;color:gray" class="message-time">${v.NotificationDateTime}</div>
                         </div>
-
                     </div>`;
                 });
 
@@ -67,10 +66,10 @@ $(() => {
                 $.each(result, (k, v) => {
                     listItems += `<div class="chat-message-right pb-4">
                             <div>
-                                <img src="${v.Avatar}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+                                <img src="${v.AvatarChat}" class="rounded-circle mr-1" alt="${v.FirstNameChat} ${v.LastNameChat}" width="40" height="40">
                             </div>
                             <div class="flex-shrink-1 box-messages rounded py-2 px-3 ml-3" style="max-width:90%; background-color:#E6E6E6; border: 1px solid transparent; border-radius: 0px 13px 13px 13px !important;">
-                                <div class="font-weight-bold mb-1" style="text-color:#8CB2B2;">${v.Username}</div>
+                                <div class="font-weight-bold mb-1" style="text-color:#8CB2B2;">${v.FirstNameChat} ${v.LastNameChat}</div>
                                 ${v.Message}
                                 <div class="message-details">
                                     <div class="text-muted small text-nowrap mt-2 date-time" style="float:right">${v.NotificationDateTime}</div>
@@ -175,6 +174,18 @@ $(() => {
     }
     var isTyping = false; // Biến đánh dấu liệu người dùng có đang nhập hay không
 
+    document.querySelector('.btn-chat').addEventListener('click', function () {
+        isTyping = false;
+        connection.invoke("NotifyTyping", false).catch(function (err) {
+            return console.error(err.toString());
+        });
+    });
+    document.querySelector('.btn-chat-mini').addEventListener('click', function () {
+        isTyping = false;
+        connection.invoke("NotifyTyping", false).catch(function (err) {
+            return console.error(err.toString());
+        });
+    });
     // chat box mini
     document.querySelector('.input-current-user').addEventListener('input', function () {
         var messageInput = this.value.trim(); // Lấy giá trị của input và loại bỏ các khoảng trắng ở đầu và cuối
@@ -222,7 +233,6 @@ $(() => {
 
         }
     });
-
  
 
     // Xử lý khi người dùng ngừng nhập
@@ -243,20 +253,26 @@ $(() => {
 
     connection.on("ReceiveTypingNotification", function (userCurrent, isTyping) {
         var userCurrentChatElement = document.querySelector('.user-current-chat');
+        var userCurrentChatMiniElement = document.querySelector('.user-current-chatmini');
         var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
         var dotChatContainer = document.querySelector('.dot-chat-container');
+        var dotChatMiniContainer = document.querySelector('.dot-chatmini-container');
         if (isTyping) {
             console.log(userCurrent.firstName + " is typing...");
             userCurrentChatElement.textContent = userCurrent.firstName + " " + userCurrent.lastName;
+            userCurrentChatMiniElement.textContent = userCurrent.firstName + " " + userCurrent.lastName;
             avatarUserCurrentChat.style.visibility = "visible";
             dotChatContainer.style.visibility = "visible";
+            dotChatMiniContainer.style.visibility = "visible";
             avatarUserCurrentChat.src = userCurrent.avatar;
         } else {
             console.log(userCurrent.firstName + " stopped typing.");
             avatarUserCurrentChat.src = "";
             userCurrentChatElement.textContent = "";
+            userCurrentChatMiniElement.textContent = "";
             avatarUserCurrentChat.style.visibility = "hidden"; 
             dotChatContainer.style.visibility = "hidden"; 
+            dotChatMiniContainer.style.visibility = "hidden"; 
         }
     });
 

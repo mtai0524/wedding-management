@@ -1,5 +1,4 @@
-﻿
-.jumping-dots span {
+﻿.jumping-dots span {
     position: relative;
 
     animation: jump 1s ease-in-out infinite; /* Điều chỉnh thời gian và hàm easing */

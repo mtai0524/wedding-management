@@ -13,8 +13,8 @@ $(() => {
 
     connection.on("ReceiveNotificationRealtime", function (notifications) {
         LoadNotificationData();
-        LoadChatData();
         LoadChatDataToChatBox();
+        LoadChatData();
     });
 
 
@@ -33,10 +33,10 @@ $(() => {
                     chatBoxContent += `
                     <div class="chat-message user2 d-flex">
                         <img src="${v.Avatar}" class="avatar" alt="Avatar">
-                      <div class="message-bubble" style="overflow: auto; background-color:#E6E6E6; border: 1px solid transparent; border-radius:  0px 25px 15px 25px; ">
+                      <div class="message-bubble" style="overflow: auto; background-color:#E6E6E6; border: 1px solid transparent; border-radius:  0px 13px 13px 13px; ">
                          <div class="font-weight-bold" style="text-color:#8CB2B2;margin-top:-5px">${v.Username}</div>
                             ${v.Message}
-                            <div style="float:right; margin-top:20px" class="message-time">${v.NotificationDateTime}</div>
+                            <div style="float:right; margin-top:20px; font-size:10px; font-weight:700;color:gray" class="message-time">${v.NotificationDateTime}</div>
                         </div>
 
                     </div>`;
@@ -56,7 +56,6 @@ $(() => {
     }
 
 
-    // Function to load chat data
     function LoadChatData() {
         $.ajax({
             url: '/Chat/GetMessages',
@@ -70,11 +69,11 @@ $(() => {
                             <div>
                                 <img src="${v.Avatar}" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
                             </div>
-                            <div class="flex-shrink-1 box-messages bg-light rounded py-2 px-3 ml-3" style="max-width:90%">
+                            <div class="flex-shrink-1 box-messages rounded py-2 px-3 ml-3" style="max-width:90%; background-color:#E6E6E6; border: 1px solid transparent; border-radius: 0px 13px 13px 13px !important;">
                                 <div class="font-weight-bold mb-1" style="text-color:#8CB2B2;">${v.Username}</div>
                                 ${v.Message}
-                                <div class="message-details d-flex justify-content-between">
-                                    <div class="text-muted small text-nowrap mt-2 date-time">${v.NotificationDateTime}</div>
+                                <div class="message-details">
+                                    <div class="text-muted small text-nowrap mt-2 date-time" style="float:right">${v.NotificationDateTime}</div>
                                 </div>
                             </div>
                         </div>`;
@@ -91,7 +90,6 @@ $(() => {
             }
         });
     }
-    // Event listener for form submission
     $(document).ready(function () {
         // Bắt sự kiện submit của form
         $(".chatForm").submit(function (e) {
@@ -104,9 +102,8 @@ $(() => {
             $.ajax({
                 url: $(this).attr('action'), // Lấy đường dẫn từ thuộc tính action của form
                 type: $(this).attr('method'), // Lấy phương thức từ thuộc tính method của form
-                data: formData, // Dữ liệu form đã được serialized
+                data: formData,
                 success: function (response) {
-                    // Xử lý kết quả nếu thành công
                     console.log("Message sent successfully!");
                     console.log(response);
 
@@ -117,7 +114,6 @@ $(() => {
                     scrollToBottomWhenSendMessage();
                 },
                 error: function (xhr, status, error) {
-                    // Xử lý lỗi nếu có
                     console.error("AJAX Error:", error);
                 }
             });
@@ -177,15 +173,91 @@ $(() => {
             }
         });
     }
+    var isTyping = false; // Biến đánh dấu liệu người dùng có đang nhập hay không
 
+    // chat box mini
+    document.querySelector('.input-current-user').addEventListener('input', function () {
+        var messageInput = this.value.trim(); // Lấy giá trị của input và loại bỏ các khoảng trắng ở đầu và cuối
+        if (messageInput === '') {
+            isTyping = false;
+            connection.invoke("NotifyTyping", false).catch(function (err) {
+                console.error(err.toString());
+            });
+        } else {
+            if (!isTyping) {
+                isTyping = true;
+                connection.invoke("NotifyTyping", true).catch(function (err) {
+                    console.error(err.toString());
+                });
+            }
+
+        }
+    });
+    document.querySelector('.input-current-user').addEventListener('blur', function () {
+        if (isTyping) {
+            isTyping = false;
+            connection.invoke("NotifyTyping", false).catch(function (err) {
+                return console.error(err.toString());
+            });
+        }
+    });
+
+
+    // chat box main
+
+    document.querySelector('input[name="Message"]').addEventListener('input', function () {
+        var messageInput = this.value.trim(); // Lấy giá trị của input và loại bỏ các khoảng trắng ở đầu và cuối
+        if (messageInput === '') {
+            isTyping = false;
+            connection.invoke("NotifyTyping", false).catch(function (err) {
+                console.error(err.toString());
+            });
+        } else {
+            if (!isTyping) {
+                isTyping = true;
+                connection.invoke("NotifyTyping", true).catch(function (err) {
+                    console.error(err.toString());
+                });
+            }
+
+        }
+    });
+
+ 
+
+    // Xử lý khi người dùng ngừng nhập
+    document.querySelector('input[name="Message"]').addEventListener('blur', function () {
+        if (isTyping) {
+            isTyping = false;
+            connection.invoke("NotifyTyping", false).catch(function (err) {
+                return console.error(err.toString());
+            });
+        }
+    });
 
     connection.on("OnConnected", function () {
         OnConnected();
-        UpdateUsersList();
-        UpdateUsersOnlineList();
-        UpdateUsersOfflineList();
         LoadChatData();
         LoadChatDataToChatBox();
+    });
+
+    connection.on("ReceiveTypingNotification", function (userCurrent, isTyping) {
+        var userCurrentChatElement = document.querySelector('.user-current-chat');
+        var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
+        var dotChatContainer = document.querySelector('.dot-chat-container');
+        if (isTyping) {
+            console.log(userCurrent.firstName + " is typing...");
+            userCurrentChatElement.textContent = userCurrent.firstName + " " + userCurrent.lastName;
+            avatarUserCurrentChat.style.visibility = "visible";
+            dotChatContainer.style.visibility = "visible";
+            avatarUserCurrentChat.src = userCurrent.avatar;
+        } else {
+            console.log(userCurrent.firstName + " stopped typing.");
+            avatarUserCurrentChat.src = "";
+            userCurrentChatElement.textContent = "";
+            avatarUserCurrentChat.style.visibility = "hidden"; 
+            dotChatContainer.style.visibility = "hidden"; 
+        }
     });
 
 
@@ -213,7 +285,15 @@ $(() => {
             avatarImg.title = item.email;
 
             avatarImg.appendChild(spanStatus);
+            // Tạo div chứa email popup
+            var emailPopup = document.createElement("div");
+            emailPopup.classList.add("email-popup");
+            emailPopup.textContent = item.email;
+            emailPopup.style.display = "none"; // Ẩn popup ban đầu
 
+            avatarImg.addEventListener("click", function () {
+                emailPopup.style.display = emailPopup.style.display === "none" ? "block" : "none";
+            });
             var flexGrowContainer = document.createElement("div");
             flexGrowContainer.classList.add("flex-grow-1", "ml-3");
 
@@ -234,6 +314,7 @@ $(() => {
             flexGrowContainer.appendChild(textStatusDiv);
             flexGrowContainer.appendChild(spanStatus);
 
+            dFlexContainer.appendChild(emailPopup);
             dFlexContainer.appendChild(avatarImg);
             dFlexContainer.appendChild(flexGrowContainer);
 
@@ -267,6 +348,15 @@ $(() => {
             avatarImg.height = "40";
             avatarImg.title = item.email;
             avatarImg.appendChild(spanStatus);
+            var emailPopup = document.createElement("div");
+            emailPopup.classList.add("email-popup");
+            emailPopup.textContent = item.email;
+            emailPopup.style.display = "none";
+            avatarImg.addEventListener("click", function () {
+                emailPopup.style.display = emailPopup.style.display === "none" ? "block" : "none";
+            });
+            dFlexContainer.appendChild(emailPopup);
+
 
             var flexGrowContainer = document.createElement("div");
             flexGrowContainer.classList.add("flex-grow-1", "ml-3");

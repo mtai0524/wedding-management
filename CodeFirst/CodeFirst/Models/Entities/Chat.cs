@@ -8,8 +8,11 @@ namespace CodeFirst.Models.Entities
     public partial class Chat
     {
         [Key]
-        public int Id { get; set; }
-        public string Username { get; set; } = null!;
+        public int ChatId { get; set; }
+        public string? UserId { get; set; } // nhớ get set dùm, tên côt collumn Chat
+        [ForeignKey("UserId")] // tên sẽ lưu trong db
+        public virtual ApplicationUser? Id { get; set; } // tên cột trong bảng ApplicationUser
+
         public string Message { get; set; } = null!;
         public string MessageType { get; set; } = null!;
         public DateTime NotificationDateTime { get; set; }

@@ -28,19 +28,19 @@ namespace CodeFirst.Controllers
         {
             try
             {
-                var notifications = await dbContext.Chats
-                    
-                    .ToListAsync();
-
-                // Định dạng ngày tháng năm và chọn các thuộc tính khác của Notification (nếu có)
-                var formattedNotifications = notifications.Select(n => new
+                var listChatData = await dbContext.Chats.ToListAsync();
+                var formattedNotifications = listChatData.Select(n => new
                 {
                     n.Id,
-                    n.Username,
+                    n.UserId,
                     n.Message,
                     n.MessageType,
                     NotificationDateTime = n.NotificationDateTime.ToString("HH:mm dd/MM/yyyy"),
-                    n.Avatar,
+                    User = dbContext.Users.FirstOrDefault(u => u.Id == n.UserId),
+                    Email = dbContext.Users.FirstOrDefault(u => u.Id == n.UserId)?.Email,
+                    AvatarChat = dbContext.ApplicationUser.FirstOrDefault(u => u.Id == n.UserId)?.Avatar,
+                    FirstNameChat = dbContext.ApplicationUser.FirstOrDefault(u => u.Id == n.UserId)?.FirstName,
+                    LastNameChat = dbContext.ApplicationUser.FirstOrDefault(u => u.Id == n.UserId)?.LastName,
                 });
 
 
@@ -59,7 +59,7 @@ namespace CodeFirst.Controllers
             {
                 var notification = new Chat
                 {
-                    Username = $"{user.FirstName} {user.LastName}",
+                    UserId = user.Id,
                     Message = model.Message,
                     MessageType = "All",
                     NotificationDateTime = DateTime.Now,

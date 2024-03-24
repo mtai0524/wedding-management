@@ -36,11 +36,11 @@
             position: absolute;
             background-color: white;
             border: 1px solid black;
-            border-radius: 0px  10px 5px 5px;
+            border-radius: 0px 10px 5px 5px;
             padding: 5px;
             z-index: 100000;
-            left:50px;
-            top:15px;
+            left: 50px;
+            top: 15px;
         }
 
         .loading-spinner {
@@ -107,13 +107,13 @@
         .main .sidebar {
             display: none;
         }
-    
+
 
         #btn-show-navbar {
             position: fixed;
             top: 42px;
             right: 10px;
-            z-index: 1000; 
+            z-index: 1000;
         }
 
         .swal2-popup {
@@ -131,9 +131,8 @@
         }
 
         .message-bubble {
-            word-wrap: break-word; /* Tự động ngắt dòng khi cần thiết */
+            word-wrap: break-word;
         }
-      
     </style>
 </head>
 
@@ -145,44 +144,42 @@
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
                         <div class="head-text">
-                   
+
                         </div>
                     </h1>
                     <button type="button" data-bs-dismiss="modal" aria-label="Close">
                         <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                     </button>
-
                 </div>
                 <div class="modal-body" style="overflow:hidden !important">
-                        <div class="container p-0">
-                            <div class="card chat-container">
-                                <div class="row g-0">
-                                    <div class="col-12 col-lg-5 col-xl-3 list-group-container" style="border-right:1px solid #EEEEEE">
-
-                                        <div style="border-right: 1px solid #EEEEEE;" class="px-4 d-none d-md-block">
-                                            <div class="d-flex align-items-center">
-                                                <div class="flex-grow-1">
-                                                    <input type="text" class="form-control my-3 search-list-user-chat" placeholder="Tìm ai dị...">
-                                                </div>
+                    <div class="container p-0">
+                        <div class="card chat-container">
+                            <div class="row g-0">
+                                <div class="col-12 col-lg-5 col-xl-3 list-group-container" style="border-right:1px solid #EEEEEE">
+                                    <div style="border-right: 1px solid #EEEEEE;" class="px-4 d-none d-md-block">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <input type="text" class="form-control my-3 search-list-user-chat" placeholder="Tìm ai dị...">
                                             </div>
                                         </div>
-                                        <div class="list-user-status">
-                                            <div class="list-group-online">
-                                            </div>
-                                            <div class="list-group-offline">
-                                            </div>
-                                        </div>
-
-                                        <hr class="d-block d-lg-none mt-1 mb-0">
                                     </div>
-                                    <div class="col-12 col-lg-7 col-xl-9">
+                                    <div class="list-user-status">
+                                        <div class="list-group-online">
+                                        </div>
+                                        <div class="list-group-offline">
+                                        </div>
+                                    </div>
+
+                                    <hr class="d-block d-lg-none mt-1 mb-0">
+                                </div>
+                                <div class="col-12 col-lg-7 col-xl-9">
                                     <div class="py-2 px-4 border-bottom d-none d-lg-block" style="background-color:#3F3F41;">
-                                            <div class="d-flex align-items-center py-1">
-                                                <div class="position-relative ">
+                                        <div class="d-flex align-items-center py-1">
+                                            <div class="position-relative ">
                                                 <img class="rounded-circle mr-1 avatar-user-current-chat" style="outline:3px solid #F2F2F3;visibility:hidden" width="40" height="40">
-                                                </div>
-                                                <div class="flex-grow-1 pl-3">
-                                                    <strong class="user-current-chat" style="color: #ffffff;"></strong>
+                                            </div>
+                                            <div class="flex-grow-1 pl-3">
+                                                <strong class="user-current-chat" style="color: #ffffff;"></strong>
                                                 <div class="my message dot-chat-container" style="visibility:hidden">
                                                     <span class="jumping-dots">
                                                         <span class="dot-1"></span>
@@ -190,39 +187,38 @@
                                                         <span class="dot-3"></span>
                                                     </span>
                                                 </div>
-                                                </div>
-                                                <div class="more-options fa-lg">
-                                                    <button style="margin-right:5px" class="btn-phone" title="Start a voice call">
-                                                        <i class="fa-solid fa-phone" style="color: #ffffff;"></i>
-                                                    </button>
-                                                    <button style="margin-right:5px" class="btn-video ml-3" title="Start a video call">
-                                                        <i class="fa-solid fa-video" style="color: #ffffff;"></i>
-                                                    </button>
-                                                    <button style="margin-right:5px" class="btn-information ml-3">
-                                                        <i class="fa-solid fa-info" style="color: #ffffff;"></i>
-                                                    </button>
-                                                </div>
+                                            </div>
+                                            <div class="more-options fa-lg">
+                                                <button style="margin-right:5px" class="btn-phone" title="Start a voice call">
+                                                    <i class="fa-solid fa-phone" style="color: #ffffff;"></i>
+                                                </button>
+                                                <button style="margin-right:5px" class="btn-video ml-3" title="Start a video call">
+                                                    <i class="fa-solid fa-video" style="color: #ffffff;"></i>
+                                                </button>
+                                                <button style="margin-right:5px" class="btn-information ml-3">
+                                                    <i class="fa-solid fa-info" style="color: #ffffff;"></i>
+                                                </button>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div class="position-relative">
-                                            <div class="chat-messages-list p-4">
-
-                                            </div>
+                                    <div class="position-relative">
+                                        <div class="chat-messages-list p-4">
                                         </div>
+                                    </div>
                                     <div class="flex-grow-0  border-top" style="margin-top:20px">
                                         <form class="chatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
                                             <div class="input-group" style="margin-top:20px">
                                                 <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
-                                                <button style="background-color:#3F3F41;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn"><i style="color:#F2F2F3;font-size:20px;padding-right:40px;padding-left:40px" class="fa-solid fa-paper-plane"></i></button>
+                                                <button style="background-color:#3F3F41;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-chat"><i style="color:#F2F2F3;font-size:20px;padding-right:40px;padding-left:40px" class="fa-solid fa-paper-plane"></i></button>
                                             </div>
                                         </form>
-                                    
-                                    </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </main>
                 </div>
             </div>
@@ -237,7 +233,7 @@
     </label>
     <div class="wrapper">
         <div style="background-color:#3F3F41" class="head-text d-flex justify-content-center">
-            <div >
+            <div>
                 Chát chit xuyên lục địa
             </div>
             <div>
@@ -246,35 +242,47 @@
 
         </div>
         <div class="chat-box">
-           
         </div>
+
+        <div class="d-flex" style=" margin-left:30px; height:5px">
+            <strong class="user-current-chatmini" style="color: #3F3F41;margin-right:10px"></strong>
+            <div class="my message dot-chatmini-container" style="visibility:hidden;">
+                <span class="jumping-dots">
+                    <span class="dot-1" style="background-color:#3F3F41 !important"></span>
+                    <span class="dot-2" style="background-color:#3F3F41 !important"></span>
+                    <span class="dot-3" style="background-color:#3F3F41 !important"></span>
+                </span>
+            </div>
+        </div>
+
+        
         <form class="chatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
             <div class="input-group" style="margin-top:20px">
                 <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control input-current-user" placeholder="Type your message">
-                <button style="margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
+                <button style="margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success btn-chat-mini"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
             </div>
         </form>
     </div>
-    
+
     <div id="mytask-layout" class="theme-indigo">
         <div class="loading-spinner" id="loading-spinner">
             <img src="~/admin_assets/images/cf.gif" class="spinner-image" alt="Loading..." />
         </div>
 
         @* <div class="form-check theme-switch float-button">
-            <input class="form-check-input" type="checkbox" id="theme-switch">
-            <label class="form-check-label" for="theme-switch">
-                <i class="fa-solid fa-moon"></i>
-                <i class="fa-solid fa-sun"></i>
-            </label>
+        <input class="form-check-input" type="checkbox" id="theme-switch">
+        <label class="form-check-label" for="theme-switch">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+        </label>
         </div> *@
         @(await Html.RenderComponentAsync<MainLayout>(RenderMode.Server))
-              @* @await Html.PartialAsync("_SideBarPartialView.cshtml") *@
+        @* @await Html.PartialAsync("_SideBarPartialView.cshtml") *@
         <!-- main body area -->
         <div class="main px-lg-4 px-md-4">
             <div class="container-fluid">
                 <div class="row">
-                  
+
                     <!-- Body: Header -->
                     <div class="header">
                         <nav class="navbar py-4">
@@ -289,7 +297,7 @@
                                         <a class="nav-link dropdown-toggle pulse" href="#" role="button" data-bs-toggle="dropdown" onclick="hideNotificationCount()">
                                             <span class="icon-container">
                                                 <i class="icofont-alarm fs-5"></i>
-                                             
+
 
                                                 <span class="notification-count badge-count"></span>
                                             </span>
@@ -408,7 +416,7 @@
                                     <div class="form">
                                         <i class="fa fa-search"></i>
                                         <input type="text" class="form-control form-input" placeholder="Tìm kiếm...">
-                                           
+
                                         </li>
                                     </div>
 
