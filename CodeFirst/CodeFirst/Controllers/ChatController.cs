@@ -29,6 +29,16 @@ namespace CodeFirst.Controllers
             try
             {
                 var listChatData = await dbContext.Chats.ToListAsync();
+                var currentUser = await _userManager.GetUserAsync(User);
+                string emailUserCurr = "";
+                if (currentUser.Email != null)
+                {
+                    emailUserCurr = currentUser.Email;
+                }
+                else
+                {
+                    emailUserCurr = "Email is not available";
+                }
                 var formattedNotifications = listChatData.Select(n => new
                 {
                     n.Id,
@@ -41,7 +51,8 @@ namespace CodeFirst.Controllers
                     AvatarChat = dbContext.ApplicationUser.FirstOrDefault(u => u.Id == n.UserId)?.Avatar,
                     FirstNameChat = dbContext.ApplicationUser.FirstOrDefault(u => u.Id == n.UserId)?.FirstName,
                     LastNameChat = dbContext.ApplicationUser.FirstOrDefault(u => u.Id == n.UserId)?.LastName,
-                });
+                    UserNameCurrent = emailUserCurr,
+            });
 
 
                 return Ok(formattedNotifications);

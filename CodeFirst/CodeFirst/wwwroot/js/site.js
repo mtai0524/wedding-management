@@ -27,21 +27,50 @@ $(() => {
             method: 'GET',
             success: (result) => {
                 console.log(result);
-                var chatBoxContent = '';
+
+                $(".chat-box").empty(); // Xóa nội dung hiện tại của chat box trước khi thêm mới
 
                 $.each(result, (k, v) => {
-                    chatBoxContent += `
-                    <div class="chat-message user2 d-flex">
-                        <img src="${v.AvatarChat}" class="avatar" alt="${v.FirstNameChat} ${v.LastNameChat}">
-                      <div class="message-bubble" style="overflow: auto; background-color:#E6E6E6; border: 1px solid transparent; border-radius:  0px 13px 13px 13px; ">
-                         <div class="font-weight-bold" style="text-color:#8CB2B2;margin-top:-5px">${v.FirstNameChat} ${v.LastNameChat}</div>
-                            ${v.Message}
-                            <div style="float:right; margin-top:20px; font-size:10px; font-weight:700;color:gray" class="message-time">${v.NotificationDateTime}</div>
-                        </div>
-                    </div>`;
-                });
+                    // Tạo các phần tử DOM
+                    var chatMessage = $('<div>').addClass('chat-message user2 d-flex');
+                    var img = $('<img>').addClass('avatar').attr('src', v.AvatarChat).attr('alt', `${v.FirstNameChat} ${v.LastNameChat}`);
 
-                $(".chat-box").html(chatBoxContent);
+                    var messageBubble = "";
+                    if (v.Email == v.UserNameCurrent) {
+                        var messageBubble = $('<div>').addClass('message-bubble').css({
+                            'overflow': 'auto',
+                            'background-color': '#E6E6E6',
+                            'border': '1px solid red',
+                            'border-radius': '0px 13px 13px 13px'
+                        });
+                    }
+                    else {
+                        var messageBubble = $('<div>').addClass('message-bubble').css({
+                            'overflow': 'auto',
+                            'background-color': '#E6E6E6',
+                            'border': '1px solid transparent',
+                            'border-radius': '0px 13px 13px 13px'
+                        });
+                    }
+                    var fontBold = $('<div>').addClass('font-weight-bold').css('text-color', '#8CB2B2').text(`${v.FirstNameChat} ${v.LastNameChat}`);
+                    var messageContent = $('<div>').text(v.Message);
+                    var messageTime = $('<div>').addClass('message-time').css({
+                        'float': 'right',
+                        'margin-top': '10px',
+                        'font-size': '10px',
+                        'font-weight': '700',
+                        'color': 'gray'
+                    }).text(v.NotificationDateTime);
+
+                    // Thêm các phần tử con vào messageBubble
+                    messageBubble.append(fontBold, messageContent, messageTime);
+
+                    // Thêm các phần tử vào chatMessage
+                    chatMessage.append(img, messageBubble);
+
+                    // Thêm chatMessage vào chat box
+                    $(".chat-box").append(chatMessage);
+                });
 
                 if (isFirstLoadToChatBox) {
                     scrollToBottomWhenSendMessage();
@@ -55,29 +84,104 @@ $(() => {
     }
 
 
+
     function LoadChatData() {
         $.ajax({
             url: '/Chat/GetMessages',
             method: 'GET',
             success: (result) => {
                 console.log(result);
-                var listItems = '';
+                var chatMessagesList = $(".chat-messages-list");
+                chatMessagesList.empty(); // Xóa nội dung hiện tại của chat-messages-list
 
                 $.each(result, (k, v) => {
-                    listItems += `<div class="chat-message-right pb-4">
-                            <div>
-                                <img src="${v.AvatarChat}" class="rounded-circle mr-1" alt="${v.FirstNameChat} ${v.LastNameChat}" width="40" height="40">
-                            </div>
-                            <div class="flex-shrink-1 box-messages rounded py-2 px-3 ml-3" style="max-width:90%; background-color:#E6E6E6; border: 1px solid transparent; border-radius: 0px 13px 13px 13px !important;">
-                                <div class="font-weight-bold mb-1" style="text-color:#8CB2B2;">${v.FirstNameChat} ${v.LastNameChat}</div>
-                                ${v.Message}
-                                <div class="message-details">
-                                    <div class="text-muted small text-nowrap mt-2 date-time" style="float:right">${v.NotificationDateTime}</div>
-                                </div>
-                            </div>
-                        </div>`;
+                    var boxMessagesDiv = "";
+                    var chatMessageRightDiv = "";
+                    var avatarImg = "";
+                    var imgDiv = "";
+                    var fontBoldDiv = "";
+                    var messageDiv = "";
+                    var dateTimeDiv = "";
+                    var messageDetailsDiv = "";
+
+                    if (v.Email == v.UserNameCurrent) {
+                        var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4").css({
+                            "display": "block"
+                        });
+
+                        var imgDiv = $("<div>").css({
+                            "float": "right", // Chuyển sang bên phải
+                            "margin-left": "20px" // Giá trị margin có thể thay đổi tùy theo mong muốn
+                        });
+
+                        var avatarImg = $("<img>").attr({
+                            src: v.AvatarChat,
+                            class: "rounded-circle mr-1",
+                            alt: v.FirstNameChat + " " + v.LastNameChat,
+                            width: "40",
+                            height: "40",
+                        }).css("float", "right"); // Chuyển hình ảnh sang bên phải
+
+                        imgDiv.append(avatarImg);
+                        chatMessageRightDiv.append(imgDiv);
+
+                        var boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
+                            "max-width": "90%",
+                            "background-color": "#E6E6E6",
+                            "border": "1px solid red",
+                            "border-radius": "0px 13px 13px 13px",
+                            "float": "right" // Chuyển sang bên phải
+                        });
+                        var fontBoldDiv = $("<div>").addClass("font-weight-bold mb-1").css({
+                            "color": "black",
+                            "float": "right" // Chuyển sang bên phải
+                        }).text(v.FirstNameChat + " " + v.LastNameChat);
+
+                        var messageDiv = $("<div>").text(v.Message).css({
+                            "float": "right", // Chuyển sang bên phải
+                            "clear": "both"   // Đảm bảo nó nằm bên dưới fontBoldDiv
+                        });
+
+                        // Tạo messageDetailsDiv và áp dụng clear: both
+                        var messageDetailsDiv = $("<div>").addClass("message-details").css("clear", "both");
+
+                        // Tạo dateTimeDiv và áp dụng float: right
+                        var dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "left").text(v.NotificationDateTime);
+
+
+                    }
+                    else {
+                        var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4");
+                        imgDiv = $("<div>");
+                        avatarImg = $("<img>").attr({
+                            src: v.AvatarChat,
+                            class: "rounded-circle mr-1",
+                            alt: v.FirstNameChat + " " + v.LastNameChat,
+                            width: "40",
+                            height: "40"
+                        });
+                        imgDiv.append(avatarImg);
+                        chatMessageRightDiv.append(imgDiv);
+
+                        boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
+                            "max-width": "90%",
+                            "background-color": "#E6E6E6",
+                            "border": "1px solid transparent",
+                            "border-radius": "0px 13px 13px 13px"
+                        });
+                        fontBoldDiv = $("<div>").addClass("font-weight-bold mb-1").css("color", "black").text(v.FirstNameChat + " " + v.LastNameChat);
+                        messageDiv = $("<div>").text(v.Message);
+                        messageDetailsDiv = $("<div>").addClass("message-details");
+                        dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "right").text(v.NotificationDateTime);
+                    }
+                      
+                        
+                        messageDetailsDiv.append(dateTimeDiv);
+                        boxMessagesDiv.append(fontBoldDiv, messageDiv, messageDetailsDiv);
+                        chatMessageRightDiv.append(boxMessagesDiv);
+
+                        chatMessagesList.append(chatMessageRightDiv);
                 });
-                $(".chat-messages-list").html(listItems);
 
                 if (isFirstLoad) {
                     scrollToBottom();
@@ -89,6 +193,7 @@ $(() => {
             }
         });
     }
+
     $(document).ready(function () {
         // Bắt sự kiện submit của form
         $(".chatForm").submit(function (e) {
