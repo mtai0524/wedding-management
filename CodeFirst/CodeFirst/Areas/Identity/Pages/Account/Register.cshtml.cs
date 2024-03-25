@@ -171,7 +171,7 @@ namespace CodeFirst.Areas.Identity.Pages.Account
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 
-                string imageUrl = await _cloudinary.UploadImageByString(Input.ImageUrl);
+                string imageUrl = Input.ImageUrl;
                 if (!string.IsNullOrEmpty(imageUrl))
                 {
                     user.Avatar = imageUrl;
