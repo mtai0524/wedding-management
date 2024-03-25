@@ -40,7 +40,7 @@ $(() => {
                         var messageBubble = $('<div>').addClass('message-bubble').css({
                             'overflow': 'auto',
                             'background-color': '#E6E6E6',
-                            'border': '1px solid red',
+                            'border': '3px solid #3F3F41',
                             'border-radius': '0px 13px 13px 13px'
                         });
                     }
@@ -56,7 +56,7 @@ $(() => {
                     var messageContent = $('<div>').text(v.Message);
                     var messageTime = $('<div>').addClass('message-time').css({
                         'float': 'right',
-                        'margin-top': '10px',
+                        'margin-top': '5px',
                         'font-size': '10px',
                         'font-weight': '700',
                         'color': 'gray'
@@ -128,7 +128,7 @@ $(() => {
                         var boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
                             "max-width": "90%",
                             "background-color": "#E6E6E6",
-                            "border": "1px solid red",
+                            "border": "3px solid #3F3F41",
                             "border-radius": "0px 13px 13px 13px",
                             "float": "right" // Chuyển sang bên phải
                         });
@@ -137,18 +137,20 @@ $(() => {
                             "float": "right" // Chuyển sang bên phải
                         }).text(v.FirstNameChat + " " + v.LastNameChat);
 
-                        var messageDiv = $("<div>").text(v.Message).css({
-                            "float": "right", // Chuyển sang bên phải
-                            "clear": "both"   // Đảm bảo nó nằm bên dưới fontBoldDiv
-                        });
+                        var messageDiv = $("<div>")
+                            .text(v.Message)
+                            .css({
+                                "float": "left", // Chuyển sang bên phải
+                                "clear": "both", 
+                                "word-wrap": "break-word", // Xuống dòng 
+                                "word-break": "break-all" 
+                            });
 
                         // Tạo messageDetailsDiv và áp dụng clear: both
                         var messageDetailsDiv = $("<div>").addClass("message-details").css("clear", "both");
 
                         // Tạo dateTimeDiv và áp dụng float: right
                         var dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "left").text(v.NotificationDateTime);
-
-
                     }
                     else {
                         var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4");

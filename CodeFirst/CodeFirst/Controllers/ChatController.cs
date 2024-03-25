@@ -30,29 +30,25 @@ namespace CodeFirst.Controllers
             {
                 var listChatData = await dbContext.Chats.ToListAsync();
                 var currentUser = await _userManager.GetUserAsync(User);
-                string emailUserCurr = "";
-                if (currentUser.Email != null)
+                string emailUserCurr = User.Identity.Name ?? "DefaultEmail@example.com";
+                var chatDataWithUsers = dbContext.Chats
+             .Include(c => c.Id) 
+             .ToList();
+
+                var formattedNotifications = chatDataWithUsers.Select(n => new
                 {
-                    emailUserCurr = currentUser.Email;
-                }
-                else
-                {
-                    emailUserCurr = "Email is not available";
-                }
-                var formattedNotifications = listChatData.Select(n => new
-                {
-                    n.Id,
+                    n.ChatId,
                     n.UserId,
                     n.Message,
                     n.MessageType,
                     NotificationDateTime = n.NotificationDateTime.ToString("HH:mm dd/MM/yyyy"),
-                    User = dbContext.Users.FirstOrDefault(u => u.Id == n.UserId),
-                    Email = dbContext.Users.FirstOrDefault(u => u.Id == n.UserId)?.Email,
-                    AvatarChat = dbContext.ApplicationUser.FirstOrDefault(u => u.Id == n.UserId)?.Avatar,
-                    FirstNameChat = dbContext.ApplicationUser.FirstOrDefault(u => u.Id == n.UserId)?.FirstName,
-                    LastNameChat = dbContext.ApplicationUser.FirstOrDefault(u => u.Id == n.UserId)?.LastName,
-                    UserNameCurrent = emailUserCurr,
-            });
+                    User = n.Id, // Truy cập thông tin người dùng liên quan
+                    Email = n.Id.Email,
+                    AvatarChat = n.Id.Avatar,
+                    FirstNameChat = n.Id.FirstName,
+                    LastNameChat = n.Id.LastName,
+                    UserNameCurrent = emailUserCurr, // Giả định rằng bạn đã có biến emailUserCurr
+                });
 
 
                 return Ok(formattedNotifications);
@@ -80,11 +76,9 @@ namespace CodeFirst.Controllers
                 await dbContext.SaveChangesAsync();
                 await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", notification);
 
-                // Trả về một JsonResult để xử lý bên phía client
                 return Json(new { success = true, notification });
             }
 
-            // Trả về lỗi nếu ModelState không hợp lệ
             return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors) });
         }
 
