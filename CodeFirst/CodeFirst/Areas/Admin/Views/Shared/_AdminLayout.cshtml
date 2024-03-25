@@ -144,9 +144,9 @@
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
                         <div class="head-text">
-
                         </div>
                     </h1>
+                    <button style="background-color: transparent;outline: none;border:none;position: absolute;top:20px;left:1rem" data-bs-toggle="modal" data-bs-target="#createChatRoomModal"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
                     <button type="button" data-bs-dismiss="modal" aria-label="Close">
                         <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                     </button>
@@ -225,6 +225,43 @@
         </div>
     </div>
 
+
+
+    <div class="modal fade" id="createChatRoomModal" tabindex="-1" role="dialog" aria-labelledby="createChatRoomModal" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="createChatRoomModalLabel">
+                        <div class="head-text">
+                            Create Room
+                        </div>
+                    </h1>
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="overflow:hidden !important">
+                    <div class="container p-0">
+                        <div class="card chat-container">
+                            <!-- Các phần khác của modal -->
+                            <div class="modal-footer">
+                                <form id="createChatRoomFormMinhTai">
+                                    <input type="text" id="chatRoomName" placeholder="Enter chat room name" required>
+                                    <button type="submit" class="btn btn-success">Create Chat Room</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <input type="checkbox" id="click">
     <label class="floatting-btn" for="click" style="z-index:999999;background-color:#484C7F">
         <i class="fa-regular fa-comment-dots" style="z-index:999999;color:white"></i>
@@ -254,7 +291,7 @@
             </div>
         </div>
 
-        
+
         <form class="chatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
             <div class="input-group" style="margin-top:20px">
                 <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control input-current-user" placeholder="Type your message">
@@ -424,6 +461,7 @@
                         </nav>
                     </div>
                 </div>
+
                 @RenderBody()
 
 
@@ -435,8 +473,30 @@
         <base href="~/" />
         <script src="_framework/blazor.server.js"></script>
         <script src="_content/Microsoft.AspNetCore.Components.Web.Extensions/script.js"></script>
+        @* jquery vào để dùng chức năng submit mà k load trang*@
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <script type="text/javascript">
+            $(document).ready(function () {
+                $('#createChatRoomFormMinhTai').on('submit', function (event) {
+                    event.preventDefault(); // Ngăn chặn việc tải lại trang
+                    var chatRoomName = $('#chatRoomName').val();
+                    $.ajax({
+                        url: '/ChatRoom/CreateRoom',
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify({ Name: chatRoomName }),
+                        success: function (data) {
+                            console.log('Success:', data);
+                        },
+                        error: function (error) {
+                            console.error('Error:', error);
+                        }
+                    });
+                });
+            });
+
+
             document.querySelector('.search-list-user-chat').addEventListener('input', function () {
                 var searchValue = this.value.toLowerCase();
 
@@ -450,7 +510,6 @@
                     }
                 });
             });
-
 
             $(document).ready(function () {
                 // Bắt sự kiện submit của form

@@ -34,6 +34,8 @@ namespace CodeFirst.Data
         public DbSet<HubConnection> HubConnections { get; set; } = null!;
         public DbSet<Models.Notifications.Notification> Notifications { get; set; } = null!;
         public DbSet<CodeFirst.Models.Entities.Chat> Chats { get; set; } = null!;
+        public DbSet<CodeFirst.Models.Entities.ChatRoom> ChatRooms { get; set; } = null!;
+        public DbSet<CodeFirst.Models.Entities.ChatRoomUser> ChatRoomUsers { get; set; } = null!;
 
     }
 }
