@@ -56,7 +56,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employee");
+                    b.ToTable("Employee", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Branch", b =>
@@ -88,7 +88,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("BranchId");
 
-                    b.ToTable("Branch");
+                    b.ToTable("Branch", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Chat", b =>
@@ -102,6 +102,10 @@ namespace CodeFirst.Migrations
                     b.Property<string>("Avatar")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ChatRoomDataId")
+                        .IsRequired()
+                        .HasColumnType("int");
 
                     b.Property<string>("Message")
                         .IsRequired()
@@ -119,9 +123,11 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("ChatId");
 
+                    b.HasIndex("ChatRoomDataId");
+
                     b.HasIndex("UserId");
 
-                    b.ToTable("Chat");
+                    b.ToTable("Chat", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ChatRoom", b =>
@@ -139,7 +145,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ChatRoom");
+                    b.ToTable("ChatRoom", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ChatRoomUser", b =>
@@ -163,7 +169,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ChatRoomUser");
+                    b.ToTable("ChatRoomUser", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Code", b =>
@@ -188,7 +194,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("CodeId");
 
-                    b.ToTable("Code");
+                    b.ToTable("Code", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ComboMenuEntity", b =>
@@ -208,7 +214,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("ComboMenuId");
 
-                    b.ToTable("ComboMenuEntity");
+                    b.ToTable("ComboMenuEntity", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Feedback", b =>
@@ -240,7 +246,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Feedback");
+                    b.ToTable("Feedback", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Hall", b =>
@@ -274,7 +280,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("BranchId");
 
-                    b.ToTable("Hall");
+                    b.ToTable("Hall", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Invoice", b =>
@@ -323,7 +329,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Invoice");
+                    b.ToTable("Invoice", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.InvoiceCode", b =>
@@ -346,7 +352,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("InvoiceId");
 
-                    b.ToTable("InvoiceCode");
+                    b.ToTable("InvoiceCode", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuCategory", b =>
@@ -365,7 +371,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("MenuCategory");
+                    b.ToTable("MenuCategory", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuEntity", b =>
@@ -397,7 +403,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("MenuEntity");
+                    b.ToTable("MenuEntity", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuItemComboMenu", b =>
@@ -420,7 +426,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("MenuId");
 
-                    b.ToTable("MenuItemComboMenu");
+                    b.ToTable("MenuItemComboMenu", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.OrderMenu", b =>
@@ -443,7 +449,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("MenuId");
 
-                    b.ToTable("OrderMenu");
+                    b.ToTable("OrderMenu", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.OrderService", b =>
@@ -466,7 +472,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("ServiceId");
 
-                    b.ToTable("OrderService");
+                    b.ToTable("OrderService", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ServiceCategory", b =>
@@ -485,7 +491,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("ServiceCategory");
+                    b.ToTable("ServiceCategory", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ServiceEntity", b =>
@@ -515,7 +521,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("ServiceEntity");
+                    b.ToTable("ServiceEntity", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Notifications.HubConnection", b =>
@@ -536,7 +542,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HubConnection");
+                    b.ToTable("HubConnection", (string)null);
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Notifications.Notification", b =>
@@ -568,7 +574,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Notification");
+                    b.ToTable("Notification", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -801,9 +807,17 @@ namespace CodeFirst.Migrations
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Chat", b =>
                 {
+                    b.HasOne("CodeFirst.Models.Entities.ChatRoom", "ChatRoomData")
+                        .WithMany()
+                        .HasForeignKey("ChatRoomDataId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("CodeFirst.Models.ApplicationUser", "Id")
                         .WithMany()
                         .HasForeignKey("UserId");
+
+                    b.Navigation("ChatRoomData");
 
                     b.Navigation("Id");
                 });

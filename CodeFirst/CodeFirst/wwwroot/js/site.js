@@ -1,7 +1,7 @@
 ﻿
 $(() => {
     LoadNotificationData();
-    LoadChatData();
+    LoadChatData(chatRoomId);
     LoadChatDataToChatBox();
 
     var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
@@ -14,8 +14,45 @@ $(() => {
     connection.on("ReceiveNotificationRealtime", function (notifications) {
         LoadNotificationData();
         LoadChatDataToChatBox();
-        LoadChatData();
+        LoadChatData(chatRoomId);
     });
+
+
+
+
+    var chatRoomId = "";
+    $(document).ready(function () {
+        $.ajax({
+            type: 'GET',
+            url: '/ChatRoom/GetChatRooms',
+            success: function (data) {
+                var chatRoomList = $('<div>').addClass('chat-room-list');
+                data.forEach(function (chatRoom) {
+                    var chatRoomItem = $('<div>').addClass('chat-room-item').attr('data-id', chatRoom.Id);
+                    var chatRoomName = $('<span>').addClass('chat-room-name').text("# " + chatRoom.Name);
+                    chatRoomItem.append(chatRoomName);
+                    chatRoomList.append(chatRoomItem);
+                });
+                $('.list-room-chat').empty().append(chatRoomList);
+
+                // Thêm sự kiện click vào mỗi thành phần div
+                $('.chat-room-item').on('click', function () {
+                    chatRoomId = $(this).data('id'); // Lấy chatRoomId từ thuộc tính data-id
+                    console.log(chatRoomId);
+                    LoadChatData(chatRoomId);
+                    $('#chatRoomId').val(chatRoomId);
+                });
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+
+
+
+
+
 
 
     var isFirstLoad = true;
@@ -85,105 +122,109 @@ $(() => {
 
 
 
-    function LoadChatData() {
+    function LoadChatData(chatRoomId) {
         $.ajax({
             url: '/Chat/GetMessages',
             method: 'GET',
+            data: { chatRoomId: chatRoomId },
             success: (result) => {
                 console.log(result);
                 var chatMessagesList = $(".chat-messages-list");
                 chatMessagesList.empty(); // Xóa nội dung hiện tại của chat-messages-list
-
                 $.each(result, (k, v) => {
-                    var boxMessagesDiv = "";
-                    var chatMessageRightDiv = "";
-                    var avatarImg = "";
-                    var imgDiv = "";
-                    var fontBoldDiv = "";
-                    var messageDiv = "";
-                    var dateTimeDiv = "";
-                    var messageDetailsDiv = "";
+                    if (v.ChatRoom == chatRoomId) {
 
-                    if (v.Email == v.UserNameCurrent) {
-                        var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4").css({
-                            "display": "block"
-                        });
+                        var boxMessagesDiv = "";
+                        var chatMessageRightDiv = "";
+                        var avatarImg = "";
+                        var imgDiv = "";
+                        var fontBoldDiv = "";
+                        var messageDiv = "";
+                        var dateTimeDiv = "";
+                        var messageDetailsDiv = "";
 
-                        var imgDiv = $("<div>").css({
-                            "float": "right", // Chuyển sang bên phải
-                            "margin-left": "20px" // Giá trị margin có thể thay đổi tùy theo mong muốn
-                        });
-
-                        var avatarImg = $("<img>").attr({
-                            src: v.AvatarChat,
-                            class: "rounded-circle mr-1",
-                            alt: v.FirstNameChat + " " + v.LastNameChat,
-                            width: "40",
-                            height: "40",
-                        }).css("float", "right"); // Chuyển hình ảnh sang bên phải
-
-                        imgDiv.append(avatarImg);
-                        chatMessageRightDiv.append(imgDiv);
-
-                        var boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
-                            "max-width": "90%",
-                            "background-color": "#E6E6E6",
-                            "border": "3px solid #3F3F41",
-                            "border-radius": "0px 13px 13px 13px",
-                            "float": "right" // Chuyển sang bên phải
-                        });
-                        var fontBoldDiv = $("<div>").addClass("font-weight-bold mb-1").css({
-                            "color": "black",
-                            "float": "right" // Chuyển sang bên phải
-                        }).text(v.FirstNameChat + " " + v.LastNameChat);
-
-                        var messageDiv = $("<div>")
-                            .text(v.Message)
-                            .css({
-                                "float": "left", // Chuyển sang bên phải
-                                "clear": "both", 
-                                "word-wrap": "break-word", // Xuống dòng 
-                                "word-break": "break-all" 
+                        if (v.Email == v.UserNameCurrent) {
+                            var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4").css({
+                                "display": "block"
                             });
 
-                        // Tạo messageDetailsDiv và áp dụng clear: both
-                        var messageDetailsDiv = $("<div>").addClass("message-details").css("clear", "both");
+                            var imgDiv = $("<div>").css({
+                                "float": "right", // Chuyển sang bên phải
+                                "margin-left": "20px" // Giá trị margin có thể thay đổi tùy theo mong muốn
+                            });
 
-                        // Tạo dateTimeDiv và áp dụng float: right
-                        var dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "left").text(v.NotificationDateTime);
-                    }
-                    else {
-                        var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4");
-                        imgDiv = $("<div>");
-                        avatarImg = $("<img>").attr({
-                            src: v.AvatarChat,
-                            class: "rounded-circle mr-1",
-                            alt: v.FirstNameChat + " " + v.LastNameChat,
-                            width: "40",
-                            height: "40"
-                        });
-                        imgDiv.append(avatarImg);
-                        chatMessageRightDiv.append(imgDiv);
+                            var avatarImg = $("<img>").attr({
+                                src: v.AvatarChat,
+                                class: "rounded-circle mr-1",
+                                alt: v.FirstNameChat + " " + v.LastNameChat,
+                                width: "40",
+                                height: "40",
+                            }).css("float", "right"); // Chuyển hình ảnh sang bên phải
 
-                        boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
-                            "max-width": "90%",
-                            "background-color": "#E6E6E6",
-                            "border": "1px solid transparent",
-                            "border-radius": "0px 13px 13px 13px"
-                        });
-                        fontBoldDiv = $("<div>").addClass("font-weight-bold mb-1").css("color", "black").text(v.FirstNameChat + " " + v.LastNameChat);
-                        messageDiv = $("<div>").text(v.Message);
-                        messageDetailsDiv = $("<div>").addClass("message-details");
-                        dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "right").text(v.NotificationDateTime);
-                    }
-                      
-                        
+                            imgDiv.append(avatarImg);
+                            chatMessageRightDiv.append(imgDiv);
+
+                            var boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
+                                "max-width": "90%",
+                                "background-color": "#E6E6E6",
+                                "border": "3px solid #3F3F41",
+                                "border-radius": "0px 13px 13px 13px",
+                                "float": "right" // Chuyển sang bên phải
+                            });
+                            var fontBoldDiv = $("<div>").addClass("font-weight-bold mb-1").css({
+                                "color": "black",
+                                "float": "right" // Chuyển sang bên phải
+                            }).text(v.FirstNameChat + " " + v.LastNameChat);
+
+                            var messageDiv = $("<div>")
+                                .text(v.Message)
+                                .css({
+                                    "float": "left", // Chuyển sang bên phải
+                                    "clear": "both",
+                                    "word-wrap": "break-word", // Xuống dòng 
+                                    "word-break": "break-all"
+                                });
+
+                            // Tạo messageDetailsDiv và áp dụng clear: both
+                            var messageDetailsDiv = $("<div>").addClass("message-details").css("clear", "both");
+
+                            // Tạo dateTimeDiv và áp dụng float: right
+                            var dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "left").text(v.NotificationDateTime);
+                        }
+                        else {
+                            var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4");
+                            imgDiv = $("<div>");
+                            avatarImg = $("<img>").attr({
+                                src: v.AvatarChat,
+                                class: "rounded-circle mr-1",
+                                alt: v.FirstNameChat + " " + v.LastNameChat,
+                                width: "40",
+                                height: "40"
+                            });
+                            imgDiv.append(avatarImg);
+                            chatMessageRightDiv.append(imgDiv);
+
+                            boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
+                                "max-width": "90%",
+                                "background-color": "#E6E6E6",
+                                "border": "1px solid transparent",
+                                "border-radius": "0px 13px 13px 13px"
+                            });
+                            fontBoldDiv = $("<div>").addClass("font-weight-bold mb-1").css("color", "black").text(v.FirstNameChat + " " + v.LastNameChat);
+                            messageDiv = $("<div>").text(v.Message);
+                            messageDetailsDiv = $("<div>").addClass("message-details");
+                            dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "right").text(v.NotificationDateTime);
+                        }
+
+
                         messageDetailsDiv.append(dateTimeDiv);
                         boxMessagesDiv.append(fontBoldDiv, messageDiv, messageDetailsDiv);
                         chatMessageRightDiv.append(boxMessagesDiv);
 
                         chatMessagesList.append(chatMessageRightDiv);
-                });
+                    }
+
+                    });
 
                 if (isFirstLoad) {
                     scrollToBottom();
@@ -354,7 +395,7 @@ $(() => {
 
     connection.on("OnConnected", function () {
         OnConnected();
-        LoadChatData();
+        LoadChatData(chatRoomId);
         LoadChatDataToChatBox();
     });
 

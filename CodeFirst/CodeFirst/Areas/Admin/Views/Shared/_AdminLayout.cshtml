@@ -133,6 +133,27 @@
         .message-bubble {
             word-wrap: break-word;
         }
+        .chat-room-list{
+            width:100%;
+        }
+        .chat-room-item{
+            width:100%;
+            cursor:pointer;
+            line-height:50px;
+        }
+        .chat-room-name{
+            width:100%;
+            margin-left:10px;
+            padding:10px;
+        }
+
+        .chat-room-item:hover{
+                background-color: #E6E6E6;
+        }
+
+        .list-group-item:hover {
+            background-color: #E6E6E6;
+        }
     </style>
 </head>
 
@@ -146,7 +167,7 @@
                         <div class="head-text">
                         </div>
                     </h1>
-                    <button style="background-color: transparent;outline: none;border:none;position: absolute;top:20px;left:1rem" data-bs-toggle="modal" data-bs-target="#createChatRoomModal"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+                    <button style="background-color: transparent;outline: none;border:none;position: absolute;top:20px;left:1rem" data-bs-toggle="modal" data-bs-target="#createChatRoomModal"><i class="fa-solid fa-plus" style="margin-right:9px"></i>Thêm phòng chat</button>
                     <button type="button" data-bs-dismiss="modal" aria-label="Close">
                         <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                     </button>
@@ -164,9 +185,36 @@
                                         </div>
                                     </div>
                                     <div class="list-user-status">
-                                        <div class="list-group-online">
-                                        </div>
-                                        <div class="list-group-offline">
+
+                                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button" type="button" style="background-color:#3F3F41;color:white" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                                        <span style="color:white">Nhóm chat</span>
+                                                    </button>
+                                                </h2>
+                                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                                                    <div class="accordion-body">
+                                                        <div class="list-room-chat">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" style="background-color:#3F3F41" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                                        <span style="color:white">Thành viên</span>
+                                                    </button>
+                                                </h2>
+                                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                                                    <div class="accordion-body">
+                                                        <div class="list-group-online">
+                                                        </div>
+                                                        <div class="list-group-offline">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -208,12 +256,13 @@
                                     </div>
                                     <div class="flex-grow-0  border-top" style="margin-top:20px">
                                         <form class="chatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
+                                            <input type="hidden" name="ChatRoomId" id="chatRoomId" value="">
                                             <div class="input-group" style="margin-top:20px">
                                                 <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
                                                 <button style="background-color:#3F3F41;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-chat"><i style="color:#F2F2F3;font-size:20px;padding-right:40px;padding-left:40px" class="fa-solid fa-paper-plane"></i></button>
                                             </div>
                                         </form>
-
+                               
                                     </div>
                                 </div>
                             </div>
@@ -227,8 +276,8 @@
 
 
 
-    <div class="modal fade" id="createChatRoomModal" tabindex="-1" role="dialog" aria-labelledby="createChatRoomModal" aria-hidden="true" >
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="createChatRoomModal" tabindex="-1" role="dialog" aria-labelledby="createChatRoomModal" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog" role="document" style="margin-top:100px">
             <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="createChatRoomModalLabel">
@@ -478,6 +527,25 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
+                var isModalVisible = false;
+
+                $(document).on('keydown', function (event) {
+                    if (isModalVisible && event.altKey && event.key.toLowerCase() === 'c') {
+                        // Đóng modal
+                        $('#exampleModal').modal('hide');
+                        isModalVisible = false;
+                    } else if (!isModalVisible && event.altKey && event.key.toLowerCase() === 'c') {
+                        $('#exampleModal').modal('show');
+                        isModalVisible = true; 
+                    }
+                });
+            
+            });
+
+
+
+
+            $(document).ready(function () {
                 $('#createChatRoomFormMinhTai').on('submit', function (event) {
                     event.preventDefault(); // Ngăn chặn việc tải lại trang
                     var chatRoomName = $('#chatRoomName').val();
@@ -511,37 +579,7 @@
                 });
             });
 
-            $(document).ready(function () {
-                // Bắt sự kiện submit của form
-                $(".chatForm").submit(function (e) {
-                    e.preventDefault(); // Ngăn chặn việc gửi form theo cách thông thường
-
-                    // Lấy dữ liệu từ form
-                    var formData = $(this).serialize();
-
-                    // Gửi yêu cầu AJAX
-                    $.ajax({
-                        url: $(this).attr('action'), // Lấy đường dẫn từ thuộc tính action của form
-                        type: $(this).attr('method'), // Lấy phương thức từ thuộc tính method của form
-                        data: formData, // Dữ liệu form đã được serialized
-                        success: function (response) {
-                            // Xử lý kết quả nếu thành công
-                            console.log("Message sent successfully!");
-                            console.log(response);
-
-                            // Xóa nội dung của input sau khi gửi thành công
-                            $("#chatForm input[name='Message']").val('');
-
-                            // Cuộn xuống cuối trang
-                            scrollToBottomWhenSendMessage();
-                        },
-                        error: function (xhr, status, error) {
-                            // Xử lý lỗi nếu có
-                            console.error("AJAX Error:", error);
-                        }
-                    });
-                });
-            });
+            
             function scrollToBottomWhenSendMessage() {
                 setTimeout(() => {
                     const chatMessagesList = document.querySelector('chat-message-right');

@@ -19,6 +19,14 @@ namespace CodeFirst.Controllers
         {
             _context = context;
         }
+        [HttpGet]
+        public async Task<IActionResult> GetChatRooms()
+        {
+            var chatRooms = await _context.ChatRooms.ToListAsync();
+            return Json(chatRooms);
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> CreateRoom([FromBody] ChatRoomViewModel chatRoomViewModel)
         {

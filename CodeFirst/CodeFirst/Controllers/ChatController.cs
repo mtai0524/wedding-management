@@ -48,6 +48,7 @@ namespace CodeFirst.Controllers
                     FirstNameChat = n.Id.FirstName,
                     LastNameChat = n.Id.LastName,
                     UserNameCurrent = emailUserCurr, // Giả định rằng bạn đã có biến emailUserCurr
+                    ChatRoom = n.ChatRoomDataId,
                 });
 
 
@@ -71,6 +72,7 @@ namespace CodeFirst.Controllers
                     MessageType = "All",
                     NotificationDateTime = DateTime.Now,
                     Avatar = !string.IsNullOrEmpty(user.Avatar) ? user.Avatar : "https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg",
+                    ChatRoomDataId = model.ChatRoomId,
                 };
                 dbContext.Chats.Add(notification);
                 await dbContext.SaveChangesAsync();
