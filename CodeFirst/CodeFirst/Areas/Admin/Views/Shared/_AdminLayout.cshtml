@@ -26,11 +26,14 @@
     <link rel="stylesheet" href="~/admin_assets/css/my-task.style.min.css">
     <link href="~/css/site.css" rel="stylesheet" />
 
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <base href="~/" />
     <component type="typeof(Microsoft.AspNetCore.Components.Web.HeadOutlet)"
                render-mode="ServerPrerendered" />
+    <link href='https://fonts.googleapis.com/css?family=Syne Mono' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Patrick Hand SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Mali' rel='stylesheet'>
+
     <style>
         .email-popup {
             position: absolute;
@@ -154,6 +157,20 @@
         .list-group-item:hover {
             background-color: #E6E6E6;
         }
+
+        .selected-room {
+            background-color: #3F3F41; /* Màu nền của phòng chat được chọn */
+            color:white;
+            outline: 2px solid #19ff66;
+            border-radius: 5px;
+        }
+
+
+        .list-group-item.active{
+            background-color: #3F3F41;
+            outline: 2px solid #19ff66;
+            border-radius:5px;
+        }
     </style>
 </head>
 
@@ -185,7 +202,6 @@
                                         </div>
                                     </div>
                                     <div class="list-user-status">
-
                                         <div class="accordion" id="accordionPanelsStayOpenExample">
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header">
@@ -195,7 +211,7 @@
                                                 </h2>
                                                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
                                                     <div class="accordion-body">
-                                                        <div class="list-room-chat">
+                                                        <div class="list-room-chat" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -254,11 +270,17 @@
                                         <div class="chat-messages-list p-4">
                                         </div>
                                     </div>
+                                  
                                     <div class="flex-grow-0  border-top" style="margin-top:20px">
-                                       
-                                        <form class="chatForm" id="publicChatForm" asp-controller="ChatPrivate" asp-action="SendPrivateMessage" method="post">
-                                            <input type="hidden" name="ReceiverUserId" id="receiverUserId" value="" />
+                                        <form class="chatForm" id="publicChatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
                                             <input type="hidden" name="ChatRoomId" id="chatRoomId" value="">
+                                            <div class="input-group" style="margin-top:20px">
+                                                <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
+                                                <button style="background-color:#3F3F41;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-chat"><i style="color:#F2F2F3;font-size:20px;padding-right:40px;padding-left:40px" class="fa-solid fa-paper-plane"></i></button>
+                                            </div>
+                                        </form>
+                                        <form class="chatForm" id="privateChatForm" asp-controller="ChatPrivate" asp-action="SendPrivateMessage" method="post">
+                                            <input type="hidden" name="ReceiverUserId" id="receiverUserId" value="" />
                                             <div class="input-group" style="margin-top:20px">
                                                 <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
                                                 <button style="background-color:#3F3F41;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-chat"><i style="color:#F2F2F3;font-size:20px;padding-right:40px;padding-left:40px" class="fa-solid fa-paper-plane"></i></button>
@@ -528,18 +550,33 @@
 
         <script type="text/javascript">
 
-            // $(document).ready(function () {
-            //     $('.list-group-offline').on('click', function () {
-            //         $('#publicChatForm').hide();
-            //         alert("???");
-            //         $('#privateChatForm').show();
-            //     });
-            // });
+            $(document).ready(function () {
+                $('.list-group-item').on('click', function () {
+                    $('.list-group-item').removeClass('selected-item');
+                    $(this).addClass('selected-item');
+                });
+            });
+
+            $(document).ready(function () {
+                $('#publicChatForm').hide();
+                $('.list-group-offline').on('click', function () {
+                    $('#publicChatForm').hide();
+                    $('#privateChatForm').show();
+                });
+                $('.list-group-online').on('click', function () {
+                    $('#publicChatForm').hide();
+                    $('#privateChatForm').show();
+                });
+                $('.list-room-chat').on('click', function () {
+                    $('#publicChatForm').show();
+                    $('#privateChatForm').hide();
+                });
+            });
 
 
             $(document).ready(function () {
                 var isModalVisible = false;
-
+                var isCollapse = false;
                 $(document).on('keydown', function (event) {
                     if (isModalVisible && event.altKey && event.key.toLowerCase() === 'c') {
                         // Đóng modal
@@ -548,6 +585,14 @@
                     } else if (!isModalVisible && event.altKey && event.key.toLowerCase() === 'c') {
                         $('#exampleModal').modal('show');
                         isModalVisible = true; 
+                    }
+                    if (event.altKey && event.key.toLowerCase() === 'q') {
+                        // Hiển thị tất cả các accordion
+                        $('.accordion-collapse').addClass('show').removeClass('collapse');
+                    }
+                    if (event.altKey && event.key.toLowerCase() === 'w') {
+                        // Hiển thị tất cả các accordion
+                        $('.accordion-collapse').addClass('collapse').removeClass('show');
                     }
                 });
             

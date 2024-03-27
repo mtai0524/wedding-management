@@ -37,8 +37,21 @@ $(() => {
                 });
                 $('.list-room-chat').empty().append(chatRoomList);
 
+                var userCurrentChatElement = document.querySelector('.user-current-chat');
+                var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
+
                 // Thêm sự kiện click vào mỗi thành phần div
                 $('.chat-room-item').on('click', function () {
+                    var selectedChatRoomName = $(this).find('.chat-room-name').text();
+                    userCurrentChatElement.textContent = selectedChatRoomName;
+
+                    avatarUserCurrentChat.style.visibility = "hidden";
+                    // Loại bỏ lớp 'selected-room' từ tất cả các phòng chat
+                    $('.chat-room-item').removeClass('selected-room');
+
+                    // Thêm lớp 'selected-room' cho phòng chat được click
+                    $(this).addClass('selected-room');
+
                     chatRoomId = $(this).data('id'); // Lấy chatRoomId từ thuộc tính data-id
                     console.log(chatRoomId);
                     LoadChatData(chatRoomId);
@@ -50,6 +63,7 @@ $(() => {
             }
         });
     });
+
 
 
 
@@ -562,7 +576,7 @@ $(() => {
             }
         });
     }
-   
+  
     connection.on("UpdateUsersOfflineList", function (userList) {
         var listGroupOnline = document.querySelector('.list-group-offline');
         listGroupOnline.innerHTML = ""; // Xóa hết các thẻ a cũ trước khi cập nhật
@@ -570,8 +584,20 @@ $(() => {
             var listGroupItem = document.createElement("a");
             listGroupItem.href = "#";
             listGroupItem.classList.add("list-group-item", "list-group-item-action", "border-0");
+
+            var userCurrentChatElement = document.querySelector('.user-current-chat');
+            var userCurrentChatMiniElement = document.querySelector('.user-current-chatmini');
+            var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
+            var dotChatContainer = document.querySelector('.dot-chat-container');
+            var dotChatMiniContainer = document.querySelector('.dot-chatmini-container');
+
+
             listGroupItem.addEventListener("click", function (event) {
                 event.preventDefault();
+                userCurrentChatElement.textContent = item.firstName + " " + item.lastName;
+                avatarUserCurrentChat.style.visibility = "visible";
+
+                avatarUserCurrentChat.src = item.avatar ? item.avatar : "https://as2.ftcdn.net/v2/jpg/04/10/43/77/1000_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg";
                 connection.invoke("GetUserId").then(function (userId) {
                     console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
                     LoadPrivateMessages(currentUserId, item.id);
@@ -579,6 +605,15 @@ $(() => {
                     senderUserId = currentUserId;
                     receiverUserId = $('#receiverUserId').val();
                     console.log($('#receiverUserId').val()); // gui qua controller thong qua input hidden trong adminlayout
+                    // Lấy tất cả các mục trong danh sách
+                    var allItems = document.querySelectorAll('.list-group-item');
+
+                    // Xóa lớp 'active' từ tất cả các mục
+                    allItems.forEach(function (element) {
+                        element.classList.remove('active');
+                    });
+                    listGroupItem.classList.add("active"); 
+
                 }).catch(function (error) {
                     console.error("Error getting userId:", error);
                 });
@@ -642,6 +677,11 @@ $(() => {
     connection.on("UpdateUsersOnlineList", function (userList) {
         var listGroupOnline = document.querySelector('.list-group-online');
         listGroupOnline.innerHTML = ""; // Xóa hết các thẻ a cũ trước khi cập nhật
+        var userCurrentChatElement = document.querySelector('.user-current-chat');
+        var userCurrentChatMiniElement = document.querySelector('.user-current-chatmini');
+        var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
+        var dotChatContainer = document.querySelector('.dot-chat-container');
+        var dotChatMiniContainer = document.querySelector('.dot-chatmini-container');
 
 
         userList.forEach(function (item) {
@@ -650,12 +690,24 @@ $(() => {
             listGroupItem.classList.add("list-group-item", "list-group-item-action", "border-0");
             listGroupItem.addEventListener("click", function (event) {
                 event.preventDefault();
+                userCurrentChatElement.textContent = item.firstName + " " + item.lastName;
+                avatarUserCurrentChat.style.visibility = "visible";
+
+                avatarUserCurrentChat.src = item.avatar ? item.avatar : "https://as2.ftcdn.net/v2/jpg/04/10/43/77/1000_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg";
                 connection.invoke("GetUserId").then(function (userId) {
                     console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
                     LoadPrivateMessages(currentUserId, item.id);
                     $('#receiverUserId').val(item.id);
                     senderUserId = currentUserId;
                     receiverUserId = $('#receiverUserId').val();
+                    var allItems = document.querySelectorAll('.list-group-item');
+
+                    // Xóa lớp 'active' từ tất cả các mục
+                    allItems.forEach(function (element) {
+                        element.classList.remove('active');
+                    });
+                    listGroupItem.classList.add("active"); 
+                    listGroupItem.classList.add("active"); 
                 }).catch(function (error) {
                     console.error("Error getting userId:", error);
                 });
