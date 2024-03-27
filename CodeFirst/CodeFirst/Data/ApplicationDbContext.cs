@@ -36,6 +36,7 @@ namespace CodeFirst.Data
         public DbSet<CodeFirst.Models.Entities.Chat> Chats { get; set; } = null!;
         public DbSet<CodeFirst.Models.Entities.ChatRoom> ChatRooms { get; set; } = null!;
         public DbSet<CodeFirst.Models.Entities.ChatRoomUser> ChatRoomUsers { get; set; } = null!;
+        public DbSet<CodeFirst.Models.Entities.ChatPrivate> ChatPrivate { get; set; } = null!;
 
     }
 }

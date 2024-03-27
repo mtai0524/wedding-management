@@ -56,7 +56,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employee", (string)null);
+                    b.ToTable("Employee");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Branch", b =>
@@ -88,7 +88,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("BranchId");
 
-                    b.ToTable("Branch", (string)null);
+                    b.ToTable("Branch");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Chat", b =>
@@ -127,7 +127,37 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Chat", (string)null);
+                    b.ToTable("Chat");
+                });
+
+            modelBuilder.Entity("CodeFirst.Models.Entities.ChatPrivate", b =>
+                {
+                    b.Property<int>("ChatPrivateId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ChatPrivateId"));
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("NotificationDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ReceiverUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SenderUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ChatPrivateId");
+
+                    b.HasIndex("ReceiverUserId");
+
+                    b.HasIndex("SenderUserId");
+
+                    b.ToTable("ChatPrivate");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ChatRoom", b =>
@@ -145,7 +175,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ChatRoom", (string)null);
+                    b.ToTable("ChatRoom");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ChatRoomUser", b =>
@@ -169,7 +199,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ChatRoomUser", (string)null);
+                    b.ToTable("ChatRoomUser");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Code", b =>
@@ -194,7 +224,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("CodeId");
 
-                    b.ToTable("Code", (string)null);
+                    b.ToTable("Code");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ComboMenuEntity", b =>
@@ -214,7 +244,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("ComboMenuId");
 
-                    b.ToTable("ComboMenuEntity", (string)null);
+                    b.ToTable("ComboMenuEntity");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Feedback", b =>
@@ -246,7 +276,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Feedback", (string)null);
+                    b.ToTable("Feedback");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Hall", b =>
@@ -280,7 +310,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("BranchId");
 
-                    b.ToTable("Hall", (string)null);
+                    b.ToTable("Hall");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.Invoice", b =>
@@ -329,7 +359,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Invoice", (string)null);
+                    b.ToTable("Invoice");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.InvoiceCode", b =>
@@ -352,7 +382,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("InvoiceId");
 
-                    b.ToTable("InvoiceCode", (string)null);
+                    b.ToTable("InvoiceCode");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuCategory", b =>
@@ -371,7 +401,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("MenuCategory", (string)null);
+                    b.ToTable("MenuCategory");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuEntity", b =>
@@ -403,7 +433,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("MenuEntity", (string)null);
+                    b.ToTable("MenuEntity");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.MenuItemComboMenu", b =>
@@ -426,7 +456,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("MenuId");
 
-                    b.ToTable("MenuItemComboMenu", (string)null);
+                    b.ToTable("MenuItemComboMenu");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.OrderMenu", b =>
@@ -449,7 +479,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("MenuId");
 
-                    b.ToTable("OrderMenu", (string)null);
+                    b.ToTable("OrderMenu");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.OrderService", b =>
@@ -472,7 +502,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("ServiceId");
 
-                    b.ToTable("OrderService", (string)null);
+                    b.ToTable("OrderService");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ServiceCategory", b =>
@@ -491,7 +521,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("ServiceCategory", (string)null);
+                    b.ToTable("ServiceCategory");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ServiceEntity", b =>
@@ -521,7 +551,7 @@ namespace CodeFirst.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("ServiceEntity", (string)null);
+                    b.ToTable("ServiceEntity");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Notifications.HubConnection", b =>
@@ -542,7 +572,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HubConnection", (string)null);
+                    b.ToTable("HubConnection");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Notifications.Notification", b =>
@@ -574,7 +604,7 @@ namespace CodeFirst.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Notification", (string)null);
+                    b.ToTable("Notification");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -820,6 +850,21 @@ namespace CodeFirst.Migrations
                     b.Navigation("ChatRoomData");
 
                     b.Navigation("Id");
+                });
+
+            modelBuilder.Entity("CodeFirst.Models.Entities.ChatPrivate", b =>
+                {
+                    b.HasOne("CodeFirst.Models.ApplicationUser", "ReceiverUser")
+                        .WithMany()
+                        .HasForeignKey("ReceiverUserId");
+
+                    b.HasOne("CodeFirst.Models.ApplicationUser", "SenderUser")
+                        .WithMany()
+                        .HasForeignKey("SenderUserId");
+
+                    b.Navigation("ReceiverUser");
+
+                    b.Navigation("SenderUser");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.ChatRoomUser", b =>

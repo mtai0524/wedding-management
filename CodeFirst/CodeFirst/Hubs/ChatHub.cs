@@ -89,9 +89,13 @@ namespace CodeFirst.Hubs
 
         private async Task UpdateConnectedUsersOfflineList(List<UserInformation> userOnlineList)
         {
+            var email = Context.User.Identity.Name;
+            var currUser = await _context.ApplicationUser.FirstOrDefaultAsync(u => u.Email == email);
             var userOfflineList = await _context.ApplicationUser
                                     .Select(user => new UserInformation
                                     {
+                                        Id = user.Id,
+                                        CurrUserId = currUser.Id,
                                         Email = user.Email,
                                         Avatar = user.Avatar,
                                         FirstName = user.FirstName,
@@ -113,11 +117,11 @@ namespace CodeFirst.Hubs
         {
             var email = Context.User.Identity.Name;
             var user = await _context.ApplicationUser.FirstOrDefaultAsync(u => u.Email == email);
-
             if (user != null)
             {
                 return new UserInformation
                 {
+                    Id = user.Id,
                     Email = user.Email,
                     Avatar = user.Avatar,
                     FirstName = user.FirstName,

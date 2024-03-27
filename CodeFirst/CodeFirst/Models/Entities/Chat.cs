@@ -11,7 +11,7 @@ namespace CodeFirst.Models.Entities
         public int ChatId { get; set; }
         public string? UserId { get; set; } // nhớ get set dùm, tên côt collumn Chat
         [ForeignKey("UserId")] // tên sẽ lưu trong db
-        public virtual ApplicationUser? Id { get; set; } // tên cột trong bảng ApplicationUser
+        public virtual ApplicationUser? Id { get; set; } // tên cột trong bảng ApplicationUser (đặt tùy ý)
 
         public string Message { get; set; } = null!;
         public string MessageType { get; set; } = null!;
