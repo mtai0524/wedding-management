@@ -611,7 +611,7 @@ $(() => {
 
 
 
-    connection.on("UpdateUsersOnlineList", function (userList) {
+    connection.on("UpdateUsersOnlineList", function (userList, userId) {
         var listGroupOnline = document.querySelector('.list-group-online');
         listGroupOnline.innerHTML = ""; // Xóa hết các thẻ a cũ trước khi cập nhật
 
@@ -620,7 +620,11 @@ $(() => {
             var listGroupItem = document.createElement("a");
             listGroupItem.href = "#";
             listGroupItem.classList.add("list-group-item", "list-group-item-action", "border-0");
-
+            listGroupItem.addEventListener("click", function (event) {
+                event.preventDefault();
+                console.log("Username:", item.id + " " + userId);
+                LoadPrivateMessages(userId, item.id)
+            });
             var spanStatus = document.createElement("span");
             spanStatus.classList.add("status", "online");
 

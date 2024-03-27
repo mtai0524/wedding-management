@@ -37,13 +37,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking); // fix lỗi lúc không chọn ảnh, chỉ update thong tin khác
 }, ServiceLifetime.Singleton, ServiceLifetime.Transient);
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddSingleton<ChatHub>(); // phải add vào mới gọi chatHub được
+builder.Services.AddScoped<ChatHub>(); // phải add vào mới gọi chatHub được
 
 // đăng ký service
 builder.Services.AddScoped<EmployeeService>();
 builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddScoped<ChatService>();
 builder.Services.AddSingleton<OnlineUserService>();
+builder.Services.AddScoped<UserService>();
 
 //builder.Services.AddSingleton<SubscribeNotificationTableDependency>();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)

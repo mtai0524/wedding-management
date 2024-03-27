@@ -15,9 +15,14 @@ namespace CodeFirst.Hubs
     public class ChatHub : Hub
     {
         private readonly ApplicationDbContext _context;
-        public ChatHub(ApplicationDbContext context)
+        private readonly UserService _userServer;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public ChatHub(ApplicationDbContext context, UserService userServer, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _userServer = userServer;
+            _httpContextAccessor = httpContextAccessor;
         }
         public async Task CallLoadChatData()
         {
@@ -40,26 +45,21 @@ namespace CodeFirst.Hubs
         }
 
         public static readonly Dictionary<string, UserInformation> ConnectedUsers = new Dictionary<string, UserInformation>();
-
         public override async Task OnConnectedAsync()
         {
-            Clients.Caller.SendAsync("OnConnected");
+            // Các phần khác không thay đổi
 
             UserInformation userInfo = await GetUserInfoFromContext();
             if (!ConnectedUsers.ContainsKey(Context.ConnectionId))
             {
+                ConnectedUsers[Context.ConnectionId] = userInfo;
                 await Clients.Caller.SendAsync("ReceivedNotificationWelcome", $"xin chào {userInfo.FirstName} {userInfo.LastName} hehe");
                 await Clients.All.SendAsync("LoadChatData");
             }
             await Clients.Others.SendAsync("ReceivedNotificationUserOnline", $"{userInfo.FirstName} {userInfo.LastName}");
-            string connectionId = Context.ConnectionId;
-            ConnectedUsers[connectionId] = userInfo;
-            userList = ConnectedUsers.Values.ToList();
-            userOnlineList = userList;
             await UpdateConnectedUsersList();
             await UpdateConnectedUsersOnlineList();
-            await UpdateConnectedUsersOfflineList(userOnlineList);
-           
+            await UpdateConnectedUsersOfflineList(ConnectedUsers.Values.ToList());
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)
@@ -67,14 +67,10 @@ namespace CodeFirst.Hubs
             string connectionId = Context.ConnectionId;
             if (ConnectedUsers.ContainsKey(connectionId))
             {
-                UserInformation userInfo = ConnectedUsers[connectionId];
                 ConnectedUsers.Remove(connectionId);
-
                 await UpdateConnectedUsersList();
                 await UpdateConnectedUsersOnlineList();
-                userList = ConnectedUsers.Values.ToList();
-                userOnlineList = userList;
-                await UpdateConnectedUsersOfflineList(userOnlineList);
+                await UpdateConnectedUsersOfflineList(ConnectedUsers.Values.ToList());
             }
         }
         List<UserInformation> userList = new List<UserInformation>();
@@ -86,17 +82,16 @@ namespace CodeFirst.Hubs
             await Clients.All.SendAsync("UpdateUsersList", userOnline);
         }
 
-
         private async Task UpdateConnectedUsersOfflineList(List<UserInformation> userOnlineList)
         {
-            var email = Context.User.Identity.Name;
-            var currUser = await _context.ApplicationUser.FirstOrDefaultAsync(u => u.Email == email);
+            var currentUser = await _userServer.GetCurrentLoggedInUser();
+            var userId = currentUser.Id;
             var userOfflineList = await _context.ApplicationUser
                                     .Select(user => new UserInformation
                                     {
                                         Id = user.Id,
-                                        CurrUserId = currUser.Id,
                                         Email = user.Email,
+                                        CurrUserId = userId,
                                         Avatar = user.Avatar,
                                         FirstName = user.FirstName,
                                         LastName = user.LastName
@@ -107,11 +102,16 @@ namespace CodeFirst.Hubs
 
             await Clients.All.SendAsync("UpdateUsersOfflineList", offlineUsers);
         }
-       
+
+
+
+
         private async Task UpdateConnectedUsersOnlineList()
         {
+            var currentUser = await _userServer.GetCurrentLoggedInUser();
+            var userId = currentUser.Id;
             List<UserInformation> userOnline = ConnectedUsers.Values.ToList();
-            await Clients.All.SendAsync("UpdateUsersOnlineList", userOnline);
+            await Clients.All.SendAsync("UpdateUsersOnlineList", userOnline, userId);
         }
         private async Task<UserInformation> GetUserInfoFromContext()
         {

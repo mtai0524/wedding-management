@@ -1,47 +1,29 @@
-﻿//using CodeFirst.Data;
-//using CodeFirst.Models;
-//using Microsoft.AspNetCore.Http;
-//using Microsoft.AspNetCore.Identity;
-//using System.Security.Claims;
-//using System.Threading.Tasks;
+﻿using CodeFirst.Data;
+using CodeFirst.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
-//namespace CodeFirst.Service
-//{
-//    public class UserService
-//    {
-//        private readonly ApplicationDbContext _context;
-//        private readonly UserManager<ApplicationUser> _userManager;
-//        private readonly IHttpContextAccessor _httpContextAccessor;
+namespace CodeFirst.Service
+{
+    public class UserService
+    {
+        private readonly ApplicationDbContext _context;
 
-//        public UserService(){
-//        }
-//        public UserService(ApplicationDbContext context,
-//                           UserManager<ApplicationUser> userManager = null,
-//                           IHttpContextAccessor httpContextAccessor = null)
-//        {
-//            _context = context;
-//            _userManager = userManager;
-//            _httpContextAccessor = httpContextAccessor;
-//        }
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-//        private async Task<string> GetUsernameFromContext()
-//        {
-//            var user = _httpContextAccessor.HttpContext.User;
+        public UserService(UserManager<ApplicationUser> userManager, IHttpContextAccessor httpContextAccessor)
+        {
+            _userManager = userManager;
+            _httpContextAccessor = httpContextAccessor;
+        }
 
-//            if (user.Identity.IsAuthenticated)
-//            {
-//                var userId = user.FindFirstValue(ClaimTypes.NameIdentifier); // Lấy ID người dùng từ Claim
-//                if (userId != null)
-//                {
-//                    var appUser = await _userManager.FindByIdAsync(userId); // Tìm người dùng từ ID
-//                    if (appUser != null)
-//                    {
-//                        return appUser.UserName; // Trả về tên người dùng
-//                    }
-//                }
-//            }
-
-//            return "Guest"; // Trả về "Guest" cho người dùng chưa xác thực
-//        }
-//    }
-//}
+        public async Task<ApplicationUser> GetCurrentLoggedInUser()
+        {
+            var user = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
+            return user;
+        }
+    }
+}
