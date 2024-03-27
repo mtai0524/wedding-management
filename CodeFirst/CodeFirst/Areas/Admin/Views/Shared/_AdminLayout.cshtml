@@ -255,7 +255,8 @@
                                         </div>
                                     </div>
                                     <div class="flex-grow-0  border-top" style="margin-top:20px">
-                                        <form class="chatForm" asp-controller="ChatPrivate" asp-action="SendPrivateMessage" method="post">
+                                       
+                                        <form class="chatForm" id="publicChatForm" asp-controller="ChatPrivate" asp-action="SendPrivateMessage" method="post">
                                             <input type="hidden" name="ReceiverUserId" id="receiverUserId" value="" />
                                             <input type="hidden" name="ChatRoomId" id="chatRoomId" value="">
                                             <div class="input-group" style="margin-top:20px">
@@ -263,7 +264,6 @@
                                                 <button style="background-color:#3F3F41;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-chat"><i style="color:#F2F2F3;font-size:20px;padding-right:40px;padding-left:40px" class="fa-solid fa-paper-plane"></i></button>
                                             </div>
                                         </form>
-                               
                                     </div>
                                 </div>
                             </div>
@@ -527,6 +527,16 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <script type="text/javascript">
+
+            // $(document).ready(function () {
+            //     $('.list-group-offline').on('click', function () {
+            //         $('#publicChatForm').hide();
+            //         alert("???");
+            //         $('#privateChatForm').show();
+            //     });
+            // });
+
+
             $(document).ready(function () {
                 var isModalVisible = false;
 

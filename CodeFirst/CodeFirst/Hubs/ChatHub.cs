@@ -10,6 +10,7 @@ using CodeFirst.ViewModels;
 using CodeFirst.Models.Notifications;
 using CodeFirst.Service;
 using System.Linq;
+using CodeFirst.Models.Entities;
 namespace CodeFirst.Hubs
 {
     public class ChatHub : Hub
@@ -30,6 +31,10 @@ namespace CodeFirst.Hubs
         public async Task SendUpdatedNotifications(List<Notification> notifications)
         {
             await Clients.All.SendAsync("ReceiveNotificationRealtime", notifications);
+        }
+        public async Task SendUpdatedChatPrivate(List<ChatPrivate> chatPrivates)
+        {
+            await Clients.All.SendAsync("ReceiveChatPrivateRealtime", chatPrivates);
         }
         public async Task NotifyTyping(bool isTyping)
         {
