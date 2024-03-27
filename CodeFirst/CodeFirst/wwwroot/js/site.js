@@ -3,7 +3,7 @@ $(() => {
     LoadNotificationData();
     //LoadChatData(chatRoomId);
     LoadChatDataToChatBox();
-
+    LoadPrivateMessages(senderUserId, receiverUserId);
     var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
     connection.start().then(function () {
         console.log('connected to hub');
@@ -15,9 +15,8 @@ $(() => {
         LoadNotificationData();
         LoadChatDataToChatBox();
         //LoadChatData(chatRoomId);
-        //LoadPrivateMessages(senderUserId, receiverUserId);
+        LoadPrivateMessages(senderUserId, receiverUserId);
     });
-
 
 
     var chatRoomId = "";
@@ -397,6 +396,7 @@ $(() => {
         OnConnected();
         //LoadChatData(chatRoomId);
         LoadChatDataToChatBox();
+        LoadPrivateMessages(senderUserId, receiverUserId);
 
     });
 
@@ -424,8 +424,9 @@ $(() => {
             dotChatMiniContainer.style.visibility = "hidden";
         }
     });
-    var senderUserId = ""; 
-    var receiverUserId = "";
+    var senderUserId = currentUserId; 
+    var receiverUserId = $('#receiverUserId').val();
+;
     function LoadPrivateMessages(senderUserId, receiverUserId) {
         $.ajax({
             url: '/ChatPrivate/GetPrivateMessages',
@@ -554,7 +555,7 @@ $(() => {
             }
         });
     }
-
+   
     connection.on("UpdateUsersOfflineList", function (userList) {
         var listGroupOnline = document.querySelector('.list-group-offline');
         listGroupOnline.innerHTML = ""; // Xóa hết các thẻ a cũ trước khi cập nhật
@@ -568,6 +569,8 @@ $(() => {
                     console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
                     LoadPrivateMessages(currentUserId, item.id);
                     $('#receiverUserId').val(item.id);
+                    senderUserId = currentUserId;
+                    receiverUserId = $('#receiverUserId').val();
                     console.log($('#receiverUserId').val()); // gui qua controller thong qua input hidden trong adminlayout
                 }).catch(function (error) {
                     console.error("Error getting userId:", error);
@@ -644,6 +647,8 @@ $(() => {
                     console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
                     LoadPrivateMessages(currentUserId, item.id);
                     $('#receiverUserId').val(item.id);
+                    senderUserId = currentUserId;
+                    receiverUserId = $('#receiverUserId').val();
                 }).catch(function (error) {
                     console.error("Error getting userId:", error);
                 });

@@ -93,7 +93,6 @@ namespace CodeFirst.Controllers
                 // Lưu tin nhắn riêng tư vào cơ sở dữ liệu
                 _context.ChatPrivate.Add(privateChat);
                 await _context.SaveChangesAsync();
-
                 // Gửi tin nhắn riêng tư đến người nhận thông qua SignalR
                 await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", privateChat);
 

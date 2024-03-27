@@ -115,7 +115,7 @@ namespace CodeFirst.Hubs
             await Clients.All.SendAsync("UpdateUsersOnlineList", userOnline);
         }
 
-      
+
         private async Task<UserInformation> GetUserInfoFromContext()
         {
             var email = Context.User.Identity.Name;
