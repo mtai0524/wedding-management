@@ -7,16 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
 using CodeFirst.Models.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.SignalR;
+using CodeFirst.Models;
+using CodeFirst.ViewModels;
+using CodeFirst.Hubs;
 
 namespace CodeFirst.Controllers
 {
     public class ChatPrivateController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IHubContext<ChatHub> hubContext;
 
-        public ChatPrivateController(ApplicationDbContext context)
+        public ChatPrivateController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IHubContext<ChatHub> hubContext)
         {
             _context = context;
+            _userManager = userManager;
+            this.hubContext = hubContext;
         }
         [HttpGet]
         public async Task<IActionResult> GetPrivateMessages(string senderUserId, string receiverUserId)
@@ -60,6 +69,39 @@ namespace CodeFirst.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SendPrivateMessage(ChatPrivateViewModel model)
+        {
+            var senderUser = await _userManager.GetUserAsync(User);
+            if (ModelState.IsValid)
+            {
+                var privateChat = new ChatPrivate
+                {
+                    SenderUserId = senderUser.Id,
+                    ReceiverUserId = model.ReceiverUserId, // Giả sử model.ReceiverUserId là ID của người nhận
+                    Message = model.Message,
+                    NotificationDateTime = DateTime.Now,
+                };
+
+                // Kiểm tra xem người nhận có tồn tại không
+                var receiverUser = await _userManager.FindByIdAsync(model.ReceiverUserId);
+                if (receiverUser == null)
+                {
+                    return Json(new { success = false, message = "Người nhận không tồn tại." });
+                }
+
+                // Lưu tin nhắn riêng tư vào cơ sở dữ liệu
+                _context.ChatPrivate.Add(privateChat);
+                await _context.SaveChangesAsync();
+
+                // Gửi tin nhắn riêng tư đến người nhận thông qua SignalR
+                await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", privateChat);
+
+                return Json(new { success = true, privateChat });
+            }
+
+            return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors) });
+        }
 
 
         // GET: ChatPrivate

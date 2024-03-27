@@ -1,7 +1,7 @@
 ﻿
 $(() => {
     LoadNotificationData();
-    LoadChatData(chatRoomId);
+    //LoadChatData(chatRoomId);
     LoadChatDataToChatBox();
 
     var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
@@ -14,9 +14,9 @@ $(() => {
     connection.on("ReceiveNotificationRealtime", function (notifications) {
         LoadNotificationData();
         LoadChatDataToChatBox();
-        LoadChatData(chatRoomId);
+        //LoadChatData(chatRoomId);
+        //LoadPrivateMessages(senderUserId, receiverUserId);
     });
-
 
 
 
@@ -122,120 +122,120 @@ $(() => {
 
 
 
-    function LoadChatData(chatRoomId) {
-        $.ajax({
-            url: '/Chat/GetMessages',
-            method: 'GET',
-            data: { chatRoomId: chatRoomId },
-            success: (result) => {
-                console.log(result);
-                var chatMessagesList = $(".chat-messages-list");
-                chatMessagesList.empty(); // Xóa nội dung hiện tại của chat-messages-list
-                $.each(result, (k, v) => {
-                    if (v.ChatRoom == chatRoomId) {
+    //function LoadChatData(chatRoomId) {
+    //    $.ajax({
+    //        url: '/Chat/GetMessages',
+    //        method: 'GET',
+    //        data: { chatRoomId: chatRoomId },
+    //        success: (result) => {
+    //            console.log(result);
+    //            var chatMessagesList = $(".chat-messages-list");
+    //            chatMessagesList.empty(); // Xóa nội dung hiện tại của chat-messages-list
+    //            $.each(result, (k, v) => {
+    //                if (v.ChatRoom == chatRoomId) {
 
-                        var boxMessagesDiv = "";
-                        var chatMessageRightDiv = "";
-                        var avatarImg = "";
-                        var imgDiv = "";
-                        var fontBoldDiv = "";
-                        var messageDiv = "";
-                        var dateTimeDiv = "";
-                        var messageDetailsDiv = "";
+    //                    var boxMessagesDiv = "";
+    //                    var chatMessageRightDiv = "";
+    //                    var avatarImg = "";
+    //                    var imgDiv = "";
+    //                    var fontBoldDiv = "";
+    //                    var messageDiv = "";
+    //                    var dateTimeDiv = "";
+    //                    var messageDetailsDiv = "";
 
-                        if (v.Email == v.UserNameCurrent) {
-                            var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4").css({
-                                "display": "block"
-                            });
+    //                    if (v.Email == v.UserNameCurrent) {
+    //                        var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4").css({
+    //                            "display": "block"
+    //                        });
 
-                            var imgDiv = $("<div>").css({
-                                "float": "right", // Chuyển sang bên phải
-                                "margin-left": "20px" // Giá trị margin có thể thay đổi tùy theo mong muốn
-                            });
+    //                        var imgDiv = $("<div>").css({
+    //                            "float": "right", // Chuyển sang bên phải
+    //                            "margin-left": "20px" // Giá trị margin có thể thay đổi tùy theo mong muốn
+    //                        });
 
-                            var avatarImg = $("<img>").attr({
-                                src: v.AvatarChat,
-                                class: "rounded-circle mr-1",
-                                alt: v.FirstNameChat + " " + v.LastNameChat,
-                                width: "40",
-                                height: "40",
-                            }).css("float", "right"); // Chuyển hình ảnh sang bên phải
+    //                        var avatarImg = $("<img>").attr({
+    //                            src: v.AvatarChat,
+    //                            class: "rounded-circle mr-1",
+    //                            alt: v.FirstNameChat + " " + v.LastNameChat,
+    //                            width: "40",
+    //                            height: "40",
+    //                        }).css("float", "right"); // Chuyển hình ảnh sang bên phải
 
-                            imgDiv.append(avatarImg);
-                            chatMessageRightDiv.append(imgDiv);
+    //                        imgDiv.append(avatarImg);
+    //                        chatMessageRightDiv.append(imgDiv);
 
-                            var boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
-                                "max-width": "90%",
-                                "background-color": "#E6E6E6",
-                                "border": "3px solid #3F3F41",
-                                "border-radius": "0px 13px 13px 13px",
-                                "float": "right" // Chuyển sang bên phải
-                            });
-                            var fontBoldDiv = $("<div>").addClass("font-weight-bold mb-1").css({
-                                "color": "black",
-                                "float": "right" // Chuyển sang bên phải
-                            }).text(v.FirstNameChat + " " + v.LastNameChat);
+    //                        var boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
+    //                            "max-width": "90%",
+    //                            "background-color": "#E6E6E6",
+    //                            "border": "3px solid #3F3F41",
+    //                            "border-radius": "0px 13px 13px 13px",
+    //                            "float": "right" // Chuyển sang bên phải
+    //                        });
+    //                        var fontBoldDiv = $("<div>").addClass("font-weight-bold mb-1").css({
+    //                            "color": "black",
+    //                            "float": "right" // Chuyển sang bên phải
+    //                        }).text(v.FirstNameChat + " " + v.LastNameChat);
 
-                            var messageDiv = $("<div>")
-                                .text(v.Message)
-                                .css({
-                                    "float": "left", // Chuyển sang bên phải
-                                    "clear": "both",
-                                    "word-wrap": "break-word", // Xuống dòng 
-                                    "word-break": "break-all"
-                                });
+    //                        var messageDiv = $("<div>")
+    //                            .text(v.Message)
+    //                            .css({
+    //                                "float": "left", // Chuyển sang bên phải
+    //                                "clear": "both",
+    //                                "word-wrap": "break-word", // Xuống dòng 
+    //                                "word-break": "break-all"
+    //                            });
 
-                            // Tạo messageDetailsDiv và áp dụng clear: both
-                            var messageDetailsDiv = $("<div>").addClass("message-details").css("clear", "both");
+    //                        // Tạo messageDetailsDiv và áp dụng clear: both
+    //                        var messageDetailsDiv = $("<div>").addClass("message-details").css("clear", "both");
 
-                            // Tạo dateTimeDiv và áp dụng float: right
-                            var dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "left").text(v.NotificationDateTime);
-                        }
-                        else {
-                            var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4");
-                            imgDiv = $("<div>");
-                            avatarImg = $("<img>").attr({
-                                src: v.AvatarChat,
-                                class: "rounded-circle mr-1",
-                                alt: v.FirstNameChat + " " + v.LastNameChat,
-                                width: "40",
-                                height: "40"
-                            });
-                            imgDiv.append(avatarImg);
-                            chatMessageRightDiv.append(imgDiv);
+    //                        // Tạo dateTimeDiv và áp dụng float: right
+    //                        var dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "left").text(v.NotificationDateTime);
+    //                    }
+    //                    else {
+    //                        var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4");
+    //                        imgDiv = $("<div>");
+    //                        avatarImg = $("<img>").attr({
+    //                            src: v.AvatarChat,
+    //                            class: "rounded-circle mr-1",
+    //                            alt: v.FirstNameChat + " " + v.LastNameChat,
+    //                            width: "40",
+    //                            height: "40"
+    //                        });
+    //                        imgDiv.append(avatarImg);
+    //                        chatMessageRightDiv.append(imgDiv);
 
-                            boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
-                                "max-width": "90%",
-                                "background-color": "#E6E6E6",
-                                "border": "1px solid transparent",
-                                "border-radius": "0px 13px 13px 13px"
-                            });
-                            fontBoldDiv = $("<div>").addClass("font-weight-bold mb-1").css("color", "black").text(v.FirstNameChat + " " + v.LastNameChat);
-                            messageDiv = $("<div>").text(v.Message);
-                            messageDetailsDiv = $("<div>").addClass("message-details");
-                            dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "right").text(v.NotificationDateTime);
-                        }
+    //                        boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
+    //                            "max-width": "90%",
+    //                            "background-color": "#E6E6E6",
+    //                            "border": "1px solid transparent",
+    //                            "border-radius": "0px 13px 13px 13px"
+    //                        });
+    //                        fontBoldDiv = $("<div>").addClass("font-weight-bold mb-1").css("color", "black").text(v.FirstNameChat + " " + v.LastNameChat);
+    //                        messageDiv = $("<div>").text(v.Message);
+    //                        messageDetailsDiv = $("<div>").addClass("message-details");
+    //                        dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "right").text(v.NotificationDateTime);
+    //                    }
 
 
-                        messageDetailsDiv.append(dateTimeDiv);
-                        boxMessagesDiv.append(fontBoldDiv, messageDiv, messageDetailsDiv);
-                        chatMessageRightDiv.append(boxMessagesDiv);
+    //                    messageDetailsDiv.append(dateTimeDiv);
+    //                    boxMessagesDiv.append(fontBoldDiv, messageDiv, messageDetailsDiv);
+    //                    chatMessageRightDiv.append(boxMessagesDiv);
 
-                        chatMessagesList.append(chatMessageRightDiv);
-                    }
+    //                    chatMessagesList.append(chatMessageRightDiv);
+    //                }
 
-                });
+    //            });
 
-                if (isFirstLoad) {
-                    scrollToBottom();
-                    isFirstLoad = false;
-                }
-            },
-            error: (error) => {
-                console.log(error);
-            }
-        });
-    }
+    //            if (isFirstLoad) {
+    //                scrollToBottom();
+    //                isFirstLoad = false;
+    //            }
+    //        },
+    //        error: (error) => {
+    //            console.log(error);
+    //        }
+    //    });
+    //}
 
     $(document).ready(function () {
         // Bắt sự kiện submit của form
@@ -395,8 +395,9 @@ $(() => {
 
     connection.on("OnConnected", function () {
         OnConnected();
-        LoadChatData(chatRoomId);
+        //LoadChatData(chatRoomId);
         LoadChatDataToChatBox();
+
     });
 
     connection.on("ReceiveTypingNotification", function (userCurrent, isTyping) {
@@ -423,7 +424,8 @@ $(() => {
             dotChatMiniContainer.style.visibility = "hidden";
         }
     });
-
+    var senderUserId = ""; 
+    var receiverUserId = "";
     function LoadPrivateMessages(senderUserId, receiverUserId) {
         $.ajax({
             url: '/ChatPrivate/GetPrivateMessages',
@@ -435,7 +437,7 @@ $(() => {
             success: (result) => {
                 console.log(result);
                 var chatMessagesList = $(".chat-messages-list");
-                chatMessagesList.empty(); // Xóa nội dung hiện tại của chat-messages-list
+                chatMessagesList.empty();
                 $.each(result, (k, v) => {
                     var senderInfo = v.SenderUser; // Đây là đối tượng chứa thông tin của người gửi
                     var senderName = senderInfo.FirstName + " " + senderInfo.LastName;
@@ -565,6 +567,8 @@ $(() => {
                 connection.invoke("GetUserId").then(function (userId) {
                     console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
                     LoadPrivateMessages(currentUserId, item.id);
+                    $('#receiverUserId').val(item.id);
+                    console.log($('#receiverUserId').val()); // gui qua controller thong qua input hidden trong adminlayout
                 }).catch(function (error) {
                     console.error("Error getting userId:", error);
                 });
@@ -639,6 +643,7 @@ $(() => {
                 connection.invoke("GetUserId").then(function (userId) {
                     console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
                     LoadPrivateMessages(currentUserId, item.id);
+                    $('#receiverUserId').val(item.id);
                 }).catch(function (error) {
                     console.error("Error getting userId:", error);
                 });
