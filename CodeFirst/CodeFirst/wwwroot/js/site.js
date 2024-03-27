@@ -560,12 +560,17 @@ $(() => {
             var listGroupItem = document.createElement("a");
             listGroupItem.href = "#";
             listGroupItem.classList.add("list-group-item", "list-group-item-action", "border-0");
-
             listGroupItem.addEventListener("click", function (event) {
                 event.preventDefault();
-                console.log("Username:", item.id + " " + item.currUserId);
-                LoadPrivateMessages(item.currUserId, item.id)
+                connection.invoke("GetUserId").then(function (userId) {
+                    console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
+                    LoadPrivateMessages(currentUserId, item.id);
+                }).catch(function (error) {
+                    console.error("Error getting userId:", error);
+                });
             });
+
+         
 
             var dFlexContainer = document.createElement("div");
             dFlexContainer.classList.add("current-user");
@@ -610,8 +615,17 @@ $(() => {
     });
 
 
+    // Biến để lưu trữ userId
+    var currentUserId;
 
-    connection.on("UpdateUsersOnlineList", function (userList, userId) {
+    // Đăng ký sự kiện ReceiveUserId
+    connection.on("ReceiveUserId", function (userId) {
+        console.log("Id người gửi:", userId);
+        // Lưu trữ userId để sử dụng sau
+        currentUserId = userId;
+    });
+
+    connection.on("UpdateUsersOnlineList", function (userList) {
         var listGroupOnline = document.querySelector('.list-group-online');
         listGroupOnline.innerHTML = ""; // Xóa hết các thẻ a cũ trước khi cập nhật
 
@@ -622,9 +636,15 @@ $(() => {
             listGroupItem.classList.add("list-group-item", "list-group-item-action", "border-0");
             listGroupItem.addEventListener("click", function (event) {
                 event.preventDefault();
-                console.log("Username:", item.id + " " + userId);
-                LoadPrivateMessages(userId, item.id)
+                connection.invoke("GetUserId").then(function (userId) {
+                    console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
+                    LoadPrivateMessages(currentUserId, item.id);
+                }).catch(function (error) {
+                    console.error("Error getting userId:", error);
+                });
+
             });
+
             var spanStatus = document.createElement("span");
             spanStatus.classList.add("status", "online");
 

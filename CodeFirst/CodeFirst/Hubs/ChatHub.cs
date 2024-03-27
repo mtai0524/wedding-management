@@ -15,14 +15,13 @@ namespace CodeFirst.Hubs
     public class ChatHub : Hub
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserService _userServer;
         private readonly IHttpContextAccessor _httpContextAccessor;
-
-        public ChatHub(ApplicationDbContext context, UserService userServer, IHttpContextAccessor httpContextAccessor)
+        private readonly UserService _userService;
+        public ChatHub(ApplicationDbContext context, UserService userServer, IHttpContextAccessor httpContextAccessor, UserService userService)
         {
             _context = context;
-            _userServer = userServer;
             _httpContextAccessor = httpContextAccessor;
+            _userService = userService;
         }
         public async Task CallLoadChatData()
         {
@@ -45,9 +44,12 @@ namespace CodeFirst.Hubs
         }
 
         public static readonly Dictionary<string, UserInformation> ConnectedUsers = new Dictionary<string, UserInformation>();
+        public static readonly Dictionary<string, string> UserIds = new Dictionary<string, string>();
         public override async Task OnConnectedAsync()
         {
-            // Các phần khác không thay đổi
+            var currentUser = await _userService.GetCurrentLoggedInUser();
+            var userId = currentUser.Id;
+            UserIds[Context.ConnectionId] = userId;
 
             UserInformation userInfo = await GetUserInfoFromContext();
             if (!ConnectedUsers.ContainsKey(Context.ConnectionId))
@@ -84,14 +86,11 @@ namespace CodeFirst.Hubs
 
         private async Task UpdateConnectedUsersOfflineList(List<UserInformation> userOnlineList)
         {
-            var currentUser = await _userServer.GetCurrentLoggedInUser();
-            var userId = currentUser.Id;
             var userOfflineList = await _context.ApplicationUser
                                     .Select(user => new UserInformation
                                     {
                                         Id = user.Id,
                                         Email = user.Email,
-                                        CurrUserId = userId,
                                         Avatar = user.Avatar,
                                         FirstName = user.FirstName,
                                         LastName = user.LastName
@@ -102,16 +101,18 @@ namespace CodeFirst.Hubs
 
             await Clients.All.SendAsync("UpdateUsersOfflineList", offlineUsers);
         }
-
-
+        public async Task GetUserId()
+        {
+            string userId = UserIds.ContainsKey(Context.ConnectionId) ? UserIds[Context.ConnectionId] : "";
+            await Clients.Caller.SendAsync("ReceiveUserId", userId);
+        }
 
 
         private async Task UpdateConnectedUsersOnlineList()
         {
-            var currentUser = await _userServer.GetCurrentLoggedInUser();
-            var userId = currentUser.Id;
             List<UserInformation> userOnline = ConnectedUsers.Values.ToList();
-            await Clients.All.SendAsync("UpdateUsersOnlineList", userOnline, userId);
+
+            await Clients.All.SendAsync("UpdateUsersOnlineList", userOnline);
         }
         private async Task<UserInformation> GetUserInfoFromContext()
         {
