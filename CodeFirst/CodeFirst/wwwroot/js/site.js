@@ -364,6 +364,38 @@ $(() => {
         });
     });
 
+    $(document).ready(function () {
+        // Bắt sự kiện submit của form
+        $(".chatFormRoom").submit(function (e) {
+            e.preventDefault(); // Ngăn chặn việc gửi form theo cách thông thường
+
+            // Lấy dữ liệu từ form
+            var formData = $(this).serialize();
+
+            // Gửi yêu cầu AJAX
+            $.ajax({
+                url: $(this).attr('action'), // Lấy đường dẫn từ thuộc tính action của form
+                type: $(this).attr('method'), // Lấy phương thức từ thuộc tính method của form
+                data: formData,
+                success: function (response) {
+                    console.log("Message sent successfully!");
+                    console.log(response);
+
+                    // Xóa nội dung của input sau khi gửi thành công
+                    $(".chatFormRoom input[name='Message']").val('');
+
+                    // Cuộn xuống cuối trang
+                    scrollToBottomWhenSendMessage();
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX Error:", error);
+                }
+            });
+        });
+    });
+
+
+
 
     function scrollToBottomWhenSendMessage() {
         setTimeout(() => {

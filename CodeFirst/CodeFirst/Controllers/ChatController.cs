@@ -31,9 +31,10 @@ namespace CodeFirst.Controllers
                 var listChatData = await dbContext.Chats.ToListAsync();
                 var currentUser = await _userManager.GetUserAsync(User);
                 string emailUserCurr = User.Identity.Name ?? "DefaultEmail@example.com";
-                var chatDataWithUsers = dbContext.Chats
-             .Include(c => c.Id) 
-             .ToList();
+                  var chatDataWithUsers = await dbContext.Chats
+                    .Include(c => c.Id)
+                    .OrderBy(c => c.NotificationDateTime)
+                    .ToListAsync();
 
                 var formattedNotifications = chatDataWithUsers.Select(n => new
                 {

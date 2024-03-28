@@ -15452,11 +15452,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "T:\\Test\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "E:\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj",
+      "projectPath": "T:\\Test\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "E:\\Computer-Science\\CodeFirst\\WebAPI\\obj\\",
+      "outputPath": "T:\\Test\\Computer-Science\\CodeFirst\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -15473,8 +15473,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj": {
-              "projectPath": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj"
+            "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj": {
+              "projectPath": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\CodeFirst.csproj"
             }
           }
         }
