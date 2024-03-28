@@ -277,7 +277,7 @@
                                     </div>
 
                                     <div class="flex-grow-0  border-top" style="margin-top:20px">
-                                        <form class="chatFormRoom" id="publicChatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
+                                        <form class="chatForm" id="publicChatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
                                             <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
 
                                             <div class="input-group" style="margin-top:20px">
@@ -371,7 +371,7 @@
                 </span>
             </div>
         </div>
-        <form class="chatPrivateMiniForm" id="privateChatFormMini" asp-controller="ChatPrivate" asp-action="SendPrivateMessage" method="post">
+        <form class="chatForm" id="privateChatFormMini" asp-controller="ChatPrivate" asp-action="SendPrivateMessage" method="post">
             <input type="hidden" name="ReceiverUserId" class="receiverUserId" value="" />
             <div class="input-group" style="margin-top:20px">
                 <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control input-current-user" placeholder="Type your message">
@@ -379,7 +379,7 @@
             </div>
         </form>
 
-        <form class="chatRoomMiniForm" id="publicChatFormMini" asp-controller="Chat" asp-action="SendMessages" method="post">
+        <form class="chatForm" id="publicChatFormMini" asp-controller="Chat" asp-action="SendMessages" method="post">
             <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
 
             <div class="input-group" style="margin-top:20px">
