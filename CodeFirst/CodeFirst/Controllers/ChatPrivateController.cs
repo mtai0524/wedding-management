@@ -32,6 +32,8 @@ namespace CodeFirst.Controllers
         {
             try
             {
+                var currentUser = await _userManager.GetUserAsync(User);
+                string emailUserCurr = User.Identity.Name ?? "DefaultEmail@example.com";
                 // Lấy tất cả tin nhắn riêng tư giữa hai người dùng với các điều kiện là senderUserId và receiverUserId
                 var privateMessages = await _context.ChatPrivate
                     .Where(c => (c.SenderUserId == senderUserId && c.ReceiverUserId == receiverUserId) ||
@@ -44,6 +46,7 @@ namespace CodeFirst.Controllers
                         c.ReceiverUserId,
                         c.Message,
                         NotificationDateTime = c.NotificationDateTime.ToString("HH:mm dd/MM/yyyy"),
+                        UserNameCurrent = emailUserCurr,
                         SenderUser = new
                         {
                             c.SenderUser.Email,

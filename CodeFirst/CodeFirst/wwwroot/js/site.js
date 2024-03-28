@@ -2,8 +2,9 @@
 $(() => {
     LoadNotificationData();
     LoadChatData(chatRoomId);
-    LoadChatDataToChatBox();
+    LoadChatDataToChatBox(chatRoomId);
     LoadPrivateMessages(senderUserId, receiverUserId);
+
     var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
     connection.start().then(function () {
         console.log('connected to hub');
@@ -13,13 +14,15 @@ $(() => {
 
     connection.on("ReceiveNotificationRealtime", function (notifications) {
         LoadNotificationData();
-        LoadChatDataToChatBox();
+        LoadChatDataToChatBox(chatRoomId);
         LoadChatData(chatRoomId);
+
     });
     connection.on("ReceiveChatPrivateRealtime", function (notifications) {
         LoadNotificationData();
-        LoadChatDataToChatBox();
+        LoadChatDataToChatBox(chatRoomId);
         LoadPrivateMessages(senderUserId, receiverUserId);
+        LoadPrivateMessagesMini(senderUserId, receiverUserId);
     });
 
     var chatRoomId = "";
@@ -55,7 +58,8 @@ $(() => {
                     chatRoomId = $(this).data('id'); // Lấy chatRoomId từ thuộc tính data-id
                     console.log(chatRoomId);
                     LoadChatData(chatRoomId);
-                    $('#chatRoomId').val(chatRoomId);
+                    LoadChatDataToChatBox(chatRoomId);
+                    $('.chatRoomId').val(chatRoomId); // Thay đổi giá trị của class chatRoomId
                 });
             },
             error: function (error) {
@@ -67,29 +71,38 @@ $(() => {
 
 
 
-
-
-
-
     var isFirstLoad = true;
     var isFirstLoadToChatBox = true;
 
-    function LoadChatDataToChatBox() {
+    function LoadPrivateMessagesMini(senderUserId, receiverUserId) {
         $.ajax({
-            url: '/Chat/GetMessages',
+            url: '/ChatPrivate/GetPrivateMessages',
             method: 'GET',
+            data: {
+                senderUserId: senderUserId,
+                receiverUserId: receiverUserId
+            },
             success: (result) => {
-                console.log(result);
-
-                $(".chat-box").empty(); // Xóa nội dung hiện tại của chat box trước khi thêm mới
-
+                $(".chat-box").empty();
                 $.each(result, (k, v) => {
-                    // Tạo các phần tử DOM
+
+
+                    var senderInfo = v.SenderUser; // Đây là đối tượng chứa thông tin của người gửi
+                    var senderName = senderInfo.FirstName + " " + senderInfo.LastName;
+                    var senderEmail = senderInfo.Email;
+                    var senderAvatar = senderInfo.Avatar;
+
+                    var receiverInfo = v.ReceiverUser; // Đây là đối tượng chứa thông tin của người nhận
+                    var receiverName = receiverInfo.FirstName + " " + receiverInfo.LastName;
+                    var receiverEmail = receiverInfo.Email;
+                    var receiverAvatar = receiverInfo.Avatar;
+
+
                     var chatMessage = $('<div>').addClass('chat-message user2 d-flex');
-                    var img = $('<img>').addClass('avatar').attr('src', v.AvatarChat).attr('alt', `${v.FirstNameChat} ${v.LastNameChat}`);
+                    var img = $('<img>').addClass('avatar').attr('src', senderAvatar).attr('alt', `${senderName}`);
 
                     var messageBubble = "";
-                    if (v.Email == v.UserNameCurrent) {
+                    if (senderEmail == v.UserNameCurrent) {
                         var messageBubble = $('<div>').addClass('message-bubble').css({
                             'overflow': 'auto',
                             'background-color': '#E6E6E6',
@@ -105,7 +118,7 @@ $(() => {
                             'border-radius': '0px 13px 13px 13px'
                         });
                     }
-                    var fontBold = $('<div>').addClass('font-weight-bold').css('text-color', '#8CB2B2').text(`${v.FirstNameChat} ${v.LastNameChat}`);
+                    var fontBold = $('<div>').addClass('font-weight-bold').css('text-color', '#8CB2B2').text(`${senderName}`);
                     var messageContent = $('<div>').text(v.Message);
                     var messageTime = $('<div>').addClass('message-time').css({
                         'float': 'right',
@@ -125,6 +138,70 @@ $(() => {
                     $(".chat-box").append(chatMessage);
                 });
 
+                if (isFirstLoad) {
+                    scrollToBottom();
+                    isFirstLoad = false;
+                }
+            },
+            error: (error) => {
+                console.log(error);
+            }
+        });
+    }
+
+    function LoadChatDataToChatBox(chatRoomId) {
+        $.ajax({
+            url: '/Chat/GetMessages',
+            method: 'GET',
+            data: { chatRoomId: chatRoomId }, // Truyền roomId vào data của AJAX request
+            success: (result) => {
+                console.log(result);
+
+                $(".chat-box").empty(); // Xóa nội dung hiện tại của chat box trước khi thêm mới
+
+                $.each(result, (k, v) => {
+                    if (v.ChatRoom == chatRoomId) {
+                        var chatMessage = $('<div>').addClass('chat-message user2 d-flex');
+                        var img = $('<img>').addClass('avatar').attr('src', v.AvatarChat).attr('alt', `${v.FirstNameChat} ${v.LastNameChat}`);
+
+                        var messageBubble = "";
+                        if (v.Email == v.UserNameCurrent) {
+                            var messageBubble = $('<div>').addClass('message-bubble').css({
+                                'overflow': 'auto',
+                                'background-color': '#E6E6E6',
+                                'border': '3px solid #3F3F41',
+                                'border-radius': '0px 13px 13px 13px'
+                            });
+                        }
+                        else {
+                            var messageBubble = $('<div>').addClass('message-bubble').css({
+                                'overflow': 'auto',
+                                'background-color': '#E6E6E6',
+                                'border': '1px solid transparent',
+                                'border-radius': '0px 13px 13px 13px'
+                            });
+                        }
+                        var fontBold = $('<div>').addClass('font-weight-bold').css('text-color', '#8CB2B2').text(`${v.FirstNameChat} ${v.LastNameChat}`);
+                        var messageContent = $('<div>').text(v.Message);
+                        var messageTime = $('<div>').addClass('message-time').css({
+                            'float': 'right',
+                            'margin-top': '5px',
+                            'font-size': '10px',
+                            'font-weight': '700',
+                            'color': 'gray'
+                        }).text(v.NotificationDateTime);
+
+                        // Thêm các phần tử con vào messageBubble
+                        messageBubble.append(fontBold, messageContent, messageTime);
+
+                        // Thêm các phần tử vào chatMessage
+                        chatMessage.append(img, messageBubble);
+
+                        // Thêm chatMessage vào chat box
+                        $(".chat-box").append(chatMessage);
+                    }
+                });
+
                 if (isFirstLoadToChatBox) {
                     scrollToBottomWhenSendMessage();
                     isFirstLoadToChatBox = false;
@@ -135,6 +212,7 @@ $(() => {
             }
         });
     }
+
 
 
 
@@ -284,9 +362,6 @@ $(() => {
     });
 
 
-   
-
-
     function scrollToBottomWhenSendMessage() {
         setTimeout(() => {
             const chatMessagesList = document.querySelector('.chat-messages-list');
@@ -416,8 +491,9 @@ $(() => {
     connection.on("OnConnected", function () {
         OnConnected();
         LoadChatData(chatRoomId);
-        LoadChatDataToChatBox();
+        LoadChatDataToChatBox(chatRoomId);
         LoadPrivateMessages(senderUserId, receiverUserId);
+        LoadPrivateMessagesMini(senderUserId, receiverUserId);
 
     });
 
@@ -445,9 +521,9 @@ $(() => {
             dotChatMiniContainer.style.visibility = "hidden";
         }
     });
-    var senderUserId = currentUserId; 
-    var receiverUserId = $('#receiverUserId').val();
-;
+    var senderUserId = currentUserId;
+    var receiverUserId = $('.receiverUserId').val(); // val để lấy giá trị từ form
+    ;
     function LoadPrivateMessages(senderUserId, receiverUserId) {
         $.ajax({
             url: '/ChatPrivate/GetPrivateMessages',
@@ -461,12 +537,9 @@ $(() => {
                 var chatMessagesList = $(".chat-messages-list");
                 chatMessagesList.empty();
                 $.each(result, (k, v) => {
-                    var senderInfo = v.SenderUser; // Đây là đối tượng chứa thông tin của người gửi
-                    var senderName = senderInfo.FirstName + " " + senderInfo.LastName;
-                    var senderEmail = senderInfo.Email;
-                    var senderAvatar = senderInfo.Avatar;
 
-                    var senderInfo = v.SenderUser; // Đây là đối tượng chứa thông tin của người gửi
+
+                    var senderInfo = v.SenderUser;
                     var senderName = senderInfo.FirstName + " " + senderInfo.LastName;
                     var senderEmail = senderInfo.Email;
                     var senderAvatar = senderInfo.Avatar;
@@ -576,7 +649,7 @@ $(() => {
             }
         });
     }
-  
+
     connection.on("UpdateUsersOfflineList", function (userList) {
         var listGroupOnline = document.querySelector('.list-group-offline');
         listGroupOnline.innerHTML = ""; // Xóa hết các thẻ a cũ trước khi cập nhật
@@ -601,10 +674,10 @@ $(() => {
                 connection.invoke("GetUserId").then(function (userId) {
                     console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
                     LoadPrivateMessages(currentUserId, item.id);
-                    $('#receiverUserId').val(item.id);
+                    $('.receiverUserId').val(item.id);
                     senderUserId = currentUserId;
-                    receiverUserId = $('#receiverUserId').val();
-                    console.log($('#receiverUserId').val()); // gui qua controller thong qua input hidden trong adminlayout
+                    receiverUserId = $('.receiverUserId').val();
+                    console.log($('.receiverUserId').val()); // gui qua controller thong qua input hidden trong adminlayout
                     // Lấy tất cả các mục trong danh sách
                     var allItems = document.querySelectorAll('.list-group-item');
 
@@ -612,14 +685,16 @@ $(() => {
                     allItems.forEach(function (element) {
                         element.classList.remove('active');
                     });
-                    listGroupItem.classList.add("active"); 
+                    listGroupItem.classList.add("active");
+                    LoadPrivateMessagesMini(senderUserId, receiverUserId);
+
 
                 }).catch(function (error) {
                     console.error("Error getting userId:", error);
                 });
             });
 
-         
+
 
             var dFlexContainer = document.createElement("div");
             dFlexContainer.classList.add("current-user");
@@ -697,17 +772,20 @@ $(() => {
                 connection.invoke("GetUserId").then(function (userId) {
                     console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
                     LoadPrivateMessages(currentUserId, item.id);
-                    $('#receiverUserId').val(item.id);
+                    $('.receiverUserId').val(item.id);
                     senderUserId = currentUserId;
-                    receiverUserId = $('#receiverUserId').val();
+                    receiverUserId = $('.receiverUserId').val();
                     var allItems = document.querySelectorAll('.list-group-item');
 
                     // Xóa lớp 'active' từ tất cả các mục
                     allItems.forEach(function (element) {
                         element.classList.remove('active');
                     });
-                    listGroupItem.classList.add("active"); 
-                    listGroupItem.classList.add("active"); 
+                    listGroupItem.classList.add("active");
+                    listGroupItem.classList.add("active");
+                    LoadPrivateMessagesMini(senderUserId, receiverUserId);
+
+
                 }).catch(function (error) {
                     console.error("Error getting userId:", error);
                 });

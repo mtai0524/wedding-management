@@ -136,22 +136,25 @@
         .message-bubble {
             word-wrap: break-word;
         }
-        .chat-room-list{
-            width:100%;
-        }
-        .chat-room-item{
-            width:100%;
-            cursor:pointer;
-            line-height:50px;
-        }
-        .chat-room-name{
-            width:100%;
-            margin-left:10px;
-            padding:10px;
+
+        .chat-room-list {
+            width: 100%;
         }
 
-        .chat-room-item:hover{
-                background-color: #E6E6E6;
+        .chat-room-item {
+            width: 100%;
+            cursor: pointer;
+            line-height: 50px;
+        }
+
+        .chat-room-name {
+            width: 100%;
+            margin-left: 10px;
+            padding: 10px;
+        }
+
+        .chat-room-item:hover {
+            background-color: #E6E6E6;
         }
 
         .list-group-item:hover {
@@ -160,16 +163,16 @@
 
         .selected-room {
             background-color: #3F3F41; /* Màu nền của phòng chat được chọn */
-            color:white;
+            color: white;
             outline: 2px solid #19ff66;
             border-radius: 5px;
         }
 
 
-        .list-group-item.active{
+        .list-group-item.active {
             background-color: #3F3F41;
             outline: 2px solid #19ff66;
-            border-radius:5px;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -209,9 +212,9 @@
                                                         <span style="color:white">Nhóm chat</span>
                                                     </button>
                                                 </h2>
-                                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
                                                     <div class="accordion-body">
-                                                        <div class="list-room-chat" >
+                                                        <div class="list-room-chat">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -270,17 +273,18 @@
                                         <div class="chat-messages-list p-4">
                                         </div>
                                     </div>
-                                  
+
                                     <div class="flex-grow-0  border-top" style="margin-top:20px">
                                         <form class="chatForm" id="publicChatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
-                                            <input type="hidden" name="ChatRoomId" id="chatRoomId" value="">
+                                            <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
+
                                             <div class="input-group" style="margin-top:20px">
                                                 <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
                                                 <button style="background-color:#3F3F41;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-chat"><i style="color:#F2F2F3;font-size:20px;padding-right:40px;padding-left:40px" class="fa-solid fa-paper-plane"></i></button>
                                             </div>
                                         </form>
                                         <form class="chatForm" id="privateChatForm" asp-controller="ChatPrivate" asp-action="SendPrivateMessage" method="post">
-                                            <input type="hidden" name="ReceiverUserId" id="receiverUserId" value="" />
+                                            <input type="hidden" name="ReceiverUserId" class="receiverUserId" value="" />
                                             <div class="input-group" style="margin-top:20px">
                                                 <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control" placeholder="Type your message">
                                                 <button style="background-color:#3F3F41;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-chat"><i style="color:#F2F2F3;font-size:20px;padding-right:40px;padding-left:40px" class="fa-solid fa-paper-plane"></i></button>
@@ -362,9 +366,17 @@
                 </span>
             </div>
         </div>
+        <form class="chatForm" id="privateChatFormMini" asp-controller="ChatPrivate" asp-action="SendPrivateMessage" method="post">
+            <input type="hidden" name="ReceiverUserId" class="receiverUserId" value="" />
+            <div class="input-group" style="margin-top:20px">
+                <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control input-current-user" placeholder="Type your message">
+                <button style="margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success btn-chat-mini"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
+            </div>
+        </form>
 
+        <form class="chatForm" id="publicChatFormMini" asp-controller="Chat" asp-action="SendMessages" method="post">
+            <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
 
-        <form class="chatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
             <div class="input-group" style="margin-top:20px">
                 <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="text" class="form-control input-current-user" placeholder="Type your message">
                 <button style="margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success btn-chat-mini"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
@@ -562,14 +574,21 @@
                 $('.list-group-offline').on('click', function () {
                     $('#publicChatForm').hide();
                     $('#privateChatForm').show();
+                    $('#privateChatFormMini').show();
+                    $('#publicChatFormMini').hide();
                 });
                 $('.list-group-online').on('click', function () {
                     $('#publicChatForm').hide();
                     $('#privateChatForm').show();
+                    $('#privateChatFormMini').show();
+                    $('#publicChatFormMini').hide();
                 });
                 $('.list-room-chat').on('click', function () {
                     $('#publicChatForm').show();
                     $('#privateChatForm').hide();
+
+                    $('#privateChatFormMini').hide();
+                    $('#publicChatFormMini').show();
                 });
             });
 
@@ -577,6 +596,7 @@
             $(document).ready(function () {
                 var isModalVisible = false;
                 var isCollapse = false;
+
                 $(document).on('keydown', function (event) {
                     if (isModalVisible && event.altKey && event.key.toLowerCase() === 'c') {
                         // Đóng modal
@@ -584,19 +604,16 @@
                         isModalVisible = false;
                     } else if (!isModalVisible && event.altKey && event.key.toLowerCase() === 'c') {
                         $('#exampleModal').modal('show');
-                        isModalVisible = true; 
+                        isModalVisible = true;
                     }
+
                     if (event.altKey && event.key.toLowerCase() === 'q') {
-                        // Hiển thị tất cả các accordion
-                        $('.accordion-collapse').addClass('show').removeClass('collapse');
-                    }
-                    if (event.altKey && event.key.toLowerCase() === 'w') {
-                        // Hiển thị tất cả các accordion
-                        $('.accordion-collapse').addClass('collapse').removeClass('show');
+                        // Hiển thị hoặc ẩn tất cả các accordion
+                        $('.accordion-collapse').toggleClass('show collapse');
                     }
                 });
-            
             });
+
 
 
 
@@ -635,7 +652,7 @@
                 });
             });
 
-            
+
             function scrollToBottomWhenSendMessage() {
                 setTimeout(() => {
                     const chatMessagesList = document.querySelector('chat-message-right');
@@ -671,13 +688,7 @@
                 }
             });
 
-            var paginationInformation = document.querySelector('.mud-table-pagination-information');
 
-            // Kiểm tra xem phần tử có tồn tại không
-            if (paginationInformation) {
-                // Thay đổi nội dung của phần tử
-                paginationInformation.textContent = "Custom Text Here";
-            }
             // let isClicked = localStorage.getItem('isClicked') === 'true';
 
             // function hideNotificationCount() {

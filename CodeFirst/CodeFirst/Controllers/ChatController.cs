@@ -42,12 +42,12 @@ namespace CodeFirst.Controllers
                     n.Message,
                     n.MessageType,
                     NotificationDateTime = n.NotificationDateTime.ToString("HH:mm dd/MM/yyyy"),
-                    User = n.Id, // Truy cập thông tin người dùng liên quan
+                    User = n.Id, 
                     Email = n.Id.Email,
                     AvatarChat = n.Id.Avatar,
                     FirstNameChat = n.Id.FirstName,
                     LastNameChat = n.Id.LastName,
-                    UserNameCurrent = emailUserCurr, // Giả định rằng bạn đã có biến emailUserCurr
+                    UserNameCurrent = emailUserCurr,
                     ChatRoom = n.ChatRoomDataId,
                 });
 
