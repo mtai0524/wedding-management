@@ -1,4 +1,5 @@
-﻿.jumping-dots span {
+﻿
+.jumping-dots span {
     position: relative;
 
     animation: jump 1s ease-in-out infinite; /* Điều chỉnh thời gian và hàm easing */
@@ -62,7 +63,13 @@
     overflow-y: scroll;
     overflow-x:hidden;
 }
-
+.chat-messages-list-room {
+    display: flex;
+    flex-direction: column;
+    height: 65vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 
 .chat-message-left,
 .chat-message-right {
@@ -214,7 +221,12 @@ label.floatting-btn {
     text-align: center;
     background: green;
 }
-
+.wrapper .chat-box-private {
+    padding: 20px;
+    width: 100%;
+    height: 300px; /* Đã điều chỉnh chiều cao của khung chat */
+    overflow-y: auto; /* Cho phép cuộn khi nội dung vượt quá kích thước */
+}
 .wrapper .chat-box {
     padding: 20px;
     width: 100%;
@@ -248,6 +260,31 @@ label.floatting-btn {
     display: inline-block;
 }
 
+.chat-box-private .chat-message {
+    margin-bottom: 10px;
+}
+
+    .chat-box-private .chat-message.user1 {
+        text-align: right;
+    }
+
+    .chat-box-private .chat-message.user2 {
+        text-align: left;
+    }
+
+    .chat-box-private .chat-message.user1 .message-bubble {
+        background-color: green;
+    }
+
+    .chat-box-private .chat-message.user2 .message-bubble {
+        background-color: gray;
+    }
+
+.chat-box-private .message-bubble {
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
 
 @media screen and (max-width: 480px) {
     .wrapper {
@@ -257,11 +294,23 @@ label.floatting-btn {
     .chat-messages-list{
         height:58vh;
     }
+    .chat-messages-list-room {
+        height: 58vh;
+    }
     .chat-box form .field textarea {
         width: calc(100% - 20px);
     }
 
     .chat-box form .field button {
+        width: calc(100% - 20px);
+        margin-top: 10px;
+    }
+
+    .chat-box-private form .field textarea {
+        width: calc(100% - 20px);
+    }
+
+    .chat-box-private form .field button {
         width: calc(100% - 20px);
         margin-top: 10px;
     }
@@ -334,6 +383,9 @@ label.floatting-btn {
         align-items: center !important;
     }
     .chat-messages-list {
+        height: 55vh;
+    }
+    .chat-messages-list-room {
         height: 55vh;
     }
     .current-user {

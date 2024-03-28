@@ -60,7 +60,10 @@ $(() => {
                     LoadChatData(chatRoomId);
                     LoadChatDataToChatBox(chatRoomId);
                     $('.chatRoomId').val(chatRoomId); // Thay đổi giá trị của class chatRoomId
+
                 });
+                $('.chat-room-item:first').trigger('click');
+
             },
             error: function (error) {
                 console.error('Error:', error);
@@ -83,7 +86,7 @@ $(() => {
                 receiverUserId: receiverUserId
             },
             success: (result) => {
-                $(".chat-box").empty();
+                $(".chat-box-private").empty();
                 $.each(result, (k, v) => {
 
 
@@ -135,7 +138,7 @@ $(() => {
                     chatMessage.append(img, messageBubble);
 
                     // Thêm chatMessage vào chat box
-                    $(".chat-box").append(chatMessage);
+                    $(".chat-box-private").append(chatMessage);
                 });
 
                 if (isFirstLoad) {
@@ -223,7 +226,7 @@ $(() => {
             data: { chatRoomId: chatRoomId },
             success: (result) => {
                 console.log(result);
-                var chatMessagesList = $(".chat-messages-list");
+                var chatMessagesList = $(".chat-messages-list-room");
                 chatMessagesList.empty(); // Xóa nội dung hiện tại của chat-messages-list
                 $.each(result, (k, v) => {
                     if (v.ChatRoom == chatRoomId) {
@@ -369,8 +372,10 @@ $(() => {
                 chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
             }
             const chatMessagesListMini = document.querySelector('.chat-box');
+            const chatMessagesListMiniPrivate = document.querySelector('.chat-box-private');
             if (chatMessagesListMini) {
                 chatMessagesListMini.scrollTop = chatMessagesListMini.scrollHeight;
+                chatMessagesListMiniPrivate.scrollTop = chatMessagesListMiniPrivate.scrollHeight;
             }
         }, 1000);
     }

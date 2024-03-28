@@ -270,6 +270,8 @@
                                     </div>
 
                                     <div class="position-relative">
+                                        <div class="chat-messages-list-room p-4">
+                                        </div>
                                         <div class="chat-messages-list p-4">
                                         </div>
                                     </div>
@@ -345,13 +347,16 @@
         <i class="fas fa-times" style="z-index:999999;color:white"></i>
     </label>
     <div class="wrapper">
+ 
         <div style="background-color:#3F3F41" class="head-text d-flex justify-content-center">
             <div>
-                Chát chit xuyên lục địa
+                Chát chit xuyên lục địa<br />
             </div>
             <div>
                 <button style="background-color: transparent;outline: none;border:none;position: absolute;top:20px;left:1rem" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
             </div>
+        </div>
+        <div class="chat-box-private">
         </div>
         <div class="chat-box">
         </div>
@@ -561,6 +566,28 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <script type="text/javascript">
+            $('.chat-messages-list').css('display', 'none');
+            $('.chat-box').css('display', 'none');
+            $(document).ready(function () {
+                $(document).on('click', '.selected-room', function () {
+                    $('.chat-messages-list').hide();
+                    $('.chat-messages-list-room').show(); 
+                    $('.chat-box').show(); 
+                    $('.chat-box-private').hide(); 
+
+                });
+
+                $('.list-group-online, .list-group-offline').on('click', function () {
+                    $('.chat-messages-list-room').hide(); 
+                    $('.chat-messages-list').show(); 
+
+                    $('.chat-box').hide();
+                    $('.chat-box-private').show(); 
+                });
+            });
+
+
+
 
             $(document).ready(function () {
                 $('.list-group-item').on('click', function () {
