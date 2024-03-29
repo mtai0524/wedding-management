@@ -523,6 +523,31 @@ $(() => {
         }
     });
 
+    document.getElementById('input-chat-private').addEventListener('input', function () {
+        var messageInput = this.value.trim(); // Lấy giá trị của input và loại bỏ các khoảng trắng ở đầu và cuối
+        if (messageInput === '') {
+            isTyping = false;
+            connection.invoke("NotifyTyping", false).catch(function (err) {
+                console.error(err.toString());
+            });
+        } else {
+            if (!isTyping) {
+                isTyping = true;
+                connection.invoke("NotifyTyping", true).catch(function (err) {
+                    console.error(err.toString());
+                });
+            }
+
+        }
+    });
+    document.getElementById('input-chat-private').addEventListener('blur', function () {
+        if (isTyping) {
+            isTyping = false;
+            connection.invoke("NotifyTyping", false).catch(function (err) {
+                return console.error(err.toString());
+            });
+        }
+    });
 
     // Xử lý khi người dùng ngừng nhập
     document.querySelector('input[name="Message"]').addEventListener('blur', function () {
@@ -569,7 +594,6 @@ $(() => {
     });
     var senderUserId = currentUserId;
     var receiverUserId = $('.receiverUserId').val(); // val để lấy giá trị từ form
-    ;
     function LoadPrivateMessages(senderUserId, receiverUserId) {
         $.ajax({
             url: '/ChatPrivate/GetPrivateMessages',
@@ -590,7 +614,7 @@ $(() => {
                     var senderEmail = senderInfo.Email;
                     var senderAvatar = senderInfo.Avatar;
 
-                    var receiverInfo = v.ReceiverUser; // Đây là đối tượng chứa thông tin của người nhận
+                    var receiverInfo = v.ReceiverUser;
                     var receiverName = receiverInfo.FirstName + " " + receiverInfo.LastName;
                     var receiverEmail = receiverInfo.Email;
                     var receiverAvatar = receiverInfo.Avatar;
@@ -610,7 +634,7 @@ $(() => {
 
                         var imgDiv = $("<div>").css({
                             "float": "right", // Chuyển sang bên phải
-                            "margin-left": "20px" // Giá trị margin có thể thay đổi tùy theo mong muốn
+                            "margin-left": "20px"
                         });
 
                         var avatarImg = $("<img>").attr({
@@ -645,10 +669,10 @@ $(() => {
                                 "word-break": "break-all"
                             });
 
-                        // Tạo messageDetailsDiv và áp dụng clear: both
+                        // messageDetailsDiv clear: both
                         var messageDetailsDiv = $("<div>").addClass("message-details").css("clear", "both");
 
-                        // Tạo dateTimeDiv và áp dụng float: right
+                        // dateTimeDiv  float: right
                         var dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "left").text(v.NotificationDateTime);
                     }
                     else {
