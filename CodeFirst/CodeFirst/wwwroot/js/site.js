@@ -39,16 +39,17 @@ $(() => {
                     chatRoomList.append(chatRoomItem);
                 });
                 $('.list-room-chat').empty().append(chatRoomList);
-
                 var userCurrentChatElement = document.querySelector('.user-current-chat');
+
                 var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
+                var chatroomname = document.querySelector('.chat-name');
 
                 // Thêm sự kiện click vào mỗi thành phần div
                 $('.chat-room-item').on('click', function () {
                     var selectedChatRoomName = $(this).find('.chat-room-name').text();
-                    userCurrentChatElement.textContent = selectedChatRoomName;
-
+                    chatroomname.textContent = selectedChatRoomName;
                     avatarUserCurrentChat.style.visibility = "hidden";
+                    userCurrentChatElement.textContent = "";
                     // Loại bỏ lớp 'selected-room' từ tất cả các phòng chat
                     $('.chat-room-item').removeClass('selected-room');
 
@@ -60,6 +61,7 @@ $(() => {
                     LoadChatData(chatRoomId);
                     LoadChatDataToChatBox(chatRoomId);
                     $('.chatRoomId').val(chatRoomId); // Thay đổi giá trị của class chatRoomId
+
 
                 });
                 $('.chat-room-item:first').trigger('click');
@@ -262,7 +264,7 @@ $(() => {
                             chatMessageRightDiv.append(imgDiv);
 
                             var boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
-                                "max-width": "90%",
+                                "max-width": "84%",
                                 "background-color": "#E6E6E6",
                                 "border": "3px solid #3F3F41",
                                 "border-radius": "0px 13px 13px 13px",
@@ -302,7 +304,7 @@ $(() => {
                             chatMessageRightDiv.append(imgDiv);
 
                             boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
-                                "max-width": "90%",
+                                "max-width": "84%",
                                 "background-color": "#E6E6E6",
                                 "border": "1px solid transparent",
                                 "border-radius": "0px 13px 13px 13px"
@@ -323,10 +325,7 @@ $(() => {
 
                 });
 
-                if (isFirstLoad) {
                     scrollToBottom();
-                    isFirstLoad = false;
-                }
             },
             error: (error) => {
                 console.log(error);
@@ -403,21 +402,31 @@ $(() => {
             if (chatMessagesList) {
                 chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
             }
+
+            const chatMessagesListRoom = document.querySelector('.chat-messages-list-room');
+            if (chatMessagesListRoom) {
+                chatMessagesListRoom.scrollTop = chatMessagesListRoom.scrollHeight;
+            }
             const chatMessagesListMini = document.querySelector('.chat-box');
             const chatMessagesListMiniPrivate = document.querySelector('.chat-box-private');
             if (chatMessagesListMini) {
                 chatMessagesListMini.scrollTop = chatMessagesListMini.scrollHeight;
                 chatMessagesListMiniPrivate.scrollTop = chatMessagesListMiniPrivate.scrollHeight;
             }
-        }, 1000);
+        }, 500);
     }
     function scrollToBottom() {
         setTimeout(() => {
+            const chatMessagesListRoom = document.querySelector('.chat-messages-list-room');
+            if (chatMessagesListRoom) {
+                chatMessagesListRoom.scrollTop = chatMessagesListRoom.scrollHeight;
+            }
+
             const chatMessagesList = document.querySelector('.chat-messages-list');
             if (chatMessagesList) {
                 chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
             }
-        }, 1000);
+        }, 200);
     }
     function LoadNotificationData() {
         $.ajax({
@@ -616,7 +625,7 @@ $(() => {
                         chatMessageRightDiv.append(imgDiv);
 
                         var boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
-                            "max-width": "90%",
+                            "max-width": "84%",
                             "background-color": "#E6E6E6",
                             "border": "3px solid #3F3F41",
                             "border-radius": "0px 13px 13px 13px",
@@ -656,7 +665,7 @@ $(() => {
                         chatMessageRightDiv.append(imgDiv);
 
                         boxMessagesDiv = $("<div>").addClass("flex-shrink-1 box-messages email-matches rounded py-2 px-3 ml-3").css({
-                            "max-width": "90%",
+                            "max-width": "84%",
                             "background-color": "#E6E6E6",
                             "border": "1px solid transparent",
                             "border-radius": "0px 13px 13px 13px"
@@ -690,6 +699,7 @@ $(() => {
     connection.on("UpdateUsersOfflineList", function (userList) {
         var listGroupOnline = document.querySelector('.list-group-offline');
         listGroupOnline.innerHTML = ""; // Xóa hết các thẻ a cũ trước khi cập nhật
+        var chatroomname = document.querySelector('.chat-name');
         userList.forEach(function (item) {
             var listGroupItem = document.createElement("a");
             listGroupItem.href = "#";
@@ -703,6 +713,8 @@ $(() => {
 
 
             listGroupItem.addEventListener("click", function (event) {
+                chatroomname.textContent = "";
+
                 event.preventDefault();
                 userCurrentChatElement.textContent = item.firstName + " " + item.lastName;
                 avatarUserCurrentChat.style.visibility = "visible";
@@ -794,13 +806,15 @@ $(() => {
         var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
         var dotChatContainer = document.querySelector('.dot-chat-container');
         var dotChatMiniContainer = document.querySelector('.dot-chatmini-container');
-
+        var chatroomname = document.querySelector('.chat-name');
 
         userList.forEach(function (item) {
             var listGroupItem = document.createElement("a");
             listGroupItem.href = "#";
             listGroupItem.classList.add("list-group-item", "list-group-item-action", "border-0");
             listGroupItem.addEventListener("click", function (event) {
+                chatroomname.textContent = "";
+
                 event.preventDefault();
                 userCurrentChatElement.textContent = item.firstName + " " + item.lastName;
                 avatarUserCurrentChat.style.visibility = "visible";

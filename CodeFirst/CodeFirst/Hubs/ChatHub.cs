@@ -42,6 +42,12 @@ namespace CodeFirst.Hubs
             var userCurrent = await _context.ApplicationUser.FirstOrDefaultAsync(user => user.Email == emailUserCurrent);
             await Clients.All.SendAsync("ReceiveTypingNotification", userCurrent, isTyping);
         }
+        public async Task NotifyTypingChatPrivate(bool isTyping)
+        {
+            var emailUserCurrent = Context.User.Identity.Name;
+            var userCurrent = await _context.ApplicationUser.FirstOrDefaultAsync(user => user.Email == emailUserCurrent);
+            await Clients.All.SendAsync("ReceiveTypingNotification", userCurrent, isTyping);
+        }
 
         public async Task SendNotificationToAll(string message)
         {
