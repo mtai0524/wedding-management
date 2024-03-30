@@ -522,42 +522,50 @@ $(() => {
 
         }
     });
+    // Xử lý khi người dùng ngừng nhập
+    document.querySelector('input[name="Message"]').addEventListener('blur', function () {
+        if (isTyping) {
+            isTyping = false;
+            connection.invoke("NotifyTyping", false, receiverUserId).catch(function (err) {
+                console.log("blur texting for receiver: " + receiverUserId);
 
+                return console.error(err.toString());
+            });
+        }
+    });
+
+
+    // xử lý trong phần private
     document.getElementById('input-chat-private').addEventListener('input', function () {
         var messageInput = this.value.trim(); // Lấy giá trị của input và loại bỏ các khoảng trắng ở đầu và cuối
-        if (messageInput === '') {
+        if (messageInput == '') {
             isTyping = false;
-            connection.invoke("NotifyTyping", false).catch(function (err) {
+            connection.invoke("NotifyTyping", false, receiverUserId).catch(function (err) {
                 console.error(err.toString());
             });
         } else {
             if (!isTyping) {
                 isTyping = true;
-                connection.invoke("NotifyTyping", true).catch(function (err) {
+                connection.invoke("NotifyTyping", true, receiverUserId ).catch(function (err) {
                     console.error(err.toString());
                 });
             }
 
         }
     });
+
     document.getElementById('input-chat-private').addEventListener('blur', function () {
         if (isTyping) {
             isTyping = false;
-            connection.invoke("NotifyTyping", false).catch(function (err) {
-                return console.error(err.toString());
-            });
-        }
-    });
+            connection.invoke("NotifyTyping", false, receiverUserId).catch(function (err) {
+                console.log("blur texting for receiver: " + receiverUserId);
 
-    // Xử lý khi người dùng ngừng nhập
-    document.querySelector('input[name="Message"]').addEventListener('blur', function () {
-        if (isTyping) {
-            isTyping = false;
-            connection.invoke("NotifyTyping", false).catch(function (err) {
                 return console.error(err.toString());
             });
         }
     });
+    // xử lý trong phần private
+
 
     connection.on("OnConnected", function () {
         OnConnected();
@@ -569,26 +577,18 @@ $(() => {
     });
 
     connection.on("ReceiveTypingNotification", function (userCurrent, isTyping) {
-        var userCurrentChatElement = document.querySelector('.user-current-chat');
         var userCurrentChatMiniElement = document.querySelector('.user-current-chatmini');
-        var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
-        var dotChatContainer = document.querySelector('.dot-chat-container');
         var dotChatMiniContainer = document.querySelector('.dot-chatmini-container');
-        if (isTyping) {
+        if (isTyping && (receiverUserItemId == receiverUserId )) {
+            console.log("id click len giao dien: " + receiverUserItemId + "=== " + "id muon gui: " + receiverUserId);
+
             console.log(userCurrent.firstName + " is typing...");
-            userCurrentChatElement.textContent = userCurrent.firstName + " " + userCurrent.lastName;
             userCurrentChatMiniElement.textContent = userCurrent.firstName + " " + userCurrent.lastName;
-            avatarUserCurrentChat.style.visibility = "visible";
-            dotChatContainer.style.visibility = "visible";
             dotChatMiniContainer.style.visibility = "visible";
-            avatarUserCurrentChat.src = userCurrent.avatar;
         } else {
+
             console.log(userCurrent.firstName + " stopped typing.");
-            avatarUserCurrentChat.src = "";
-            userCurrentChatElement.textContent = "";
             userCurrentChatMiniElement.textContent = "";
-            avatarUserCurrentChat.style.visibility = "hidden";
-            dotChatContainer.style.visibility = "hidden";
             dotChatMiniContainer.style.visibility = "hidden";
         }
     });
@@ -735,14 +735,12 @@ $(() => {
             var dotChatContainer = document.querySelector('.dot-chat-container');
             var dotChatMiniContainer = document.querySelector('.dot-chatmini-container');
 
-
             listGroupItem.addEventListener("click", function (event) {
                 chatroomname.textContent = "";
 
                 event.preventDefault();
-                userCurrentChatElement.textContent = item.firstName + " " + item.lastName;
-                avatarUserCurrentChat.style.visibility = "visible";
 
+                avatarUserCurrentChat.style.visibility = "visible";
                 avatarUserCurrentChat.src = item.avatar ? item.avatar : "https://as2.ftcdn.net/v2/jpg/04/10/43/77/1000_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg";
                 connection.invoke("GetUserId").then(function (userId) {
                     console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
@@ -750,7 +748,7 @@ $(() => {
                     $('.receiverUserId').val(item.id);
                     senderUserId = currentUserId;
                     receiverUserId = $('.receiverUserId').val();
-                    console.log($('.receiverUserId').val()); // gui qua controller thong qua input hidden trong adminlayout
+                    console.log( $('.receiverUserId').val()); // gui qua controller thong qua input hidden trong adminlayout
                     // Lấy tất cả các mục trong danh sách
                     var allItems = document.querySelectorAll('.list-group-item');
 
@@ -760,7 +758,8 @@ $(() => {
                     });
                     listGroupItem.classList.add("active");
                     LoadPrivateMessagesMini(senderUserId, receiverUserId);
-
+                    var userCurrentChatMiniElement = document.querySelector('.user-current-chat');
+                    userCurrentChatMiniElement.innerHTML = item.firstName + " " + item.lastName;
 
                 }).catch(function (error) {
                     console.error("Error getting userId:", error);
@@ -789,7 +788,7 @@ $(() => {
             var usernameDiv = document.createElement("div");
             usernameDiv.classList.add("username");
             usernameDiv.textContent = item.firstName + " " + item.lastName;
-
+           
             var textStatusDiv = document.createElement("div");
             textStatusDiv.classList.add("text-status");
 
@@ -814,21 +813,22 @@ $(() => {
 
     // Biến để lưu trữ userId
     var currentUserId;
-
+    var currentUserName;
     // Đăng ký sự kiện ReceiveUserId
-    connection.on("ReceiveUserId", function (userId) {
+    connection.on("ReceiveUserId", function (userId, username) {
         console.log("Id người gửi:", userId);
         // Lưu trữ userId để sử dụng sau
         currentUserId = userId;
+        currentUserName = username;
     });
-
+    var saveCurrentUserName = "";
+    var receiverUserItemId = "";
     connection.on("UpdateUsersOnlineList", function (userList) {
         var listGroupOnline = document.querySelector('.list-group-online');
         listGroupOnline.innerHTML = ""; // Xóa hết các thẻ a cũ trước khi cập nhật
         var userCurrentChatElement = document.querySelector('.user-current-chat');
         var userCurrentChatMiniElement = document.querySelector('.user-current-chatmini');
         var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
-        var dotChatContainer = document.querySelector('.dot-chat-container');
         var dotChatMiniContainer = document.querySelector('.dot-chatmini-container');
         var chatroomname = document.querySelector('.chat-name');
 
@@ -846,12 +846,16 @@ $(() => {
                 avatarUserCurrentChat.src = item.avatar ? item.avatar : "https://as2.ftcdn.net/v2/jpg/04/10/43/77/1000_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg";
                 connection.invoke("GetUserId").then(function (userId) {
                     console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
+                    saveCurrentUserName = currentUserName;
                     LoadPrivateMessages(currentUserId, item.id);
+                    console.log("CAI LON GI V" + $('.receiverUserId').val()); // gui qua controller thong qua input hidden trong adminlayout
+                    receiverUserItemId = item.id;
+
                     $('.receiverUserId').val(item.id);
                     senderUserId = currentUserId;
                     receiverUserId = $('.receiverUserId').val();
                     var allItems = document.querySelectorAll('.list-group-item');
-
+                    
                     // Xóa lớp 'active' từ tất cả các mục
                     allItems.forEach(function (element) {
                         element.classList.remove('active');
@@ -896,7 +900,21 @@ $(() => {
 
             var usernameDiv = document.createElement("div");
             usernameDiv.classList.add("username");
-            usernameDiv.textContent = item.firstName + " " + item.lastName;
+            
+            connection.invoke("GetUserId").then(function (userId) {
+                var myUserName = item.firstName.trim() + " " + item.lastName.trim();
+                usernameDiv.innerHTML = currentUserName;
+                if (myUserName.trim() == currentUserName.trim()) {
+                    usernameDiv.textContent = "tui nè";
+                }
+                else {
+                    usernameDiv.innerHTML = myUserName.trim();
+                }
+                console.log(myUserName);
+            });
+
+            
+
 
             var textStatusDiv = document.createElement("div");
             textStatusDiv.classList.add("text-status");

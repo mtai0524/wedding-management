@@ -36,18 +36,18 @@ namespace CodeFirst.Hubs
         {
             await Clients.All.SendAsync("ReceiveChatPrivateRealtime", chatPrivates);
         }
-        public async Task NotifyTyping(bool isTyping)
+        public async Task NotifyTyping(bool isTyping, string receiverConnectionId)
         {
             var emailUserCurrent = Context.User.Identity.Name;
             var userCurrent = await _context.ApplicationUser.FirstOrDefaultAsync(user => user.Email == emailUserCurrent);
-            await Clients.All.SendAsync("ReceiveTypingNotification", userCurrent, isTyping);
+            await Clients.User(receiverConnectionId).SendAsync("ReceiveTypingNotification", userCurrent, isTyping);
         }
-        public async Task NotifyTypingChatPrivate(bool isTyping)
-        {
-            var emailUserCurrent = Context.User.Identity.Name;
-            var userCurrent = await _context.ApplicationUser.FirstOrDefaultAsync(user => user.Email == emailUserCurrent);
-            await Clients.All.SendAsync("ReceiveTypingNotification", userCurrent, isTyping);
-        }
+        //public async Task NotifyTypingChatPrivate(bool isTyping)
+        //{
+        //    var emailUserCurrent = Context.User.Identity.Name;
+        //    var userCurrent = await _context.ApplicationUser.FirstOrDefaultAsync(user => user.Email == emailUserCurrent);
+        //    await Clients.All.SendAsync("ReceiveTypingNotification", userCurrent, isTyping);
+        //}
 
         public async Task SendNotificationToAll(string message)
         {
@@ -55,12 +55,13 @@ namespace CodeFirst.Hubs
         }
 
         public static readonly Dictionary<string, UserInformation> ConnectedUsers = new Dictionary<string, UserInformation>();
-        public static readonly Dictionary<string, string> UserIds = new Dictionary<string, string>();
+        public static readonly Dictionary<string, UserInfo> UserIds = new Dictionary<string, UserInfo>();
         public override async Task OnConnectedAsync()
         {
             var currentUser = await _userService.GetCurrentLoggedInUser();
             var userId = currentUser.Id;
-            UserIds[Context.ConnectionId] = userId;
+            var username = currentUser.FirstName + " " + currentUser.LastName;
+            UserIds[Context.ConnectionId] = new UserInfo { UserId = userId, Username = username };
 
             UserInformation userInfo = await GetUserInfoFromContext();
             if (!ConnectedUsers.ContainsKey(Context.ConnectionId))
@@ -114,8 +115,9 @@ namespace CodeFirst.Hubs
         }
         public async Task GetUserId()
         {
-            string userId = UserIds.ContainsKey(Context.ConnectionId) ? UserIds[Context.ConnectionId] : "";
-            await Clients.Caller.SendAsync("ReceiveUserId", userId);
+            string userId = UserIds.ContainsKey(Context.ConnectionId) ? UserIds[Context.ConnectionId].UserId : "";
+            string username = UserIds.ContainsKey(Context.ConnectionId) ? UserIds[Context.ConnectionId].Username : "";
+            await Clients.Caller.SendAsync("ReceiveUserId", userId, username);
         }
 
 

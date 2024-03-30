@@ -279,6 +279,17 @@
                                     </div>
 
                                     <div class="flex-grow-0  border-top" style="margin-top:20px">
+                                        <div class="d-flex" style="margin-left:30px; height:5px">
+                                            <strong class="user-current-chatmini" style="color: #3F3F41;margin-right:10px;"></strong>
+                                            <div class="my message dot-chatmini-container" style="visibility:hidden;">
+                                                <span class="jumping-dots">
+                                                    <span class="dot-1" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
+                                                    <span class="dot-2" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
+                                                    <span class="dot-3" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+
                                         <form class="chatForm" id="publicChatForm" asp-controller="Chat" asp-action="SendMessages" method="post">
                                             <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
 
