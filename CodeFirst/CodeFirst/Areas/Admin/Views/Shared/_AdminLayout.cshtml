@@ -243,7 +243,7 @@
                                     <div class="py-2 px-4 border-bottom d-none d-lg-block" style="background-color:#3F3F41;">
                                         <div class="d-flex align-items-center py-1">
                                             <div class="position-relative ">
-                                                <img class="rounded-circle mr-1 avatar-user-current-chat" style="outline:3px solid #F2F2F3;visibility:hidden;margin-top:32px" width="40" height="40">
+                                                <img class="rounded-circle mr-1 avatar-user-current-chat" style="outline:3px solid #F2F2F3;visibility:hidden;margin-top:15px" width="50" height="50">
                                             </div>
                                             <div class="flex-grow-1 pl-3">
                                                 <strong class="chat-name" style="color: #ffffff;font-size:20px;margin-bottom:10px"></strong><br />
@@ -692,26 +692,8 @@
             });
 
 
-            function scrollToBottomWhenSendMessage() {
-                setTimeout(() => {
-                    const chatMessagesList = document.querySelector('chat-message-right');
-                    if (chatMessagesList) {
-                        chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
-                    }
-                    const chatMessagesListMini = document.querySelector('.chat-message');
-                    if (chatMessagesListMini) {
-                        chatMessagesListMini.scrollTop = chatMessagesListMini.scrollHeight;
-                    }
-                }, 1000);
-            }
-            function scrollToBottom() {
-                setTimeout(() => {
-                    const chatMessagesList = document.querySelector('.chat-messages-list');
-                    if (chatMessagesList) {
-                        chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
-                    }
-                }, 1000);
-            }
+           
+         
             const themeSwitch = document.getElementById('theme-switch');
 
             themeSwitch.addEventListener('change', function () {

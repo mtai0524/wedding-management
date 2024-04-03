@@ -12,22 +12,3 @@
         return alert("hello");
     }
 </script>
-
-<script>
-    function scrollToBottomWhenSendMessage() {
-        setTimeout(() => {
-            const chatMessagesList = document.querySelector('.chat-messages-list');
-            if (chatMessagesList) {
-                chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
-            }
-        }, 1000);
-    }
-    function scrollToBottom() {
-        setTimeout(() => {
-            const chatMessagesList = document.querySelector('.chat-messages-list');
-            if (chatMessagesList) {
-                chatMessagesList.scrollTop = chatMessagesList.scrollHeight;
-            }
-        }, 1000); 
-    }
-</script>

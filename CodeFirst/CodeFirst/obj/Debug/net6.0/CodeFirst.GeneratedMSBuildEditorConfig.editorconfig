@@ -22,6 +22,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Components/AddBranch.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBZGRCcmFuY2gucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [T:/Test/Computer-Science/CodeFirst/CodeFirst/Components/BranchList.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xCcmFuY2hMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

@@ -15,7 +15,10 @@ namespace CodeFirst.Service
         {
             _context = context;
         }
-
+        public async Task AddBranchAsync(Branch branch){
+            _context.Branch.Add(branch);
+            await _context.SaveChangesAsync();
+        }
         public async Task<List<Branch>> GetBranchesAsync()
         {
             return await _context.Branch.ToListAsync();
