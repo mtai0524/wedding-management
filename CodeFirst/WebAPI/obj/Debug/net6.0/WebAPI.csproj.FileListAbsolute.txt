@@ -5431,7 +5431,6 @@ E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Signa
 E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
 E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Features.dll
 T:\Test\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\libman.json
-T:\Test\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\package.json
 T:\Test\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\libwkhtmltox.dll
 T:\Test\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\libwkhtmltox.dylib
 T:\Test\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\libwkhtmltox.so

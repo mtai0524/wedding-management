@@ -28,8 +28,18 @@ builder.Services.AddMudServices();
 
 // Add services to the container.
 builder.Services.AddSignalR();
-
 var connectionString = builder.Configuration.GetConnectionString("CodeFirst");
+
+//var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
+//var dbName = Environment.GetEnvironmentVariable("DB_NAME");
+//var dbPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD");
+
+//docker
+//var connectionString = $"Data Source = localhost,1433;Initial Catalog = codefirst; User ID=sa;Password=Password789;encrypt=False";
+
+
+//var connectionString = $"Data Source = {dbHost};Initial Catalog = {dbName}; User ID=sa;Password={dbPassword};encrypt=False";
+
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -37,6 +47,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking); // fix lỗi lúc không chọn ảnh, chỉ update thong tin khác
 }, ServiceLifetime.Singleton, ServiceLifetime.Transient);
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 builder.Services.AddScoped<ChatHub>(); // phải add vào mới gọi chatHub được
 
 // đăng ký service

@@ -1477,14 +1477,6 @@
       "PackagePath": "staticwebassets\\css\\mydesign.css"
     },
     {
-      "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
-    },
-    {
-      "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\styles.css",
-      "PackagePath": "staticwebassets\\css\\styles.css"
-    },
-    {
       "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylethongke.css",
       "PackagePath": "staticwebassets\\css\\stylethongke.css"
     },

@@ -8093,7 +8093,6 @@ T:\Test\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\libwkhtmltox.dll
 T:\Test\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\libwkhtmltox.dylib
 T:\Test\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\libwkhtmltox.so
 T:\Test\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\libman.json
-T:\Test\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\package.json
 T:\Test\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\CodeFirst.staticwebassets.runtime.json
 T:\Test\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\CodeFirst.exe
 T:\Test\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\CodeFirst.deps.json
