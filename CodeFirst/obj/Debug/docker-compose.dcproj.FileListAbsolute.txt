@@ -3,7 +3,6 @@ T:\Test\Computer-Science\CodeFirst\bin\Debug\CodeFirst.runtimeconfig.json
 T:\Test\Computer-Science\CodeFirst\bin\Debug\appsettings.Development.json
 T:\Test\Computer-Science\CodeFirst\bin\Debug\appsettings.json
 T:\Test\Computer-Science\CodeFirst\bin\Debug\libman.json
-T:\Test\Computer-Science\CodeFirst\bin\Debug\package.json
 T:\Test\Computer-Science\CodeFirst\bin\Debug\CodeFirst.staticwebassets.runtime.json
 T:\Test\Computer-Science\CodeFirst\bin\Debug\libwkhtmltox.dll
 T:\Test\Computer-Science\CodeFirst\bin\Debug\libwkhtmltox.dylib

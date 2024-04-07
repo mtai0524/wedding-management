@@ -1,24 +1,18 @@
 version: '3.4'
-networks:
-    democodefirstapp:
-volumes:
-    mysqldata:
-  
-  
 services:
   codefirstdb:
     container_name: app-db
     image: mcr.microsoft.com/mssql/server:2022-latest
     ports:
-    - 8002:1434
+      - "8002:1433"
     environment:
-      - ACCEPT_EULA="Y"
-      - MSSQL_SA_PASSWORD="password@12345#"
-      - MSSQL_PID=Developer
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "password@12345#"
+      MSSQL_PID: Express
     networks:
-    - democodefirstapp
+      - democodefirstapp
     volumes:
-    - mysqldata:/var/opt/mssql
+      - mysqldata:/var/opt/mssql
 
   codefirst:
     container_name: code-first
@@ -27,12 +21,18 @@ services:
       context: .
       dockerfile: CodeFirst/Dockerfile
     ports:
-    - 8001:80
+      - "8001:80"
     depends_on:
-    - codefirstdb
+      - codefirstdb
     environment:
-    - DB_HOST=codefirstdb
-    - DB_NAME=codefirst
-    - DB_SA_PASSWORD=password@12345#
+      DB_HOST: "codefirstdb"
+      DB_NAME: "codefirst"
+      DB_SA_PASSWORD: "password@12345#"
     networks:
-    - democodefirstapp
+      - democodefirstapp
+
+networks:
+  democodefirstapp:
+
+volumes:
+  mysqldata:

@@ -3,15 +3,14 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
-EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["CodeFirst.csproj", "src/"]
-RUN dotnet restore "./src/CodeFirst.csproj"
+COPY ["CodeFirst/CodeFirst.csproj", "CodeFirst/"]
+RUN dotnet restore "./CodeFirst/./CodeFirst.csproj"
 COPY . .
-WORKDIR /src
+WORKDIR "/src/CodeFirst"
 RUN dotnet build "./CodeFirst.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish

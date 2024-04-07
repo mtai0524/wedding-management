@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirst", "CodeFirst\Code
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{BF86FCD4-B172-4221-AEA3-C3B359A8E4BA}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{69FFACBC-9523-4340-B882-E4DE7CC78D00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BF86FCD4-B172-4221-AEA3-C3B359A8E4BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF86FCD4-B172-4221-AEA3-C3B359A8E4BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF86FCD4-B172-4221-AEA3-C3B359A8E4BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69FFACBC-9523-4340-B882-E4DE7CC78D00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69FFACBC-9523-4340-B882-E4DE7CC78D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69FFACBC-9523-4340-B882-E4DE7CC78D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69FFACBC-9523-4340-B882-E4DE7CC78D00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

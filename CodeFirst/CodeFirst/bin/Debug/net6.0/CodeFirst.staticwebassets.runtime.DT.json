@@ -3256,22 +3256,6 @@
             },
             "Patterns": null
           },
-          "site.css": {
-            "Children": null,
-            "Asset": {
-              "ContentRootIndex": 0,
-              "SubPath": "css/site.css"
-            },
-            "Patterns": null
-          },
-          "styles.css": {
-            "Children": null,
-            "Asset": {
-              "ContentRootIndex": 0,
-              "SubPath": "css/styles.css"
-            },
-            "Patterns": null
-          },
           "stylethongke.css": {
             "Children": null,
             "Asset": {

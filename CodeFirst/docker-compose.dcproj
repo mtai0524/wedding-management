@@ -4,7 +4,7 @@
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
     <DockerPublishLocally>False</DockerPublishLocally>
-    <ProjectGuid>f80f4118-206d-46d8-a854-7d287ed87d4d</ProjectGuid>
+    <ProjectGuid>69ffacbc-9523-4340-b882-e4de7cc78d00</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>codefirst</DockerServiceName>
