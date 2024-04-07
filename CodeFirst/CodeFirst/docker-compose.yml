@@ -1,0 +1,21 @@
+version: '3.4'
+services:
+  mssql-server:
+    container_name: app-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "password@12345#"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+  codefirst-app:
+    build: .
+    environment:
+        DatabaseServer: "mssql-server"
+        DatabasePort: "1433"
+        DatabasePassword: "password@12345#"
+        DatabaseName: "codefirst"
+    ports:
+    - "8090:80"
+ 
