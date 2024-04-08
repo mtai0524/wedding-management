@@ -6,7 +6,7 @@ services:
     build:
       args:
         BUILD_CONFIGURATION: Debug
-      target: base
+      target: build
       labels:
         com.microsoft.created-by: "visual-studio"
         com.microsoft.visual-studio.project-name: "CodeFirst"
@@ -15,8 +15,8 @@ services:
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
       - NUGET_FALLBACK_PACKAGES=
     volumes:
-      - T:\Test\Computer-Science\CodeFirst\CodeFirst:/app
-      - T:\Test\Computer-Science\CodeFirst:/src
+      - E:\Computer-Science\CodeFirst\CodeFirst:/app
+      - E:\Computer-Science\CodeFirst:/src
       - C:\Users\PC\vsdbg\vs2017u5:/remote_debugger:rw
       - C:\Users\PC\.nuget\packages\:/.nuget/packages:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

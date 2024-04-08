@@ -5386,7 +5386,6 @@ E:\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\refint\WebAPI.dll
 E:\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 E:\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
 E:\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
-E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\package.json
 E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
 E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll
 E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll

@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "chart.js": "^4.4.0",
+    "toastr": "^2.1.4"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  },
+  "name": "codefirst",
+  "version": "1.0.0",
+  "main": "index.js",
+ "scripts": {
+    "css:build": "npx tailwindcss -i ./wwwroot/css/site.css -o ./wwwroot/css/styles.css --minify"
+  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

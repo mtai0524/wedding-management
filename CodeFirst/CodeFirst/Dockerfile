@@ -1,22 +1,16 @@
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-EXPOSE 80
-EXPOSE 443
-
+# Build stage
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["CodeFirst.csproj", "src/"]
-RUN dotnet restore "./src/CodeFirst.csproj"
 COPY . .
-WORKDIR /src
-RUN dotnet build "./CodeFirst.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet restore "CodeFirst.csproj"
+RUN dotnet build "CodeFirst.csproj" -c Release -o /app/build
 
+# Publish stage
 FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./CodeFirst.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "CodeFirst.csproj" -c Release -o /app/publish
 
-FROM base AS final
+# Final stage
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "CodeFirst.dll"]

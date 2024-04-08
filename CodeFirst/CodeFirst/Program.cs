@@ -29,17 +29,17 @@ builder.Services.AddMudServices();
 // Add services to the container.
 builder.Services.AddSignalR();
 
-//var connectionString = builder.Configuration.GetConnectionString("CodeFirst");
+var connectionString = builder.Configuration.GetConnectionString("CodeFirst");
 
-var dbHost = Environment.GetEnvironmentVariable("DatabaseServer") ?? "";
-var dbName = Environment.GetEnvironmentVariable("DatabaseName") ?? "";
-var dbPassword = Environment.GetEnvironmentVariable("DatabasePassword");
+//var dbHost = Environment.GetEnvironmentVariable("DatabaseServer") ?? "";
+//var dbName = Environment.GetEnvironmentVariable("DatabaseName") ?? "";
+//var dbPassword = Environment.GetEnvironmentVariable("DatabasePassword");
 //docker
 ////var connectionString = $"Data Source = localhost,1433;Initial Catalog = codefirst; User ID=sa;Password=Password789;encrypt=False";
 //var connectionString = $"Data Source = MINHTAI;Initial Catalog = codefirst; User ID=sa;Password=password@12345#;encrypt=False";
 
 
-var connectionString = $"Server = {dbHost},1433;Initial Catalog = {dbName}; User ID=SA;Password={dbPassword};Persist Security Info=False;Encrypt=False";
+//var connectionString = $"Server = {dbHost},1433;Initial Catalog = {dbName}; User ID=SA;Password={dbPassword};Persist Security Info=False;Encrypt=False";
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

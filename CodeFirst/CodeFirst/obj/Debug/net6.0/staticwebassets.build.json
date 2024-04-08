@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RurOlPwy39FdjbQfJGe7x9AYdvCptepbdseksXvA+b4=",
+  "Hash": "GdCUUJG8BalFtqgBelbHkOVkaOMaaaJ2MOmv7DxFEOg=",
   "Source": "CodeFirst",
   "BasePath": "_content/CodeFirst",
   "Mode": "Default",
@@ -1461,6 +1461,25 @@
       "OriginalItemSpec": "wwwroot\\admin_assets\\css\\login.css"
     },
     {
+      "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\mystyle.css",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "admin_assets/css/mystyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin_assets\\css\\mystyle.css"
+    },
+    {
       "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\my-task.style.min.css",
       "SourceId": "CodeFirst",
       "SourceType": "Discovered",
@@ -1478,25 +1497,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin_assets\\css\\my-task.style.min.css"
-    },
-    {
-      "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\StyleSheet.css",
-      "SourceId": "CodeFirst",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
-      "BasePath": "_content/CodeFirst",
-      "RelativePath": "admin_assets/css/StyleSheet.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\admin_assets\\css\\StyleSheet.css"
     },
     {
       "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.eot",

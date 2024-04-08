@@ -10,6 +10,11 @@
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 		<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
 	</PropertyGroup>
+	<ItemGroup>
+	  <Content Remove="launchSettings.json" />
+	  <Content Remove="package-lock.json" />
+	  <Content Remove="package.json" />
+	</ItemGroup>
   <ItemGroup>
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
@@ -57,6 +62,9 @@
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="launchSettings.json" />
+    <None Include="package-lock.json" />
+    <None Include="package.json" />
     <None Include="wwwroot\vendor\bootstrap\css\bootstrap.min.css" />
     <None Include="wwwroot\vendor\bootstrap\css\bootstrap.min.css.map" />
     <None Include="wwwroot\vendor\bootstrap\js\bootstrap.bundle.min.js" />
@@ -71,8 +79,7 @@
   </ItemGroup>
 	<ItemGroup>
 		<UpToDateCheckBuilt Include="wwwroot/css/site.css" Set="Css" />
-		<UpToDateCheckBuilt Include="tailwind.config.js" Set="Css" />
 	</ItemGroup>
 
-	
+
 </Project>
