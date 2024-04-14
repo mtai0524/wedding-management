@@ -1,4 +1,6 @@
 ﻿@page "/branch-list"
+@using CloudinaryDotNet
+@using CloudinaryDotNet.Actions
 @using CodeFirst.Data
 @using CodeFirst.Models.Entities
 @using CodeFirst.Service
@@ -6,7 +8,8 @@
 @inherits Microsoft.AspNetCore.Components.ComponentBase
 @inject NavigationManager NavigationManager
 @inject IJSRuntime jsRuntime
-
+@inject CloudinaryService _cloudinaryService;
+@using Microsoft.AspNetCore.Components.Forms
 <PageTitle>Counter</PageTitle>
 <MudThemeProvider />
 <MudDialogProvider />
@@ -32,10 +35,128 @@
     i {
         margin-right: 3px;
     }
+
+    label:hover{
+        background-color:transparent;
+        
+    }
 </style>
+<a class="btn btn-primary" style="font-size:15px;padding:10px;background-color:#594AE2 " data-bs-toggle="modal" data-bs-target="#createBranchModal">
+        Thêm chi nhánh mới
+    </a>
 
 
-<MudButton Variant="Variant.Filled" OnClick="@CreateBranchURL" Color="Color.Primary">Thêm chi nhánh mới</MudButton>
+
+
+<div class="modal fade" id="createBranchModal" tabindex="-1" aria-labelledby="createBranchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createBranchModalLabel">Thêm chi nhánh mới</h5>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                @if (showAlertCreateBranch)
+                {
+                    <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(false))">Tạo chi nhánh thành công ròi nhe!</MudAlert>
+                }
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="branchName" class="form-label">Tên chi nhánh</label>
+                        <input type="text" class="form-control" id="branchName" @bind="BranchName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="branchDescription" class="form-label">Mô tả</label>
+                        <textarea class="form-control" id="branchDescription" rows="3" @bind="BranchDescription"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="branchImage" class="form-label">Ảnh</label>
+                        <InputFile id="branchImage" class="form-control" OnChange="OnInputFileChange" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="branchAddress" class="form-label">Địa chỉ</label>
+                        <input type="text" class="form-control" id="branchAddress" @bind="BranchAddress">
+                    </div>
+                    <div class="mb-3">
+                        <label for="branchPhone" class="form-label">Điện thoại</label>
+                        <input type="text" class="form-control" id="branchPhone" @bind="BranchPhone">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary" @onclick="CreateBranch">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private bool showAlertCreateBranch = false;
+
+    private void CloseMe(bool value)
+    {
+        if (!value)
+        {
+            showAlertCreateBranch = false;
+        }
+    }
+
+    private void ShowAlerts()
+    {
+        showAlertCreateBranch = true;
+    }
+}
+
+
+
+
+
+@code {
+    private string? BranchName { get; set; }
+    private string? BranchDescription { get; set; }
+    private string? BranchAddress { get; set; }
+    private string? BranchPhone { get; set; }
+    // Phương thức để tải ảnh lên Cloudinary
+
+    private IBrowserFile BranchImageFile { get; set; }
+
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        BranchImageFile = e.File;
+    }
+
+
+    private async Task CreateBranch()
+    {
+        string imgURL = await _cloudinaryService.UploadImageAsyncBlazor(BranchImageFile);
+
+        Branch newBranch = new Branch
+            {
+                Name = BranchName,
+                Description = BranchDescription,
+                Image = imgURL,
+                Address = BranchAddress,
+                Phone = BranchPhone
+            };
+
+        _context.Branch.Add(newBranch);
+        await _context.SaveChangesAsync();
+
+        // gọi lại LoadBranches để cập nhật db
+        await LoadBranches();
+        ShowAlerts();
+
+        BranchName = string.Empty;
+        BranchDescription = string.Empty;
+        BranchAddress = string.Empty;
+        BranchPhone = string.Empty;
+    }
+}
+
 <table class="table">
     <thead>
         <tr>
@@ -107,12 +228,7 @@
         await LoadBranches();
     }
 
-    // Method to create a new branch
-    void CreateBranch()
-    {
-        // Navigate to the create branch page or show a modal to create a new branch
-        // Example: NavigationManager.NavigateTo("/branches/create");
-    }
+    
 
     // Method to edit a branch
     void EditBranch(int branchId)
@@ -147,11 +263,5 @@
     {
         // Perform lock operation here
         // Example: await SomeDataService.LockBranch(branchId);
-    }
-}
-@code{
-    private void CreateBranchURL()
-    {
-        NavigationManager.NavigateTo("/branch-list/add-branch");
     }
 }

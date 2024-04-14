@@ -5,7 +5,7 @@ services:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       ACCEPT_EULA: "Y"
-      MSSQL_SA_PASSWORD: "password@12345#"
+      MSSQL_SA_PASSWORD: "minhtai123@"
       MSSQL_PID: Developer
     ports:
       - "8002:1433"
@@ -14,7 +14,7 @@ services:
     environment:
         DatabaseServer: "mssql-server"
         DatabasePort: "1433"
-        DatabasePassword: "password@12345#"
+        DatabasePassword: "minhtai123@"
         DatabaseName: "codefirst"
     ports:
     - "8090:80"
