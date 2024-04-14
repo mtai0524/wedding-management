@@ -15,7 +15,8 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 <MudBreadcrumbs Items="_items"></MudBreadcrumbs>
-
+@inject ISnackbar SnackbarService
+@inject ISnackbar Snackbar
 @code {
     private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
     {
@@ -48,12 +49,12 @@
 
 
 
-<div class="modal fade" id="createBranchModal" tabindex="-1" aria-labelledby="createBranchModalLabel" aria-hidden="true">
+<div class="modal fade" id="createBranchModal" tabindex="-1" aria-labelledby="createBranchModalLabel" aria-hidden="true" @onclick="() => CloseMe(false)">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
             <div class="modal-header">
                 <h5 class="modal-title" id="createBranchModalLabel">Thêm chi nhánh mới</h5>
-                <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                <button type="button" @onclick="() => CloseMe(false)" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                 </button>
             </div>
@@ -86,7 +87,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-secondary" @onclick="() => CloseMe(false)" data-bs-dismiss="modal">Hủy</button>
                 <button type="button" class="btn btn-primary" @onclick="CreateBranch">Lưu</button>
             </div>
         </div>
@@ -132,6 +133,8 @@
 
     private async Task CreateBranch()
     {
+        Snackbar.Add("Đang tải dữ liệu!", Severity.Info);
+
         string imgURL = await _cloudinaryService.UploadImageAsyncBlazor(BranchImageFile);
 
         Branch newBranch = new Branch
@@ -149,11 +152,13 @@
         // gọi lại LoadBranches để cập nhật db
         await LoadBranches();
         ShowAlerts();
+        Snackbar.Add("Tải dữ liệu thành công!", Severity.Success);
 
         BranchName = string.Empty;
         BranchDescription = string.Empty;
         BranchAddress = string.Empty;
         BranchPhone = string.Empty;
+        BranchImageFile = null;
     }
 }
 
@@ -196,7 +201,8 @@
                 <td>
                     <button class="btn btn-outline-info" @onclick="() => EditBranch(item.BranchId)">Sửa</button>
                     <button class="btn btn-outline-success" @onclick="() => ShowDetails(item.BranchId)">Chi tiết</button>
-                    <button class="btn btn-outline-danger" @onclick="() => DeleteBranch(item.BranchId)">Xóa</button>
+                    <button data-bs-toggle="modal" data-bs-target="#confirmModal" class="btn btn-outline-danger" @onclick="() => ShowConfirmModal(item.BranchId)">Xóa</button>
+
                 </td>
                 <td>
                     @if (item.IsLocked)
@@ -211,11 +217,39 @@
             </tr>
         }
     </tbody>
-</table>
+</table>            
+
+
+@code {
+    [Inject] private IDialogService DialogService { get; set; }
+    private int branchIdToDelete;
+
+    private async void ShowConfirmModal(int branchId)
+    {
+        branchIdToDelete = branchId;
+        bool? result = await DialogService.ShowMessageBox(
+            "Warning",
+            "Deleting can not be undone!",
+            yesText: "Delete!", cancelText: "Cancel");
+
+        if (result == true)
+        {
+            await DeleteBranch(branchIdToDelete);
+            Snackbar.Add("Đã xóa chi nhánh gòi đóa!", Severity.Success);
+        }
+        else
+        {
+        }
+        StateHasChanged();
+    }
+}
+
+
 
 @code {
     List<Branch> Branches { get; set; } = new List<Branch>();
     [Inject] private ApplicationDbContext _context { get; set; }
+  
 
 
     protected async Task LoadBranches()
@@ -245,11 +279,17 @@
     }
 
     // Method to delete a branch
-    void DeleteBranch(int branchId)
+    async Task DeleteBranch(int branchId)
     {
-        // Perform delete operation here
-        // Example: await SomeDataService.DeleteBranch(branchId);
+        var branchToDelete = await _context.Branch.FindAsync(branchId);
+        if (branchToDelete != null)
+        {
+            _context.Branch.Remove(branchToDelete);
+            await _context.SaveChangesAsync();
+            await LoadBranches();
+        }
     }
+
 
     // Method to unlock a branch
     void UnlockBranch(int branchId)

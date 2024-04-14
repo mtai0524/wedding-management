@@ -1513,6 +1513,10 @@
       "PackagePath": "staticwebassets\\images\\dog.png"
     },
     {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\mychuot.png",
+      "PackagePath": "staticwebassets\\images\\mychuot.png"
+    },
+    {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\rabbit.png",
       "PackagePath": "staticwebassets\\images\\rabbit.png"
     },
