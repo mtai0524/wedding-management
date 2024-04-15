@@ -76,7 +76,7 @@ builder.Services.AddTransient<IEmailSender, EmailSender>(); //  dịch vụ gử
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.Configure<FormOptions>(options =>
 {
-    options.MultipartBodyLengthLimit = 209715200; // Set to 200MB
+    options.MultipartBodyLengthLimit = 209715200;
 });
 // Cấu hình tài khoản Cloudinary
 var configuration = builder.Configuration;
