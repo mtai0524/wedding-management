@@ -19,6 +19,7 @@
 <MudBreadcrumbs Items="_items"></MudBreadcrumbs>
 @inject ISnackbar SnackbarService
 @inject ISnackbar Snackbar
+
 @code {
     private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
     {
@@ -47,9 +48,10 @@
         
     }
 </style>
+
 <a class="btn btn-primary" style="font-size:15px;padding:10px;background-color:#594AE2 " data-bs-toggle="modal" data-bs-target="#createBranchModal">
         Thêm chi nhánh mới
-    </a>
+</a>
 
 
 
@@ -132,9 +134,7 @@
 </div>
 
 
-
-
-
+@* alert *@
 @code {
     private bool showAlertCreateBranch = false;
 
@@ -156,7 +156,7 @@
 
 
 
-@* Create func *@
+@* create branch code behind *@
 @code {
     private string? BranchName { get; set; }
     private string? BranchDescription { get; set; }
@@ -245,6 +245,7 @@
     }
 }
 
+@* main table  *@
 <table class="table">
     <thead>
         <tr>
@@ -301,7 +302,10 @@
             </tr>
         }
     </tbody>
-</table>            
+</table>      
+
+
+@* modal delete mud blazor *@
 <MudMessageBox @ref="mbox" Title="Xác nhận xóa" CancelText="Hủy thao tác">
     <MessageContent>
         Dữ liệu bị xóa sẽ không thể phục hồi
@@ -365,7 +369,9 @@
     </div>
 </div>
 
+@* view details branch code behind *@
 @code{
+    @* view details branch code behind *@
     string? branchName = "";
     string? des = "";
     string? phone = "";
@@ -470,22 +476,10 @@
     </div>
 </div>
 
+@* update branch code behind *@
+@code{
+    @* update branch code behind *@
 
-@code {
-    List<Branch> Branches { get; set; } = new List<Branch>();
-    [Inject] private ApplicationDbContext _context { get; set; }
-    Branch branchToEdit { get; set; } = new Branch();
-    string imageUrl { get; set; }
-
-    protected async Task LoadBranches()
-    {
-        var branchService = new BranchService(_context);
-        Branches = await branchService.GetBranchesAsync(); 
-    }
-    protected override async Task OnInitializedAsync()
-    {
-        await LoadBranches();
-    }
     bool isLoadingUpdate = false;
     void GetImage(int branchId)
     {
@@ -516,7 +510,7 @@
             Snackbar.Add("Đang tải dữ liệu!", Severity.Info);
             editImgUrl = await _cloudinaryService.UploadImageAsyncBlazor(BranchImageFile);
         }
-        else if(BranchImageFile == null)
+        else if (BranchImageFile == null)
         {
             editImgUrl = branchToEdit.Image;
         }
@@ -544,6 +538,7 @@
         }
         ShowAlerts();
         Snackbar.Add("Cập nhật dữ liệu thành công!", Severity.Success);
+        _context.Update(branchToEdit);
         await _context.SaveChangesAsync();
         isLoadingUpdate = false;
 
@@ -552,9 +547,8 @@
         await LoadBranches();
     }
 
-  
 
-    // Method to delete a branch
+
     async Task DeleteBranch(int branchId)
     {
         var branchToDelete = await _context.Branch.FindAsync(branchId);
@@ -565,19 +559,32 @@
             await LoadBranches();
         }
     }
+}
+
+@* init blazor *@
+@code {
+    List<Branch> Branches { get; set; } = new List<Branch>();
+    [Inject] private ApplicationDbContext _context { get; set; }
+    Branch branchToEdit { get; set; } = new Branch();
+    string imageUrl { get; set; }
+
+    protected async Task LoadBranches()
+    {
+        var branchService = new BranchService(_context);
+        Branches = await branchService.GetBranchesAsync(); 
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadBranches();
+    }
+    
 
 
-    // Method to unlock a branch
     void UnlockBranch(int branchId)
     {
-        // Perform unlock operation here
-        // Example: await SomeDataService.UnlockBranch(branchId);
     }
 
-    // Method to lock a branch
     void LockBranch(int branchId)
     {
-        // Perform lock operation here
-        // Example: await SomeDataService.LockBranch(branchId);
     }
 }
