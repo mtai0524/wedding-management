@@ -20,6 +20,7 @@ using MudBlazor.Services;
 using CodeFirst.Services;
 using CodeFirst.MiddlewareExtensions;
 using MudBlazor;
+using Microsoft.AspNetCore.Http.Features;
 //using CodeFirst.SqlDependencies;
 //using SignalRYoutube.MiddlewareExtensions;
 
@@ -73,7 +74,10 @@ builder.Services.AddTransient<IEmailSender, EmailSender>(); //  dịch vụ gử
 
 // thay đổi razor cshtml runtime F5
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
-
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 209715200; // Set to 200MB
+});
 // Cấu hình tài khoản Cloudinary
 var configuration = builder.Configuration;
 

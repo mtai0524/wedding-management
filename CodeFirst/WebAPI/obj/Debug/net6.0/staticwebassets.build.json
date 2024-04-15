@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DcnqILwXmDY+jGJLr/Q0hphkaP4+a75uCKBo2P/E168=",
+  "Hash": "JRUEAGsy+gc7eUBzmQ5AwDvjrjbl7cA/oHfO7ruV/VY=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -7380,6 +7380,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\dog.png"
+    },
+    {
+      "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\mychuot.png",
+      "SourceId": "CodeFirst",
+      "SourceType": "Project",
+      "ContentRoot": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "images/mychuot.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mychuot.png"
     },
     {
       "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\rabbit.png",

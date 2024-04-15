@@ -54,37 +54,35 @@ namespace CodeFirst.Service
         {
             try
             {
-                if (string.IsNullOrEmpty(imageFile.Name))
+                if (imageFile == null)
                 {
                     throw new ArgumentException("Không có hình ảnh hoặc ảnh không tồn tại.");
                 }
 
-                // Tạo một MemoryStream từ IBrowserFile
-                using var stream = imageFile.OpenReadStream();
-                var memoryStream = new MemoryStream();
-                await stream.CopyToAsync(memoryStream);
-                memoryStream.Position = 0; // Đảm bảo vị trí đọc của MemoryStream được đặt lại về đầu
-
-                // Tạo đối tượng FileDescription từ MemoryStream
-                var fileDescription = new FileDescription(imageFile.Name, memoryStream);
-
-                // Tạo đối tượng ImageUploadParams với FileDescription
-                var uploadParams = new ImageUploadParams
+                using (var memoryStream = new MemoryStream())
                 {
-                    File = fileDescription,
-                };
+                    await imageFile.OpenReadStream(maxAllowedSize: 1024 * 300000).CopyToAsync(memoryStream);
+                    memoryStream.Position = 0; // Đảm bảo vị trí đọc của MemoryStream được đặt lại về đầu
 
-                // Tải ảnh lên Cloudinary
-                var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+                    var fileDescription = new FileDescription(imageFile.Name, memoryStream);
 
-                if (uploadResult.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    // Trả về đường dẫn tới ảnh đã tải lên
-                    return uploadResult.SecureUri.AbsoluteUri;
-                }
-                else
-                {
-                    throw new Exception("Failed to upload image to Cloudinary.");
+                    var uploadParams = new ImageUploadParams
+                    {
+                        File = fileDescription,
+                    };
+
+                    // Tải ảnh lên Cloudinary
+                    var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+
+                    if (uploadResult.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        // Trả về đường dẫn tới ảnh đã tải lên
+                        return uploadResult.SecureUri.AbsoluteUri;
+                    }
+                    else
+                    {
+                        throw new Exception("Failed to upload image to Cloudinary.");
+                    }
                 }
             }
             catch (Exception ex)
@@ -94,6 +92,8 @@ namespace CodeFirst.Service
                 return null;
             }
         }
+
+
 
 
         public async Task<string> UploadImageAsync(IFormFile imageFile)
