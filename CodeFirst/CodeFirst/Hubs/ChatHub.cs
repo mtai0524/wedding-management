@@ -24,6 +24,15 @@ namespace CodeFirst.Hubs
             _httpContextAccessor = httpContextAccessor;
             _userService = userService;
         }
+
+
+        //
+        public async Task SendBranchCreatedNotification()
+        {
+            await Clients.All.SendAsync("BranchCreated");
+        }
+        //
+
         public async Task CallLoadChatData()
         {
             await Clients.All.SendAsync("LoadChatData");
@@ -59,21 +68,24 @@ namespace CodeFirst.Hubs
         public override async Task OnConnectedAsync()
         {
             var currentUser = await _userService.GetCurrentLoggedInUser();
-            var userId = currentUser.Id;
-            var username = currentUser.FirstName + " " + currentUser.LastName;
-            UserIds[Context.ConnectionId] = new UserInfo { UserId = userId, Username = username };
-
-            UserInformation userInfo = await GetUserInfoFromContext();
-            if (!ConnectedUsers.ContainsKey(Context.ConnectionId))
+            if(currentUser != null)
             {
-                ConnectedUsers[Context.ConnectionId] = userInfo;
-                await Clients.Caller.SendAsync("ReceivedNotificationWelcome", $"xin chào {userInfo.FirstName} {userInfo.LastName} hehe");
-                await Clients.All.SendAsync("LoadChatData");
+                var userId = currentUser.Id;
+                var username = currentUser.FirstName + " " + currentUser.LastName;
+                UserIds[Context.ConnectionId] = new UserInfo { UserId = userId, Username = username };
+
+                UserInformation userInfo = await GetUserInfoFromContext();
+                if (!ConnectedUsers.ContainsKey(Context.ConnectionId))
+                {
+                    ConnectedUsers[Context.ConnectionId] = userInfo;
+                    await Clients.Caller.SendAsync("ReceivedNotificationWelcome", $"xin chào {userInfo.FirstName} {userInfo.LastName} hehe");
+                    await Clients.All.SendAsync("LoadChatData");
+                }
+                await Clients.Others.SendAsync("ReceivedNotificationUserOnline", $"{userInfo.FirstName} {userInfo.LastName}");
+                await UpdateConnectedUsersList();
+                await UpdateConnectedUsersOnlineList();
+                await UpdateConnectedUsersOfflineList(ConnectedUsers.Values.ToList());
             }
-            await Clients.Others.SendAsync("ReceivedNotificationUserOnline", $"{userInfo.FirstName} {userInfo.LastName}");
-            await UpdateConnectedUsersList();
-            await UpdateConnectedUsersOnlineList();
-            await UpdateConnectedUsersOfflineList(ConnectedUsers.Values.ToList());
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)

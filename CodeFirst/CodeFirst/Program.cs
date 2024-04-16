@@ -56,7 +56,11 @@ builder.Services.AddScoped<EmployeeService>();
 builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddScoped<ChatService>();
 builder.Services.AddSingleton<OnlineUserService>();
+//builder.Services.AddSingleton<UserService>();
+
 builder.Services.AddScoped<UserService>();
+
+// Cấu hình DI scope cho ASP.NET Core SignalR
 
 //builder.Services.AddSingleton<SubscribeNotificationTableDependency>();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)

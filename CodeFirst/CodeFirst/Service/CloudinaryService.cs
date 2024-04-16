@@ -21,7 +21,6 @@ namespace CodeFirst.Service
                     throw new ArgumentException("Đường dẫn hình ảnh không hợp lệ.");
                 }
 
-                // Lấy đường dẫn tuyệt đối của thư mục gốc
                 string rootPath = Directory.GetCurrentDirectory();
                 string absolutePath = Path.Combine(rootPath, "wwwroot", imageUrl.TrimStart('/'));
 
@@ -34,7 +33,6 @@ namespace CodeFirst.Service
 
                 if (uploadResult.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    // Trả về đường dẫn tới ảnh đã tải lên
                     return uploadResult.SecureUri.AbsoluteUri;
                 }
                 else
@@ -44,7 +42,6 @@ namespace CodeFirst.Service
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi tải ảnh lên Cloudinary
                 Console.WriteLine("Error uploading image to Cloudinary: " + ex.Message);
                 return null;
             }
@@ -62,7 +59,7 @@ namespace CodeFirst.Service
                 using (var memoryStream = new MemoryStream())
                 {
                     await imageFile.OpenReadStream(maxAllowedSize: 1024 * 300000).CopyToAsync(memoryStream);
-                    memoryStream.Position = 0; // Đảm bảo vị trí đọc của MemoryStream được đặt lại về đầu
+                    memoryStream.Position = 0;
 
                     var fileDescription = new FileDescription(imageFile.Name, memoryStream);
 
@@ -71,12 +68,10 @@ namespace CodeFirst.Service
                         File = fileDescription,
                     };
 
-                    // Tải ảnh lên Cloudinary
                     var uploadResult = await _cloudinary.UploadAsync(uploadParams);
 
                     if (uploadResult.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        // Trả về đường dẫn tới ảnh đã tải lên
                         return uploadResult.SecureUri.AbsoluteUri;
                     }
                     else
@@ -87,7 +82,6 @@ namespace CodeFirst.Service
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi tải ảnh lên Cloudinary
                 Console.WriteLine("Error uploading image to Cloudinary: " + ex.Message);
                 return null;
             }
@@ -116,7 +110,6 @@ namespace CodeFirst.Service
 
                     if (uploadResult.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        // Trả về đường dẫn tới ảnh đã tải lên
                         return uploadResult.SecureUri.AbsoluteUri;
                     }
                     else
@@ -127,7 +120,6 @@ namespace CodeFirst.Service
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi tải ảnh lên Cloudinary
                 Console.WriteLine("Error uploading image to Cloudinary: " + ex.Message);
                 return null;
             }

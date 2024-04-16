@@ -377,11 +377,11 @@ label.floatting-btn {
 }
 
 @media (max-width: 990px) {
-    .list-group-item {
+   /* .list-group-item {
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-    }
+    }*/
     .chat-messages-list {
         height: 55vh;
     }

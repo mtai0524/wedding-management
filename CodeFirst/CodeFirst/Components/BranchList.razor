@@ -2,6 +2,7 @@
 @using CloudinaryDotNet
 @using CloudinaryDotNet.Actions
 @using CodeFirst.Data
+@using CodeFirst.Hubs
 @using CodeFirst.Models.Entities
 @using CodeFirst.Service
 @using Microsoft.AspNetCore.Components.Web.Extensions
@@ -11,6 +12,8 @@
 @inject CloudinaryService _cloudinaryService;
 @using Microsoft.AspNetCore.Components.Forms
 @using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.SignalR
+@using Microsoft.AspNetCore.SignalR.Client
 @using Microsoft.EntityFrameworkCore
 <PageTitle>Counter</PageTitle>
 <MudThemeProvider />
@@ -19,7 +22,7 @@
 <MudBreadcrumbs Items="_items"></MudBreadcrumbs>
 @inject ISnackbar SnackbarService
 @inject ISnackbar Snackbar
-
+@inject IHubContext<ChatHub> _hubContext
 @code {
     private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
     {
@@ -206,7 +209,7 @@
 
                 _context.Branch.Add(newBranch);
                 await _context.SaveChangesAsync();
-
+      
                 // gọi lại LoadBranches để cập nhật db
                 await LoadBranches();
                 ShowAlerts();
@@ -220,6 +223,8 @@
                 BranchImageFile = null;
                 showAlert = false;
                 isError = false;
+                await jsRuntime.InvokeVoidAsync("clearInputFileText", "branchImage");
+
             }
             else
             {
@@ -252,13 +257,13 @@
             <th>
                 Tên
             </th>
-            <th>
+            <th class="d-none d-sm-table-cell">
                 Điện thoại
             </th>
-            <th>
+            <th class="d-none d-sm-table-cell">
                 Địa chỉ
             </th>
-            <th>
+            <th class="d-none d-sm-table-cell">
                 Hình ảnh
             </th>
 
@@ -267,27 +272,24 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Branches)
+        @foreach (var item in listBranch)
         {
             <tr>
                 <td>
                     @item.Name
                 </td>
-                <td>
+                <td class="d-none d-sm-table-cell">
                     @item.Phone
                 </td>
-                <td>
-                    @item.Address
-                </td>
-                <td style="width:15%">
-                    <img src="@item.Image" class="rounded float-start" style="width:100%; height:10rem">
+                <td class="d-none d-sm-table-cell">@item.Address</td>
+                <td class="d-none d-sm-table-cell" style="width:15%">
+                    <img src="@item.Image" class="rounded float-start" style="width:100%;max-width:200px; height:10rem">
                 </td>
                 <td>
                     <a data-bs-toggle="modal" data-bs-target="#editBranchModal" class="btn btn-outline-info" @onclick="() => EditBranch(item.BranchId)">Sửa</a>
                     <a data-bs-toggle="modal" data-bs-target="#viewBranchModal" class="btn btn-outline-success" @onclick="() => ShowDetails(item.BranchId)">Chi tiết</a>
 
                     <button  class="btn btn-outline-danger" @onclick="() => ShowConfirmModal(item.BranchId)">Xóa</button>
-
                 </td>
                 <td>
                     @if (item.IsLocked)
@@ -567,15 +569,43 @@
     [Inject] private ApplicationDbContext _context { get; set; }
     Branch branchToEdit { get; set; } = new Branch();
     string imageUrl { get; set; }
-
+    private List<Branch> listBranch { get; set; } = new List<Branch>();
     protected async Task LoadBranches()
     {
         var branchService = new BranchService(_context);
-        Branches = await branchService.GetBranchesAsync(); 
+        listBranch = await branchService.GetBranchesAsync();
+        await _hubContext.Clients.All.SendAsync("BranchCreated", listBranch);
+        StateHasChanged(); // Luu data da thay doi
     }
+    private HubConnection hubConnection;
     protected override async Task OnInitializedAsync()
     {
-        await LoadBranches();
+
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl(NavigationManager.ToAbsoluteUri("/chatHub"))
+            .Build();
+
+        hubConnection.On<List<Branch>>("BranchCreated", receivedProducts =>
+        {
+            InvokeAsync(() =>
+            {
+                listBranch = receivedProducts;
+                StateHasChanged();
+            });
+        });
+
+        try
+        {
+            await hubConnection.StartAsync();
+            Console.WriteLine("SignalR connection started successfully.");
+            await LoadBranches();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error starting SignalR connection: {ex.Message}");
+        }
+
+        await base.OnInitializedAsync();
     }
     
 
