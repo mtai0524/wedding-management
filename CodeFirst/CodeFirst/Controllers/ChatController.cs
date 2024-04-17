@@ -31,10 +31,10 @@ namespace CodeFirst.Controllers
                 var listChatData = await dbContext.Chats.ToListAsync();
                 var currentUser = await _userManager.GetUserAsync(User);
                 string emailUserCurr = User.Identity.Name ?? "DefaultEmail@example.com";
-                  var chatDataWithUsers = await dbContext.Chats
-                    .Include(c => c.Id)
-                    .OrderBy(c => c.NotificationDateTime)
-                    .ToListAsync();
+                var chatDataWithUsers = await dbContext.Chats
+                  .Include(c => c.Id)
+                  .OrderBy(c => c.NotificationDateTime)
+                  .ToListAsync();
 
                 var formattedNotifications = chatDataWithUsers.Select(n => new
                 {
@@ -43,7 +43,7 @@ namespace CodeFirst.Controllers
                     n.Message,
                     n.MessageType,
                     NotificationDateTime = n.NotificationDateTime.ToString("HH:mm dd/MM/yyyy"),
-                    User = n.Id, 
+                    User = n.Id,
                     Email = n.Id.Email,
                     AvatarChat = n.Id.Avatar,
                     FirstNameChat = n.Id.FirstName,
@@ -64,22 +64,26 @@ namespace CodeFirst.Controllers
         public async Task<IActionResult> SendMessages(ChatViewModel model)
         {
             var user = await _userManager.GetUserAsync(User);
-            if (ModelState.IsValid)
+            if (user != null)
             {
-                var notification = new Chat
+                if (ModelState.IsValid)
                 {
-                    UserId = user.Id,
-                    Message = model.Message,
-                    MessageType = "All",
-                    NotificationDateTime = DateTime.Now,
-                    Avatar = !string.IsNullOrEmpty(user.Avatar) ? user.Avatar : "https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg",
-                    ChatRoomDataId = model.ChatRoomId,
-                };
-                dbContext.Chats.Add(notification);
-                await dbContext.SaveChangesAsync();
-                await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", notification);
+                    var notification = new Chat
+                    {
+                        UserId = user.Id,
+                        Message = model.Message,
+                        MessageType = "All",
+                        NotificationDateTime = DateTime.Now,
+                        Avatar = !string.IsNullOrEmpty(user.Avatar) ? user.Avatar : "https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg",
+                        ChatRoomDataId = model.ChatRoomId,
+                    };
+                    dbContext.Chats.Add(notification);
+                    await dbContext.SaveChangesAsync();
+                    await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", notification);
 
-                return Json(new { success = true, notification });
+                    return Json(new { success = true, notification });
+                }
+
             }
 
             return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors) });

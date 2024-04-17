@@ -23,6 +23,8 @@
 @inject ISnackbar SnackbarService
 @inject ISnackbar Snackbar
 @inject IHubContext<ChatHub> _hubContext
+@inject NotificationService _notiService
+@inject NavigationManager NavigationManager
 @code {
     private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
     {
@@ -52,10 +54,21 @@
     }
 </style>
 
-<a class="btn btn-primary" style="font-size:15px;padding:10px;background-color:#594AE2 " data-bs-toggle="modal" data-bs-target="#createBranchModal">
+<a @onclick="OnCreateBranchClick" class="btn btn-primary" style="font-size:15px;padding:10px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createBranchModal">
         Thêm chi nhánh mới
 </a>
-
+@code{
+    private async Task OnCreateBranchClick()
+    {
+        string newUrl = $"/branch-list/create-branch";
+        await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
+    }
+    private async Task OnDeleteBranchClick(int branchId)
+    {
+        string newUrl = $"/branch-list/delete-branch/{branchId}";
+        await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
+    }
+}
 
 
 
@@ -141,12 +154,14 @@
 @code {
     private bool showAlertCreateBranch = false;
 
-    private void CloseMe(bool value)
+    private async Task CloseMe(bool value)
     {
         if (!value)
         {
             showAlertCreateBranch = false;
             isSavedSuccessfully = false;
+             string newUrl = $"/branch-list";
+             await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
         }
     }
 
@@ -175,9 +190,11 @@
     bool isLoading = false;
     bool isSavedSuccessfully = false;
     bool isError = false;
-
+   
     private async Task CreateBranch()
     {
+        
+
         if (string.IsNullOrWhiteSpace(BranchName) || string.IsNullOrWhiteSpace(BranchDescription)
             || string.IsNullOrWhiteSpace(BranchAddress) || string.IsNullOrWhiteSpace(BranchPhone) || BranchImageFile == null)
         {
@@ -218,6 +235,7 @@
                 StateHasChanged();
                 ShowAlerts();
                 Snackbar.Add("Tải dữ liệu thành công!", Severity.Success);
+                await _notiService.SendNotification(" thêm chi nhánh mới");
                 isLoading = false;
                 isSavedSuccessfully = true;
                 BranchName = string.Empty;
@@ -257,62 +275,46 @@
     }
 }
 
-@* main table  *@
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Tên
-            </th>
-            <th class="d-none d-sm-table-cell">
-                Điện thoại
-            </th>
-            <th class="d-none d-sm-table-cell">
-                Địa chỉ
-            </th>
-            <th class="d-none d-sm-table-cell">
-                Hình ảnh
-            </th>
+<MudTable Items="@listBranch" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Branch,bool>(FilterFunc1)" Style="margin-bottom:15px">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Danh sách chi nhánh</MudText>
+        <MudSpacer />
+        <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm tên chi nhánh, địa chỉ" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Name)">Tên chi nhánh</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Address)">Địa chỉ</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Description)">Mô tả</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Phone)">Số điện thoại</MudTableSortLabel></MudTh>
+        <MudTh>Hình ảnh</MudTh>
+        <MudTh>Chức năng</MudTh>
+    </HeaderContent>
+   <RowTemplate>
+    <MudTd DataLabel="Name">@context.Name</MudTd>
+    <MudTd DataLabel="Address">@context.Address</MudTd>
+    <MudTd DataLabel="Description">@context.Description</MudTd>
+    <MudTd DataLabel="Phone">@context.Phone</MudTd>
+    <MudTd DataLabel="Image">
+        <MudImage Src="@context.Image" Width="80" Height="80" Alt="Swedish Farm House" Elevation="25" Class="rounded-md" />
+    </MudTd>
+    <MudTd>
+        <MudButton Variant="Variant.Outlined" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#editBranchModal" OnClick="@(() => EditBranch(@context.BranchId))">
+            Sửa
+        </MudButton>
+        <MudButton Variant="Variant.Outlined" Color="Color.Success" data-bs-toggle="modal" data-bs-target="#viewBranchModal" OnClick="@(() => ShowDetails(@context.BranchId))">
+            Chi tiết
+        </MudButton>
+        <MudButton Variant="Variant.Outlined" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@context.BranchId))">
+            Xóa
+        </MudButton>
+    </MudTd>
 
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in listBranch)
-        {
-            <tr>
-                <td>
-                    @item.Name
-                </td>
-                <td class="d-none d-sm-table-cell">
-                    @item.Phone
-                </td>
-                <td class="d-none d-sm-table-cell">@item.Address</td>
-                <td class="d-none d-sm-table-cell" style="width:15%">
-                    <img src="@item.Image" class="rounded float-start" style="width:100%;max-width:200px; height:10rem">
-                </td>
-                <td>
-                    <a data-bs-toggle="modal" data-bs-target="#editBranchModal" class="btn btn-outline-info" @onclick="() => EditBranch(item.BranchId)">Sửa</a>
-                    <a data-bs-toggle="modal" data-bs-target="#viewBranchModal" class="btn btn-outline-success" @onclick="() => ShowDetails(item.BranchId)">Chi tiết</a>
+</RowTemplate>
 
-                    <button  class="btn btn-outline-danger" @onclick="() => ShowConfirmModal(item.BranchId)">Xóa</button>
-                </td>
-                <td>
-                    @if (item.IsLocked)
-                    {
-                        <button class="btn btn-success" @onclick="() => UnlockBranch(item.BranchId)"><i class="icofont-key"></i>  Mở khóa</button>
-                    }
-                    else
-                    {
-                        <button class="btn btn-danger" @onclick="() => LockBranch(item.BranchId)"><i class="icofont-ui-block"></i>  Tạm khóa</button>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>      
-
+        <PagerContent>
+            <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang"  PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
+        </PagerContent>
+    </MudTable>
 
 @* modal delete mud blazor *@
 <MudMessageBox @ref="mbox" Title="Xác nhận xóa" CancelText="Hủy thao tác">
@@ -323,6 +325,21 @@
         <MudButton Variant="Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Xóa dữ liệu!</MudButton>
     </YesButton>
 </MudMessageBox>
+@code{
+     private string searchString1 = "";
+     private bool FilterFunc1(Branch branch) => FilterFunc(branch, searchString1);
+
+    private bool FilterFunc(Branch branch, string searchString)
+    {
+        if (string.IsNullOrWhiteSpace(searchString))
+            return true;
+        if (branch.Name.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+         if (branch.Address.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        return false;
+    }
+}
 <style>
     .mud-dialog-width-sm{
         max-width:1200px;
@@ -336,9 +353,10 @@
 
     private async void ShowConfirmModal(int branchId)
     {
+        string newUrl = $"/branch-list/delete-branch/{branchId}";
+        await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
         branchIdToDelete = branchId;
         bool? result = await mbox.Show();
-
         if (result == true)
         {
             await DeleteBranch(branchIdToDelete);
@@ -352,7 +370,7 @@
 }
 
 
-<div class="modal fade" id="viewBranchModal" tabindex="-1" aria-labelledby="viewBranchModalLabel" aria-hidden="true">
+<div class="modal fade" id="viewBranchModal" tabindex="-1" aria-labelledby="viewBranchModalLabel" aria-hidden="true" @onclick="() => CloseMe(false)">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
             <div class="modal-header">
@@ -386,7 +404,7 @@
     string? phone = "";
     string? address = "";
     string? img = "";
-    void ShowDetails(int branchId)
+    async Task ShowDetails(int branchId)
     {
         Branch? branch =  _context.Branch.FirstOrDefault(x => x.BranchId == branchId);
         if(branch != null)
@@ -397,7 +415,8 @@
             address = branch.Address;
             img = branch.Image;
         }
-     
+        string newUrl = $"/branch-list/detail-branch/{branch.BranchId}";
+        await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
     }
 }
 
@@ -488,7 +507,7 @@
 @* update branch code behind *@
 @code{
     @* update branch code behind *@
-    Branch branchToEdit { get; set; } = new Branch();
+    Branch? branchToEdit { get; set; } = new Branch();
 
     bool isLoadingUpdate = false;
     // void GetImage(int branchId)
@@ -504,30 +523,30 @@
     string? updatePhone = "";
     string? updateAddress = "";
     string? updateImg = "";
+  
     async Task EditBranch(int branchId)
     {
-        Branch? branch = _context.Branch.FirstOrDefault(x => x.BranchId == branchId);
-        if (branch != null)
-        {
-            updateBranchName = branch.Name;
-            updateDes = branch.Description;
-            updatePhone = branch.Phone;
-            updateAddress = branch.Address;
-            updateImg = branch.Image;
-        }
         branchToEdit = await _context.Branch.FindAsync(branchId);
+        Branch? branchUpdateForm = _context.Branch.FirstOrDefault(x => x.BranchId == branchId);
+        if (branchUpdateForm != null)
+        {
+            updateBranchName = branchUpdateForm.Name;
+            updateDes = branchUpdateForm.Description;
+            updatePhone = branchUpdateForm.Phone;
+            updateAddress = branchUpdateForm.Address;
+            updateImg = branchUpdateForm.Image;
+        }
         await LoadBranches();
         BranchImageFile = null;
         StateHasChanged(); // Cập nhật UI
         await jsRuntime.InvokeVoidAsync("clearInputFileText", "branchImageUpdate");
+        string newUrl = $"/branch-list/edit-branch/{branchId}";
+        await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
     }
     async Task SaveEditChanges()
     {
         var existingBranch = _context.Branch.Local.FirstOrDefault(b => b.BranchId == branchToEdit.BranchId);
-        string editName = updateBranchName;
-        string editAddress = updateAddress;
-        string editDes = updateDes;
-        string editPhone = updatePhone;
+
         string editImgUrl = "";
         if (BranchImageFile != null)
         {
@@ -544,10 +563,10 @@
         {
             isLoadingUpdate = true;
 
-            existingBranch.Name = editName;
-            existingBranch.Description = editDes;
-            existingBranch.Address = editAddress;
-            existingBranch.Phone = editPhone;
+            existingBranch.Name = updateBranchName;
+            existingBranch.Description = updateDes;
+            existingBranch.Address = updateAddress;
+            existingBranch.Phone = updatePhone;
             existingBranch.Image = editImgUrl;
         }
         else
@@ -555,15 +574,16 @@
             isLoadingUpdate = true;
 
             _context.Attach(branchToEdit);
-            branchToEdit.Name = editName;
-            branchToEdit.Description = editDes;
-            branchToEdit.Address = editAddress;
-            branchToEdit.Phone = editPhone;
+            branchToEdit.Name = updateBranchName;
+            branchToEdit.Description = updateDes;
+            branchToEdit.Address = updateAddress;
+            branchToEdit.Phone = updatePhone;
             branchToEdit.Image = editImgUrl;
         }
         ShowAlerts();
         Snackbar.Add("Cập nhật dữ liệu thành công!", Severity.Success);
         _context.Update(branchToEdit);
+
         await _context.SaveChangesAsync();
         isLoadingUpdate = false;
 
