@@ -427,11 +427,11 @@
                 <form method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="branchName" class="form-label">Tên chi nhánh</label>
-                        <input type="text" class="form-control" id="branchName" @bind="branchToEdit.Name">
+                        <input type="text" class="form-control" id="branchName" @bind="updateBranchName">
                     </div>
                     <div class="mb-3">
                         <label for="branchDescription" class="form-label">Mô tả</label>
-                        <textarea class="form-control" id="branchDescription" rows="3" @bind="branchToEdit.Description"></textarea>
+                        <textarea class="form-control" id="branchDescription" rows="3" @bind="updateDes"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="branchImageUpdate" class="form-label">Ảnh</label>
@@ -445,11 +445,11 @@
                     }
                     <div class="mb-3">
                         <label for="branchAddress" class="form-label">Địa chỉ</label>
-                        <input type="text" class="form-control" id="branchAddress" @bind="branchToEdit.Address">
+                        <input type="text" class="form-control" id="branchAddress" @bind="updateAddress">
                     </div>
                     <div class="mb-3">
                         <label for="branchPhone" class="form-label">Điện thoại</label>
-                        <input type="text" class="form-control" id="branchPhone" @bind="branchToEdit.Phone">
+                        <input type="text" class="form-control" id="branchPhone" @bind="updatePhone">
                     </div>
                 </form>
 
@@ -488,19 +488,35 @@
 @* update branch code behind *@
 @code{
     @* update branch code behind *@
+    Branch branchToEdit { get; set; } = new Branch();
 
     bool isLoadingUpdate = false;
-    void GetImage(int branchId)
-    {
-        Branch branch = _context.Branch.FirstOrDefault(b => b.BranchId == branchId);
-        if (branch != null)
-        {
-            imageUrl = branch.Image;
-        }
-    }
+    // void GetImage(int branchId)
+    // {
+    //     Branch branch = _context.Branch.FirstOrDefault(b => b.BranchId == branchId);
+    //     if (branch != null)
+    //     {
+    //         imageUrl = branch.Image;
+    //     }
+    // }
+    string? updateBranchName = "";
+    string? updateDes = "";
+    string? updatePhone = "";
+    string? updateAddress = "";
+    string? updateImg = "";
     async Task EditBranch(int branchId)
     {
+        Branch? branch = _context.Branch.FirstOrDefault(x => x.BranchId == branchId);
+        if (branch != null)
+        {
+            updateBranchName = branch.Name;
+            updateDes = branch.Description;
+            updatePhone = branch.Phone;
+            updateAddress = branch.Address;
+            updateImg = branch.Image;
+        }
         branchToEdit = await _context.Branch.FindAsync(branchId);
+        await LoadBranches();
         BranchImageFile = null;
         StateHasChanged(); // Cập nhật UI
         await jsRuntime.InvokeVoidAsync("clearInputFileText", "branchImageUpdate");
@@ -508,10 +524,10 @@
     async Task SaveEditChanges()
     {
         var existingBranch = _context.Branch.Local.FirstOrDefault(b => b.BranchId == branchToEdit.BranchId);
-        string editName = branchToEdit.Name;
-        string editAddress = branchToEdit.Address;
-        string editDes = branchToEdit.Description;
-        string editPhone = branchToEdit.Phone;
+        string editName = updateBranchName;
+        string editAddress = updateAddress;
+        string editDes = updateDes;
+        string editPhone = updatePhone;
         string editImgUrl = "";
         if (BranchImageFile != null)
         {
@@ -574,7 +590,6 @@
 @code {
     List<Branch> Branches { get; set; } = new List<Branch>();
     [Inject] private ApplicationDbContext _context { get; set; }
-    Branch branchToEdit { get; set; } = new Branch();
     string imageUrl { get; set; }
     private List<Branch> listBranch { get; set; } = new List<Branch>();
     protected async Task LoadBranches()
@@ -589,7 +604,8 @@
     {
         await LoadBranches();
         hubConnection = new HubConnectionBuilder()
-            .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/chatHub"))
+            // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/chatHub")) // dcoker
+            .WithUrl(NavigationManager.ToAbsoluteUri("/chatHub"))
             .Build();
 
         hubConnection.On<List<Branch>>("BranchCreated", receivedProducts =>
