@@ -193,8 +193,6 @@
    
     private async Task CreateBranch()
     {
-        
-
         if (string.IsNullOrWhiteSpace(BranchName) || string.IsNullOrWhiteSpace(BranchDescription)
             || string.IsNullOrWhiteSpace(BranchAddress) || string.IsNullOrWhiteSpace(BranchPhone) || BranchImageFile == null)
         {
@@ -226,11 +224,6 @@
 
                 _context.Branch.Add(newBranch);
                 await _context.SaveChangesAsync();
-
-                // gọi lại LoadBranches để cập nhật db
-                // await _hubContext.Clients.All.SendAsync("LoadBranches");
-                // await _hubContext.Clients.All.SendAsync("BranchCreated");
-                // await _hubContext.Clients.All.SendAsync("BranchCreated", listBranch);
                 await LoadBranches();
                 StateHasChanged();
                 ShowAlerts();
@@ -274,10 +267,15 @@
         isError = false;
     }
 }
-
+<style>
+    .mud-table-head{
+        background-color: #cee2baff;
+    }
+   
+</style>
 <MudTable Items="@listBranch" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Branch,bool>(FilterFunc1)" Style="margin-bottom:15px">
     <ToolBarContent>
-        <MudText Typo="Typo.h6">Danh sách chi nhánh</MudText>
+        <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách chi nhánh</MudText>
         <MudSpacer />
         <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm tên chi nhánh, địa chỉ" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
     </ToolBarContent>
@@ -290,7 +288,7 @@
         <MudTh>Chức năng</MudTh>
     </HeaderContent>
    <RowTemplate>
-    <MudTd DataLabel="Name">@context.Name</MudTd>
+    <MudTd  DataLabel="Name">@context.Name</MudTd>
     <MudTd DataLabel="Address">@context.Address</MudTd>
     <MudTd DataLabel="Description">@context.Description</MudTd>
     <MudTd DataLabel="Phone">@context.Phone</MudTd>
@@ -298,13 +296,13 @@
         <MudImage Src="@context.Image" Width="80" Height="80" Alt="Swedish Farm House" Elevation="25" Class="rounded-md" />
     </MudTd>
     <MudTd>
-        <MudButton Variant="Variant.Outlined" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#editBranchModal" OnClick="@(() => EditBranch(@context.BranchId))">
+        <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Settings" Size="MudBlazor.Size.Small" Color="Color.Success" data-bs-toggle="modal" data-bs-target="#editBranchModal" OnClick="@(() => EditBranch(@context.BranchId))">
             Sửa
         </MudButton>
-        <MudButton Variant="Variant.Outlined" Color="Color.Success" data-bs-toggle="modal" data-bs-target="#viewBranchModal" OnClick="@(() => ShowDetails(@context.BranchId))">
+                <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#viewBranchModal" OnClick="@(() => ShowDetails(@context.BranchId))">
             Chi tiết
         </MudButton>
-        <MudButton Variant="Variant.Outlined" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@context.BranchId))">
+                <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@context.BranchId))">
             Xóa
         </MudButton>
     </MudTd>
@@ -361,6 +359,7 @@
         {
             await DeleteBranch(branchIdToDelete);
             Snackbar.Add("Đã xóa chi nhánh gòi đóa!", Severity.Success);
+            await _notiService.SendNotification("đã xóa chi nhánh");
         }
         else
         {
@@ -588,6 +587,7 @@
         isLoadingUpdate = false;
 
         isSavedSuccessfully = true;
+        await _notiService.SendNotification("đã cập nhật chi nhánh");
 
         await LoadBranches();
     }
