@@ -1,4 +1,7 @@
 version: '3.4'
+networks:
+  mynetwork:
+    external: true 
 services:
   mssql-server:
     container_name: myapp-db
@@ -9,7 +12,10 @@ services:
       MSSQL_PID: Developer
     ports:
       - "8002:1433"
+    networks: 
+      - mynetwork
   codefirst-app:
+
     build: .
     environment:
         DatabaseServer: "mssql-server"
@@ -18,4 +24,6 @@ services:
         DatabaseName: "codefirst"
     ports:
     - "8090:80"
+    networks: 
+    - mynetwork
  

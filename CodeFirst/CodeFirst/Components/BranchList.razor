@@ -209,9 +209,13 @@
 
                 _context.Branch.Add(newBranch);
                 await _context.SaveChangesAsync();
-      
+
                 // gọi lại LoadBranches để cập nhật db
+                // await _hubContext.Clients.All.SendAsync("LoadBranches");
+                // await _hubContext.Clients.All.SendAsync("BranchCreated");
+                // await _hubContext.Clients.All.SendAsync("BranchCreated", listBranch);
                 await LoadBranches();
+                StateHasChanged();
                 ShowAlerts();
                 Snackbar.Add("Tải dữ liệu thành công!", Severity.Success);
                 isLoading = false;
@@ -224,7 +228,10 @@
                 showAlert = false;
                 isError = false;
                 await jsRuntime.InvokeVoidAsync("clearInputFileText", "branchImage");
-
+                await LoadBranches();
+                StateHasChanged();
+                await Task.Delay(3000);
+                await LoadBranches();
             }
             else
             {
@@ -580,9 +587,9 @@
     private HubConnection hubConnection;
     protected override async Task OnInitializedAsync()
     {
-
+        await LoadBranches();
         hubConnection = new HubConnectionBuilder()
-            .WithUrl(NavigationManager.ToAbsoluteUri("/chatHub"))
+            .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/chatHub"))
             .Build();
 
         hubConnection.On<List<Branch>>("BranchCreated", receivedProducts =>
@@ -597,7 +604,7 @@
         try
         {
             await hubConnection.StartAsync();
-            Console.WriteLine("SignalR connection started successfully.");
+            Console.WriteLine("SignalR connection started successfully blazor.");
             await LoadBranches();
         }
         catch (Exception ex)
