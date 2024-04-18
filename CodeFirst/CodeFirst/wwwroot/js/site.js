@@ -98,6 +98,7 @@ $(() => {
                     LoadChatDataToChatBox(chatRoomId);
                     $('.chatRoomId').val(chatRoomId); // Thay đổi giá trị của class chatRoomId
                 });
+                $('.chat-room-item:first').trigger('click');
             },
             error: function (error) {
                 console.error('Error:', error);
