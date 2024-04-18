@@ -37,6 +37,10 @@ namespace CodeFirst.Hubs
         {
             await Clients.All.SendAsync("LoadChatData");
         }
+        public async Task GetChatRoomSignalR(ChatRoom createRoom)
+        {
+            await Clients.All.SendAsync("GetChatRoomSignalR", createRoom);
+        }
         public async Task SendUpdatedNotifications(List<Notification> notifications)
         {
             await Clients.All.SendAsync("ReceiveNotificationRealtime", notifications);

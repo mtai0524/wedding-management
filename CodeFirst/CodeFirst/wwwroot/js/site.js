@@ -4,19 +4,20 @@ $(() => {
     LoadChatData(chatRoomId);
     LoadChatDataToChatBox(chatRoomId);
     LoadPrivateMessages(senderUserId, receiverUserId);
-
+    GetChatRoom();
     var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
     connection.start().then(function () {
         console.log('connected to hub');
     }).catch(function (err) {
         return console.error(err.toString());
     });
-
+    connection.on("GetChatRoomSignalR", function (createRoom) {
+        GetChatRoom();
+    });
     connection.on("ReceiveNotificationRealtime", function (notifications) {
         LoadNotificationData();
         LoadChatDataToChatBox(chatRoomId);
         LoadChatData(chatRoomId);
-
     });
     connection.on("ReceiveChatPrivateRealtime", function (notifications) {
         LoadNotificationData();
@@ -26,10 +27,10 @@ $(() => {
     });
 
     var chatRoomId = "";
-    $(document).ready(function () {
+    function GetChatRoom() {
         $.ajax({
-            type: 'GET',
             url: '/ChatRoom/GetChatRooms',
+            method: 'GET',
             success: function (data) {
                 var chatRoomList = $('<div>').addClass('chat-room-list');
                 data.forEach(function (chatRoom) {
@@ -61,17 +62,15 @@ $(() => {
                     LoadChatData(chatRoomId);
                     LoadChatDataToChatBox(chatRoomId);
                     $('.chatRoomId').val(chatRoomId); // Thay đổi giá trị của class chatRoomId
-
-
                 });
-                $('.chat-room-item:first').trigger('click');
+                //$('.chat-room-item:first').trigger('click');
 
             },
             error: function (error) {
                 console.error('Error:', error);
             }
         });
-    });
+    }
 
 
 
@@ -335,6 +334,30 @@ $(() => {
 
     $(document).ready(function () {
         // Bắt sự kiện submit của form
+        $("#createChatRoomFormMinhTai").submit(function (e) {
+            e.preventDefault(); // Ngăn chặn việc gửi form theo cách thông thường
+
+            // Lấy dữ liệu từ form
+            var formData = $(this).serialize();
+
+            // Gửi yêu cầu AJAX
+            $.ajax({
+                url: $(this).attr('action'), // Lấy đường dẫn từ thuộc tính action của form
+                type: $(this).attr('method'), // Lấy phương thức từ thuộc tính method của form
+                data: formData,
+                success: function (response) {
+                    console.log("Message sent successfully!");
+                    console.log(response);
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX Error:", error);
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        // Bắt sự kiện submit của form
         $(".chatForm").submit(function (e) {
             e.preventDefault(); // Ngăn chặn việc gửi form theo cách thông thường
 
@@ -573,7 +596,7 @@ $(() => {
         LoadChatDataToChatBox(chatRoomId);
         LoadPrivateMessages(senderUserId, receiverUserId);
         LoadPrivateMessagesMini(senderUserId, receiverUserId);
-
+        GetChatRoom();
     });
 
     connection.on("ReceiveTypingNotification", function (userCurrent, isTyping) {
@@ -848,7 +871,7 @@ $(() => {
                     console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
                     saveCurrentUserName = currentUserName;
                     LoadPrivateMessages(currentUserId, item.id);
-                    console.log("CAI LON GI V" + $('.receiverUserId').val()); // gui qua controller thong qua input hidden trong adminlayout
+                    console.log("test" + $('.receiverUserId').val()); // gui qua controller thong qua input hidden trong adminlayout
                     receiverUserItemId = item.id;
 
                     $('.receiverUserId').val(item.id);

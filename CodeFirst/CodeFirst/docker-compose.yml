@@ -15,7 +15,6 @@ services:
     networks: 
       - mynetwork
   codefirst-app:
-
     build: .
     environment:
         DatabaseServer: "mssql-server"

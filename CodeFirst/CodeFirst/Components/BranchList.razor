@@ -624,7 +624,7 @@
     {
         await LoadBranches();
         hubConnection = new HubConnectionBuilder()
-            // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/chatHub")) // dcoker
+            // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/chatHub")) // docker
             .WithUrl(NavigationManager.ToAbsoluteUri("/chatHub"))
             .Build();
 

@@ -8,22 +8,26 @@ using Microsoft.EntityFrameworkCore;
 using CodeFirst.Data;
 using CodeFirst.Models.Entities;
 using CodeFirst.ViewModels;
+using Microsoft.AspNetCore.SignalR;
+using CodeFirst.Hubs;
 
 namespace CodeFirst.Controllers
 {
     public class ChatRoomController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHubContext<ChatHub> _hubContext;
 
-        public ChatRoomController(ApplicationDbContext context)
+        public ChatRoomController(ApplicationDbContext context, IHubContext<ChatHub> hubContext)
         {
             _context = context;
+            _hubContext = hubContext;
         }
         [HttpGet]
         public async Task<IActionResult> GetChatRooms()
         {
             var chatRooms = await _context.ChatRooms.ToListAsync();
-            return Json(chatRooms);
+            return Ok(chatRooms);
         }
 
 
@@ -42,8 +46,10 @@ namespace CodeFirst.Controllers
 
             _context.ChatRooms.Add(chatRoom);
             await _context.SaveChangesAsync();
+            await _hubContext.Clients.All.SendAsync("GetChatRoomSignalR", chatRoom);
 
-            return Ok(chatRoom);
+
+            return Json(new { success = true, chatRoom });
         }
         // GET: ChatRoom
         public async Task<IActionResult> Index()
