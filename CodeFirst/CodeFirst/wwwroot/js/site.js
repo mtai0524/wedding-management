@@ -52,16 +52,19 @@ $(() => {
                     avatarUserCurrentChat.style.visibility = "hidden";
                     userCurrentChatElement.textContent = "";
                     // Loại bỏ lớp 'selected-room' từ tất cả các phòng chat
-                    $('.chat-room-item').removeClass('selected-room');
+                    $('.chat-room-item').removeClass('active');
 
                     // Thêm lớp 'selected-room' cho phòng chat được click
-                    $(this).addClass('selected-room');
+                    $(this).addClass('active');
 
                     chatRoomId = $(this).data('id'); // Lấy chatRoomId từ thuộc tính data-id
                     console.log(chatRoomId);
                     LoadChatData(chatRoomId);
                     LoadChatDataToChatBox(chatRoomId);
                     $('.chatRoomId').val(chatRoomId); // Thay đổi giá trị của class chatRoomId
+
+
+
                 });
                 //$('.chat-room-item:first').trigger('click');
 
@@ -72,6 +75,35 @@ $(() => {
         });
     }
 
+    $(document).ready(function () {
+        $.ajax({
+            type: 'GET',
+            url: '/ChatRoom/GetChatRooms',
+            success: function (data) {
+                data.forEach(function (chatRoom) {
+                    var chatRoomItem = $('<div>').addClass('chat-room-item').attr('data-id', chatRoom.Id);
+                });
+
+                // Thêm sự kiện click vào mỗi thành phần div
+                $('.chat-room-item').on('click', function () {
+                    var selectedChatRoomName = $(this).find('.chat-room-name').text();
+                    // Loại bỏ lớp 'selected-room' từ tất cả các phòng chat
+                    $('.chat-room-item').removeClass('selected-room');
+
+                    // Thêm lớp 'selected-room' cho phòng chat được click
+                    $(this).addClass('selected-room');
+
+                    chatRoomId = $(this).data('id'); // Lấy chatRoomId từ thuộc tính data-id
+                    LoadChatData(chatRoomId);
+                    LoadChatDataToChatBox(chatRoomId);
+                    $('.chatRoomId').val(chatRoomId); // Thay đổi giá trị của class chatRoomId
+                });
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
 
 
 

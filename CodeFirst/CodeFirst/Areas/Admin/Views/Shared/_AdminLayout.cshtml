@@ -162,10 +162,10 @@
             background-color: #E6E6E6;
         }
 
-        .selected-room {
-            background-color: #3F3F41; /* Màu nền của phòng chat được chọn */
-            color: white;
-            outline: 2px solid #Ec0a3c;
+        .chat-room-item.active {
+            color:white;
+            background-color: #3F3F41;
+            outline: 2px solid #ec2b2bff;
             border-radius: 5px;
         }
 
@@ -279,7 +279,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="flex-grow-0  border-top" style="margin-top:20px">
+                                    <div class="flex-grow-0  border-top" style="margin-top:20px;">
                                         <div class="d-flex" style="margin-left:30px; height:5px">
                                             <strong class="user-current-chatmini" style="color: #3F3F41;margin-right:10px;"></strong>
                                             <div class="my message dot-chatmini-container" style="visibility:hidden;">
