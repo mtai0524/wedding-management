@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bnJf9Q2GFZhRY+0SAsZN3KGE5Q3jzzFnymKePzvUa+4CyR3etZgUCxl4/b4IXPg15djblxXWME8uxdn9HkKgZQ==",
+  "dgSpecHash": "iNr5XnqHyquZS2M0jqZvZYnAlrBWp5XRyHKymZEkcID/hAbDJDk937o/Sgn95llctAMEcFuLK6dnDCxftQ/Bug==",
   "success": true,
   "projectFilePath": "E:\\Computer-Science\\CodeFirst\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
@@ -15,11 +15,6 @@
     "C:\\Users\\PC\\.nuget\\packages\\cloudinarydotnet\\1.22.0\\cloudinarydotnet.1.22.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\dinktopdf\\1.0.8\\dinktopdf.1.0.8.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\dinktopdfcopydependencies\\1.0.8\\dinktopdfcopydependencies.1.0.8.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\hangfire\\1.8.9\\hangfire.1.8.9.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\hangfire.aspnetcore\\1.8.9\\hangfire.aspnetcore.1.8.9.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\hangfire.core\\1.8.9\\hangfire.core.1.8.9.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\hangfire.netcore\\1.8.9\\hangfire.netcore.1.8.9.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\hangfire.sqlserver\\1.8.9\\hangfire.sqlserver.1.8.9.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -152,7 +147,7 @@
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.features\\6.0.11\\microsoft.extensions.features.6.0.11.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\6.0.21\\microsoft.extensions.fileproviders.embedded.6.0.21.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\3.0.0\\microsoft.extensions.hosting.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\2.2.0\\microsoft.extensions.hosting.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.22\\microsoft.extensions.identity.core.6.0.22.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.22\\microsoft.extensions.identity.stores.6.0.22.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.localization\\6.0.27\\microsoft.extensions.localization.6.0.27.nupkg.sha512",

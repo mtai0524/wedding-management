@@ -72,14 +72,6 @@
               "target": "Package",
               "version": "[1.0.8, )"
             },
-            "Hangfire": {
-              "target": "Package",
-              "version": "[1.8.9, )"
-            },
-            "Hangfire.Core": {
-              "target": "Package",
-              "version": "[1.8.9, )"
-            },
             "MailKit": {
               "target": "Package",
               "version": "[4.2.0, )"
