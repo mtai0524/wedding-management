@@ -98,7 +98,6 @@ $(() => {
                     LoadChatDataToChatBox(chatRoomId);
                     $('.chatRoomId').val(chatRoomId); // Thay đổi giá trị của class chatRoomId
                 });
-                $('.chat-room-item:first').trigger('click');
             },
             error: function (error) {
                 console.error('Error:', error);
@@ -357,7 +356,7 @@ $(() => {
 
                 });
 
-                    scrollToBottom();
+                scrollToBottom();
             },
             error: (error) => {
                 console.log(error);
@@ -602,7 +601,7 @@ $(() => {
         } else {
             if (!isTyping) {
                 isTyping = true;
-                connection.invoke("NotifyTyping", true, receiverUserId ).catch(function (err) {
+                connection.invoke("NotifyTyping", true, receiverUserId).catch(function (err) {
                     console.error(err.toString());
                 });
             }
@@ -635,7 +634,7 @@ $(() => {
     connection.on("ReceiveTypingNotification", function (userCurrent, isTyping) {
         var userCurrentChatMiniElement = document.querySelector('.user-current-chatmini');
         var dotChatMiniContainer = document.querySelector('.dot-chatmini-container');
-        if (isTyping && (receiverUserItemId == receiverUserId )) {
+        if (isTyping && (receiverUserItemId == receiverUserId)) {
             console.log("id click len giao dien: " + receiverUserItemId + "=== " + "id muon gui: " + receiverUserId);
 
             console.log(userCurrent.firstName + " is typing...");
@@ -804,7 +803,7 @@ $(() => {
                     $('.receiverUserId').val(item.id);
                     senderUserId = currentUserId;
                     receiverUserId = $('.receiverUserId').val();
-                    console.log( $('.receiverUserId').val()); // gui qua controller thong qua input hidden trong adminlayout
+                    console.log($('.receiverUserId').val()); // gui qua controller thong qua input hidden trong adminlayout
                     // Lấy tất cả các mục trong danh sách
                     var allItems = document.querySelectorAll('.list-group-item');
 
@@ -844,7 +843,7 @@ $(() => {
             var usernameDiv = document.createElement("div");
             usernameDiv.classList.add("username");
             usernameDiv.textContent = item.firstName + " " + item.lastName;
-           
+
             var textStatusDiv = document.createElement("div");
             textStatusDiv.classList.add("text-status");
 
@@ -911,7 +910,7 @@ $(() => {
                     senderUserId = currentUserId;
                     receiverUserId = $('.receiverUserId').val();
                     var allItems = document.querySelectorAll('.list-group-item');
-                    
+
                     // Xóa lớp 'active' từ tất cả các mục
                     allItems.forEach(function (element) {
                         element.classList.remove('active');
@@ -956,7 +955,7 @@ $(() => {
 
             var usernameDiv = document.createElement("div");
             usernameDiv.classList.add("username");
-            
+
             connection.invoke("GetUserId").then(function (userId) {
                 var myUserName = item.firstName.trim() + " " + item.lastName.trim();
                 usernameDiv.innerHTML = currentUserName;
@@ -969,7 +968,7 @@ $(() => {
                 console.log(myUserName);
             });
 
-            
+
 
 
             var textStatusDiv = document.createElement("div");
