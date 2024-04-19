@@ -46,6 +46,30 @@ namespace CodeFirst.Controllers
                 return BadRequest(new { success = false, error = "Chat room not found" });
             }
         }
+        [HttpPost]
+        public IActionResult UpdateChatRoom(int chatRoomId, string chatRoomNameToUpdate)
+        {
+            try
+            {
+                var chatRoom = _context.ChatRooms.FirstOrDefault(x => x.Id == chatRoomId);
+
+                if (chatRoom == null)
+                {
+                    return NotFound();
+                }
+
+                chatRoom.Name = chatRoomNameToUpdate;
+                _context.Update(chatRoom);
+                _context.SaveChanges();
+
+                return Ok(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
 
         [HttpPost]
         public async Task<IActionResult> CreateRoom([FromBody] ChatRoomViewModel chatRoomViewModel)

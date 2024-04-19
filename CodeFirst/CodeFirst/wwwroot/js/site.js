@@ -28,6 +28,7 @@ $(() => {
     });
 
     var chatRoomId = "";
+    var chatRoomNameToUpdate = "";
     function GetChatRoom() {
         $.ajax({
             url: '/ChatRoom/GetChatRooms',
@@ -36,7 +37,7 @@ $(() => {
                 var chatRoomList = $('<div>').addClass('chat-room-list');
                 data.forEach(function (chatRoom) {
                     var chatRoomItem = $('<div>').addClass('chat-room-item').attr('data-id', chatRoom.Id);
-                    var chatRoomName = $('<span>').addClass('chat-room-name').text("# " + chatRoom.Name);
+                    var chatRoomName = $('<span>').addClass('chat-room-name').text(chatRoom.Name);
                     chatRoomItem.append(chatRoomName);
                     chatRoomList.append(chatRoomItem);
                 });
@@ -45,14 +46,15 @@ $(() => {
 
                 var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
                 var chatroomname = document.querySelector('.chat-name');
+                var chatroomnameToUpdate = document.querySelector('.chatRoomNameToUpdate');
 
                 $('.chat-room-item').on('click', function () {
-                    console.log("click cmmm trong getroom");
 
                     var selectedChatRoomName = $(this).find('.chat-room-name').text();
                     chatroomname.textContent = selectedChatRoomName;
                     avatarUserCurrentChat.style.visibility = "hidden";
                     userCurrentChatElement.textContent = "";
+                    chatroomnameToUpdate.value = selectedChatRoomName;
                     $('.chat-room-item').removeClass('active');
 
                     $(this).addClass('active');
@@ -62,6 +64,7 @@ $(() => {
                     LoadChatData(chatRoomId);
                     LoadChatDataToChatBox(chatRoomId);
                     $('.chatRoomId').val(chatRoomId);
+                 
                 });
                 //$('.chat-room-item:first').trigger('click');
 
@@ -71,6 +74,7 @@ $(() => {
             }
         });
     }
+    
 
 
     function JustGetChatRoom() {
@@ -81,7 +85,7 @@ $(() => {
                 var chatRoomList = $('<div>').addClass('chat-room-list');
                 data.forEach(function (chatRoom) {
                     var chatRoomItem = $('<div>').addClass('chat-room-item').attr('data-id', chatRoom.Id);
-                    var chatRoomName = $('<span>').addClass('chat-room-name').text("# " + chatRoom.Name);
+                    var chatRoomName = $('<span>').addClass('chat-room-name').text(chatRoom.Name);
                     chatRoomItem.append(chatRoomName);
                     chatRoomList.append(chatRoomItem);
                 });
@@ -111,6 +115,34 @@ $(() => {
 
 
     $(document).ready(function () {
+        $(document).on('submit','#updateChatForm', function (event) {
+            event.preventDefault();
+
+            var chatRoomId = $('.chatRoomId').val();
+            var chatRoomNameToUpdate = $('.chatRoomNameToUpdate').val();
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: {
+                    chatRoomId: chatRoomId,
+                    chatRoomNameToUpdate: chatRoomNameToUpdate
+                },
+                success: function (data) {
+                    console.log('Data sent successfully:', data);
+                    JustGetChatRoom();
+
+                    getChatRooms();
+
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+
+
+
         // create chat room
         $(document).on('submit', '.createChatRoomFormMinhTai', function (event) {
             event.preventDefault();
@@ -122,6 +154,8 @@ $(() => {
                 data: JSON.stringify({ Name: chatRoomName }),
                 success: function (data) {
                     console.log('Success:', data);
+                    JustGetChatRoom();
+
                     getChatRooms();
                 },
                 error: function (error) {
@@ -130,10 +164,13 @@ $(() => {
             });
         });
         // delete chat room
-        $(document).on('submit', '#deleteChatForm', function (event) {
+        $(document).on('click', '#deleteChatForm', function (event) {
             event.preventDefault();
-            var chatRoomId = $('.chatRoomId').val();
+            $('#customConfirmModal').modal('show');
+        });
 
+        $('#confirmDeleteBtn').on('click', function () {
+            var chatRoomId = $('.chatRoomId').val();
             $.ajax({
                 url: '/ChatRoom/DeleteChatRoom',
                 type: 'POST',
@@ -143,12 +180,15 @@ $(() => {
                     JustGetChatRoom();
                     getChatRooms();
 
+                    $('#customConfirmModal').modal('hide');
+                    $('#infoModal').modal('hide');
                 },
                 error: function (xhr, status, error) {
                     console.error('Error:', error);
                 }
             });
         });
+
 
         function getChatRooms() {
             $.ajax({
