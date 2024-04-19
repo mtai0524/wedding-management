@@ -175,13 +175,69 @@
             outline: 2px solid #19ff66;
             border-radius: 5px;
         }
-        .list-group-container{
-            height:75vh;
+
+        .list-group-container {
+            height: 75vh;
         }
     </style>
 </head>
-
 <body>
+@*     <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true" style="z-index:100000000">
+        <div class="modal-dialog modal-dialog-centered " style="height:70vh; z-index:100000000">
+            <div class="modal-content h-100" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;z-index:10000000">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="infoModalLabel">
+                        <div class="head-text">
+                        </div>
+                    </h1>
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="modal-footer " style="margin-left: 275px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> *@
+
+
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true" style=" z-index:10000000;background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog" role="document" style="margin-top:100px;  z-index:10000000">
+            <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; z-index:10000000">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="infoModalLabel">
+                        <div class="head-text">
+                            Thông tin phòng chat
+                        </div>
+                    </h1>
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="overflow:hidden !important">
+                    <div class="container p-0">
+                        <div class="card chat-container">
+                            <div class="modal-footer">
+                                <form class="chatForm" id="deleteChatForm" asp-controller="Chat" asp-action="DeleteChatRoom" method="post">
+                                    <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
+                                        Xóa nhóm chat
+                                        <button style="background-color:#3F3F41;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-chat"><i style="color:#F2F2F3;font-size:20px;padding-right:40px;padding-left:40px" class="fa-solid fa-paper-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    @* modal chat *@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl" style="height:80vh">
             <div class="modal-content h-100" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;">
@@ -268,7 +324,7 @@
                                                 <button style="margin-right:5px" class="btn-video ml-3" title="Start a video call">
                                                     <i class="fa-solid fa-video" style="color: #ffffff;"></i>
                                                 </button>
-                                                <button style="margin-right:5px" class="btn-information ml-3">
+                                                <button style="margin-right:5px" data-bs-toggle="modal" data-bs-target="#infoModal" class="btn-information ml-3">
                                                     <i class="fa-solid fa-info" style="color: #ffffff;"></i>
                                                 </button>
                                             </div>
@@ -341,7 +397,7 @@
                             <div class="modal-footer">
                                 <form class="createChatRoomFormMinhTai">
                                     <div class="d-flex justify-content-between">
-                                         <input type="text" style="width:60%" id="chatRoomName" placeholder="Nhập tên phòng chat" required>
+                                        <input type="text" style="width:60%" id="chatRoomName" placeholder="Nhập tên phòng chat" required>
                                         <br />
                                         <button type="submit" class="btn btn-success">Tạo phòng chat</button>
                                     </div>

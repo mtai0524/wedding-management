@@ -77,6 +77,47 @@ $(() => {
         });
     }
 
+
+    function JustGetChatRoom() {
+        $.ajax({
+            url: '/ChatRoom/GetChatRooms',
+            method: 'GET',
+            success: function (data) {
+                var chatRoomList = $('<div>').addClass('chat-room-list');
+                data.forEach(function (chatRoom) {
+                    var chatRoomItem = $('<div>').addClass('chat-room-item').attr('data-id', chatRoom.Id);
+                    var chatRoomName = $('<span>').addClass('chat-room-name').text("# " + chatRoom.Name);
+                    chatRoomItem.append(chatRoomName);
+                    chatRoomList.append(chatRoomItem);
+                });
+                $('.list-room-chat').empty().append(chatRoomList);
+                var userCurrentChatElement = document.querySelector('.user-current-chat');
+
+                var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
+                var chatroomname = document.querySelector('.chat-name');
+
+                // Thêm sự kiện click vào mỗi thành phần div
+                $('.chat-room-item').on('click', function () {
+                    console.log("click cmmm trong getroom");
+
+                    var selectedChatRoomName = $(this).find('.chat-room-name').text();
+                    chatroomname.textContent = selectedChatRoomName;
+                    avatarUserCurrentChat.style.visibility = "hidden";
+                    userCurrentChatElement.textContent = "";
+                    // Loại bỏ lớp 'selected-room' từ tất cả các phòng chat
+                    $('.chat-room-item').removeClass('active');
+
+                    // Thêm lớp 'selected-room' cho phòng chat được click
+                    $(this).addClass('active');
+                });
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    }
+
+
     $(document).ready(function () {
         $(document).on('submit', '.createChatRoomFormMinhTai', function (event) {
             event.preventDefault();
@@ -88,10 +129,32 @@ $(() => {
                 data: JSON.stringify({ Name: chatRoomName }),
                 success: function (data) {
                     console.log('Success:', data);
-                    // Sau khi tạo phòng chat thành công, gọi lại hàm để cập nhật danh sách phòng chat
                     getChatRooms();
                 },
                 error: function (error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+
+        $(document).on('submit', '#deleteChatForm', function (event) {
+            event.preventDefault();
+            var chatRoomId = $('.chatRoomId').val();
+
+            // Yêu cầu xóa phòng chat bằng AJAX
+            $.ajax({
+                url: '/ChatRoom/DeleteChatRoom', // Đường dẫn đến phương thức xóa trên máy chủ
+                type: 'POST',
+                data: { chatRoomId: chatRoomId }, // Dữ liệu gửi đi
+                success: function (data) {
+                    // Xử lý phản hồi nếu cần
+                    console.log('Chat room deleted successfully:', data);
+                    JustGetChatRoom();
+                    getChatRooms();
+
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi nếu có
                     console.error('Error:', error);
                 }
             });
@@ -127,9 +190,13 @@ $(() => {
                 }
             });
         }
+       
 
         getChatRooms();
     });
+  
+
+    // delete chat room
 
 
 

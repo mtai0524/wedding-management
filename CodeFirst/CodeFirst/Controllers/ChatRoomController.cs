@@ -29,7 +29,21 @@ namespace CodeFirst.Controllers
             var chatRooms = await _context.ChatRooms.ToListAsync();
             return Ok(chatRooms);
         }
-
+        [HttpPost]
+        public IActionResult DeleteChatRoom(int chatRoomId)
+        {
+            var deleteChatRoomById = _context.ChatRooms.FirstOrDefault(x=> x.Id == chatRoomId);
+            if(deleteChatRoomById != null)
+            {
+                _context.ChatRooms.Remove(deleteChatRoomById);
+                _context.SaveChanges();
+                return Ok(new { success = true });
+            }
+            else
+            {
+                return BadRequest(new { success = false, error = "Chat room not found" });
+            }
+        }
 
         [HttpPost]
         public async Task<IActionResult> CreateRoom([FromBody] ChatRoomViewModel chatRoomViewModel)
