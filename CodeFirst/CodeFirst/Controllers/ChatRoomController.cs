@@ -30,13 +30,15 @@ namespace CodeFirst.Controllers
             return Ok(chatRooms);
         }
         [HttpPost]
-        public IActionResult DeleteChatRoom(int chatRoomId)
+        public async Task<IActionResult> DeleteChatRoomAsync(int chatRoomId)
         {
             var deleteChatRoomById = _context.ChatRooms.FirstOrDefault(x=> x.Id == chatRoomId);
             if(deleteChatRoomById != null)
             {
                 _context.ChatRooms.Remove(deleteChatRoomById);
                 _context.SaveChanges();
+                await _hubContext.Clients.All.SendAsync("GetChatRoomSignalR", chatRoomId);
+
                 return Ok(new { success = true });
             }
             else

@@ -11,6 +11,7 @@ $(() => {
     }).catch(function (err) {
         return console.error(err.toString());
     });
+   
     connection.on("GetChatRoomSignalR", function (createRoom) {
         GetChatRoom();
     });
@@ -45,7 +46,6 @@ $(() => {
                 var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
                 var chatroomname = document.querySelector('.chat-name');
 
-                // Thêm sự kiện click vào mỗi thành phần div
                 $('.chat-room-item').on('click', function () {
                     console.log("click cmmm trong getroom");
 
@@ -53,20 +53,15 @@ $(() => {
                     chatroomname.textContent = selectedChatRoomName;
                     avatarUserCurrentChat.style.visibility = "hidden";
                     userCurrentChatElement.textContent = "";
-                    // Loại bỏ lớp 'selected-room' từ tất cả các phòng chat
                     $('.chat-room-item').removeClass('active');
 
-                    // Thêm lớp 'selected-room' cho phòng chat được click
                     $(this).addClass('active');
 
-                    chatRoomId = $(this).data('id'); // Lấy chatRoomId từ thuộc tính data-id
+                    chatRoomId = $(this).data('id');
                     console.log(chatRoomId);
                     LoadChatData(chatRoomId);
                     LoadChatDataToChatBox(chatRoomId);
-                    $('.chatRoomId').val(chatRoomId); // Thay đổi giá trị của class chatRoomId
-
-
-
+                    $('.chatRoomId').val(chatRoomId);
                 });
                 //$('.chat-room-item:first').trigger('click');
 
@@ -96,7 +91,6 @@ $(() => {
                 var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
                 var chatroomname = document.querySelector('.chat-name');
 
-                // Thêm sự kiện click vào mỗi thành phần div
                 $('.chat-room-item').on('click', function () {
                     console.log("click cmmm trong getroom");
 
@@ -104,10 +98,8 @@ $(() => {
                     chatroomname.textContent = selectedChatRoomName;
                     avatarUserCurrentChat.style.visibility = "hidden";
                     userCurrentChatElement.textContent = "";
-                    // Loại bỏ lớp 'selected-room' từ tất cả các phòng chat
                     $('.chat-room-item').removeClass('active');
 
-                    // Thêm lớp 'selected-room' cho phòng chat được click
                     $(this).addClass('active');
                 });
             },
@@ -119,6 +111,7 @@ $(() => {
 
 
     $(document).ready(function () {
+        // create chat room
         $(document).on('submit', '.createChatRoomFormMinhTai', function (event) {
             event.preventDefault();
             var chatRoomName = $('#chatRoomName').val();
@@ -136,25 +129,22 @@ $(() => {
                 }
             });
         });
-
+        // delete chat room
         $(document).on('submit', '#deleteChatForm', function (event) {
             event.preventDefault();
             var chatRoomId = $('.chatRoomId').val();
 
-            // Yêu cầu xóa phòng chat bằng AJAX
             $.ajax({
-                url: '/ChatRoom/DeleteChatRoom', // Đường dẫn đến phương thức xóa trên máy chủ
+                url: '/ChatRoom/DeleteChatRoom',
                 type: 'POST',
-                data: { chatRoomId: chatRoomId }, // Dữ liệu gửi đi
+                data: { chatRoomId: chatRoomId },
                 success: function (data) {
-                    // Xử lý phản hồi nếu cần
                     console.log('Chat room deleted successfully:', data);
                     JustGetChatRoom();
                     getChatRooms();
 
                 },
                 error: function (xhr, status, error) {
-                    // Xử lý lỗi nếu có
                     console.error('Error:', error);
                 }
             });
@@ -196,7 +186,7 @@ $(() => {
     });
   
 
-    // delete chat room
+
 
 
 
