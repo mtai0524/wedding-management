@@ -85,10 +85,12 @@ $(() => {
                 });
 
                 // Thêm sự kiện click vào mỗi thành phần div
+                var chatroomnamemini = document.querySelector('.chat-name-mini');
                 $('.chat-room-item').on('click', function () {
                     var selectedChatRoomName = $(this).find('.chat-room-name').text();
                     // Loại bỏ lớp 'selected-room' từ tất cả các phòng chat
                     $('.chat-room-item').removeClass('selected-room');
+                    chatroomnamemini.textContent = selectedChatRoomName;
 
                     // Thêm lớp 'selected-room' cho phòng chat được click
                     $(this).addClass('selected-room');
@@ -98,6 +100,7 @@ $(() => {
                     LoadChatDataToChatBox(chatRoomId);
                     $('.chatRoomId').val(chatRoomId); // Thay đổi giá trị của class chatRoomId
                 });
+                $('.chat-room-item:first').trigger('click');
             },
             error: function (error) {
                 console.error('Error:', error);
@@ -194,7 +197,7 @@ $(() => {
                 console.log(result);
 
                 $(".chat-box").empty(); // Xóa nội dung hiện tại của chat box trước khi thêm mới
-
+            
                 $.each(result, (k, v) => {
                     if (v.ChatRoom == chatRoomId) {
                         var chatMessage = $('<div>').addClass('chat-message user2 d-flex');
@@ -779,6 +782,8 @@ $(() => {
         var listGroupOnline = document.querySelector('.list-group-offline');
         listGroupOnline.innerHTML = ""; // Xóa hết các thẻ a cũ trước khi cập nhật
         var chatroomname = document.querySelector('.chat-name');
+        var chatroomnamemini = document.querySelector('.chat-name-mini');
+
         userList.forEach(function (item) {
             var listGroupItem = document.createElement("a");
             listGroupItem.href = "#";
@@ -792,7 +797,7 @@ $(() => {
 
             listGroupItem.addEventListener("click", function (event) {
                 chatroomname.textContent = "";
-
+                chatroomnamemini.textContent = "";
                 event.preventDefault();
 
                 avatarUserCurrentChat.style.visibility = "visible";
@@ -815,6 +820,7 @@ $(() => {
                     LoadPrivateMessagesMini(senderUserId, receiverUserId);
                     var userCurrentChatMiniElement = document.querySelector('.user-current-chat');
                     userCurrentChatMiniElement.innerHTML = item.firstName + " " + item.lastName;
+                    chatroomnamemini.textContent = item.firstName + " " + item.lastName;
 
                 }).catch(function (error) {
                     console.error("Error getting userId:", error);
@@ -878,6 +884,7 @@ $(() => {
     });
     var saveCurrentUserName = "";
     var receiverUserItemId = "";
+    var fullNameUserCurrentChat = "";
     connection.on("UpdateUsersOnlineList", function (userList) {
         var listGroupOnline = document.querySelector('.list-group-online');
         listGroupOnline.innerHTML = ""; // Xóa hết các thẻ a cũ trước khi cập nhật
@@ -886,13 +893,14 @@ $(() => {
         var avatarUserCurrentChat = document.querySelector('.avatar-user-current-chat');
         var dotChatMiniContainer = document.querySelector('.dot-chatmini-container');
         var chatroomname = document.querySelector('.chat-name');
-
+        var chatroomnamemini = document.querySelector('.chat-name-mini');
         userList.forEach(function (item) {
             var listGroupItem = document.createElement("a");
             listGroupItem.href = "#";
             listGroupItem.classList.add("list-group-item", "list-group-item-action", "border-0");
             listGroupItem.addEventListener("click", function (event) {
                 chatroomname.textContent = "";
+                chatroomnamemini.textContent = "";
 
                 event.preventDefault();
                 userCurrentChatElement.textContent = item.firstName + " " + item.lastName;
@@ -900,6 +908,7 @@ $(() => {
 
                 avatarUserCurrentChat.src = item.avatar ? item.avatar : "https://as2.ftcdn.net/v2/jpg/04/10/43/77/1000_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg";
                 connection.invoke("GetUserId").then(function (userId) {
+                    fullNameUserCurrentChat = item.firstName + " " + item.lastName;
                     console.log("Id người nhận:", item.id + "  ** Id người gửi: " + currentUserId);
                     saveCurrentUserName = currentUserName;
                     LoadPrivateMessages(currentUserId, item.id);
@@ -918,7 +927,7 @@ $(() => {
                     listGroupItem.classList.add("active");
                     listGroupItem.classList.add("active");
                     LoadPrivateMessagesMini(senderUserId, receiverUserId);
-
+                    chatroomnamemini.textContent = item.firstName + " " + item.lastName;
 
                 }).catch(function (error) {
                     console.error("Error getting userId:", error);

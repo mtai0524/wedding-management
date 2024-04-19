@@ -18,11 +18,16 @@ namespace CodeFirst.Hubs
         private readonly ApplicationDbContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserService _userService;
-        public ChatHub(ApplicationDbContext context, UserService userServer, IHttpContextAccessor httpContextAccessor, UserService userService)
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        public ChatHub(ApplicationDbContext context, UserService userServer, IHttpContextAccessor httpContextAccessor, UserService userService, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
             _userService = userService;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
 
@@ -103,13 +108,33 @@ namespace CodeFirst.Hubs
                 await UpdateConnectedUsersOfflineList(ConnectedUsers.Values.ToList());
             }
         }
+
+     
+
+
+
         List<UserInformation> userList = new List<UserInformation>();
         List<UserInformation> userOnlineList = new List<UserInformation>();
 
         private async Task UpdateConnectedUsersList()
         {
-            List<UserInformation> userOnline = ConnectedUsers.Values.ToList();
-            await Clients.All.SendAsync("UpdateUsersList", userOnline);
+            // Tạo một Dictionary mới để lưu trữ thông tin người dùng duy nhất dựa trên userId
+            Dictionary<string, UserInformation> uniqueUsers = new Dictionary<string, UserInformation>();
+
+            // Lặp qua danh sách connected users và thêm vào uniqueUsers chỉ nếu chưa có người dùng có cùng userId
+            foreach (var userInfo in ConnectedUsers.Values)
+            {
+                if (!uniqueUsers.ContainsKey(userInfo.Id))
+                {
+                    uniqueUsers[userInfo.Id] = userInfo;
+                }
+            }
+
+            // Chuyển danh sách các người dùng duy nhất thành List
+            List<UserInformation> uniqueUsersList = uniqueUsers.Values.ToList();
+
+            // Gửi danh sách người dùng duy nhất tới tất cả các client
+            await Clients.All.SendAsync("UpdateUsersList", uniqueUsersList);
         }
 
         private async Task UpdateConnectedUsersOfflineList(List<UserInformation> userOnlineList)
@@ -139,9 +164,21 @@ namespace CodeFirst.Hubs
 
         private async Task UpdateConnectedUsersOnlineList()
         {
-            List<UserInformation> userOnline = ConnectedUsers.Values.ToList();
+            Dictionary<string, UserInformation> uniqueUsers = new Dictionary<string, UserInformation>();
 
-            await Clients.All.SendAsync("UpdateUsersOnlineList", userOnline);
+            // Lặp qua danh sách connected users và thêm vào uniqueUsers chỉ nếu chưa có người dùng có cùng userId
+            foreach (var userInfo in ConnectedUsers.Values)
+            {
+                if (!uniqueUsers.ContainsKey(userInfo.Id))
+                {
+                    uniqueUsers[userInfo.Id] = userInfo;
+                }
+            }
+
+            // Chuyển danh sách các người dùng duy nhất thành List
+            List<UserInformation> uniqueUsersList = uniqueUsers.Values.ToList();
+
+            await Clients.All.SendAsync("UpdateUsersOnlineList", uniqueUsersList);
         }
 
 

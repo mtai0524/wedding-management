@@ -324,7 +324,7 @@
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="createChatRoomModalLabel">
                         <div class="head-text">
-                            Create Room
+                            Tạo phòng chat
                         </div>
                     </h1>
                     <button type="button" data-bs-dismiss="modal" aria-label="Close">
@@ -337,8 +337,11 @@
                             <!-- Các phần khác của modal -->
                             <div class="modal-footer">
                                 <form id="createChatRoomFormMinhTai">
-                                    <input type="text" id="chatRoomName" placeholder="Enter chat room name" required>
-                                    <button type="submit" class="btn btn-success">Create Chat Room</button>
+                                    <div class="d-flex justify-content-between">
+                                         <input type="text" style="width:60%" id="chatRoomName" placeholder="Nhập tên phòng chat" required>
+                                        <br />
+                                        <button type="submit" class="btn btn-success">Tạo phòng chat</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -362,7 +365,7 @@
     <div class="wrapper">
         <div style="background-color:#3F3F41" class="head-text d-flex justify-content-center">
             <div>
-                Chát chit xuyên lục địa<br />
+                <strong class="chat-name-mini" style="color: #ffffff;font-size:1rem;margin-bottom:10px"></strong><br />
             </div>
             <div>
                 <button style="background-color: transparent;outline: none;border:none;position: absolute;top:20px;left:1rem" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>

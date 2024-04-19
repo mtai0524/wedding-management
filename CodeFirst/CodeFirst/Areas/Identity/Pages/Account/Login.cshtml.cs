@@ -15,7 +15,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using CodeFirst.Models;
-using System.Security.Claims;
 
 namespace CodeFirst.Areas.Identity.Pages.Account
 {
@@ -23,14 +22,11 @@ namespace CodeFirst.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
-        private readonly UserManager<ApplicationUser> _userManager;
 
-
-        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, UserManager<ApplicationUser> userManager)
+        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;
-            _userManager = userManager;
         }
 
         /// <summary>
@@ -114,15 +110,8 @@ namespace CodeFirst.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                // Tìm người dùng với email nhập vào
-                var user = await _userManager.FindByEmailAsync(Input.Email);
-                if (user == null)
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return Page();
-                }
-
-                // Thực hiện đăng nhập
+                // This doesn't count login failures towards account lockout
+                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
@@ -145,9 +134,8 @@ namespace CodeFirst.Areas.Identity.Pages.Account
                 }
             }
 
-            // Nếu chúng ta đến đây, có điều gì đó thất bại, hiển thị lại form
+            // If we got this far, something failed, redisplay form
             return Page();
         }
-
     }
 }

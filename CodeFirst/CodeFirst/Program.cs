@@ -116,7 +116,6 @@ builder.Services.AddAuthentication()
 //    option.AccessDeniedPath = "/AccessDeniedPathInfo";
 //});
 
-
 builder.Services.Configure<IdentityOptions>(options =>
 {
     options.Password.RequiredLength = 6; // Điều chỉnh độ dài mật khẩu tối thiểu
@@ -136,7 +135,10 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.SignIn.RequireConfirmedEmail = true;
     options.User.RequireUniqueEmail = true;
 });
-
+//builder.Services.Configure<SecurityStampValidatorOptions>(opt =>
+//{
+//        opt.ValidationInterval = TimeSpan.FromSeconds(10);
+//});
 builder.Services.AddNotyf(config =>
 {
     config.DurationInSeconds = 10;
@@ -184,7 +186,6 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.PropertyNamingPolicy = null;
 });
-
 // Session
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
@@ -205,7 +206,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-
+//app.UseMiddleware<SecurityStampCheck>();
 
 app.UseCors("CorsPolicy");
 app.MapHub<ChatHub>("/chatHub");
