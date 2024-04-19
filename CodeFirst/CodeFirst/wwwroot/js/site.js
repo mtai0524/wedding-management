@@ -47,6 +47,8 @@ $(() => {
 
                 // Thêm sự kiện click vào mỗi thành phần div
                 $('.chat-room-item').on('click', function () {
+                    console.log("click cmmm trong getroom");
+
                     var selectedChatRoomName = $(this).find('.chat-room-name').text();
                     chatroomname.textContent = selectedChatRoomName;
                     avatarUserCurrentChat.style.visibility = "hidden";
@@ -76,37 +78,59 @@ $(() => {
     }
 
     $(document).ready(function () {
-        $.ajax({
-            type: 'GET',
-            url: '/ChatRoom/GetChatRooms',
-            success: function (data) {
-                data.forEach(function (chatRoom) {
-                    var chatRoomItem = $('<div>').addClass('chat-room-item').attr('data-id', chatRoom.Id);
-                });
-
-                // Thêm sự kiện click vào mỗi thành phần div
-                var chatroomnamemini = document.querySelector('.chat-name-mini');
-                $('.chat-room-item').on('click', function () {
-                    var selectedChatRoomName = $(this).find('.chat-room-name').text();
-                    // Loại bỏ lớp 'selected-room' từ tất cả các phòng chat
-                    $('.chat-room-item').removeClass('selected-room');
-                    chatroomnamemini.textContent = selectedChatRoomName;
-
-                    // Thêm lớp 'selected-room' cho phòng chat được click
-                    $(this).addClass('selected-room');
-
-                    chatRoomId = $(this).data('id'); // Lấy chatRoomId từ thuộc tính data-id
-                    LoadChatData(chatRoomId);
-                    LoadChatDataToChatBox(chatRoomId);
-                    $('.chatRoomId').val(chatRoomId); // Thay đổi giá trị của class chatRoomId
-                });
-                $('.chat-room-item:first').trigger('click');
-            },
-            error: function (error) {
-                console.error('Error:', error);
-            }
+        $(document).on('submit', '.createChatRoomFormMinhTai', function (event) {
+            event.preventDefault();
+            var chatRoomName = $('#chatRoomName').val();
+            $.ajax({
+                url: '/ChatRoom/CreateRoom',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ Name: chatRoomName }),
+                success: function (data) {
+                    console.log('Success:', data);
+                    // Sau khi tạo phòng chat thành công, gọi lại hàm để cập nhật danh sách phòng chat
+                    getChatRooms();
+                },
+                error: function (error) {
+                    console.error('Error:', error);
+                }
+            });
         });
+
+        function getChatRooms() {
+            $.ajax({
+                type: 'GET',
+                url: '/ChatRoom/GetChatRooms',
+                success: function (data) {
+                    data.forEach(function (chatRoom) {
+                        var chatRoomItem = $('<div>').addClass('chat-room-item').attr('data-id', chatRoom.Id);
+                    });
+
+                    var chatroomnamemini = document.querySelector('.chat-name-mini');
+                    $('.chat-room-item').on('click', function () {
+                        console.log("click cmmm");
+                        var selectedChatRoomName = $(this).find('.chat-room-name').text();
+                        $('.chat-room-item').removeClass('selected-room');
+                        chatroomnamemini.textContent = selectedChatRoomName;
+
+                        $(this).addClass('selected-room');
+
+                        chatRoomId = $(this).data('id');
+                        LoadChatData(chatRoomId);
+                        LoadChatDataToChatBox(chatRoomId);
+                        $('.chatRoomId').val(chatRoomId);
+                    });
+                    $('.chat-room-item:first').trigger('click');
+                },
+                error: function (error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        getChatRooms();
     });
+
 
 
 
@@ -197,7 +221,7 @@ $(() => {
                 console.log(result);
 
                 $(".chat-box").empty(); // Xóa nội dung hiện tại của chat box trước khi thêm mới
-            
+
                 $.each(result, (k, v) => {
                     if (v.ChatRoom == chatRoomId) {
                         var chatMessage = $('<div>').addClass('chat-message user2 d-flex');
@@ -367,29 +391,27 @@ $(() => {
         });
     }
 
-    $(document).ready(function () {
-        // Bắt sự kiện submit của form
-        $("#createChatRoomFormMinhTai").submit(function (e) {
-            e.preventDefault(); // Ngăn chặn việc gửi form theo cách thông thường
+    //$(document).ready(function () {
+    //    $(".createChatRoomFormMinhTai").submit(function (e) {
+    //        e.preventDefault(); 
 
-            // Lấy dữ liệu từ form
-            var formData = $(this).serialize();
+    //        var formData = $(this).serialize();
 
-            // Gửi yêu cầu AJAX
-            $.ajax({
-                url: $(this).attr('action'), // Lấy đường dẫn từ thuộc tính action của form
-                type: $(this).attr('method'), // Lấy phương thức từ thuộc tính method của form
-                data: formData,
-                success: function (response) {
-                    console.log("Message sent successfully!");
-                    console.log(response);
-                },
-                error: function (xhr, status, error) {
-                    console.error("AJAX Error:", error);
-                }
-            });
-        });
-    });
+    //        // Gửi yêu cầu AJAX
+    //        $.ajax({
+    //            url: $(this).attr('action'),
+    //            type: $(this).attr('method'), 
+    //            data: formData,
+    //            success: function (response) {
+    //                console.log("Message sent successfully!");
+    //                console.log(response);
+    //            },
+    //            error: function (xhr, status, error) {
+    //                console.error("AJAX Error:", error);
+    //            }
+    //        });
+    //    });
+    //});
 
     $(document).ready(function () {
         // Bắt sự kiện submit của form

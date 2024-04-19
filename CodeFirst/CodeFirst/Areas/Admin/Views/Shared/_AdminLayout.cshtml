@@ -175,6 +175,9 @@
             outline: 2px solid #19ff66;
             border-radius: 5px;
         }
+        .list-group-container{
+            height:75vh;
+        }
     </style>
 </head>
 
@@ -336,7 +339,7 @@
                         <div class="card chat-container">
                             <!-- Các phần khác của modal -->
                             <div class="modal-footer">
-                                <form id="createChatRoomFormMinhTai">
+                                <form class="createChatRoomFormMinhTai">
                                     <div class="d-flex justify-content-between">
                                          <input type="text" style="width:60%" id="chatRoomName" placeholder="Nhập tên phòng chat" required>
                                         <br />
@@ -655,27 +658,6 @@
             });
 
 
-
-
-
-            $(document).ready(function () {
-                $('#createChatRoomFormMinhTai').on('submit', function (event) {
-                    event.preventDefault(); // Ngăn chặn việc tải lại trang
-                    var chatRoomName = $('#chatRoomName').val();
-                    $.ajax({
-                        url: '/ChatRoom/CreateRoom',
-                        type: 'POST',
-                        contentType: 'application/json',
-                        data: JSON.stringify({ Name: chatRoomName }),
-                        success: function (data) {
-                            console.log('Success:', data);
-                        },
-                        error: function (error) {
-                            console.error('Error:', error);
-                        }
-                    });
-                });
-            });
 
 
             document.querySelector('.search-list-user-chat').addEventListener('input', function () {
