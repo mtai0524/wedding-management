@@ -13,7 +13,10 @@ $(() => {
     });
    
     connection.on("GetChatRoomSignalR", function (createRoom) {
-        GetChatRoom();
+        getChatRooms();
+        JustGetChatRoom();
+        getChatRooms();
+
     });
     connection.on("ReceiveNotificationRealtime", function (notifications) {
         LoadNotificationData();
@@ -105,6 +108,7 @@ $(() => {
                     $('.chat-room-item').removeClass('active');
 
                     $(this).addClass('active');
+                    $('.chatRoomNameToUpdate').val(selectedChatRoomName);
                 });
             },
             error: function (error) {
@@ -131,9 +135,7 @@ $(() => {
                 success: function (data) {
                     console.log('Data sent successfully:', data);
                     JustGetChatRoom();
-
-                    getChatRooms();
-
+                    getChatRooms(chatRoomId);
                 },
                 error: function (xhr, status, error) {
                     console.error('Error:', error);
@@ -155,7 +157,6 @@ $(() => {
                 success: function (data) {
                     console.log('Success:', data);
                     JustGetChatRoom();
-
                     getChatRooms();
                 },
                 error: function (error) {
@@ -190,42 +191,45 @@ $(() => {
         });
 
 
-        function getChatRooms() {
-            $.ajax({
-                type: 'GET',
-                url: '/ChatRoom/GetChatRooms',
-                success: function (data) {
-                    data.forEach(function (chatRoom) {
-                        var chatRoomItem = $('<div>').addClass('chat-room-item').attr('data-id', chatRoom.Id);
-                    });
-
-                    var chatroomnamemini = document.querySelector('.chat-name-mini');
-                    $('.chat-room-item').on('click', function () {
-                        console.log("click cmmm");
-                        var selectedChatRoomName = $(this).find('.chat-room-name').text();
-                        $('.chat-room-item').removeClass('selected-room');
-                        chatroomnamemini.textContent = selectedChatRoomName;
-
-                        $(this).addClass('selected-room');
-
-                        chatRoomId = $(this).data('id');
-                        LoadChatData(chatRoomId);
-                        LoadChatDataToChatBox(chatRoomId);
-                        $('.chatRoomId').val(chatRoomId);
-                    });
-                    $('.chat-room-item:first').trigger('click');
-                },
-                error: function (error) {
-                    console.error('Error:', error);
-                }
-            });
-        }
+        
        
 
         getChatRooms();
     });
-  
+    function getChatRooms(triggerChatRoomId = null) {
+        $.ajax({
+            type: 'GET',
+            url: '/ChatRoom/GetChatRooms',
+            success: function (data) {
+                data.forEach(function (chatRoom) {
+                    var chatRoomItem = $('<div>').addClass('chat-room-item').attr('data-id', chatRoom.Id);
+                });
 
+                var chatroomnamemini = document.querySelector('.chat-name-mini');
+                $('.chat-room-item').on('click', function () {
+                    console.log("click cmmm");
+                    var selectedChatRoomName = $(this).find('.chat-room-name').text();
+                    $('.chat-room-item').removeClass('selected-room');
+                    chatroomnamemini.textContent = selectedChatRoomName;
+
+                    $(this).addClass('selected-room');
+
+                    chatRoomId = $(this).data('id');
+                    LoadChatData(chatRoomId);
+                    LoadChatDataToChatBox(chatRoomId);
+                    $('.chatRoomId').val(chatRoomId);
+                });
+
+                // Trigger param
+                if (triggerChatRoomId !== null) {
+                    $('.chat-room-item[data-id="' + triggerChatRoomId + '"]').trigger('click');
+                } 
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    }
 
 
 

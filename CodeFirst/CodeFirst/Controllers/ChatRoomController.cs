@@ -32,8 +32,8 @@ namespace CodeFirst.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteChatRoomAsync(int chatRoomId)
         {
-            var deleteChatRoomById = _context.ChatRooms.FirstOrDefault(x=> x.Id == chatRoomId);
-            if(deleteChatRoomById != null)
+            var deleteChatRoomById = _context.ChatRooms.FirstOrDefault(x => x.Id == chatRoomId);
+            if (deleteChatRoomById != null)
             {
                 _context.ChatRooms.Remove(deleteChatRoomById);
                 _context.SaveChanges();
@@ -47,7 +47,7 @@ namespace CodeFirst.Controllers
             }
         }
         [HttpPost]
-        public IActionResult UpdateChatRoom(int chatRoomId, string chatRoomNameToUpdate)
+        public async Task<IActionResult> UpdateChatRoomAsync(int chatRoomId, string chatRoomNameToUpdate)
         {
             try
             {
@@ -61,6 +61,7 @@ namespace CodeFirst.Controllers
                 chatRoom.Name = chatRoomNameToUpdate;
                 _context.Update(chatRoom);
                 _context.SaveChanges();
+                await _hubContext.Clients.All.SendAsync("GetChatRoomSignalR", chatRoomId);
 
                 return Ok(new { success = true });
             }
@@ -94,9 +95,9 @@ namespace CodeFirst.Controllers
         // GET: ChatRoom
         public async Task<IActionResult> Index()
         {
-              return _context.ChatRooms != null ? 
-                          View(await _context.ChatRooms.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.ChatRooms'  is null.");
+            return _context.ChatRooms != null ?
+                        View(await _context.ChatRooms.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.ChatRooms'  is null.");
         }
 
         // GET: ChatRoom/Details/5
@@ -222,14 +223,14 @@ namespace CodeFirst.Controllers
             {
                 _context.ChatRooms.Remove(chatRoom);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ChatRoomExists(int id)
         {
-          return (_context.ChatRooms?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.ChatRooms?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
