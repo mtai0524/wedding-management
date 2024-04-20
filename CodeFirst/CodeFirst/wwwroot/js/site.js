@@ -519,14 +519,16 @@ $(() => {
         $(".chatForm").submit(function (e) {
             e.preventDefault(); // Ngăn chặn việc gửi form theo cách thông thường
 
-            // Lấy dữ liệu từ form
-            var formData = $(this).serialize();
+            // Tạo một đối tượng FormData từ form
+            var formData = new FormData(this);
 
             // Gửi yêu cầu AJAX
             $.ajax({
                 url: $(this).attr('action'), // Lấy đường dẫn từ thuộc tính action của form
                 type: $(this).attr('method'), // Lấy phương thức từ thuộc tính method của form
                 data: formData,
+                processData: false, // Đặt thuộc tính này thành false để jQuery không xử lý dữ liệu
+                contentType: false, // Đặt thuộc tính này thành false để jQuery không đặt header Content-Type
                 success: function (response) {
                     console.log("Message sent successfully!");
                     console.log(response);
@@ -543,6 +545,7 @@ $(() => {
             });
         });
     });
+
 
     $(document).ready(function () {
         // Bắt sự kiện submit của form

@@ -73,7 +73,7 @@ namespace CodeFirst.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SendPrivateMessage(ChatPrivateViewModel model)
+        public async Task<IActionResult> SendPrivateMessage(ChatPrivateViewModel model, IFormFile file)
         {
             var senderUser = await _userManager.GetUserAsync(User);
             if (ModelState.IsValid)
@@ -81,7 +81,7 @@ namespace CodeFirst.Controllers
                 var privateChat = new ChatPrivate
                 {
                     SenderUserId = senderUser.Id,
-                    ReceiverUserId = model.ReceiverUserId, // Giả sử model.ReceiverUserId là ID của người nhận
+                    ReceiverUserId = model.ReceiverUserId, // model.ReceiverUserId là ID của người nhận
                     Message = model.Message,
                     NotificationDateTime = DateTime.Now,
                 };
@@ -104,6 +104,7 @@ namespace CodeFirst.Controllers
 
             return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors) });
         }
+
 
 
         // GET: ChatPrivate
