@@ -280,6 +280,7 @@
         <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm tên chi nhánh, địa chỉ" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
     </ToolBarContent>
     <HeaderContent>
+   
         <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Name)">Tên chi nhánh</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Address)">Địa chỉ</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Description)">Mô tả</MudTableSortLabel></MudTh>
@@ -293,6 +294,7 @@
     <MudTd DataLabel="Description">@context.Description</MudTd>
     <MudTd DataLabel="Phone">@context.Phone</MudTd>
     <MudTd DataLabel="Image">
+       
         <MudImage Src="@context.Image" Width="80" Height="80" Alt="Swedish Farm House" Elevation="25" Class="rounded-md" />
     </MudTd>
     <MudTd>

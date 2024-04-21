@@ -53,6 +53,7 @@ builder.Services.AddScoped<ChatHub>(); // phải add vào mới gọi chatHub đ
 
 // đăng ký service
 builder.Services.AddScoped<EmployeeService>();
+builder.Services.AddScoped<UserListService>();
 builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddScoped<ChatService>();
 builder.Services.AddSingleton<OnlineUserService>();

@@ -1,0 +1,103 @@
+﻿@page "/user-list"
+@using CloudinaryDotNet
+@using CloudinaryDotNet.Actions
+@using CodeFirst.Data
+@using CodeFirst.Hubs
+@using CodeFirst.Models
+@using CodeFirst.Models.Entities
+@using CodeFirst.Service
+@using Microsoft.AspNetCore.Components.Web.Extensions
+@inherits Microsoft.AspNetCore.Components.ComponentBase
+@inject NavigationManager NavigationManager
+@inject IJSRuntime jsRuntime
+@inject CloudinaryService _cloudinaryService;
+@using Microsoft.AspNetCore.Components.Forms
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.SignalR
+@using Microsoft.AspNetCore.SignalR.Client
+@using Microsoft.EntityFrameworkCore
+@inject ISnackbar SnackbarService
+@inject ISnackbar Snackbar
+@inject IHubContext<ChatHub> _hubContext
+@inject NotificationService _notiService
+@inject NavigationManager NavigationManager
+@inject UserListService userService
+<PageTitle>Quản lý người dùng</PageTitle>
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
+        new BreadcrumbItem("Người dùng", href: "/user-list", icon: Icons.Material.Filled.People),
+    };
+}
+
+@code {
+    private string searchString1 = "";
+    private bool FilterFunc1(ApplicationUser applicationUser) => FilterFunc(applicationUser, searchString1);
+
+    private bool FilterFunc(ApplicationUser applicationUser, string searchString)
+    {
+        if (string.IsNullOrWhiteSpace(searchString))
+            return true;
+        if (applicationUser.FirstName.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (applicationUser.Email.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        return false;
+    }
+}
+<MudTable Items="@listUser" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<ApplicationUser,bool>(FilterFunc1)" Style="margin-bottom:15px">
+    <ToolBarContent>
+        <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách chi nhánh</MudText>
+        <MudSpacer />
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>Người dùng</MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ApplicationUser, object>(x=>x.PhoneNumber)">Số điện thoại</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ApplicationUser, object>(x=>x.LockoutEnabled)">Tình trạng khóa</MudTableSortLabel></MudTh>
+    </HeaderContent>
+    <RowTemplate>
+            <MudTd DataLabel="Người dùng">
+                <div class="d-flex flex-row">
+                    <MudImage Src="@context.Avatar" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-lg" />
+                    <div  class="d-flex flex-column justify-content-center ml-2">
+                        <h6 class="mb-0 text-sm">@context.Email</h6>
+                    <p class="text-xs text-secondary mb-0"> @context.FirstName @context.LastName</p>
+                </div>
+                </div>
+            </MudTd>
+        <MudTd DataLabel="Số điện thoại">@context.PhoneNumber</MudTd>
+            <MudTd DataLabel="Tình trạng khóa">@context.LockoutEnabled</MudTd>
+        </RowTemplate>
+
+        <PagerContent>
+            <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
+        </PagerContent>
+    </MudTable>
+
+
+
+    @code {
+    private List<ApplicationUser> listUser { get; set; } = new List<ApplicationUser>();
+    ApplicationUser applicationUser { get; set; } = new ApplicationUser();
+    [Inject] private ApplicationDbContext _context { get; set; }
+    protected async Task LoadBranches()
+    {
+        var userService = new UserListService(_context);
+        listUser = await userService.GetListUser();
+        await _hubContext.Clients.All.SendAsync("BranchCreated", listUser);
+        StateHasChanged(); 
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadBranches();
+        await base.OnInitializedAsync();
+    }
+}
