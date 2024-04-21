@@ -18,8 +18,10 @@ namespace CodeFirst.Models.Entities
         public DateTime NotificationDateTime { get; set; }
         public string Avatar { get; set; } = null!;
 
-        public int? ChatRoomDataId { get; set; }// Thay đổi kiểu dữ liệu thành nullable int
+        public int? ChatRoomDataId { get; set; }
         [ForeignKey("ChatRoomDataId")]
-        public virtual ChatRoom ChatRoomData { get; set; } // Navigation property
+        public virtual ChatRoom ChatRoomData { get; set; } 
+        public string? ImageChatRoom { get; set; } = null; // cho phép null và giá trị mặc định là null
+
     }
 }

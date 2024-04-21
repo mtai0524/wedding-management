@@ -3,6 +3,7 @@ using CodeFirst.Hubs;
 using CodeFirst.Models;
 using CodeFirst.Models.Entities;
 using CodeFirst.Models.Notifications;
+using CodeFirst.Service;
 using CodeFirst.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,12 +17,14 @@ namespace CodeFirst.Controllers
         private readonly IHubContext<ChatHub> hubContext;
         private readonly ApplicationDbContext dbContext;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly CloudinaryService _cloudinaryService;
 
-        public ChatController(ApplicationDbContext dbContext, IHubContext<ChatHub> hubContext, UserManager<ApplicationUser> userManager)
+        public ChatController(ApplicationDbContext dbContext, IHubContext<ChatHub> hubContext, UserManager<ApplicationUser> userManager, CloudinaryService cloudinaryService)
         {
             this.hubContext = hubContext;
             this.dbContext = dbContext;
             _userManager = userManager;
+            _cloudinaryService = cloudinaryService;
         }
         [HttpGet]
         public async Task<IActionResult> GetMessages()
@@ -42,6 +45,7 @@ namespace CodeFirst.Controllers
                     n.UserId,
                     n.Message,
                     n.MessageType,
+                    n.ImageChatRoom,
                     NotificationDateTime = n.NotificationDateTime.ToString("HH:mm dd/MM/yyyy"),
                     User = n.Id,
                     Email = n.Id.Email,
@@ -61,12 +65,12 @@ namespace CodeFirst.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> SendMessages(ChatViewModel model)
+        public async Task<IActionResult> SendMessages(ChatViewModel model ,IFormFile file)
         {
             var user = await _userManager.GetUserAsync(User);
             if (user != null)
             {
-                if (ModelState.IsValid)
+                if (ModelState.IsValid || file == null)
                 {
                     var notification = new Chat
                     {
@@ -77,6 +81,14 @@ namespace CodeFirst.Controllers
                         Avatar = !string.IsNullOrEmpty(user.Avatar) ? user.Avatar : "https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg",
                         ChatRoomDataId = model.ChatRoomId,
                     };
+                    if (file != null)
+                    {
+                        var imagePath = await _cloudinaryService.UploadImageAsync(file);
+                        if (imagePath != null)
+                        {
+                            notification.ImageChatRoom = imagePath;
+                        }
+                    }
                     dbContext.Chats.Add(notification);
                     await dbContext.SaveChangesAsync();
                     await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", notification);

@@ -327,9 +327,11 @@ $(() => {
                 $(".chat-box").empty(); // Xóa nội dung hiện tại của chat box trước khi thêm mới
 
                 $.each(result, (k, v) => {
+
                     if (v.ChatRoom == chatRoomId) {
                         var chatMessage = $('<div>').addClass('chat-message user2 d-flex');
                         var img = $('<img>').addClass('avatar').attr('src', v.AvatarChat).attr('alt', `${v.FirstNameChat} ${v.LastNameChat}`);
+                        var isImageURL = isValidImageURL(v.ImageChatRoom);
 
                         var messageBubble = "";
                         if (v.Email == v.UserNameCurrent) {
@@ -357,14 +359,12 @@ $(() => {
                             'font-weight': '700',
                             'color': 'gray'
                         }).text(v.NotificationDateTime);
+                        var messageDivImage = $("<div>").html(isImageURL && v.ImageChatRoom ? `<img src="${v.ImageChatRoom}" class="chat-image" style="border-radius:8px;boder:1px solid transparent;float: left; clear: both; word-wrap: break-word; word-break: break-all;width:100px;height:auto" />` : "");
 
-                        // Thêm các phần tử con vào messageBubble
-                        messageBubble.append(fontBold, messageContent, messageTime);
+                        messageBubble.append(fontBold, messageContent, messageDivImage, messageTime);
 
-                        // Thêm các phần tử vào chatMessage
                         chatMessage.append(img, messageBubble);
 
-                        // Thêm chatMessage vào chat box
                         $(".chat-box").append(chatMessage);
                     }
                 });
@@ -403,6 +403,7 @@ $(() => {
                         var messageDiv = "";
                         var dateTimeDiv = "";
                         var messageDetailsDiv = "";
+                        var isImageURL = isValidImageURL(v.ImageChatRoom);
 
                         if (v.Email == v.UserNameCurrent) {
                             var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4").css({
@@ -445,6 +446,7 @@ $(() => {
                                     "word-wrap": "break-word", // Xuống dòng 
                                     "word-break": "break-all"
                                 });
+                            var messageDivImage = $("<div>").addClass("message-content-chat-private-main").html(isImageURL && v.ImageChatRoom ? `<img src="${v.ImageChatRoom}" class="chat-image" style="border-radius:8px;boder:1px solid transparent;float: left; clear: both; word-wrap: break-word; word-break: break-all;width:200px;height:auto" />` : "");
 
                             // Tạo messageDetailsDiv và áp dụng clear: both
                             var messageDetailsDiv = $("<div>").addClass("message-details").css("clear", "both");
@@ -473,13 +475,15 @@ $(() => {
                             });
                             fontBoldDiv = $("<div>").addClass("font-weight-bold mb-1").css("color", "black").text(v.FirstNameChat + " " + v.LastNameChat);
                             messageDiv = $("<div>").text(v.Message);
+                            var messageDivImage = $("<div>").addClass("message-content-chat-private-main").html(isImageURL && v.ImageChatRoom ? `<img src="${v.ImageChatRoom}" class="chat-image" style="border-radius:8px;boder:1px solid transparent;float: left; clear: both; word-wrap: break-word; word-break: break-all;width:200px;height:auto" />` : "");
+
                             messageDetailsDiv = $("<div>").addClass("message-details");
                             dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "right").text(v.NotificationDateTime);
                         }
 
 
                         messageDetailsDiv.append(dateTimeDiv);
-                        boxMessagesDiv.append(fontBoldDiv, messageDiv, messageDetailsDiv);
+                        boxMessagesDiv.append(fontBoldDiv, messageDiv, messageDivImage, messageDetailsDiv);
                         chatMessageRightDiv.append(boxMessagesDiv);
 
                         chatMessagesList.append(chatMessageRightDiv);
@@ -495,27 +499,6 @@ $(() => {
         });
     }
 
-    //$(document).ready(function () {
-    //    $(".createChatRoomFormMinhTai").submit(function (e) {
-    //        e.preventDefault(); 
-
-    //        var formData = $(this).serialize();
-
-    //        // Gửi yêu cầu AJAX
-    //        $.ajax({
-    //            url: $(this).attr('action'),
-    //            type: $(this).attr('method'), 
-    //            data: formData,
-    //            success: function (response) {
-    //                console.log("Message sent successfully!");
-    //                console.log(response);
-    //            },
-    //            error: function (xhr, status, error) {
-    //                console.error("AJAX Error:", error);
-    //            }
-    //        });
-    //    });
-    //});
 
     $(document).ready(function () {
         $(".chatForm").submit(function (e) {
@@ -549,26 +532,22 @@ $(() => {
 
 
     $(document).ready(function () {
-        // Bắt sự kiện submit của form
         $(".chatFormRoom").submit(function (e) {
-            e.preventDefault(); // Ngăn chặn việc gửi form theo cách thông thường
+            e.preventDefault(); 
 
             // Lấy dữ liệu từ form
             var formData = $(this).serialize();
 
-            // Gửi yêu cầu AJAX
             $.ajax({
-                url: $(this).attr('action'), // Lấy đường dẫn từ thuộc tính action của form
-                type: $(this).attr('method'), // Lấy phương thức từ thuộc tính method của form
+                url: $(this).attr('action'),
+                type: $(this).attr('method'), 
                 data: formData,
                 success: function (response) {
                     console.log("Message sent successfully!");
                     console.log(response);
 
-                    // Xóa nội dung của input sau khi gửi thành công
                     $(".chatFormRoom input[name='Message']").val('');
 
-                    // Cuộn xuống cuối trang
                     scrollToBottomWhenSendMessage();
                 },
                 error: function (xhr, status, error) {

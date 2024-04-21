@@ -188,30 +188,6 @@
     </style>
 </head>
 <body>
-    @*     <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true" style="z-index:100000000">
-    <div class="modal-dialog modal-dialog-centered " style="height:70vh; z-index:100000000">
-    <div class="modal-content h-100" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;z-index:10000000">
-    <div class="modal-header">
-    <h1 class="modal-title fs-5" id="infoModalLabel">
-    <div class="head-text">
-    </div>
-    </h1>
-    <button type="button" data-bs-dismiss="modal" aria-label="Close">
-    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
-    </button>
-    </div>
-
-    <div class="modal-body">
-
-    <div class="modal-footer " style="margin-left: 275px">
-    </div>
-    </div>
-    </div>
-    </div>
-    </div> *@
-
-
-
 
     <div class="modal fade" id="customConfirmModal" tabindex="-1" role="dialog" aria-labelledby="customConfirmModalLabel" aria-hidden="true" style=" z-index:10000001;background-color: rgba(0, 0, 0, 0.5);">
         <div class="modal-dialog" role="document" style="margin-top:70px;  z-index:10000001">
@@ -394,25 +370,28 @@
                     </div>
                     <form class="chatForm" id="publicChatForm" asp-controller="Chat" asp-action="SendMessages" method="post" >
                         <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
-                        <div class="input-group" style="width:100%; padding:10px; position: relative; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; border-radius: 5px;">
-                            <input name="Message" style="max-width: calc(100% - 60px); border: none; border-radius: inherit; background-color: transparent; word-wrap: break-word; word-break: break-all; height: auto; min-height: 40px;" type="text" class="form-control" placeholder="Nhập tin nhắn ở đây...">
-                            <button id="publicChatButton" type="submit" style="width: 60px; position: absolute; top: 50%; right: 2%; transform: translateY(-50%); border: none; background-color: transparent; z-index: 1;"><i style="color:#40a2f2ff; font-size: 20px; padding-right: 15px; padding-left: 15px; z-index: 10000;" class="fa-solid fa-paper-plane"></i></button>
+                        <div class="input-group" style="width:100%; padding:7px; position: relative; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; border-radius: 5px;">
+                            <input name="Message" style="max-width: calc(100% - 60px); border: none; border-radius: inherit; background-color: transparent; word-wrap: break-word; word-break: break-all; height: auto; min-height: 30px;" type="text" class="form-control" placeholder="Nhập tin nhắn ở đây...">
+                             <input type="file" name="file" id="fileInputChatRoom" style="display: none;" onchange="displayFileName(this)" />
+                            <button style="margin-right:15px;padding-right:10px" id="customFileButtonChatRoom" type="button">
+                                <i style="font-size:15px" class="fa-solid fa-image"></i>
+                            </button>
+                            <button id="publicChatButton" type="submit" style="width: 30px; position: absolute; top: 50%; right: 2%; transform: translateY(-50%); border: none; background-color: transparent; z-index: 1;"><i style="color:#40a2f2ff; font-size: 15px; padding-right: 10px; z-index: 10000;" class="fa-solid fa-paper-plane"></i></button>
                         </div>
                     </form>
-
                     <form class="chatForm" id="privateChatForm" asp-controller="ChatPrivate" asp-action="SendPrivateMessage" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="ReceiverUserId" class="receiverUserId" value="" />
-                        <div class="input-group" style="width:100%;padding:15px; position: relative; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; border-radius: 5px;">
-                            <input name="Message" id="input-chat-private" style="max-width: calc(100% - 60px); border: none; border-radius: inherit;background-color: transparent; word-wrap: break-word;word-break: break-all; height: auto; min-height: 40px;" type="text" class="form-control" placeholder="Nhập tin nhắn ở đây...">
-                           <div class="d-flex justify-content-between">
-                                <input type="file" name="file" id="fileInput" style="display: none;" />
-                                <button style="margin-right:10px" id="customFileButton" type="button">
-                                    <i class="fa-solid fa-upload"></i>Upload
-                                </button>
-                                <button id="privateChatButton" type="submit" style="width: 60px; position: absolute; top: 50%; right: 2%; transform: translateY(-50%); border: none; background-color: transparent; z-index: 1;"><i style="color:#40a2f2ff;font-size:20px;padding-right:15px;padding-left:15px;z-index:10000" class="fa-solid fa-paper-plane"></i></button>
-                           </div>
+                        <div class="input-group"  style="width:100%; padding:7px; position: relative; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; border-radius: 5px;">
+                            <input name="Message" id="input-chat-private" style="max-width: calc(100% - 60px); border: none; border-radius: inherit; background-color: transparent; word-wrap: break-word; word-break: break-all; height: auto; min-height: 30px;" type="text" class="form-control" placeholder="Nhập tin nhắn ở đây...">
+                            <input type="file" name="file" id="fileInput" style="display: none;" onchange="displayFileName(this)" />
+                            <button style="margin-right:15px;padding-right:10px" id="customFileButton" type="button">
+                                <i style="font-size:15px" class="fa-solid fa-image"></i>
+                            </button>
+                            <button id="privateChatButton" type="submit" style="width: 30px; position: absolute; top: 50%; right: 2%; transform: translateY(-50%); border: none; background-color: transparent; z-index: 1;"><i style="color:#40a2f2ff; font-size: 15px; padding-right: 10px; z-index: 10000;" class="fa-solid fa-paper-plane"></i></button>
                         </div>
                     </form>
+                    <span id="fileNameDisplay" style="display: none;"></span>
+
                 </div>
 
             
@@ -698,6 +677,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <script type="text/javascript">
+            function displayFileName(input) {
+                const fileNameDisplay = document.getElementById('fileNameDisplay');
+                const fileName = input.files[0].name;
+                fileNameDisplay.innerText = fileName;
+                fileNameDisplay.style.display = 'block';
+            }
+
             $('body').on('click', '.chat-image', function () {
                 var imageUrl = $(this).attr('src');
                 showModalWithImage(imageUrl);
@@ -710,9 +696,11 @@
 
 
             document.getElementById('customFileButton').addEventListener('click', function () {
-                document.getElementById('fileInput').click(); // Kích hoạt sự kiện click trên input file
+                document.getElementById('fileInput').click();
             });
-
+            document.getElementById('customFileButtonChatRoom').addEventListener('click', function () {
+                document.getElementById('fileInputChatRoom').click(); 
+            });
 
             $('.chat-messages-list').css('display', 'none');
             $('.chat-box').css('display', 'none');
