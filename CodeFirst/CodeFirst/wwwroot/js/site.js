@@ -811,6 +811,7 @@ $(() => {
                     var messageDiv = "";
                     var dateTimeDiv = "";
                     var messageDetailsDiv = "";
+                    var isImageURL = isValidImageURL(v.Message);
                     if (senderUserId == v.SenderUserId) {
                         var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4").css({
                             "display": "block"
@@ -844,14 +845,8 @@ $(() => {
                             "float": "right" // Chuyển sang bên phải
                         }).text(senderName);
 
-                        var messageDiv = $("<div>")
-                            .text(v.Message)
-                            .css({
-                                "float": "left", // Chuyển sang bên phải
-                                "clear": "both",
-                                "word-wrap": "break-word", // Xuống dòng 
-                                "word-break": "break-all"
-                            });
+                        var messageDiv = $("<div>").addClass("message-content-chat-private-main").html(isImageURL ? `<img src="${v.Message}" class="chat-image" style="float: left; clear: both; word-wrap: break-word; word-break: break-all;width:200px;height:auto" />` : v.Message);
+
 
                         // messageDetailsDiv clear: both
                         var messageDetailsDiv = $("<div>").addClass("message-details").css("clear", "both");
@@ -903,6 +898,10 @@ $(() => {
             }
         });
     }
+    function isValidImageURL(url) {
+        var pattern = /\.(jpg|jpeg|png)$/i; // Kiểm tra đuôi file là jpg, jpeg hoặc png
+        return pattern.test(url) && /^https?:\/\//.test(url); // Kiểm tra url bắt đầu bằng http hoặc https
+    }
 
     connection.on("UpdateUsersOfflineList", function (userList) {
         var listGroupOnline = document.querySelector('.list-group-offline');
@@ -947,10 +946,13 @@ $(() => {
                     var userCurrentChatMiniElement = document.querySelector('.user-current-chat');
                     userCurrentChatMiniElement.innerHTML = item.firstName + " " + item.lastName;
                     chatroomnamemini.textContent = item.firstName + " " + item.lastName;
+                    scrollToBottom();
 
                 }).catch(function (error) {
                     console.error("Error getting userId:", error);
                 });
+                scrollToBottom();
+
             });
 
 
@@ -994,6 +996,8 @@ $(() => {
 
             listGroupItem.appendChild(dFlexContainer);
             listGroupOnline.appendChild(listGroupItem);
+            scrollToBottom();
+
         });
     });
 
