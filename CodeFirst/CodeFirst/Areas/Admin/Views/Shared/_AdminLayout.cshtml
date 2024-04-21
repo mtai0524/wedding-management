@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Quản lý nhà hàng tiệc cưới</title>
-    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/icofont@1.0.0/dist/icofont.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -373,28 +373,28 @@
                                         </div>
                                     </div>
 
-                                    <div class="flex-grow-0  border-top" style="margin-top:20px;">
-                                        <div class="d-flex" style="margin-left:30px; height:5px">
-                                            <strong class="user-current-chatmini" style="color: #3F3F41;margin-right:10px;"></strong>
-                                            <div class="my message dot-chatmini-container" style="visibility:hidden;">
-                                                <span class="jumping-dots">
-                                                    <span class="dot-1" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
-                                                    <span class="dot-2" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
-                                                    <span class="dot-3" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer" style="margin-left: 275px; height: 100px;">
-
+                <div class="modal-footer" style="margin-left: 275px; height: 120px;">
+                    <div class="flex-grow-0  border-top" style="margin-bottom:10px;">
+                        <div class="d-flex" style="margin-left:30px; height:15px">
+                            <strong class="user-current-chatmini" style="color: #3F3F41;margin-right:10px;"></strong>
+                            <div class="my message dot-chatmini-container" style="visibility:hidden;">
+                                <span class="jumping-dots">
+                                    <span class="dot-1" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
+                                    <span class="dot-2" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
+                                    <span class="dot-3" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                     <form class="chatForm" id="publicChatForm" asp-controller="Chat" asp-action="SendMessages" method="post" >
                         <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
-                        <div class="input-group" style="width:100%; padding:15px; position: relative; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; border-radius: 5px;">
+                        <div class="input-group" style="width:100%; padding:10px; position: relative; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; border-radius: 5px;">
                             <input name="Message" style="max-width: calc(100% - 60px); border: none; border-radius: inherit; background-color: transparent; word-wrap: break-word; word-break: break-all; height: auto; min-height: 40px;" type="text" class="form-control" placeholder="Nhập tin nhắn ở đây...">
                             <button id="publicChatButton" type="submit" style="width: 60px; position: absolute; top: 50%; right: 2%; transform: translateY(-50%); border: none; background-color: transparent; z-index: 1;"><i style="color:#40a2f2ff; font-size: 20px; padding-right: 15px; padding-left: 15px; z-index: 10000;" class="fa-solid fa-paper-plane"></i></button>
                         </div>
@@ -700,11 +700,9 @@
         <script type="text/javascript">
             $('body').on('click', '.chat-image', function () {
                 var imageUrl = $(this).attr('src');
-                // Hiển thị modal với hình ảnh lớn
                 showModalWithImage(imageUrl);
             });
 
-            // Bước 2: Tạo modal chứa hình ảnh lớn
             function showModalWithImage(imageUrl) {
                 $('#modalImage').attr('src', imageUrl);
                 $('#imageModal').modal('show');

@@ -49,6 +49,7 @@ namespace CodeFirst.Controllers
                         c.SenderUserId,
                         c.ReceiverUserId,
                         c.Message,
+                        c.ImageChat,
                         NotificationDateTime = c.NotificationDateTime.ToString("HH:mm dd/MM/yyyy"),
                         UserNameCurrent = emailUserCurr,
                         SenderUser = new
@@ -80,7 +81,7 @@ namespace CodeFirst.Controllers
         public async Task<IActionResult> SendPrivateMessage(ChatPrivateViewModel model, IFormFile file)
         {
             var senderUser = await _userManager.GetUserAsync(User);
-            if (ModelState.IsValid)
+            if (ModelState.IsValid || file == null)
             {
                 var privateChat = new ChatPrivate
                 {
@@ -96,14 +97,13 @@ namespace CodeFirst.Controllers
                 {
                     return Json(new { success = false, message = "Người nhận không tồn tại." });
                 }
-                var imagePath = await _cloudinaryService.UploadImageAsync(file);
-                if (imagePath != null)
+                if(file != null)
                 {
-                    privateChat.Message = imagePath;
-                }
-                else
-                {
-                    // Xử lý trường hợp không thể tải lên ảnh
+                    var imagePath = await _cloudinaryService.UploadImageAsync(file);
+                    if (imagePath != null)
+                    {
+                        privateChat.ImageChat = imagePath;
+                    }
                 }
                 // Lưu tin nhắn riêng tư vào cơ sở dữ liệu
                 _context.ChatPrivate.Add(privateChat);

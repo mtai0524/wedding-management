@@ -18,6 +18,8 @@ namespace CodeFirst.Models.Entities
         public virtual ApplicationUser? ReceiverUser { get; set; } // Navigation property cho người nhận
 
         public string Message { get; set; } = null!;
+        public string? ImageChat { get; set; } = null;
+
         public DateTime NotificationDateTime { get; set; }
 
     }

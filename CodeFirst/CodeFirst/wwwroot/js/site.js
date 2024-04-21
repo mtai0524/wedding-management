@@ -260,6 +260,7 @@ $(() => {
                     var receiverName = receiverInfo.FirstName + " " + receiverInfo.LastName;
                     var receiverEmail = receiverInfo.Email;
                     var receiverAvatar = receiverInfo.Avatar;
+                    var isImageURL = isValidImageURL(v.ImageChat);
 
 
                     var chatMessage = $('<div>').addClass('chat-message user2 d-flex');
@@ -284,6 +285,8 @@ $(() => {
                     }
                     var fontBold = $('<div>').addClass('font-weight-bold').css('text-color', '#8CB2B2').text(`${senderName}`);
                     var messageContent = $('<div>').text(v.Message);
+                    var messageDivImage = $("<div>").html(isImageURL && v.ImageChat ? `<img src="${v.ImageChat}" class="chat-image" style="border-radius:8px;boder:1px solid transparent;float: left; clear: both; word-wrap: break-word; word-break: break-all;width:100px;height:auto" />` : "");
+
                     var messageTime = $('<div>').addClass('message-time').css({
                         'float': 'right',
                         'margin-top': '5px',
@@ -293,7 +296,7 @@ $(() => {
                     }).text(v.NotificationDateTime);
 
                     // Thêm các phần tử con vào messageBubble
-                    messageBubble.append(fontBold, messageContent, messageTime);
+                    messageBubble.append(fontBold, messageContent, messageDivImage, messageTime);
 
                     // Thêm các phần tử vào chatMessage
                     chatMessage.append(img, messageBubble);
@@ -515,28 +518,26 @@ $(() => {
     //});
 
     $(document).ready(function () {
-        // Bắt sự kiện submit của form
         $(".chatForm").submit(function (e) {
-            e.preventDefault(); // Ngăn chặn việc gửi form theo cách thông thường
+            e.preventDefault(); 
 
             // Tạo một đối tượng FormData từ form
             var formData = new FormData(this);
 
             // Gửi yêu cầu AJAX
             $.ajax({
-                url: $(this).attr('action'), // Lấy đường dẫn từ thuộc tính action của form
-                type: $(this).attr('method'), // Lấy phương thức từ thuộc tính method của form
+                url: $(this).attr('action'), 
+                type: $(this).attr('method'),
                 data: formData,
-                processData: false, // Đặt thuộc tính này thành false để jQuery không xử lý dữ liệu
-                contentType: false, // Đặt thuộc tính này thành false để jQuery không đặt header Content-Type
+                processData: false,
+                contentType: false, 
                 success: function (response) {
                     console.log("Message sent successfully!");
                     console.log(response);
 
-                    // Xóa nội dung của input sau khi gửi thành công
                     $(".chatForm input[name='Message']").val('');
-
-                    // Cuộn xuống cuối trang
+                    var input = document.getElementById('fileInput');
+                    input.value = null;
                     scrollToBottomWhenSendMessage();
                 },
                 error: function (xhr, status, error) {
@@ -809,9 +810,10 @@ $(() => {
                     var imgDiv = "";
                     var fontBoldDiv = "";
                     var messageDiv = "";
+                    var messageDivImage = "";
                     var dateTimeDiv = "";
                     var messageDetailsDiv = "";
-                    var isImageURL = isValidImageURL(v.Message);
+                    var isImageURL = isValidImageURL(v.ImageChat);
                     if (senderUserId == v.SenderUserId) {
                         var chatMessageRightDiv = $("<div>").addClass("chat-message-right pb-4").css({
                             "display": "block"
@@ -838,20 +840,22 @@ $(() => {
                             "background-color": "#E6E6E6",
                             "border": "3px solid #3F3F41",
                             "border-radius": "0px 13px 13px 13px",
-                            "float": "right" // Chuyển sang bên phải
+                            "float": "right"
                         });
                         var fontBoldDiv = $("<div>").addClass("font-weight-bold mb-1").css({
                             "color": "black",
-                            "float": "right" // Chuyển sang bên phải
+                            "float": "right"
                         }).text(senderName);
-
-                        var messageDiv = $("<div>").addClass("message-content-chat-private-main").html(isImageURL ? `<img src="${v.Message}" class="chat-image" style="float: left; clear: both; word-wrap: break-word; word-break: break-all;width:200px;height:auto" />` : v.Message);
-
-
-                        // messageDetailsDiv clear: both
+                        var messageDiv = $("<div>")
+                            .text(v.Message)
+                            .css({
+                                "float": "left",
+                                "clear": "both",
+                                "word-wrap": "break-word",
+                                "word-break": "break-all"
+                            });
+                        messageDivImage = $("<div>").addClass("message-content-chat-private-main").html(isImageURL && v.ImageChat ? `<img src="${v.ImageChat}" class="chat-image" style="border-radius:8px;boder:1px solid transparent;float: left; clear: both; word-wrap: break-word; word-break: break-all;width:200px;height:auto" />` : "");
                         var messageDetailsDiv = $("<div>").addClass("message-details").css("clear", "both");
-
-                        // dateTimeDiv  float: right
                         var dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "left").text(v.NotificationDateTime);
                     }
                     else {
@@ -875,13 +879,15 @@ $(() => {
                         });
                         fontBoldDiv = $("<div>").addClass("font-weight-bold mb-1").css("color", "black").text(senderName);
                         messageDiv = $("<div>").text(v.Message);
+                        messageDivImage = $("<div>").addClass("message-content-chat-private-main").html(isImageURL && v.ImageChat ? `<img src="${v.ImageChat}" class="chat-image" style="border-radius:8px;boder:1px solid transparent;float: left; clear: both; word-wrap: break-word; word-break: break-all;width:200px;height:auto" />` : "");
+
                         messageDetailsDiv = $("<div>").addClass("message-details");
                         dateTimeDiv = $("<div>").addClass("text-muted small text-nowrap mt-2 date-time").css("float", "right").text(v.NotificationDateTime);
                     }
 
 
                     messageDetailsDiv.append(dateTimeDiv);
-                    boxMessagesDiv.append(fontBoldDiv, messageDiv, messageDetailsDiv);
+                    boxMessagesDiv.append(fontBoldDiv, messageDiv, messageDivImage, messageDetailsDiv);
                     chatMessageRightDiv.append(boxMessagesDiv);
 
                     chatMessagesList.append(chatMessageRightDiv);
@@ -899,7 +905,7 @@ $(() => {
         });
     }
     function isValidImageURL(url) {
-        var pattern = /\.(jpg|jpeg|png)$/i; // Kiểm tra đuôi file là jpg, jpeg hoặc png
+        var pattern = /\.(jpg|jpeg|png|gif)$/i; // Kiểm tra đuôi file là jpg, jpeg hoặc png
         return pattern.test(url) && /^https?:\/\//.test(url); // Kiểm tra url bắt đầu bằng http hoặc https
     }
 
@@ -1058,10 +1064,12 @@ $(() => {
                     listGroupItem.classList.add("active");
                     LoadPrivateMessagesMini(senderUserId, receiverUserId);
                     chatroomnamemini.textContent = item.firstName + " " + item.lastName;
+                    scrollToBottom();
 
                 }).catch(function (error) {
                     console.error("Error getting userId:", error);
                 });
+                scrollToBottom();
 
             });
 
