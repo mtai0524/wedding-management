@@ -1,10 +1,12 @@
 ﻿@page
 @model LockoutModel
 @{
-    ViewData["Title"] = "Locked out";
+    ViewData["Title"] = "Tài khoản đã bị khóa";
+    Layout = "~/Views/Shared/_EmptyLayout.cshtml";
+
 }
 
 <header>
     <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">This account has been locked out, please try again later.</p>
+    <p class="text-danger">Tài khoản đã bị khóa, hãy liên hệ quản trị để yêu cầu mở khóa.</p>
 </header>

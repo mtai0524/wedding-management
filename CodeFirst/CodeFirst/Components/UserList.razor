@@ -13,12 +13,14 @@
 @inject CloudinaryService _cloudinaryService;
 @using Microsoft.AspNetCore.Components.Forms
 @using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.SignalR
 @using Microsoft.AspNetCore.SignalR.Client
 @using Microsoft.EntityFrameworkCore
 @inject ISnackbar SnackbarService
 @inject ISnackbar Snackbar
 @inject IHubContext<ChatHub> _hubContext
+@inject UserManager<ApplicationUser> _userManager
 @inject NotificationService _notiService
 @inject NavigationManager NavigationManager
 @inject UserListService userService
@@ -39,65 +41,182 @@
 
 @code {
     private string searchString1 = "";
-    private bool FilterFunc1(ApplicationUser applicationUser) => FilterFunc(applicationUser, searchString1);
+    private bool FilterFunc1(ApplicationUserWithRole applicationUser) => FilterFunc(applicationUser, searchString1);
 
-    private bool FilterFunc(ApplicationUser applicationUser, string searchString)
+    private bool FilterFunc(ApplicationUserWithRole applicationUser, string searchString)
     {
         if (string.IsNullOrWhiteSpace(searchString))
             return true;
-        if (applicationUser.FirstName.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+        if (applicationUser.Role.Contains(searchString, StringComparison.OrdinalIgnoreCase))
             return true;
         if (applicationUser.Email.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (applicationUser.FullName.Contains(searchString, StringComparison.OrdinalIgnoreCase))
             return true;
         return false;
     }
 }
-<MudTable Items="@listUser" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<ApplicationUser,bool>(FilterFunc1)" Style="margin-bottom:15px">
+<MudTable Items="@listUser" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<ApplicationUserWithRole,bool>(FilterFunc1)" Style="margin-bottom:15px">
     <ToolBarContent>
-        <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách chi nhánh</MudText>
+        <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách người dùng</MudText>
         <MudSpacer />
+        <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm tên người dùng, email, vai trò" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
+
     </ToolBarContent>
     <HeaderContent>
         <MudTh>Người dùng</MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<ApplicationUser, object>(x=>x.PhoneNumber)">Số điện thoại</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<ApplicationUser, object>(x=>x.LockoutEnabled)">Tình trạng khóa</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ApplicationUserWithRole, object>(x=>x.Role)">Vai trò</MudTableSortLabel></MudTh>
+
+        <MudTh><MudTableSortLabel SortBy="new Func<ApplicationUserWithRole, object>(x=>x.PhoneNumber)">Số điện thoại</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ApplicationUserWithRole, object>(x=>x.LockoutEnd)">Tình trạng</MudTableSortLabel></MudTh>
+        <MudTh>Chức năng</MudTh>
     </HeaderContent>
     <RowTemplate>
-            <MudTd DataLabel="Người dùng">
-                <div class="d-flex flex-row">
-                    <MudImage Src="@context.Avatar" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-lg" />
-                    <div  class="d-flex flex-column justify-content-center ml-2">
-                        <h6 class="mb-0 text-sm">@context.Email</h6>
-                    <p class="text-xs text-secondary mb-0"> @context.FirstName @context.LastName</p>
+        <MudTd DataLabel="Người dùng">
+            <div class="d-flex flex-row">
+                <MudImage Src="@context.Avatar" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-lg" />
+                <div class="d-flex flex-column justify-content-center ml-5">
+                    <h6 class="mb-0 text-sm"> @context.FullName</h6>
+                    <p class="text-xs text-secondary mb-0"> @context.Email</p>
                 </div>
-                </div>
-            </MudTd>
-        <MudTd DataLabel="Số điện thoại">@context.PhoneNumber</MudTd>
-            <MudTd DataLabel="Tình trạng khóa">@context.LockoutEnabled</MudTd>
-        </RowTemplate>
+            </div>
+        </MudTd>
+        <MudTd DataLabel="Vai trò">@context.Role</MudTd>
+            <MudTd DataLabel="Số điện thoại">@context.PhoneNumber</MudTd>
+            <MudTd DataLabel="Tình trạng">
+                @if (context.LockoutEnd.HasValue && context.LockoutEnd > DateTimeOffset.UtcNow)
+            {
+                <MudChip Color="Color.Error" Icon="@Icons.Material.Filled.Dangerous" IconColor="Color.Surface" Size="MudBlazor.Size.Small">
+                    Đang bị khóa
+                </MudChip>
+            }
+            else
+            {
+                <MudChip Icon="@Icons.Material.Filled.VerifiedUser" Color="Color.Info" Size="MudBlazor.Size.Small">
+                    Không bị khóa
+                </MudChip>
+            }
+        </MudTd>
 
-        <PagerContent>
-            <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
-        </PagerContent>
-    </MudTable>
 
 
+        <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#detailUserModal" OnClick="@(() => ShowDetails(@context.UserId))">
+            Chi tiết
+        </MudButton>
+        <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" OnClick="@(() => LockUser(@context.UserId))">
+            Khóa
+        </MudButton>
+        <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" OnClick="@(() => UnlockUser(@context.UserId))">
+            Mở khóa
+        </MudButton>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
+    </PagerContent>
+</MudTable>
 
-    @code {
-    private List<ApplicationUser> listUser { get; set; } = new List<ApplicationUser>();
+
+<div class="modal fade" id="detailUserModal" tabindex="-1" aria-labelledby="detailUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailUserModalLabel">Thông tin người dùng</h5>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Hiển thị thông tin chi nhánh -->
+                <p><strong>Tên người dùng:</strong> @userName</p>
+                <p><strong>Email:</strong> @email</p>
+                <p><strong>Vai trò:</strong> @role</p>
+                <p><strong>Số điện thoại:</strong> @phone</p>
+                <p><strong>Tình trạng: </strong>
+                    @if (status.HasValue)
+                    {
+                        <MudChip Color="Color.Error" Icon="@Icons.Material.Filled.Dangerous" IconColor="Color.Surface" Size="MudBlazor.Size.Small">
+                            Đang bị khóa
+                        </MudChip>
+                    }
+                    else
+                    {
+                        <MudChip Icon="@Icons.Material.Filled.VerifiedUser" Color="Color.Info" Size="MudBlazor.Size.Small">
+                            Không bị khóa
+                        </MudChip>
+                    }
+
+                </p>
+
+                <p><strong>Hình ảnh:</strong></p>
+                <img src="@avatar" class="img-fluid" style="max-height: 300px; width: 100%;" alt="Hình ảnh chi nhánh" />
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+    @* view details branch code behind *@
+    string? userName = "";
+    string? email = "";
+    string? phone = "";
+    string? role = "";
+    string? avatar = "";
+    DateTimeOffset? status = null;
+    async Task ShowDetails(string userId)
+    {
+        ApplicationUser? userFindByUserId = _context.ApplicationUser.FirstOrDefault(x => x.Id == userId);
+        var userWithRole = await _userManager.GetRolesAsync(userFindByUserId);
+        if (userFindByUserId != null)
+        {
+            userName = userFindByUserId.FirstName + " " + userFindByUserId.LastName;
+            email = userFindByUserId.Email;
+            phone = !string.IsNullOrEmpty(userFindByUserId.PhoneNumber) ? userFindByUserId.PhoneNumber : "chưa nhập...";
+            role = userWithRole.FirstOrDefault();
+            avatar = userFindByUserId.Avatar;
+            status = userFindByUserId.LockoutEnd;
+        }
+    }
+}
+@code {
+    private List<ApplicationUserWithRole> listUser { get; set; } = new List<ApplicationUserWithRole>();
     ApplicationUser applicationUser { get; set; } = new ApplicationUser();
     [Inject] private ApplicationDbContext _context { get; set; }
     protected async Task LoadBranches()
     {
-        var userService = new UserListService(_context);
-        listUser = await userService.GetListUser();
+        var userService = new UserListService(_context, _userManager);
+        listUser = await userService.GetListUserAndRole();
         await _hubContext.Clients.All.SendAsync("BranchCreated", listUser);
-        StateHasChanged(); 
+        StateHasChanged();
     }
 
     protected override async Task OnInitializedAsync()
     {
         await LoadBranches();
         await base.OnInitializedAsync();
+    }
+    public async Task LockUser(string userId)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user != null && !user.LockoutEnd.HasValue)
+        {
+            await _userManager.SetLockoutEnabledAsync(user, true);
+            await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.MaxValue);
+        }
+        await LoadBranches();
+    }
+    public async Task UnlockUser(string userId)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user != null && user.LockoutEnd.HasValue)
+        {
+            await _userManager.SetLockoutEnabledAsync(user, false);
+            await _userManager.ResetAccessFailedCountAsync(user);
+            user.LockoutEnd = null;
+            await _userManager.UpdateAsync(user); // Cập nhật thông qua Identity Framework
+        }
+        await LoadBranches();
     }
 }
