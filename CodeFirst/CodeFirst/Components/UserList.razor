@@ -24,6 +24,7 @@
 @inject NotificationService _notiService
 @inject NavigationManager NavigationManager
 @inject UserListService userService
+@inject RoleManager<IdentityRole> _roleManager
 <PageTitle>Quản lý người dùng</PageTitle>
 <MudThemeProvider />
 <MudDialogProvider />
@@ -73,15 +74,16 @@
     </HeaderContent>
     <RowTemplate>
         <MudTd DataLabel="Người dùng">
-            <div class="d-flex flex-row">
+            <div class="d-flex flex-row" onclick="ShowDetails(@context.UserId)">
                 <MudImage Src="@context.Avatar" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-lg" />
-                <div class="d-flex flex-column justify-content-center ml-5">
+                <div class="d-flex flex-column justify-content-center ml-5" onclick="ShowDetails(@context.UserId)">
                     <h6 class="mb-0 text-sm"> @context.FullName</h6>
                     <p class="text-xs text-secondary mb-0"> @context.Email</p>
                 </div>
             </div>
         </MudTd>
         <MudTd DataLabel="Vai trò">@context.Role</MudTd>
+
             <MudTd DataLabel="Số điện thoại">@context.PhoneNumber</MudTd>
             <MudTd DataLabel="Tình trạng">
                 @if (context.LockoutEnd.HasValue && context.LockoutEnd > DateTimeOffset.UtcNow)
@@ -92,23 +94,27 @@
             }
             else
             {
-                <MudChip Icon="@Icons.Material.Filled.VerifiedUser" Color="Color.Info" Size="MudBlazor.Size.Small">
+                <MudChip Icon="@Icons.Material.Filled.VerifiedUser" Color="Color.Success" Size="MudBlazor.Size.Small">
                     Không bị khóa
                 </MudChip>
             }
         </MudTd>
+        <MudTd>
+            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#updateRoleModal" OnClick="@(() => ShowUpdateRoleModal(@context.UserId))">
+                Thay đổi vai trò
+            </MudButton>
 
+            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#detailUserModal" OnClick="@(() => ShowDetails(@context.UserId))">
+                Chi tiết
+            </MudButton>
+            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" OnClick="@(() => LockUser(@context.UserId))">
+                Khóa
+            </MudButton>
+            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" OnClick="@(() => UnlockUser(@context.UserId))">
+                Mở khóa
+            </MudButton>
+        </MudTd>
 
-
-        <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#detailUserModal" OnClick="@(() => ShowDetails(@context.UserId))">
-            Chi tiết
-        </MudButton>
-        <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" OnClick="@(() => LockUser(@context.UserId))">
-            Khóa
-        </MudButton>
-        <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" OnClick="@(() => UnlockUser(@context.UserId))">
-            Mở khóa
-        </MudButton>
     </RowTemplate>
     <PagerContent>
         <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
@@ -131,7 +137,8 @@
                 <p><strong>Email:</strong> @email</p>
                 <p><strong>Vai trò:</strong> @role</p>
                 <p><strong>Số điện thoại:</strong> @phone</p>
-                <p><strong>Tình trạng: </strong>
+                <p>
+                    <strong>Tình trạng: </strong>
                     @if (status.HasValue)
                     {
                         <MudChip Color="Color.Error" Icon="@Icons.Material.Filled.Dangerous" IconColor="Color.Surface" Size="MudBlazor.Size.Small">
@@ -140,7 +147,7 @@
                     }
                     else
                     {
-                        <MudChip Icon="@Icons.Material.Filled.VerifiedUser" Color="Color.Info" Size="MudBlazor.Size.Small">
+                        <MudChip Icon="@Icons.Material.Filled.VerifiedUser" Color="Color.Success" Size="MudBlazor.Size.Small">
                             Không bị khóa
                         </MudChip>
                     }
@@ -148,8 +155,9 @@
                 </p>
 
                 <p><strong>Hình ảnh:</strong></p>
-                <img src="@avatar" class="img-fluid" style="max-height: 300px; width: 100%;" alt="Hình ảnh chi nhánh" />
-
+                <div class="image-user-container d-flex justity-content-center">
+                    <img src="@avatar" class="img-fluid" style="height: 200px; border-radius:8px;border:1px solid transparent;width: 200px;margin: 0 auto;" alt="Hình ảnh chi nhánh" />
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
@@ -180,10 +188,45 @@
         }
     }
 }
+
+
+<div class="modal fade" id="updateRoleModal" tabindex="-1" aria-labelledby="updateRoleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateRoleModalLabel">Chỉnh sửa vai trò</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="selectedRole" class="form-label">Chọn vai trò mới:</label>
+                        <select class="form-select" id="selectedRole" @bind="selectedRole">
+                            @foreach (var role in allRoles)
+                            {
+                                <option value="@role">@role</option>
+                            }
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary" @onclick="UpdateUserRole">Lưu thay đổi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 @code {
     private List<ApplicationUserWithRole> listUser { get; set; } = new List<ApplicationUserWithRole>();
     ApplicationUser applicationUser { get; set; } = new ApplicationUser();
     [Inject] private ApplicationDbContext _context { get; set; }
+
+    private List<string> allRoles = new List<string>(); // List chứa tất cả các vai trò
+
     protected async Task LoadBranches()
     {
         var userService = new UserListService(_context, _userManager);
@@ -196,15 +239,78 @@
     {
         await LoadBranches();
         await base.OnInitializedAsync();
+        var allRoles = await _roleManager.Roles.Select(r => r.Name).ToListAsync();
+        this.allRoles = allRoles;
     }
+    private string selectedRole { get; set; } = ""; 
+
+    private string userIdToUpdateRole { get; set; } = ""; 
+    private async Task ShowUpdateRoleModal(string userId)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user != null)
+        {
+            var roles = await _userManager.GetRolesAsync(user);
+            userIdToUpdateRole = userId;
+            selectedRole = roles.FirstOrDefault();
+        }
+    }
+
+    public async Task ChangeUserRole(string userId, string newRole)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user != null)
+        {
+            // Xác định vai trò cũ của người dùng
+            var oldRole = await _userManager.GetRolesAsync(user);
+            if (oldRole.Any() && newRole != oldRole.FirstOrDefault())
+            {
+                if (oldRole.Contains("administrator system"))
+                {
+                    Snackbar.Add("Không thể thay đổi vai trò của tài khoản quản trị hệ thống!", Severity.Error);
+                    return;
+                }
+                // Loại bỏ vai trò cũ
+                await _userManager.RemoveFromRoleAsync(user, oldRole.FirstOrDefault());
+                // Thêm vai trò mới
+                await _userManager.AddToRoleAsync(user, newRole);
+                Snackbar.Add("Vai trò người dùng đã được cập nhật!", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add("Vai trò không thay đổi!", Severity.Info);
+            }
+            await LoadBranches(); // Tải lại danh sách người dùng sau khi thay đổi vai trò
+        }
+    }
+    private async Task UpdateUserRole()
+    {
+        if (!string.IsNullOrEmpty(userIdToUpdateRole) && !string.IsNullOrEmpty(selectedRole))
+        {
+            await ChangeUserRole(userIdToUpdateRole, selectedRole);
+        }
+    }
+
     public async Task LockUser(string userId)
     {
         var user = await _userManager.FindByIdAsync(userId);
         if (user != null && !user.LockoutEnd.HasValue)
         {
+            var getRole = await _userManager.GetRolesAsync(user);
+            if (getRole.Contains("administrator system"))
+            {
+                Snackbar.Add("Không thể khóa tài khoản quản trị hệ thống!", Severity.Error);
+                return;
+            }
             await _userManager.SetLockoutEnabledAsync(user, true);
             await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.MaxValue);
+            Snackbar.Add("Đã khóa tài khoản!", Severity.Warning);
         }
+        else
+        {
+            Snackbar.Add("Tài khoản đã bị khóa rồi!", Severity.Info);
+        }
+
         await LoadBranches();
     }
     public async Task UnlockUser(string userId)
@@ -215,8 +321,16 @@
             await _userManager.SetLockoutEnabledAsync(user, false);
             await _userManager.ResetAccessFailedCountAsync(user);
             user.LockoutEnd = null;
-            await _userManager.UpdateAsync(user); // Cập nhật thông qua Identity Framework
+            await _userManager.UpdateAsync(user); // cập nhật thay đổi dạng bất đồng bộ
+            Snackbar.Add("Đã mở khóa tài khoản!", Severity.Success);
+
         }
+        else
+        {
+            Snackbar.Add("Tài khoản đã mở khóa rồi!", Severity.Info);
+
+        }
+
         await LoadBranches();
     }
 }

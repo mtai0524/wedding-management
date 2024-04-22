@@ -87,7 +87,7 @@ namespace CodeFirst.Controllers
                 {
                     SenderUserId = senderUser.Id,
                     ReceiverUserId = model.ReceiverUserId, // model.ReceiverUserId là ID của người nhận
-                    Message = model.Message,
+                    Message = !string.IsNullOrEmpty(model.Message) ? model.Message : "",
                     NotificationDateTime = DateTime.Now,
                 };
 

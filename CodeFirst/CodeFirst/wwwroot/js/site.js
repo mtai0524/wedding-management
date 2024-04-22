@@ -502,29 +502,65 @@ $(() => {
 
     $(document).ready(function () {
         $(".chatForm").submit(function (e) {
-            e.preventDefault(); 
+            e.preventDefault();
+
+            // Hiển thị toast khi bắt đầu gửi
+            iziToast.show({
+                title: 'Đang gửi...',
+                backgroundColor: '#FFFFFF',
+                position: 'bottomLeft',
+                timeout: 2000, // Không tự động đóng
+                close: true,
+                theme: 'light',
+                iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHzRuuOgIm-ctRXgougA-RRaTYPR9td-P7lBPEWWxT5R0v5V0jqI5n8MGlgF75xDzKuVc&usqp=CAU',
+                progressBar: true,
+                animateInside: true,
+                pauseOnHover: true,
+            });
 
             // Tạo một đối tượng FormData từ form
             var formData = new FormData(this);
 
             // Gửi yêu cầu AJAX
             $.ajax({
-                url: $(this).attr('action'), 
+                url: $(this).attr('action'),
                 type: $(this).attr('method'),
                 data: formData,
                 processData: false,
-                contentType: false, 
+                contentType: false,
                 success: function (response) {
                     console.log("Message sent successfully!");
                     console.log(response);
 
+                   
+
+                    var fileNameDisplay = document.getElementById("fileNameDisplay");
+                    if (fileNameDisplay) {
+                        fileNameDisplay.style.display = "none";
+                    }
                     $(".chatForm input[name='Message']").val('');
                     var input = document.getElementById('fileInput');
                     input.value = null;
+                    // Ẩn toast khi gửi thành công
+                    iziToast.show({
+                        title: 'Đã gửi!',
+                        backgroundColor: '#FFFFFF',
+                        position: 'bottomLeft',
+                        timeout: 2000, // Không tự động đóng
+                        close: true,
+                        theme: 'light',
+                        iconUrl: 'https://static.thenounproject.com/png/3383823-200.png',
+                        progressBar: true,
+                        animateInside: true,
+                        pauseOnHover: true,
+                    });
                     scrollToBottomWhenSendMessage();
+             
                 },
                 error: function (xhr, status, error) {
                     console.error("AJAX Error:", error);
+                    // Ẩn toast nếu có lỗi
+                    iziToast.hide({}, document.querySelector('.iziToast'));
                 }
             });
         });
@@ -534,7 +570,19 @@ $(() => {
     $(document).ready(function () {
         $(".chatFormRoom").submit(function (e) {
             e.preventDefault(); 
-
+            // Hiển thị toast khi bắt đầu gửi
+            iziToast.show({
+                title: 'Đang gửi...',
+                backgroundColor: '#FFFFFF',
+                position: 'bottomLeft',
+                timeout: 2000, // Không tự động đóng
+                close: true,
+                theme: 'light',
+                iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHzRuuOgIm-ctRXgougA-RRaTYPR9td-P7lBPEWWxT5R0v5V0jqI5n8MGlgF75xDzKuVc&usqp=CAU',
+                progressBar: true,
+                animateInside: true,
+                pauseOnHover: true,
+            });
             // Lấy dữ liệu từ form
             var formData = $(this).serialize();
 
@@ -545,9 +593,23 @@ $(() => {
                 success: function (response) {
                     console.log("Message sent successfully!");
                     console.log(response);
-
+                    var fileNameDisplay = document.getElementById("fileNameDisplay");
+                    if (fileNameDisplay) {
+                        fileNameDisplay.style.display = "none";
+                    }
                     $(".chatFormRoom input[name='Message']").val('');
-
+                    iziToast.show({
+                        title: 'Đã gửi!',
+                        backgroundColor: '#FFFFFF',
+                        position: 'bottomLeft',
+                        timeout: 2000, // Không tự động đóng
+                        close: true,
+                        theme: 'light',
+                        iconUrl: 'https://static.thenounproject.com/png/3383823-200.png',
+                        progressBar: true,
+                        animateInside: true,
+                        pauseOnHover: true,
+                    });
                     scrollToBottomWhenSendMessage();
                 },
                 error: function (xhr, status, error) {

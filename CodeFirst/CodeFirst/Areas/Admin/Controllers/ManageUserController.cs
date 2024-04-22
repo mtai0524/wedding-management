@@ -82,6 +82,12 @@ namespace CodeFirst.Areas.Admin.Controllers
             }
             var feedbacks = await _context.Feedback.Where(f => f.UserId == id).ToListAsync();
             _context.Feedback.RemoveRange(feedbacks);
+            var chatPrivate = await _context.ChatPrivate.Where(f => f.SenderUserId == id).ToListAsync();
+            _context.ChatPrivate.RemoveRange(chatPrivate);
+            var chatPrivateReceive = await _context.ChatPrivate.Where(f => f.ReceiverUserId == id).ToListAsync();
+            _context.ChatPrivate.RemoveRange(chatPrivateReceive);
+            var chatRoom = await _context.Chats.Where(f => f.UserId == id).ToListAsync();
+            _context.Chats.RemoveRange(chatRoom);
             await _context.SaveChangesAsync();
 
 
