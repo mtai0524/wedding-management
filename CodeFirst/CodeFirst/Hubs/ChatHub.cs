@@ -32,10 +32,11 @@ namespace CodeFirst.Hubs
 
 
         //
-        public async Task SendBranchCreatedNotification()
-        {
-            await Clients.All.SendAsync("BranchCreated");
-        }
+        //public async Task SendBranchCreatedNotification()
+        //{
+        //    var listBranch = _context.Branch.ToListAsync();
+        //    await Clients.All.SendAsync("BranchCreated", listBranch);
+        //}
         //
 
         public async Task CallLoadChatData()
@@ -69,7 +70,7 @@ namespace CodeFirst.Hubs
 
         public async Task SendNotificationToAll(string message)
         {
-            await Clients.All.SendAsync("ReceivedNotification", message);
+            await Clients.Others.SendAsync("ReceivedNotification", message);
         }
 
         public static readonly Dictionary<string, UserInformation> ConnectedUsers = new Dictionary<string, UserInformation>();

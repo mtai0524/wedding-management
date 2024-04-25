@@ -9,619 +9,587 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CodeFirst
 build_property.RootNamespace = CodeFirst
-build_property.ProjectDir = E:\Computer-Science\CodeFirst\CodeFirst\
+build_property.ProjectDir = T:\Test\Computer-Science\CodeFirst\CodeFirst\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = E:\Computer-Science\CodeFirst\CodeFirst
+build_property.MSBuildProjectDirectory = T:\Test\Computer-Science\CodeFirst\CodeFirst
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/App.razor]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Components/BranchList.razor]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Components/BranchList.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xCcmFuY2hMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Components/ProgressBar.razor]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Components/ColorPicker.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDb2xvclBpY2tlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Components/ProgressBar.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9ncmVzc0Jhci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Components/UserInfoComponent.razor]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Components/UserInfoComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVc2VySW5mb0NvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Shared/Counter.razor]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Components/UserList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVc2VyTGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/Shared/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvdW50ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Shared/Index.razor]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/Shared/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEluZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/_Imports.razor]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Components/Chat.razor]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Components/Chat.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDaGF0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-mcqe6qptzc
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Components/Error404.razor]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Components/Error404.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xFcnJvcjQwNC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-46wl8ed11m
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Shared/MainLayout.razor]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-gup8ah8q1d
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Shared/NavMenu.razor]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-2k9yn0y450
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Branch/Create.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Branch/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmNoXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Branch/Delete.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Branch/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmNoXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Branch/Details.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Branch/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmNoXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Branch/Edit.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Branch/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmNoXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Branch/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Branch/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmNoXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Create.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29kZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Delete.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29kZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Details.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29kZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Edit.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29kZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Code/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29kZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Create.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51RW50aXR5XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Delete.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51RW50aXR5XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Details.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51RW50aXR5XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Edit.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51RW50aXR5XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ComboMenuEntity/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tYm9NZW51RW50aXR5XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback/Create.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmVlZGJhY2tcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback/Delete.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmVlZGJhY2tcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback/Details.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmVlZGJhY2tcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback/Edit.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmVlZGJhY2tcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Feedback/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmVlZGJhY2tcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Hall/Create.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Hall/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSGFsbFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Hall/Delete.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Hall/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSGFsbFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Hall/Details.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Hall/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSGFsbFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Hall/Edit.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Hall/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSGFsbFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Hall/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Hall/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSGFsbFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Home/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Create.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZUNvZGVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Delete.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZUNvZGVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Details.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZUNvZGVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Edit.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZUNvZGVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/InvoiceCode/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZUNvZGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Invoice/Create.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Invoice/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Invoice/Delete.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Invoice/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Invoice/Details.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Invoice/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Invoice/Edit.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Invoice/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Invoice/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Invoice/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52b2ljZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ManageRole/Create.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ManageRole/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ManageRole/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ManageRole/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ManageUser/EditUser.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ManageUser/EditUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlVXNlclxFZGl0VXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ManageUser/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ManageUser/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuCategory/Create.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuCategory/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUNhdGVnb3J5XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuCategory/Delete.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuCategory/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUNhdGVnb3J5XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuCategory/Details.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuCategory/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUNhdGVnb3J5XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuCategory/Edit.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuCategory/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUNhdGVnb3J5XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuCategory/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuCategory/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUNhdGVnb3J5XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/AddMenuToCombo.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/AddMenuToCombo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUl0ZW1Db21ib01lbnVcQWRkTWVudVRvQ29tYm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Create.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUl0ZW1Db21ib01lbnVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Delete.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUl0ZW1Db21ib01lbnVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Details.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUl0ZW1Db21ib01lbnVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Edit.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUl0ZW1Db21ib01lbnVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/MenuItemComboMenu/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudUl0ZW1Db21ib01lbnVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/Create.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/Delete.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/Details.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/Edit.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/_CreateMenuPartialView.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/_CreateMenuPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudVxfQ3JlYXRlTWVudVBhcnRpYWxWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/_MenuDetailsPartial.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/_MenuDetailsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudVxfTWVudURldGFpbHNQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/_MenuListPartial.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/_MenuListPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudVxfTWVudUxpc3RQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/_MenuPartial.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/_MenuPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudVxfTWVudVBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/_MenuPartialView.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Menu/_MenuPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWVudVxfTWVudVBhcnRpYWxWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ServiceCategory/Create.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ServiceCategory/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VydmljZUNhdGVnb3J5XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ServiceCategory/Delete.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ServiceCategory/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VydmljZUNhdGVnb3J5XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ServiceCategory/Details.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ServiceCategory/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VydmljZUNhdGVnb3J5XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ServiceCategory/Edit.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ServiceCategory/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VydmljZUNhdGVnb3J5XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ServiceCategory/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/ServiceCategory/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VydmljZUNhdGVnb3J5XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Service/Create.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Service/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VydmljZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Service/Delete.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Service/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VydmljZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Service/Details.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Service/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VydmljZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Service/Edit.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Service/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VydmljZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Service/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Service/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VydmljZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Shared/Error.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Shared/_LoginPartial.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Shared/_MenuListPartial.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Shared/_MenuListPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9NZW51TGlzdFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Shared/_SideBarPartialView.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Shared/_SideBarPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9TaWRlQmFyUGFydGlhbFZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Statistic/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Statistic/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3RhdGlzdGljXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/_ViewImports.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/_ViewStart.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWxDaGFuZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFeHRlcm5hbExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Lockout.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Lockout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Login.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGgyZmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGhSZWNvdmVyeUNvZGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Logout.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGVsZXRlUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGlzYWJsZTJmYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRG93bmxvYWRQZXJzb25hbERhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/Email.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW5hYmxlQXV0aGVudGljYXRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRXh0ZXJuYWxMb2dpbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcR2VuZXJhdGVSZWNvdmVyeUNvZGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUmVzZXRBdXRoZW50aWNhdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2hvd1JlY292ZXJ5Q29kZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcVHdvRmFjdG9yQXV0aGVudGljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Register.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Error.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/_ViewImports.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/_ViewStart.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/AppRoles/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/AppRoles/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Chat/ChatModalPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxDaGF0TW9kYWxQYXJ0aWFsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Chat/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/EmployeeEntities/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVFbnRpdGllc1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/EmployeeEntities/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVFbnRpdGllc1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/EmployeeEntities/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVFbnRpdGllc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/EmployeeEntities/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVFbnRpdGllc1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/EmployeeEntities/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVFbnRpdGllc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Home/EditUser.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/Home/EditUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0VXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Home/Index.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Home/Privacy.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Notification/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2F0aW9uXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Shared/Error.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Shared/_EmptyLayout.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/Shared/_EmptyLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FbXB0eUxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Shared/_Host.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/Shared/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ib3N0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Shared/_LoginPartial.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Shared/_ValidationScriptsPartial.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/_ViewImports.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/_ViewStart.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-4s03l8b9om
 
-[E:/Computer-Science/CodeFirst/CodeFirst/Views/Shared/_Layout.cshtml]
+[T:/Test/Computer-Science/CodeFirst/CodeFirst/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-mduye2hf70

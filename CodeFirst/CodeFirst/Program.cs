@@ -21,6 +21,7 @@ using CodeFirst.Services;
 using CodeFirst.MiddlewareExtensions;
 using MudBlazor;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Components.Authorization;
 //using CodeFirst.SqlDependencies;
 //using SignalRYoutube.MiddlewareExtensions;
 
@@ -80,10 +81,7 @@ builder.Services.AddTransient<IEmailSender, EmailSender>(); //  dịch vụ gử
 
 // thay đổi razor cshtml runtime F5
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
-builder.Services.Configure<FormOptions>(options =>
-{
-    options.MultipartBodyLengthLimit = 209715200;
-});
+
 // Cấu hình tài khoản Cloudinary
 var configuration = builder.Configuration;
 
@@ -172,7 +170,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools())); // service cho pdf
 
 // intergrated blazor server
-builder.Services.AddServerSideBlazor();
+builder.Services.AddServerSideBlazor().AddCircuitOptions(x => x.DetailedErrors = true);
 builder.Services.AddRazorPages();
 builder.Services.AddResponseCompression(options =>
 {
@@ -194,6 +192,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<ApplicationDbContext>();
 
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -211,6 +212,7 @@ app.UseAuthorization();
 
 app.UseCors("CorsPolicy");
 app.MapHub<ChatHub>("/chatHub");
+app.MapHub<MyBlazorHub>("/myBlazorHub");
 
 app.UseEndpoints(endpoints =>
 {
