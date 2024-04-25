@@ -1214,7 +1214,7 @@ $(() => {
     // Send All user
     connection.on("ReceivedNotification", function (message) {
         console.log("hehehe");
-        DisplayGeneralNotification(message, 'General Message');
+        DisplayGeneralNotification(message, 'Thông báo!');
     });
 
     //connection.on("ReceivedPersonalNotification", function (message, username) {

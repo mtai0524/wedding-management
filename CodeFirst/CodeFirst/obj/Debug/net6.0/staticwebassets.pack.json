@@ -1153,6 +1153,10 @@
       "PackagePath": "staticwebassets\\images\\favicon.png"
     },
     {
+      "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\mouse_pointer.png",
+      "PackagePath": "staticwebassets\\images\\mouse_pointer.png"
+    },
+    {
       "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\mychuot.png",
       "PackagePath": "staticwebassets\\images\\mychuot.png"
     },

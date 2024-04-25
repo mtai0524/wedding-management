@@ -28,6 +28,7 @@
 @inject NotificationService _notiService
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@inject UserBlazorService _userBlazorService
 @code {
     private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
     {
@@ -163,8 +164,8 @@
         {
             showAlertCreateBranch = false;
             isSavedSuccessfully = false;
-             string newUrl = $"/branch-list";
-             await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
+             // string newUrl = $"/branch-list";
+             // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
         }
     }
 
@@ -610,8 +611,11 @@
         }
     }
 }
-@code{
-    ApplicationUser getUserCurrBlazor;
+
+@* get user curr *@
+@* @code{
+    ApplicationUser getUserCurr;
+
     AuthenticationState authState;
     string userCurrId;
     async Task<ApplicationUser> GetUserCurr()
@@ -622,13 +626,13 @@
         getUserCurr = _context.ApplicationUser.FirstOrDefault(x => x.Id == userCurrId);
         return getUserCurr;
     }
-}
+} *@
 
 
 @* init blazor *@
 @code {
-    
-    ApplicationUser getUserCurr;
+    ApplicationUser getUserCurrBlazor;
+
     List<Branch> Branches { get; set; } = new List<Branch>();
     [Inject] private ApplicationDbContext _context { get; set; }
     string imageUrl { get; set; }
@@ -643,7 +647,7 @@
     private HubConnection hubConnection;
     protected override async Task OnInitializedAsync()
     {
-        getUserCurrBlazor = await GetUserCurr();
+        getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
         await LoadBranches();
         hubConnection = new HubConnectionBuilder()
             // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/chatHub")) // docker

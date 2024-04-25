@@ -61,6 +61,7 @@ builder.Services.AddSingleton<OnlineUserService>();
 //builder.Services.AddSingleton<UserService>();
 
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<UserBlazorService>();
 builder.Services.AddScoped<NotificationService>();
 
 // Cấu hình DI scope cho ASP.NET Core SignalR

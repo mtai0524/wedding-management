@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mp2NsnlFa2ONbatkLL+BlPRVR+7c2YtNgPuNIc3OMpw=",
+  "Hash": "xDAC41zeXqrzzbYGyHVYQ/ALNhoHzAtCDFiIwc1V5zY=",
   "Source": "CodeFirst",
   "BasePath": "_content/CodeFirst",
   "Mode": "Default",
@@ -6817,6 +6817,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\favicon.png"
+    },
+    {
+      "Identity": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\mouse_pointer.png",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "images/mouse_pointer.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mouse_pointer.png"
     },
     {
       "Identity": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\mychuot.png",

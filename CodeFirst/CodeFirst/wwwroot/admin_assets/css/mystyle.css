@@ -1,4 +1,6 @@
-﻿
+﻿body {
+    cursor: url('/images/mouse_pointer.png'), url('path-to-image-2.svg'), url('path-to-image-3.jpeg'), auto !important;
+}
 .email-popup {
     position: absolute;
     background-color: white;
@@ -532,6 +534,10 @@ label.floatting-btn {
         justify-content: center !important;
         align-items: center !important;
     }*/
+    #contaniner-input-chat{
+        margin-left:0 !important;
+    }
+
     .chat-messages-list {
         height: 55vh;
     }
