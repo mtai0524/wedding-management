@@ -83,39 +83,41 @@ namespace CodeFirst.Controllers
             var senderUser = await _userManager.GetUserAsync(User);
             if (ModelState.IsValid || file == null)
             {
-                var privateChat = new ChatPrivate
+                if (!string.IsNullOrEmpty(model.Message) && file == null || string.IsNullOrEmpty(model.Message) && file != null || !string.IsNullOrEmpty(model.Message) && file != null)
                 {
-                    SenderUserId = senderUser.Id,
-                    ReceiverUserId = model.ReceiverUserId, // model.ReceiverUserId là ID của người nhận
-                    Message = !string.IsNullOrEmpty(model.Message) ? model.Message : "",
-                    NotificationDateTime = DateTime.Now,
-                };
-
-                // Kiểm tra xem người nhận có tồn tại không
-                var receiverUser = await _userManager.FindByIdAsync(model.ReceiverUserId);
-                if (receiverUser == null)
-                {
-                    return Json(new { success = false, message = "Người nhận không tồn tại." });
-                }
-                if(file != null)
-                {
-                    var imagePath = await _cloudinaryService.UploadImageAsync(file);
-                    if (imagePath != null)
+                    var privateChat = new ChatPrivate
                     {
-                        privateChat.ImageChat = imagePath;
+                        SenderUserId = senderUser.Id,
+                        ReceiverUserId = model.ReceiverUserId, // model.ReceiverUserId là ID của người nhận
+                        Message = !string.IsNullOrEmpty(model.Message) ? model.Message : "",
+                        NotificationDateTime = DateTime.Now,
+                    };
+
+                    // Kiểm tra xem người nhận có tồn tại không
+                    var receiverUser = await _userManager.FindByIdAsync(model.ReceiverUserId);
+                    if (receiverUser == null)
+                    {
+                        return Json(new { success = false, message = "Người nhận không tồn tại." });
                     }
+                    if (file != null)
+                    {
+                        var imagePath = await _cloudinaryService.UploadImageAsync(file);
+                        if (imagePath != null)
+                        {
+                            privateChat.ImageChat = imagePath;
+                        }
+                    }
+                    // Lưu tin nhắn riêng tư vào cơ sở dữ liệu
+                    _context.ChatPrivate.Add(privateChat);
+                    await _context.SaveChangesAsync();
+                    // Gửi tin nhắn riêng tư đến người nhận thông qua SignalR
+                    await hubContext.Clients.All.SendAsync("ReceiveChatPrivateRealtime", privateChat);
+
+                    return Json(new { success = true, privateChat });
                 }
-                // Lưu tin nhắn riêng tư vào cơ sở dữ liệu
-                _context.ChatPrivate.Add(privateChat);
-                await _context.SaveChangesAsync();
-                // Gửi tin nhắn riêng tư đến người nhận thông qua SignalR
-                await hubContext.Clients.All.SendAsync("ReceiveChatPrivateRealtime", privateChat);
-
-                return Json(new { success = true, privateChat });
             }
-
             return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors) });
         }
-   
+
     }
 }

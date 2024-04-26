@@ -570,12 +570,11 @@ $(() => {
     $(document).ready(function () {
         $(".chatFormRoom").submit(function (e) {
             e.preventDefault(); 
-            // Hiển thị toast khi bắt đầu gửi
             iziToast.show({
                 title: 'Đang gửi...',
                 backgroundColor: '#FFFFFF',
                 position: 'bottomLeft',
-                timeout: 2000, // Không tự động đóng
+                timeout: 2000,
                 close: true,
                 theme: 'light',
                 iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHzRuuOgIm-ctRXgougA-RRaTYPR9td-P7lBPEWWxT5R0v5V0jqI5n8MGlgF75xDzKuVc&usqp=CAU',
@@ -583,7 +582,6 @@ $(() => {
                 animateInside: true,
                 pauseOnHover: true,
             });
-            // Lấy dữ liệu từ form
             var formData = $(this).serialize();
 
             $.ajax({
@@ -602,7 +600,7 @@ $(() => {
                         title: 'Đã gửi!',
                         backgroundColor: '#FFFFFF',
                         position: 'bottomLeft',
-                        timeout: 2000, // Không tự động đóng
+                        timeout: 2000,
                         close: true,
                         theme: 'light',
                         iconUrl: 'https://static.thenounproject.com/png/3383823-200.png',
@@ -678,7 +676,6 @@ $(() => {
                 });
                 $("#notification-list").html(li);
 
-                // Đếm số lượng thông báo
                 var notificationCount = result.length;
                 $(".badge-count").text(notificationCount);
             },
@@ -687,7 +684,7 @@ $(() => {
             }
         });
     }
-    var isTyping = false; // Biến đánh dấu liệu người dùng có đang nhập hay không
+    var isTyping = false; 
 
     document.querySelector('.btn-chat').addEventListener('click', function () {
         isTyping = false;
@@ -732,7 +729,7 @@ $(() => {
     // chat box main
 
     document.querySelector('input[name="Message"]').addEventListener('input', function () {
-        var messageInput = this.value.trim(); // Lấy giá trị của input và loại bỏ các khoảng trắng ở đầu và cuối
+        var messageInput = this.value.trim();
         if (messageInput === '') {
             isTyping = false;
             connection.invoke("NotifyTyping", false).catch(function (err) {
@@ -763,7 +760,7 @@ $(() => {
 
     // xử lý trong phần private
     document.getElementById('input-chat-private').addEventListener('input', function () {
-        var messageInput = this.value.trim(); // Lấy giá trị của input và loại bỏ các khoảng trắng ở đầu và cuối
+        var messageInput = this.value.trim(); 
         if (messageInput == '') {
             isTyping = false;
             connection.invoke("NotifyTyping", false, receiverUserId).catch(function (err) {
@@ -790,7 +787,6 @@ $(() => {
             });
         }
     });
-    // xử lý trong phần private
 
 
     connection.on("OnConnected", function () {
@@ -819,7 +815,7 @@ $(() => {
         }
     });
     var senderUserId = currentUserId;
-    var receiverUserId = $('.receiverUserId').val(); // val để lấy giá trị từ form
+    var receiverUserId = $('.receiverUserId').val();
     function LoadPrivateMessages(senderUserId, receiverUserId) {
         $.ajax({
             url: '/ChatPrivate/GetPrivateMessages',
@@ -861,7 +857,7 @@ $(() => {
                         });
 
                         var imgDiv = $("<div>").css({
-                            "float": "right", // Chuyển sang bên phải
+                            "float": "right", 
                             "margin-left": "20px"
                         });
 
@@ -871,7 +867,7 @@ $(() => {
                             alt: senderName,
                             width: "40",
                             height: "40",
-                        }).css("float", "right"); // Chuyển hình ảnh sang bên phải
+                        }).css("float", "right"); 
 
                         imgDiv.append(avatarImg);
                         chatMessageRightDiv.append(imgDiv);
@@ -952,7 +948,7 @@ $(() => {
 
     connection.on("UpdateUsersOfflineList", function (userList) {
         var listGroupOnline = document.querySelector('.list-group-offline');
-        listGroupOnline.innerHTML = ""; // Xóa hết các thẻ a cũ trước khi cập nhật
+        listGroupOnline.innerHTML = ""; 
         var chatroomname = document.querySelector('.chat-name');
         var chatroomnamemini = document.querySelector('.chat-name-mini');
 

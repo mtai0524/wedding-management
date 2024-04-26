@@ -72,36 +72,39 @@ namespace CodeFirst.Controllers
             {
                 if (ModelState.IsValid || file == null)
                 {
-                    var notification = new Chat
+                    if(!string.IsNullOrEmpty(model.Message) && file == null || string.IsNullOrEmpty(model.Message) && file != null || !string.IsNullOrEmpty(model.Message) && file != null)
                     {
-                        UserId = user.Id,
-                        Message = model.Message,
-                        MessageType = "All",
-                        NotificationDateTime = DateTime.Now,
-                        Avatar = !string.IsNullOrEmpty(user.Avatar) ? user.Avatar : "https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg",
-                        ChatRoomDataId = model.ChatRoomId,
-                    };
-                    if (file != null)
-                    {
-                        var imagePath = await _cloudinaryService.UploadImageAsync(file);
-                        if (imagePath != null)
+                        var notification = new Chat
                         {
-                            notification.ImageChatRoom = imagePath;
+                            UserId = user.Id,
+                            Message = !string.IsNullOrEmpty(model.Message) ? model.Message : "",
+                            MessageType = "All",
+                            NotificationDateTime = DateTime.Now,
+                            Avatar = !string.IsNullOrEmpty(user.Avatar) ? user.Avatar : "https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg",
+                            ChatRoomDataId = model.ChatRoomId,
+                        };
+                        if (file != null)
+                        {
+                            var imagePath = await _cloudinaryService.UploadImageAsync(file);
+                            if (imagePath != null)
+                            {
+                                notification.ImageChatRoom = imagePath;
+                            }
                         }
-                    }
-                    dbContext.Chats.Add(notification);
-                    await dbContext.SaveChangesAsync();
-                    await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", notification);
+                        dbContext.Chats.Add(notification);
+                        await dbContext.SaveChangesAsync();
+                        await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", notification);
 
-                    return Json(new { success = true, notification });
+                        return Json(new { success = true, notification });
+                    }
                 }
 
             }
-
             return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors) });
+
         }
 
-    
+
         public IActionResult Index()
         {
             return View();
