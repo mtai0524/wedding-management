@@ -5,7 +5,7 @@
 @inject IJSRuntime JSRuntime
 @inject ProjectService _projectService
 @inject TaskToDoService _taskService
-@code{
+@code {
     private async Task CreateProject()
     {
         var project = new Project { Name = projectName };
@@ -14,44 +14,114 @@
         await _context.SaveChangesAsync();
         await LoadProject();
     }
-}
-  <div class='app'>
-        <div class='project'>
-            <div class='project-info'>
-            <form @onsubmit="CreateProject">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" @bind="projectName">
-                </div>
-                <button type="submit" class="btn btn-primary">Create</button>
-            </form>
-                <h1>Homepage Design</h1>
-                <button class="add-container-button">add</button>
-                <div class='project-participants'>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <button class='project-participants__add'>Add Participant</button>
+    private string taskName;
+    private int currentProjectId;
+    private async Task SaveTask()
+    {
+        // Lấy vị trí của task cuối cùng của dự án hiện tại
+        var lastTask = _context.TaskToDo
+                                 .Where(t => t.ProjectId == currentProjectId)
+                                 .OrderByDescending(t => t.Position)
+                                 .FirstOrDefault();
 
+        if (lastTask == null)
+        {
+            // Nếu không có task nào tồn tại trong dự án, tạo một task mới với vị trí là 1
+            lastTask = new CodeFirst.Models.Entities.TaskToDo
+                {
+                    Position = 1
+                };
+        }
+        // Tạo một task mới với vị trí tự động tăng
+        var task = new CodeFirst.Models.Entities.TaskToDo
+            {
+                Name = taskName,
+                Position = lastTask.Position + 1,
+                ProjectId = currentProjectId
+            };
+
+        // Thêm task vào cơ sở dữ liệu
+        _context.TaskToDo.Add(task);
+        await _context.SaveChangesAsync();
+        await LoadProject();
+    }
+
+
+    private async Task ShowAddTaskModal(int projectId)
+    {
+        currentProjectId = projectId;
+    }
+}
+<div class='app'>
+    <div class='project'>
+        <div class='project-info'>
+            <div class="modal fade" id="createProjectModal" tabindex="-1" aria-labelledby="createProjectModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="createProjectModalLabel">Create Project</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" id="name" @bind="projectName">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" @onclick="CreateProject">Create</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class='project-tasks' id='project-tasks'>
+
+            <h3>Quản lý công việc</h3>
+
+            <div class='project-participants'>
+                @*  <span></span>
+                <span></span>
+                <span></span>
+                <button class='project-participants__add'>Add Participant</button> *@
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createProjectModal">Thêm dự án</button>
+
+            </div>
+        </div>
+        <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Task</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" class="form-control" id="taskName" @bind="taskName" placeholder="Task Name">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" @onclick="SaveTask">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='project-tasks' id='project-tasks'>
             @foreach (var project in projectList)
             {
                 <div class="container-flex-col">
                     <div class='project-column-heading' draggable='false'>
                         <h2 class='project-column-heading__title' draggable='false'>@project.Name</h2>
-                        <button class='project-column-heading__options' draggable='false'>
+                        <button class='project-column-heading__options' draggable='false' @onclick="() => DeleteProject(project.ProjectId)">
                             <i class="fas fa-ellipsis-h" draggable='false'></i>
                         </button>
                     </div>
                     <div class='project-column'>
                         @{
-                            tasks = _taskService.GetListTaskByProjectId(project.ProjectId);
+                            tasks = _taskService.GetListTaskByProjectId(project.ProjectId).OrderBy(t => t.Position).ToList();
                         }
                         @foreach (var item in tasks)
                         {
-                             <div class='task' draggable='true'>
+                            <div class='task' draggable='true' data-task-id="@item.TaskId">
                                 <div class='task__tags'>
                                     <span class='task__tag task__tag--copyright'>@item.ProjectId</span>
                                     <button class='task__options'>
@@ -74,130 +144,40 @@
                         }
 
                     </div>
-                       
-                    <button class="add-task-button">Add Task</button>
+
+                    <button class="add-task-button" data-bs-toggle="modal" data-bs-target="#taskModal" @onclick="() => ShowAddTaskModal(project.ProjectId)">Add Task</button>
+
                 </div>
             }
-                     
-                <div class="container-flex-col">
-                    <div class='project-column-heading' draggable='false'>
-                        <h2 class='project-column-heading__title' draggable='false'>Task Ready</h2><button
-                            class='project-column-heading__options' draggable='false'><i class="fas fa-ellipsis-h"
-                                draggable='false'></i></button>
-                    </div>
-                    <div class='project-column'>
 
-                        <div class='task' draggable='true'>
-                            <div class='task__tags'><span
-                                    class='task__tag task__tag--copyright'>Copywriting</span><button
-                                    class='task__options'><i class="fas fa-ellipsis-h"></i></button></div>
-                            <p>Konsep hero title yang menarik</p>
-                            <div class='task__stats'>
-                                <span><time datetime="2021-11-24T20:00:00"><i class="fas fa-flag"></i>Nov
-                                        24</time></span>
-                                <span><i class="fas fa-comment"></i>3</span>
-                                <span><i class="fas fa-paperclip"></i>7</span>
-                                <span class='task__owner'></span>
-                            </div>
-                        </div>
-
-                        <div class='task' draggable='true'>
-                            <div class='task__tags'><span class='task__tag task__tag--design'>UI Design</span><button
-                                    class='task__options'><i class="fas fa-ellipsis-h"></i></button></div>
-                            <p>Icon di section our services</p>
-                            <div class='task__stats'>
-                                <span><time datetime="2021-11-24T20:00:00"><i class="fas fa-flag"></i>Nov
-                                        24</time></span>
-                                <span><i class="fas fa-comment"></i>2</span>
-                                <span><i class="fas fa-paperclip"></i>5</span>
-                                <span class='task__owner'></span>
-                            </div>
-                        </div>
-
-                        <div class='task' draggable='true'>
-                            <div class='task__tags'><span
-                                    class='task__tag task__tag--copyright'>Copywriting</span><button
-                                    class='task__options'><i class="fas fa-ellipsis-h"></i></button></div>
-                            <p> Konsep hero title yang menarikKonsep hero title yang menarikKonsep hero title yang
-                                menarikKonsep hero title yang menarikKonsep hero title yang menarikKonsep hero title
-                                yang menarikKonsep hero title yang menarikKonsep hero title yang menarikKonsep hero
-                                title yang menarik</p>
-                            <div class='task__stats'>
-                                <span><time datetime="2021-11-24T20:00:00"><i class="fas fa-flag"></i>Nov
-                                        24</time></span>
-                                <span><i class="fas fa-comment"></i>2</span>
-                                <span><i class="fas fa-paperclip"></i>3</span>
-                                <span class='task__owner'></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container-flex-col">
-                    <div class='project-column-heading'>
-                        <h2 class='project-column-heading__title'>In Progress</h2><button
-                            class='project-column-heading__options'><i class="fas fa-ellipsis-h"></i></button>
-                    </div>
-                    <div class='project-column'>
-                        <div class='task' draggable='true'>
-                            <div class='task__tags'><span class='task__tag task__tag--design'>UI Design</span><button
-                                    class='task__options'><i class="fas fa-ellipsis-h"></i></button></div>
-                            <p>Replace lorem ipsum text in the final designs</p>
-                            <div class='task__stats'>
-                                <span><time datetime="2021-11-24T20:00:00"><i class="fas fa-flag"></i>Nov
-                                        24</time></span>
-                                <span><i class="fas fa-comment"></i>5</span>
-                                <span><i class="fas fa-paperclip"></i>5</span>
-                                <span class='task__owner'></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-flex-col">
-                    <div class='project-column-heading'>
-                        <h2 class='project-column-heading__title'>In Progress</h2>
-                        <button class='project-column-heading__options'>
-                            <i class="fas fa-ellipsis-h"></i>
-                        </button>
-                    </div>
-                    <div class='project-column'>
-                        <div class='task' draggable='true'>
-                            <div class='task__tags'>
-                                <span class='task__tag task__tag--design'>UI Design</span>
-                                <button class='task__options'>
-                                    <i class="fas fa-ellipsis-h"></i>
-                                </button>
-                            </div>
-                            <p>Replace lorem ipsum text in the final designs</p>
-                            <div class='task__stats'>
-                                <span><time datetime="2021-11-24T20:00:00"><i class="fas fa-flag"></i>Nov
-                                        24</time></span>
-                                <span><i class="fas fa-comment"></i>5</span>
-                                <span><i class="fas fa-paperclip"></i>5</span>
-                                <span class='task__owner'></span>
-                            </div>
-                        </div>
-                        <!-- Thêm nút "Add Task" -->
-                        <button class="add-task-button">Add Task</button>
-                    </div>
-                </div>
-
-            </div>
+        </div>
 
 
     </div>
-    </div>
+</div>
 @code {
     List<Project> projectList { get; set; } = new List<Project>();
     List<CodeFirst.Models.Entities.TaskToDo> tasks { get; set; } = new List<CodeFirst.Models.Entities.TaskToDo>();
     [Inject] private ApplicationDbContext _context { get; set; }
     string projectName;
-  
+
 
     async Task LoadProject()
     {
         projectList = await _projectService.GetAllProject();
+    }
 
+    public async Task DeleteProject(int projectId)
+    {
+        var project = await _context.Projects.FindAsync(projectId);
+        if (project != null)
+        {
+            var tasksToDel = _context.TaskToDo.Where(x => x.ProjectId == projectId).ToList();
+            _context.TaskToDo.RemoveRange(tasksToDel);
+            _context.Projects.Remove(project);
+            await _context.SaveChangesAsync();
+            await LoadProject();
+        }
 
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -210,7 +190,6 @@
     }
     protected override async Task OnInitializedAsync()
     {
-        projectList = await _projectService.GetAllProject();
-
+        await LoadProject();
     }
 }
