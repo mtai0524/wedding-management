@@ -4,6 +4,7 @@ using CodeFirst.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodeFirst.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240426020128_addTableProject")]
+    partial class addTableProject
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -579,30 +582,6 @@ namespace CodeFirst.Migrations
                     b.ToTable("ServiceEntity");
                 });
 
-            modelBuilder.Entity("CodeFirst.Models.Entities.TaskToDo", b =>
-                {
-                    b.Property<int>("TaskId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TaskId"));
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Position")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProjectId")
-                        .HasColumnType("int");
-
-                    b.HasKey("TaskId");
-
-                    b.HasIndex("ProjectId");
-
-                    b.ToTable("TaskToDo");
-                });
-
             modelBuilder.Entity("CodeFirst.Models.Notifications.HubConnection", b =>
                 {
                     b.Property<int>("Id")
@@ -1073,15 +1052,6 @@ namespace CodeFirst.Migrations
                         .IsRequired();
 
                     b.Navigation("ServiceCategory");
-                });
-
-            modelBuilder.Entity("CodeFirst.Models.Entities.TaskToDo", b =>
-                {
-                    b.HasOne("CodeFirst.Models.Entities.Project", "Project")
-                        .WithMany()
-                        .HasForeignKey("ProjectId");
-
-                    b.Navigation("Project");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
