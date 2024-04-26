@@ -4,9 +4,27 @@
 @using CodeFirst.Service
 @inject IJSRuntime JSRuntime
 @inject ProjectService _projectService
+@inject TaskToDoService _taskService
+@code{
+    private async Task CreateProject()
+    {
+        var project = new Project { Name = projectName };
+
+        _context.Projects.Add(project);
+        await _context.SaveChangesAsync();
+        await LoadProject();
+    }
+}
   <div class='app'>
         <div class='project'>
             <div class='project-info'>
+            <form @onsubmit="CreateProject">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" @bind="projectName">
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
                 <h1>Homepage Design</h1>
                 <button class="add-container-button">add</button>
                 <div class='project-participants'>
@@ -28,29 +46,35 @@
                         </button>
                     </div>
                     <div class='project-column'>
-
-                        <div class='task' draggable='true'>
-                            <div class='task__tags'>
-                                <span class='task__tag task__tag--copyright'>Copywriting</span>
-                                <button class='task__options'>
-                                    <i class="fas fa-ellipsis-h"></i>
-                                </button>
+                        @{
+                            tasks = _taskService.GetListTaskByProjectId(project.ProjectId);
+                        }
+                        @foreach (var item in tasks)
+                        {
+                             <div class='task' draggable='true'>
+                                <div class='task__tags'>
+                                    <span class='task__tag task__tag--copyright'>@item.ProjectId</span>
+                                    <button class='task__options'>
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                <p>@item.Name</p>
+                                <div class='task__stats'>
+                                    <span>
+                                        <time datetime="2021-11-24T20:00:00">
+                                            <i class="fas fa-flag"></i>Nov
+                                            24
+                                        </time>
+                                    </span>
+                                    <span><i class="fas fa-comment"></i>3</span>
+                                    <span><i class="fas fa-paperclip"></i>7</span>
+                                    <span class='task__owner'></span>
+                                </div>
                             </div>
-                            <p>Konsep hero title yang menarik</p>
-                            <div class='task__stats'>
-                                <span>
-                                    <time datetime="2021-11-24T20:00:00">
-                                        <i class="fas fa-flag"></i>Nov
-                                        24
-                                    </time>
-                                </span>
-                                <span><i class="fas fa-comment"></i>3</span>
-                                <span><i class="fas fa-paperclip"></i>7</span>
-                                <span class='task__owner'></span>
-                            </div>
-                        </div>
+                        }
 
                     </div>
+                       
                     <button class="add-task-button">Add Task</button>
                 </div>
             }
@@ -164,20 +188,29 @@
     </div>
     </div>
 @code {
-    List<Project> projectList { get;set; } = new List<Project>();
+    List<Project> projectList { get; set; } = new List<Project>();
+    List<CodeFirst.Models.Entities.TaskToDo> tasks { get; set; } = new List<CodeFirst.Models.Entities.TaskToDo>();
     [Inject] private ApplicationDbContext _context { get; set; }
+    string projectName;
+  
+
+    async Task LoadProject()
+    {
+        projectList = await _projectService.GetAllProject();
 
 
+    }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await JSRuntime.InvokeVoidAsync("initProjectTasks");
-
         }
+        await JSRuntime.InvokeVoidAsync("drapAndDrop");
     }
     protected override async Task OnInitializedAsync()
     {
         projectList = await _projectService.GetAllProject();
+
     }
 }

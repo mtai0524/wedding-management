@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kcuDy2cEuR2zabFqIq1KPtqgTYMo7mKsQqZ4xJiLSeo=",
+  "Hash": "RnzlSF4CK8RO0Y+FEwxkd77Qgt4f6v8Ca5woJjqJJ78=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -5499,6 +5499,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\mydesign.css"
+    },
+    {
+      "Identity": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylesortable.css",
+      "SourceId": "CodeFirst",
+      "SourceType": "Project",
+      "ContentRoot": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "css/stylesortable.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\stylesortable.css"
     },
     {
       "Identity": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylethongke.css",

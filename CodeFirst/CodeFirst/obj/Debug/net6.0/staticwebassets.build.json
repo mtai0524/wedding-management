@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "a5bDnqgAjPqrHSMYbI7nfb+1mQd0suXI0x8BR6o8ogs=",
+  "Hash": "SOkvKjrTSFa0LvSxFdutc0JB5OHMyahg6FjChPXnS40=",
   "Source": "CodeFirst",
   "BasePath": "_content/CodeFirst",
   "Mode": "Default",
@@ -6988,6 +6988,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\tasktodo.js",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "js/tasktodo.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\tasktodo.js"
     },
     {
       "Identity": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js",

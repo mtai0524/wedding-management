@@ -1189,6 +1189,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\tasktodo.js",
+      "PackagePath": "staticwebassets\\js\\tasktodo.js"
+    },
+    {
       "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js",
       "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js"
     },

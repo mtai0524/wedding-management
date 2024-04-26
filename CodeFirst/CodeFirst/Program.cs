@@ -64,6 +64,7 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<UserBlazorService>();
 builder.Services.AddScoped<NotificationService>();
 builder.Services.AddScoped<ProjectService>();
+builder.Services.AddScoped<TaskToDoService>();
 
 // Cấu hình DI scope cho ASP.NET Core SignalR
 
