@@ -1117,6 +1117,10 @@
       "PackagePath": "staticwebassets\\css\\mydesign.css"
     },
     {
+      "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylesortable.css",
+      "PackagePath": "staticwebassets\\css\\stylesortable.css"
+    },
+    {
       "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylethongke.css",
       "PackagePath": "staticwebassets\\css\\stylethongke.css"
     },

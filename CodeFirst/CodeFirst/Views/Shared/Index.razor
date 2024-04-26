@@ -5,5 +5,36 @@
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+<div class="nav-item px-3">
+    <NavLink class="nav-link" href="task">
+        <i class="fa-regular fa-clipboard fs-6 me-3"></i> Tasks
+    </NavLink>
+</div>
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 10px;
+        padding: 10px;
+    }
 
+    .grid-item {
+        background-color: #ddd;
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+</style>
 <SurveyPrompt Title="How is Blazor working for you?" />
+<div class="grid-container">
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+    <div class="grid-item">7</div>
+    <div class="grid-item">8</div>
+    <div class="grid-item">9</div>
+</div>

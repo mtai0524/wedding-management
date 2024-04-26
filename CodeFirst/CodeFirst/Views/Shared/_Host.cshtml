@@ -19,4 +19,135 @@
             input.value = '';
         }
     }
+    function initProjectTasks() {
+            // Tạo một Sortable instance cho mỗi cột
+            var columns = document.querySelectorAll('.project-column');
+            columns.forEach(function (column) {
+                new Sortable(column, {
+                    group: 'tasks', // Group cho phép kéo thả giữa các cột
+                    animation: 150, // Thời gian animation khi di chuyển
+                    ghostClass: 'task-placeholder', // Class của phần tử placeholder khi kéo thả
+                    filter: '.project-column-heading__title',
+                    onEnd: function (evt) {
+                        console.log('Đã di chuyển một task từ cột', evt.from.id, 'đến cột', evt.to.id);
+                        // Thêm logic xử lý khi di chuyển một task từ cột này đến cột khác (nếu cần)
+                    }
+                });
+            });
+
+            // Xử lý sự kiện khi người dùng nhấp vào nút thêm vùng chứa task
+            // Xử lý sự kiện khi người dùng nhấp vào nút thêm vùng chứa task
+            var addContainerButton = document.querySelector('.add-container-button');
+            addContainerButton.addEventListener('click', function () {
+                var projectTasks = document.getElementById('project-tasks');
+                // Tạo một vùng chứa task mới
+                var newContainer = document.createElement('div');
+                newContainer.classList.add('project-column');
+                var containerFlexCol = document.createElement('div');
+                containerFlexCol.classList.add('container-flex-col');
+                // Thêm tiêu đề cho vùng chứa task mới (có thể tùy chỉnh theo nhu cầu)
+                var newContainerHeading = document.createElement('div');
+                newContainerHeading.classList.add('project-column-heading');
+                var newContainerTitle = document.createElement('h2');
+                newContainerTitle.classList.add('project-column-heading__title');
+                newContainerTitle.textContent = 'New Column'; // Tiêu đề của vùng chứa task mới
+                containerFlexCol.appendChild(newContainerTitle);
+                containerFlexCol.appendChild(newContainerHeading);
+                containerFlexCol.appendChild(newContainer);
+                // Thêm vùng chứa task mới vào trước vùng chứa nút thêm
+                projectTasks.appendChild(containerFlexCol);
+
+                // Tạo nút "Add Task" mới và thêm vào vùng chứa task mới
+                var addTaskButton = document.createElement('button');
+                addTaskButton.textContent = 'Add Task';
+                addTaskButton.classList.add('add-task-button');
+                containerFlexCol.appendChild(addTaskButton);
+
+                // Tạo một Sortable instance cho vùng chứa task mới
+                new Sortable(newContainer, {
+                    group: 'tasks', // Group cho phép kéo thả giữa các cột
+                    animation: 150, // Thời gian animation khi di chuyển
+                    ghostClass: 'task-placeholder', // Class của phần tử placeholder khi kéo thả
+                    onEnd: function (evt) {
+                        console.log('Đã di chuyển một task từ cột', evt.from.id, 'đến cột', evt.to.id);
+                        // Thêm logic xử lý khi di chuyển một task từ cột này đến cột khác (nếu cần)
+                    }
+                });
+
+                // Xử lý sự kiện khi người dùng nhấp vào nút "Add Task" mới
+                addTaskButton.addEventListener('click', function () {
+                    // Prompt để người dùng nhập nội dung task mới
+                    var taskContent = prompt('Enter task content:');
+                    if (taskContent) {
+                        // Tạo một phần tử task mới
+                        var newTask = document.createElement('div');
+                        newTask.classList.add('task');
+                        newTask.setAttribute('draggable', 'true');
+                        newTask.innerHTML = `
+                    <div class='task__tags'></div>
+                    <p>${taskContent}</p>
+                    <div class='task__stats'>
+                        <span><time datetime="2021-11-24T20:00:00"><i class="fas fa-flag"></i>Nov 24</time></span>
+                        <span><i class="fas fa-comment"></i>0</span>
+                        <span><i class="fas fa-paperclip"></i>0</span>
+                        <span class='task__owner'></span>
+                    </div>
+                `;
+                        // Thêm task mới vào vùng chứa task
+                        newContainer.appendChild(newTask);
+                    }
+                });
+            });
+
+
+
+        const addTaskButtons = document.querySelectorAll('.add-task-button');
+
+        // Thêm sự kiện click cho mỗi nút "Add Task"
+        addTaskButtons.forEach(function (addTaskButton) {
+            addTaskButton.addEventListener('click', function () {
+                // Hỏi người dùng để nhập tên nhiệm vụ
+                const taskName = prompt('Enter task name:');
+                if (!taskName) {
+                    // Nếu người dùng không nhập tên nhiệm vụ, thoát khỏi hàm
+                    return;
+                }
+
+                // Tạo một phần tử div mới để chứa thông tin về nhiệm vụ
+                const newTask = document.createElement('div');
+                newTask.classList.add('task');
+                newTask.setAttribute('draggable', 'true');
+
+                // HTML của nhiệm vụ mới, sử dụng tên nhiệm vụ đã nhập
+                newTask.innerHTML = `
+            <div class='task__tags'>
+                <span class='task__tag task__tag--copyright'>${taskName}</span>
+                <button class='task__options'>
+                    <i class="fas fa-ellipsis-h"></i>
+                </button>
+            </div>
+            <p>New Task Description</p>
+            <div class='task__stats'>
+                <span>
+                    <time datetime="${new Date().toISOString()}">
+                        <i class="fas fa-flag"></i> ${new Date().toLocaleDateString()}
+                    </time>
+                </span>
+                <span><i class="fas fa-comment"></i>0</span>
+                <span><i class="fas fa-paperclip"></i>0</span>
+                <span class='task__owner'></span>
+            </div>
+        `;
+
+                // Thêm nhiệm vụ mới vào cột dự án
+                // Tìm cột dự án gần nhất với nút "Add Task" được nhấp
+                const projectColumn = this.closest('.container-flex-col').querySelector('.project-column');
+                projectColumn.appendChild(newTask);
+            });
+        });
+
+
+
+    }
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
