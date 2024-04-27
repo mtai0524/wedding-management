@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Nupz7gjax9gleffne7fyScjwNkNJKyA6YAHAagaud0c=",
+  "Hash": "QLy8FWZtoU7zJdv2rxt58cdBMYWPAOSwFGb/reDLlvI=",
   "Source": "CodeFirst",
   "BasePath": "_content/CodeFirst",
   "Mode": "Default",
@@ -6648,6 +6648,25 @@
       "OriginalItemSpec": "wwwroot\\css\\mydesign.css"
     },
     {
+      "Identity": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylesortable.css",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "css/stylesortable.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\stylesortable.css"
+    },
+    {
       "Identity": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylethongke.css",
       "SourceId": "CodeFirst",
       "SourceType": "Discovered",
@@ -6969,6 +6988,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\tasktodo.js",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "js/tasktodo.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\tasktodo.js"
     },
     {
       "Identity": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js",

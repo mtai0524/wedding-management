@@ -35,56 +35,81 @@
         }
     });
 
-
     function drapAndDrop() {
         var columns = document.querySelectorAll('.project-column');
         columns.forEach(function (column) {
             new Sortable(column, {
-                group: 'tasks', 
-                animation: 500, 
+                group: 'tasks',
+                animation: 150,
                 ghostClass: 'task-placeholder',
                 filter: '.project-column-heading__title',
                 onEnd: async function (evt) {
                     var tasks = evt.to.querySelectorAll('.task');
-                    tasks.forEach(async function (task, index) {
-                        console.log(task.toString() + " " +index.toString());
-                        // Lấy id của task từ data-attribute hoặc các thuộc tính khác phù hợp
+                    var numTasks = tasks.length;
+
+                    // Tính toán vị trí mới của mỗi phần tử dựa trên sự kiện kéo thả
+                    for (var i = 0; i < numTasks; i++) {
+                        var task = tasks[i];
                         var taskId = task.getAttribute('data-task-id');
-                        // Cập nhật vị trí của task trong cơ sở dữ liệu
-                        await updateTaskPosition(taskId, index);
-                    });
+                        var newPosition = Array.from(task.parentNode.children).indexOf(task);
+
+                        // Cập nhật vị trí của tác vụ
+                        await updateTaskPosition(taskId, newPosition);
+                    }
                 }
             });
         });
     }
+
+
     async function updateTaskPosition(taskId, position) {
-        // Gửi request để cập nhật vị trí của task trong cơ sở dữ liệu bằng AJAX
-        $.ajax({
-            url: `/api/tasks/${taskId}`,
-            method: 'PUT',
-            contentType: 'application/json',
-            data: JSON.stringify({ position: position }),
-            success: function (data) {
-                console.log('Cập nhật vị trí task thành công:', data);
-            },
-            error: function (xhr, textStatus, errorThrown) {
-                console.error('Lỗi khi cập nhật vị trí task:', textStatus, errorThrown);
+        try {
+            const response = await fetch(`/api/tasks/${taskId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ position: position })
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        });
+
+            console.log('Vị trí tác vụ đã được cập nhật thành công');
+        } catch (error) {
+            console.error('Lỗi khi cập nhật vị trí tác vụ:', error);
+        }
     }
+
+
     function initProjectTasks() {
         // Tạo một Sortable instance cho mỗi cột
         var columns = document.querySelectorAll('.project-column');
         columns.forEach(function (column) {
             new Sortable(column, {
                 group: 'tasks', // Group cho phép kéo thả giữa các cột
-                animation: 500, // Thời gian animation khi di chuyển
+                animation: 150, // Thời gian animation khi di chuyển
                 ghostClass: 'task-placeholder', // Class của phần tử placeholder khi kéo thả
                 filter: '.project-column-heading__title',
-                
+                onEnd: async function (evt) {
+                    var tasks = evt.to.querySelectorAll('.task');
+                    var numTasks = tasks.length;
+
+                    // Tính toán vị trí mới của mỗi phần tử dựa trên sự kiện kéo thả
+                    for (var i = 0; i < numTasks; i++) {
+                        var task = tasks[i];
+                        var taskId = task.getAttribute('data-task-id');
+                        var newPosition = Array.from(task.parentNode.children).indexOf(task);
+
+                        // Cập nhật vị trí của tác vụ
+                        await updateTaskPosition(taskId, newPosition);
+                    }
+                }
             });
         });
     }
+
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>

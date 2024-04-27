@@ -1117,6 +1117,10 @@
       "PackagePath": "staticwebassets\\css\\mydesign.css"
     },
     {
+      "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylesortable.css",
+      "PackagePath": "staticwebassets\\css\\stylesortable.css"
+    },
+    {
       "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylethongke.css",
       "PackagePath": "staticwebassets\\css\\stylethongke.css"
     },
@@ -1183,6 +1187,10 @@
     {
       "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\tasktodo.js",
+      "PackagePath": "staticwebassets\\js\\tasktodo.js"
     },
     {
       "Id": "T:\\Test\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js",

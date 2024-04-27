@@ -39,4 +39,3 @@
 //        projectColumn.appendChild(newTask);
 //    }
 //});
-
