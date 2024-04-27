@@ -115,7 +115,7 @@
                             <i class="fas fa-ellipsis-h" draggable='false'></i>
                         </button>
                     </div>
-                    <div class='project-column'>
+                    <div class='project-column' data-project-id="@project.ProjectId">
                         @{
                             tasks = _taskService.GetListTaskByProjectId(project.ProjectId).OrderBy(t => t.Position).ToList();
                         }

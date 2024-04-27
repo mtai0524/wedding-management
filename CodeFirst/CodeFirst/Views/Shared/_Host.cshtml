@@ -47,29 +47,31 @@
                     var tasks = evt.to.querySelectorAll('.task');
                     var numTasks = tasks.length;
 
+                    // Xác định project mới mà task được kéo thả đến
+                    var newProjectId = evt.to.closest('.project-column').getAttribute('data-project-id');
+                    console.log("newProjectId: " + newProjectId);
+
                     // Tính toán vị trí mới của mỗi phần tử dựa trên sự kiện kéo thả
                     for (var i = 0; i < numTasks; i++) {
                         var task = tasks[i];
                         var taskId = task.getAttribute('data-task-id');
                         var newPosition = Array.from(task.parentNode.children).indexOf(task);
-
                         // Cập nhật vị trí của tác vụ
-                        await updateTaskPosition(taskId, newPosition);
+                        await updateTaskPosition(taskId, newPosition, newProjectId);
                     }
                 }
             });
         });
     }
 
-
-    async function updateTaskPosition(taskId, position) {
+    async function updateTaskPosition(taskId, position, projectId) {
         try {
             const response = await fetch(`/api/tasks/${taskId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ position: position })
+                body: JSON.stringify({ position: position, projectId: projectId })
             });
 
             if (!response.ok) {
@@ -81,6 +83,7 @@
             console.error('Lỗi khi cập nhật vị trí tác vụ:', error);
         }
     }
+
 
 
     function initProjectTasks() {
@@ -96,6 +99,11 @@
                     var tasks = evt.to.querySelectorAll('.task');
                     var numTasks = tasks.length;
 
+                    // Xác định project mới mà task được kéo thả đến
+                    var newProjectId = evt.to.closest('.project-column').getAttribute('data-project-id');
+
+                    console.log("newProjectId: " + newProjectId);
+
                     // Tính toán vị trí mới của mỗi phần tử dựa trên sự kiện kéo thả
                     for (var i = 0; i < numTasks; i++) {
                         var task = tasks[i];
@@ -103,7 +111,7 @@
                         var newPosition = Array.from(task.parentNode.children).indexOf(task);
 
                         // Cập nhật vị trí của tác vụ
-                        await updateTaskPosition(taskId, newPosition);
+                        await updateTaskPosition(taskId, newPosition, newProjectId);
                     }
                 }
             });
