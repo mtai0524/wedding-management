@@ -52,7 +52,6 @@ namespace CodeFirst.Controllers
             task.Position = newPosition.Position;
             _context.Update(task);
             await _context.SaveChangesAsync();
-
             return NoContent();
         }
 

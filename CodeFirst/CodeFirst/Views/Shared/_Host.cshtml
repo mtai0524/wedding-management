@@ -84,7 +84,24 @@
         });
     }
 
-  
+      // Tạo một MutationObserver để theo dõi sự thay đổi trong DOM
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1 && node.matches('.project-column')) {
+                        initProjectTasks();
+                    }
+                });
+            }
+        });
+    });
+
+    // Cấu hình MutationObserver để theo dõi sự thay đổi trong toàn bộ document
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Chạy initProjectTasks cho các phần tử .project-column hiện có
+    initProjectTasks();
 
 
 

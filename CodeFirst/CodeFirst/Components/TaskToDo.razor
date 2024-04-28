@@ -12,19 +12,29 @@
 @inject IHubContext<MyBlazorHub> _hubContext
 
 @code {
-    public async Task UpdateState()
+    static int changeCounter = 0;
+    public async Task UpdateStateAndSortTasks()
     {
+        projectList.Clear();
+        tasks.Clear();
+        changeCounter++;
         projectList = _context.Projects.ToList();
-
         foreach (var project in projectList)
         {
-            // Lấy danh sách công việc cho mỗi dự án từ cơ sở dữ liệu
-            project.TaskToDoProp =  _context.TaskToDo
-                                                        .Where(t => t.ProjectId == project.ProjectId)
-                                                        .OrderBy(t => t.Position)
-                                                        .ToList();
+            var tasksForProject = _context.TaskToDo.Where(t => t.ProjectId == project.ProjectId).ToList();
+            tasksForProject = InsertionSortTasks(tasksForProject);
+            for (int i = 0; i < tasksForProject.Count; i++)
+            {
+                tasksForProject[i].Position = i;
+            }
+            project.TaskToDoProp = tasksForProject;
         }
+
+        _context.SaveChanges();
+        StateHasChanged();
     }
+
+
     public async Task DeleteProject(int projectId)
     {
         var project = await _context.Projects.FindAsync(projectId);
@@ -80,6 +90,23 @@
     {
         currentProjectId = projectId;
     }
+    public static List<CodeFirst.Models.Entities.TaskToDo> InsertionSortTasks(List<CodeFirst.Models.Entities.TaskToDo> tasks)
+    {
+        for (int i = 1; i < tasks.Count; i++)
+        {
+            CodeFirst.Models.Entities.TaskToDo key = tasks[i];
+            int j = i - 1;
+
+            while (j >= 0 && tasks[j].Position > key.Position)
+            {
+                tasks[j + 1] = tasks[j];
+                j = j - 1;
+            }
+            tasks[j + 1] = key;
+        }
+
+        return tasks;
+    }
 }
 <div class='app'>
     <div class='project'>
@@ -113,7 +140,7 @@
                 <span></span>
                 <button class='project-participants__add'>Add Participant</button> *@
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createProjectModal">Thêm dự án</button>
-                <button type="submit" class="btn btn-primary" @onclick="UpdateState">Update]</button>
+                <button type="submit" class="btn btn-primary" @onclick="UpdateStateAndSortTasks">Update]</button>
             </div>
         </div>
         <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -137,35 +164,39 @@
         <div class='project-tasks' id='project-tasks'>
             @foreach (var project in projectList)
             {
-                <div class="container-flex-col">
+                <div class="container-flex-col" @key="@project.ProjectId">
                     <div class='project-column-heading' draggable='false'>
                         <h2 class='project-column-heading__title' draggable='false'>@project.Name</h2>
                         <button class='project-column-heading__options' draggable='false' @onclick="() => DeleteProject(project.ProjectId)">
                             <i class="fas fa-ellipsis-h" draggable='false'></i>
                         </button>
                     </div>
-                    <div class='project-column' data-project-id="@project.ProjectId">
-                        @foreach (var task in project.TaskToDoProp)
+                    <div class='project-column' data-project-id="@project.ProjectId" @key="@changeCounter">
+                        @{
+                            tasks = InsertionSortTasks(project.TaskToDoProp).ToList();
+                        }
+                        @foreach (var task in tasks)
                         {
-                            <div class='task' draggable='true' data-task-id="@task.TaskId">
-                                <div class='task__tags'>
-                                    <span class='task__tag task__tag--copyright'>@task.ProjectId</span>
-                                    <button class='task__options'>
-                                        <i class="fas fa-ellipsis-h"></i>
-                                    </button>
+                                <div class='task' draggable='true' data-task-id="@task.TaskId" @key="@task.TaskId">
+                                    <div class='task__tags'>
+                                        <span class='task__tag task__tag--copyright' @key="@task.ProjectId">@task.ProjectId</span>
+                                        <button class='task__options'>
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                    </div>
+                                    <p>@task.Name</p>
+                                    <div class='task__stats'>
+                                        <span>
+                                            <time datetime="2021-11-24T20:00:00">
+                                                <i class="fas fa-flag"></i>Nov 24
+                                            </time>
+                                        </span>
+                                        <span><i class="fas fa-comment"></i>3</span>
+                                        <span><i class="fas fa-paperclip"></i>@task.Position</span>
+                                        <span class='task__owner' @key=@task.Position></span>
+                                    </div>
                                 </div>
-                                <p>@task.Name</p>
-                                <div class='task__stats'>
-                                    <span>
-                                        <time datetime="2021-11-24T20:00:00">
-                                            <i class="fas fa-flag"></i>Nov 24
-                                        </time>
-                                    </span>
-                                    <span><i class="fas fa-comment"></i>3</span>
-                                    <span><i class="fas fa-paperclip"></i>7</span>
-                                    <span class='task__owner'></span>
-                                </div>
-                            </div>
+                          
                         }
                     </div>
                     <button class="add-task-button" data-bs-toggle="modal" data-bs-target="#taskModal" @onclick="() => ShowAddTaskModal(project.ProjectId)">Add Task</button>
@@ -188,64 +219,54 @@
     async Task LoadProject()
     {
         projectList = _context.Projects.ToList();
+        var allTasks = _context.TaskToDo.ToList();
         foreach (var project in projectList)
         {
-            project.TaskToDoProp = _context.TaskToDo
-                                                     .Where(t => t.ProjectId == project.ProjectId)
-                                                     .OrderBy(t => t.Position)
-                                                     .ToList();
+            project.TaskToDoProp = allTasks.Where(t => t.ProjectId == project.ProjectId).OrderBy(t => t.Position).ToList();
         }
+        StateHasChanged();
     }
-    public async Task Init()
-    {
-        hubConnection = new HubConnectionBuilder()
-           // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/chatHub")) // docker
-           .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
-           .Build();
+    // public async Task Init()
+    // {
+    //     hubConnection = new HubConnectionBuilder()
+    //        // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/chatHub")) // docker
+    //        .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
+    //        .Build();
 
-        hubConnection.On<List<Project>>("ProjectCreated", receivedProducts =>
-        {
-            InvokeAsync(() =>
-            {
-                projectList = receivedProducts;
-                StateHasChanged();
-            });
-        });
+    //     hubConnection.On<List<Project>>("ProjectCreated", receivedProducts =>
+    //     {
+    //         InvokeAsync(() =>
+    //         {
+    //             projectList = receivedProducts;
+    //             StateHasChanged();
+    //         });
+    //     });
     
-        try
-        {
-            await hubConnection.StartAsync();
+    //     try
+    //     {
+    //         await hubConnection.StartAsync();
 
-        }
-        catch (Exception ex)
-        {
-        }
-        await base.OnInitializedAsync();
-    }
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //     }
+    //     await base.OnInitializedAsync();
+    // }
    
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await JSRuntime.InvokeVoidAsync("initProjectTasks");
-        }
-        await JSRuntime.InvokeVoidAsync("drapAndDrop");
-    }
+    // protected override async Task OnAfterRenderAsync(bool firstRender)
+    // {
+    //     if (firstRender)
+    //     {
+    //         await UpdateState();
+    //     }
+    //     await UpdateState();
+    // }
 
     private HubConnection hubConnection;
 
     protected override async Task OnInitializedAsync()
-    {
-        projectList = _context.Projects.ToList();
-
-        foreach (var project in projectList)
-        {
-            // Lấy danh sách công việc cho mỗi dự án từ cơ sở dữ liệu
-            project.TaskToDoProp = _context.TaskToDo
-                                                     .Where(t => t.ProjectId == project.ProjectId)
-                                                     .OrderBy(t => t.Position)
-                                                     .ToList();
-        }
-        // await Init();
-    }
+{
+    // Cập nhật danh sách công việc cho mỗi dự án
+        await UpdateStateAndSortTasks();
+}
 }
