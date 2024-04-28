@@ -34,6 +34,26 @@
             closeModal(event.target.closest('.modal').id);
         }
     });
+   
+    async function updateTaskPosition(taskId, position, projectId) {
+        try {
+            const response = await fetch(`/api/tasks/${taskId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ position: position, projectId: projectId })
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            console.log('Vị trí tác vụ đã được cập nhật thành công');
+        } catch (error) {
+            console.error('Lỗi khi cập nhật vị trí tác vụ:', error);
+        }
+    }
 
     function drapAndDrop() {
         var columns = document.querySelectorAll('.project-column');
@@ -64,25 +84,7 @@
         });
     }
 
-    async function updateTaskPosition(taskId, position, projectId) {
-        try {
-            const response = await fetch(`/api/tasks/${taskId}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ position: position, projectId: projectId })
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            console.log('Vị trí tác vụ đã được cập nhật thành công');
-        } catch (error) {
-            console.error('Lỗi khi cập nhật vị trí tác vụ:', error);
-        }
-    }
+  
 
 
 

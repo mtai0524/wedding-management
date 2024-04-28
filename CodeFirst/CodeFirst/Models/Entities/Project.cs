@@ -13,6 +13,6 @@ namespace CodeFirst.Models.Entities
         //public DateTime? CreatedAt { get; set; }
         //public DateTime? UpdatedAt { get; set; }
 
-        //public List<Task>? Tasks { get; set; }
+        public virtual List<TaskToDo> TaskToDoProp { get; set; }
     }
 }

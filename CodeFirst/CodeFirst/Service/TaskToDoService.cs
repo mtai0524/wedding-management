@@ -19,6 +19,15 @@ namespace CodeFirst.Service
                     .ToList();
             return tasks;
         }
+        public async Task<List<Project>> GetAllProjectsAsync()
+        {
+            return await _dbContext.Projects.ToListAsync();
+        }
+
+        public async Task<List<TaskToDo>> GetAllTasksAsync()
+        {
+            return await _dbContext.TaskToDo.ToListAsync();
+        }
         public void UpdateTaskPosition(int taskId, int targetTaskId)
         {
             var task = _dbContext.TaskToDo.FirstOrDefault(t => t.TaskId == taskId);

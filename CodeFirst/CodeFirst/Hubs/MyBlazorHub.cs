@@ -23,7 +23,16 @@ namespace CodeFirst.Hubs
             _userManager = userManager;
             _signInManager = signInManager;
         }
-
+        public async Task SendProjectCreatedNotification()
+        {
+            var listBranch = _context.Projects.ToListAsync();
+            await Clients.Others.SendAsync("ProjectCreated", listBranch);
+        }
+        public async Task SendTaskCreatedNotification()
+        {
+            var listBranch = _context.TaskToDo.ToListAsync();
+            await Clients.All.SendAsync("TaskCreated", listBranch);
+        }
         public async Task SendBranchCreatedNotification()
         {
             var listBranch = _context.Branch.ToListAsync();
