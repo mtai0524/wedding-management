@@ -1,32 +1,35 @@
 ﻿using CodeFirst.Data;
 using CodeFirst.Models;
+using CodeFirst.Models.Entities;
 using CodeFirst.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Build.ObjectModelRemoting;
 using Microsoft.EntityFrameworkCore;
+using static CodeFirst.Controllers.TaskToDoController;
 
 namespace CodeFirst.Hubs
 {
     public class MyBlazorHub:Hub
     {
         private readonly ApplicationDbContext _context;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly UserService _userService;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ProjectService _projectService;
 
-        public MyBlazorHub(ApplicationDbContext context, UserService userServer, IHttpContextAccessor httpContextAccessor, UserService userService, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+
+        public MyBlazorHub(ApplicationDbContext context, ProjectService projectService)
         {
             _context = context;
-            _httpContextAccessor = httpContextAccessor;
-            _userService = userService;
-            _userManager = userManager;
-            _signInManager = signInManager;
+            _projectService = projectService;
         }
         public async Task SendProjectCreatedNotification()
         {
-            var listBranch = _context.Projects.ToListAsync();
-            await Clients.All.SendAsync("ProjectCreated", listBranch);
+            List<Project> projectList = await _projectService.GetAllProjects();
+
+            await Clients.Others.SendAsync("ProjectCreated", projectList);
+        }
+        public async Task SendTaskUpdate(TaskPositionUpdateDto task)
+        {
+            await Clients.All.SendAsync("TaskUpdated", task);
         }
         public async Task SendTaskCreatedNotification()
         {
