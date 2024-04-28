@@ -5,6 +5,7 @@
 @using CodeFirst.Service
 @using Microsoft.AspNetCore.SignalR
 @using Microsoft.AspNetCore.SignalR.Client
+@using Microsoft.EntityFrameworkCore
 @inject IJSRuntime JSRuntime
 @inject ProjectService _projectService
 @inject TaskToDoService _taskService
@@ -36,15 +37,14 @@
         var project = await _context.Projects.FindAsync(projectId);
         if (project != null)
         {
-            var tasksToDel = _context.TaskToDo.Where(x => x.ProjectId == projectId).ToList();
+            var tasksToDel = _context.TaskToDo.AsNoTracking().Where(x => x.ProjectId == projectId).ToList();
             _context.TaskToDo.RemoveRange(tasksToDel);
             _context.Projects.Remove(project);
             await _context.SaveChangesAsync();
             await LoadProject();
-
         }
-
     }
+
     private async Task CreateProject()
     {
         var project = new Project { Name = projectName };
@@ -207,7 +207,6 @@
             project.TaskToDoProp = tasksForProject;
         }
         await _hubContext.Clients.All.SendAsync("ProjectCreated", projectList);
-
     }
     public async Task Init()
     {

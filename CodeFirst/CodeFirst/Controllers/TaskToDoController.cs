@@ -1,5 +1,6 @@
 ﻿using CodeFirst.Data;
 using CodeFirst.Hubs;
+using CodeFirst.Models.Entities;
 using CodeFirst.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
@@ -52,10 +53,15 @@ namespace CodeFirst.Controllers
             task.Position = newPosition.Position;
             _context.Update(task);
             await _context.SaveChangesAsync();
-            return NoContent();
-            var projectList = _context.Projects.ToList();
-         
+            List<Project> projectList = await _context.Projects.ToListAsync();
+
+            foreach (var project in projectList)
+            {
+                var tasksForProject = _context.TaskToDo.Where(t => t.ProjectId == project.ProjectId).OrderBy(t => t.Position).ToList();
+                project.TaskToDoProp = tasksForProject;
+            }
             await _hubContext.Clients.All.SendAsync("ProjectCreated", projectList);
+            return NoContent();
         }
 
 
