@@ -53,6 +53,9 @@ namespace CodeFirst.Controllers
             _context.Update(task);
             await _context.SaveChangesAsync();
             return NoContent();
+            var projectList = _context.Projects.ToList();
+         
+            await _hubContext.Clients.All.SendAsync("ProjectCreated", projectList);
         }
 
 

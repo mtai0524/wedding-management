@@ -26,7 +26,7 @@ namespace CodeFirst.Hubs
         public async Task SendProjectCreatedNotification()
         {
             var listBranch = _context.Projects.ToListAsync();
-            await Clients.Others.SendAsync("ProjectCreated", listBranch);
+            await Clients.All.SendAsync("ProjectCreated", listBranch);
         }
         public async Task SendTaskCreatedNotification()
         {

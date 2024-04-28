@@ -21,17 +21,13 @@
         projectList = _context.Projects.ToList();
         foreach (var project in projectList)
         {
-            var tasksForProject = _context.TaskToDo.Where(t => t.ProjectId == project.ProjectId).ToList();
-            tasksForProject = InsertionSortTasks(tasksForProject);
-            for (int i = 0; i < tasksForProject.Count; i++)
-            {
-                tasksForProject[i].Position = i;
-            }
+            var tasksForProject = _context.TaskToDo.Where(t => t.ProjectId == project.ProjectId).OrderBy(t => t.Position).ToList();
             project.TaskToDoProp = tasksForProject;
         }
 
         _context.SaveChanges();
         StateHasChanged();
+
     }
 
 
@@ -44,6 +40,8 @@
             _context.TaskToDo.RemoveRange(tasksToDel);
             _context.Projects.Remove(project);
             await _context.SaveChangesAsync();
+            await LoadProject();
+
         }
 
     }
@@ -53,6 +51,8 @@
 
         _context.Projects.Add(project);
         await _context.SaveChangesAsync();
+        await LoadProject();
+
     }
     private string taskName;
     private int currentProjectId;
@@ -83,6 +83,7 @@
         // Thêm task vào cơ sở dữ liệu
         _context.TaskToDo.Add(task);
         await _context.SaveChangesAsync();
+        await LoadProject();
     }
 
 
@@ -90,23 +91,7 @@
     {
         currentProjectId = projectId;
     }
-    public static List<CodeFirst.Models.Entities.TaskToDo> InsertionSortTasks(List<CodeFirst.Models.Entities.TaskToDo> tasks)
-    {
-        for (int i = 1; i < tasks.Count; i++)
-        {
-            CodeFirst.Models.Entities.TaskToDo key = tasks[i];
-            int j = i - 1;
-
-            while (j >= 0 && tasks[j].Position > key.Position)
-            {
-                tasks[j + 1] = tasks[j];
-                j = j - 1;
-            }
-            tasks[j + 1] = key;
-        }
-
-        return tasks;
-    }
+   
 }
 <div class='app'>
     <div class='project'>
@@ -172,10 +157,8 @@
                         </button>
                     </div>
                     <div class='project-column' data-project-id="@project.ProjectId" @key="@changeCounter">
-                        @{
-                            tasks = InsertionSortTasks(project.TaskToDoProp).ToList();
-                        }
-                        @foreach (var task in tasks)
+
+                        @foreach (var task in project.TaskToDoProp.Where(t=> @project.ProjectId == t.ProjectId).OrderBy(t => t.Position))
                         {
                                 <div class='task' draggable='true' data-task-id="@task.TaskId" @key="@task.TaskId">
                                     <div class='task__tags'>
@@ -215,44 +198,44 @@
     [Inject] private ApplicationDbContext _context { get; set; }
     string projectName;
 
-
     async Task LoadProject()
     {
         projectList = _context.Projects.ToList();
-        var allTasks = _context.TaskToDo.ToList();
         foreach (var project in projectList)
         {
-            project.TaskToDoProp = allTasks.Where(t => t.ProjectId == project.ProjectId).OrderBy(t => t.Position).ToList();
+            var tasksForProject = _context.TaskToDo.Where(t => t.ProjectId == project.ProjectId).OrderBy(t => t.Position).ToList();
+            project.TaskToDoProp = tasksForProject;
         }
-        StateHasChanged();
+        await _hubContext.Clients.All.SendAsync("ProjectCreated", projectList);
+
     }
-    // public async Task Init()
-    // {
-    //     hubConnection = new HubConnectionBuilder()
-    //        // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/chatHub")) // docker
-    //        .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
-    //        .Build();
+    public async Task Init()
+    {
+        hubConnection = new HubConnectionBuilder()
+           // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/chatHub")) // docker
+           .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
+           .Build();
 
-    //     hubConnection.On<List<Project>>("ProjectCreated", receivedProducts =>
-    //     {
-    //         InvokeAsync(() =>
-    //         {
-    //             projectList = receivedProducts;
-    //             StateHasChanged();
-    //         });
-    //     });
-    
-    //     try
-    //     {
-    //         await hubConnection.StartAsync();
+        hubConnection.On<List<Project>>("ProjectCreated", receivedProducts =>
+        {
+            InvokeAsync(() =>
+            {
+                projectList = receivedProducts;
+                StateHasChanged();
+            });
+        });
 
-    //     }
-    //     catch (Exception ex)
-    //     {
-    //     }
-    //     await base.OnInitializedAsync();
-    // }
-   
+        try
+        {
+            await hubConnection.StartAsync();
+
+        }
+        catch (Exception ex)
+        {
+        }
+        await base.OnInitializedAsync();
+    }
+
     // protected override async Task OnAfterRenderAsync(bool firstRender)
     // {
     //     if (firstRender)
@@ -265,8 +248,9 @@
     private HubConnection hubConnection;
 
     protected override async Task OnInitializedAsync()
-{
-    // Cập nhật danh sách công việc cho mỗi dự án
+    {
+        // Cập nhật danh sách công việc cho mỗi dự án
+        await Init();
         await UpdateStateAndSortTasks();
 }
 }
