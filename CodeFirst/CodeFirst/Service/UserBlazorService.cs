@@ -19,7 +19,10 @@ namespace CodeFirst.Service
             _authenticationStateProvider = authenticationStateProvider;
             _context = context;
         }
-
+        public async Task<ApplicationUser> GetUserById(string userId)
+        {
+            return await _context.ApplicationUser.FirstOrDefaultAsync(x => x.Id == userId);
+        }
         public async Task<ApplicationUser> GetCurrentUser()
         {
             if (!_isLoaded)

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAA8y/s0zqS0mp6FfUhC8EugAAAAACAAAAAAAQZgAAAAEAACAAAABa2OxhpHMVm2b2DCsZ5GwAF+ecWfv4A2q0pq2dy41H+gAAAAAOgAAAAAIAACAAAAC7hwm4pFHvPp4tNwsyp8ZuZrciRq9VPRa9oPBdp6MBUyAAAADYCmH015DpLNKf+xaqhrrX5OT+3g7XGB7G0wso9QEa6kAAAAC3hBnQ9QaeU8rZYWDZNq1tT4I0dVJospm7/pBjhaF91Zq/t82N8DIlQjYLuvCLFdgpEKzX1AgoN1md7poI+SvW</EncryptedPassword>
+    <History>True|2024-04-29T10:16:36.0438165Z;True|2024-04-29T17:05:37.5773669+07:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="CodeFirst">
+      <Value>Data Source=SQL5113.site4now.net%3bInitial Catalog=db_aa8282_login%3bUser Id=db_aa8282_login_admin%3bPassword=Tai12345.</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="CodeFirst.Data.ApplicationDbContext">
+      <Value>Data Source=SQL5113.site4now.net%3bInitial Catalog=db_aa8282_login%3bUser Id=db_aa8282_login_admin%3bPassword=Tai12345.</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

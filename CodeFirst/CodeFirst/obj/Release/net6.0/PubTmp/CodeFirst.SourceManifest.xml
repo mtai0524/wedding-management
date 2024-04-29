@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
   <IisApp path="E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\" />
+  <dbfullsql path="E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\EFSQLScripts\CodeFirst.Data.ApplicationDbContext.sql" />
 </sitemanifest>

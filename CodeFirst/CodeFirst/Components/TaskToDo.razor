@@ -1,6 +1,7 @@
 ﻿@page "/task"
 @using CodeFirst.Data
 @using CodeFirst.Hubs
+@using CodeFirst.Models
 @using CodeFirst.Models.Entities
 @using CodeFirst.Service
 @using Microsoft.AspNetCore.SignalR
@@ -8,6 +9,7 @@
 @using Microsoft.EntityFrameworkCore
 @inject IJSRuntime JSRuntime
 @inject ProjectService _projectService
+@inject UserBlazorService _userBlazorService
 @inject TaskToDoService _taskService
 @inject NavigationManager NavigationManager
 @inject IHubContext<MyBlazorHub> _hubContext
@@ -47,8 +49,10 @@
         await LoadProject();
 
     }
+
     private string taskName;
     private int currentProjectId;
+
     private async Task SaveTask()
     {
         // Lấy vị trí của task cuối cùng của dự án hiện tại
@@ -70,7 +74,10 @@
             {
                 Name = taskName,
                 Position = lastTask.Position + 1,
-                ProjectId = currentProjectId
+                ProjectId = currentProjectId,
+                CreatedAt = DateTime.Now,
+                UserId = currUser.Id,
+                Priority = selectedColor,
             };
 
         // Thêm task vào cơ sở dữ liệu
@@ -84,7 +91,14 @@
     {
         currentProjectId = projectId;
     }
+    string selectedColor = "task__tag--copyright";
 
+    private CodeFirst.Models.Entities.TaskToDo selectedTask;
+
+    private void ShowTaskDetails(CodeFirst.Models.Entities.TaskToDo task)
+    {
+        selectedTask = task;
+    }
 }
 <div class='app'>
     <div class='project'>
@@ -117,8 +131,8 @@
                 <span></span>
                 <span></span>
                 <button class='project-participants__add'>Add Participant</button> *@
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createProjectModal">Thêm dự án</button>
-                <button type="submit" class="btn btn-primary" @onclick="UpdateStateAndSortTasks">Update]</button>
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createProjectModal">Thêm dự án</button>
+                <button style="margin-left:6px" type="submit" class="btn btn-outline-primary" @onclick="UpdateStateAndSortTasks">Đồng bộ</button>
             </div>
         </div>
         <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -130,6 +144,12 @@
                     </div>
                     <div class="modal-body">
                         <input type="text" class="form-control" id="taskName" @bind="taskName" placeholder="Task Name">
+                        <label>Select Tag Color:</label>
+                        <select @bind="selectedColor">
+                            <option value="task__tag--copyright">bắt đầu</option>
+                            <option value="task__tag--design">quan trọng</option>
+                            <option value="task__tag--illustration">đang làm</option>
+                        </select>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -138,6 +158,107 @@
                 </div>
             </div>
         </div>
+        @if (selectedTask != null)
+        {
+            <!-- Modal hiển thị thông tin task -->
+            <div class="modal fade" id="taskDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Task Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Hiển thị thông tin chi tiết của task -->
+                            <div class="form-group">
+                                <label for="taskName">Task Name:</label>
+                                <input type="text" class="form-control" id="taskName" @bind="@selectedTask.Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="taskPosition">Position:</label>
+                                <input type="number" class="form-control" id="taskPosition" @bind="@selectedTask.Position" />
+                            </div>
+                            <!-- Thêm thông tin khác nếu cần -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" @onclick="() => SaveTaskDetails(selectedTask.TaskId)">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        @code {
+            private async Task SaveTaskDetails(int taskId)
+            {
+                var tasks = _context.TaskToDo.FirstOrDefault(x => x.TaskId == taskId);
+                tasks.Name = selectedTask.Name;
+
+                _context.Update(tasks);
+                await _context.SaveChangesAsync();
+            }
+
+        }
+        @code {
+            async Task ConfirmDeleteProject(int projectId)
+            {
+                bool confirmed = await JSRuntime.InvokeAsync<bool>("confirm", $"Dữ liệu sau khi xóa sẽ không thể khôi phục");
+                if (confirmed)
+                {
+                    await DeleteProject(projectId);
+                }
+                else
+                {
+                }
+            }
+            int projectIdCurr = 0;
+            async Task SaveUpdateProject()
+            {
+                var projectCurr = await _context.Projects.FirstOrDefaultAsync(x => x.ProjectId == projectIdCurr);
+                projectCurr.Name = projectName;
+                _context.Update(projectCurr);
+                await _context.SaveChangesAsync();
+                await LoadProject();
+            }
+            async Task UpdateProjectModal(int projectId)
+            {
+                projectIdCurr = projectId;
+            }
+        }
+
+        <div class="modal fade" id="editProjectModal" tabindex="-1" aria-labelledby="editProjectModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editProjectModalLabel">Chỉnh sửa dự án</h5>
+                        <button type="button"  data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="projectName" class="form-label">Tên chi nhánh</label>
+                                <input type="text" class="form-control" id="projectName" @bind="@projectName">
+                            </div>
+                          
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary"  data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
+                        <a class="btn btn-success" @onclick="SaveUpdateProject">
+                           
+                                <i class="fa-solid fa-plus" style="color: white; margin-right:5px"></i>
+                                <span>Lưu</span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div class='project-tasks' id='project-tasks'>
             @foreach (var project in projectList)
@@ -145,35 +266,68 @@
                 <div class="container-flex-col" @key="@project.ProjectId">
                     <div class='project-column-heading' draggable='false'>
                         <h2 class='project-column-heading__title' draggable='false'>@project.Name</h2>
-                        <button class='project-column-heading__options' draggable='false' @onclick="() => DeleteProject(project.ProjectId)">
-                            <i class="fas fa-ellipsis-h" draggable='false'></i>
-                        </button>
+                     
+
+
+                        <div class="dropdown">
+                            <button class='project-column-heading__options' draggable='false' id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-h" draggable='false'></i>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editProjectModal" @onclick="()=> UpdateProjectModal(project.ProjectId)" href="#">Cập nhật</a></li>
+                                <li>
+                                    <a class="dropdown-item" @onclick="()=> ConfirmDeleteProject(project.ProjectId)" style="cursor: pointer;"><span style="color:red"><i class="fa-solid fa-trash"></i> Xóa dự án</span></a>
+                                </li>
+
+                            </ul>
+                        </div>
+                       
                     </div>
                     <div class='project-column' data-project-id="@project.ProjectId" @key="@changeCounter">
                         @{
                             tasks = _taskService.GetListTaskByProjectId(project.ProjectId).OrderBy(t=>t.Position).ToList();
+                           
                         }
                         @foreach (var task in tasks)
                         {
-                            <div class='task' draggable='true' data-task-id="@task.TaskId" @key="@task.TaskId">
-                                <div class='task__tags'>
-                                    <span class='task__tag task__tag--copyright' @key="@task.ProjectId">@task.ProjectId</span>
-                                    <button class='task__options'>
-                                        <i class="fas fa-ellipsis-h"></i>
-                                    </button>
-                                </div>
-                                <p>@task.Name</p>
-                                <div class='task__stats'>
-                                    <span>
-                                        <time datetime="2021-11-24T20:00:00">
-                                            <i class="fas fa-flag"></i>Nov 24
-                                        </time>
-                                    </span>
-                                    <span><i class="fas fa-comment"></i>3</span>
-                                    <span><i class="fas fa-paperclip"></i>@task.Position</span>
-                                    <span class='task__owner' @key=@task.Position></span>
-                                </div>
-                            </div>
+                            if(task != null){
+
+                                <div class='task' draggable='true' data-task-id="@task.TaskId" @key="@task.TaskId" data-bs-toggle="modal" data-bs-target="#taskDetailsModal" @onclick="() => ShowTaskDetails(task)">
+                                    <div class='task__tags'>
+                                        @if (task.Priority != null)
+                                        {
+                                            if (task.Priority.Contains("task__tag--copyright"))
+                                            {
+                                                <span class='task__tag @task.Priority' @key="@task.ProjectId">bắt đầu</span>
+                                            }
+                                            if (task.Priority.Contains("task__tag--design"))
+                                            {
+                                                <span class='task__tag @task.Priority' @key="@task.ProjectId">quan trọng</span>
+                                            }
+                                            if (task.Priority.Contains("task__tag--illustration"))
+                                            {
+                                                <span class='task__tag @task.Priority' @key="@task.ProjectId">đang làm</span>
+                                            }
+                                        }
+                                  
+                                        <button class='task__options'>
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                    </div>
+                                    <p>@task.Name</p>
+                                    <div class='task__stats'>
+                                        <span>
+                                            <time datetime="2021-11-24T20:00:00">
+                                                <i class="fas fa-flag"></i> @task.CreatedAt?.ToString("dd MM")
+                                            </time>
+                                        </span>
+                                        <span><i class="fas fa-comment"></i> 3</span>
+                                        <span style="visibility:hidden"><i class="fas fa-paperclip"></i></span>
+                                        <span class='task__owner'><img style="width:100%;height:100%;border-radius:50%" src="@task.User.Avatar" alt="Avatar" /></span>
+                                    </div>
+                                </div>  
+                            }
 
                         }
                     </div>
@@ -247,9 +401,10 @@
     // }
 
     private HubConnection hubConnection;
-
+    ApplicationUser? currUser;
     protected override async Task OnInitializedAsync()
     {
+       currUser = await _userBlazorService.GetCurrentUser();
         // Cập nhật danh sách công việc cho mỗi dự án
         await Init();
         await UpdateStateAndSortTasks();
