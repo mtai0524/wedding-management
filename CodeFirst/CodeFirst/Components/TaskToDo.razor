@@ -13,7 +13,9 @@
 @inject TaskToDoService _taskService
 @inject NavigationManager NavigationManager
 @inject IHubContext<MyBlazorHub> _hubContext
-
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
 @code {
     static int changeCounter = 0;
     public async Task UpdateStateAndSortTasks()
@@ -26,7 +28,16 @@
         StateHasChanged();
     }
 
-
+    public async Task DeleteTask(int taskId)
+    {
+        var task = await _context.TaskToDo.FindAsync(taskId);
+        if (task != null)
+        {
+            _context.TaskToDo.Remove(task);
+            await _context.SaveChangesAsync();
+            await LoadProject();
+        }
+    }
     public async Task DeleteProject(int projectId)
     {
         var project = await _context.Projects.FindAsync(projectId);
@@ -160,16 +171,16 @@
         </div>
         @if (selectedTask != null)
         {
-            <!-- Modal hiển thị thông tin task -->
-            <div class="modal fade" id="taskDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+            <div class="modal fade" id="taskDetailsModal" tabindex="-1" aria-labelledby="taskDetailsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Task Details</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <h5 class="modal-title" id="taskDetailsModalLabel">Chỉnh sửa dự án</h5>
+                            <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                            </button>
                         </div>
                         <div class="modal-body">
-                            <!-- Hiển thị thông tin chi tiết của task -->
                             <div class="form-group">
                                 <label for="taskName">Task Name:</label>
                                 <input type="text" class="form-control" id="taskName" @bind="@selectedTask.Name" />
@@ -178,15 +189,19 @@
                                 <label for="taskPosition">Position:</label>
                                 <input type="number" class="form-control" id="taskPosition" @bind="@selectedTask.Position" />
                             </div>
-                            <!-- Thêm thông tin khác nếu cần -->
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
                             <button type="button" class="btn btn-primary" @onclick="() => SaveTaskDetails(selectedTask.TaskId)">Save</button>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
+            <!-- Modal hiển thị thông tin task -->
+          
         }
         @code {
             private async Task SaveTaskDetails(int taskId)
@@ -200,6 +215,17 @@
 
         }
         @code {
+            async Task ConfirmDeleteTask(int taskId)
+            {
+                bool confirmed = await JSRuntime.InvokeAsync<bool>("confirm", $"Dữ liệu sau khi xóa sẽ không thể khôi phục");
+                if (confirmed)
+                {
+                    await DeleteTask(taskId);
+                }
+                else
+                {
+                }
+            }
             async Task ConfirmDeleteProject(int projectId)
             {
                 bool confirmed = await JSRuntime.InvokeAsync<bool>("confirm", $"Dữ liệu sau khi xóa sẽ không thể khôi phục");
@@ -223,9 +249,19 @@
             async Task UpdateProjectModal(int projectId)
             {
                 projectIdCurr = projectId;
+                var projectCurr = await _context.Projects.FirstOrDefaultAsync(x => x.ProjectId == projectId);
+                if (projectCurr == null)
+                    return;
+                projectName = projectCurr.Name;
             }
         }
-
+        <style>
+            .mud-chip-content{
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        </style>
         <div class="modal fade" id="editProjectModal" tabindex="-1" aria-labelledby="editProjectModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
@@ -259,21 +295,18 @@
             </div>
         </div>
 
-
-        <div class='project-tasks' id='project-tasks'>
+        <div class='project-tasks' id='project-tasks' >
             @foreach (var project in projectList)
             {
-                <div class="container-flex-col" @key="@project.ProjectId">
+                <div class="container-flex-col"  @key="@project.ProjectId">
                     <div class='project-column-heading' draggable='false'>
-                        <h2 class='project-column-heading__title' draggable='false'>@project.Name</h2>
-                     
 
-
+                        <MudChip Style="max-width:270px" Icon="@Icons.Material.Filled.Brightness1" IconColor="Color.Info">@project.Name</MudChip>
                         <div class="dropdown">
                             <button class='project-column-heading__options' draggable='false' id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-ellipsis-h" draggable='false'></i>
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;">
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(51, 51, 51) 0px 0px 0px 1px;">
                                 <li><a class="dropdown-item" href="#">Action</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editProjectModal" @onclick="()=> UpdateProjectModal(project.ProjectId)" href="#">Cập nhật</a></li>
                                 <li>
@@ -284,7 +317,9 @@
                         </div>
                        
                     </div>
-                    <div class='project-column' data-project-id="@project.ProjectId" @key="@changeCounter">
+                    <div class="container-task-button" >
+
+                    <div class='project-column'  data-project-id="@project.ProjectId" @key="@changeCounter">
                         @{
                             tasks = _taskService.GetListTaskByProjectId(project.ProjectId).OrderBy(t=>t.Position).ToList();
                            
@@ -293,7 +328,7 @@
                         {
                             if(task != null){
 
-                                <div class='task' draggable='true' data-task-id="@task.TaskId" @key="@task.TaskId" data-bs-toggle="modal" data-bs-target="#taskDetailsModal" @onclick="() => ShowTaskDetails(task)">
+                                <div class='task' draggable='true' data-task-id="@task.TaskId" @key="@task.TaskId" >
                                     <div class='task__tags'>
                                         @if (task.Priority != null)
                                         {
@@ -310,10 +345,18 @@
                                                 <span class='task__tag @task.Priority' @key="@task.ProjectId">đang làm</span>
                                             }
                                         }
-                                  
-                                        <button class='task__options'>
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </button>
+                                            <div class="dropdown">
+                                                <button class='task__options' draggable='false' id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-h" draggable='false'></i>
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(51, 51, 51) 0px 0px 0px 1px;">
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#taskDetailsModal" @onclick="() => ShowTaskDetails(task)" href="#">Cập nhật</a></li>
+                                                    <li>
+                                                        <a class="dropdown-item" @onclick="()=> ConfirmDeleteTask(task.TaskId)" style="cursor: pointer;"><span style="color:red"><i class="fa-solid fa-trash"></i> Xóa nhiệm vụ</span></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                     </div>
                                     <p>@task.Name</p>
                                     <div class='task__stats'>
@@ -330,8 +373,11 @@
                             }
 
                         }
+
                     </div>
                     <button class="add-task-button" data-bs-toggle="modal" data-bs-target="#taskModal" @onclick="() => ShowAddTaskModal(project.ProjectId)">Add Task</button>
+                    </div>
+
                 </div>
             }
 

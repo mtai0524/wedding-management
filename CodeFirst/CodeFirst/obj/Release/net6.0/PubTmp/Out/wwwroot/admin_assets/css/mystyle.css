@@ -291,11 +291,11 @@
         font-family: 'Mali';
     }
 
-    body {
-        overflow: hidden;
-        background: #080808;
-        scroll-behavior: smooth;
-    }
+body {
+    overflow: hidden;
+    background-color: white !important;
+    scroll-behavior: smooth;
+}
 
     #click {
         display: none;
@@ -837,7 +837,7 @@
         }
 
         .nav-item a {
-            color: #d7d7d7;
+            color: #2f2f2fff;
             border-radius: 4px;
             height: 3rem;
             display: flex;
@@ -846,13 +846,13 @@
         }
 
             .nav-item a.active {
-                background-color: rgba(255, 255, 255, 0.25);
-                color: white;
+                background-color: #2f2f2fff;
+                color: #f5f4f5ff;
             }
 
             .nav-item a:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-                color: #F19828;
+                background-color: #2f2f2fff;
+                color: #f5f4f5ff;
             }
 
     .mud-dialog-container {

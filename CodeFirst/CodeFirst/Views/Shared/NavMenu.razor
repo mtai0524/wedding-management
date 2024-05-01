@@ -1,22 +1,7 @@
 ﻿@using CodeFirst.Models
 @using CodeFirst.Service
-@inject UserBlazorService _userBlazorService
 
-<div class="top-row  navbar navbar-dark d-flex justify-content-center align-item-center">
-        <img width="100" height="100" style="border-radius:50%;outline:2px solid white; padding:5px;margin-top:5px" src="@avatar" />
-</div>
-@code{
-    protected override async Task OnInitializedAsync()
-    {
-        ApplicationUser? user = await _userBlazorService.GetCurrentUser();
-        if(user != null)
-        {
-            avatar = user.Avatar;
-        }
-    }
-    string? avatar = "";
-   
-}
+
 <nav class="flex-column" id="sidebar">
     <div class="nav-item px-3">
         <NavLink class="nav-link" href="" Match="NavLinkMatch.All">

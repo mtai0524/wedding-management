@@ -88,7 +88,7 @@
                                     </div>
 
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Đăng nhập</button>
+                                        <button type="submit" id="btn-login" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Đăng nhập</button>
                                     </div>
                                 </form>
                             </div>
@@ -147,7 +147,17 @@
 <script src="~/assets_argon/js/core/bootstrap.min.js"></script>
 <script src="~/assets_argon/js/plugins/perfect-scrollbar.min.js"></script>
 <script src="~/assets_argon/js/plugins/smooth-scrollbar.min.js"></script>
+
+
 <script>
+    document.getElementById('btn-login').addEventListener('click', function () {
+        // Thay đổi nội dung của nút đăng nhập khi nó được nhấn
+        this.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang đăng nhập...';
+        // Thêm mã để xử lý đăng nhập tại đây
+        // Ví dụ: gửi dữ liệu đăng nhập đến server
+        // Sau khi xử lý hoàn tất, bạn có thể thay đổi nội dung của nút đăng nhập lại
+        // this.textContent = "Đăng nhập thành công";
+    });
     document.addEventListener('DOMContentLoaded', function () {
         var showPasswordCheckbox = document.getElementById('showPasswordCheckbox');
         showPasswordCheckbox.addEventListener('change', function () {

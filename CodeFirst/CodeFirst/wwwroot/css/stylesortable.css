@@ -2,9 +2,13 @@
     width: 5px;
     height: 8px;
 }
-
+*{
+    box-sizing:border-box;
+}
 .add-task-button {
-    width: 90%;
+    width: calc( 100% - 20px);
+    margin:10px;
+    margin-top:0px !important;
     background-color: gray;
     border-radius: 8px;
     color: white;
@@ -14,24 +18,19 @@
     border:3px solid black;
 }
     .add-task-button:active {
-        width: 90%;
+        width: calc( 100% - 20px);
+        margin: 10px;
+        margin-top: 0px !important;
         background-color: gray;
         border-radius: 8px;
         color: white;
         padding: 10px;
         align-items: center;
         box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
-        border: 3px solid black;
     }
     .add-task-button:focus {
-        width: 90%;
         background-color: gray;
-        border-radius: 8px;
         color: white;
-        padding: 10px;
-        align-items: center;
-        box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
-        border: 3px solid black;
     }
 *::-webkit-scrollbar-thumb {
     background: gray;
@@ -145,21 +144,27 @@ h1 {
     font-size: 18px;
     border: 0;
     cursor: pointer;
-    margin-right:25px;
+    margin-right:10px;
 }
-
+.project-column {
+    width: 100%;
+    padding: 10px;
+    padding-bottom:1px !important;
+    margin-right: 20px;
+    border-bottom: 3px solid transparent !important; /* Xóa biên đã định nghĩa */
+}
+.container-task-button {
+    width: 300px;
+    border: 1px solid black; /* Xóa biên đã định nghĩa */
+}
 .task {
+    margin-bottom: 10px;
     cursor: move;
     background-color: var(--white);
     padding: 1rem;
     border-radius: 8px;
-    width: 90%;
-    min-width: 200px;
-    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
-    margin-bottom: 1rem;
-    margin-right: 10px;
-    border: 3px dashed transparent; /* Xóa biên đã định nghĩa */
-    border: 3px solid black; /* Thêm biên đen */
+    width: 100%;
+    border: 3px solid black; /* Xóa biên đã định nghĩa */
 }
 
 
@@ -168,7 +173,7 @@ h1 {
     }
 
     .task p {
-        max-width: 200px;
+        max-width: 300px;
         font-size: 15px;
         margin: 1.2rem 0;
     }
@@ -372,7 +377,6 @@ h1 {
 .container-flex-col {
     display: flex;
     flex-direction: column;
-    min-width: 250px;
     margin-right: 20px;
     margin-bottom:2rem;
 }
