@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uSl6HbZJuCLyqAA/ykQRkXbXo6NvTBIE2Blm8PLZ4qo=",
+  "Hash": "9jC9FvajtnU2MpoxXrBl+GQDOvwNHUyqtn5oUBDBjk0=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -5480,6 +5480,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_virtual-reality.scss"
+    },
+    {
+      "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\home.css",
+      "SourceId": "CodeFirst",
+      "SourceType": "Project",
+      "ContentRoot": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "css/home.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\home.css"
     },
     {
       "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\mydesign.css",

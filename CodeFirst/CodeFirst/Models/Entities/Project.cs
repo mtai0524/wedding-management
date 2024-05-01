@@ -11,6 +11,7 @@ namespace CodeFirst.Models.Entities
         public string? Name { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+        public string? IconColor { get; set; }
 
         public virtual List<TaskToDo> TaskToDoProp { get; set; }
     }

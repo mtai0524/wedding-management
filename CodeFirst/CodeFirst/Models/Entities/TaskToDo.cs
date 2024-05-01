@@ -23,5 +23,7 @@ namespace CodeFirst.Models.Entities
 
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+        public string? TaskColor { get; set; }
+
     }
 }
