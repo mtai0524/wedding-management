@@ -12,6 +12,28 @@
         return alert("hello");
     }
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    window.adjustTextareaHeight = function (textareaId) {
+        var textarea = document.getElementById(textareaId);
+        // Kiểm tra xem textarea có rỗng hay không
+        if (textarea.value.trim() !== "") {
+            // Nếu có nội dung, cập nhật chiều cao tối thiểu dựa trên chiều cao nội dung
+            var contentHeight = textarea.scrollHeight;
+            if (contentHeight < 200) {
+                textarea.style.minHeight = contentHeight + 'px';
+            } else {
+                // Đặt chiều cao tối thiểu là 200px nếu chiều cao nội dung lớn hơn hoặc bằng 200px
+                textarea.style.minHeight = '200px';
+            }
+        } else {
+            // Nếu không có nội dung, đặt chiều cao tối thiểu là 20px
+            textarea.style.minHeight = '35px';
+        }
+    };
+</script>
+
+
 <script>
     function clearInputFileText(inputId) {
         var input = document.getElementById(inputId);

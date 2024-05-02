@@ -125,9 +125,12 @@ namespace CodeFirst.Hubs
             // Lặp qua danh sách connected users và thêm vào uniqueUsers chỉ nếu chưa có người dùng có cùng userId
             foreach (var userInfo in ConnectedUsers.Values)
             {
-                if (!uniqueUsers.ContainsKey(userInfo.Id))
+                if(userInfo!= null)
                 {
-                    uniqueUsers[userInfo.Id] = userInfo;
+                    if (!uniqueUsers.ContainsKey(userInfo.Id))
+                    {
+                        uniqueUsers[userInfo.Id] = userInfo;
+                    }
                 }
             }
 
@@ -170,10 +173,14 @@ namespace CodeFirst.Hubs
             // Lặp qua danh sách connected users và thêm vào uniqueUsers chỉ nếu chưa có người dùng có cùng userId
             foreach (var userInfo in ConnectedUsers.Values)
             {
-                if (!uniqueUsers.ContainsKey(userInfo.Id))
+                if (userInfo != null)
                 {
-                    uniqueUsers[userInfo.Id] = userInfo;
+                    if (!uniqueUsers.ContainsKey(userInfo.Id))
+                    {
+                        uniqueUsers[userInfo.Id] = userInfo;
+                    }
                 }
+                
             }
 
             // Chuyển danh sách các người dùng duy nhất thành List

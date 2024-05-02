@@ -44,10 +44,19 @@
 
     .avatar-option:checked + .avatar-option-label img {
         border: 2px dashed gray;
-        transform: scale(1);
+        transform: scale(0.5);
     }
     label:hover{
         background-color:transparent;
+    }
+
+    textarea::-webkit-scrollbar {
+        display: none; 
+    }
+
+    textarea {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 </style>
 @code {
@@ -97,7 +106,7 @@
 
     private string taskName;
     private int currentProjectId;
-
+    string taskColor = "";
     private async Task SaveTask()
     {
         // Lấy vị trí của task cuối cùng của dự án hiện tại
@@ -123,6 +132,7 @@
                 CreatedAt = DateTime.Now,
                 UserId = currUser.Id,
                 Priority = selectedColor,
+                TaskColor = taskColor,
             };
 
         // Thêm task vào cơ sở dữ liệu
@@ -153,6 +163,7 @@
 }
   @code {
     private string selectedColorProject = "";
+    private string selectedColorTask = "";
     private bool IsRedChecked = true;
     private bool IsYellowChecked = false;
     private bool IsBlackChecked = false;
@@ -160,10 +171,14 @@
     private void SetColor(string color)
     {
         selectedColorProject = color;
+        selectedColorTask = color;
         // Đặt lại giá trị checked cho tất cả các radio buttons về false
         IsRedChecked = color == "red";
         IsYellowChecked = color == "yellow";
         IsBlackChecked = color == "black";
+        
+        taskColor = color;
+       
     }
 }
 <div class="modal fade" id="createProjectModal" tabindex="-1" aria-labelledby="createProjectModalLabel" aria-hidden="true">
@@ -179,19 +194,14 @@
                     <input type="text" class="form-control" id="name" @bind="projectName" required>
                 </div>
                 <label>Select Tag Color:</label>
-                <div class="avatar-container" style="margin-top: -20px;">
-                    <input class="avatar-option" type="radio" id="red" @onclick='() => SetColor("red")' checked="@IsRedChecked">
-                    <label class="avatar-option-label" for="red"><img src="https://i.pinimg.com/originals/b1/e1/0b/b1e10b0e4e26bf904a565172e79992ae.png" alt="Avatar 3"></label>
-
-                    <input class="avatar-option" type="radio" id="yellow" @onclick='() => SetColor("yellow")' checked="@IsYellowChecked">
-                    <label class="avatar-option-label" for="yellow"><img src="https://img.freepik.com/free-photo/top-view-yellow-circle-white-background_23-2148209983.jpg?size=338&ext=jpg&ga=GA1.1.1224184972.1714521600&semt=ais" alt="Avatar 3"></label>
-
-                    <input class="avatar-option" type="radio" id="black" @onclick='() => SetColor("black")' checked="@IsBlackChecked">
-                    <label class="avatar-option-label" for="black"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR12DwmXKlIaStWmjiCAVS934XQJM7CPGOd4XxIwRCW5FIljwdNsanqzNMzSLdOd-IvCdA&usqp=CAU" alt="Avatar 3"></label>
-                </div>
+       
                 <div>
+                    <input class="avatar-option" type="radio" id="red" @onclick='() => SetColor("red")' checked="@IsRedChecked">
                     <label for="red" class="avatar-option-label"><img src="https://i.pinimg.com/originals/b1/e1/0b/b1e10b0e4e26bf904a565172e79992ae.png" alt="Avatar 3">: important</label><br />
-                    <label for="yellow" class="avatar-option-label"><img src="https://img.freepik.com/free-photo/top-view-yellow-circle-white-background_23-2148209983.jpg?size=338&ext=jpg&ga=GA1.1.1224184972.1714521600&semt=ais" alt="Avatar 3">: need to do</label><br />
+                    <input class="avatar-option" type="radio" id="yellow" @onclick='() => SetColor("yellow")' checked="@IsYellowChecked">
+                    <label for="yellow" class="avatar-option-label"><img src="https://t4.ftcdn.net/jpg/06/80/07/93/360_F_680079320_zc08XjuXxh8ONPFPD8HKRZql4mMiQzPM.jpg" alt="Avatar 3">: need to do</label><br />
+                    <input class="avatar-option" type="radio" id="black" @onclick='() => SetColor("black")' checked="@IsBlackChecked">
+
                     <label for="black" class="avatar-option-label"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR12DwmXKlIaStWmjiCAVS934XQJM7CPGOd4XxIwRCW5FIljwdNsanqzNMzSLdOd-IvCdA&usqp=CAU" alt="Avatar 3">: to do</label><br />
 
 
@@ -222,21 +232,34 @@
                 <button style="margin-left:6px" type="submit" class="btn btn-outline-primary" @onclick="UpdateStateAndSortTasks">Đồng bộ</button>
             </div>
         </div>
-        <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Task</h5>
+                        <h5 class="modal-title" id="taskModalLabel">Add Task</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <input type="text" class="form-control" id="taskName" @bind="taskName" placeholder="Task Name">
+                        <input type="text" class="form-control"  @bind="taskName" placeholder="Task Name">
                         <label>Select Tag Color:</label>
                         <select @bind="selectedColor">
                             <option value="task__tag--copyright">bắt đầu</option>
                             <option value="task__tag--design">quan trọng</option>
                             <option value="task__tag--illustration">đang làm</option>
                         </select>
+                    </div>
+                    <label>Select Tag Color:</label>
+
+                    <div>
+                        <input class="avatar-option" type="radio" id="red" @onclick='() => SetColor("red")' checked="@IsRedChecked">
+                        <label for="red" class="avatar-option-label"><img src="https://i.pinimg.com/originals/b1/e1/0b/b1e10b0e4e26bf904a565172e79992ae.png" alt="Avatar 3">: important</label><br />
+                        <input class="avatar-option" type="radio" id="yellow" @onclick='() => SetColor("yellow")' checked="@IsYellowChecked">
+                        <label for="yellow" class="avatar-option-label"><img src="https://t4.ftcdn.net/jpg/06/80/07/93/360_F_680079320_zc08XjuXxh8ONPFPD8HKRZql4mMiQzPM.jpg" alt="Avatar 3">: need to do</label><br />
+                        <input class="avatar-option" type="radio" id="black" @onclick='() => SetColor("black")' checked="@IsBlackChecked">
+
+                        <label for="black" class="avatar-option-label"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR12DwmXKlIaStWmjiCAVS934XQJM7CPGOd4XxIwRCW5FIljwdNsanqzNMzSLdOd-IvCdA&usqp=CAU" alt="Avatar 3">: to do</label><br />
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -259,7 +282,7 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="taskName">Task Name:</label>
-                                <input type="text" class="form-control" id="taskName" @bind="@selectedTask.Name" />
+                                <textarea class="form-control" id="taskName" @bind="@selectedTask.Name" cols="100" style="resize: none;height: 35px; min-height: 35px; overflow: auto;" @oninput="AdjustTextareaHeight"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="taskPosition">Position:</label>
@@ -279,6 +302,7 @@
             <!-- Modal hiển thị thông tin task -->
         }
         @code {
+
             private async Task SaveTaskDetails(int taskId)
             {
                 var tasks = _context.TaskToDo.FirstOrDefault(x => x.TaskId == taskId);
@@ -287,7 +311,10 @@
                 _context.Update(tasks);
                 await _context.SaveChangesAsync();
             }
-
+            private async Task AdjustTextareaHeight()
+            {
+                await JSRuntime.InvokeVoidAsync("adjustTextareaHeight", "taskName");
+            }
         }
         @code {
             async Task ConfirmDeleteTask(int taskId)
@@ -409,7 +436,7 @@
                                 if (task != null)
                                 {
 
-                                    <div class='task' draggable='true' data-task-id="@task.TaskId" @key="@task.TaskId">
+                                    <div class='task' draggable='true' data-task-id="@task.TaskId" @key="@task.TaskId" style="border:1px solid @task.TaskColor">
                                         <div class='task__tags'>
                                             @if (task.Priority != null)
                                             {
