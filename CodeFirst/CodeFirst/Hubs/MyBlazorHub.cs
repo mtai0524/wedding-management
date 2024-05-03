@@ -14,12 +14,14 @@ namespace CodeFirst.Hubs
     {
         private readonly ApplicationDbContext _context;
         private readonly ProjectService _projectService;
+        private readonly UserManager<ApplicationUser> _userManager;
 
 
-        public MyBlazorHub(ApplicationDbContext context, ProjectService projectService)
+        public MyBlazorHub(ApplicationDbContext context, ProjectService projectService, UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _projectService = projectService;
+            _userManager = userManager;
         }
         public async Task SendProjectCreatedNotification()
         {
@@ -33,8 +35,9 @@ namespace CodeFirst.Hubs
         }
         public async Task SendTaskCreatedNotification()
         {
-            var listBranch = _context.TaskToDo.ToListAsync();
-            await Clients.All.SendAsync("TaskCreated", listBranch);
+            var userService = new UserListService(_context, _userManager);
+            var listUser = await userService.GetListUserAndRole();
+            await Clients.All.SendAsync("ApplicationUserWithRoleSignalR", listUser);
         }
         public async Task SendBranchCreatedNotification()
         {

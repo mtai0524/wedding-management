@@ -37,7 +37,6 @@
     };
 }
 
-<h1>Quản lý chi nhánh</h1>
 
 <style>
     .btn {
@@ -58,7 +57,7 @@
     }
 </style>
 
-<a  class="btn btn-primary" style="font-size:15px;padding:10px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createBranchModal">
+<a  class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createBranchModal">
         Thêm chi nhánh
 </a>
 @code{
@@ -271,12 +270,7 @@
         isError = false;
     }
 }
-<style>
-    .mud-table-head{
-        background-color: #cee2baff;
-    }
-   
-</style>
+
 <MudTable Items="@listBranch" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Branch,bool>(FilterFunc1)" Style="margin-bottom:15px">
     <ToolBarContent>
         <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách chi nhánh</MudText>
@@ -298,8 +292,8 @@
     <MudTd DataLabel="Description">@context.Description</MudTd>
     <MudTd DataLabel="Phone">@context.Phone</MudTd>
     <MudTd DataLabel="Image">
-       
-        <MudImage Src="@context.Image" Width="80" Height="80" Alt="Swedish Farm House" Elevation="25" Class="rounded-md" />
+
+                <MudImage Src="@context.Image" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-lg" />
     </MudTd>
     <MudTd>
         <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Settings" Size="MudBlazor.Size.Small" Color="Color.Success" data-bs-toggle="modal" data-bs-target="#editBranchModal" OnClick="@(() => EditBranch(@context.BranchId))">

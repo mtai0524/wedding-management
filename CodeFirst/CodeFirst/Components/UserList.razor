@@ -25,6 +25,8 @@
 @inject NavigationManager NavigationManager
 @inject UserListService userService
 @inject RoleManager<IdentityRole> _roleManager
+@inject IHubContext<MyBlazorHub> _hubContext
+
 <PageTitle>Quản lý người dùng</PageTitle>
 <MudThemeProvider />
 <MudDialogProvider />
@@ -231,17 +233,46 @@
     {
         var userService = new UserListService(_context, _userManager);
         listUser = await userService.GetListUserAndRole();
-        await _hubContext.Clients.All.SendAsync("BranchCreated", listUser);
+        await _hubContext.Clients.All.SendAsync("ApplicationUserWithRoleSignalR", listUser);
         StateHasChanged();
     }
 
     protected override async Task OnInitializedAsync()
     {
-        await LoadBranches();
+        await Init();
         await base.OnInitializedAsync();
         var allRoles = await _roleManager.Roles.Select(r => r.Name).ToListAsync();
         this.allRoles = allRoles;
     }
+    private HubConnection hubConnection;
+
+    public async Task Init()
+    {
+        hubConnection = new HubConnectionBuilder()
+           // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/chatHub")) // docker
+           .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
+           .Build();
+
+        hubConnection.On<List<ApplicationUserWithRole>>("ApplicationUserWithRoleSignalR", list =>
+        {
+            InvokeAsync(() =>
+            {
+                listUser = list;
+                StateHasChanged();
+            });
+        });
+        try
+        {
+            await hubConnection.StartAsync();
+            await LoadBranches();
+
+        }
+        catch (Exception ex)
+        {
+        }
+        await base.OnInitializedAsync();
+    }
+
     private string selectedRole { get; set; } = ""; 
 
     private string userIdToUpdateRole { get; set; } = ""; 

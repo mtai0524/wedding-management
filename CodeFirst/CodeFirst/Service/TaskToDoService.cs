@@ -21,7 +21,11 @@ namespace CodeFirst.Service
             return tasks;
         }
     
-
+        public async Task<TaskToDo> GetTaskToDoByTaskId(int taskId)
+        {
+            var taskToDo = await _dbContext.TaskToDo.FirstOrDefaultAsync(x => x.TaskId == taskId);
+            return taskToDo;
+        }
       
     }
 }

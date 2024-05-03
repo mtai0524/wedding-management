@@ -1977,3 +1977,41 @@ GO
 COMMIT;
 GO
 
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20240501110702_addColorTableProject')
+BEGIN
+    ALTER TABLE [Project] ADD [IconColor] nvarchar(max) NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20240501110702_addColorTableProject')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20240501110702_addColorTableProject', N'7.0.11');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20240502095500_TaskToDoAddTaskColor')
+BEGIN
+    ALTER TABLE [TaskToDo] ADD [TaskColor] nvarchar(max) NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20240502095500_TaskToDoAddTaskColor')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20240502095500_TaskToDoAddTaskColor', N'7.0.11');
+END;
+GO
+
+COMMIT;
+GO
+

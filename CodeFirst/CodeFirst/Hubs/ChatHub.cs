@@ -78,7 +78,7 @@ namespace CodeFirst.Hubs
         public override async Task OnConnectedAsync()
         {
             var currentUser = await _userService.GetCurrentLoggedInUser();
-            if(currentUser != null)
+            if (currentUser != null)
             {
                 var userId = currentUser.Id;
                 var username = currentUser.FirstName + " " + currentUser.LastName;
@@ -110,7 +110,7 @@ namespace CodeFirst.Hubs
             }
         }
 
-     
+
 
 
 
@@ -125,12 +125,9 @@ namespace CodeFirst.Hubs
             // Lặp qua danh sách connected users và thêm vào uniqueUsers chỉ nếu chưa có người dùng có cùng userId
             foreach (var userInfo in ConnectedUsers.Values)
             {
-                if(userInfo!= null)
+                if (!uniqueUsers.ContainsKey(userInfo.Id))
                 {
-                    if (!uniqueUsers.ContainsKey(userInfo.Id))
-                    {
-                        uniqueUsers[userInfo.Id] = userInfo;
-                    }
+                    uniqueUsers[userInfo.Id] = userInfo;
                 }
             }
 
@@ -173,14 +170,10 @@ namespace CodeFirst.Hubs
             // Lặp qua danh sách connected users và thêm vào uniqueUsers chỉ nếu chưa có người dùng có cùng userId
             foreach (var userInfo in ConnectedUsers.Values)
             {
-                if (userInfo != null)
+                if (!uniqueUsers.ContainsKey(userInfo.Id))
                 {
-                    if (!uniqueUsers.ContainsKey(userInfo.Id))
-                    {
-                        uniqueUsers[userInfo.Id] = userInfo;
-                    }
+                    uniqueUsers[userInfo.Id] = userInfo;
                 }
-                
             }
 
             // Chuyển danh sách các người dùng duy nhất thành List

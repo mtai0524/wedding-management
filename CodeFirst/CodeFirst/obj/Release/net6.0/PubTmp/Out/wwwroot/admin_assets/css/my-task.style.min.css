@@ -22560,6 +22560,7 @@ body.rtl_mode table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td
     background-color: white;
     margin: 25px;
     height: calc(100vh - 50px);
+    z-index:1000000;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
     width: 260px;
     -webkit-box-flex: 0;
