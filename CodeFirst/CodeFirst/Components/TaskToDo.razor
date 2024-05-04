@@ -19,10 +19,11 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 <style>
-    .mud-icon-size-small{
-        font-size:1rem;
-        color:#211d01ff;
+    .mud-icon-size-small {
+        font-size: 1rem;
+        color: #211d01ff;
     }
+
     .avatar-container {
         display: flex;
         flex-wrap: wrap;
@@ -51,12 +52,13 @@
         border: 2px dashed gray;
         transform: scale(0.5);
     }
-    label:hover{
-        background-color:transparent;
+
+    label:hover {
+        background-color: transparent;
     }
 
     textarea::-webkit-scrollbar {
-        display: none; 
+        display: none;
     }
 
     textarea {
@@ -69,13 +71,17 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+
 </style>
 
 
 @* func task *@
-@code{
+@code {
+    List<UserListTask> userTaskList { get; set; } = new List<UserListTask>();
+
     private async Task SaveTask()
     {
+
         // Lấy vị trí của task cuối cùng của dự án hiện tại
         var lastTask = _context.TaskToDo
                                  .Where(t => t.ProjectId == currentProjectId)
@@ -105,14 +111,44 @@
         _context.TaskToDo.Add(task);
         await _context.SaveChangesAsync();
         Snackbar.Add("Đã thêm!", Severity.Normal);
+        int newTaskId = task.TaskId;
+        userTaskList.Clear();
 
+        if(values != null)
+        {
+            foreach (var item in values)
+            {
+                UserListTask newUserListTask = new UserListTask
+                    {
+                        TaskId = newTaskId,
+                        UserId = item
+                    };
+                userTaskList.Add(newUserListTask);
+            }
+            _context.UserListTask.AddRange(userTaskList);
+            await _context.SaveChangesAsync();
+        }
+    
         await LoadProject();
     }
     public async Task DeleteTask(int taskId)
     {
+
         var task = await _context.TaskToDo.FindAsync(taskId);
         if (task != null)
         {
+            _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+
+            var userListTask = await _context.UserListTask
+                                       .Where(x => x.TaskId == taskId)
+                                       .Select(x => x.UserListTaskId)
+                                       .ToListAsync();
+
+            _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.TrackAll;
+
+            // Xóa các công việc theo danh sách ID
+            _context.UserListTask.RemoveRange(_context.UserListTask.Where(t => userListTask.Contains(t.UserListTaskId)));
+
             _context.TaskToDo.Remove(task);
             await _context.SaveChangesAsync();
             await LoadProject();
@@ -123,7 +159,7 @@
 
     CodeFirst.Models.Entities.TaskToDo taskToUpdate { get; set; } = new Models.Entities.TaskToDo();
     // update task
-    
+
     private async Task AdjustTextareaHeight()
     {
         await JSRuntime.InvokeVoidAsync("adjustTextareaHeight", "taskName");
@@ -172,11 +208,14 @@
                                         .Where(x => x.ProjectId == projectId)
                                         .Select(x => x.TaskId)
                                         .ToListAsync();
-
+            var userListTask = await _context.UserListTask
+                                 .Where(x => taskIds.Contains(x.TaskId.Value)) // Sử dụng x.TaskId.Value để truy cập giá trị int thực sự
+                                 .ToListAsync();
             _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.TrackAll;
 
             // Xóa các công việc theo danh sách ID
             _context.TaskToDo.RemoveRange(_context.TaskToDo.Where(t => taskIds.Contains(t.TaskId)));
+            _context.UserListTask.RemoveRange(userListTask);
             _context.Projects.Remove(project);
             await _context.SaveChangesAsync();
             await LoadProject();
@@ -191,7 +230,7 @@
         IsYellowChecked = false;
         IsBlackChecked = false;
     }
-    
+
     async Task ConfirmDeleteProject(int projectId)
     {
         bool confirmed = await JSRuntime.InvokeAsync<bool>("confirm", $"Dữ liệu sau khi xóa sẽ không thể khôi phục");
@@ -204,8 +243,8 @@
         }
     }
 
-    // update project
-    
+        // update project
+
 }
 
 
@@ -229,7 +268,7 @@
                 <div class="container-flex-col" @key="@project.ProjectId">
                     <div class='project-column-heading' draggable='false'>
                         <div style="overflow: hidden;border-radius:8px;text-overflow: ellipsis;white-space: nowrap;">
-                            <MudChip Style="max-width: 270px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap" ><span style="font-size:17px">@project.Name</span></MudChip>
+                            <MudChip Style="max-width: 270px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap"><span style="font-size:17px">@project.Name</span></MudChip>
                         </div>
                         <div class="dropdown">
                             <button class='project-column-heading__options' draggable='false' id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -310,7 +349,7 @@
     </div>
 </div>
 
- @* modal create task *@
+@* modal create task *@
 <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -323,11 +362,26 @@
                 <input type="text" id="createTaskName" class="form-control" @bind="taskName" placeholder="Task Name">
                 <label>Select Tag Color:</label>
                 <MudChipSet MultiSelection="false">
-                    <MudChip Text="chưa bắt đầu" Color="Color.Dark" @onclick='() => SelectColor("task__tag--not-ready")' Variant="Variant.Text">chưa bắt đầu</MudChip>
-                    <MudChip Text="bắt đầu" Color="Color.Success" @onclick='() => SelectColor("task__tag--illustration")' Variant="Variant.Text">bắt đầu</MudChip>
-                    <MudChip Text="quan trọng" Color="Color.Secondary" @onclick='() => SelectColor("task__tag--copyright")' Variant="Variant.Text">quan trọng</MudChip>
-                    <MudChip Text="đang làm" Color="Color.Primary" @onclick='() => SelectColor("task__tag--design")' Variant="Variant.Text">đang làm</MudChip>
+                    <MudChip Text="chưa bắt đầu" Color="Color.Dark" @onclick='() => SelectColor("task__tag--not-ready")' Variant="MudBlazor.Variant.Text">chưa bắt đầu</MudChip>
+                    <MudChip Text="bắt đầu" Color="Color.Success" @onclick='() => SelectColor("task__tag--illustration")' Variant="MudBlazor.Variant.Text">bắt đầu</MudChip>
+                    <MudChip Text="quan trọng" Color="Color.Secondary" @onclick='() => SelectColor("task__tag--copyright")' Variant="MudBlazor.Variant.Text">quan trọng</MudChip>
+                    <MudChip Text="đang làm" Color="Color.Primary" @onclick='() => SelectColor("task__tag--design")' Variant="MudBlazor.Variant.Text">đang làm</MudChip>
                 </MudChipSet>
+                <div class="rz-p-sm-12 rz-text-align-center">
+                    <RadzenLabel Text="Chọn thành viên" Component="DropDownMultipleChips" Style="margin-right: 8px; vertical-align: middle;" />
+                    <RadzenDropDown @bind-Value=@values Data=@userList TextProperty="Email" ValueProperty="Id" Name="DropDownMultipleChips" MaxSelectedLabels="6" SelectedItemsText="được chọn"
+                                    Multiple=true AllowClear=true SelectAllText="Chọn tất cả" Placeholder="Chọn thành viên tham gia" Chips=true Filterable=true
+                                    Style="width: 100%;margin:0 0 0 0">
+                        <Template Context="item">
+                            <div class="rz-chip" style="margin: 2px; background-color: #f0f0f0; padding: 2px 8px; border-radius: 15px; display: inline-flex; align-items: center;">
+                                <span style="font-size:12px;margin-right:5px">@item.Email</span>
+                                <img src="@item.Avatar" style="border-radius:5px;width: 20px; height: 20px; margin: 4px;" />
+                            </div>
+                        </Template>
+                    </RadzenDropDown>
+                </div>
+
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -336,55 +390,80 @@
         </div>
     </div>
 </div>
+<style>
+    .rz-multiselect-panel {
+        z-index: 10000000000000 !important;
+    }
+</style>
+@code {
+    List<string> values = new List<string>(); // Giả sử Id là kiểu string
 
+
+}
 
 @* modal update task *@
-    <div class="modal fade" id="taskDetailsModal" tabindex="-1" aria-labelledby="taskDetailsModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="taskDetailsModalLabel">Chỉnh sửa nhiệm vụ</h5>
-                    <button type="button" data-bs-dismiss="modal" aria-label="Close">
-                        <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="taskName">Task Name:</label>
+<div class="modal fade" id="taskDetailsModal" tabindex="-1" aria-labelledby="taskDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="taskDetailsModalLabel">Chỉnh sửa nhiệm vụ</h5>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="taskName">Task Name:</label>
                     <textarea class="form-control" id="taskName" @bind="@updateTaskName" cols="100" style="resize: none;height: 35px; min-height: 35px; overflow: auto;" @oninput="AdjustTextareaHeight"></textarea>
 
                     <label>Select Tag Color:</label>
                     <MudChipSet MultiSelection="false">
-                        <MudChip Text="chưa bắt đầu" Color="Color.Dark" @onclick='() => SelectColor("task__tag--not-ready")' Variant="Variant.Text">chưa bắt đầu</MudChip>
-                        <MudChip Text="bắt đầu" Color="Color.Success" @onclick='() => SelectColor("task__tag--illustration")' Variant="Variant.Text">bắt đầu</MudChip>
-                        <MudChip Text="quan trọng" Color="Color.Secondary" @onclick='() => SelectColor("task__tag--copyright")' Variant="Variant.Text">quan trọng</MudChip>
-                        <MudChip Text="đang làm" Color="Color.Primary" @onclick='() => SelectColor("task__tag--design")' Variant="Variant.Text">đang làm</MudChip>
+                        <MudChip Text="chưa bắt đầu" Color="Color.Dark" @onclick='() => SelectColor("task__tag--not-ready")' Variant="MudBlazor.Variant.Text">chưa bắt đầu</MudChip>
+                        <MudChip Text="bắt đầu" Color="Color.Success" @onclick='() => SelectColor("task__tag--illustration")' Variant="MudBlazor.Variant.Text">bắt đầu</MudChip>
+                        <MudChip Text="quan trọng" Color="Color.Secondary" @onclick='() => SelectColor("task__tag--copyright")' Variant="MudBlazor.Variant.Text">quan trọng</MudChip>
+                        <MudChip Text="đang làm" Color="Color.Primary" @onclick='() => SelectColor("task__tag--design")' Variant="MudBlazor.Variant.Text">đang làm</MudChip>
                     </MudChipSet>
-                
+                    @if (Users != null)
+                    {
+
+                            @foreach (var user in Users)
+                            {
+                                <div class="rz-chip" style="margin: 2px; background-color: #f0f0f0; padding: 2px 8px; border-radius: 15px; display: inline-flex; align-items: center;">
+                                    <span style="font-size:12px;margin-right:5px">@user.Email</span>
+                                    <img src="@user.Avatar" style="border-radius:5px;width: 20px; height: 20px; margin: 4px;" />
+                                </div> <br />
+                            }
+                    }
+
                 </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
                 <button type="button" class="btn btn-primary" @onclick="SaveEditTaskChanges">Save</button>
-                </div>
             </div>
         </div>
     </div>
+</div>
 @code {
-        CodeFirst.Models.Entities.TaskToDo? taskToDoModel { get; set; } = new CodeFirst.Models.Entities.TaskToDo();
+    protected List<ApplicationUser>? Users { get; set; }
+    CodeFirst.Models.Entities.TaskToDo? taskToDoModel { get; set; } = new CodeFirst.Models.Entities.TaskToDo();
 
-        string? updateTaskName = "";
-        async Task EditTaskToDo(int taskId)
+    string? updateTaskName = "";
+    async Task EditTaskToDo(int taskId)
+    {
+        Users = await _context.UserListTask
+                               .Where(ult => ult.TaskId == taskId)
+                               .Select(ult => ult.User)
+                               .ToListAsync();
+        taskToDoModel = await _context.TaskToDo.FindAsync(taskId);
+        CodeFirst.Models.Entities.TaskToDo? taskUpdateForm = _context.TaskToDo.FirstOrDefault(x => x.TaskId == taskId);
+        if (taskUpdateForm != null)
         {
-            taskToDoModel = await _context.TaskToDo.FindAsync(taskId);
-            CodeFirst.Models.Entities.TaskToDo? taskUpdateForm = _context.TaskToDo.FirstOrDefault(x => x.TaskId == taskId);
-            if (taskUpdateForm != null)
-            {
-                updateTaskName = taskUpdateForm.Name;
-            }
+            updateTaskName = taskUpdateForm.Name;
+        }
         await LoadProject();
 
-        }
+    }
     async Task SaveEditTaskChanges()
     {
         var existingTask = _context.TaskToDo.Local.FirstOrDefault(b => b.TaskId == taskToDoModel.TaskId);
@@ -441,7 +520,6 @@
 
         await _context.SaveChangesAsync();
         Snackbar.Add("Đã cập nhật!", Severity.Normal);
-
         await LoadProject();
     }
 
@@ -498,7 +576,7 @@
         </div>
     </div>
 </div>
-@code{
+@code {
     string? updateProjectName = "";
     CodeFirst.Models.Entities.Project? projectToDoModel { get; set; } = new CodeFirst.Models.Entities.Project();
 
@@ -588,6 +666,8 @@
 
     protected override async Task OnInitializedAsync()
     {
+        userList = await _context.ApplicationUser.ToListAsync();
+
         currUser = await _userBlazorService.GetCurrentUser();
         // Cập nhật danh sách công việc cho mỗi dự án
         await Init();
@@ -596,7 +676,8 @@
 }
 
 @* define variable *@
-@code{
+@code {
+    List<ApplicationUser> userList;
     List<Project> projectList { get; set; } = new List<Project>();
     List<CodeFirst.Models.Entities.TaskToDo> tasks { get; set; } = new List<CodeFirst.Models.Entities.TaskToDo>();
     [Inject] private ApplicationDbContext _context { get; set; }
@@ -612,7 +693,7 @@
     private int currentProjectId;
     string taskColor = "";
     string selectedColor = "task__tag--copyright";
-    CodeFirst.Models.Entities.TaskToDo? selectedTask{ get; set; } = new Models.Entities.TaskToDo();
+    CodeFirst.Models.Entities.TaskToDo? selectedTask { get; set; } = new Models.Entities.TaskToDo();
 }
 @code {
     private string selectedColorProject = "";
@@ -641,9 +722,9 @@
             selectedColorTask = "#d6ede2";
         }
         if (selectedColorTask.Contains("copyright"))
-            {
+        {
             selectedColorTask = "#f2dcf5";
-            }
+        }
         if (selectedColorTask.Contains("design"))
         {
             selectedColorTask = "#ceecfd";

@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CodeFirst.Models.Entities
 {
     [Table("TaskToDo")]
-
     public class TaskToDo
     {
         [Key]

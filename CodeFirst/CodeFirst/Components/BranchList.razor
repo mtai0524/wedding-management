@@ -25,7 +25,7 @@
 @inject ISnackbar SnackbarService
 @inject ISnackbar Snackbar
 @inject IHubContext<MyBlazorHub> _hubContext
-@inject NotificationService _notiService
+@inject CodeFirst.Service.NotificationService _notiService
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UserBlazorService _userBlazorService
@@ -296,13 +296,13 @@
                 <MudImage Src="@context.Image" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-lg" />
     </MudTd>
     <MudTd>
-        <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Settings" Size="MudBlazor.Size.Small" Color="Color.Success" data-bs-toggle="modal" data-bs-target="#editBranchModal" OnClick="@(() => EditBranch(@context.BranchId))">
+        <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Settings" Size="MudBlazor.Size.Small" Color="Color.Success" data-bs-toggle="modal" data-bs-target="#editBranchModal" OnClick="@(() => EditBranch(@context.BranchId))">
             Sửa
         </MudButton>
-                <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#viewBranchModal" OnClick="@(() => ShowDetails(@context.BranchId))">
+                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#viewBranchModal" OnClick="@(() => ShowDetails(@context.BranchId))">
             Chi tiết
         </MudButton>
-                <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@context.BranchId))">
+                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@context.BranchId))">
             Xóa
         </MudButton>
     </MudTd>
@@ -320,7 +320,7 @@
         Dữ liệu bị xóa sẽ không thể phục hồi
     </MessageContent>
     <YesButton>
-        <MudButton Variant="Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Xóa dữ liệu!</MudButton>
+        <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Xóa dữ liệu!</MudButton>
     </YesButton>
 </MudMessageBox>
 @code{

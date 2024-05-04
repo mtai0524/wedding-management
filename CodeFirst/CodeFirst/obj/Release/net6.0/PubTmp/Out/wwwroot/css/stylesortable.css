@@ -55,6 +55,7 @@
     --tag-4: #f2dcf5;
     --tag-4-text: #a734ba;
     --purple: #7784ee;
+    --tag-24: #343434ff;
 }
 
 * {
@@ -192,6 +193,10 @@ h1 {
 .task__tag--design {
     color: var(--tag-3-text);
     background-color: var(--tag-3);
+}
+.task__tag--not-ready {
+    color: #f1f1f3ff;
+    background-color: #a19ec1ff;
 }
 
 .task__tag--illustration {

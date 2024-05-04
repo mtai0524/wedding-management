@@ -53,6 +53,7 @@ namespace CodeFirst.Data
         public DbSet<CodeFirst.Models.Entities.ChatPrivate> ChatPrivate { get; set; } = null!;
         public DbSet<CodeFirst.Models.Entities.Project> Projects { get; set; } = null!;
         public DbSet<CodeFirst.Models.Entities.TaskToDo> TaskToDo { get; set; } = null!;
+        public DbSet<CodeFirst.Models.Entities.UserListTask> UserListTask { get; set; }
 
     }
 }

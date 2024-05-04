@@ -22,10 +22,8 @@
     <link rel="stylesheet" href="~/admin_assets/css/mystyle.css" />
     <link rel="stylesheet" href="~/css/mydesign.css" asp-append-version="true" />
     <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="~/admin_assets/css/my-task.style.min.css">
     <link href="~/css/site.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <base href="~/" />
     <component type="typeof(Microsoft.AspNetCore.Components.Web.HeadOutlet)"
@@ -35,8 +33,13 @@
     <link href='https://fonts.googleapis.com/css?family=Mali' rel='stylesheet'>
     <link href="~/css/stylesortable.css" rel="stylesheet" />
     <link href="~/css/home.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
+    <style>
+        body {
+            background-color:white !important;        
+        }
+    </style>
 </head>
-
 <body>
    
     <div class="modal fade" id="customConfirmModal" tabindex="-1" role="dialog" aria-labelledby="customConfirmModalLabel" aria-hidden="true" style=" z-index:10000001;background-color: rgba(0, 0, 0, 0.5);">
@@ -352,7 +355,7 @@
         </form>
     </div>
 
-    <div id="mytask-layout" class="theme-indigo" >
+    <div id="mytask-layout" class="theme-indigo" style="background-color:white">
         <div class="loading-spinner" id="loading-spinner">
             <img src="~/admin_assets/images/cf.gif" class="spinner-image" alt="Loading..." />
         </div>
@@ -513,7 +516,6 @@
                         </nav>
                     </div>
                 </div>
-
                 @RenderBody()
 
             </div>
@@ -527,7 +529,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <script type="text/javascript">
-           
+       
 
 
             function displayFileName(input) {
@@ -760,6 +762,7 @@
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
         <script src="~/js/tasktodo.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/js/multi-select-tag.js"></script>
 </body>
 
 </html> 

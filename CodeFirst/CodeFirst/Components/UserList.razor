@@ -21,7 +21,7 @@
 @inject ISnackbar Snackbar
 @inject IHubContext<ChatHub> _hubContext
 @inject UserManager<ApplicationUser> _userManager
-@inject NotificationService _notiService
+@inject CodeFirst.Service.NotificationService _notiService
 @inject NavigationManager NavigationManager
 @inject UserListService userService
 @inject RoleManager<IdentityRole> _roleManager
@@ -102,17 +102,17 @@
             }
         </MudTd>
         <MudTd>
-            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#updateRoleModal" OnClick="@(() => ShowUpdateRoleModal(@context.UserId))">
+            <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#updateRoleModal" OnClick="@(() => ShowUpdateRoleModal(@context.UserId))">
                 Thay đổi vai trò
             </MudButton>
 
-            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#detailUserModal" OnClick="@(() => ShowDetails(@context.UserId))">
+            <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#detailUserModal" OnClick="@(() => ShowDetails(@context.UserId))">
                 Chi tiết
             </MudButton>
-            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" OnClick="@(() => LockUser(@context.UserId))">
+            <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" OnClick="@(() => LockUser(@context.UserId))">
                 Khóa
             </MudButton>
-            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" OnClick="@(() => UnlockUser(@context.UserId))">
+            <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" OnClick="@(() => UnlockUser(@context.UserId))">
                 Mở khóa
             </MudButton>
         </MudTd>

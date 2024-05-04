@@ -22,13 +22,14 @@ using CodeFirst.MiddlewareExtensions;
 using MudBlazor;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Components.Authorization;
+using Radzen;
 //using CodeFirst.SqlDependencies;
 //using SignalRYoutube.MiddlewareExtensions;
 
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMudServices();
-
+builder.Services.AddRadzenComponents();
 // Add services to the container.
 builder.Services.AddSignalR();
 
@@ -62,7 +63,7 @@ builder.Services.AddSingleton<OnlineUserService>();
 
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<UserBlazorService>();
-builder.Services.AddScoped<NotificationService>();
+builder.Services.AddScoped<CodeFirst.Service.NotificationService>();
 builder.Services.AddScoped<ProjectService>();
 builder.Services.AddScoped<TaskToDoService>();
 builder.Services.AddHttpClient();
@@ -158,7 +159,7 @@ builder.Services.AddMudServices(config =>
     config.SnackbarConfiguration.VisibleStateDuration = 10000;
     config.SnackbarConfiguration.HideTransitionDuration = 500;
     config.SnackbarConfiguration.ShowTransitionDuration = 500;
-    config.SnackbarConfiguration.SnackbarVariant = Variant.Outlined;
+    config.SnackbarConfiguration.SnackbarVariant = MudBlazor.Variant.Outlined;
 });
 
 builder.Services.AddCors(options =>

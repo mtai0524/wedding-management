@@ -3,15 +3,18 @@
 @{
     // Layout = "_Layout";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/material-base.css">
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/standard-base.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
 }
 <component type="typeof(App)" render-mode="ServerPrerendered" />
-
+<script src="_content/Radzen.Blazor/Radzen.Blazor.js?v=@(typeof(Radzen.Colors).Assembly.GetName().Version)"></script>
 <script>
     function showText() {
         return alert("hello");
     }
 </script>
+
 <script>
     window.adjustTextareaHeight = function (textareaId) {
         var textarea = document.getElementById(textareaId);

@@ -6036,3 +6036,5 @@ T:\Test\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 T:\Test\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
 T:\Test\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
 E:\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
+E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Radzen.Blazor.dll
+E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
