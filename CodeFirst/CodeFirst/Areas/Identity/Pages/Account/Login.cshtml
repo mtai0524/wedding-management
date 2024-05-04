@@ -36,7 +36,9 @@
         font-size: 30px;
     }
 
-
+    .loading-cursor {
+        cursor: wait; 
+    }
     body {
         overflow: hidden;
     }
@@ -151,12 +153,8 @@
 
 <script>
     document.getElementById('btn-login').addEventListener('click', function () {
-        // Thay đổi nội dung của nút đăng nhập khi nó được nhấn
-        this.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang đăng nhập...';
-        // Thêm mã để xử lý đăng nhập tại đây
-        // Ví dụ: gửi dữ liệu đăng nhập đến server
-        // Sau khi xử lý hoàn tất, bạn có thể thay đổi nội dung của nút đăng nhập lại
-        // this.textContent = "Đăng nhập thành công";
+        this.innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
+        this.classList.add('loading-cursor');
     });
     document.addEventListener('DOMContentLoaded', function () {
         var showPasswordCheckbox = document.getElementById('showPasswordCheckbox');

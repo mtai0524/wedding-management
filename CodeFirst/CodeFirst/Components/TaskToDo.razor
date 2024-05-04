@@ -71,7 +71,12 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-
+    .rz-chip{
+        width:100%;
+    }
+    .rz-chip-text{
+        width:100%;
+    }
 </style>
 
 
@@ -373,7 +378,7 @@
                                     Multiple=true AllowClear=true SelectAllText="Chọn tất cả" Placeholder="Chọn thành viên tham gia" Chips=true Filterable=true
                                     Style="width: 100%;margin:0 0 0 0">
                         <Template Context="item">
-                            <div class="rz-chip" style="margin: 2px; background-color: #f0f0f0; padding: 2px 8px; border-radius: 15px; display: inline-flex; align-items: center;">
+                            <div class="rz-chip" style="margin: 2px; background-color: #f0f0f0; padding: 2px 8px; border-radius: 15px; display: inline-flex;justify-content:space-between; align-items: center;">
                                 <span style="font-size:12px;margin-right:5px">@item.Email</span>
                                 <img src="@item.Avatar" style="border-radius:5px;width: 20px; height: 20px; margin: 4px;" />
                             </div>
@@ -423,18 +428,73 @@
                         <MudChip Text="quan trọng" Color="Color.Secondary" @onclick='() => SelectColor("task__tag--copyright")' Variant="MudBlazor.Variant.Text">quan trọng</MudChip>
                         <MudChip Text="đang làm" Color="Color.Primary" @onclick='() => SelectColor("task__tag--design")' Variant="MudBlazor.Variant.Text">đang làm</MudChip>
                     </MudChipSet>
-                    @if (Users != null)
-                    {
 
+
+                    <div class="rz-p-sm-12 rz-text-align-center">
+                        <RadzenLabel Text="Chọn thành viên" Component="DropDownMultipleChips" Style="margin-right: 8px; vertical-align: middle;" />
+                        <RadzenDropDown @bind-Value=@defaultSelectedUserIds Data=@userList TextProperty="Email" ValueProperty="Id" Name="DropDownMultipleChips" MaxSelectedLabels="6" SelectedItemsText="được chọn"
+                                        Multiple=true SelectAllText="Chọn tất cả" Placeholder="Chọn thành viên tham gia" Chips=true Filterable=true
+                                        Style="width: 100%;margin:0 0 0 0">
+                            <Template Context="item" >
+                                <div class="rz-chip" style="margin: 2px; padding: 2px 8px; display: inline-flex;justify-content:space-between; align-items: center;">
+                                    <span style="font-size:12px;margin-right:5px">@item.Email</span>
+                                    <img src="@item.Avatar" style="border-radius:5px;width: 20px; height: 20px; margin: 4px;" />
+                                </div>
+                            </Template>
+                        </RadzenDropDown>
+                    </div>
+
+   @*                  @if (Users != null)
+                    {
                             @foreach (var user in Users)
                             {
-                                <div class="rz-chip" style="margin: 2px; background-color: #f0f0f0; padding: 2px 8px; border-radius: 15px; display: inline-flex; align-items: center;">
+                                <div class="rz-chip" style="margin: 2px; background-color: #f0f0f0; padding: 2px 8px; border-radius: 15px;justify-content:space-between; display: inline-flex; align-items: center;">
                                     <span style="font-size:12px;margin-right:5px">@user.Email</span>
                                     <img src="@user.Avatar" style="border-radius:5px;width: 20px; height: 20px; margin: 4px;" />
                                 </div> <br />
                             }
-                    }
-
+                    } *@
+                    <div class="container justify-content-center mt-5 border-left border-right">
+                        <div class="d-flex justify-content-center pt-3 pb-2"> <input type="text" name="text" placeholder="+ Add a note" class="form-control addtxt"> </div>
+                        <div class="container-comments">
+                            <div class="demo d-flex justify-content-center py-2">
+                                <div class="second py-2 px-2">
+                                    <span class="text1">Type your note, and hit enter to add itType your note, and hit enter to add itType your note, and hit enter to add itType your note, and hit enter to add itType your note, and hit enter to add itType your note, and hit enter to add it</span>
+                                    <div class="d-flex justify-content-between py-1 pt-2">
+                                        <div><img src="https://i.imgur.com/AgAC1Is.jpg" width="18"><span class="text2">Martha</span></div>
+                                        <div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span class="text4">3</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="demo d-flex justify-content-center py-2">
+                                <div class="second py-2 px-2">
+                                    <span class="text1">Type your note, and hit enter to add it</span>
+                                    <div class="d-flex justify-content-between py-1 pt-2">
+                                        <div><img src="https://i.imgur.com/tPvlEdq.jpg" width="18"><span class="text2">Curtis</span></div>
+                                        <div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span class="text4">3</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="demo d-flex justify-content-center py-2">
+                                <div class="second py-2 px-2">
+                                    <span class="text1">Type your note, and hit enter to add it</span>
+                                    <div class="d-flex justify-content-between py-1 pt-2">
+                                        <div><img src="https://i.imgur.com/gishFbz.png" width="18" height="18"><span class="text2">Beth</span></div>
+                                        <div><span class="text3 text3o">Upvoted</span><span class="thumbup"><i class="fa fa-thumbs-up thumbupo"></i></span><span class="text4 text4i">1</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="demo d-flex justify-content-center py-2 pb-3">
+                                <div class="second py-2 px-2">
+                                    <span class="text1">Type your note, and hit enter to add it</span>
+                                    <div class="d-flex justify-content-between py-1 pt-2">
+                                        <div><img src="https://i.imgur.com/tPvlEdq.jpg" width="18"><span class="text2">Curtis</span></div>
+                                        <div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span class="text4 text4o">1</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-between">
@@ -447,14 +507,33 @@
 @code {
     protected List<ApplicationUser>? Users { get; set; }
     CodeFirst.Models.Entities.TaskToDo? taskToDoModel { get; set; } = new CodeFirst.Models.Entities.TaskToDo();
-
+    List<string> defaultSelectedUserIds = new List<string>();
     string? updateTaskName = "";
     async Task EditTaskToDo(int taskId)
     {
+        if(defaultSelectedUserIds != null)
+        {
+            defaultSelectedUserIds.Clear();
+        }
+
         Users = await _context.UserListTask
                                .Where(ult => ult.TaskId == taskId)
                                .Select(ult => ult.User)
                                .ToListAsync();
+        List<string> userIds = await _context.UserListTask
+              .Where(ult => ult.TaskId == taskId)
+              .Select(ult => ult.UserId)
+              .ToListAsync();
+
+        if (userIds != null && userIds.Any()) // Kiểm tra xem danh sách userIds có dữ liệu hay không
+        {
+            if (defaultSelectedUserIds == null) // Nếu defaultSelectedUserIds là null, tạo mới
+            {
+                defaultSelectedUserIds = new List<string>();
+            }
+
+            defaultSelectedUserIds.AddRange(userIds); // Thêm dữ liệu vào defaultSelectedUserIds
+        }
         taskToDoModel = await _context.TaskToDo.FindAsync(taskId);
         CodeFirst.Models.Entities.TaskToDo? taskUpdateForm = _context.TaskToDo.FirstOrDefault(x => x.TaskId == taskId);
         if (taskUpdateForm != null)
@@ -462,7 +541,6 @@
             updateTaskName = taskUpdateForm.Name;
         }
         await LoadProject();
-
     }
     async Task SaveEditTaskChanges()
     {
@@ -473,6 +551,41 @@
             existingTask.Name = updateTaskName;
             existingTask.TaskColor = selectedColorTask;
 
+            // get UserTaskList by id
+            var userTaskListByTaskId = _context.UserListTask.Where(x => x.TaskId == taskToDoModel.TaskId).ToList();
+            var userTaskListByTaskId2 = _context.UserListTask.Where(x => x.TaskId == taskToDoModel.TaskId).ToList();
+            _context.ChangeTracker.Clear();
+            foreach (var item in defaultSelectedUserIds)
+            {
+                var existingUserTaskList = userTaskListByTaskId.FirstOrDefault(x => x.UserId == item);
+                if (existingUserTaskList == null)
+                {
+                    // Thêm đối tượng mới vào DbContext
+                    _context.UserListTask.Add(new UserListTask
+                        {
+                            TaskId = taskToDoModel.TaskId,
+                            UserId = item,
+                        });
+                }
+            }
+
+            // Tạo danh sách các đối tượng cần xóa
+            var itemsToRemove = userTaskListByTaskId2.Where(existingUserTask => !defaultSelectedUserIds.Contains(existingUserTask.UserId)).ToList();
+
+            // Xóa các đối tượng khỏi DbContext
+            foreach (var itemToRemove in itemsToRemove)
+            {
+                _context.UserListTask.Remove(itemToRemove);
+            }
+
+           
+            await _context.SaveChangesAsync();
+            Users = await _context.UserListTask
+              .Where(ult => ult.TaskId == taskToDoModel.TaskId)
+              .Select(ult => ult.User)
+              .ToListAsync();
+        
+            StateHasChanged();
             // Cập nhật Priority dựa trên selectedColorTask
             if (selectedColorTask.Contains("#d6ede2"))
             {
@@ -514,6 +627,42 @@
             {
                 taskToDoModel.Priority = "task__tag--not-ready";
             }
+
+
+            // get UserTaskList by id
+            var userTaskListByTaskId = _context.UserListTask.Where(x => x.TaskId == taskToDoModel.TaskId).ToList();
+            _context.ChangeTracker.Clear(); // clear tracking
+            foreach (var item in defaultSelectedUserIds)
+            {
+                var existingUserTaskList = userTaskListByTaskId.FirstOrDefault(x => x.UserId == item);
+                if (existingUserTaskList == null)
+                {
+                    // Thêm đối tượng mới vào DbContext
+                    _context.UserListTask.Add(new UserListTask
+                        {
+                            TaskId = taskToDoModel.TaskId,
+                            UserId = item,
+                        });
+                }
+            }
+
+            // Tạo danh sách các đối tượng cần xóa
+            var itemsToRemove = userTaskListByTaskId.Where(existingUserTask => !defaultSelectedUserIds.Contains(existingUserTask.UserId)).ToList();
+
+            // Xóa các đối tượng khỏi DbContext
+            foreach (var itemToRemove in itemsToRemove)
+            {
+                _context.UserListTask.Remove(itemToRemove);
+            }
+
+
+            await _context.SaveChangesAsync();
+            Users = await _context.UserListTask
+              .Where(ult => ult.TaskId == taskToDoModel.TaskId)
+              .Select(ult => ult.User)
+              .ToListAsync();
+            StateHasChanged();
+
         }
 
         _context.Update(taskToDoModel);

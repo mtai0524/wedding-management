@@ -1,4 +1,104 @@
-﻿*::-webkit-scrollbar {
+﻿@media only screen and (max-width: 600px) {
+    .container {
+        max-width: 95%; /* Container sẽ đặt chiều rộng tối đa là 100% trên các màn hình nhỏ */
+    }
+
+    .second {
+        max-width: 95%; /* Container sẽ đặt chiều rộng tối đa là 100% trên các màn hình nhỏ */
+    }
+}
+
+body {
+    background-color: red;
+}
+
+body {
+    background-color: #fff;
+}
+
+.container {
+    background-color: #eef2f5;
+    width: 400px;
+    
+}
+.container-comments {
+    max-height: 200px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.addtxt {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+    width: 350px;
+    background-color: white;
+    font-weight: 500;
+}
+
+.second {
+    width: 350px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 4px 3px 1px #aaaaaa;
+}
+
+.text1 {
+    font-size: 13px;
+    font-weight: 500;
+    color: #56575b;
+}
+
+.text2 {
+    font-size: 13px;
+    font-weight: 500;
+    margin-left: 6px;
+    color: #56575b;
+}
+
+.text3 {
+    font-size: 13px;
+    font-weight: 500;
+    margin-right: 4px;
+    color: #828386;
+}
+
+.text3o {
+    color: #00a5f4;
+}
+
+.text4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: #828386;
+}
+
+.text4i {
+    color: #00a5f4;
+}
+
+.text4o {
+    color: white;
+}
+
+.thumbup {
+    font-size: 13px;
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+.thumbupo {
+    color: #17a2b8;
+}
+
+.demo {
+    padding: 10px;
+}
+
+
+
+*::-webkit-scrollbar {
     width: 5px;
     height: 8px;
 }
@@ -156,7 +256,7 @@ h1 {
     margin-right: 30px;
     margin-left: 2px;
     width: 300px;
-    border: 1px solid #939393ff; /* Xóa biên đã định nghĩa */
+    border: 1px solid #939393ff; 
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(51, 51, 51) 0px 0px 0px 1px;
 }
 .task {
@@ -166,10 +266,8 @@ h1 {
     padding: 1rem;
     width: 100%;
 }
-
-
     .task:hover {
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+        outline: 2px solid #939393ff;
     }
 
     .task p {
