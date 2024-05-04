@@ -6,6 +6,9 @@
     .second {
         max-width: 95%; /* Container sẽ đặt chiều rộng tối đa là 100% trên các màn hình nhỏ */
     }
+    .addtxt {
+        max-width: 260px; /* Container sẽ đặt chiều rộng tối đa là 100% trên các màn hình nhỏ */
+    }
 }
 
 body {
@@ -18,11 +21,10 @@ body {
 
 .container {
     background-color: #eef2f5;
-    width: 400px;
-    
+    width: 100%;
 }
 .container-comments {
-    max-height: 200px;
+    max-height: 300px;
     overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -32,13 +34,14 @@ body {
     padding-bottom: 10px;
     text-align: center;
     font-size: 13px;
-    width: 350px;
+    width: 450px;
     background-color: white;
     font-weight: 500;
 }
 
 .second {
-    width: 350px;
+    margin-bottom:10px;
+    width: 450px;
     background-color: white;
     border-radius: 4px;
     box-shadow: 4px 3px 1px #aaaaaa;

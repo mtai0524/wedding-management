@@ -138,21 +138,27 @@
     }
     public async Task DeleteTask(int taskId)
     {
+        _context.ChangeTracker.Clear(); // clear tracking
 
         var task = await _context.TaskToDo.FindAsync(taskId);
         if (task != null)
         {
+
             _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
 
             var userListTask = await _context.UserListTask
                                        .Where(x => x.TaskId == taskId)
                                        .Select(x => x.UserListTaskId)
                                        .ToListAsync();
-
+          
+            var taskComments = await _context.TaskComment
+                                     .Where(x => x.TaskId == taskId)
+                                     .ToListAsync();
             _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.TrackAll;
 
             // Xóa các công việc theo danh sách ID
             _context.UserListTask.RemoveRange(_context.UserListTask.Where(t => userListTask.Contains(t.UserListTaskId)));
+            _context.TaskComment.RemoveRange(taskComments);
 
             _context.TaskToDo.Remove(task);
             await _context.SaveChangesAsync();
@@ -408,7 +414,7 @@
 
 @* modal update task *@
 <div class="modal fade" id="taskDetailsModal" tabindex="-1" aria-labelledby="taskDetailsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
             <div class="modal-header">
                 <h5 class="modal-title" id="taskDetailsModalLabel">Chỉnh sửa nhiệm vụ</h5>
@@ -455,45 +461,36 @@
                             }
                     } *@
                     <div class="container justify-content-center mt-5 border-left border-right">
-                        <div class="d-flex justify-content-center pt-3 pb-2"> <input type="text" name="text" placeholder="+ Add a note" class="form-control addtxt"> </div>
-                        <div class="container-comments">
-                            <div class="demo d-flex justify-content-center py-2">
-                                <div class="second py-2 px-2">
-                                    <span class="text1">Type your note, and hit enter to add itType your note, and hit enter to add itType your note, and hit enter to add itType your note, and hit enter to add itType your note, and hit enter to add itType your note, and hit enter to add it</span>
-                                    <div class="d-flex justify-content-between py-1 pt-2">
-                                        <div><img src="https://i.imgur.com/AgAC1Is.jpg" width="18"><span class="text2">Martha</span></div>
-                                        <div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span class="text4">3</span></div>
-                                    </div>
+                        <div class="d-flex justify-content-center pt-3 pb-2">
+                            <div class="position-relative">
+                                <div style="position: relative;">
+                                    <input @bind="commentText" type="text" name="text" placeholder="+ Add a note" class="form-control addtxt">
+                                    <button  @onclick="() => SaveComment()" class="btn btn-primary addbtn" style="color:black;border:1px solid transparent;outline:none;background-color:transparent;height:41px;position: absolute; top: 0; right: 0;">
+                                        <i class="fa-solid fa-arrow-right"></i> <!-- Biểu tượng cần thêm -->
+                                    </button>
                                 </div>
                             </div>
-                            <div class="demo d-flex justify-content-center py-2">
-                                <div class="second py-2 px-2">
-                                    <span class="text1">Type your note, and hit enter to add it</span>
-                                    <div class="d-flex justify-content-between py-1 pt-2">
-                                        <div><img src="https://i.imgur.com/tPvlEdq.jpg" width="18"><span class="text2">Curtis</span></div>
-                                        <div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span class="text4">3</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="demo d-flex justify-content-center py-2">
-                                <div class="second py-2 px-2">
-                                    <span class="text1">Type your note, and hit enter to add it</span>
-                                    <div class="d-flex justify-content-between py-1 pt-2">
-                                        <div><img src="https://i.imgur.com/gishFbz.png" width="18" height="18"><span class="text2">Beth</span></div>
-                                        <div><span class="text3 text3o">Upvoted</span><span class="thumbup"><i class="fa fa-thumbs-up thumbupo"></i></span><span class="text4 text4i">1</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="demo d-flex justify-content-center py-2 pb-3">
-                                <div class="second py-2 px-2">
-                                    <span class="text1">Type your note, and hit enter to add it</span>
-                                    <div class="d-flex justify-content-between py-1 pt-2">
-                                        <div><img src="https://i.imgur.com/tPvlEdq.jpg" width="18"><span class="text2">Curtis</span></div>
-                                        <div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span class="text4 text4o">1</span></div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
+                        @if(taskCommentList != null)
+                        {
+                            <div class="container-comments">
+                                @foreach (var item in taskCommentList)
+                                {
+                                    <div class="demo d-flex justify-content-center py-2">
+
+                                        <div class="second py-2 px-2">
+                                            <span class="text1">@item.Comment</span>
+                                            <div class="d-flex justify-content-between py-1 pt-2">
+                                                <div><img src="@item.User.Avatar" width="18"><span class="text2">@item.User.Email</span></div>
+                                                <div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span class="text4">3</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        
                     </div>
                 </div>
             </div>
@@ -505,8 +502,29 @@
     </div>
 </div>
 @code {
+    private string commentText { get; set; }
+
+    private async Task SaveComment()
+    {
+        var newTaskComment = new TaskComment
+            {
+                TaskId = taskToDoModel.TaskId,
+                UserId = currUser.Id,
+                Comment = commentText,
+                CreatedAt = DateTime.UtcNow // Lấy thời gian hiện tại
+            };
+        _context.TaskComment.Add(newTaskComment);
+        await _context.SaveChangesAsync();
+        await LoadTaskComment();
+
+        commentText = string.Empty;
+    }
+}
+@code {
+    List<TaskComment> taskCommentList { get; set; } = new List<TaskComment>();
     protected List<ApplicationUser>? Users { get; set; }
     CodeFirst.Models.Entities.TaskToDo? taskToDoModel { get; set; } = new CodeFirst.Models.Entities.TaskToDo();
+
     List<string> defaultSelectedUserIds = new List<string>();
     string? updateTaskName = "";
     async Task EditTaskToDo(int taskId)
@@ -540,6 +558,12 @@
         {
             updateTaskName = taskUpdateForm.Name;
         }
+        taskCommentList = _context.TaskComment
+                 .Where(x => x.TaskId == taskToDoModel.TaskId)
+                 .Include(x => x.User)
+                 .OrderByDescending(x => x.CreatedAt) // Sắp xếp theo thời gian tạo giảm dần
+                 .ToList();
+
         await LoadProject();
     }
     async Task SaveEditTaskChanges()
@@ -771,6 +795,15 @@
         _context.SaveChanges();
         StateHasChanged();
     }
+    async Task LoadTaskComment()
+    {
+        taskCommentList = _context.TaskComment
+                .Where(x => x.TaskId == taskToDoModel.TaskId)
+                .Include(x => x.User)
+                .OrderByDescending(x => x.CreatedAt) // Sắp xếp theo thời gian tạo giảm dần
+                .ToList();
+        await _hubContext.Clients.All.SendAsync("TaskCommentList", taskCommentList);
+    }
     async Task LoadProject()
     {
         projectList = await _projectService.GetAllProjects();
@@ -792,10 +825,22 @@
                 StateHasChanged();
             });
         });
+        hubConnection.On<List<TaskComment>>("TaskCommentList", list =>
+        {
+            InvokeAsync(() =>
+            {
+                taskCommentList = list;
+                StateHasChanged();
+            });
+        });
         try
         {
             await hubConnection.StartAsync();
-
+            taskCommentList = _context.TaskComment
+                .Where(x => x.TaskId == taskToDoModel.TaskId)
+                .Include(x => x.User)
+                .OrderByDescending(x => x.CreatedAt) // Sắp xếp theo thời gian tạo giảm dần
+                .ToList();
         }
         catch (Exception ex)
         {

@@ -44,5 +44,8 @@ namespace CodeFirst.Hubs
             var listBranch = _context.Branch.ToListAsync();
             await Clients.All.SendAsync("BranchCreated", listBranch);
         }
+       
+
+       
     }
 }
