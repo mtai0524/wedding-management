@@ -26,8 +26,10 @@
 @inject UserListService userService
 @inject RoleManager<IdentityRole> _roleManager
 @inject IHubContext<MyBlazorHub> _hubContext
+@using BlazorBootstrap
+<Preload />
 
-<PageTitle>Quản lý người dùng</PageTitle>
+<PageTitle>Users management</PageTitle>
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
@@ -35,10 +37,10 @@
 
 
 @code {
-    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    private List<MudBlazor.BreadcrumbItem> _items = new List<MudBlazor.BreadcrumbItem>
     {
-        new BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
-        new BreadcrumbItem("Người dùng", href: "/user-list", icon: Icons.Material.Filled.People),
+        new MudBlazor.BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
+        new MudBlazor.BreadcrumbItem("Người dùng", href: "/user-list", icon: Icons.Material.Filled.People),
     };
 }
 
@@ -228,18 +230,32 @@
     [Inject] private ApplicationDbContext _context { get; set; }
 
     private List<string> allRoles = new List<string>(); // List chứa tất cả các vai trò
+    [Inject] protected PreloadService PreloadService { get; set; }
 
     protected async Task LoadBranches()
     {
+
         var userService = new UserListService(_context, _userManager);
         listUser = await userService.GetListUserAndRole();
         await _hubContext.Clients.All.SendAsync("ApplicationUserWithRoleSignalR", listUser);
         StateHasChanged();
-    }
 
+    }
+    protected async Task LoadBranchesHasPreload()
+    {
+        PreloadService.Show(SpinnerColor.Light, "Đang nạp dữ liệu...");
+
+        var userService = new UserListService(_context, _userManager);
+        listUser = await userService.GetListUserAndRole();
+        await _hubContext.Clients.All.SendAsync("ApplicationUserWithRoleSignalR", listUser);
+        StateHasChanged();
+        PreloadService.Hide();
+
+    }
     protected override async Task OnInitializedAsync()
     {
         await Init();
+        LoadBranchesHasPreload();
         await base.OnInitializedAsync();
         var allRoles = await _roleManager.Roles.Select(r => r.Name).ToListAsync();
         this.allRoles = allRoles;

@@ -17,7 +17,10 @@
 @using Microsoft.AspNetCore.SignalR.Client
 @using Microsoft.EntityFrameworkCore
 @using System.Security.Claims
-<PageTitle>Counter</PageTitle>
+<PageTitle>Branches management</PageTitle>
+<Preload />
+@using BlazorBootstrap
+
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
@@ -30,10 +33,12 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UserBlazorService _userBlazorService
 @code {
-    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    [Inject] protected PreloadService PreloadService { get; set; }
+
+    private List<MudBlazor.BreadcrumbItem> _items = new List<MudBlazor.BreadcrumbItem>
     {
-        new BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
-        new BreadcrumbItem("Chi nhánh", href: "/branch-list", icon: Icons.Material.Filled.LocationCity),
+        new MudBlazor.BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
+        new MudBlazor.BreadcrumbItem("Chi nhánh", href: "/branch-list", icon: Icons.Material.Filled.LocationCity),
     };
 }
 
@@ -631,8 +636,19 @@
     [Inject] private ApplicationDbContext _context { get; set; }
     string imageUrl { get; set; }
     private List<Branch> listBranch { get; set; } = new List<Branch>();
+    protected async Task LoadBranchesHasPreLoad()
+    {
+        PreloadService.Show(SpinnerColor.Light, "Đang nạp dữ liệu...");
+
+        var branchService = new BranchService(_context);
+        listBranch = await branchService.GetBranchesAsync();
+        await _hubContext.Clients.All.SendAsync("BranchCreated", listBranch);
+        StateHasChanged(); // Luu data da thay doi
+        PreloadService.Hide();
+    }
     protected async Task LoadBranches()
     {
+
         var branchService = new BranchService(_context);
         listBranch = await branchService.GetBranchesAsync();
         await _hubContext.Clients.All.SendAsync("BranchCreated", listBranch);
@@ -642,7 +658,7 @@
     protected override async Task OnInitializedAsync()
     {
         getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
-        await LoadBranches();
+        await LoadBranchesHasPreLoad();
         hubConnection = new HubConnectionBuilder()
             // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/chatHub")) // docker
             .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))

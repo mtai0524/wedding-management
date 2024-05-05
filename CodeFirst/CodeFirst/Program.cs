@@ -30,6 +30,8 @@ using Radzen;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMudServices();
 builder.Services.AddRadzenComponents();
+builder.Services.AddBlazorBootstrap();
+
 // Add services to the container.
 builder.Services.AddSignalR();
 

@@ -2015,3 +2015,81 @@ GO
 COMMIT;
 GO
 
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20240504063928_tableUserListTask')
+BEGIN
+    CREATE TABLE [UserListTask] (
+        [UserListTaskId] int NOT NULL IDENTITY,
+        [TaskId] int NULL,
+        [UserId] nvarchar(450) NULL,
+        CONSTRAINT [PK_UserListTask] PRIMARY KEY ([UserListTaskId]),
+        CONSTRAINT [FK_UserListTask_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]),
+        CONSTRAINT [FK_UserListTask_TaskToDo_TaskId] FOREIGN KEY ([TaskId]) REFERENCES [TaskToDo] ([TaskId])
+    );
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20240504063928_tableUserListTask')
+BEGIN
+    CREATE INDEX [IX_UserListTask_TaskId] ON [UserListTask] ([TaskId]);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20240504063928_tableUserListTask')
+BEGIN
+    CREATE INDEX [IX_UserListTask_UserId] ON [UserListTask] ([UserId]);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20240504063928_tableUserListTask')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20240504063928_tableUserListTask', N'7.0.11');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20240504151854_TableTaskComment')
+BEGIN
+    CREATE TABLE [TaskComment] (
+        [TaskCommentId] int NOT NULL IDENTITY,
+        [TaskId] int NULL,
+        [UserId] nvarchar(450) NULL,
+        [Comment] nvarchar(max) NULL,
+        [CreatedAt] datetime2 NULL,
+        CONSTRAINT [PK_TaskComment] PRIMARY KEY ([TaskCommentId]),
+        CONSTRAINT [FK_TaskComment_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]),
+        CONSTRAINT [FK_TaskComment_TaskToDo_TaskId] FOREIGN KEY ([TaskId]) REFERENCES [TaskToDo] ([TaskId])
+    );
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20240504151854_TableTaskComment')
+BEGIN
+    CREATE INDEX [IX_TaskComment_TaskId] ON [TaskComment] ([TaskId]);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20240504151854_TableTaskComment')
+BEGIN
+    CREATE INDEX [IX_TaskComment_UserId] ON [TaskComment] ([UserId]);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20240504151854_TableTaskComment')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20240504151854_TableTaskComment', N'7.0.11');
+END;
+GO
+
+COMMIT;
+GO
+

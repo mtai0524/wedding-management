@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[12.0.1, )"
             },
+            "Blazor.Bootstrap": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
             "BlazorColorPicker": {
               "target": "Package",
               "version": "[2.3.0, )"

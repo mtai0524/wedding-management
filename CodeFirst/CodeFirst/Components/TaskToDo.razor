@@ -15,9 +15,13 @@
 @inject IHubContext<MyBlazorHub> _hubContext
 @inject ISnackbar SnackbarService
 @inject ISnackbar Snackbar
+@using BlazorBootstrap
+<Preload />
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
+<PageTitle>Project management</PageTitle>
+
 <style>
     .mud-icon-size-small {
         font-size: 1rem;
@@ -78,7 +82,6 @@
         width:100%;
     }
 </style>
-
 
 @* func task *@
 @code {
@@ -788,12 +791,14 @@
 @code {
     public async Task UpdateStateAndSortTasks()
     {
+        PreloadService.Show(SpinnerColor.Light, "Đang nạp dữ liệu...");
         projectList.Clear();
         tasks.Clear();
         changeCounter++;
         projectList = await _projectService.GetAllProjects();
         _context.SaveChanges();
         StateHasChanged();
+        PreloadService.Hide();
     }
     async Task LoadTaskComment()
     {
@@ -856,8 +861,7 @@
     //     }
     //     await UpdateState();
     // }
-
-
+      [Inject] protected PreloadService PreloadService { get; set; }
     protected override async Task OnInitializedAsync()
     {
         userList = await _context.ApplicationUser.ToListAsync();

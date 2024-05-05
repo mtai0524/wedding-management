@@ -98,6 +98,24 @@
           }
         }
       },
+      "Blazor.Bootstrap/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "6.0.26"
+        },
+        "compile": {
+          "lib/net6.0/BlazorBootstrap.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/BlazorBootstrap.dll": {}
+        },
+        "build": {
+          "buildTransitive/Blazor.Bootstrap.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Blazor.Bootstrap.props": {}
+        }
+      },
       "BlazorColorPicker/2.3.0": {
         "type": "package",
         "build": {
@@ -5681,6 +5699,7 @@
           "AspNetCoreHero.ToastNotification": "1.1.0",
           "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "Blazor.Bootstrap": "2.2.1",
           "BlazorColorPicker": "2.3.0",
           "Bootstrap.Colorpicker.2": "2.0.1",
           "CloudinaryDotNet": "1.22.0",
@@ -5809,6 +5828,32 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Blazor.Bootstrap/2.2.1": {
+      "sha512": "w1tmA2gX4229krmOdrBvdpQvUVWoEDC1+fpV0qSY4wCrD+2lnh6+l6cWJY7tKnpGqYh7hnSpkJxjVz7tS7QEDg==",
+      "type": "package",
+      "path": "blazor.bootstrap/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "128X128.png",
+        "README.md",
+        "blazor.bootstrap.2.2.1.nupkg.sha512",
+        "blazor.bootstrap.nuspec",
+        "build/Blazor.Bootstrap.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/Blazor.Bootstrap.props",
+        "buildTransitive/Blazor.Bootstrap.props",
+        "lib/net6.0/BlazorBootstrap.dll",
+        "staticwebassets/Blazor.Bootstrap.bundle.scp.css",
+        "staticwebassets/blazor.bootstrap.css",
+        "staticwebassets/blazor.bootstrap.js",
+        "staticwebassets/blazor.bootstrap.pdf.js",
+        "staticwebassets/blazor.bootstrap.sortable-list.js",
+        "staticwebassets/icon/128X128.png",
+        "staticwebassets/pdfjs-4.0.379.min.mjs",
+        "staticwebassets/pdfjs-4.0.379.worker.min.mjs"
       ]
     },
     "BlazorColorPicker/2.3.0": {

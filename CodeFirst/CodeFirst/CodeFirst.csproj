@@ -19,6 +19,7 @@
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Blazor.Bootstrap" Version="2.2.1" />
     <PackageReference Include="BlazorColorPicker" Version="2.3.0" />
     <PackageReference Include="Bootstrap.Colorpicker.2" Version="2.0.1" />
     <PackageReference Include="CloudinaryDotNet" Version="1.22.0" />

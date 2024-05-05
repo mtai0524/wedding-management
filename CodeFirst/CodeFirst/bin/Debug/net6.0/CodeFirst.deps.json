@@ -37,6 +37,7 @@
           "AspNetCoreHero.ToastNotification": "1.1.0",
           "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "Blazor.Bootstrap": "2.2.1",
           "BlazorColorPicker": "2.3.0",
           "Bootstrap.Colorpicker.2": "2.0.1",
           "CloudinaryDotNet": "1.22.0",
@@ -425,6 +426,20 @@
         },
         "compile": {
           "lib/netstandard2.0/Azure.Identity.dll": {}
+        }
+      },
+      "Blazor.Bootstrap/2.2.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "6.0.27"
+        },
+        "runtime": {
+          "lib/net6.0/BlazorBootstrap.dll": {
+            "assemblyVersion": "2.2.1.0",
+            "fileVersion": "2.2.1.0"
+          }
+        },
+        "compile": {
+          "lib/net6.0/BlazorBootstrap.dll": {}
         }
       },
       "BlazorColorPicker/2.3.0": {},
@@ -6037,6 +6052,13 @@
       "sha512": "sha512-eHEiCO/8+MfNc9nH5dVew/+FvxdaGrkRL4OMNwIz0W79+wtJyEoeRlXJ3SrXhoy9XR58geBYKmzMR83VO7bcAw==",
       "path": "azure.identity/1.7.0",
       "hashPath": "azure.identity.1.7.0.nupkg.sha512"
+    },
+    "Blazor.Bootstrap/2.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-w1tmA2gX4229krmOdrBvdpQvUVWoEDC1+fpV0qSY4wCrD+2lnh6+l6cWJY7tKnpGqYh7hnSpkJxjVz7tS7QEDg==",
+      "path": "blazor.bootstrap/2.2.1",
+      "hashPath": "blazor.bootstrap.2.2.1.nupkg.sha512"
     },
     "BlazorColorPicker/2.3.0": {
       "type": "package",
