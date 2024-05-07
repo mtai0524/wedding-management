@@ -8,3 +8,6 @@
 /CodeFirst/.vs/ProjectEvaluation
 /CodeFirst/CodeFirst/token.json
 /CodeFirst/CodeFirst/bin/Release/net6.0/Cre
+/CodeFirst/CodeFirst/Cre
+/CodeFirst/CodeFirst/obj/Release/net6.0/staticwebassets/msbuild.CodeFirst.Microsoft.AspNetCore.StaticWebAssets.props
+/CodeFirst/CodeFirst/obj/Release/net6.0/apphost.exe
