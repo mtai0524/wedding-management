@@ -1,15 +1,121 @@
-﻿@using CodeFirst.Views.Shared
+﻿@model CodeFirst.Models.GoogleCalendar
+
 @{
     ViewData["Title"] = "Home Page";
-    // Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    Layout = "~/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
-@* <div class="row shadow-sm p-3">
-    <div class="col-md-6">
-        @(await Html.RenderComponentAsync<Counter>(RenderMode.Server))
-    </div>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
- *@
+<style>
+    input[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        outline: none;
+    }
+
+        input[type="radio"]:checked + .color-option::before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin-left: 5px;
+        }
+
+        input[type="radio"]:checked {
+            border: 2px solid #000;
+            box-sizing: border-box;
+        }
+
+            input[type="radio"]:checked + .color-option {
+                border: 2px solid #000;
+                box-sizing: border-box;
+            }
+
+    .color-option {
+        display: inline-block;
+        padding: 5px 10px;
+        cursor: pointer;
+        background-color: transparent;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+        .color-option:hover {
+            background-color: #f0f0f0;
+        }
+
+</style>
+
+<h1>Create Google Calendar Event</h1>
+
+<form asp-controller="Home" asp-action="CreateGoogleCalendar" method="post">
+    <div class="form-group">
+        <label for="summary">Summary:</label>
+        <input type="text" class="form-control" id="summary" name="Summary" />
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" name="Description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" id="location" name="Location" />
+    </div>
+    <div class="form-group">
+        <label for="start">Start:</label>
+        <input type="datetime-local" class="form-control" id="start" name="Start" />
+    </div>
+    <div class="form-group">
+        <label for="end">End:</label>
+        <input type="datetime-local" class="form-control" id="end" name="End" />
+    </div>
+    <div class="form-group">
+        <label for="color">Color:</label>
+        <div class="radio-group">
+            <label class="color-option" for="lavender">
+                <input type="radio" id="lavender" name="ColorId" value="1" style="background-color: #7986cb" checked>
+            </label>
+            <label class="color-option" for="sage">
+                <input type="radio" id="sage" name="ColorId" value="2" style="background-color: #33b679">
+            </label>
+            <label class="color-option" for="grape">
+                <input type="radio" id="grape" name="ColorId" value="3" style="background-color: #8e24aa">
+            </label>
+            <label class="color-option" for="flamingo">
+                <input type="radio" id="flamingo" name="ColorId" value="4" style="background-color: #e67c73">
+            </label>
+            <label class="color-option" for="banana">
+                <input type="radio" id="banana" name="ColorId" value="5" style="background-color: #f6c026">
+            </label>
+            <label class="color-option" for="tangerine">
+                <input type="radio" id="tangerine" name="ColorId" value="6" style="background-color: #f5511d">
+            </label>
+            <label class="color-option" for="peacock">
+                <input type="radio" id="peacock" name="ColorId" value="7" style="background-color: #039be5">
+            </label>
+            <label class="color-option" for="graphite">
+                <input type="radio" id="graphite" name="ColorId" value="8" style="background-color: #616161">
+            </label>
+            <label class="color-option" for="blueberry">
+                <input type="radio" id="blueberry" name="ColorId" value="9" style="background-color: #3f51b5">
+            </label>
+            <label class="color-option" for="basil">
+                <input type="radio" id="basil" name="ColorId" value="10" style="background-color: #0b8043">
+            </label>
+            <label class="color-option" for="tomato">
+                <input type="radio" id="tomato" name="ColorId" value="11" style="background-color: #d60000">
+            </label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Event</button>
+</form>

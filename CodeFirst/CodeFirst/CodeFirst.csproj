@@ -25,6 +25,7 @@
     <PackageReference Include="CloudinaryDotNet" Version="1.22.0" />
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
     <PackageReference Include="DinkToPdfCopyDependencies" Version="1.0.8" />
+    <PackageReference Include="Google.Apis.Calendar.v3" Version="1.68.0.3402" />
 
     <PackageReference Include="MailKit" Version="4.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="6.0.22" />
@@ -64,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="launchSettings.json" />
+    <None Include="wwwroot\lib\microsoft\signalr\dist\browser\signalr.js" />
     <None Include="wwwroot\vendor\bootstrap\css\bootstrap.min.css" />
     <None Include="wwwroot\vendor\bootstrap\css\bootstrap.min.css.map" />
     <None Include="wwwroot\vendor\bootstrap\js\bootstrap.bundle.min.js" />

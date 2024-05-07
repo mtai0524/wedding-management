@@ -1,5 +1,10 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using CodeFirst.Models;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Calendar.v3.Data;
+using Google.Apis.Calendar.v3;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -7,126 +12,226 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Diagnostics;
+using CodeFirst.Helpers;
 
 namespace CodeFirst.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly INotyfService _notfy;
 
-
-        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager, INotyfService notfy)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            this._userManager = userManager;
-            this._roleManager = roleManager;
-            this._signInManager = signInManager;
-            this._notfy = notfy;
-            
         }
-        [Authorize]
+
         public IActionResult Index()
         {
-            //return RedirectToAction("Manage", "Account", new { area = "Identity" });
-            return View("_Host");
+            return View();
         }
+
         public IActionResult Blazor()
         {
             return View("_Host");
         }
-        //public async Task<IActionResult> DeleteUser(string id)
-        //{
-        //    var user = await _userManager.FindByIdAsync(id);
-        //    if(user == null)
-        //    {
-        //        ViewBag.ErrorMessage = $"User with Id = {id} cannot be found";
-        //        return View("NotFound");
-
-        //    }
-        //    else
-        //    {
-        //        var result = await _userManager.DeleteAsync(user);
-        //        if (result.Succeeded)
-        //        {
-        //            _notfy.Error("Xóa thành công");
-
-        //            return RedirectToAction("Index");
-        //        }
-        //        return View("Index");
-        //    }
-        //}
-        //[HttpGet]
-        //public async Task<IActionResult> EditUser(string id)
-        //{
-        //    var user = await _userManager.FindByIdAsync(id);
-        //    var roles = await _roleManager.Roles.ToListAsync();
-        //    var roleList = roles.Select(r => new SelectListItem
-        //    {
-        //        Text = r.Name,
-        //        Value = r.Id
-        //    }).ToList();
-        //    if (user == null)
-        //    {
-        //        ViewBag.ErrorMsg = $"User with id = {id} cannot by found";
-        //        return View("NotFound");
-        //    }
-        //    var userViewModel = new UserViewModel
-        //    {
-        //        Id = user.Id,
-        //        UserName = user.UserName,
-        //        Roles = roleList,
-        //        // Thêm các thuộc tính khác của người dùng vào đây
-        //    };
-        //    return View("EditUser", userViewModel);
-        //}
-        //[HttpPost]
-        //public async Task<IActionResult> EditUser(UserViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var user = await _userManager.FindByIdAsync(model.Id);
-        //        //if (user == null)
-        //        //{
-        //        //    
-        //        //}
-
-        //        // Cập nhật thông tin người dùng dựa trên model
-        //        user.UserName = model.UserName;
-        //        var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-        //        var currentRoles = await _userManager.GetRolesAsync(user);
-        //        await _userManager.RemoveFromRolesAsync(user, currentRoles);
-        //        // Trả về dòng role theo Id truyền từ SelectedRole
-        //        var role = await _roleManager.Roles.SingleOrDefaultAsync(r => r.Id == model.SelectedRole.ToLower());
-
-        //        // Thêm người dùng vào vai trò
-        //        await _userManager.AddToRoleAsync(user, role.Name);
-        //        //// Sau đó, thêm vai trò mới mà người dùng đã chọn
-
-        //        // Lưu thay đổi vào cơ sở dữ liệu
-        //        var result = await _userManager.UpdateAsync(user);
-
-        //        if (result.Succeeded)
-        //        {
-        //            _notfy.Success("Sửa thành công");
-
-        //            await _signInManager.RefreshSignInAsync(currentUser);
-        //            //await _signInManager.RefreshSignInAsync(user);
-        //            // Lưu thành công, chuyển hướng đến trang chi tiết người dùng
-        //            return RedirectToAction("Index", new { id = user.Id });
-        //        }
-        //    }
-
-        //    // Nếu ModelState không hợp lệ, hiển thị lại form với thông báo lỗi
-        //    return View("EditUser", model);
-        //}
 
         public IActionResult Privacy()
         {
             return View();
+        }
+        //public async Task<IActionResult> PrivacyAsync()
+        //{
+        //    IList<Event> events = await GetGoogleCalendarEvents();
+        //    return View(events);
+        //}
+
+        public async Task<IActionResult> GetCalendar()
+        {
+            IList<Event> events = await GetGoogleCalendarEvents();
+            var googleCalendarEvents = events.Select(e => new GoogleCalendar
+            {
+                Summary = e.Summary,
+                Description = e.Description,
+                Location = e.Location,
+                Start = e.Start.DateTime.Value, // Assuming Start is a DateTime object
+                End = e.End.DateTime.Value, // Assuming End is a DateTime object
+                ColorId = e.ColorId, // Assuming ColorId is a string
+                Id = e.Id // Assuming Id is a string
+            }).ToList();
+
+            return Json(googleCalendarEvents);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateGoogleCalendar(GoogleCalendar request)
+        {
+            var createdEvent = await GoogleCalendarHelper.CreateGoogleCalendar(request);
+
+            return Ok(createdEvent);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateEventColor(string eventId, string colorId, string summary)
+        {
+            string[] Scopes = { CalendarService.Scope.Calendar };
+            string ApplicationName = "Google Calendar API";
+
+            UserCredential credential;
+            using (var stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "Cre", "cre.json"), FileMode.Open, FileAccess.Read))
+            {
+                string credPath = "token.json";
+                credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    GoogleClientSecrets.Load(stream).Secrets,
+                    Scopes,
+                    "user",
+                    CancellationToken.None,
+                    new FileDataStore(credPath, true));
+            }
+
+            // Create the calendar service
+            var service = new CalendarService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
+
+            // Retrieve the existing event
+            EventsResource.GetRequest getRequest = service.Events.Get("primary", eventId);
+            Event existingEvent = await getRequest.ExecuteAsync();
+
+            // Update the color of the event
+            existingEvent.ColorId = colorId;
+            existingEvent.Summary = summary;
+            // Update the event on Google Calendar
+            EventsResource.UpdateRequest updateRequest = service.Events.Update(existingEvent, "primary", eventId);
+            Event updatedGoogleEvent = await updateRequest.ExecuteAsync();
+
+            return Ok(updatedGoogleEvent);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateEvent(string eventId, GoogleCalendar updatedEvent)
+        {
+            string[] Scopes = { CalendarService.Scope.Calendar };
+            string ApplicationName = "Google Calendar API";
+
+            UserCredential credential;
+            using (var stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "Cre", "cre.json"), FileMode.Open, FileAccess.Read))
+            {
+                string credPath = "token.json";
+                credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    GoogleClientSecrets.Load(stream).Secrets,
+                    Scopes,
+                    "user",
+                    CancellationToken.None,
+                    new FileDataStore(credPath, true));
+            }
+
+            // Create the calendar service
+            var service = new CalendarService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
+
+            // Retrieve the existing event
+            EventsResource.GetRequest getRequest = service.Events.Get("primary", eventId);
+            Event existingEvent = await getRequest.ExecuteAsync();
+
+            // Update the event with the new information
+            existingEvent.Summary = updatedEvent.Summary;
+            existingEvent.Start = new EventDateTime
+            {
+                DateTime = updatedEvent.Start,
+                TimeZone = "Asia/Ho_Chi_Minh"
+            };
+            existingEvent.End = new EventDateTime
+            {
+                DateTime = updatedEvent.End,
+                TimeZone = "Asia/Ho_Chi_Minh"
+            };
+
+
+            // Update the event on Google Calendar
+            EventsResource.UpdateRequest updateRequest = service.Events.Update(existingEvent, "primary", eventId);
+            Event updatedGoogleEvent = await updateRequest.ExecuteAsync();
+
+            return Ok(updatedGoogleEvent);
+        }
+
+        public async Task<IList<Event>> GetGoogleCalendarEvents()
+        {
+            string[] Scopes = { "https://www.googleapis.com/auth/calendar.readonly" };
+            string ApplicationName = "Google Calendar API";
+
+            UserCredential credential;
+            using (var stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "Cre", "cre.json"), FileMode.Open, FileAccess.Read))
+            {
+                string credPath = "token.json";
+                credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    GoogleClientSecrets.Load(stream).Secrets,
+                    Scopes,
+                    "user",
+                    CancellationToken.None,
+                    new FileDataStore(credPath, true));
+            }
+
+            var service = new CalendarService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
+
+            // Define parameters for the request
+            EventsResource.ListRequest request = service.Events.List("primary");
+            request.TimeMin = DateTime.Now;
+            request.ShowDeleted = false;
+            request.SingleEvents = true;
+            request.MaxResults = 2000;
+            request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
+
+            // Retrieve the events
+            Events events = await request.ExecuteAsync();
+            IList<Event> items = events.Items;
+            return items;
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteEvent(string eventId)
+        {
+            string[] Scopes = { CalendarService.Scope.Calendar };
+            string ApplicationName = "Google Calendar API";
+
+            try
+            {
+                UserCredential credential;
+                using (var stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "Cre", "cre.json"), FileMode.Open, FileAccess.Read))
+                {
+                    string credPath = "token.json";
+                    credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                        GoogleClientSecrets.Load(stream).Secrets,
+                        Scopes,
+                        "user",
+                        CancellationToken.None,
+                        new FileDataStore(credPath, true));
+                }
+
+                // Create the calendar service
+                var service = new CalendarService(new BaseClientService.Initializer()
+                {
+                    HttpClientInitializer = credential,
+                    ApplicationName = ApplicationName,
+                });
+
+                // Gọi API của Google Calendar để xóa sự kiện
+                await service.Events.Delete("primary", eventId).ExecuteAsync();
+
+                return Ok("Event deleted successfully.");
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                return StatusCode(500, "Error deleting event: " + ex.Message);
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -23,6 +23,9 @@ using MudBlazor;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Components.Authorization;
 using Radzen;
+using Microsoft.AspNetCore.Http.Json;
+using System.Text.Json;
+using Newtonsoft.Json.Serialization;
 //using CodeFirst.SqlDependencies;
 //using SignalRYoutube.MiddlewareExtensions;
 
@@ -187,11 +190,27 @@ builder.Services.AddResponseCompression(options =>
     });
 });
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-// using signalr change data
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.PropertyNamingPolicy = null;
-});
+// using signalr change data, but it make gg calendar api dont working
+//builder.Services.AddControllers().AddJsonOptions(options =>
+//{
+//    options.JsonSerializerOptions.PropertyNamingPolicy = null;
+//});
+
+// thực hiện phân biệt các biến in hoa hoặc thường
+builder.Services.AddControllers()
+   .AddJsonOptions(options =>
+   {
+       // Apply the default naming policy for all controllers
+       options.JsonSerializerOptions.PropertyNamingPolicy = null;
+   })
+  ;
+
+//builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
+//{
+//    options.SerializerOptions.PropertyNameCaseInsensitive = false;
+//    options.SerializerOptions.PropertyNamingPolicy = null;
+//    options.SerializerOptions.WriteIndented = true;
+//});
 // Session
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
@@ -205,9 +224,12 @@ builder.Services.AddTransient<ApplicationDbContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
 }
 app.UseHttpsRedirection();
 
@@ -236,7 +258,6 @@ app.UseEndpoints(endpoints =>
 
 //app.UseMiddleware<LoadingSpinnerMiddleware>();
 app.UseResponseCompression();
-app.UseHttpsRedirection();
 app.MapRazorPages();
 app.MapBlazorHub();
 app.MapFallbackToController("Blazor", "Home");

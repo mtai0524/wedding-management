@@ -1,6 +1,347 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
+<div id='calendar'></div>
+<style>
+    .fc-scrollgrid {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    }
 
-<p>Use this page to detail your site's privacy policy.</p>
+    .fc .fc-timegrid-slot-minor {
+        border-top-style: none !important;
+    }
+
+    .fc-daygrid-day-number, .fc-col-header-cell-cushion {
+        color: black;
+        font-weight: 800;
+        text-decoration: none;
+    }
+
+    .fc-button-active {
+        background-color: white !important;
+        color: black !important;
+        outline: none !important;
+    }
+
+        .fc-button-active:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+    input[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        outline: none;
+    }
+
+        input[type="radio"]:checked + .color-option::before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin-left: 5px;
+        }
+
+        input[type="radio"]:checked {
+            border: 5px solid #000; /* Màu đen */
+            box-sizing: border-box; /* Đảm bảo border không làm tăng kích thước của input */
+        }
+
+            input[type="radio"]:checked + .color-option {
+                border: 5px solid #000; /* Màu đen */
+                box-sizing: border-box; /* Đảm bảo border không làm tăng kích thước của label */
+            }
+
+    .color-option {
+        display: inline-block;
+        padding: 5px 10px;
+        cursor: pointer;
+        background-color: transparent;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+        .color-option:hover {
+            background-color: #f0f0f0;
+        }
+</style>
+
+<!-- Modal -->
+<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eventModalLabel">Cập nhật sự kiện</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="newSummary">Chủ đề:</label>
+                    <input type="text" class="form-control" id="newSummary" name="newSummary">
+                </div>
+                <div class="radio-group">
+                    <label for="">Chọn màu:</label><br />
+                    <label class="color-option" for="lavender">
+                        <input type="radio" id="lavender" name="colorId" value="1" style="background-color: #7986cb" checked>
+                    </label>
+                    <label class="color-option" for="sage">
+                        <input type="radio" id="sage" name="colorId" value="2" style="background-color: #33b679">
+                    </label>
+                    <label class="color-option" for="grape">
+                        <input type="radio" id="grape" name="colorId" value="3" style="background-color: #8e24aa">
+                    </label>
+                    <label class="color-option" for="flamingo">
+                        <input type="radio" id="flamingo" name="colorId" value="4" style="background-color: #e67c73">
+                    </label>
+                    <label class="color-option" for="banana">
+                        <input type="radio" id="banana" name="colorId" value="5" style="background-color: #f6c026">
+                    </label>
+                    <label class="color-option" for="tangerine">
+                        <input type="radio" id="tangerine" name="colorId" value="6" style="background-color: #f5511d">
+                    </label>
+                    <label class="color-option" for="peacock">
+                        <input type="radio" id="peacock" name="colorId" value="7" style="background-color: #039be5">
+                    </label>
+                    <label class="color-option" for="graphite">
+                        <input type="radio" id="graphite" name="colorId" value="8" style="background-color: #616161">
+                    </label>
+                    <label class="color-option" for="blueberry">
+                        <input type="radio" id="blueberry" name="colorId" value="9" style="background-color: #3f51b5">
+                    </label>
+                    <label class="color-option" for="basil">
+                        <input type="radio" id="basil" name="colorId" value="10" style="background-color: #0b8043">
+                    </label>
+                    <label class="color-option" for="tomato">
+                        <input type="radio" id="tomato" name="colorId" value="11" style="background-color: #d60000">
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="deleteEventBtn">Xóa sự kiện</button>
+                <button type="button" class="btn btn-primary" id="updateEventBtn">Cập nhật màu nền</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function reloadCalendarEvents() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'timeGridWeek',
+            slotLabelFormat: {
+                hour: 'numeric',
+                minute: '2-digit',
+                omitZeroMinute: false,
+                hour12: false
+            },
+            initialDate: moment().format('YYYY-MM-DD'),
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            editable: true,
+            events: function (fetchInfo, successCallback, failureCallback) {
+                $.ajax({
+                    url: '/Home/GetCalendar',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        var events = data.map(function (event) {
+                            return {
+                                id: event.Id,
+                                title: event.Summary,
+                                start: event.Start,
+                                end: event.End,
+                                backgroundColor: getColorById(event.ColorId)
+                            };
+                        });
+                        successCallback(events);
+                    },
+                    error: function (error) {
+                        console.error('Error fetching events:', error);
+                        failureCallback();
+                    }
+                });
+            },
+            eventClick: function (info) {
+                var event = info.event;
+                var modal = new bootstrap.Modal(document.getElementById('eventModal'), {});
+                var modalBody = document.querySelector('.modal-body');
+                var newSummaryInput = document.getElementById('newSummary');
+
+                // Gán giá trị mới cho thuộc tính value của thẻ input
+                newSummaryInput.value = event.title;;
+
+                // Lưu ID của sự kiện vào modal để xử lý sau này
+                modalBody.dataset.eventId = event.id;
+
+                // Mở modal
+                modal.show();
+            },
+
+            eventDrop: function (info) {
+                // Xử lý khi sự kiện được kéo thả
+                console.log('Event dropped:', info.event.title);
+                console.log('New start date:', info.event.start);
+                console.log('New end date:', info.event.end);
+                $.ajax({
+                    url: '/Home/UpdateEvent', // Địa chỉ URL của hàm cập nhật sự kiện
+                    type: 'POST', // Phương thức HTTP POST
+                    data: {
+                        eventId: info.event.id,
+                        updatedEvent: {
+                            summary: info.event.title,
+                            start: info.event.start.toISOString(),
+                            end: info.event.end.toISOString(),
+                        }
+                    },
+                    success: function (response) {
+                        console.log('Event updated successfully:', response);
+                    },// Dữ liệu để gửi cùng yêu cầu
+                    success: function (response) {
+                        console.log('Event updated successfully:', response);
+                    },
+                    error: function (error) {
+                        console.error('Error updating event:', error);
+                    }
+                });
+            },
+            eventResize: function (info) {
+                console.log('Event resized:', info.event.title);
+                console.log('New end date:', info.event.end);
+
+                var start = info.event.start.toISOString();
+                var end = info.event.end.toISOString();
+
+                $.ajax({
+                    url: '/Home/UpdateEvent',
+                    type: 'POST',
+                    data: {
+                        eventId: info.event.id,
+                        updatedEvent: {
+                            Summary: info.event.title,
+                            Start: start,
+                            End: end,
+                        }
+                    },
+                    success: function (response) {
+                        console.log('Event updated successfully:', response);
+                    },
+                    error: function (error) {
+                        console.error('Error updating event:', error);
+                    }
+                });
+            },
+        });
+
+        document.getElementById('deleteEventBtn').addEventListener('click', function () {
+            var eventId = document.querySelector('.modal-body').dataset.eventId;
+            if (confirm('Bạn có chắc chắn muốn xóa sự kiện này không?')) {
+                // Gửi yêu cầu xóa sự kiện lên máy chủ
+                $.ajax({
+                    url: '/Home/DeleteEvent',
+                    type: 'POST',
+                    data: {
+                        eventId: eventId
+                    },
+                    success: function (response) {
+                        console.log('Sự kiện đã được xóa thành công:', response);
+                        // Xóa sự kiện khỏi lịch
+                        var eventToRemove = calendar.getEventById(eventId);
+                        if (eventToRemove) {
+                            eventToRemove.remove();
+                        }
+                        $('#eventModal').modal('hide');
+                    },
+                    error: function (error) {
+                        console.error('Lỗi khi xóa sự kiện:', error);
+                        $('#eventModal').modal('hide');
+                    }
+                });
+            }
+        });
+
+
+        // Xử lý khi người dùng click vào nút "Cập nhật màu nền"
+        document.getElementById('updateEventBtn').addEventListener('click', function () {
+            var eventId = document.querySelector('.modal-body').dataset.eventId;
+            var selectedColorId = document.querySelector('input[name="colorId"]:checked').value;
+            var newSummary = document.getElementById('newSummary').value; // Lấy giá trị mới của tổng kết từ trường input
+            var event = calendar.getEventById(eventId);
+            event.setProp('backgroundColor', getColorById(selectedColorId));
+            event.setProp('title', newSummary);
+            $('#eventModal').modal('hide');
+
+            // Gửi yêu cầu cập nhật đến máy chủ
+            $.ajax({
+                url: '/Home/UpdateEventColor',
+                type: 'POST',
+                data: {
+                    eventId: eventId,
+                    colorId: selectedColorId,
+                    summary: newSummary
+                },
+                success: function (response) {
+                    console.log('Sự kiện đã được cập nhật thành công trên máy chủ:', response);
+                },
+                error: function (error) {
+                    console.error('Lỗi khi cập nhật sự kiện trên máy chủ:', error);
+                }
+            });
+        });
+
+
+        calendar.render();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        reloadCalendarEvents();
+    });
+
+    function getColorById(colorId) {
+        switch (colorId) {
+            case "1":
+                return '#7986cb'; // Lavender
+            case "2":
+                return '#33b679'; // Sage
+            case "3":
+                return '#8e24aa'; // Grape
+            case "4":
+                return '#e67c73'; // Flamingo
+            case "5":
+                return '#f6c026'; // Banana
+            case "6":
+                return '#f5511d'; // Tangerine
+            case "7":
+                return '#039be5'; // Peacock
+            case "8":
+                return '#616161'; // Graphite
+            case "9":
+                return '#3f51b5'; // Blueberry
+            case "10":
+                return '#0b8043'; // Basil
+            case "11":
+                return '#d60000'; // Tomato
+            default:
+                return '#0B8043'; // Mặc định
+        }
+    }
+</script>
+
+<!-- Include FullCalendar -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.5/main.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/main.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
