@@ -88,7 +88,7 @@ namespace CodeFirst.Hubs
                 if (!ConnectedUsers.ContainsKey(Context.ConnectionId))
                 {
                     ConnectedUsers[Context.ConnectionId] = userInfo;
-                    await Clients.Caller.SendAsync("ReceivedNotificationWelcome", $"xin chào {userInfo.FirstName} {userInfo.LastName} hehe");
+                    await Clients.Caller.SendAsync("ReceivedNotificationWelcome", $"xin chào {userInfo.FirstName} {userInfo.LastName}");
                     await Clients.All.SendAsync("LoadChatData");
                 }
                 await Clients.Others.SendAsync("ReceivedNotificationUserOnline", $"{userInfo.FirstName} {userInfo.LastName}");

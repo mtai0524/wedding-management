@@ -9,17 +9,8 @@
     <NotFound>
         <PageTitle>Not found</PageTitle>
         <LayoutView Layout="@typeof(MainLayout)">
-            <Card>
-                <CardHeader>
-                    <h2 class="card-title">Xin lỗi, không tìm thấy trang này.</h2>
-                </CardHeader>
-                <CardBody>
-                    <p class="card-text">Rất tiếc, trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển. Hãy thử lại hoặc quay lại trang chủ.</p>
-                </CardBody>
-                <CardFooter>
-                    <Button class="btn btn-primary" @onclick="GoToHome">Trở về trang chủ</Button>
-                </CardFooter>
-            </Card>
+                <div><h1>Lỗi 404</h1></div><br />
+                <div><h2>Không tìm thấy trang </h2></div>
         </LayoutView>
     </NotFound>
 </Router>

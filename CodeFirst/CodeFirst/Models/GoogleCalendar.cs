@@ -8,6 +8,6 @@
         public string? Location { get; set; }
         public DateTime? Start { get; set; }
         public DateTime? End { get; set; }
-        public string? ColorId { get; set; } // Trường màu mới
+        public string? ColorId { get; set; } 
     }
 }

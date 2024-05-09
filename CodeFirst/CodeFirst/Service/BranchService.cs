@@ -23,7 +23,10 @@ namespace CodeFirst.Service
         {
             return await _context.Branch.ToListAsync();
         }
-
+        public async Task<List<Hall>> GetHallsAsync()
+        {
+            return await _context.Hall.ToListAsync();
+        }
         public async Task<Branch> GetBranchByIdAsync(int id)
         {
             return await _context.Branch.FindAsync(id);
