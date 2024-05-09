@@ -25,7 +25,7 @@ namespace CodeFirst.Service
         }
         public async Task<List<Hall>> GetHallsAsync()
         {
-            return await _context.Hall.ToListAsync();
+            return await _context.Hall.Include(h => h.Branch).ToListAsync();
         }
         public async Task<Branch> GetBranchByIdAsync(int id)
         {

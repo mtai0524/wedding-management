@@ -30,6 +30,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDb2xvclBpY2tlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/Computer-Science/CodeFirst/CodeFirst/Components/CreateCalendar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDcmVhdGVDYWxlbmRhci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Computer-Science/CodeFirst/CodeFirst/Components/HallList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIYWxsTGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Computer-Science/CodeFirst/CodeFirst/Components/MyCalendar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xNeUNhbGVuZGFyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Computer-Science/CodeFirst/CodeFirst/Components/ProgressBar.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9ncmVzc0Jhci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

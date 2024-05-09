@@ -202,7 +202,7 @@
     private async Task CreateBranch()
     {
         if (string.IsNullOrWhiteSpace(BranchName) || string.IsNullOrWhiteSpace(BranchDescription)
-            || string.IsNullOrWhiteSpace(BranchAddress) || string.IsNullOrWhiteSpace(BranchPhone) || BranchImageFile == null)
+             || BranchImageFile == null)
         {
             showAlert = true;
             return;
@@ -310,6 +310,19 @@
                 <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@context.BranchId))">
             Xóa
         </MudButton>
+
+                @if (@context.IsLocked)
+            {
+                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => UnlockBranch(context.BranchId))">
+                    Mở khóa
+                </MudButton>
+            }
+            else
+            {
+                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => LockBranch(context.BranchId))">
+                 Khóa
+                </MudButton>
+            }
     </MudTd>
 
 </RowTemplate>
@@ -686,14 +699,34 @@
 
         await base.OnInitializedAsync();
     }
-    
 
 
-    void UnlockBranch(int branchId)
+
+    async Task UnlockBranch(int branchId)
     {
+        var branch = _context.Branch.Find(branchId);
+
+            if (branch != null)
+            {
+                branch.IsLocked = false; // Mở khóa chi nhánh
+                _context.Entry(branch).State = EntityState.Modified;
+                _context.SaveChanges();
+            await LoadBranches();
+
+            }
     }
 
-    void LockBranch(int branchId)
+    async Task LockBranch(int branchId)
     {
+        var branch = _context.Branch.Find(branchId);
+
+         if (branch != null)
+            {
+                branch.IsLocked = true; // Tạm khóa chi nhánh
+                _context.Entry(branch).State = EntityState.Modified;
+                _context.SaveChanges();
+            await LoadBranches();
+
+            }        
     }
 }

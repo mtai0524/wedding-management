@@ -44,8 +44,14 @@ namespace CodeFirst.Hubs
             var listBranch = _context.Branch.ToListAsync();
             await Clients.All.SendAsync("BranchCreated", listBranch);
         }
-       
 
-       
+        public async Task SendHallCreatedNotification()
+        {
+            var listHall = _context.Hall.ToListAsync();
+
+
+            await Clients.All.SendAsync("HallCreated", listHall);
+        }
+
     }
 }

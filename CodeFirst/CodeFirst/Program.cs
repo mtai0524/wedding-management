@@ -57,6 +57,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddScoped<ChatHub>(); // phải add vào mới gọi chatHub được
+builder.Services.AddScoped<MyBlazorHub>(); // phải add vào mới gọi chatHub được
 
 // đăng ký service
 builder.Services.AddScoped<EmployeeService>();
@@ -71,6 +72,7 @@ builder.Services.AddScoped<UserBlazorService>();
 builder.Services.AddScoped<CodeFirst.Service.NotificationService>();
 builder.Services.AddScoped<ProjectService>();
 builder.Services.AddScoped<TaskToDoService>();
+builder.Services.AddScoped<BranchService>();
 builder.Services.AddHttpClient();
 
 // Cấu hình DI scope cho ASP.NET Core SignalR

@@ -65,6 +65,7 @@ function DisplayGeneralNotificationUserOnline(message, title) {
             progressBar: true,
             animateInside: true,
             pauseOnHover: true,
+            zindex:9999999999,
         });
     }, 1300);
 }
