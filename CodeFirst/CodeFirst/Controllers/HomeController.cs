@@ -25,9 +25,10 @@ namespace CodeFirst.Controllers
             _logger = logger;
         }
 
+
         public IActionResult Index()
         {
-            return View();
+            return View("_Host");
         }
 
         public IActionResult Blazor()
@@ -71,7 +72,7 @@ namespace CodeFirst.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateEventColor(string eventId, string colorId, string summary)
+        public async Task<IActionResult> UpdateEventColor(string eventId, string colorId, string summary, string location, string des)
         {
             string[] Scopes = { CalendarService.Scope.Calendar };
             string ApplicationName = "Google Calendar API";
@@ -102,6 +103,8 @@ namespace CodeFirst.Controllers
             // Update the color of the event
             existingEvent.ColorId = colorId;
             existingEvent.Summary = summary;
+            existingEvent.Location = location;
+            existingEvent.Description = des;
             // Update the event on Google Calendar
             EventsResource.UpdateRequest updateRequest = service.Events.Update(existingEvent, "primary", eventId);
             Event updatedGoogleEvent = await updateRequest.ExecuteAsync();

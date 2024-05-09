@@ -3,7 +3,4 @@
   <parameter name="IIS Web Application Name" description="" value="aspnetcore123-001-site1" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\Computer-Science\\CodeFirst\\CodeFirst\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
   </parameter>
-  <parameter name="CodeFirst.Data.ApplicationDbContext" description="" value="Data Source=SQL5113.site4now.net;Initial Catalog=db_aa8282_login;User Id=db_aa8282_login_admin;Password=Tai12345." tags="dbfullsql">
-    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^E:\\Computer-Science\\CodeFirst\\CodeFirst\\obj\\Release\\net6\.0\\PubTmp\\EFSQLScripts\\CodeFirst\.Data\.ApplicationDbContext\.sql$" />
-  </parameter>
 </parameters>

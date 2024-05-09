@@ -3,13 +3,20 @@
 @{
     // Layout = "_Layout";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    <link rel="stylesheet" href="_content/Radzen.Blazor/css/material-base.css">
-    <link rel="stylesheet" href="_content/Radzen.Blazor/css/standard-base.css">
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
-    <link href="_content/Blazor.Bootstrap/blazor.bootstrap.css" rel="stylesheet" />
-    <link href="_content/Blazor.Bootstrap/Blazor.Bootstrap.bundle.scp.css" rel="stylesheet" />
+                <link rel="stylesheet" href="_content/Radzen.Blazor/css/material-base.css">
+                <link rel="stylesheet" href="_content/Radzen.Blazor/css/standard-base.css">
+                <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+                <link href="_content/Blazor.Bootstrap/blazor.bootstrap.css" rel="stylesheet" />
+                <link href="_content/Blazor.Bootstrap/Blazor.Bootstrap.bundle.scp.css" rel="stylesheet" />
 
-    <script src="_content/Blazor.Bootstrap/blazor.bootstrap.js"></script>
+                <script src="_content/Blazor.Bootstrap/blazor.bootstrap.js"></script>
+
+    <!-- Include FullCalendar -->
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.5/main.min.css" rel="stylesheet">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/main.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 }
 <component type="typeof(App)" render-mode="ServerPrerendered" />
 <script src="_content/Radzen.Blazor/Radzen.Blazor.js?v=@(typeof(Radzen.Colors).Assembly.GetName().Version)"></script>
@@ -19,6 +26,321 @@
     }
 </script>
 
+
+<script>
+    function fetchEvents() {
+        // Sử dụng AJAX để tải lại sự kiện từ server
+        $.ajax({
+            url: '/Home/GetCalendar',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                var events = data.map(function (event) {
+                    return {
+                        id: event.Id,
+                        title: event.Summary,
+                        start: event.Start,
+                        end: event.End,
+                        backgroundColor: getColorById(event.ColorId)
+                    };
+                });
+                // Gọi lại phương thức `refetchEvents` của calendar để cập nhật sự kiện
+                calendar.refetchEvents(events);
+            },
+            error: function (error) {
+                console.error('Error fetching events:', error);
+            }
+        });
+    }
+    var calendar;
+    var calendarEl = document.getElementById('calendar');
+    function reloadCalendarEvents() {
+        $('#deleteEventBtn').off('click');
+        $('#updateEventBtn').off('click');
+         calendarEl = document.getElementById('calendar');
+
+         calendar = calendarEl.calendar || new FullCalendar.Calendar(calendarEl, {
+            initialView: 'timeGridWeek',
+            slotLabelFormat: {
+                hour: 'numeric',
+                minute: '2-digit',
+                omitZeroMinute: false,
+                hour12: false
+            },
+            initialDate: moment().format('YYYY-MM-DD'),
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            editable: true,
+            events: function (fetchInfo, successCallback, failureCallback) {
+                $.ajax({
+                    url: '/Home/GetCalendar',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        var events = data.map(function (event) {
+                            return {
+                                id: event.Id,
+                                title: event.Summary,
+                                start: event.Start,
+                                end: event.End,
+                                backgroundColor: getColorById(event.ColorId)
+                            };
+                        });
+                        successCallback(events);
+                    },
+                    error: function (error) {
+                        console.error('Error fetching events:', error);
+                        failureCallback();
+                    }
+                });
+            },
+            eventClick: function (info) {
+                var event = info.event;
+                var modal = new bootstrap.Modal(document.getElementById('eventModal'), {});
+                var modalBody = document.querySelector('.modal-body');
+                var newSummaryInput = document.getElementById('newSummary');
+                var datetimeitem = document.getElementById('dateTimeItem');
+
+                // Gán giá trị mới cho thuộc tính value của thẻ input
+                newSummaryInput.value = event.title;;
+
+                // Lưu ID của sự kiện vào modal để xử lý sau này
+                modalBody.dataset.eventId = event.id;
+                // Sử dụng moment.js để định dạng lại ngày tháng và giờ
+                var startTimeFormatted = moment(event.start).format('dddd, DD/MM/YYYY, HH:mm');
+                var endTimeFormatted = moment(event.end).format('dddd, DD/MM/YYYY, HH:mm');
+
+                // Kết hợp lại thành chuỗi ngày tháng và giờ phút
+                var formattedDateTime = startTimeFormatted + ' - ' + endTimeFormatted;
+
+                // Gán giá trị định dạng vào dateTimeItem.value
+                dateTimeItem.value = formattedDateTime;
+                // Mở modal
+                modal.show();
+            },
+
+            eventDrop: function (info) {
+                // Xử lý khi sự kiện được kéo thả
+                console.log('Event dropped:', info.event.title);
+                console.log('New start date:', info.event.start);
+                console.log('New end date:', info.event.end);
+                $.ajax({
+                    url: '/Home/UpdateEvent', // Địa chỉ URL của hàm cập nhật sự kiện
+                    type: 'POST', // Phương thức HTTP POST
+                    data: {
+                        eventId: info.event.id,
+                        updatedEvent: {
+                            summary: info.event.title,
+                            start: info.event.start.toISOString(),
+                            end: info.event.end.toISOString(),
+                        }
+                    },
+                    success: function (response) {
+                        console.log('Event updated successfully:', response);
+                    },
+                    error: function (error) {
+                        console.error('Error updating event:', error);
+                    }
+                });
+            },
+            eventResize: function (info) {
+                console.log('Event resized:', info.event.title);
+                console.log('New end date:', info.event.end);
+
+                var start = info.event.start.toISOString();
+                var end = info.event.end.toISOString();
+
+                $.ajax({
+                    url: '/Home/UpdateEvent',
+                    type: 'POST',
+                    data: {
+                        eventId: info.event.id,
+                        updatedEvent: {
+                            Summary: info.event.title,
+                            Start: start,
+                            End: end,
+                        }
+                    },
+                    success: function (response) {
+                        console.log('Event updated successfully:', response);
+                    },
+                    error: function (error) {
+                        console.error('Error updating event:', error);
+                    }
+                });
+            },
+        });
+
+        $('#deleteEventBtn').on('click', function () {
+            var eventId = document.querySelector('.modal-body').dataset.eventId;
+            if (confirm('Bạn có chắc chắn muốn xóa sự kiện này không?')) {
+                // Gửi yêu cầu xóa sự kiện lên máy chủ
+                $.ajax({
+                    url: '/Home/DeleteEvent',
+                    type: 'POST',
+                    data: {
+                        eventId: eventId
+                    },
+                    success: function (response) {
+                        console.log('Sự kiện đã được xóa thành công:', response);
+                        // Xóa sự kiện khỏi lịch
+                        var eventToRemove = calendar.getEventById(eventId);
+                        if (eventToRemove) {
+                            eventToRemove.remove();
+                            iziToast.show({
+                                title: 'Đã xóa sự kiện!',
+                                backgroundColor: '#FFFFFF',
+                                position: 'bottomLeft',
+                                timeout: 2000, // Không tự động đóng
+                                close: true,
+                                theme: 'light',
+                                iconUrl: 'https://static-00.iconduck.com/assets.00/info-outline-icon-256x256-9gjaft7z.png',
+                                progressBar: true,
+                                animateInside: true,
+                                pauseOnHover: true,
+                            });
+                        }
+                        $('#eventModal').modal('hide');
+                    },
+                    error: function (error) {
+                        console.error('Lỗi khi xóa sự kiện:', error);
+                        $('#eventModal').modal('hide');
+                    }
+                });
+            }
+        });
+
+        // Xử lý khi người dùng click vào nút "Cập nhật màu nền"
+        $('#updateEventBtn').on('click', function () {
+            var eventId = document.querySelector('.modal-body').dataset.eventId;
+            var selectedColorId = document.querySelector('input[name="colorId"]:checked').value;
+            var newSummary = document.getElementById('newSummary').value; // Lấy giá trị mới của tổng kết từ trường input
+            var event = calendar.getEventById(eventId);
+            event.setProp('backgroundColor', getColorById(selectedColorId));
+            event.setProp('title', newSummary);
+            $('#eventModal').modal('hide');
+
+            // Gửi yêu cầu cập nhật đến máy chủ
+            $.ajax({
+                url: '/Home/UpdateEventColor',
+                type: 'POST',
+                data: {
+                    eventId: eventId,
+                    colorId: selectedColorId,
+                    summary: newSummary
+                },
+                success: function (response) {
+                    console.log('Sự kiện đã được cập nhật thành công trên máy chủ:', response);
+                    iziToast.show({
+                        title: 'Đã cập nhật sự kiện!',
+                        backgroundColor: '#FFFFFF',
+                        position: 'bottomLeft',
+                        timeout: 2000, // Không tự động đóng
+                        close: true,
+                        theme: 'light',
+                        iconUrl: 'https://static-00.iconduck.com/assets.00/info-outline-icon-256x256-9gjaft7z.png',
+                        progressBar: true,
+                        animateInside: true,
+                        pauseOnHover: true,
+                    });
+                },
+                error: function (error) {
+                    console.error('Lỗi khi cập nhật sự kiện trên máy chủ:', error);
+                }
+            });
+        });
+
+        calendar.render();
+    }
+
+
+  
+
+    function getColorById(colorId) {
+        switch (colorId) {
+            case "1":
+                return '#7986cb'; // Lavender
+            case "2":
+                return '#33b679'; // Sage
+            case "3":
+                return '#8e24aa'; // Grape
+            case "4":
+                return '#e67c73'; // Flamingo
+            case "5":
+                return '#f6c026'; // Banana
+            case "6":
+                return '#f5511d'; // Tangerine
+            case "7":
+                return '#039be5'; // Peacock
+            case "8":
+                return '#616161'; // Graphite
+            case "9":
+                return '#3f51b5'; // Blueberry
+            case "10":
+                return '#0b8043'; // Basil
+            case "11":
+                return '#d60000'; // Tomato
+            default:
+                return '#0B8043'; // Mặc định
+        }
+    }
+</script>
+<script>
+    function submitForm() {
+        // Lấy dữ liệu từ form
+        var formData = new FormData(document.getElementById("createEventForm"));
+
+        // Lấy các phần tử input cho ngày bắt đầu và kết thúc
+        var startInput = document.getElementById('start');
+        var endInput = document.getElementById('end');
+
+        // Kiểm tra xem ngày bắt đầu có lớn hơn ngày kết thúc hay không
+        var startDate = new Date(startInput.value);
+        var endDate = new Date(endInput.value);
+
+        if (startDate > endDate) {
+            alert('Ngày bắt đầu không thể lớn hơn ngày kết thúc.');
+            return; // Ngăn chặn việc gửi form nếu ngày không hợp lệ
+        }
+
+        // Gửi yêu cầu AJAX
+        $.ajax({
+            url: '/Home/CreateGoogleCalendar',
+            type: 'POST',
+            data: formData,
+            processData: false,  // Đảm bảo rằng dữ liệu không được xử lý
+            contentType: false,  // Đảm bảo rằng không có kiểu dữ liệu được gửi
+            success: function (data) {
+                // Xử lý thành công
+                iziToast.show({
+                    title: 'Thêm thành công!',
+                    backgroundColor: '#FFFFFF',
+                    position: 'bottomLeft',
+                    timeout: 2000, // Không tự động đóng
+                    close: true,
+                    theme: 'light',
+                    iconUrl: 'https://icons.veryicon.com/png/o/miscellaneous/new-version-of-star-selected-icon/success-26.png',
+                    progressBar: true,
+                    animateInside: true,
+                    pauseOnHover: true,
+                });
+                fetchEvents();
+                $('#createEventForm').modal('hide');
+                console.log(data);
+                // Tùy chỉnh hành vi sau khi thành công (ví dụ: hiển thị thông báo, cập nhật UI)
+            },
+            error: function (error) {
+                // Xử lý lỗi
+                console.error('Error:', error);
+                // Tùy chỉnh hành vi sau khi lỗi (ví dụ: hiển thị thông báo lỗi)
+            }
+        });
+    }
+
+</script>
 <script>
     window.adjustTextareaHeight = function (textareaId) {
         var textarea = document.getElementById(textareaId);

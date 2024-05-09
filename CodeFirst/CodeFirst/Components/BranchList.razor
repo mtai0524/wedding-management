@@ -660,7 +660,7 @@
         getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
         await LoadBranchesHasPreLoad();
         hubConnection = new HubConnectionBuilder()
-            // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/chatHub")) // docker
+            // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/myBlazorHub")) // docker
             .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
             .Build();
 

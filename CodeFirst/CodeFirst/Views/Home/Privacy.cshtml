@@ -73,62 +73,6 @@
 </style>
 
 <!-- Modal -->
-<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="eventModalLabel">Cập nhật sự kiện</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="newSummary">Chủ đề:</label>
-                    <input type="text" class="form-control" id="newSummary" name="newSummary">
-                </div>
-                <div class="radio-group">
-                    <label for="">Chọn màu:</label><br />
-                    <label class="color-option" for="lavender">
-                        <input type="radio" id="lavender" name="colorId" value="1" style="background-color: #7986cb" checked>
-                    </label>
-                    <label class="color-option" for="sage">
-                        <input type="radio" id="sage" name="colorId" value="2" style="background-color: #33b679">
-                    </label>
-                    <label class="color-option" for="grape">
-                        <input type="radio" id="grape" name="colorId" value="3" style="background-color: #8e24aa">
-                    </label>
-                    <label class="color-option" for="flamingo">
-                        <input type="radio" id="flamingo" name="colorId" value="4" style="background-color: #e67c73">
-                    </label>
-                    <label class="color-option" for="banana">
-                        <input type="radio" id="banana" name="colorId" value="5" style="background-color: #f6c026">
-                    </label>
-                    <label class="color-option" for="tangerine">
-                        <input type="radio" id="tangerine" name="colorId" value="6" style="background-color: #f5511d">
-                    </label>
-                    <label class="color-option" for="peacock">
-                        <input type="radio" id="peacock" name="colorId" value="7" style="background-color: #039be5">
-                    </label>
-                    <label class="color-option" for="graphite">
-                        <input type="radio" id="graphite" name="colorId" value="8" style="background-color: #616161">
-                    </label>
-                    <label class="color-option" for="blueberry">
-                        <input type="radio" id="blueberry" name="colorId" value="9" style="background-color: #3f51b5">
-                    </label>
-                    <label class="color-option" for="basil">
-                        <input type="radio" id="basil" name="colorId" value="10" style="background-color: #0b8043">
-                    </label>
-                    <label class="color-option" for="tomato">
-                        <input type="radio" id="tomato" name="colorId" value="11" style="background-color: #d60000">
-                    </label>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="deleteEventBtn">Xóa sự kiện</button>
-                <button type="button" class="btn btn-primary" id="updateEventBtn">Cập nhật màu nền</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script>
     function reloadCalendarEvents() {

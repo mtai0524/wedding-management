@@ -1,149 +1,140 @@
 ﻿@page "/counter"
-@using CodeFirst.Data
-@using CodeFirst.Models.Entities
-@using CodeFirst.Service
+@inject IJSRuntime JSRuntime
+<h3>Calendar</h3>
 
-<PageTitle>Counter</PageTitle>
-<MudThemeProvider />
-<MudDialogProvider />
-<MudSnackbarProvider />
-
-<h1>Counter</h1>
-<button @onclick="appendText">
-    Run
-</button>
-@inject IJSRuntime JS
-@code {
-    public async void appendText()
-    {
-        await JS.InvokeAsync<string>("showText", "showText");
+<div id='calendar'></div>
+<button @onclick="CallReloadCalendarEvents">Reload Calendar Events</button>
+<style>
+    .fc-scrollgrid {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
     }
-}
-<p role="status">Current count: @currentCount</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
-<MudProgressCircular Color="Color.Default" Indeterminate="true" />
-<div Class="d-flex justify-space-around flex-wrap mt-4">
-    <MudBadge Content="3" Overlap="true" Class="mx-6 my-4">
-        <MudIcon Icon="@Icons.Material.Filled.Email" Color="Color.Default" />
-    </MudBadge>
-    <MudBadge Content="100" Color="Color.Primary" Overlap="true" Class="mx-6 my-4">
-        <MudIcon Icon="@Icons.Material.Filled.Email" Color="Color.Default" />
-    </MudBadge>
-    <MudBadge Icon="@Icons.Material.Filled.Lock" Color="Color.Error" Overlap="true" Bordered="true" Class="mx-6 my-4">
-        <MudButton Color="Color.Error" Variant="MudBlazor.Variant.Filled" DisableElevation="true">Security Issues</MudButton>
-    </MudBadge>
-    <MudBadge Dot="true" Color="Color.Info" Class="mx-6 my-4">
-        <MudText>Bug Reports</MudText>
-    </MudBadge>
+    .fc .fc-timegrid-slot-minor {
+        border-top-style: none !important;
+    }
+
+    .fc-daygrid-day-number, .fc-col-header-cell-cushion {
+        color: black;
+        font-weight: 800;
+        text-decoration: none;
+    }
+
+    .fc-button-active {
+        background-color: white !important;
+        color: black !important;
+        outline: none !important;
+    }
+
+        .fc-button-active:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+    input[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        outline: none;
+    }
+
+        input[type="radio"]:checked + .color-option::before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin-left: 5px;
+        }
+
+        input[type="radio"]:checked {
+            border: 5px solid #000; /* Màu đen */
+            box-sizing: border-box; /* Đảm bảo border không làm tăng kích thước của input */
+        }
+
+            input[type="radio"]:checked + .color-option {
+                border: 5px solid #000; /* Màu đen */
+                box-sizing: border-box; /* Đảm bảo border không làm tăng kích thước của label */
+            }
+
+    .color-option {
+        display: inline-block;
+        padding: 5px 10px;
+        cursor: pointer;
+        background-color: transparent;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+        .color-option:hover {
+            background-color: #f0f0f0;
+        }
+</style>
+
+
+<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eventModalLabel">Cập nhật sự kiện</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="newSummary">Chủ đề:</label>
+                    <input type="text" class="form-control" id="newSummary" name="newSummary">
+                </div>
+                <div class="radio-group">
+                    <label for="">Chọn màu:</label><br />
+                    <label class="color-option" for="lavender">
+                        <input type="radio" id="lavender" name="colorId" value="1" style="background-color: #7986cb" checked>
+                    </label>
+                    <label class="color-option" for="sage">
+                        <input type="radio" id="sage" name="colorId" value="2" style="background-color: #33b679">
+                    </label>
+                    <label class="color-option" for="grape">
+                        <input type="radio" id="grape" name="colorId" value="3" style="background-color: #8e24aa">
+                    </label>
+                    <label class="color-option" for="flamingo">
+                        <input type="radio" id="flamingo" name="colorId" value="4" style="background-color: #e67c73">
+                    </label>
+                    <label class="color-option" for="banana">
+                        <input type="radio" id="banana" name="colorId" value="5" style="background-color: #f6c026">
+                    </label>
+                    <label class="color-option" for="tangerine">
+                        <input type="radio" id="tangerine" name="colorId" value="6" style="background-color: #f5511d">
+                    </label>
+                    <label class="color-option" for="peacock">
+                        <input type="radio" id="peacock" name="colorId" value="7" style="background-color: #039be5">
+                    </label>
+                    <label class="color-option" for="graphite">
+                        <input type="radio" id="graphite" name="colorId" value="8" style="background-color: #616161">
+                    </label>
+                    <label class="color-option" for="blueberry">
+                        <input type="radio" id="blueberry" name="colorId" value="9" style="background-color: #3f51b5">
+                    </label>
+                    <label class="color-option" for="basil">
+                        <input type="radio" id="basil" name="colorId" value="10" style="background-color: #0b8043">
+                    </label>
+                    <label class="color-option" for="tomato">
+                        <input type="radio" id="tomato" name="colorId" value="11" style="background-color: #d60000">
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="deleteEventBtn">Xóa sự kiện</button>
+                <button type="button" class="btn btn-primary" id="updateEventBtn">Cập nhật màu nền</button>
+            </div>
+        </div>
+    </div>
 </div>
-<CodeFirst.Components.ProgressBar></CodeFirst.Components.ProgressBar>
 
 @code {
-    private int currentCount = 0;
-
-    private void IncrementCount()
+    private async Task CallReloadCalendarEvents()
     {
-        currentCount++;
+        await JSRuntime.InvokeVoidAsync("reloadCalendarEvents");
     }
 }
-
-<MudTable Items="@Elements" Hover="true" SortLabel="Sort By">
-    <HeaderContent>
-        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Name)">Nr</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel Enabled="@enabled" SortBy="new Func<Branch, object>(x=>x.BranchId)">Sign</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel InitialDirection="MudBlazor.SortDirection.Ascending" SortBy="new Func<Branch, object>(x=>x.Name)">Name</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Address)">Position</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Description)">Mass</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Image)">Image</MudTableSortLabel></MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTd DataLabel="Nr">@context.Name</MudTd>
-            <MudTd DataLabel="Sign">@context.BranchId</MudTd>
-            <MudTd DataLabel="Name">@context.Name</MudTd>
-            <MudTd DataLabel="Position">@context.Address</MudTd>
-            <MudTd DataLabel="Molar mass">@context.Description</MudTd>
-            <MudTd DataLabel="Image">
-                <MudImage Src="@context.Image" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-md" />
-            </MudTd>
-        </RowTemplate>
-        <PagerContent>
-            <MudTablePager PageSizeOptions="new int[] { 2, 4, 5, 100 }" />
-        </PagerContent>
-    </MudTable>
-
-    @code {
-    List<Branch> Branches { get; set; } = new List<Branch>();
-
-
-    private Branch branch = new Branch();
-    [Inject]
-    private ApplicationDbContext _context { get; set; }
-
-
-    private bool enabled = true;
-    private IEnumerable<Branch> Elements = new List<Branch>();
-
-    protected override async Task OnInitializedAsync()
-    {
-        var branchService = new BranchService(_context);
-        Elements = await branchService.GetBranchesAsync();
-    }
-}
-
-<MudDropContainer T="DropItem" Items="_items" ItemsSelector="@((item,dropzone) => item.Identifier == dropzone)" ItemDropped="ItemUpdated" Class="d-flex flex-wrap flex-grow-1">
-    <ChildContent>
-        <MudDropZone T="DropItem" Identifier="Drop Zone 1" Class="rounded mud-background-gray pa-6 ma-8 flex-grow-1">
-            <MudText Typo="Typo.h6" Class="mb-4">Drop Zone 1</MudText>
-        </MudDropZone>
-        <MudDropZone T="DropItem" Identifier="Drop Zone 2" Class="rounded mud-background-gray pa-6 ma-8 flex-grow-1">
-            <MudText Typo="Typo.h6" Class="mb-4">Drop Zone 2</MudText>
-        </MudDropZone>
-    </ChildContent>
-    <ItemRenderer>
-        <MudPaper Elevation="25" Class="pa-4 my-4">@context.Name</MudPaper>
-        </ItemRenderer>
-    </MudDropContainer>
-    @code {
-    private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
-    {
-        dropItem.Item.Identifier = dropItem.DropzoneIdentifier;
-    }
-
-    private List<DropItem> _items = new()
-    {
-        new DropItem(){ Name = "Drag me!", Identifier = "Drop Zone 1" },
-        new DropItem(){ Name = "Or me!", Identifier = "Drop Zone 2" },
-        new DropItem(){ Name = "Just Mud", Identifier = "Drop Zone 1" },
-    };
-
-    public class DropItem
-    {
-        public string Name { get; init; }
-        public string Identifier { get; set; }
-    }
-}
-<MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Error" OnClick="OnButtonClicked">Delete</MudButton>
-<MudChip>@state</MudChip>
-
-    <MudMessageBox @ref="mbox" Title="Warning" CancelText="Cancel">
-        <MessageContent>
-            Deleting can <b><i>not</i></b> be undone!
-        </MessageContent>
-        <YesButton>
-            <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Delete!</MudButton>
-        </YesButton>
-    </MudMessageBox>
-@code
-    {
-    MudMessageBox mbox { get; set; }
-    string state = "Message box hasn't been opened yet";
-
-    private async void OnButtonClicked()
-    {
-        bool? result = await mbox.Show();
-        state = result == null ? "Canceled" : "Deleted!";
-        StateHasChanged();
-    }
-}
-

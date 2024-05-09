@@ -1,0 +1,252 @@
+﻿@page "/team-calendar"
+@inject IJSRuntime JSRuntime
+@inject ISnackbar SnackbarService
+@inject ISnackbar Snackbar
+<h3>Calendar</h3>
+<div class="d-flex justify-content-between alight-item-center mb-1" style="margin-bottom:7px" >
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Thêm sự kiện</button>
+    <a style="text-decoration:blink !important;text-decoration-line: underline;cursor:pointer !important;color:blue !important;font-weight:700 !important" @onclick="CallReloadCalendarEvents"><i class="fa-solid fa-arrows-rotate" style="margin-right:6px;color:blue"></i> Đồng bộ google calendar</a>
+</div>
+
+<div style="max-height:700px" id='calendar'></div>
+
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">Tạo sự kiện</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-bodyy" style="padding:10px">
+                <form id="createEventForm" asp-controller="Home" asp-action="CreateGoogleCalendar" method="post">
+                    <div class="form-group">
+                        <label for="summary">Chủ đề:</label>
+                        <input type="text" class="form-control" id="summary" name="Summary" />
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Mô tả:</label>
+                        <textarea class="form-control" id="description" name="Description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Địa điểm:</label>
+                        <input type="text" class="form-control" id="location" name="Location" />
+                    </div>
+                    <div class="form-group">
+                        <label for="start">Ngày bắt đầu:</label>
+                        <input type="datetime-local" class="form-control" id="start" name="Start" />
+                    </div>
+                    <div class="form-group">
+                        <label for="end">Ngày kết thúc:</label>
+                        <input type="datetime-local" class="form-control" id="end" name="End" />
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Chọn màu chủ đề:</label>
+                        <div class="radio-group">
+                            <label class="color-option" for="lavender">
+                                <input type="radio" id="lavender" name="ColorId" value="1" style="background-color: #7986cb" checked>
+                            </label>
+                            <label class="color-option" for="sage">
+                                <input type="radio" id="sage" name="ColorId" value="2" style="background-color: #33b679">
+                            </label>
+                            <label class="color-option" for="grape">
+                                <input type="radio" id="grape" name="ColorId" value="3" style="background-color: #8e24aa">
+                            </label>
+                            <label class="color-option" for="flamingo">
+                                <input type="radio" id="flamingo" name="ColorId" value="4" style="background-color: #e67c73">
+                            </label>
+                            <label class="color-option" for="banana">
+                                <input type="radio" id="banana" name="ColorId" value="5" style="background-color: #f6c026">
+                            </label>
+                            <label class="color-option" for="tangerine">
+                                <input type="radio" id="tangerine" name="ColorId" value="6" style="background-color: #f5511d">
+                            </label>
+                            <label class="color-option" for="peacock">
+                                <input type="radio" id="peacock" name="ColorId" value="7" style="background-color: #039be5">
+                            </label>
+                            <label class="color-option" for="graphite">
+                                <input type="radio" id="graphite" name="ColorId" value="8" style="background-color: #616161">
+                            </label>
+                            <label class="color-option" for="blueberry">
+                                <input type="radio" id="blueberry" name="ColorId" value="9" style="background-color: #3f51b5">
+                            </label>
+                            <label class="color-option" for="basil">
+                                <input type="radio" id="basil" name="ColorId" value="10" style="background-color: #0b8043">
+                            </label>
+                            <label class="color-option" for="tomato">
+                                <input type="radio" id="tomato" name="ColorId" value="11" style="background-color: #d60000">
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
+
+                <button type="submit" class="btn btn-primary" @onclick="CreateEvents">Thêm sự kiện</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eventModalLabel">Cập nhật sự kiện</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="update-modal-calendar">
+                <div class="form-group">
+                    <label for="newSummary">Chủ đề:</label>
+                    <input type="text" class="form-control" id="newSummary" name="newSummary">
+                </div>
+         
+                <div class="form-group">
+                    <label for="dateTimeItem">Thời gian:</label>
+                    <input type="text" class="form-control" id="dateTimeItem" name="dateTimeItem" readonly>
+                </div>
+                <div class="radio-group">
+                    <label for="">Chọn màu:</label><br />
+                    <label class="color-option" for="lavender">
+                        <input type="radio" id="lavender" name="colorId" value="1" style="background-color: #7986cb" checked>
+                    </label>
+                    <label class="color-option" for="sage">
+                        <input type="radio" id="sage" name="colorId" value="2" style="background-color: #33b679">
+                    </label>
+                    <label class="color-option" for="grape">
+                        <input type="radio" id="grape" name="colorId" value="3" style="background-color: #8e24aa">
+                    </label>
+                    <label class="color-option" for="flamingo">
+                        <input type="radio" id="flamingo" name="colorId" value="4" style="background-color: #e67c73">
+                    </label>
+                    <label class="color-option" for="banana">
+                        <input type="radio" id="banana" name="colorId" value="5" style="background-color: #f6c026">
+                    </label>
+                    <label class="color-option" for="tangerine">
+                        <input type="radio" id="tangerine" name="colorId" value="6" style="background-color: #f5511d">
+                    </label>
+                    <label class="color-option" for="peacock">
+                        <input type="radio" id="peacock" name="colorId" value="7" style="background-color: #039be5">
+                    </label>
+                    <label class="color-option" for="graphite">
+                        <input type="radio" id="graphite" name="colorId" value="8" style="background-color: #616161">
+                    </label>
+                    <label class="color-option" for="blueberry">
+                        <input type="radio" id="blueberry" name="colorId" value="9" style="background-color: #3f51b5">
+                    </label>
+                    <label class="color-option" for="basil">
+                        <input type="radio" id="basil" name="colorId" value="10" style="background-color: #0b8043">
+                    </label>
+                    <label class="color-option" for="tomato">
+                        <input type="radio" id="tomato" name="colorId" value="11" style="background-color: #d60000">
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="deleteEventBtn">Xóa sự kiện</button>
+                <button type="button" class="btn btn-primary" id="updateEventBtn">Cập nhật</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    
+    private async Task CreateEvents()
+    {
+        Snackbar.Add("Đã tạo sự kiện mới!", Severity.Info);
+        await JSRuntime.InvokeVoidAsync("submitForm");
+    }
+    private async Task DeleteEvents()
+    {
+        Snackbar.Add("Đã tạo sự kiện mới!", Severity.Info);
+        await JSRuntime.InvokeVoidAsync("deleteEvent");
+    }
+    private async Task CallReloadCalendarEvents()
+    {
+        await JSRuntime.InvokeVoidAsync("fetchEvents");
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("reloadCalendarEvents");
+        }
+    }
+}
+
+
+<style>
+    .fc-event-title, .fc-event-time {
+        color: white;
+    }
+
+    .fc-scrollgrid {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    }
+
+
+    .fc .fc-timegrid-slot-minor {
+        border-top-style: none !important;
+    }
+
+    .fc-daygrid-day-number, .fc-col-header-cell-cushion {
+        color: black;
+        font-weight: 800;
+        text-decoration: none;
+    }
+
+    .fc-button-active {
+        background-color: white !important;
+        color: black !important;
+        outline: none !important;
+    }
+
+        .fc-button-active:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+    input[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        outline: none;
+    }
+
+        input[type="radio"]:checked + .color-option::before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin-left: 5px;
+        }
+
+        input[type="radio"]:checked {
+            border: 5px solid #000;
+            box-sizing: border-box;
+        }
+
+            input[type="radio"]:checked + .color-option {
+                border: 5px solid #000;
+                box-sizing: border-box;
+            }
+
+    .color-option {
+        display: inline-block;
+        padding: 5px 10px;
+        cursor: pointer;
+        background-color: transparent;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+        .color-option:hover {
+            background-color: #f0f0f0;
+        }
+</style>

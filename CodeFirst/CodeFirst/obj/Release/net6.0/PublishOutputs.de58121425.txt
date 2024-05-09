@@ -1,6 +1,7 @@
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\CodeFirst.exe
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\appsettings.json
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Cre\cre.json
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\libman.json
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\libwkhtmltox.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\libwkhtmltox.dylib
@@ -291,6 +292,10 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\BlazorBoot
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\BouncyCastle.Cryptography.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\CloudinaryDotNet.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\DinkToPdf.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Google.Apis.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Google.Apis.Auth.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Google.Apis.Calendar.v3.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Google.Apis.Core.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\MailKit.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
@@ -395,6 +400,7 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\SQLitePCLR
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\SQLitePCLRaw.core.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\SQLitePCLRaw.provider.e_sqlite3.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\TableDependency.SqlClient.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.CodeDom.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Composition.AttributedModel.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Composition.Convention.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Composition.Hosting.dll
@@ -406,6 +412,7 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.For
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.IO.Pipelines.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Linq.Dynamic.Core.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Management.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Memory.Data.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Reflection.MetadataLoadContext.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Runtime.Caching.dll
@@ -590,6 +597,7 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\u
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netstandard1.3\System.Data.SqlClient.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Management.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll

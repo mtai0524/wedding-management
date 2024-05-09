@@ -28,7 +28,7 @@ namespace CodeFirst.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(IdentityRole model)
+        public IActionResult Create(IdentityRole model)
         {
             if (!_roleManager.RoleExistsAsync(model.Name).GetAwaiter().GetResult())
             {
