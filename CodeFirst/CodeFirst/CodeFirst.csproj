@@ -60,6 +60,7 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Cre\" />
+    <Folder Include="Cre\" />
     <Folder Include="Pages\" />
     <Folder Include="Pages\" />
     <Folder Include="wwwroot\uploads\" />

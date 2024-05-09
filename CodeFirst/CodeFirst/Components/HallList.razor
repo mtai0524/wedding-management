@@ -292,7 +292,7 @@
     </HeaderContent>
     <RowTemplate>
         <MudTd DataLabel="Name">@context.Name</MudTd>
-            <MudTd DataLabel="Price">@context.Price</MudTd>
+            <MudTd DataLabel="Price">@context.Price?.ToString("#,##0") VNĐ</MudTd>
             <MudTd DataLabel="Capacity">@context.Capacity</MudTd>
             <MudTd DataLabel="Image">
 
@@ -390,7 +390,8 @@
             <div class="modal-body">
                 <!-- Hiển thị thông tin chi nhánh -->
                 <p><strong>Tên chi nhánh:</strong> @branchName</p>
-                <p><strong>Giá:</strong> @price</p>
+                <p><strong>Giá:</strong> @price?.ToString("#,##0") VNĐ</p>
+
                 <p><strong>Số lượng bàn:</strong> @capacity</p>
                 <p><strong>Mô tả:</strong> @des</p>
                 <p><strong>Thuộc chi nhánh:</strong> @branchHall</p>

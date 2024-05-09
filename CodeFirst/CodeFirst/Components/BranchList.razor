@@ -313,13 +313,13 @@
 
                 @if (@context.IsLocked)
             {
-                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => UnlockBranch(context.BranchId))">
+                <MudButton Style="margin-left:5px" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Lock" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => UnlockBranch(context.BranchId))">
                     Mở khóa
                 </MudButton>
             }
             else
             {
-                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => LockBranch(context.BranchId))">
+                <MudButton Style="margin-left:5px" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.LockOpen" Size="MudBlazor.Size.Small" Color="Color.Success" OnClick="@(() => LockBranch(context.BranchId))">
                  Khóa
                 </MudButton>
             }
