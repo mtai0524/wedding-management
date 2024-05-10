@@ -422,6 +422,7 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Tex
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Text.Encodings.Web.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Text.Json.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Windows.Extensions.dll
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\UnidecodeSharpFork.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\af\Humanizer.resources.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\ar\Humanizer.resources.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\az\Humanizer.resources.dll

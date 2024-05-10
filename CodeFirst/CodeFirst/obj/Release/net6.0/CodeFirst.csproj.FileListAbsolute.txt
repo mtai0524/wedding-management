@@ -2491,3 +2491,4 @@ E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\Google.Apis.Calendar.
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\Google.Apis.Core.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\System.Management.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\runtimes\win\lib\net6.0\System.Management.dll
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\UnidecodeSharpFork.dll

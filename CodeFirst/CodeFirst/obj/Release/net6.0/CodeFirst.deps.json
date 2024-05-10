@@ -66,6 +66,7 @@
           "Quick.AspNetCore.Components.Web.Extensions": "6.0.2",
           "Radzen.Blazor": "4.31.1",
           "SqlTableDependency": "8.5.6",
+          "UnidecodeSharpFork": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "6.0.0.0",
@@ -4481,6 +4482,17 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "UnidecodeSharpFork/1.0.0": {
+        "runtime": {
+          "lib/UnidecodeSharpFork.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/UnidecodeSharpFork.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Antiforgery/6.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Antiforgery.dll": {}
@@ -8351,6 +8363,13 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "UnidecodeSharpFork/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8sTIyufB4n+a9HgfyIQsomc7xlObdPh7D9N46NwySNL+b9nZfNPfI5izs2Jl52ryQdsRjikB+hmjGfUgHPGQEg==",
+      "path": "unidecodesharpfork/1.0.0",
+      "hashPath": "unidecodesharpfork.1.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/6.0.0.0": {
       "type": "referenceassembly",

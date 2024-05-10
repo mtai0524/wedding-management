@@ -43,7 +43,7 @@
     };
 }
 <MudTabs Elevation="1" Rounded="true" PanelClass="pa-3">
-    <MudTabPanel Text="Thực đơn" ToolTip="ToolTip One">
+    <MudTabPanel Text="Thực đơn" ToolTip="Danh sách thực đơn">
 
 
 <style>
@@ -63,6 +63,14 @@
 
     label:hover {
         background-color: transparent;
+    }
+    .mud-table{
+        border-radius: 8px;
+        box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+        -webkit-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+        -moz-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+        box-shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.26);
+        border: 3px solid black;
     }
 </style>
 
@@ -686,7 +694,7 @@
     }
 }
 </MudTabPanel>
-<MudTabPanel Text="Thể loại" ToolTip="ToolTip Two">
+<MudTabPanel Text="Thể loại" ToolTip="Thể loại">
     <a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createCateModal">
         Thêm thể loại
     </a>

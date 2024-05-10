@@ -1,184 +1,119 @@
 ﻿@page "/"
 
 <PageTitle>Index</PageTitle>
+<style>
+    .big-script p{
+        font-size:2rem;   
+    }
 
+    .card-box {
+        border-radius: 8px;
+        box-shadow: 9px 4px 5px -3px rgba(0,0,0,0.47);
+        -webkit-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+        -moz-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+        box-shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.26);
+        border: 3px solid black;
+        margin-bottom: 7px;
+    }
+</style>
 
 <div class="main-container">
     <div class="grid-container">
         <!-- Card with big script -->
-        <div class="card card--2x">
+        <div class="card card--2x card-box">
             <div class="card__content big-script padding-large">
-                <p style="font-family: 'mali';font-size: large;">Nhà hàng của những giấc mơ</p>
+                <p style="font-size: 2rem;"><a href="/">Restaurant of dreams</a></p>
             </div>
         </div>
-        <!-- Card with image -->
-        <div class="card">
-            <div class="card__image">
-                <img src="https://images.pexels.com/photos/443416/pexels-photo-443416.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
+        <div class="card card--horizontal card-box">
+            <div class="card__content big-script">
+                <p><a href="/task">tasks to do</a></p>
             </div>
         </div>
         <!-- Card with another image -->
-        <div class="card">
+        <div class="card card-box">
             <div class="card__image">
                 <img src="https://images.pexels.com/photos/542411/pexels-photo-542411.png?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
             </div>
         </div>
-        <!-- Card with content -->
-        <div class="card">
-            <div class="card__content">
-                <p><em>Travel is fatal to prejudice, bigotry, and narrow-mindedness.</em></p>
-                <p>— Mark Twain</p>
-            </div>
-        </div>
+       
         <!-- Card with horizontal layout -->
-        <div class="card card--horizontal">
-            <div class="card__image">
-                <img src="https://images.pexels.com/photos/614494/pexels-photo-614494.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
+        <div class="card card--horizontal card-box">
+            <div class="card__content big-script">
+                <p><a href="/branch-list">branches list</a></p>
             </div>
         </div>
-        <!-- Card with featured content -->
-        <div class="card card--featured">
-            <div class="card__side-by-side--m">
-                <div class="card__image">
-                    <img src="https://images.pexels.com/photos/1125278/pexels-photo-1125278.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
-                </div>
-                <div class="card__content padding-large--l">
-                    <h2>Quisque volutpat.</h2>
-                    <p>Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit.</p>
-                    <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                    <button class="card__button">More...</button>
-                </div>
-            </div>
-        </div>
-        <!-- Card with vertical layout -->
-        <div class="card card--vertical">
-            <div class="card__image">
-                <img src="https://images.pexels.com/photos/920968/pexels-photo-920968.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
-            </div>
-        </div>
-        <!-- Card with another image -->
-        <div class="card">
-            <div class="card__image">
-                <img src="https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
+
+        <div class="card card--horizontal card-box">
+            <div class="card__content big-script">
+                <p>
+                    <a href="/user-list">manage user</a>
+                </p>
             </div>
         </div>
         <!-- Card with horizontal layout and side-by-side content -->
-        <div class="card card--horizontal">
+        <div class="card card--horizontal card-box">
             <div class="card__side-by-side">
-                <div class="card__image">
-                    <img src="https://images.pexels.com/photos/885880/pexels-photo-885880.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
+                <div class="card__image" style="width:200px !important">
+                    <img  src="https://images.pexels.com/photos/443416/pexels-photo-443416.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
                 </div>
-                <div class="card__content">
-                    <h3>Lorem ipsum</h3>
-                    <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra</p>
+                <div style="width:100%" class="card__content d-flex justify-content-center align-items-center">
+                    <h3 style="font-weight:300"><a href="/hall-list">Halls list</a></h3>
                 </div>
             </div>
         </div>
-        <!-- Card with vertical layout -->
-        <div class="card card--vertical">
-            <div class="card__image">
-                <img src="https://images.pexels.com/photos/450597/pexels-photo-450597.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
-            </div>
-        </div>
+       
         <!-- Card with another image -->
-        <div class="card">
-            <div class="card__image">
-                <img src="https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
+        <div class="card card-box">
+            <div class="card__image d-flex justify-content-center align-items-center">
+                <h2><a href="/menu-list">menu</a></h2>
             </div>
         </div>
         <!-- Card with content -->
-        <div class="card">
-            <div class="card__content">
-                <p><em>We wander for distraction, but we travel for fulfilment.</em></p>
-                <p>— Hilaire Belloc</p>
+        <div class="card card-box">
+            <div class="card__image d-flex justify-content-center align-items-center">
+                <h2><a href="/service-list">services</a></h2>
             </div>
         </div>
-        <!-- Card with 2x size -->
-        <div class="card card--2x">
-            <div class="card__image">
-                <img src="https://images.pexels.com/photos/247929/pexels-photo-247929.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
-            </div>
-        </div>
+  
         <!-- Card with horizontal layout and frameless content -->
-        <div class="card card--horizontal card--frameless">
+        <div class="card card--horizontal card--frameless card-box">
             <div class="card__content big-script">
-                <p>Bon voyage</p>
+                <p><a href="/team-calendar">team calendar</a></p>
             </div>
         </div>
         <!-- Card with another image -->
-        <div class="card">
-            <div class="card__image">
-                <img src="https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
+        <div class="card card-box">
+            <div class="card__image d-flex justify-content-center align-items-center">
+                <h2><a href="/statistic">statistics</a></h2>
             </div>
         </div>
         <!-- Card with another image -->
-        <div class="card">
-            <div class="card__image">
-                <img src="https://images.pexels.com/photos/358319/pexels-photo-358319.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
+        <div class="card card-box">
+            <div class="card__image d-flex justify-content-center align-items-center">
+                <h2><a href="/Admin/Invoice">invoices</a></h2>
             </div>
         </div>
         <!-- Card with another image -->
-        <div class="card">
-            <div class="card__image">
-                <img src="https://images.pexels.com/photos/373912/pexels-photo-373912.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
+        <div class="card card-box">
+            <div class="card__image d-flex justify-content-center align-items-center">
+                <h2><a href="/Admin/Feedback">feedbacks</a></h2>
             </div>
         </div>
 
         <!-- Card with content -->
-        <div class="card">
-            <div class="card__content">
-                <p><em>A good traveller has no fixed plans and is not intent on arriving.</em></p>
-                <p>— Lao Tzu</p>
+        <div class="card card-box">
+            <div class="card__image d-flex justify-content-center align-items-center">
+                <h2><a href="/Admin/Code">vouches</a></h2>
             </div>
         </div>
         <!-- Card with another image -->
-        <div class="card">
-            <div class="card__image">
-                <img src="https://images.pexels.com/photos/386007/pexels-photo-386007.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
+        <div class="card card-box">
+            <div class="card__image d-flex justify-content-center align-items-center">
+                <h2><a href="/Admin/MenuItemComboMenu">combos</a></h2>
             </div>
         </div>
     </div>
 </div>
 
-<div class="grid-container">
-    <!-- Card with big script -->
-    <div class="card card--2x">
-        <div class="card__content big-script padding-large">
-            <p>Travel and see the world</p>
-        </div>
-    </div>
-    <!-- Card with image -->
-    <div class="card">
-        <div class="card__image">
-            <img src="https://images.pexels.com/photos/443416/pexels-photo-443416.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
-        </div>
-    </div>
-    <!-- Card with content -->
-    <div class="card">
-        <div class="card__content">
-            <p><em>Travel is fatal to prejudice, bigotry, and narrow-mindedness.</em></p>
-            <p>— Mark Twain</p>
-        </div>
-    </div>
-    <!-- Card with horizontal layout -->
-    <div class="card card--horizontal">
-        <div class="card__image">
-            <img src="https://images.pexels.com/photos/614494/pexels-photo-614494.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
-        </div>
-    </div>
-    <!-- Card with featured content -->
-    <div class="card card--featured">
-        <div class="card__side-by-side--m">
-            <div class="card__image">
-                <img src="https://images.pexels.com/photos/1125278/pexels-photo-1125278.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Travel Image">
-            </div>
-            <div class="card__content padding-large--l">
-                <h2>Quisque volutpat.</h2>
-                <p>Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit.</p>
-                <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                <button class="card__button">More...</button>
-            </div>
-        </div>
-    </div>
-    <!-- Additional cards can be added here following the same structure -->
-</div>
+
