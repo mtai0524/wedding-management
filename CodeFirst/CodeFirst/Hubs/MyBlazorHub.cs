@@ -63,5 +63,16 @@ namespace CodeFirst.Hubs
             var listMenuCate = _context.MenuCategory.ToListAsync();
             await Clients.All.SendAsync("MenuCateCreated", listMenuCate);
         }
+
+        public async Task SendServiceCreatedNotification()
+        {
+            var listMenu = _context.ServiceEntity.ToListAsync();
+            await Clients.All.SendAsync("ServiceCreated", listMenu);
+        }
+        public async Task SendServiceCateCreatedNotification()
+        {
+            var listMenuCate = _context.ServiceCategory.ToListAsync();
+            await Clients.All.SendAsync("ServiceCateCreated", listMenuCate);
+        }
     }
 }
