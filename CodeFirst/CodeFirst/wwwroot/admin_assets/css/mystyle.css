@@ -654,9 +654,8 @@ body {
         display: flex;
         flex-direction: column;
         gap: 20px; /* Khoảng cách giữa các phản hồi */
-        width: 80%;
+        width: 95%;
         padding: 20px;
-        margin: 0 auto;
     }
 
     .feedback-rating {
@@ -756,7 +755,7 @@ body {
         }
 
     .feedback-list {
-        width: 80%;
+        width: 60%;
     }
 
 

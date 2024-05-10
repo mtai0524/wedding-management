@@ -21,6 +21,14 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 <PageTitle>Project management</PageTitle>
+<MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+@code{
+    private List<MudBlazor.BreadcrumbItem> _items = new List<MudBlazor.BreadcrumbItem>
+    {
+        new MudBlazor.BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
+        new MudBlazor.BreadcrumbItem("Công việc", href: "/task", icon: Icons.Material.Filled.Task),
+    };
+}
 
 <style>
     .mud-icon-size-small {
@@ -366,10 +374,13 @@
 @* modal create task *@
 <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+
             <div class="modal-header">
                 <h5 class="modal-title" id="taskModalLabel">Add Task</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                </button>
             </div>
             <div class="modal-body">
                 <label for="createTaskName">Name:</label>
@@ -704,10 +715,13 @@
 @* modal create project *@
 <div class="modal fade" id="createProjectModal" tabindex="-1" aria-labelledby="createProjectModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+
             <div class="modal-header">
-                <h5 class="modal-title" id="createProjectModalLabel">Create Project</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="createProjectModalLabel">Tạo dự án</h5>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                </button>
             </div>
             <div class="modal-body">
                 <div class="form-group">

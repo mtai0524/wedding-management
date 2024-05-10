@@ -1,0 +1,168 @@
+﻿@page "/statistic"
+
+@using System.Globalization
+@using CodeFirst.Data
+@using CodeFirst.Models
+@using CodeFirst.Models.Entities
+@inject ApplicationDbContext dbContext
+<style>
+    .card {
+        border-radius: 13px;
+    }
+
+    .card-body {
+        border-top: none;
+        border-radius: 0 0 10px 10px;
+        position: relative;
+    }
+
+    .card-title {
+        padding: 10px;
+    }
+
+    .d-inline-block {
+        padding: 10px;
+    }
+
+    .float-right {
+        position: absolute;
+        top: 72px;
+        right: 20px;
+    }
+
+        .float-right i {
+            opacity: 0.6;
+            font-size: 40px;
+        }
+</style>
+<div class="container" style="background-color:transparent !important">
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-1">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">Người dùng</h3>
+                        <div class="d-inline-block">
+                            <h2 class="text-white">@numberOfUsers.ToString()</h2>
+                        </div>
+                        <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-2">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">Hóa đơn</h3>
+                        <div class="d-inline-block">
+                            <h2 class="text-white"></h2>
+                        </div>
+                        <span class="float-right display-5 opacity-5"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-3">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">Doanh thu</h3>
+                        <div class="d-inline-block">
+                            <h3 class="text-white"></h3>
+                        </div>
+                        <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-9">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">Khách / Đơn</h3>
+                        <div class="d-inline-block">
+                            <h2 class="text-white"></h2>
+                        </div>
+                        <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <RadzenCard Style="max-width:350px" class="mt-4 w-100 mb-4 d-flex align-items-center">
+        <RadzenLabel Text="Thay đổi màu:" Style="margin-right: 8px; vertical-align: middle;" Component="ColorScheme" />
+        <RadzenDropDown Data="@colorSchemes" @bind-Value="@colorScheme" Name="ColorScheme">
+            <Template>
+                @Enum.GetName(typeof(ColorScheme), context)
+            </Template>
+        </RadzenDropDown>
+    </RadzenCard>
+    <div class="row my-5">
+        <div class="col-sm-12 col-lg-8">
+            <RadzenChart ColorScheme="@colorScheme">
+                @foreach (var year in Enumerable.Range(2017, 8))
+                {
+                    var quarterlyRevenue = CalculateQuarterlyRevenue(year);
+                    <RadzenColumnSeries Data="@quarterlyRevenue" CategoryProperty="Quarter" Title="@year.ToString()" ValueProperty="Revenue" />
+                }
+                <RadzenColumnOptions Margin="0" />
+                <RadzenValueAxis Formatter="@FormatAsUSD" />
+            </RadzenChart>
+        </div>
+    </div>
+</div>
+
+@code {
+    IEnumerable<ColorScheme> colorSchemes = Enum.GetValues(typeof(ColorScheme)).Cast<ColorScheme>();
+    ColorScheme colorScheme = ColorScheme.Palette;
+
+    List<DataItem> CalculateQuarterlyRevenue(int year)
+    {
+        var quarterlyRevenue = new List<DataItem>();
+
+        // Loop through each quarter of the year
+        for (var quarter = 1; quarter <= 4; quarter++)
+        {
+            // Calculate the start and end dates of the quarter
+            var startDate = new DateTime(year, (quarter - 1) * 3 + 1, 1);
+            var endDate = startDate.AddMonths(3).AddDays(-1);
+
+            // Query invoices within the specified quarter
+            var revenue = dbContext.Invoice
+                .Where(i => i.AttendanceDate.HasValue && i.AttendanceDate.Value >= startDate && i.AttendanceDate.Value <= endDate)
+                .Sum(i => i.Total ?? 0);
+
+            quarterlyRevenue.Add(new DataItem
+                {
+                    Year = year,
+                    Quarter = $"Q{quarter}",
+                    Revenue = revenue
+                });
+        }
+
+        return quarterlyRevenue;
+    }
+
+
+    int GetQuarter(DateTime date)
+    {
+        return (date.Month - 1) / 3 + 1;
+    }
+
+    string FormatAsUSD(object value)
+    {
+        return ((double)value).ToString("C0", CultureInfo.CreateSpecificCulture("en-US"));
+    }
+
+    class DataItem
+    {
+        public int Year { get; set; }
+        public string Quarter { get; set; }
+        public double Revenue { get; set; }
+    }
+    List<ApplicationUser> applicationUsers { get; set; } = new List<ApplicationUser>();
+    int numberOfUsers = 0;
+    protected override async Task OnInitializedAsync()
+    {
+        applicationUsers = dbContext.ApplicationUser.ToList();
+        numberOfUsers = applicationUsers.Count;
+
+    }
+}

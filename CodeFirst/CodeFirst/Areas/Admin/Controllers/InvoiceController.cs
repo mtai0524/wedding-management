@@ -262,7 +262,7 @@ font-weight:bold;
         // GET: Admin/Invoice
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Invoice.Include(i => i.Branch).Include(i => i.Hall).Include(i => i.Id);
+            var applicationDbContext = _context.Invoice.Include(i => i.Branch).Include(i => i.Hall).Include(i => i.User);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -277,7 +277,7 @@ font-weight:bold;
             var invoice = await _context.Invoice
                 .Include(i => i.Branch)
                 .Include(i => i.Hall)
-                .Include(i => i.Id)
+                .Include(i => i.User)
                 .Include(i => i.OrderMenus)
                 .ThenInclude(o => o.MenuEntity) // nạp MenuEntity
                   .Include(i => i.OrderServices)
@@ -392,7 +392,7 @@ font-weight:bold;
             var invoice = await _context.Invoice
                 .Include(i => i.Branch)
                 .Include(i => i.Hall)
-                .Include(i => i.Id)
+                .Include(i => i.User)
                 .FirstOrDefaultAsync(m => m.InvoiceID == id);
             if (invoice == null)
             {

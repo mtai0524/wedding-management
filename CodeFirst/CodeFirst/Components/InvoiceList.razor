@@ -1,0 +1,221 @@
+﻿@page "/invoice"
+
+@using CloudinaryDotNet
+@using CloudinaryDotNet.Actions
+@using CodeFirst.Data
+@using CodeFirst.Hubs
+@using CodeFirst.Models
+@using CodeFirst.Models.Entities
+@using CodeFirst.Service
+@using Microsoft.AspNetCore.Components.Web.Extensions
+@inherits Microsoft.AspNetCore.Components.ComponentBase
+@inject NavigationManager NavigationManager
+@inject IJSRuntime jsRuntime
+@inject CloudinaryService _cloudinaryService;
+@using Microsoft.AspNetCore.Components.Forms
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.SignalR
+@using Microsoft.AspNetCore.SignalR.Client
+@using Microsoft.EntityFrameworkCore
+@using System.Security.Claims
+<PageTitle>Branches management</PageTitle>
+<Preload />
+@using BlazorBootstrap
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+@inject ISnackbar SnackbarService
+@inject ISnackbar Snackbar
+@inject IHubContext<MyBlazorHub> _hubContext
+@inject CodeFirst.Service.NotificationService _notiService
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject UserBlazorService _userBlazorService
+@code {
+    [Inject] protected PreloadService PreloadService { get; set; }
+
+    private List<MudBlazor.BreadcrumbItem> _items = new List<MudBlazor.BreadcrumbItem>
+    {
+        new MudBlazor.BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
+        new MudBlazor.BreadcrumbItem("Chi nhánh", href: "/branch-list", icon: Icons.Material.Filled.LocationCity),
+    };
+}
+
+
+<style>
+    .btn {
+        color: white;
+        margin-left: 5px;
+        outline: none;
+    }
+
+        .btn:hover {
+            color: white;
+        }
+
+    i {
+        margin-right: 3px;
+    }
+
+    label:hover {
+        background-color: transparent;
+    }
+</style>
+
+<a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createBranchModal">
+    Tính tiền thừa
+</a>
+
+
+
+
+
+
+<MudTable Items="@listBranch" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Invoice,bool>(FilterFunc1)" Style="margin-bottom:15px">
+    <ToolBarContent>
+        <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách chi nhánh</MudText>
+        <MudSpacer />
+        <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm tên chi nhánh, địa chỉ" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
+    </ToolBarContent>
+    <HeaderContent>
+
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.InvoiceID)">Tên chi nhánh</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.Branch.Name)">Địa chỉ</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.Hall.Name)">Mô tả</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.User.Email)">Số điện thoại</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.InvoiceDate)">Số điện thoại</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.AttendanceDate)">Số điện thoại</MudTableSortLabel></MudTh>
+        <MudTh>Chức năng</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Name">@context.InvoiceID</MudTd>
+            <MudTd DataLabel="Address">@context.Branch.Name</MudTd>
+            <MudTd DataLabel="Description">@context.Hall.Name</MudTd>
+            <MudTd DataLabel="Phone">@context.User.Email</MudTd>
+            <MudTd DataLabel="Phone">@context.InvoiceDate</MudTd>
+            <MudTd DataLabel="Phone">@context.AttendanceDate</MudTd>
+            <MudTd>
+                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#viewBranchModal" @onclick="() => NavigateToInvoiceDetail(context.InvoiceID)">
+                    Chi tiết
+                </MudButton>
+                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" >
+                    Xóa
+                </MudButton>
+        </MudTd>
+
+    </RowTemplate>
+
+    <PagerContent>
+        <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
+    </PagerContent>
+</MudTable>
+
+@* modal delete mud blazor *@
+<MudMessageBox @ref="mbox" Title="Xác nhận xóa" CancelText="Hủy thao tác">
+    <MessageContent>
+        Dữ liệu bị xóa sẽ không thể phục hồi
+    </MessageContent>
+    <YesButton>
+        <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Xóa dữ liệu!</MudButton>
+    </YesButton>
+</MudMessageBox>
+@code {
+    private void NavigateToInvoiceDetail(int? invoiceId)
+    {
+        // Chuyển hướng đến đường dẫn Detail/branchId
+        NavigationManager.NavigateTo($"Admin/Invoice/Details/{invoiceId}");
+    }
+}
+@code {
+
+
+    private string searchString1 = "";
+    private bool FilterFunc1(Invoice branch) => FilterFunc(branch, searchString1);
+
+    private bool FilterFunc(Invoice branch, string searchString)
+    {
+        if (string.IsNullOrWhiteSpace(searchString))
+            return true;
+        if (branch.User.Email.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        return false;
+    }
+}
+<style>
+    .mud-dialog-width-sm {
+        max-width: 1200px;
+        width: 500px;
+    }
+</style>
+@code {
+    MudMessageBox mbox { get; set; }
+    [Inject] private IDialogService DialogService { get; set; }
+    private int branchIdToDelete;
+
+    private async void ShowConfirmModal(int branchId)
+    {
+        // string newUrl = $"/branch-list/delete-branch/{branchId}";
+        // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
+        branchIdToDelete = branchId;
+        bool? result = await mbox.Show();
+        if (result == true)
+        {
+            // await DeleteBranch(branchIdToDelete);
+            Snackbar.Add("Đã xóa chi nhánh gòi đóa!", Severity.Success);
+            await _notiService.SendNotification(getUserCurrBlazor, "đã xóa chi nhánh");
+        }
+        else
+        {
+        }
+        StateHasChanged();
+    }
+}
+
+
+
+
+
+
+
+@* init blazor *@
+@code {
+    ApplicationUser getUserCurrBlazor;
+
+    List<Branch> Branches { get; set; } = new List<Branch>();
+    [Inject] private ApplicationDbContext _context { get; set; }
+    string imageUrl { get; set; }
+    private List<Invoice> listBranch { get; set; } = new List<Invoice>();
+  
+    protected async Task LoadBranches()
+    {
+        listBranch = await _context.Invoice.Include(x=>x.Branch).Include(x=>x.Hall).Include(x=> x.User).ToListAsync();
+        await _hubContext.Clients.All.SendAsync("InvoiceCreated", listBranch);
+        StateHasChanged(); // Luu data da thay doi
+    }
+    private HubConnection hubConnection;
+    protected override async Task OnInitializedAsync()
+    {
+        getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
+        hubConnection = new HubConnectionBuilder()
+            // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/myBlazorHub")) // docker
+            .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
+            .Build();
+
+
+        try
+        {
+            await hubConnection.StartAsync();
+            Console.WriteLine("SignalR connection started successfully blazor.");
+            await LoadBranches();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error starting SignalR connection: {ex.Message}");
+        }
+
+        await base.OnInitializedAsync();
+    }
+
+}

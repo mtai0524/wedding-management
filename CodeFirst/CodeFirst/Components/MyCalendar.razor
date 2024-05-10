@@ -2,7 +2,18 @@
 @inject IJSRuntime JSRuntime
 @inject ISnackbar SnackbarService
 @inject ISnackbar Snackbar
-<h3>Calendar</h3>
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+
+@code{
+    private List<MudBlazor.BreadcrumbItem> _items = new List<MudBlazor.BreadcrumbItem>
+  {
+      new MudBlazor.BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
+      new MudBlazor.BreadcrumbItem("Lịch làm việc", href: "/team-calendar", icon: Icons.Material.Filled.CalendarViewWeek),
+  };
+}
 <div class="d-flex justify-content-between alight-item-center mb-1" style="margin-bottom:7px" >
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Thêm sự kiện</button>
     <a style="text-decoration:blink !important;text-decoration-line: underline;cursor:pointer !important;color:blue !important;font-weight:700 !important" @onclick="CallReloadCalendarEvents"><i class="fa-solid fa-arrows-rotate" style="margin-right:6px;color:blue"></i> Đồng bộ google calendar</a>
@@ -12,10 +23,12 @@
 
 <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
             <div class="modal-header">
                 <h5 class="modal-title" id="createModalLabel">Tạo sự kiện</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button"  data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                </button>
             </div>
             <div class="modal-bodyy" style="padding:10px">
                 <form id="createEventForm" asp-controller="Home" asp-action="CreateGoogleCalendar" method="post">
@@ -90,10 +103,12 @@
 
 <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
             <div class="modal-header">
                 <h5 class="modal-title" id="eventModalLabel">Cập nhật sự kiện</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button"  data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                </button>
             </div>
             <div class="modal-body" id="update-modal-calendar">
                 <div class="form-group">

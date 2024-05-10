@@ -6,7 +6,112 @@
 
 }
 
-<header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">Tài khoản đã bị khóa, hãy liên hệ quản trị để yêu cầu mở khóa.</p>
-</header>
+<div class="d-flex justify-content-center align-item-center">
+    <header>
+        <h1 class="text-danger">@ViewData["Title"]</h1>
+        <p class="text-danger">Tài khoản đã bị khóa, hãy liên hệ quản trị để yêu cầu mở khóa.</p>
+    </header>
+</div>
+
+
+<style>
+    /* Shadow */
+    .feedback-card {
+        border: 2px solid #e8e9eb;
+        border-radius: 8px;
+        box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+        -webkit-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+        -moz-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+        box-shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.26);
+        border: 3px solid black;
+    }
+
+    /* Fonts */
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    /* Body */
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    /* Form elements */
+    input, button, textarea {
+        border: 2px solid rgba(0, 0, 0, 0.6);
+        background-image: none;
+        box-shadow: none;
+        padding: 5px;
+        outline: none;
+    }
+
+
+    /* Textarea */
+    textarea {
+        min-height: 50px;
+        resize: vertical;
+    }
+
+    /* Button */
+    button {
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    /* Feedback card */
+    .feedback-card {
+        border: 1px solid black;
+        max-width: 500px;
+        background-color: #fff;
+        margin: 0 auto;
+    }
+
+    /* Header */
+    .feedback-header {
+        text-align: center;
+        padding: 8px;
+        font-size: 24px;
+        font-weight: 700;
+        border-bottom: 1px solid black;
+    }
+
+    /* Body */
+    .feedback-body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Message */
+    .feedback-body__message {
+        margin-top: 10px;
+    }
+
+    /* Submit button */
+    .feedback-body__submit {
+        margin-top: 10px;
+        align-self: flex-end;
+        background-color:transparent;
+        padding:5px;
+        border-radius:4px;
+    }
+
+</style>
+
+
+<div class="feedback-card">
+    <div class="feedback-header">Gửi yêu cầu mở khóa mail</div>
+    <form method="post" class="feedback-body">
+        <input class="feedback-body__email" placeholder="Email" id="email" type="email" name="email">
+        <input class="feedback-body__message" placeholder="Chủ đề" id="subject" type="text" name="subject"></input>
+        <textarea class="feedback-body__message" placeholder="Nội dung" id="message" type="text" name="message"></textarea>
+        <button class="feedback-body__submit">Gửi email</button>
+    </form>
+</div>
+
+

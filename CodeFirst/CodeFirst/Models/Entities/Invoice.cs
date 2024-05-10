@@ -14,7 +14,7 @@ namespace CodeFirst.Models.Entities
 
         public string? UserId { get; set; } // nhớ get set dùm
         [ForeignKey("UserId")]
-        public virtual ApplicationUser? Id { get; set; }
+        public virtual ApplicationUser? User { get; set; }
         [Display(Name = "Chi nhánh")]
 
         public int BranchId { get; set; } // Thêm BranchId

@@ -52,17 +52,10 @@
                     <a asp-action="Details" asp-route-id="@item.InvoiceID">@Html.DisplayFor(modelItem => item.InvoiceID)</a>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id.Id)
+                    @Html.DisplayFor(modelItem => item.User.Id)
                 </td>
                 <td>
-                    @{
-
-                        var user = UserManager.FindByIdAsync(item.Id.Id).Result;
-                        if (user != null)
-                        {
-                            @user.Email
-                        }
-                    }
+                    @Html.DisplayFor(modelItem => item.User.UserName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Branch.Name)

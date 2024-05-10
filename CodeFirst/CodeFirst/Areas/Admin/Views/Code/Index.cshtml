@@ -17,7 +17,6 @@
                 </button>
             </div>
             <div class="modal-body">
-                <!-- Hiển thị mã khuyến mãi ở đây -->
                 <p>Mã khuyến mãi mới: <span id="promoCode"></span></p>
             </div>
             <div class="modal-footer">
@@ -29,6 +28,7 @@
 </div>
 <div style="display:flex; flex-direction:row; justify-content:space-between">
     <a type="submit" class="btn btn-primary" asp-action="Create">Thêm mã khuyến mãi mới</a>
+    <a type="submit" class="btn btn-primary"  asp-action="Index" asp-controller="InvoiceCode">Xem danh sách hóa đơn áp dụng mã giảm giá</a>
     <button style="float:right" type="button" class="btn btn-warning" data-toggle="modal" id="openPromoCodeModal" data-target="#promoCodeModal">
         Tạo mã khuyến mãi
     </button>
