@@ -5800,6 +5800,15 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "UnidecodeSharpFork/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/UnidecodeSharpFork.dll": {}
+        },
+        "runtime": {
+          "lib/UnidecodeSharpFork.dll": {}
+        }
+      },
       "CodeFirst/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -5833,7 +5842,8 @@
           "MudBlazor": "6.16.0",
           "Quick.AspNetCore.Components.Web.Extensions": "6.0.2",
           "Radzen.Blazor": "4.31.1",
-          "SqlTableDependency": "8.5.6"
+          "SqlTableDependency": "8.5.6",
+          "UnidecodeSharpFork": "1.0.0"
         },
         "compile": {
           "bin/placeholder/CodeFirst.dll": {}
@@ -15737,6 +15747,19 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "UnidecodeSharpFork/1.0.0": {
+      "sha512": "8sTIyufB4n+a9HgfyIQsomc7xlObdPh7D9N46NwySNL+b9nZfNPfI5izs2Jl52ryQdsRjikB+hmjGfUgHPGQEg==",
+      "type": "package",
+      "path": "unidecodesharpfork/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/UnidecodeSharpFork.dll",
+        "lib/UnidecodeSharpFork.pdb",
+        "unidecodesharpfork.1.0.0.nupkg.sha512",
+        "unidecodesharpfork.nuspec"
+      ]
+    },
     "CodeFirst/1.0.0": {
       "type": "project",
       "path": "../CodeFirst/CodeFirst.csproj",
@@ -15847,6 +15870,16 @@
       "warningLevel": 1,
       "message": "Package 'Microsoft.AspNet.WebApi.Core 5.2.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.WebApi.Core",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'UnidecodeSharpFork 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "UnidecodeSharpFork",
       "targetGraphs": [
         "net6.0"
       ]

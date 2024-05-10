@@ -1,4 +1,4 @@
-﻿@page "/hall-list"
+﻿@page "/menu-list"
 @using CloudinaryDotNet
 @using CloudinaryDotNet.Actions
 @using CodeFirst.Data
@@ -20,6 +20,7 @@
 <PageTitle>Branches management</PageTitle>
 <Preload />
 @using BlazorBootstrap
+@using UnidecodeSharpFork
 
 <MudThemeProvider />
 <MudDialogProvider />
@@ -41,6 +42,8 @@
         new MudBlazor.BreadcrumbItem("Sảnh cưới", href: "/hall-list", icon: Icons.Material.Filled.Stadium),
     };
 }
+<MudTabs Elevation="1" Rounded="true" PanelClass="pa-3">
+    <MudTabPanel Text="Thực đơn" ToolTip="ToolTip One">
 
 
 <style>
@@ -64,7 +67,7 @@
 </style>
 
 <a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createHallModal">
-    Thêm sảnh cưới
+    Thêm món ăn
 </a>
 
 
@@ -72,7 +75,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
             <div class="modal-header">
-                <h5 class="modal-title" id="createHallModalLabel">Thêm sảnh mới</h5>
+                <h5 class="modal-title" id="createHallModalLabel">Thêm món mới</h5>
                 <button type="button" @onclick="() => CloseMe(false)" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                 </button>
@@ -80,7 +83,7 @@
             <div class="modal-body">
                 @if (showAlertCreateBranch)
                 {
-                    <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(false))">Tạo sảnh cưới thành công!</MudAlert>
+                    <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(false))">Tạo thành công!</MudAlert>
                 }
                 @if (showAlert)
                 {
@@ -91,36 +94,32 @@
 
                 <form method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="branchName" class="form-label">Tên sảnh</label>
+                        <label for="branchName" class="form-label">Tên món</label>
                         <input type="text" class="form-control" id="branchName" @bind="BranchName">
                     </div>
                     <div class="mb-3">
                         <label for="branchDescription" class="form-label">Mô tả</label>
                         <textarea class="form-control" id="branchDescription" rows="3" @bind="BranchDescription"></textarea>
                     </div>
-                       <div class="mb-3">
+                    <div class="mb-3">
                         <label for="hallPrice" class="form-label">Giá</label>
                         <input type="number" class="form-control" id="hallPrice" rows="3" @bind="HallPrice"></input>
-                    </div>
-                    <div class="mb-3">
-                        <label for="Capacity" class="form-label">Số lượng bàn</label>
-                        <input type="number" class="form-control" id="Capacity" rows="3" @bind="Capacity"></input>
                     </div>
                     <div class="mb-3">
                         <label for="branchImage" class="form-label">Ảnh</label>
                         <InputFile id="branchImage" class="form-control" OnChange="OnInputFileChange" />
                     </div>
                     <div class="mb-3">
-                        <label for="branchId" class="form-label">>Chọn chi nhánh</label>
+                        <label for="branchId" class="form-label">Chọn thể loại</label>
                         <select class="form-control" id="branchId" @bind="SelectedBranchId">
                             @foreach (var branch in selectBranches)
                             {
-                                <option value="@branch.BranchId">@branch.Name</option>
+                                <option value="@branch.CategoryId">@branch.Name</option>
                             }
                         </select>
                     </div>
                 </form>
-               
+
             </div>
             <div class="modal-footer d-flex justify-content-between">
                 <button type="button" class="btn btn-secondary" @onclick="CancelAndDelData" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
@@ -176,8 +175,7 @@
 
 
  @code {
-    double? HallPrice  { get; set; }
-    int? Capacity { get; set; }
+    double? HallPrice { get; set; }
  }
 
 
@@ -199,7 +197,7 @@
     private async Task CreateBranch()
     {
         if (string.IsNullOrWhiteSpace(BranchName) || string.IsNullOrWhiteSpace(BranchDescription)
-            || !HallPrice.HasValue || !Capacity.HasValue || BranchImageFile == null)
+            || !HallPrice.HasValue  || BranchImageFile == null)
         {
             showAlert = true;
             return;
@@ -218,17 +216,16 @@
             {
                 isLoading = true;
 
-                Hall newBranch = new Hall
+                MenuEntity newBranch = new MenuEntity
                     {
                         Name = BranchName,
                         Description = BranchDescription,
                         Image = imgURL,
                         Price = HallPrice,
-                        Capacity = Capacity,
-                        BranchId = SelectedBranchId ?? 0
+                        CategoryId = SelectedBranchId,
                     };
 
-                _context.Hall.Add(newBranch);
+                _context.MenuEntity.Add(newBranch);
                 await _context.SaveChangesAsync();
                 await LoadBranches();
                 StateHasChanged();
@@ -240,13 +237,12 @@
                 BranchName = string.Empty;
                 BranchDescription = string.Empty;
                 HallPrice = 0;
-                Capacity = 0;
                 BranchImageFile = null;
                 showAlert = false;
                 isError = false;
                 await jsRuntime.InvokeVoidAsync("clearInputFileText", "branchImage");
                 await LoadBranches();
-                await _hubContext.Clients.All.SendAsync("HallCreated", listHall);
+                await _hubContext.Clients.All.SendAsync("MenuCreated", listHall);
 
                 StateHasChanged();
             }
@@ -267,44 +263,42 @@
         BranchName = string.Empty;
         BranchDescription = string.Empty;
         HallPrice = 0;
-        Capacity = 0;
         BranchImageFile = null;
         showAlert = false;
         isError = false;
     }
+ 
+
 }
 
-<MudTable @key="@change" Items="@listHall" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Hall,bool>(FilterFunc1)" Style="margin-bottom:15px">
+<MudTable @key="@change" Items="@listHall" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<MenuEntity,bool>(FilterFunc1)" Style="margin-bottom:15px">
     <ToolBarContent>
-        <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách sảnh</MudText>
+        <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách món ăn</MudText>
         <MudSpacer />
-        <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm tên sảnh" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
+        <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm tên món" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
     </ToolBarContent>
     <HeaderContent>
-
-        <MudTh><MudTableSortLabel SortBy="new Func<Hall, object>(x=>x.Name)">Tên sảnh</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Hall, object>(x=>x.Price)">Giá</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Hall, object>(x=>x.Capacity)">Số lượng bàn</MudTableSortLabel></MudTh>
-    
         <MudTh>Hình ảnh</MudTh>
+
+        <MudTh><MudTableSortLabel SortBy="new Func<MenuEntity, object>(x=>x.Name)">Tên món</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<MenuEntity, object>(x=>x.Price)">Giá</MudTableSortLabel></MudTh>
+
         <MudTh>Chức năng</MudTh>
     </HeaderContent>
     <RowTemplate>
+        <MudTd DataLabel="Image">
+            <MudImage Src="@context.Image" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-lg" />
+        </MudTd>
         <MudTd DataLabel="Name">@context.Name</MudTd>
             <MudTd DataLabel="Price">@context.Price?.ToString("#,##0") VNĐ</MudTd>
-            <MudTd DataLabel="Capacity">@context.Capacity</MudTd>
-            <MudTd DataLabel="Image">
-
-                <MudImage Src="@context.Image" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-lg" />
-            </MudTd>
             <MudTd>
-                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Settings" Size="MudBlazor.Size.Small" Color="Color.Success" data-bs-toggle="modal" data-bs-target="#editHallModal" OnClick="@(() => EditBranch(@context.HallId))">
+                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Settings" Size="MudBlazor.Size.Small" Color="Color.Success" data-bs-toggle="modal" data-bs-target="#editHallModal" OnClick="@(() => EditBranch(@context.MenuId))">
                     Sửa
                 </MudButton>
-                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#viewHallModal" OnClick="@(() => ShowDetails(@context.HallId))">
+                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#viewHallModal" OnClick="@(() => ShowDetails(@context.MenuId))">
                     Chi tiết
                 </MudButton>
-                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@context.HallId))">
+                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@context.MenuId))">
                     Xóa
                 </MudButton>
             </MudTd>
@@ -325,11 +319,11 @@
             <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Xóa dữ liệu!</MudButton>
         </YesButton>
     </MudMessageBox>
-    @code {
+@code {
     private string searchString1 = "";
-    private bool FilterFunc1(Hall branch) => FilterFunc(branch, searchString1);
+    private bool FilterFunc1(MenuEntity branch) => FilterFunc(branch, searchString1);
 
-    private bool FilterFunc(Hall branch, string searchString)
+    private bool FilterFunc(MenuEntity branch, string searchString)
     {
         if (string.IsNullOrWhiteSpace(searchString))
             return true;
@@ -370,10 +364,10 @@
 
 @* select branch *@
 
-@code{
-    private List<Branch> selectBranches = new List<Branch>();
+@code {
+    private List<MenuCategory> selectBranches = new List<MenuCategory>();
 
-    private int? SelectedBranchId { get; set; }
+    private int SelectedBranchId { get; set; }
 }
 
 
@@ -381,19 +375,19 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
             <div class="modal-header">
-                <h5 class="modal-title" id="viewHallModalLabel">Chi tiết sảnh</h5>
+                <h5 class="modal-title" id="viewHallModalLabel">Chi tiết món ăn</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                 </button>
             </div>
             <div class="modal-body">
                 <!-- Hiển thị thông tin chi nhánh -->
-                <p><strong>Tên chi nhánh:</strong> @branchName</p>
+                <p><strong>Tên món ăn:</strong> @branchName</p>
                 <p><strong>Giá:</strong> @price?.ToString("#,##0") VNĐ</p>
 
                 <p><strong>Số lượng bàn:</strong> @capacity</p>
                 <p><strong>Mô tả:</strong> @des</p>
-                <p><strong>Thuộc chi nhánh:</strong> @branchHall</p>
+                <p><strong>Thuộc thể loại:</strong> @branchHall</p>
                 <p><strong>Hình ảnh:</strong></p>
                 <img src="@img" class="img-fluid" style="max-height: 300px; width: 100%;" alt="Hình ảnh chi nhánh" />
 
@@ -416,18 +410,15 @@
     string? img = "";
     async Task ShowDetails(int branchId)
     {
-        Hall? branch = _context.Hall.Include(x=> x.Branch).FirstOrDefault(x => x.HallId == branchId);
+        MenuEntity? branch = _context.MenuEntity.Include(x => x.MenuCategory).FirstOrDefault(x => x.MenuId == branchId);
         if (branch != null)
         {
             branchName = branch.Name;
             des = branch.Description;
             img = branch.Image;
             price = branch.Price;
-            capacity= branch?.Capacity;
-            branchHall = branch.Branch.Name;
+            branchHall = branch.MenuCategory.Name;
         }
-        // string newUrl = $"/branch-list/detail-branch/{branch.BranchId}";
-        // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
     }
 }
 
@@ -451,7 +442,6 @@
                     <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" IsOpen="@showAlert" CloseIconClicked="() => showAlert = false">
                         Vui lòng nhập đầy đủ thông tin!
                     </MudAlert>
-
                 }
 
                 <form method="post" enctype="multipart/form-data">
@@ -477,17 +467,13 @@
                         <label for="price" class="form-label">Giá</label>
                         <input type="number" class="form-control" id="price" @bind="updatePrice">
                     </div>
+                 
                     <div class="mb-3">
-                        <label for="branchPhone" class="form-label">Số lượng bàn</label>
-                        <input type="number" class="form-control" id="branchPhone" @bind="updateCapacity">
-                    </div>
-                    <div class="mb-3">
-                        <label for="branchId" class="form-label">Chi nhánh</label>
+                        <label for="branchId" class="form-label">Chọn thể loại</label>
                         <select class="form-control" id="branchId" @bind="updateBranchId">
-                            <option value="">Chọn chi nhánh</option>
                             @foreach (var branch in selectBranches)
                             {
-                                <option value="@branch.BranchId">@branch.Name</option>
+                                <option value="@branch.CategoryId">@branch.Name</option>
                             }
                         </select>
                     </div>
@@ -528,7 +514,7 @@
 @* update branch code behind *@
 @code {
     @* update branch code behind *@
-    Hall? branchToEdit { get; set; } = new Hall();
+    MenuEntity? branchToEdit { get; set; } = new MenuEntity();
 
     bool isLoadingUpdate = false;
     // void GetImage(int branchId)
@@ -542,33 +528,29 @@
     string? updateBranchName = "";
     string? updateDes = "";
     double? updatePrice = 0;
-    int? updateCapacity = 0;
-    int? updateBranchId = 0;
+    int updateBranchId = 0;
     string? updateImg = "";
 
     async Task EditBranch(int branchId)
     {
         _context.ChangeTracker.Clear(); // clear tracking
-        branchToEdit = await _context.Hall.FindAsync(branchId);
-        Hall? branchUpdateForm = _context.Hall.Include(x => x.Branch).FirstOrDefault(x => x.HallId == branchId);
+        branchToEdit = await _context.MenuEntity.FindAsync(branchId);
+        MenuEntity? branchUpdateForm = _context.MenuEntity.Include(x => x.MenuCategory).FirstOrDefault(x => x.MenuId == branchId);
         if (branchUpdateForm != null)
         {
             updateBranchName = branchUpdateForm.Name;
             updateDes = branchUpdateForm.Description;
             updatePrice = branchUpdateForm.Price;
-            updateCapacity = branchUpdateForm.Capacity;
             updateImg = branchUpdateForm.Image;
-            updateBranchId = branchUpdateForm.BranchId;
+            updateBranchId = branchUpdateForm.CategoryId;
         }
         BranchImageFile = null;
         StateHasChanged(); // Cập nhật UI
         await jsRuntime.InvokeVoidAsync("clearInputFileText", "branchImageUpdate");
-        // string newUrl = $"/branch-list/edit-branch/{branchId}";
-        // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
     }
     async Task SaveEditChanges()
     {
-        var existingBranch = _context.Hall.Local.FirstOrDefault(b => b.HallId == branchToEdit.HallId);
+        var existingBranch = _context.MenuEntity.Local.FirstOrDefault(b => b.MenuId == branchToEdit.MenuId);
 
         string editImgUrl = "";
         if (BranchImageFile != null)
@@ -589,9 +571,8 @@
             existingBranch.Name = updateBranchName;
             existingBranch.Description = updateDes;
             existingBranch.Price = updatePrice;
-            existingBranch.Capacity = updateCapacity;
             existingBranch.Image = editImgUrl;
-            existingBranch.BranchId = updateBranchId;
+            existingBranch.CategoryId = updateBranchId;
         }
         else
         {
@@ -601,9 +582,8 @@
             branchToEdit.Name = updateBranchName;
             branchToEdit.Description = updateDes;
             branchToEdit.Price = updatePrice;
-            branchToEdit.Capacity = updateCapacity;
             branchToEdit.Image = editImgUrl;
-            branchToEdit.BranchId =updateBranchId; 
+            branchToEdit.CategoryId = updateBranchId;
         }
         ShowAlerts();
         Snackbar.Add("Cập nhật dữ liệu thành công!", Severity.Success);
@@ -620,12 +600,12 @@
 
     async Task DeleteBranch(int branchId)
     {
-        var branchToDelete = await _context.Hall.FindAsync(branchId);
+        var branchToDelete = await _context.MenuEntity.FindAsync(branchId);
         if (branchToDelete != null)
         {
-            _context.Hall.Remove(branchToDelete);
+            _context.MenuEntity.Remove(branchToDelete);
             await _context.SaveChangesAsync();
-            await _hubContext.Clients.All.SendAsync("HallCreated", listHall);
+            await _hubContext.Clients.All.SendAsync("MenuCreated", listHall);
 
             await LoadBranches();
         }
@@ -653,28 +633,28 @@
 @code {
     ApplicationUser getUserCurrBlazor;
 
-    List<Hall> Branches { get; set; } = new List<Hall>();
+    List<MenuEntity> Branches { get; set; } = new List<MenuEntity>();
     [Inject] private ApplicationDbContext _context { get; set; }
     string imageUrl { get; set; }
-    private List<Hall> listHall { get; set; } = new List<Hall>();
-   
+    private List<MenuEntity> listHall { get; set; } = new List<MenuEntity>();
+
     static int change = 0;
     protected async Task LoadBranches()
     {
-        listHall = await _context.Hall.ToListAsync();
-        await _hubContext.Clients.All.SendAsync("HallCreated", listHall);
+        listHall = await _context.MenuEntity.ToListAsync();
+        await _hubContext.Clients.All.SendAsync("MenuCreated", listHall);
     }
     private HubConnection hubConnection;
     protected override async Task OnInitializedAsync()
     {
-        selectBranches = await _context.Branch.ToListAsync();
+        selectBranches = await _context.MenuCategory.ToListAsync();
         getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
         hubConnection = new HubConnectionBuilder()
             // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/myBlazorHub")) // docker
             .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
             .Build();
 
-        hubConnection.On<List<Hall>>("HallCreated", signalRListHall =>
+        hubConnection.On<List<MenuEntity>>("MenuCreated", signalRListHall =>
         {
             InvokeAsync(() =>
             {
@@ -682,12 +662,20 @@
                 StateHasChanged();
             });
         });
-
+        hubConnection.On<List<MenuCategory>>("MenuCateCreated", signalRListCate=>
+        {
+            InvokeAsync(() =>
+            {
+                listCate = signalRListCate;
+                StateHasChanged();
+            });
+        });
         try
         {
             await hubConnection.StartAsync();
             Console.WriteLine("SignalR connection started successfully blazor.");
             await LoadBranches();
+            await LoadCates();
         }
         catch (Exception ex)
         {
@@ -697,3 +685,215 @@
         await base.OnInitializedAsync();
     }
 }
+</MudTabPanel>
+<MudTabPanel Text="Thể loại" ToolTip="ToolTip Two">
+    <a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createCateModal">
+        Thêm thể loại
+    </a>
+        <div class="modal fade" id="createCateModal" tabindex="-1" aria-labelledby="createCateModalLabel" aria-hidden="true" @onclick="() => CloseMe(false)">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createCateModalLabel">Thêm thể loại</h5>
+                        <button type="button" @onclick="() => CloseMe(false)" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        @if (showAlertCreateBranch)
+                        {
+                            <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(false))">Tạo thành công!</MudAlert>
+                        }
+                        @if (showAlert)
+                        {
+                            <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" IsOpen="@showAlert" CloseIconClicked="() => showAlert = false">
+                                Vui lòng nhập đầy đủ thông tin!
+                            </MudAlert>
+                        }
+
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="branchName" class="form-label">Tên món</label>
+                                <input type="text" class="form-control" id="branchName" @bind="cateName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="branchDescription" class="form-label">Mô tả</label>
+                                <textarea class="form-control" id="branchDescription" rows="3" @bind="cateDescription"></textarea>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary" @onclick="CancelAndDelData" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
+                        <a class="btn btn-success" @onclick="CreateCate">
+                            @if (isLoading)
+                            {
+                                <i class="fa-solid fa-spinner fa-spin" style="color: white; margin-right:5px"></i>
+                                <span>Đang tải... </span>
+                            }
+                            else if (isSavedSuccessfully)
+                            {
+                                <i class="fa-solid fa-check" style="color: white; margin-right:5px"></i>
+                                <span>Đã lưu thành công!</span>
+                            }
+                            else
+                            {
+                                <i class="fa-solid fa-plus" style="color: white; margin-right:5px"></i>
+                                <span>Lưu</span>
+                            }
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+@code{
+    private string? cateName { get; set; }
+    private string? cateDescription { get; set; }
+    private async Task CreateCate()
+    {
+        if (string.IsNullOrWhiteSpace(cateName) || string.IsNullOrWhiteSpace(cateDescription))
+        {
+            showAlert = true;
+            return;
+        }
+        else
+        {
+            isLoading = true;
+            Snackbar.Add("Đang tải dữ liệu!", Severity.Info);
+        }
+            isLoading = true;
+        if (!string.IsNullOrEmpty(cateName))
+        {
+            isLoading = true;
+            MenuCategory newCate = new MenuCategory
+            {
+                Name = cateName,
+                Description = cateDescription,
+            };
+
+        _context.MenuCategory.Add(newCate);
+            await _context.SaveChangesAsync();
+            await LoadCates();
+            StateHasChanged();
+            ShowAlerts();
+            Snackbar.Add("Tải dữ liệu thành công!", Severity.Success);
+            isLoading = false;
+            cateName = string.Empty;
+            cateDescription = string.Empty;
+            showAlert = false;
+            isError = false;
+            await jsRuntime.InvokeVoidAsync("clearInputFileText", "branchImage");
+            await LoadCates();
+            await _hubContext.Clients.All.SendAsync("MenuCateCreated", listCate);
+
+            StateHasChanged();
+        }
+        else
+        {
+            isLoading = false;
+            isError = true;
+            Snackbar.Add("Tải dữ liệu thất bại!", Severity.Error);
+        }
+    }
+    private async void ShowConfirmModalCate(int cateId)
+    {
+        // string newUrl = $"/branch-list/delete-branch/{branchId}";
+        // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
+        bool? result = await mbox.Show();
+        if (result == true)
+        {
+        await DeleteCate(cateId);
+        Snackbar.Add("Đã xóa!", Severity.Success);
+        }
+        StateHasChanged();
+    }
+        async Task DeleteCate(int cateId)
+    {
+            var cateToDelete = await _context.MenuCategory.FindAsync(cateId);
+            var menuEntitiesToDelete = await _context.MenuEntity.Where(e => e.CategoryId == cateId).ToListAsync();
+            // Lấy danh sách các MenuId của các món ăn sẽ bị xóa
+            var menuIdsToDelete = menuEntitiesToDelete.Select(me => me.MenuId);
+            var orderMenusToUpdate = await _context.OrderMenu.Where(o => menuIdsToDelete.Contains(o.MenuId.Value)).ToListAsync();
+
+        if (cateToDelete != null)
+        {
+            foreach (var orderMenu in orderMenusToUpdate)
+            {
+                _context.OrderMenu.Remove(orderMenu);
+            }
+            _context.MenuEntity.RemoveRange(menuEntitiesToDelete);
+            _context.MenuCategory.Remove(cateToDelete);
+                await _context.SaveChangesAsync();
+        await _hubContext.Clients.All.SendAsync("MenuCateCreated", listCate);
+
+        await LoadCates();
+        }
+    }
+    List<MenuCategory> menuCategories { get; set; } = new List<MenuCategory>();
+    private List<MenuCategory> listCate { get; set; } = new List<MenuCategory>();
+    protected async Task LoadCates()
+    {
+        listCate = await _context.MenuCategory.ToListAsync();
+        await _hubContext.Clients.All.SendAsync("MenuCateCreated", listCate);
+    }
+            private string searchString2 = "";
+    private bool FilterFunc3(MenuCategory branch) => FilterFun2(branch, searchString2);
+
+    private bool FilterFun2(MenuCategory branch, string searchString)
+    {
+        if (string.IsNullOrWhiteSpace(searchString))
+            return true;
+        if (branch.Name.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        return false;
+    }
+    void EditCate(int cateId)
+    {
+
+    }
+   
+    void ShowDetailsCate(int cateId)
+    {
+
+    }
+}
+            <MudTable Items="@listCate" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<MenuCategory,bool>(FilterFunc3)" Style="margin-bottom:15px">
+                <ToolBarContent>
+                    <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách thể loại</MudText>
+                    <MudSpacer />
+                    <MudTextField @bind-Value="searchString2" Placeholder="Tìm kiếm thể loại" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
+                </ToolBarContent>
+                <HeaderContent>
+                <MudTh><MudTableSortLabel SortBy="new Func<MenuCategory, object>(x=>x.Name)">Tên thể loại</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<MenuCategory, object>(x=>x.Description)">Mô tả</MudTableSortLabel></MudTh>
+
+                    <MudTh>Chức năng</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                <MudTd DataLabel="Name">@context.Name</MudTd>
+                    <MudTd DataLabel="Description">@context.Description</MudTd>
+                    <MudTd>
+                        <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => ShowConfirmModalCate(@context.CategoryId))">
+                            Xóa
+                        </MudButton>
+                    </MudTd>
+
+                </RowTemplate>
+
+                <PagerContent>
+                    <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
+                </PagerContent>
+            </MudTable>
+
+            @* modal delete mud blazor *@
+            <MudMessageBox @ref="mbox" Title="Xác nhận xóa" CancelText="Hủy thao tác">
+                <MessageContent>
+                    Dữ liệu bị xóa sẽ không thể phục hồi
+                </MessageContent>
+                <YesButton>
+                    <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Xóa dữ liệu!</MudButton>
+                </YesButton>
+            </MudMessageBox>
+</MudTabPanel>
+</MudTabs>

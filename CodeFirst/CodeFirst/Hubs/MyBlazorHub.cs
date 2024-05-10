@@ -53,5 +53,15 @@ namespace CodeFirst.Hubs
             await Clients.All.SendAsync("HallCreated", listHall);
         }
 
+        public async Task SendMenuCreatedNotification()
+        {
+            var listMenu = _context.MenuEntity.ToListAsync();
+            await Clients.All.SendAsync("MenuCreated", listMenu);
+        }
+        public async Task SendMenuCateCreatedNotification()
+        {
+            var listMenuCate = _context.MenuCategory.ToListAsync();
+            await Clients.All.SendAsync("MenuCateCreated", listMenuCate);
+        }
     }
 }
