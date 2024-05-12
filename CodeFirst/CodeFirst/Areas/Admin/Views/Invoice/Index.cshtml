@@ -21,25 +21,25 @@
     <thead>
         <tr>
             <th>
-                <a href="#" class="sortable" data-column="InvoiceID">Id hóa đơn</a>
+                <a href="#" >Id hóa đơn</a>
             </th>
             <th>
-                <a href="#" class="sortable" data-column="Id">Id người đặt</a>
+                <a href="#"  >Email người đặt</a>
             </th>
             <th>
-                <a href="#" class="sortable" data-column="Id">Email người đặt</a>
+                <a href="#"  >Chi nhánh</a>
             </th>
             <th>
-                <a href="#" class="sortable" data-column="Branch">Chi nhánh</a>
+                <a href="#"  >Sảnh</a>
             </th>
             <th>
-                <a href="#" class="sortable" data-column="Hall">Sảnh</a>
+                <a href="#"  >Thời gian đặt</a>
             </th>
             <th>
-                <a href="#" class="sortable" data-column="InvoiceDate">Thời gian đặt</a>
+                <a href="#"  >Thời gian tham dự</a>
             </th>
             <th>
-                <a href="#" class="sortable" data-column="InvoiceDate">Thời gian tham dự</a>
+                <a href="#"  >Thanh toán</a>
             </th>
             <th></th>
         </tr>
@@ -50,9 +50,6 @@
             <tr>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.InvoiceID">@Html.DisplayFor(modelItem => item.InvoiceID)</a>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.User.Id)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.User.UserName)
@@ -69,7 +66,12 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.AttendanceDate)
                 </td>
-              
+                <td>
+                    @{
+                        var paymentStatus = item.PaymentStatus == true ? "Đã thanh toán" : "Chưa thanh toán";
+                    }
+                    @Html.DisplayFor(modelItem => @paymentStatus)
+                </td>
                 <td>
                
                     <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.InvoiceID">Xóa</a> |

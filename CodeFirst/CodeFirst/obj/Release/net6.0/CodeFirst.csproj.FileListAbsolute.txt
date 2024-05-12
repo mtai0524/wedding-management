@@ -878,8 +878,6 @@ E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\refs\System.Xml.XPath
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\refs\WindowsBase.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\AspNetCoreHero.ToastNotification.Views.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\AspNetCoreHero.ToastNotification.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\AutoMapper.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\Azure.Core.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\Azure.Identity.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\BouncyCastle.Cryptography.dll
@@ -1208,11 +1206,6 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\CodeFirst.pdb
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\CodeFirst.genruntimeconfig.cache
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\ref\CodeFirst.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\TableDependency.SqlClient.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\runtimes\win7-x64\native\sni.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\runtimes\win7-x86\native\sni.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\runtimes\unix\lib\netstandard1.3\System.Data.SqlClient.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\runtimes\win\lib\netstandard1.3\System.Data.SqlClient.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\Microsoft.AspNetCore.Connections.Abstractions.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\Microsoft.AspNetCore.Http.Connections.Client.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\Microsoft.AspNetCore.Http.Connections.Common.dll
@@ -2491,4 +2484,4 @@ E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\Google.Apis.Calendar.
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\Google.Apis.Core.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\System.Management.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\runtimes\win\lib\net6.0\System.Management.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\UnidecodeSharpFork.dll
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\Cre\cre.json

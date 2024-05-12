@@ -296,7 +296,7 @@ namespace CodeFirst.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HallId"));
 
-                    b.Property<int>("BranchId")
+                    b.Property<int?>("BranchId")
                         .HasColumnType("int");
 
                     b.Property<int?>("Capacity")
@@ -309,7 +309,6 @@ namespace CodeFirst.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("Price")
@@ -347,6 +346,9 @@ namespace CodeFirst.Migrations
 
                     b.Property<string>("Note")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("PaymentStatus")
+                        .HasColumnType("bit");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
@@ -524,9 +526,6 @@ namespace CodeFirst.Migrations
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("IconColor")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -1035,9 +1034,7 @@ namespace CodeFirst.Migrations
                 {
                     b.HasOne("CodeFirst.Models.Entities.Branch", "Branch")
                         .WithMany("Halls")
-                        .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BranchId");
 
                     b.Navigation("Branch");
                 });
@@ -1056,7 +1053,7 @@ namespace CodeFirst.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CodeFirst.Models.ApplicationUser", "Id")
+                    b.HasOne("CodeFirst.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
@@ -1064,7 +1061,7 @@ namespace CodeFirst.Migrations
 
                     b.Navigation("Hall");
 
-                    b.Navigation("Id");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CodeFirst.Models.Entities.InvoiceCode", b =>

@@ -257,10 +257,15 @@ h1 {
 }
 .container-task-button {
     margin-right: 30px;
-    margin-left: 2px;
+    margin-left: 6px;
     width: 300px;
-    border: 1px solid #939393ff; 
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(51, 51, 51) 0px 0px 0px 1px;
+    border: 1px solid #939393ff;
+    border-radius: 8px;
+    box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+    -webkit-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+    -moz-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+    box-shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.26);
+    border: 3px solid black;
 }
 .task {
     margin-bottom: 10px;

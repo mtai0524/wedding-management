@@ -1,0 +1,12 @@
+{
+  "web": {
+    "client_id": "315628403444-qgn9f48vdshql80237ces12ea56pg3t9.apps.googleusercontent.com",
+    "project_id": "calendar-aspnetcore",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "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",
+    "redirect_uris": [ "https://localhost:44368/", "http://127.0.0.1/authorize/", "http://localhost/authorize/", "https://localhost:44392/", "https://myhosting.azurewebsites.net/", "https://myhosting.azurewebsites.net", "https://myhosting.azurewebsites.net/authorize/" ],
+    "javascript_origins": [ "https://localhost:44368", "https://localhost:44392", "https://myhosting.azurewebsites.net" ]
+  }
+}

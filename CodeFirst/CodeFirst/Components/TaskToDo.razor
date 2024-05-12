@@ -211,7 +211,7 @@
     private async Task CreateProject()
     {
 
-        var project = new Project { Name = projectName, IconColor = selectedColorProject };
+        var project = new Project { Name = projectName };
 
         _context.Projects.Add(project);
         await _context.SaveChangesAsync();

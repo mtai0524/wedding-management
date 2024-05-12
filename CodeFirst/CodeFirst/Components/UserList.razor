@@ -119,13 +119,13 @@
             }
             else
             {
-         
+
                 <MudButton Style="margin-left:5px" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Lock" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => LockUser(@context.UserId))">
                     Khóa
                 </MudButton>
             }
 
-      
+
         </MudTd>
 
     </RowTemplate>
@@ -189,7 +189,7 @@
     async Task ShowDetails(string userId)
     {
         ApplicationUser? userFindByUserId = _context.ApplicationUser.FirstOrDefault(x => x.Id == userId);
-        var userWithRole = await _userManager.GetRolesAsync(userFindByUserId);
+        var userWithRole = await userService.GetRoleUserAsync(userId);
         if (userFindByUserId != null)
         {
             userName = userFindByUserId.FirstName + " " + userFindByUserId.LastName;
@@ -298,9 +298,9 @@
         await base.OnInitializedAsync();
     }
 
-    private string selectedRole { get; set; } = ""; 
+    private string selectedRole { get; set; } = "";
 
-    private string userIdToUpdateRole { get; set; } = ""; 
+    private string userIdToUpdateRole { get; set; } = "";
     private async Task ShowUpdateRoleModal(string userId)
     {
         var user = await _userManager.FindByIdAsync(userId);

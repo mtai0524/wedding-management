@@ -44,25 +44,9 @@
               "target": "Package",
               "version": "[1.1.0, )"
             },
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[12.0.1, )"
-            },
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[12.0.1, )"
-            },
             "Blazor.Bootstrap": {
               "target": "Package",
               "version": "[2.2.1, )"
-            },
-            "BlazorColorPicker": {
-              "target": "Package",
-              "version": "[2.3.0, )"
-            },
-            "Bootstrap.Colorpicker.2": {
-              "target": "Package",
-              "version": "[2.0.1, )"
             },
             "CloudinaryDotNet": {
               "target": "Package",
@@ -167,14 +151,6 @@
             "Radzen.Blazor": {
               "target": "Package",
               "version": "[4.31.1, )"
-            },
-            "SqlTableDependency": {
-              "target": "Package",
-              "version": "[8.5.6, )"
-            },
-            "UnidecodeSharpFork": {
-              "target": "Package",
-              "version": "[1.0.0, )"
             }
           },
           "imports": [

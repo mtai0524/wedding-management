@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using CodeFirst.Data;
+﻿using CodeFirst.Data;
 using Microsoft.AspNetCore.SignalR;
 using CodeFirst.Models;
 using System.Text.RegularExpressions;
@@ -16,18 +15,12 @@ namespace CodeFirst.Hubs
     public class ChatHub : Hub
     {
         private readonly ApplicationDbContext _context;
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserService _userService;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ChatHub(ApplicationDbContext context, UserService userServer, IHttpContextAccessor httpContextAccessor, UserService userService, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public ChatHub(ApplicationDbContext context, UserService userService)
         {
             _context = context;
-            _httpContextAccessor = httpContextAccessor;
             _userService = userService;
-            _userManager = userManager;
-            _signInManager = signInManager;
         }
 
 

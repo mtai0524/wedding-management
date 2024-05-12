@@ -1,6 +1,7 @@
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\CodeFirst.exe
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\appsettings.json
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Cre\cre.json
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\libman.json
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\libwkhtmltox.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\libwkhtmltox.dylib
@@ -145,7 +146,6 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\refs\Syste
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\refs\System.Data.Common.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\refs\System.Data.DataSetExtensions.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\refs\System.Data.dll
-E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\refs\System.Data.SqlClient.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\refs\System.Diagnostics.Contracts.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\refs\System.Diagnostics.Debug.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\refs\System.Diagnostics.DiagnosticSource.dll
@@ -283,8 +283,6 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\CodeFirst.
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\CodeFirst.pdb
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\AspNetCoreHero.ToastNotification.Views.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\AspNetCoreHero.ToastNotification.dll
-E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\AutoMapper.dll
-E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Azure.Core.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Azure.Identity.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\BlazorBootstrap.dll
@@ -398,7 +396,6 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\Radzen.Bla
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\SQLitePCLRaw.batteries_v2.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\SQLitePCLRaw.core.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\SQLitePCLRaw.provider.e_sqlite3.dll
-E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\TableDependency.SqlClient.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.CodeDom.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Composition.AttributedModel.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Composition.Convention.dll
@@ -422,7 +419,6 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Tex
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Text.Encodings.Web.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Text.Json.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\System.Windows.Extensions.dll
-E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\UnidecodeSharpFork.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\af\Humanizer.resources.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\ar\Humanizer.resources.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\az\Humanizer.resources.dll
@@ -569,8 +565,6 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\w
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win7-x64\native\sni.dll
-E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win7-x86\native\sni.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\alpine-arm\native\libe_sqlite3.so
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\alpine-arm64\native\libe_sqlite3.so
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\alpine-x64\native\libe_sqlite3.so
@@ -593,8 +587,6 @@ E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\w
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win-arm64\native\e_sqlite3.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win-x64\native\e_sqlite3.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win-x86\native\e_sqlite3.dll
-E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\unix\lib\netstandard1.3\System.Data.SqlClient.dll
-E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netstandard1.3\System.Data.SqlClient.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Management.dll

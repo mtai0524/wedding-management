@@ -16,11 +16,11 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<string> GetPaymentUrl()
+        public ActionResult<string> GetPaymentUrl(string amount)
         {
             try
             {
-                var paymentUrl = CreatePaymentUrl(HttpContext);
+                var paymentUrl = CreatePaymentUrl(HttpContext, amount);
                 return Ok(paymentUrl);
             }
             catch (Exception ex)
@@ -28,8 +28,9 @@ namespace WebAPI.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+       
 
-        private string CreatePaymentUrl(HttpContext context)
+        private string CreatePaymentUrl(HttpContext context, string amount)
         {
             var tick = DateTime.Now.Ticks.ToString();
 
@@ -37,7 +38,7 @@ namespace WebAPI.Controllers
             vnpay.AddRequestData("vnp_Version", _config["VnPay:Version"]);
             vnpay.AddRequestData("vnp_Command", _config["VnPay:Command"]);
             vnpay.AddRequestData("vnp_TmnCode", _config["VnPay:TmnCode"]);
-            vnpay.AddRequestData("vnp_Amount", "10000000000");
+            vnpay.AddRequestData("vnp_Amount", amount); // Sử dụng giá trị được truyền vào
             var createDate = DateTime.Now.ToString("yyyyMMddHHmmss");
             vnpay.AddRequestData("vnp_CreateDate", createDate);
 
@@ -53,5 +54,6 @@ namespace WebAPI.Controllers
 
             return paymentUrl;
         }
+
     }
 }

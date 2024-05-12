@@ -39,6 +39,15 @@ namespace CodeFirst.Service
             }
             return listUserRole;
         }
+        public async Task<List<string>> GetRoleUserAsync(string userId)
+        {
+            ApplicationUser? userFindByUserId = _context.ApplicationUser.FirstOrDefault(x => x.Id == userId);
+
+            var userRoles = await _userManager.GetRolesAsync(userFindByUserId);
+
+            // Join the roles into a single string, separated by commas
+            return (List<string>)userRoles;
+        }
 
     }
 }

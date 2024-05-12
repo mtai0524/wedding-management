@@ -21,7 +21,6 @@
     <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore.design\7.0.11\build\net6.0\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore.design\7.0.11\build\net6.0\Microsoft.EntityFrameworkCore.Design.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.identity.ui\6.0.21\build\Microsoft.AspNetCore.Identity.UI.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.identity.ui\6.0.21\build\Microsoft.AspNetCore.Identity.UI.props')" />
     <Import Project="$(NuGetPackageRoot)dinktopdfcopydependencies\1.0.8\build\DinkToPdfCopyDependencies.props" Condition="Exists('$(NuGetPackageRoot)dinktopdfcopydependencies\1.0.8\build\DinkToPdfCopyDependencies.props')" />
-    <Import Project="$(NuGetPackageRoot)blazorcolorpicker\2.3.0\buildTransitive\BlazorColorPicker.props" Condition="Exists('$(NuGetPackageRoot)blazorcolorpicker\2.3.0\buildTransitive\BlazorColorPicker.props')" />
     <Import Project="$(NuGetPackageRoot)blazor.bootstrap\2.2.1\buildTransitive\Blazor.Bootstrap.props" Condition="Exists('$(NuGetPackageRoot)blazor.bootstrap\2.2.1\buildTransitive\Blazor.Bootstrap.props')" />
     <Import Project="$(NuGetPackageRoot)aspnetcorehero.toastnotification\1.1.0\buildTransitive\AspNetCoreHero.ToastNotification.props" Condition="Exists('$(NuGetPackageRoot)aspnetcorehero.toastnotification\1.1.0\buildTransitive\AspNetCoreHero.ToastNotification.props')" />
   </ImportGroup>

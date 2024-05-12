@@ -62,7 +62,6 @@ builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 //{
 //    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
 //}); // tránh bị vòng lặp khi lấy api các mốt quan hệ
-builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddSignalR();
 
 var app = builder.Build();

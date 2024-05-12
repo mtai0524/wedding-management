@@ -17,11 +17,7 @@
 	</ItemGroup>
   <ItemGroup>
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
-    <PackageReference Include="AutoMapper" Version="12.0.1" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Blazor.Bootstrap" Version="2.2.1" />
-    <PackageReference Include="BlazorColorPicker" Version="2.3.0" />
-    <PackageReference Include="Bootstrap.Colorpicker.2" Version="2.0.1" />
     <PackageReference Include="CloudinaryDotNet" Version="1.22.0" />
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
     <PackageReference Include="DinkToPdfCopyDependencies" Version="1.0.8" />
@@ -54,12 +50,11 @@
     <PackageReference Include="MudBlazor" Version="6.16.0" />
     <PackageReference Include="Quick.AspNetCore.Components.Web.Extensions" Version="6.0.2" />
     <PackageReference Include="Radzen.Blazor" Version="4.31.1" />
-    <PackageReference Include="SqlTableDependency" Version="8.5.6" />
-    <PackageReference Include="UnidecodeSharpFork" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Cre\" />
     <Folder Include="Pages\" />
     <Folder Include="Pages\" />
     <Folder Include="wwwroot\uploads\" />
