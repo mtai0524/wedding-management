@@ -285,7 +285,6 @@
     <HeaderContent>
    
         <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Name)">Tên chi nhánh</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Address)">Địa chỉ</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Description)">Mô tả</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Phone)">Số điện thoại</MudTableSortLabel></MudTh>
         <MudTh>Hình ảnh</MudTh>
@@ -294,7 +293,6 @@
    <RowTemplate>
     <MudTd  DataLabel="Name">@context.Name</MudTd>
     <MudTd DataLabel="Address">@context.Address</MudTd>
-    <MudTd DataLabel="Description">@context.Description</MudTd>
     <MudTd DataLabel="Phone">@context.Phone</MudTd>
     <MudTd DataLabel="Image">
 
@@ -617,6 +615,11 @@
         var branchToDelete = await _context.Branch.FindAsync(branchId);
         if (branchToDelete != null)
         {
+            var hallsToDelete = await _context.Hall.Where(h => h.BranchId == branchId).ToListAsync();
+            var feedBackList = await _context.Feedback.Where(h => h.BranchId == branchId).ToListAsync();
+
+            _context.Hall.RemoveRange(hallsToDelete);
+            _context.Feedback.RemoveRange(feedBackList);
             _context.Branch.Remove(branchToDelete);
             await _context.SaveChangesAsync();
             await LoadBranches();
@@ -712,6 +715,7 @@
                 _context.Entry(branch).State = EntityState.Modified;
                 _context.SaveChanges();
             await LoadBranches();
+            Snackbar.Add("Đã mở khóa chi nhánh!", Severity.Normal);
 
             }
     }
@@ -726,6 +730,7 @@
                 _context.Entry(branch).State = EntityState.Modified;
                 _context.SaveChanges();
             await LoadBranches();
+            Snackbar.Add("Đã khóa chi nhánh!", Severity.Normal);
 
             }        
     }

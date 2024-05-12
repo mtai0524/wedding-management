@@ -62,7 +62,7 @@
                             <div class="card-body">
                                 <form id="account" method="post">
                                     <div class="mb-3">
-                                        <input asp-for="Input.Email" class="form-control form-control-lg" placeholder="Email" autocomplete="username" aria-required="true" value="duaconcuagio@yahoo.com">
+                                        <input id="emailInput" asp-for="Input.Email" class="form-control form-control-lg" placeholder="Email" autocomplete="username" aria-required="true" value="duaconcuagio@yahoo.com">
                                         <span asp-validation-for="Input.Email" class="text-danger"></span>
                                     </div>
                                     <div class="mb-3">
@@ -152,6 +152,11 @@
 
 
 <script>
+    var emailInput = document.getElementById("emailInput");
+
+    // Focus vào trường input
+    emailInput.focus();
+
     document.getElementById('btn-login').addEventListener('click', function () {
         this.innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
         this.classList.add('loading-cursor');

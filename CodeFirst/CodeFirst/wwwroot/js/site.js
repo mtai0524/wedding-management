@@ -660,13 +660,17 @@ $(() => {
                 console.log(result);
                 var li = '';
                 $.each(result, (k, v) => {
+                    var senderInfo = v.User;
+                    var senderFirstName = senderInfo.FirstName;
+                    var senderLastName = senderInfo.LastName;
+                    var senderAvatar = senderInfo.Avatar;
                     li += `<li class="py-2 mb-1 border-bottom">
                     <a href="javascript:void(0);" class="d-flex">
 
-                        <img class="avatar rounded-circle" src="${v.Avatar}" alt="img">
+                        <img class="avatar rounded-circle" src="${senderAvatar}" alt="img">
                         <div class="flex-fill ms-2">
                             <p class="d-flex justify-content-between mb-0">
-                                <span class="font-weight-bold">${v.Username}</span>
+                                <span class="font-weight-bold">${senderFirstName} ${senderLastName} </span>
                                 <small>${v.NotificationDateTime}</small>
                             </p>
                             <span>${v.Message} </span>

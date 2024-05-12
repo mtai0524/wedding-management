@@ -10,10 +10,11 @@ namespace CodeFirst.Models.Notifications
     {
         [Key]
         public int Id { get; set; }
-        public string Username { get; set; } = null!;
+        public string? UserId { get; set; } // nhớ get set dùm, tên côt collumn Chat
+        [ForeignKey("UserId")] // tên sẽ lưu trong db
+        public virtual ApplicationUser? User { get; set; } // tên cột trong bảng ApplicationUser (đặt tùy ý)
         public string Message { get; set; } = null!;
         public string MessageType { get; set; } = null!;
         public DateTime NotificationDateTime { get; set; }
-        public string Avatar { get; set; } = null!;
     }
 }

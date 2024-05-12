@@ -30,17 +30,22 @@ namespace SignalRYoutube.Controllers
             {
                 var notifications = await dbContext.Notifications
                     .OrderByDescending(n => n.NotificationDateTime)
+                    .Include(x => x.User)
                     .ToListAsync();
 
                 // Định dạng ngày tháng năm và chọn các thuộc tính khác của Notification (nếu có)
                 var formattedNotifications = notifications.Select(n => new
                 {
                     n.Id,
-                    n.Username,
                     n.Message,
                     n.MessageType,
                     NotificationDateTime = n.NotificationDateTime.ToString("HH:mm dd/MM/yyyy"),
-                    n.Avatar,
+                    User = n.User != null ? new
+                    {
+                        n.User.FirstName,
+                        n.User.LastName,
+                        n.User.Avatar,
+                    } : null,
                 });
 
 
@@ -71,32 +76,16 @@ namespace SignalRYoutube.Controllers
             {
                 var notification = new Notification
                 {
-                    Username = $"{user.FirstName} {user.LastName}",
+                    UserId = user.Id,
                     Message = model.Message,
                     MessageType = "All",
                     NotificationDateTime = DateTime.Now,
-                    Avatar = !string.IsNullOrEmpty(user.Avatar) ? user.Avatar : "https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg",
-
                 };
                 dbContext.Notifications.Add(notification);
                 await dbContext.SaveChangesAsync();
                 await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", new List<Notification> { notification });
                 await hubContext.Clients.All.SendAsync("ReceivedNotification", "đại ka ơi có thông tin mới!!");
-                switch (notification.MessageType)
-                {
-
-                    case "Personal":
-                        await hubContext.Clients.User(notification.Username).SendAsync("ReceivedPersonalNotification", notification.Message, notification.Username);
-                        break;
-
-                    case "Group":
-                        await hubContext.Clients.Group(notification.Username).SendAsync("ReceivedPersonalNotification", notification.Message, notification.Username);
-                        break;
-
-                    default:
-                        // Xử lý trường hợp loại thông báo không hợp lệ
-                        break;
-                }
+              
 
                 await hubContext.Clients.All.SendAsync("ReceiveNotificationRealtime", new List<Notification> { notification });
             }
