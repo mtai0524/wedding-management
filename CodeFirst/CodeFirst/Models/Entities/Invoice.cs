@@ -50,6 +50,7 @@ namespace CodeFirst.Models.Entities
         public virtual ICollection<InvoiceCode> InvoiceCode { get; set; }
 
         public bool? PaymentStatus { get; set; }
+        public string? OrderStatus { get; set; }
 
     }
 }

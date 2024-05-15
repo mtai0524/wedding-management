@@ -362,7 +362,7 @@
                                 }
                             }
                         </div>
-                        <button class="add-task-button" data-bs-toggle="modal" data-bs-target="#taskModal" @onclick="() => ShowAddTaskModal(project.ProjectId)">Add Task</button>
+                        <button class="add-task-button" data-bs-toggle="modal" data-bs-target="#taskModal" @onclick="() => ShowAddTaskModal(project.ProjectId)">+ Thêm task</button>
                     </div>
 
                 </div>
@@ -377,15 +377,15 @@
         <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
 
             <div class="modal-header">
-                <h5 class="modal-title" id="taskModalLabel">Add Task</h5>
+                <h5 class="modal-title" id="taskModalLabel">Thêm công việc</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <label for="createTaskName">Name:</label>
-                <input type="text" id="createTaskName" class="form-control" @bind="taskName" placeholder="Task Name">
-                <label>Select Tag Color:</label>
+                <label for="createTaskName">Nội dung:</label>
+                <input type="text" id="createTaskName" class="form-control" @bind="taskName" placeholder="Nội dung công việc">
+                <label>Chọn mức độ:</label>
                 <MudChipSet MultiSelection="false">
                     <MudChip Text="chưa bắt đầu" Color="Color.Dark" @onclick='() => SelectColor("task__tag--not-ready")' Variant="MudBlazor.Variant.Text">chưa bắt đầu</MudChip>
                     <MudChip Text="bắt đầu" Color="Color.Success" @onclick='() => SelectColor("task__tag--illustration")' Variant="MudBlazor.Variant.Text">bắt đầu</MudChip>
@@ -409,8 +409,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" @onclick="SaveTask">Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" @onclick="SaveTask">Thêm</button>
             </div>
         </div>
     </div>
@@ -438,10 +438,10 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="taskName">Task Name:</label>
+                    <label for="taskName">Nội dung:</label>
                     <textarea class="form-control" id="taskName" @bind="@updateTaskName" cols="100" style="resize: none;height: 35px; min-height: 35px; overflow: auto;" @oninput="AdjustTextareaHeight"></textarea>
 
-                    <label>Select Tag Color:</label>
+                    <label>Chọn mức độ:</label>
                     <MudChipSet MultiSelection="false">
                         <MudChip Text="chưa bắt đầu" Color="Color.Dark" @onclick='() => SelectColor("task__tag--not-ready")' Variant="MudBlazor.Variant.Text">chưa bắt đầu</MudChip>
                         <MudChip Text="bắt đầu" Color="Color.Success" @onclick='() => SelectColor("task__tag--illustration")' Variant="MudBlazor.Variant.Text">bắt đầu</MudChip>
@@ -474,12 +474,21 @@
                                 </div> <br />
                             }
                     } *@
-                    <div class="container justify-content-center mt-5 border-left border-right">
+                    <div class="container justify-content-center mt-5 border-left border-right" style="background-color:transparent">
                         <div class="d-flex justify-content-center pt-3 pb-2">
                             <div class="position-relative">
                                 <div style="position: relative;">
-                                    <input @bind="commentText" type="text" name="text" placeholder="+ Add a note" class="form-control addtxt">
-                                    <button  @onclick="() => SaveComment()" class="btn btn-primary addbtn" style="color:black;border:1px solid transparent;outline:none;background-color:transparent;height:41px;position: absolute; top: 0; right: 0;">
+                                    <input @bind="commentText"
+                                           @bind:event="oninput"
+                                           @onkeypress="HandleKeyPress"
+                                           style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;border-radius:0;"
+                                           type="text"
+                                           name="text"
+                                           placeholder="+ Bình luận"
+                                           class="form-control addtxt">
+                                    <button @onclick="() => SaveComment()"
+                                            class="btn btn-primary addbtn"
+                                            style="color:black;border:1px solid transparent;outline:none;background-color:transparent;height:41px;position: absolute; top: 3px; right: 0;">
                                         <i class="fa-solid fa-arrow-right"></i> <!-- Biểu tượng cần thêm -->
                                     </button>
                                 </div>
@@ -496,8 +505,8 @@
                                         <div class="second py-2 px-2">
                                             <span class="text1">@item.Comment</span>
                                             <div class="d-flex justify-content-between py-1 pt-2">
-                                                <div><img src="@item.User.Avatar" width="18"><span class="text2">@item.User.Email</span></div>
-                                                <div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span class="text4">3</span></div>
+                                                <div><img style="border-radius:5px;width:15px;height:15px" src="@item.User.Avatar" width="18"><span class="text2">@item.User.Email</span></div>
+                                                <i title="xóa bình luận" style="color:red;cursor:pointer;font-size:14px" @onclick="() => DeleteComment(item.TaskCommentId)" class="fa-solid fa-delete-left"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -510,12 +519,37 @@
             </div>
             <div class="modal-footer d-flex justify-content-between">
                 <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
-                <button type="button" class="btn btn-primary" @onclick="SaveEditTaskChanges">Save</button>
+                <button type="button" class="btn btn-primary" @onclick="SaveEditTaskChanges">Lưu</button>
             </div>
         </div>
     </div>
 </div>
 @code {
+    private void HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && !string.IsNullOrEmpty(commentText))
+        {
+            SaveComment();
+        }
+    }
+    private async Task DeleteComment(int commentId)
+    {
+        var commentToDelete = await _context.TaskComment.FindAsync(commentId);
+        bool confirmed = await JSRuntime.InvokeAsync<bool>("confirm", $"Dữ liệu sau khi xóa sẽ không thể khôi phục");
+        if (confirmed)
+        {
+            if (commentToDelete != null)
+            {
+                _context.TaskComment.Remove(commentToDelete);
+                await _context.SaveChangesAsync();
+                await LoadTaskComment();
+            }
+        }
+        else
+        {
+        }
+      
+    }
     private string commentText { get; set; }
 
     private async Task SaveComment()

@@ -6,6 +6,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Web.Http.ModelBinding;
+using CloudinaryDotNet;
+using CodeFirst.Service;
+using CloudinaryDotNet.Actions;
 
 namespace WebAPI.Repositories
 {
@@ -14,12 +17,15 @@ namespace WebAPI.Repositories
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly IConfiguration configuration;
+        private readonly CloudinaryService _cloud;
 
-        public AccountRepository(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration)
+
+        public AccountRepository(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration, CloudinaryService cloud)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.configuration = configuration;
+            this._cloud = cloud;
         }
 
         public async Task<string> SignInAsync(SignInModel model)
@@ -84,16 +90,50 @@ namespace WebAPI.Repositories
                 // Xử lý khi mật khẩu và xác nhận mật khẩu không khớp
                 return IdentityResult.Failed(new IdentityError { Description = "Password and confirmation password do not match." });
             }
+
             var user = new ApplicationUser
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Email = model.Email,
                 UserName = model.Email,
-                Avatar = model.Avatar,
                 PhoneNumber = model.PhoneNumber
             };
             user.EmailConfirmed = true;
+
+            // Khởi tạo Cloudinary
+            Account account = new Account(
+                "dl3hvap4a",
+                "834354428788744",
+                "lv7zI6VPru0YhHwUPQsru318SOE"
+            );
+            Cloudinary cloudinary = new Cloudinary(account);
+            string imageFormat = "";
+            if (model.Avatar.Contains("data:image/jpeg;base64,"))
+            {
+                imageFormat = "data:image/jpeg;base64,";
+            }
+            else if (model.Avatar.Contains("data:image/png;base64,"))
+            {
+                imageFormat = "data:image/png;base64,";
+            }
+            var base64Image = model.Avatar.Replace(imageFormat, "");
+
+            // Giải mã chuỗi base64 thành mảng byte
+            var imageBytes = Convert.FromBase64String(base64Image);
+
+            // Tạo MemoryStream từ mảng byte
+            var imageStream = new MemoryStream(imageBytes);
+
+            // Tải lên hình ảnh lên Cloudinary
+            var uploadParams = new ImageUploadParams()
+            {
+                File = new FileDescription("avatar", imageStream)
+            };
+            var uploadResult = cloudinary.Upload(uploadParams);
+
+            // Lấy URL của hình ảnh từ kết quả tải lên
+            user.Avatar = uploadResult.SecureUri.ToString();
 
             var result = await userManager.CreateAsync(user, model.Password);
 

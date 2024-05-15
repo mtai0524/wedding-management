@@ -41,6 +41,9 @@
             <th>
                 <a href="#"  >Thanh toán</a>
             </th>
+            <th>
+                <a href="#">Trạng thái</a>
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -71,6 +74,9 @@
                         var paymentStatus = item.PaymentStatus == true ? "Đã thanh toán" : "Chưa thanh toán";
                     }
                     @Html.DisplayFor(modelItem => @paymentStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStatus)
                 </td>
                 <td>
                

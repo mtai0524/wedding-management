@@ -17,6 +17,31 @@ namespace WebAPI.Controllers
         {
             _context = context;
         }
+        [HttpGet("getCate")]
+        public async Task<ActionResult<IEnumerable<MenuCategory>>> GetCategories()
+        {
+            var categories = await _context.MenuCategory.ToListAsync();
+            if (categories == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(categories);
+        }
+
+        [HttpGet("byCategory/{categoryId}")]
+        public async Task<ActionResult<IEnumerable<MenuEntity>>> GetMenusByCategory(int categoryId)
+        {
+            var menus = await _context.MenuEntity
+                                      .Where(m => m.CategoryId == categoryId)
+                                      .ToListAsync();
+            if (menus == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(menus);
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetAsync()

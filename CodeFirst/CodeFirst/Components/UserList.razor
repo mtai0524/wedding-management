@@ -244,7 +244,6 @@
     protected async Task LoadBranches()
     {
 
-        var userService = new UserListService(_context, _userManager);
         listUser = await userService.GetListUserAndRole();
         await _hubContext.Clients.All.SendAsync("ApplicationUserWithRoleSignalR", listUser);
         StateHasChanged();
@@ -254,7 +253,6 @@
     {
         PreloadService.Show(SpinnerColor.Light, "Đang nạp dữ liệu...");
 
-        var userService = new UserListService(_context, _userManager);
         listUser = await userService.GetListUserAndRole();
         await _hubContext.Clients.All.SendAsync("ApplicationUserWithRoleSignalR", listUser);
         StateHasChanged();
@@ -264,7 +262,7 @@
     protected override async Task OnInitializedAsync()
     {
         await Init();
-        LoadBranchesHasPreload();
+        await LoadBranchesHasPreload();
         await base.OnInitializedAsync();
         var allRoles = await _roleManager.Roles.Select(r => r.Name).ToListAsync();
         this.allRoles = allRoles;
@@ -298,20 +296,14 @@
         await base.OnInitializedAsync();
     }
 
-    private string selectedRole { get; set; } = "";
+     string selectedRole { get; set; }
+     string userIdToUpdateRole { get; set; } = "";
 
-    private string userIdToUpdateRole { get; set; } = "";
     private async Task ShowUpdateRoleModal(string userId)
     {
-        var user = await _userManager.FindByIdAsync(userId);
-        if (user != null)
-        {
-            var roles = await _userManager.GetRolesAsync(user);
-            userIdToUpdateRole = userId;
-            selectedRole = roles.FirstOrDefault();
-        }
+        selectedRole = await userService.GetRoleUserByUserId(userId); 
+        userIdToUpdateRole = userId;
     }
-
     public async Task ChangeUserRole(string userId, string newRole)
     {
         var user = await _userManager.FindByIdAsync(userId);

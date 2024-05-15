@@ -100,7 +100,7 @@
 -moz-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);box-shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.26);
     border:3px solid black;">
             <RadzenChart ColorScheme="@colorScheme">
-                @foreach (var year in Enumerable.Range(2017, 8))
+                @foreach (var year in Enumerable.Range(2019, 8))
                 {
                     var quarterlyRevenue = CalculateQuarterlyRevenue(year);
                     <RadzenColumnSeries Data="@quarterlyRevenue" CategoryProperty="Quarter" Title="@year.ToString()" ValueProperty="Revenue" />

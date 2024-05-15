@@ -22,9 +22,30 @@ namespace WebAPI.Controllers
         {
             _context = context;
         }
-        
 
-        [HttpPost("checked")]
+
+        [HttpPost("/api/invoice/repayment/{id}")]
+        public async Task<IActionResult> Repayment(int id)
+        {
+            var invoice =  _context.Invoice.FirstOrDefault(x => x.InvoiceID == id);
+            _currentInvoiceId = invoice.InvoiceID;
+
+            return Ok(new { message = "Đã hủy đơn hàng" });
+        }
+
+        [HttpPost("/api/invoice/cancel/{id}")]
+        public async Task<IActionResult> CancelOrder(int id)
+        {
+            var invoice = _context.Invoice.FirstOrDefault(x => x.InvoiceID == id);
+            invoice.OrderStatus = "Đã hủy đơn hàng";
+
+            _context.Update(invoice);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Đã hủy đơn hàng" });
+        }
+
+    [HttpPost("checked")]
         public IActionResult CheckDuplicateInvoice([FromBody] CheckDuplicateInvoice request)
         {
             var existingInvoice = _context.Invoice.FirstOrDefault(i =>

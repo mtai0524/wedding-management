@@ -1,6 +1,7 @@
 ﻿﻿@using Microsoft.AspNetCore.Components.Routing
 @using CodeFirst.Views.Shared
 @inject IJSRuntime JSRuntime
+<CascadingAuthenticationState>
 <Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -14,6 +15,7 @@
         </LayoutView>
     </NotFound>
 </Router>
+</CascadingAuthenticationState>
 @code {
     private async Task GoToHome()
     {

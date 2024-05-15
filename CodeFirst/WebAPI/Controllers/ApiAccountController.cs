@@ -1,5 +1,8 @@
-﻿using CodeFirst.Data;
+﻿using CloudinaryDotNet.Actions;
+using CloudinaryDotNet;
+using CodeFirst.Data;
 using CodeFirst.Models;
+using CodeFirst.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -24,6 +27,74 @@ namespace WebAPI.Controllers
             _userManager = userManager;
             _context = context;
         }
+        [HttpPost("Update")]
+        public async Task<IActionResult> UpdateProfile([FromBody] UserProfile profileData)
+        {
+            // Find the user by email or another unique identifier
+            var user = await _context.ApplicationUser.FirstOrDefaultAsync(u => u.Email == profileData.Email);
+
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            // Update the user's information
+            user.FirstName = profileData.FirstName;
+            user.LastName = profileData.LastName;
+            user.Email = profileData.Email;
+            user.PhoneNumber = profileData.PhoneNumber;
+
+            // Khởi tạo Cloudinary
+            Account account = new Account(
+                "dl3hvap4a",
+                "834354428788744",
+                "lv7zI6VPru0YhHwUPQsru318SOE"
+            );
+            if (profileData.Avatar.Contains("https"))
+            {
+                user.Avatar = profileData.Avatar;
+            }
+            else
+            {
+                Cloudinary cloudinary = new Cloudinary(account);
+                string imageFormat = "";
+                if (profileData.Avatar.Contains("data:image/jpeg;base64,"))
+                {
+                    imageFormat = "data:image/jpeg;base64,";
+                }
+                else if (profileData.Avatar.Contains("data:image/png;base64,"))
+                {
+                    imageFormat = "data:image/png;base64,";
+                }
+                var base64Image = profileData.Avatar.Replace(imageFormat, "");
+
+                // Giải mã chuỗi base64 thành mảng byte
+                var imageBytes = Convert.FromBase64String(base64Image);
+
+                // Tạo MemoryStream từ mảng byte
+                var imageStream = new MemoryStream(imageBytes);
+
+                // Tải lên hình ảnh lên Cloudinary
+                var uploadParams = new ImageUploadParams()
+                {
+                    File = new FileDescription("avatar", imageStream)
+                };
+                var uploadResult = cloudinary.Upload(uploadParams);
+
+                // Lấy URL của hình ảnh từ kết quả tải lên
+                user.Avatar = uploadResult.SecureUri.ToString();
+            }
+           
+
+
+            // Save the changes to the database
+            _context.ApplicationUser.Update(user);
+            await _context.SaveChangesAsync();
+
+            // Return the user's avatar URL or any other relevant information
+            return Ok(new { avatar = user.Avatar });
+        }
+
         [HttpGet("GetAvatar")]
         public async Task<IActionResult> GetAvatarAsync([FromQuery] string id)
         {
@@ -37,6 +108,21 @@ namespace WebAPI.Controllers
 
             // Return the user's avatar URL
             return Ok(new { avatar = user.Avatar });
+        }
+
+        [HttpGet("GetInFoUserById")]
+        public async Task<IActionResult> GetInFoUserById([FromQuery] string id)
+        {
+            // Find the user by email
+            var user = await _context.ApplicationUser.FirstOrDefaultAsync(u => u.Id == id);
+
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            // Return the user's avatar URL
+            return Ok(new { firstName = user.FirstName, lastName = user.LastName, email = user.Email, phone = user.PhoneNumber});
         }
 
         [HttpPost("SignUp")]

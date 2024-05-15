@@ -1,6 +1,8 @@
+using CloudinaryDotNet;
 using CodeFirst.Data;
 using CodeFirst.Hubs;
 using CodeFirst.Models;
+using CodeFirst.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +21,7 @@ builder.Services.AddControllers()
     ); // fix lỗi json truy vấn vòng tròn
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<CloudinaryService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -34,7 +37,16 @@ builder.Services.AddCors(options =>
     });
 });
 
+var configuration = builder.Configuration;
 
+var cloudName = configuration["Cloudinary:CloudName"];
+var apiKey = configuration["Cloudinary:ApiKey"];
+var apiSecret = configuration["Cloudinary:ApiSecret"];
+
+var cloudinaryAccount = new Account(cloudName, apiKey, apiSecret);
+var cloudinary = new Cloudinary(cloudinaryAccount);
+
+builder.Services.AddSingleton(cloudinary);
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 builder.Services.AddAuthentication(options =>

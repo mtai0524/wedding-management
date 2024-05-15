@@ -424,9 +424,11 @@ font-weight:bold;
             // Lấy danh sách các bản ghi OrderMenu liên quan đến hóa đơn cần xóa
             var orderMenus = _context.OrderMenu.Where(om => om.InvoiceID == id);
             var orderServices = _context.OrderService.Where(om => om.InvoiceID == id);
+            var code = _context.InvoiceCode.Where(om => om.InvoiceId == id);
 
             // Xóa các bản ghi OrderMenu
             _context.OrderMenu.RemoveRange(orderMenus);
+            _context.InvoiceCode.RemoveRange(code);
             _context.OrderService.RemoveRange(orderServices);
 
             // Xóa hóa đơn
