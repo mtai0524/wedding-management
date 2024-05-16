@@ -527,6 +527,15 @@ namespace CodeFirst.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool?>("CanAdd")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("CanDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("CanEdit")
+                        .HasColumnType("bit");
+
                     b.Property<string>("RoleId")
                         .HasColumnType("nvarchar(450)");
 

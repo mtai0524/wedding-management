@@ -6649,7 +6649,6 @@ T:\SavePer\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.GeneratedMS
 T:\SavePer\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.AssemblyInfoInputs.cache
 T:\SavePer\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.AssemblyInfo.cs
 T:\SavePer\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.csproj.CoreCompileInputs.cache
-T:\SavePer\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
 T:\SavePer\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.MvcApplicationPartsAssemblyInfo.cache
 T:\SavePer\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.sourcelink.json
 T:\SavePer\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\staticwebassets.build.json
