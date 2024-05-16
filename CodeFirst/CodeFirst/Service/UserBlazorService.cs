@@ -1,6 +1,8 @@
-﻿using CodeFirst.Data;
+﻿using CloudinaryDotNet.Actions;
+using CodeFirst.Data;
 using CodeFirst.Models;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 

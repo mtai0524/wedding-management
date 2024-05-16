@@ -912,6 +912,12 @@
       [Inject] protected PreloadService PreloadService { get; set; }
     protected override async Task OnInitializedAsync()
     {
+        var user = await _userBlazorService.GetCurrentUser();
+        if (user == null)
+        {
+            NavigationManager.NavigateTo("/Identity/Account/Login?ReturnUrl=%2F");
+            return;
+        }
         userList = await _context.ApplicationUser.ToListAsync();
 
         currUser = await _userBlazorService.GetCurrentUser();

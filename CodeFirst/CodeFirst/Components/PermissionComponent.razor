@@ -3,12 +3,22 @@
 @using CodeFirst.Data
 @using CodeFirst.Models
 @using CodeFirst.Models.Entities
+@using CodeFirst.Service
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.EntityFrameworkCore
 @inject UserManager<ApplicationUser> UserManager
 @inject RoleManager<IdentityRole> RoleManager
 @inject ApplicationDbContext DbContext
-
+@inject NavigationManager NavigationManager
+@inject IJSRuntime jsRuntime
+@inject NavigationManager NavigationManager
+@inject RoleManager<IdentityRole> RoleManager
+@inject UserBlazorService _userBlazorService
+@inject ISnackbar SnackbarService
+@inject ISnackbar Snackbar
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
 <EditForm Model="@permission" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
@@ -17,7 +27,7 @@
        
         <div class="col-md-6">
             <div class="form-group">
-                <label for="Roles">Roles:</label>
+                <label for="Roles">Danh sách vai trò:</label>
                 @foreach (var role in roles)
                 {
                     var isChecked = selectedRoleIds.Contains(role.Id);
@@ -33,21 +43,21 @@
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" id="CanAdd_@role.Id" @bind="GetPermission(role.Id).CanAdd" />
                                     <label class="form-check-label mini" for="CanAdd_@role.Id">
-                                        <span class="lable-name">Can Add</span>
+                                        <span class="lable-name">Tạo mới</span>
                                     </label>
                                 </div>
 
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" id="CanEdit_@role.Id" @bind="GetPermission(role.Id).CanEdit" />
                                     <label class="form-check-label mini" for="CanEdit_@role.Id">
-                                        <span class="lable-name">Can Edit</span>
+                                        <span class="lable-name">Cập nhật</span>
                                     </label>
                                 </div>
 
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" id="CanDelete_@role.Id" @bind="GetPermission(role.Id).CanDelete" />
                                     <label class="form-check-label mini" for="CanDelete_@role.Id">
-                                        <span class="lable-name">Can Delete</span>
+                                        <span class="lable-name">Xóa</span>
                                     </label>
                                 </div>
                             </div>
@@ -78,13 +88,18 @@
     private List<IdentityRole> roles = new List<IdentityRole>();
     private List<string> selectedRoleIds = new List<string>();
     private Dictionary<string, Permission> rolePermissions = new Dictionary<string, Permission>();
-
     protected override async Task OnInitializedAsync()
     {
+        var user = await _userBlazorService.GetCurrentUser();
+        if(user == null)
+        {
+            NavigationManager.NavigateTo("/Identity/Account/Login?ReturnUrl=%2F");
+        }
+
         roles = RoleManager.Roles.ToList();
         await UpdateSelectedRolesForCurrentType();
     }
-
+    
     private async Task UpdateSelectedRolesForCurrentType()
     {
         selectedRoleIds = await GetSelectedRoleIdsFromDatabase(permission.Type);
@@ -165,6 +180,7 @@
                 DbContext.Permission.Add(rolePermission);
             }
         }
+        Snackbar.Add("Đã cập nhật!", Severity.Normal);
 
         await DbContext.SaveChangesAsync();
     }

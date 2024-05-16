@@ -14,8 +14,8 @@ namespace CodeFirst.Models.Entities
 
         [ForeignKey("RoleId")]
         public virtual IdentityRole? Role { get; set; }
-        public bool? CanAdd { get; set; }
-        public bool? CanEdit { get; set; }
-        public bool? CanDelete { get; set; }
+        public bool CanAdd { get; set; } = false;
+        public bool CanEdit { get; set; } = false;
+        public bool CanDelete { get; set; } = false;
     }
 }

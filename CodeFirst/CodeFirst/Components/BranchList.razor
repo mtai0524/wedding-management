@@ -33,8 +33,10 @@
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UserBlazorService _userBlazorService
+@inject UserListService _userListService
 @inject AuthorizeService _authorizeService
 @inject RoleManager<IdentityRole> RoleManager
+@inject UserManager<ApplicationUser> _userManager
 
 @code {
     [Inject] protected PreloadService PreloadService { get; set; }
@@ -93,69 +95,78 @@
                 </button>
             </div>
             <div class="modal-body">
-                @if (showAlertCreateBranch)
+                @if (CanAdd)
                 {
-                    <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(false))">Tạo chi nhánh thành công ròi nhe!</MudAlert>
+
+                    @if (showAlertCreateBranch)
+                    {
+                        <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(false))">Tạo chi nhánh thành công ròi nhe!</MudAlert>
+                    }
+                    @if (showAlert)
+                    {
+                        <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" IsOpen="@showAlert" CloseIconClicked="() => showAlert = false">
+                            Vui lòng nhập đầy đủ thông tin!
+                        </MudAlert>
+
+                    }
+
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="branchName" class="form-label">Tên chi nhánh</label>
+                            <input type="text" class="form-control" id="branchName" @bind="BranchName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="branchDescription" class="form-label">Mô tả</label>
+                            <textarea class="form-control" id="branchDescription" rows="3" @bind="BranchDescription"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="branchImage" class="form-label">Ảnh</label>
+                            <InputFile id="branchImage" class="form-control" OnChange="OnInputFileChange" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="branchAddress" class="form-label">Địa chỉ</label>
+                            <input type="text" class="form-control" id="branchAddress" @bind="BranchAddress">
+                        </div>
+                        <div class="mb-3">
+                            <label for="branchPhone" class="form-label">Điện thoại</label>
+                            <input type="text" class="form-control" id="branchPhone" @bind="BranchPhone">
+                        </div>
+                    </form>
                 }
-                @if (showAlert)
+                else
                 {
-                    <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" IsOpen="@showAlert" CloseIconClicked="() => showAlert = false">
-                        Vui lòng nhập đầy đủ thông tin!
-                    </MudAlert>
-
+                    <span>Khong co quyen them</span>
                 }
-
-                <form method="post" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label for="branchName" class="form-label">Tên chi nhánh</label>
-                        <input type="text" class="form-control" id="branchName" @bind="BranchName">
-                    </div>
-                    <div class="mb-3">
-                        <label for="branchDescription" class="form-label">Mô tả</label>
-                        <textarea class="form-control" id="branchDescription" rows="3" @bind="BranchDescription"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="branchImage" class="form-label">Ảnh</label>
-                        <InputFile id="branchImage" class="form-control" OnChange="OnInputFileChange" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="branchAddress" class="form-label">Địa chỉ</label>
-                        <input type="text" class="form-control" id="branchAddress" @bind="BranchAddress">
-                    </div>
-                    <div class="mb-3">
-                        <label for="branchPhone" class="form-label">Điện thoại</label>
-                        <input type="text" class="form-control" id="branchPhone" @bind="BranchPhone">
-                    </div>
-                </form>
-
-
             </div>
-            <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary" @onclick="CancelAndDelData" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
-                <a class="btn btn-success" @onclick="CreateBranch">
-                    @if (isLoading)
-                    {
-                        <i class="fa-solid fa-spinner fa-spin" style="color: white; margin-right:5px"></i>
-                        <span>Chờ chút xíu đang tải nè ... </span>
-                    }
-                    else if (isSavedSuccessfully)
-                    {
-                        <i class="fa-solid fa-check" style="color: white; margin-right:5px"></i>
-                        <span>Đã lưu thành công!</span>
-                    }
-                    else if (isError)
-                    {
-                        <i class="fa-solid fa-ban" style="margin-right:5px"></i>
-                        <span>Bị lỗi hình ảnh ròi!</span>
-                    }
-                    else
-                    {
-                        <i class="fa-solid fa-plus" style="color: white; margin-right:5px"></i>
-                        <span>Lưu</span>
-                    }
-                </a>
+            @if (CanAdd)
+            {
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary" @onclick="CancelAndDelData" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
+                    <a class="btn btn-success" @onclick="CreateBranch">
+                        @if (isLoading)
+                        {
+                            <i class="fa-solid fa-spinner fa-spin" style="color: white; margin-right:5px"></i>
+                            <span>Chờ chút xíu đang tải nè ... </span>
+                        }
+                        else if (isSavedSuccessfully)
+                        {
+                            <i class="fa-solid fa-check" style="color: white; margin-right:5px"></i>
+                            <span>Đã lưu thành công!</span>
+                        }
+                        else if (isError)
+                        {
+                            <i class="fa-solid fa-ban" style="margin-right:5px"></i>
+                            <span>Bị lỗi hình ảnh ròi!</span>
+                        }
+                        else
+                        {
+                            <i class="fa-solid fa-plus" style="color: white; margin-right:5px"></i>
+                            <span>Lưu</span>
+                        }
+                    </a>
 
-            </div>
+                </div>
+            }
         </div>
     </div>
 </div>
@@ -690,11 +701,31 @@
         StateHasChanged(); // Luu data da thay doi
     }
     private HubConnection hubConnection;
+    bool CanAdd = false;
+    bool CanEdit = false;
+    bool CanDelete = false;
+    string roleId = "";
     protected override async Task OnInitializedAsync()
     {
+        getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
+        if (getUserCurrBlazor == null)
+        {
+            NavigationManager.NavigateTo("/Identity/Account/Login?ReturnUrl=%2F");
+            return;
+        }
+
+        roleId = await _userListService.GetRoleId(getUserCurrBlazor);
+        var permissions = await _context.Permission
+            .Where(p => p.RoleId == roleId && p.Type == "branch")
+            .ToListAsync();
+        CanAdd = permissions.Any(p => p.CanAdd);
+        CanEdit = permissions.Any(p => p.CanEdit);
+        CanDelete = permissions.Any(p => p.CanDelete);
+
+
+
         roleNameAu = await _authorizeService.UserHasPermission("branch");
         running = true;
-        getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
         await LoadBranchesHasPreLoad();
         hubConnection = new HubConnectionBuilder()
             // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/myBlazorHub")) // docker
