@@ -1,0 +1,27 @@
+﻿@keyframes moveup {
+    0% {
+        bottom: -25px;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes movedown {
+    0% {
+        top: -25px;
+        opacity: 0;
+    }
+
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+body{
+    background-color:red;
+}

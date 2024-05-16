@@ -55,6 +55,7 @@ namespace CodeFirst.Data
         public DbSet<CodeFirst.Models.Entities.TaskToDo> TaskToDo { get; set; } = null!;
         public DbSet<CodeFirst.Models.Entities.UserListTask> UserListTask { get; set; }
         public DbSet<CodeFirst.Models.Entities.TaskComment> TaskComment { get; set; }
+        public DbSet<Permission> Permission { get; set; }
 
     }
 }

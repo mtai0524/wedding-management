@@ -13,6 +13,7 @@
 @inject CloudinaryService _cloudinaryService;
 @using Microsoft.AspNetCore.Components.Forms
 @using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.SignalR
 @using Microsoft.AspNetCore.SignalR.Client
 @using Microsoft.EntityFrameworkCore
@@ -32,6 +33,9 @@
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UserBlazorService _userBlazorService
+@inject AuthorizeService _authorizeService
+@inject RoleManager<IdentityRole> RoleManager
+
 @code {
     [Inject] protected PreloadService PreloadService { get; set; }
 
@@ -40,7 +44,8 @@
         new MudBlazor.BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
         new MudBlazor.BreadcrumbItem("Chi nhánh", href: "/branch-list", icon: Icons.Material.Filled.LocationCity),
     };
- }
+}
+
 
 <style>
     .btn {
@@ -48,21 +53,22 @@
         margin-left: 5px;
         outline: none;
     }
-    .btn:hover{
-        color:white;
-    }
+
+        .btn:hover {
+            color: white;
+        }
+
     i {
         margin-right: 3px;
     }
 
-    label:hover{
-        background-color:transparent;
-        
+    label:hover {
+        background-color: transparent;
     }
 </style>
 
 
-@code{
+@code {
     private async Task OnCreateBranchClick()
     {
         string newUrl = $"/branch-list/create-branch";
@@ -98,7 +104,7 @@
                     </MudAlert>
 
                 }
-          
+
                 <form method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="branchName" class="form-label">Tên chi nhánh</label>
@@ -126,7 +132,7 @@
             </div>
             <div class="modal-footer d-flex justify-content-between">
                 <button type="button" class="btn btn-secondary" @onclick="CancelAndDelData" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
-                <a  class="btn btn-success" @onclick="CreateBranch">
+                <a class="btn btn-success" @onclick="CreateBranch">
                     @if (isLoading)
                     {
                         <i class="fa-solid fa-spinner fa-spin" style="color: white; margin-right:5px"></i>
@@ -136,7 +142,7 @@
                     {
                         <i class="fa-solid fa-check" style="color: white; margin-right:5px"></i>
                         <span>Đã lưu thành công!</span>
-                     }
+                    }
                     else if (isError)
                     {
                         <i class="fa-solid fa-ban" style="margin-right:5px"></i>
@@ -165,8 +171,8 @@
         {
             showAlertCreateBranch = false;
             isSavedSuccessfully = false;
-             // string newUrl = $"/branch-list";
-             // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
+            // string newUrl = $"/branch-list";
+            // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
         }
     }
 
@@ -195,7 +201,7 @@
     bool isLoading = false;
     bool isSavedSuccessfully = false;
     bool isError = false;
-   
+
     private async Task CreateBranch()
     {
         if (string.IsNullOrWhiteSpace(BranchName) || string.IsNullOrWhiteSpace(BranchDescription)
@@ -206,7 +212,7 @@
         }
         else
         {
-            if(BranchImageFile != null)
+            if (BranchImageFile != null)
             {
                 isLoading = true;
                 Snackbar.Add("Đang tải dữ liệu!", Severity.Info);
@@ -272,66 +278,74 @@
         isError = false;
     }
 }
-
-<AuthorizeView Roles="admin">
+@if(running == true)
+{
+    
+<AuthorizeView Roles=@roleNameAu>
     <Authorized>
-       
+
         <a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createBranchModal">
             Thêm chi nhánh
         </a>
-        <MudTable Items="@listBranch" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Branch,bool>(FilterFunc1)" Style="margin-bottom:15px">
-            <ToolBarContent>
-                <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách chi nhánh</MudText>
-                <MudSpacer />
-                <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm tên chi nhánh, địa chỉ" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
-            </ToolBarContent>
-            <HeaderContent>
-                <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x => x.Name)">Tên chi nhánh</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x => x.Description)">Mô tả</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x => x.Phone)">Số điện thoại</MudTableSortLabel></MudTh>
-                <MudTh>Hình ảnh</MudTh>
-                <MudTh>Chức năng</MudTh>
-            </HeaderContent>
-            <RowTemplate Context="branchContext">
-                <MudTd DataLabel="Name">@branchContext.Name</MudTd>
-                    <MudTd DataLabel="Address">@branchContext.Address</MudTd>
-                    <MudTd DataLabel="Phone">@branchContext.Phone</MudTd>
-                    <MudTd DataLabel="Image">
-                        <MudImage Src="@branchContext.Image" Width="50" Height="50" Alt="Branch Image" Elevation="25" Class="rounded-lg" />
-                    </MudTd>
-                    <MudTd>
-                        <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Settings" Size="MudBlazor.Size.Small" Color="Color.Success" OnClick="@(() => EditBranch(branchContext.BranchId))">
-                            Sửa
-                        </MudButton>
-                        <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" OnClick="@(() => ShowDetails(branchContext.BranchId))">
-                            Chi tiết
-                        </MudButton>
-                        <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => ShowConfirmModal(branchContext.BranchId))">
-                            Xóa
-                        </MudButton>
-                        @if (branchContext.IsLocked)
-                    {
-                        <MudButton Style="margin-left:5px" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Lock" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => UnlockBranch(branchContext.BranchId))">
-                            Mở khóa
-                        </MudButton>
-                    }
-                    else
-                    {
-                        <MudButton Style="margin-left:5px" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.LockOpen" Size="MudBlazor.Size.Small" Color="Color.Success" OnClick="@(() => LockBranch(branchContext.BranchId))">
-                            Khóa
-                        </MudButton>
-                    }
-                </MudTd>
-            </RowTemplate>
-            <PagerContent>
-                <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
-            </PagerContent>
-        </MudTable>
+       <MudTable Items="@listBranch" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Branch,bool>(FilterFunc1)" Style="margin-bottom:15px">
+    <ToolBarContent>
+        <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách chi nhánh</MudText>
+        <MudSpacer />
+        <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm tên chi nhánh, địa chỉ" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
+    </ToolBarContent>
+    <HeaderContent>
+   
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Name)">Tên chi nhánh</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Description)">Mô tả</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Phone)">Số điện thoại</MudTableSortLabel></MudTh>
+        <MudTh>Hình ảnh</MudTh>
+        <MudTh>Chức năng</MudTh>
+    </HeaderContent>
+   <RowTemplate Context="branch">
+    <MudTd  DataLabel="Name">@branch.Name</MudTd>
+    <MudTd DataLabel="Address">@branch.Address</MudTd>
+    <MudTd DataLabel="Phone">@branch.Phone</MudTd>
+    <MudTd DataLabel="Image">
+
+                <MudImage Src="@branch.Image" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-lg" />
+    </MudTd>
+    <MudTd>
+        <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Settings" Size="MudBlazor.Size.Small" Color="Color.Success" data-bs-toggle="modal" data-bs-target="#editBranchModal" OnClick="@(() => EditBranch(@branch.BranchId))">
+            Sửa
+        </MudButton>
+                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#viewBranchModal" OnClick="@(() => ShowDetails(@branch.BranchId))">
+            Chi tiết
+        </MudButton>
+                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@branch.BranchId))">
+            Xóa
+        </MudButton>
+
+                @if (@branch.IsLocked)
+            {
+                <MudButton Style="margin-left:5px" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Lock" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => UnlockBranch(branch.BranchId))">
+                    Mở khóa
+                </MudButton>
+            }
+            else
+            {
+                <MudButton Style="margin-left:5px" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.LockOpen" Size="MudBlazor.Size.Small" Color="Color.Success" OnClick="@(() => LockBranch(branch.BranchId))">
+                 Khóa
+                </MudButton>
+            }
+    </MudTd>
+
+</RowTemplate>
+
+        <PagerContent>
+            <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang"  PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
+        </PagerContent>
+    </MudTable>
     </Authorized>
     <NotAuthorized>
         <h3>You are not authorized to view this content.</h3>
     </NotAuthorized>
 </AuthorizeView>
+}
 
 @* modal delete mud blazor *@
 <MudMessageBox @ref="mbox" Title="Xác nhận xóa" CancelText="Hủy thao tác">
@@ -342,9 +356,9 @@
         <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Xóa dữ liệu!</MudButton>
     </YesButton>
 </MudMessageBox>
-@code{
-     private string searchString1 = "";
-     private bool FilterFunc1(Branch branch) => FilterFunc(branch, searchString1);
+@code {
+    private string searchString1 = "";
+    private bool FilterFunc1(Branch branch) => FilterFunc(branch, searchString1);
 
     private bool FilterFunc(Branch branch, string searchString)
     {
@@ -352,15 +366,15 @@
             return true;
         if (branch.Name.Contains(searchString, StringComparison.OrdinalIgnoreCase))
             return true;
-         if (branch.Address.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+        if (branch.Address.Contains(searchString, StringComparison.OrdinalIgnoreCase))
             return true;
         return false;
     }
 }
 <style>
-    .mud-dialog-width-sm{
-        max-width:1200px;
-        width:500px;
+    .mud-dialog-width-sm {
+        max-width: 1200px;
+        width: 500px;
     }
 </style>
 @code {
@@ -405,7 +419,7 @@
                 <p><strong>Mô tả:</strong> @des</p>
                 <p><strong>Hình ảnh:</strong></p>
                 <img src="@img" class="img-fluid" style="max-height: 300px; width: 100%;" alt="Hình ảnh chi nhánh" />
-                
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
@@ -415,7 +429,7 @@
 </div>
 
 @* view details branch code behind *@
-@code{
+@code {
     @* view details branch code behind *@
     string? branchName = "";
     string? des = "";
@@ -424,8 +438,8 @@
     string? img = "";
     async Task ShowDetails(int branchId)
     {
-        Branch? branch =  _context.Branch.FirstOrDefault(x => x.BranchId == branchId);
-        if(branch != null)
+        Branch? branch = _context.Branch.FirstOrDefault(x => x.BranchId == branchId);
+        if (branch != null)
         {
             branchName = branch.Name;
             des = branch.Description;
@@ -472,7 +486,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="branchImageUpdate" class="form-label">Ảnh</label>
-                        <InputFile id="branchImageUpdate" class="form-control" OnChange="OnInputFileChange"  />
+                        <InputFile id="branchImageUpdate" class="form-control" OnChange="OnInputFileChange" />
                     </div>
                     @if (!string.IsNullOrEmpty(imageUrl))
                     {
@@ -523,7 +537,7 @@
 </div>
 
 @* update branch code behind *@
-@code{
+@code {
     @* update branch code behind *@
     Branch? branchToEdit { get; set; } = new Branch();
 
@@ -541,7 +555,7 @@
     string? updatePhone = "";
     string? updateAddress = "";
     string? updateImg = "";
-  
+
     async Task EditBranch(int branchId)
     {
         branchToEdit = await _context.Branch.FindAsync(branchId);
@@ -649,6 +663,8 @@
 
 @* init blazor *@
 @code {
+    string roleNameAu = "";
+    bool running = false;
     ApplicationUser getUserCurrBlazor;
 
     List<Branch> Branches { get; set; } = new List<Branch>();
@@ -676,6 +692,8 @@
     private HubConnection hubConnection;
     protected override async Task OnInitializedAsync()
     {
+        roleNameAu = await _authorizeService.UserHasPermission("branch");
+        running = true;
         getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
         await LoadBranchesHasPreLoad();
         hubConnection = new HubConnectionBuilder()
@@ -712,29 +730,29 @@
     {
         var branch = _context.Branch.Find(branchId);
 
-            if (branch != null)
-            {
-                branch.IsLocked = false; // Mở khóa chi nhánh
-                _context.Entry(branch).State = EntityState.Modified;
-                _context.SaveChanges();
+        if (branch != null)
+        {
+            branch.IsLocked = false; // Mở khóa chi nhánh
+            _context.Entry(branch).State = EntityState.Modified;
+            _context.SaveChanges();
             await LoadBranches();
             Snackbar.Add("Đã mở khóa chi nhánh!", Severity.Normal);
 
-            }
+        }
     }
 
     async Task LockBranch(int branchId)
     {
         var branch = _context.Branch.Find(branchId);
 
-         if (branch != null)
-            {
-                branch.IsLocked = true; // Tạm khóa chi nhánh
-                _context.Entry(branch).State = EntityState.Modified;
-                _context.SaveChanges();
+        if (branch != null)
+        {
+            branch.IsLocked = true; // Tạm khóa chi nhánh
+            _context.Entry(branch).State = EntityState.Modified;
+            _context.SaveChanges();
             await LoadBranches();
             Snackbar.Add("Đã khóa chi nhánh!", Severity.Normal);
 
-            }        
+        }
     }
 }

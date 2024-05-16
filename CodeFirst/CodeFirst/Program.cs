@@ -64,6 +64,7 @@ builder.Services.AddScoped<EmployeeService>();
 builder.Services.AddScoped<UserListService>();
 builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddScoped<ChatService>();
+builder.Services.AddScoped<AuthorizeService>();
 builder.Services.AddSingleton<OnlineUserService>();
 //builder.Services.AddSingleton<UserService>();
 
