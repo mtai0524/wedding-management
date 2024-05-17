@@ -6,12 +6,7 @@
             <i class="fa-solid fa-house fs-6 me-3"></i> Trang chủ
         </NavLink>
     </div>
-    <div class="nav-item px-3">
-        <NavLink class="nav-link" href="color-picker">
-            <i class="fa-solid fa-palette fs-6 me-3"></i> Color picker
-        </NavLink>
-    </div>
-    @if (IsInRole("admin") || IsInRole("administrator system"))
+    @if (IsInRole("administrator system"))
     {
             <div class="nav-item px-3">
                 <NavLink class="nav-link" href="permission">
@@ -23,6 +18,9 @@
                     <i class="fa-regular fa-address-card fs-6 me-3"></i> Người dùng
                 </NavLink>
             </div>
+
+    }   @if (IsInRole("admin") || IsInRole("administrator system"))
+    {
             <div class="nav-item px-3">
                 <NavLink class="nav-link" href="branch-list">
                     <i class="fa-regular fa-building fs-6 me-3"></i> Chi nhánh
@@ -56,6 +54,19 @@
                 <i class="fa-regular fa-calendar fs-6 me-3"></i> Lịch làm việc
             </NavLink>
         </div>
+    
+       
+    }
+    @if (IsInRole("admin") || IsInRole("administrator system"))
+    {
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="statistic">
+                <i class="fa-solid fa-chart-simple fs-6 me-3"></i> Thống kê
+            </NavLink>
+        </div>
+    }
+    @if (IsInRole("admin") || IsInRole("administrator system") || IsInRole("employee"))
+    {
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="Admin/Invoice">
                 <i class="fa-solid fa-file-invoice-dollar fs-6 me-3"></i> Hóa đơn
@@ -64,6 +75,7 @@
     }
     @if (IsInRole("admin") || IsInRole("administrator system") )
     {
+       
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="Admin/Feedback">
             <i class="fa-regular fa-comments fs-6 me-3"></i><span style="margin-left:-5px"> Phản hồi</span>
@@ -79,11 +91,7 @@
                 <i class="icofont-oscommerce fs-6 me-3"></i> Gói giảm giá
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="statistic">
-                <i class="fa-solid fa-chart-simple fs-6 me-3"></i> Thống kê
-            </NavLink>
-        </div>
+    
     }
 </nav>
 

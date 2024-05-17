@@ -85,6 +85,9 @@
                     <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                 </button>
             </div>
+               @if (CanAdd)
+            {
+
             <div class="modal-body">
                 @if (showAlertCreateBranch)
                 {
@@ -152,6 +155,11 @@
                 </a>
 
             </div>
+            }
+                    else
+                    {
+                        <span style="color:red;margin:10px">Không có quyền thêm</span>
+                    }
         </div>
     </div>
 </div>
@@ -367,6 +375,11 @@
         // string newUrl = $"/branch-list/delete-branch/{branchId}";
         // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
         branchIdToDelete = branchId;
+        if (!CanDelete)
+        {
+            await jsRuntime.InvokeVoidAsync("alert", $"Không có quyền xóa");
+            return;
+        }
         bool? result = await mbox.Show();
         if (result == true)
         {
@@ -451,6 +464,8 @@
                     <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                 </button>
             </div>
+                @if (CanEdit)
+            {
             <div class="modal-body">
                 @if (showAlertCreateBranch)
                 {
@@ -526,6 +541,11 @@
                 </a>
 
             </div>
+            }
+                    else
+                    {
+                        <span style="color:red;margin:10px">Không có quyền cập nhật</span>
+                    }
         </div>
     </div>
 </div>
@@ -665,14 +685,30 @@
     }
     private HubConnection hubConnection;
     string roleNameAu = "";
-        bool running = false;
-
+    bool running = false;
+    bool CanAdd = false;
+    bool CanEdit = false;
+    bool CanDelete = false;
+    string roleId = "";
     protected override async Task OnInitializedAsync()
     {
+        getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
+        if (getUserCurrBlazor == null)
+        {
+            NavigationManager.NavigateTo("/Identity/Account/Login?ReturnUrl=%2F");
+            return;
+        }
+            roleId = await _authorizeService.GetRoleId(getUserCurrBlazor);
+            var permissions = await _context.Permission
+            .Where(p => p.RoleId == roleId && p.Type == "menu")
+            .ToListAsync();
+            CanAdd = permissions.Any(p => p.CanAdd);
+            CanEdit = permissions.Any(p => p.CanEdit);
+            CanDelete = permissions.Any(p => p.CanDelete);
+
         roleNameAu = await _authorizeService.UserHasPermission("menu");
 
         selectBranches = await _context.MenuCategory.ToListAsync();
-        getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
         hubConnection = new HubConnectionBuilder()
             // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/myBlazorHub")) // docker
             .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
@@ -723,6 +759,8 @@
                             <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                         </button>
                     </div>
+                            @if (CanAdd)
+     {
                     <div class="modal-body">
                         @if (showAlertCreateBranch)
                         {
@@ -768,6 +806,11 @@
                         </a>
 
                     </div>
+                    }
+                    else
+                    {
+                        <span style="color:red;margin:10px">Không có quyền thêm</span>
+                    }
                 </div>
             </div>
         </div>
@@ -824,6 +867,11 @@
     {
         // string newUrl = $"/branch-list/delete-branch/{branchId}";
         // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
+            if (!CanDelete)
+            {
+            await jsRuntime.InvokeVoidAsync("alert", $"Không có quyền xóa");
+            return;
+            }
         bool? result = await mbox.Show();
         if (result == true)
         {
