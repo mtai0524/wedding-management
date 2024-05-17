@@ -274,7 +274,7 @@
   
             <AuthorizeView Context="Cate" Roles=@roleNameAu>
     <Authorized>
-                    <a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createHallModal">
+                    <a class="btn btn-primary" style="font-size:13px;padding:7px;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createHallModal">
                         Thêm dịch vụ
                     </a>
         <MudTable @key="@change" Items="@listHall" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<ServiceEntity,bool>(FilterFunc1)" Style="margin-bottom:15px">
@@ -919,7 +919,7 @@
 
             <AuthorizeView Context="Cate" Roles=@roleNameAu>
                 <Authorized>
-                <a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createCateModal">
+                <a class="btn btn-primary" style="font-size:13px;padding:7px;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createCateModal">
                     Thêm thể loại
                 </a>
             <MudTable Items="@listCate" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<ServiceCategory,bool>(FilterFunc3)" Style="margin-bottom:15px">

@@ -50,12 +50,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xNeUNhbGVuZGFyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[T:/SavePer/Computer-Science/CodeFirst/CodeFirst/Components/PermissionComponent.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQZXJtaXNzaW9uQ29tcG9uZW50LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [T:/SavePer/Computer-Science/CodeFirst/CodeFirst/Components/ProgressBar.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9ncmVzc0Jhci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[T:/SavePer/Computer-Science/CodeFirst/CodeFirst/Components/RedirectToLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSZWRpcmVjdFRvTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [T:/SavePer/Computer-Science/CodeFirst/CodeFirst/Components/Statistic.razor]
@@ -93,6 +93,10 @@ build_metadata.AdditionalFiles.CssScope = b-mcqe6qptzc
 [T:/SavePer/Computer-Science/CodeFirst/CodeFirst/Components/Error404.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xFcnJvcjQwNC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-46wl8ed11m
+
+[T:/SavePer/Computer-Science/CodeFirst/CodeFirst/Components/PermissionComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQZXJtaXNzaW9uQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-20aaenkchm
 
 [T:/SavePer/Computer-Science/CodeFirst/CodeFirst/Views/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

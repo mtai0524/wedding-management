@@ -726,6 +726,11 @@ font-weight:bold;
     protected override async Task OnInitializedAsync()
     {
         getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
+        if (getUserCurrBlazor == null)
+        {
+            NavigationManager.NavigateTo("/Identity/Account/Login?ReturnUrl=%2F");
+            return;
+        }
         hubConnection = new HubConnectionBuilder()
             // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/myBlazorHub")) // docker
             .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))

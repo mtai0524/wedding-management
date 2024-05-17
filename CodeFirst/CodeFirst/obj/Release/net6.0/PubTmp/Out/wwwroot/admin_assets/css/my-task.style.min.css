@@ -31,7 +31,7 @@
     --bs-gray-700: #495057;
     --bs-gray-800: #343a40;
     --bs-gray-900: #212529;
-    --bs-primary: #0d6efd;
+    --bs-primary: #2f2f2fff;
     --bs-secondary: #6c757d;
     --bs-success: #198754;
     --bs-info: #0dcaf0;
@@ -20159,7 +20159,7 @@ textarea.form-control-lg {
     }
 
 [class="theme-indigo"] {
-    --primary-color: #484c7f;
+    --primary-color: #2f2f2fff;
     --secondary-color: #F19828;
     --chart-color1: #484c7f;
     --chart-color2: #F19828;

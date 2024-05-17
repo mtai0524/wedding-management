@@ -368,6 +368,34 @@ body[b-46wl8ed11m] {
         text-shadow: 0 0 20px #888, 0 0 30px #888, 0 0 40px #00f, 0 0 7px #00f, 0 0 8px #00f, 0 0 10px #00f, 0 0 15px #00f;
     }
 }
+/* _content/CodeFirst/Components/PermissionComponent.razor.rz.scp.css */
+@keyframes moveup-b-20aaenkchm {
+    0% {
+        bottom: -25px;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes movedown-b-20aaenkchm {
+    0% {
+        top: -25px;
+        opacity: 0;
+    }
+
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+body[b-20aaenkchm]{
+    background-color:red;
+}
 /* _content/CodeFirst/Views/Shared/MainLayout.razor.rz.scp.css */
 /* _content/CodeFirst/Views/Shared/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-2k9yn0y450] {

@@ -290,8 +290,8 @@
     <Authorized>
  
 
-<a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createHallModal">
-    Thêm món ăn
+<a class="btn btn-primary" style="font-size:13px;padding:7px;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createHallModal">
+    Thêm thực đơn
 </a>
 <MudTable @key="@change" Items="@listHall" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<MenuEntity,bool>(FilterFunc1)" Style="margin-bottom:15px">
     <ToolBarContent>
@@ -936,7 +936,7 @@
   
             <AuthorizeView Context="Cate" Roles=@roleNameAu>
     <Authorized>
-                    <a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createCateModal">
+                    <a class="btn btn-primary" style="font-size:13px;padding:7px;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createCateModal">
                         Thêm thể loại
                     </a>
             <MudTable Items="@listCate" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<MenuCategory,bool>(FilterFunc3)" Style="margin-bottom:15px">
