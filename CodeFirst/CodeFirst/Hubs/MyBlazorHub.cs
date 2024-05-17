@@ -15,16 +15,17 @@ namespace CodeFirst.Hubs
         private readonly ApplicationDbContext _context;
         private readonly ProjectService _projectService;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
 
 
-        public MyBlazorHub(ApplicationDbContext context, ProjectService projectService, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public MyBlazorHub(ApplicationDbContext context, ProjectService projectService, UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _projectService = projectService;
             _userManager = userManager;
-            _roleManager = roleManager;
         }
+
+
+
         public async Task SendProjectCreatedNotification()
         {
             List<Project> projectList = await _projectService.GetAllProjects();
@@ -37,7 +38,7 @@ namespace CodeFirst.Hubs
         }
         public async Task SendTaskCreatedNotification()
         {
-            var userService = new UserListService(_context, _userManager, _roleManager);
+            var userService = new UserListService(_context, _userManager);
             var listUser = await userService.GetListUserAndRole();
             await Clients.All.SendAsync("ApplicationUserWithRoleSignalR", listUser);
         }

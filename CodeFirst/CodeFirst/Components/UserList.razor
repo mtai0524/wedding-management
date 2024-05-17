@@ -61,6 +61,8 @@
         return false;
     }
 }
+<AuthorizeView Roles="administrator system">
+    <Authorized Context="authContext">
 <MudTable Items="@listUser" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<ApplicationUserWithRole,bool>(FilterFunc1)" Style="margin-bottom:15px">
     <ToolBarContent>
         <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách người dùng</MudText>
@@ -133,7 +135,11 @@
         <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
     </PagerContent>
 </MudTable>
-
+    </Authorized>
+    <NotAuthorized Context="notAuthContext">
+        <h3>You are not authorized to view this content.</h3>
+    </NotAuthorized>
+</AuthorizeView>
 
 <div class="modal fade" id="detailUserModal" tabindex="-1" aria-labelledby="detailUserModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

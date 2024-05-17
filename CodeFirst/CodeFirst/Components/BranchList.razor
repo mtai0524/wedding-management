@@ -135,7 +135,7 @@
                 }
                 else
                 {
-                    <span>Khong co quyen them</span>
+                    <span style="color:red">Khong co quyen them</span>
                 }
             </div>
             @if (CanAdd)
@@ -398,6 +398,11 @@
         // string newUrl = $"/branch-list/delete-branch/{branchId}";
         // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
         branchIdToDelete = branchId;
+        if (!CanDelete)
+        {
+            await jsRuntime.InvokeVoidAsync("alert", $"Không có quyền xóa");
+            return;
+        }
         bool? result = await mbox.Show();
         if (result == true)
         {
@@ -473,6 +478,8 @@
                     <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                 </button>
             </div>
+            @if (CanEdit)
+            {
             <div class="modal-body">
                 @if (showAlertCreateBranch)
                 {
@@ -542,8 +549,14 @@
                     }
                 </a>
 
-            </div>
+                </div>
+            }
+            else
+            {
+                <span style="color:red;margin:10px">Khong co quyen cap nhat</span>
+            }
         </div>
+
     </div>
 </div>
 
@@ -714,7 +727,7 @@
             return;
         }
 
-        roleId = await _userListService.GetRoleId(getUserCurrBlazor);
+        roleId = await _authorizeService.GetRoleId(getUserCurrBlazor);
         var permissions = await _context.Permission
             .Where(p => p.RoleId == roleId && p.Type == "branch")
             .ToListAsync();

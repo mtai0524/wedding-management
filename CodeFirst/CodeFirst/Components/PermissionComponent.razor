@@ -5,6 +5,7 @@
 @using CodeFirst.Models.Entities
 @using CodeFirst.Service
 @using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.SignalR.Client
 @using Microsoft.EntityFrameworkCore
 @inject UserManager<ApplicationUser> UserManager
 @inject RoleManager<IdentityRole> RoleManager
@@ -19,6 +20,10 @@
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
+    
+<AuthorizeView Roles="administrator system">
+    <Authorized Context="authContext">
+
 <EditForm Model="@permission" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
@@ -82,12 +87,18 @@
 
 
 </EditForm>
-
+    </Authorized>
+    <NotAuthorized Context="notAuthContext">
+        <h3>You are not authorized to view this content.</h3>
+    </NotAuthorized>
+</AuthorizeView>
 @code {
     private Permission permission = new Permission { Type = "branch" };
     private List<IdentityRole> roles = new List<IdentityRole>();
     private List<string> selectedRoleIds = new List<string>();
     private Dictionary<string, Permission> rolePermissions = new Dictionary<string, Permission>();
+    private HubConnection hubConnection;
+
     protected override async Task OnInitializedAsync()
     {
         var user = await _userBlazorService.GetCurrentUser();

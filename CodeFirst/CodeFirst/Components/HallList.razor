@@ -32,6 +32,7 @@
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UserBlazorService _userBlazorService
+@inject AuthorizeService _authorizeService
 @code {
     [Inject] protected PreloadService PreloadService { get; set; }
 
@@ -63,9 +64,7 @@
     }
 </style>
 
-<a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createHallModal">
-    Thêm sảnh cưới
-</a>
+
 
 
 <div class="modal fade" id="createHallModal" tabindex="-1" aria-labelledby="createHallModalLabel" aria-hidden="true" @onclick="() => CloseMe(false)">
@@ -273,7 +272,13 @@
         isError = false;
     }
 }
-
+@if (running == true)
+{
+    <AuthorizeView Context="Hall" Roles=@roleNameAu>
+    <Authorized>
+            <a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createHallModal">
+                Thêm sảnh cưới
+            </a>
 <MudTable @key="@change" Items="@listHall" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Hall,bool>(FilterFunc1)" Style="margin-bottom:15px">
     <ToolBarContent>
         <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách sảnh</MudText>
@@ -315,7 +320,12 @@
             <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
         </PagerContent>
     </MudTable>
-
+    </Authorized>
+    <NotAuthorized>
+        <h3>You are not authorized to view this content.</h3>
+    </NotAuthorized>
+</AuthorizeView>
+}
     @* modal delete mud blazor *@
     <MudMessageBox @ref="mbox" Title="Xác nhận xóa" CancelText="Hủy thao tác">
         <MessageContent>
@@ -657,7 +667,7 @@
     [Inject] private ApplicationDbContext _context { get; set; }
     string imageUrl { get; set; }
     private List<Hall> listHall { get; set; } = new List<Hall>();
-   
+
     static int change = 0;
     protected async Task LoadBranches()
     {
@@ -665,8 +675,12 @@
         await _hubContext.Clients.All.SendAsync("HallCreated", listHall);
     }
     private HubConnection hubConnection;
+    string roleNameAu = "";
+    bool running = false;
     protected override async Task OnInitializedAsync()
     {
+        roleNameAu = await _authorizeService.UserHasPermission("hall");
+
         selectBranches = await _context.Branch.ToListAsync();
         getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
         hubConnection = new HubConnectionBuilder()
@@ -688,6 +702,7 @@
             await hubConnection.StartAsync();
             Console.WriteLine("SignalR connection started successfully blazor.");
             await LoadBranches();
+            running = true;
         }
         catch (Exception ex)
         {

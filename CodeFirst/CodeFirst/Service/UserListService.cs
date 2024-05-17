@@ -10,26 +10,13 @@ namespace CodeFirst.Service
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public UserListService(ApplicationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public UserListService(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             this._context = context;
             _userManager = userManager;
-            _roleManager = roleManager;
         }
-        public async Task<string> GetRoleId(ApplicationUser userCurr)
-        {
-            string roleId = "";
-            var role = await _userManager.GetRolesAsync(userCurr);
-            var roleName = role.FirstOrDefault();
-            var identityRole = await _roleManager.FindByNameAsync(roleName);
-            if (identityRole != null)
-            {
-                roleId = identityRole.Id;
-            }
-            return roleId;
-        }
+      
         public async Task<string> GetRoleUserByUserId(string id)
         {
             var user = await _userManager.FindByIdAsync(id);

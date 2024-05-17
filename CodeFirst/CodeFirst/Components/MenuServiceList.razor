@@ -32,6 +32,8 @@
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UserBlazorService _userBlazorService
+@inject AuthorizeService _authorizeService
+
 @code {
     [Inject] protected PreloadService PreloadService { get; set; }
 
@@ -65,9 +67,7 @@
             }
         </style>
 
-        <a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createHallModal">
-            Thêm dịch vụ
-        </a>
+      
 
 
         <div class="modal fade" id="createHallModal" tabindex="-1" aria-labelledby="createHallModalLabel" aria-hidden="true" @onclick="() => CloseMe(false)">
@@ -269,7 +269,14 @@
 
 
         }
-
+        @if (running == true)
+        {
+  
+            <AuthorizeView Context="Cate" Roles=@roleNameAu>
+    <Authorized>
+                    <a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createHallModal">
+                        Thêm dịch vụ
+                    </a>
         <MudTable @key="@change" Items="@listHall" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<ServiceEntity,bool>(FilterFunc1)" Style="margin-bottom:15px">
             <ToolBarContent>
                 <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách dịch vụ</MudText>
@@ -308,7 +315,12 @@
                 <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
             </PagerContent>
         </MudTable>
-
+                </Authorized>
+                <NotAuthorized>
+                    <h3>You are not authorized to view this content.</h3>
+                </NotAuthorized>
+            </AuthorizeView>
+        }
         @* modal delete mud blazor *@
         <MudMessageBox @ref="mbox" Title="Xác nhận xóa" CancelText="Hủy thao tác">
             <MessageContent>
@@ -644,8 +656,13 @@
             await _hubContext.Clients.All.SendAsync("ServiceCreated", listHall);
         }
         private HubConnection hubConnection;
+            string roleNameAu = "";
+        bool running = false;
+
         protected override async Task OnInitializedAsync()
         {
+            roleNameAu = await _authorizeService.UserHasPermission("menu");
+
             selectBranches = await _context.ServiceCategory.ToListAsync();
             getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
             hubConnection = new HubConnectionBuilder()
@@ -655,26 +672,28 @@
 
             hubConnection.On<List<ServiceEntity>>("ServiceCreated", signalRListHall =>
             {
-            InvokeAsync(() =>
-            {
-            listHall = signalRListHall;
-            StateHasChanged();
-            });
-            });
+                InvokeAsync(() =>
+                {
+                    listHall = signalRListHall;
+                    StateHasChanged();
+                 });
+                });
             hubConnection.On<List<ServiceCategory>>("ServiceCateCreated", signalRListCate =>
             {
-            InvokeAsync(() =>
-            {
-            listCate = signalRListCate;
-            StateHasChanged();
-            });
-            });
+                InvokeAsync(() =>
+                {
+                    listCate = signalRListCate;
+                    StateHasChanged();
+                    });
+                });
             try
             {
-            await hubConnection.StartAsync();
-            Console.WriteLine("SignalR connection started successfully blazor.");
-            await LoadBranches();
-            await LoadCates();
+                await hubConnection.StartAsync();
+                Console.WriteLine("SignalR connection started successfully blazor.");
+                await LoadBranches();
+                await LoadCates();
+                running = true;
+
             }
             catch (Exception ex)
             {
@@ -686,9 +705,7 @@
         }
     </MudTabPanel>
     <MudTabPanel Text="Thể loại" ToolTip="Danh sách thể loại">
-        <a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createCateModal">
-            Thêm thể loại
-        </a>
+     
         <div class="modal fade" id="createCateModal" tabindex="-1" aria-labelledby="createCateModalLabel" aria-hidden="true" @onclick="() => CloseMe(false)">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
@@ -857,7 +874,15 @@
 
         }
         }
-        <MudTable Items="@listCate" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<ServiceCategory,bool>(FilterFunc3)" Style="margin-bottom:15px">
+        @if (running == true)
+        {
+
+            <AuthorizeView Context="Cate" Roles=@roleNameAu>
+                <Authorized>
+                <a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createCateModal">
+                    Thêm thể loại
+                </a>
+            <MudTable Items="@listCate" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<ServiceCategory,bool>(FilterFunc3)" Style="margin-bottom:15px">
             <ToolBarContent>
                 <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách thể loại</MudText>
                 <MudSpacer />
@@ -884,7 +909,12 @@
                     <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
                 </PagerContent>
             </MudTable>
-
+                </Authorized>
+                <NotAuthorized>
+                    <h3>You are not authorized to view this content.</h3>
+                </NotAuthorized>
+            </AuthorizeView>
+            }
             @* modal delete mud blazor *@
             <MudMessageBox @ref="mbox" Title="Xác nhận xóa" CancelText="Hủy thao tác">
                 <MessageContent>

@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
             return Ok(new { message = "Đã hủy đơn hàng" });
         }
 
-    [HttpPost("checked")]
+        [HttpPost("checked")]
         public IActionResult CheckDuplicateInvoice([FromBody] CheckDuplicateInvoice request)
         {
             var existingInvoice = _context.Invoice.FirstOrDefault(i =>

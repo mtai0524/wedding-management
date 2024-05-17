@@ -1,5 +1,7 @@
 ﻿@page "/"
-
+@using CodeFirst.Service
+@inject UserBlazorService _userBlazorService
+@inject NavigationManager NavigationManager
 <PageTitle>Index</PageTitle>
 <style>
     .big-script p{
@@ -103,4 +105,15 @@
     </div>
 </div>
 
-
+@code{
+    protected override async Task OnInitializedAsync()
+    {
+        var getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
+        if (getUserCurrBlazor == null)
+        {
+            NavigationManager.NavigateTo("/Identity/Account/Login?ReturnUrl=%2F");
+            return;
+        }
+    }
+}
+ 
