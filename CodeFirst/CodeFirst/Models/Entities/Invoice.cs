@@ -9,7 +9,7 @@ namespace CodeFirst.Models.Entities
         [Display(Name = "Id hóa đơn")]
 
         [Key]
-        public int? InvoiceID { get; set; }
+        public int InvoiceID { get; set; }
         [Display(Name = "Id khách hàng")]
 
         public string? UserId { get; set; } // nhớ get set dùm

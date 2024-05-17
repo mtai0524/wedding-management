@@ -7,6 +7,8 @@
 @using CodeFirst.Models
 @using CodeFirst.Models.Entities
 @using CodeFirst.Service
+@using DinkToPdf
+@using DinkToPdf.Contracts
 @using Microsoft.AspNetCore.Components.Web.Extensions
 @inherits Microsoft.AspNetCore.Components.ComponentBase
 @inject NavigationManager NavigationManager
@@ -14,6 +16,7 @@
 @inject CloudinaryService _cloudinaryService;
 @using Microsoft.AspNetCore.Components.Forms
 @using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.SignalR
 @using Microsoft.AspNetCore.SignalR.Client
 @using Microsoft.EntityFrameworkCore
@@ -21,6 +24,7 @@
 <PageTitle>Branches management</PageTitle>
 <Preload />
 @using BlazorBootstrap
+@using System.Text
 
 <MudThemeProvider />
 <MudDialogProvider />
@@ -33,13 +37,17 @@
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UserBlazorService _userBlazorService
+@inject UserManager<ApplicationUser> _userManager
+@inject UserBlazorService _userBlazorService
+@inject IConverter _pdfConverter;
+
 @code {
     [Inject] protected PreloadService PreloadService { get; set; }
 
     private List<MudBlazor.BreadcrumbItem> _items = new List<MudBlazor.BreadcrumbItem>
     {
         new MudBlazor.BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
-        new MudBlazor.BreadcrumbItem("Chi nhánh", href: "/branch-list", icon: Icons.Material.Filled.LocationCity),
+        new MudBlazor.BreadcrumbItem("Hóa đơn", href: "/invoice", icon: Icons.Material.Filled.Pages),
     };
 }
 
@@ -70,45 +78,76 @@
 
 
 
+<style>
+   /*  a[title] {
+        position: relative;
+    }
+
+        a[title]:after {
+
+            content: attr(title);
+            display: inline-block;
+            padding: 0.2em 0.6em;
+            white-space: nowrap;
+            background-color: #555;
+            color: #fff;
+            font-style: normal;
+            font-family: sans-serif;
+            font-size: 0.8em;
+            position: absolute;
+            top: 150%;
+            left: 50%;
+            transform: translate(-50%, -1em);
+            z-index: 1;
+        } */
+        a:hover{
+            color: #F19828;
+        }
+</style>
 
 
-
-<MudTable Items="@listBranch" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Invoice,bool>(FilterFunc1)" Style="margin-bottom:15px">
+<MudTable @key="@change" Items="@listInvoice" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Invoice,bool>(FilterFunc1)" Style="margin-bottom:15px">
     <ToolBarContent>
-        <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách chi nhánh</MudText>
+        <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách hóa đơn</MudText>
         <MudSpacer />
-        <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm tên chi nhánh, địa chỉ" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
+        <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm id hóa đơn, email, ngày đặt" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
     </ToolBarContent>
     <HeaderContent>
 
-        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.InvoiceID)">Tên chi nhánh</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.Branch.Name)">Địa chỉ</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.Hall.Name)">Mô tả</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.User.Email)">Số điện thoại</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.InvoiceDate)">Số điện thoại</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.AttendanceDate)">Số điện thoại</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.InvoiceID)">ID</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.Branch.Name)">Chi nhánh</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.Hall.Name)">Sảnh</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.User.Email)">Email</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.InvoiceDate)">Ngày đặt</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.AttendanceDate)">Ngày đến</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.OrderStatus)">Trạng thái</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.PaymentStatus)">Thanh toán</MudTableSortLabel></MudTh>
         <MudTh>Chức năng</MudTh>
     </HeaderContent>
     <RowTemplate>
-        <MudTd DataLabel="Name">@context.InvoiceID</MudTd>
-            <MudTd DataLabel="Address">@context.Branch.Name</MudTd>
-            <MudTd DataLabel="Description">@context.Hall.Name</MudTd>
-            <MudTd DataLabel="Phone">@context.User.Email</MudTd>
-            <MudTd DataLabel="Phone">@context.InvoiceDate</MudTd>
-            <MudTd DataLabel="Phone">@context.AttendanceDate</MudTd>
+        <MudTd DataLabel="InvoiceID">
+            <a @onclick="() => GetInvoiceById(context.InvoiceID)" title="Chi tiết hóa đơn" style="font-weight:800;color: #F19828;cursor:pointer" data-bs-toggle="modal" data-bs-target="#viewInvoiceModal">
+                @context.InvoiceID
+            </a>
+        </MudTd>
+            <MudTd DataLabel="Branch">@context.Branch.Name</MudTd>
+            <MudTd DataLabel="Hall">@context.Hall.Name</MudTd>
+            <MudTd DataLabel="Email">@context.User.Email</MudTd>
+            <MudTd DataLabel="InvoiceDate">@context.InvoiceDate?.ToString("dd/MM/yyyy")</MudTd>
+            <MudTd DataLabel="AttendanceDate">@context.AttendanceDate?.ToString("dd/MM/yyyy")</MudTd>
+            <MudTd DataLabel="OrderStatus">@context.OrderStatus</MudTd>
+            <MudTd DataLabel="PaymentStatus">@((context.PaymentStatus ?? false) ? "Đã thanh toán" : "Chưa thanh toán")</MudTd>
+
             <MudTd>
-                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#viewBranchModal" @onclick="() => NavigateToInvoiceDetail(context.InvoiceID)">
-                    Chi tiết
-                </MudButton>
-                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" >
-                    Xóa
+                <MudButton title="Xóa hóa đơn" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@context.InvoiceID))">
+                Xóa
                 </MudButton>
         </MudTd>
 
     </RowTemplate>
 
     <PagerContent>
-        <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
+        <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 10, 20, 30 ,50, 100 }" />
     </PagerContent>
 </MudTable>
 
@@ -121,6 +160,453 @@
         <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Xóa dữ liệu!</MudButton>
     </YesButton>
 </MudMessageBox>
+
+    <div class="modal fade" id="viewInvoiceModal" aria-labelledby="viewInvoiceModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewInvoiceModalLabel">Chi tiết hóa đơn</h5>
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="invoice-container">
+                        <a id="btnExportPdf" class="btn btn-success" @onclick="() => GenerateAndDownloadInvoicePDFAsync(detailInvoice.InvoiceID)">
+                            <i style="color:white" class="icofont-printer"></i> <span style="color:white">  In hóa đơn</span>
+                        </a>
+                        <div style="margin-left:90px;text-align:center;">
+                            <h4>Hóa đơn thanh toán</h4>
+                        </div>
+
+                        <hr />
+                        <div class="d-flex flex-row">
+
+                            <dt class="col-sm-2">
+                                ID hóa đơn
+                            </dt>
+                            <dd class="col-sm-10">
+                                @detailInvoice.InvoiceID
+                        </dd>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <dt class="col-sm-2">Email</dt>
+                        <dd class="col-sm-10">
+                            @(string.IsNullOrEmpty(detailInvoice?.User?.Email) ? "Empty" : detailInvoice.User.Email)
+                        </dd>
+                    </div>
+
+
+                    <div class="d-flex flex-row">
+                        <dt class="col-sm-2">
+                            Họ tên
+                        </dt>
+                        <dd class="col-sm-10">
+                            @(string.IsNullOrEmpty(detailInvoice?.User?.LastName) ? "Empty" : detailInvoice.User.LastName) @(string.IsNullOrEmpty(detailInvoice?.User?.FirstName) ? "Empty" : detailInvoice.User.FirstName)
+                        </dd>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <dt class="col-sm-2">
+                            Số điện thoại
+                        </dt>
+                        <dd class="col-sm-10">
+                            @detailInvoice.PhoneNumber
+                        </dd>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <dt class="col-sm-2">
+                            Ghi chú
+                        </dt>
+                        <dd class="col-sm-10">
+                            @(string.IsNullOrEmpty(detailInvoice.Note) ? "Không có ghi chú" : detailInvoice.Note)
+                        </dd>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <dt class="col-sm-2">
+                            Ngày đặt hóa đơn
+                        </dt>
+                        <dd class="col-sm-10">
+                            @detailInvoice.InvoiceDate
+                        </dd>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <dt class="col-sm-2">
+                            Ngày đến tham dự
+                        </dt>
+                        <dd class="col-sm-10">
+                            @detailInvoice.AttendanceDate
+                        </dd>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <dt class="col-sm-2">
+                            Chi nhánh
+                        </dt>
+                        <dd class="col-sm-10">
+                        <dd class="col-sm-10">
+                                @(string.IsNullOrEmpty(detailInvoice?.Branch?.Name) ? "Empty" : detailInvoice.Branch.Name)
+                        </dd>
+
+                        </dd>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <dt class="col-sm-2">
+                            Sảnh cưới
+                        </dt>
+                        <dd class="col-sm-10">
+                            <div class="hall-info">
+                                <div class="hall-name">  @(string.IsNullOrEmpty(detailInvoice?.Hall?.Name) ? "Empty" : detailInvoice.Hall.Name)</div>
+                                <div class="hall-price">
+                                    <div class="hall-price">
+                                        @(detailInvoice?.Hall?.Price.HasValue ?? false
+                                            ? string.Format("{0:0,0} VND", detailInvoice.Hall.Price.Value)
+                                            : "Empty")
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+                    </div>
+
+                    <dt class="col-sm-12 d-flex justify-content-center align-items-center">
+                        <span>Danh sách thực đơn</span>
+                    </dt>
+                    <dd class="col-sm-12">
+                        <hr />
+                        @if (detailInvoice.OrderMenus != null)
+                        {
+                            int count = 0;
+                            @foreach (var orderMenu in detailInvoice.OrderMenus)
+                            {
+                                count++;
+                                <div class="menu-item">
+                                    <span style="margin-right:10px;font-weight:bold">@count</span>
+                                    <div class="menu-name">@orderMenu.MenuEntity.Name</div>
+                                    <div class="menu-price">@string.Format("{0:0,0} VND", orderMenu.MenuEntity.Price)</div>
+                                </div>
+                                <hr />
+                            }
+                        }
+                    </dd>
+
+                    <dt class="col-sm-12 d-flex justify-content-center align-items-center">
+                        <span>Danh sách dịch vụ</span>
+                    </dt>
+                    <dd class="col-sm-12">
+                        <hr />
+                        @if (detailInvoice.OrderServices != null)
+                        {
+                            int count = 0;
+                            @foreach (var orderService in @detailInvoice.OrderServices)
+                            {
+                                count++;
+                                <div class="service-item">
+                                    <span style="margin-right:10px;font-weight:bold">@count</span>
+
+                                    <span class="service-name">@orderService.ServiceEntity.Name</span>
+                                    <span class="service-price">@string.Format("{0:0,0} VND", orderService.ServiceEntity.Price.Value)</span>
+                                </div>
+                                <hr />
+                            }
+                        }
+                    </dd>
+                    <div class="d-flex flex-row">
+                        <dt class="col-sm-2">
+                            Tổng thanh toán
+                        </dt>
+                        <dd class="col-sm-10">
+                            <span class="total-amount float-right">@string.Format("{0:0,0} VND", detailInvoice.TotalBeforeDiscount)</span>
+                        </dd>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <dt class="col-sm-2">
+                            Tổng sau khi giảm
+                        </dt>
+                        <dd class="col-sm-10">
+                            <span class="total-amount float-right">@string.Format("{0:0,0} VND", detailInvoice.Total)</span>
+                        </dd>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*view detail invoice*@
+@code{
+    Invoice detailInvoice { get; set; } = new Invoice();
+    public async Task GetInvoiceById(int invoiceId){
+        _context.ChangeTracker.Clear();
+
+        var invoice =  _context.Invoice
+           .Include(i => i.Branch)
+           .Include(i => i.Hall)
+           .Include(i => i.User)
+           .Include(i => i.OrderMenus)
+           .ThenInclude(o => o.MenuEntity) // nạp MenuEntity
+             .Include(i => i.OrderServices)
+           .ThenInclude(o => o.ServiceEntity) // nạp ServiceEntity
+           .FirstOrDefault(m => m.InvoiceID == invoiceId);
+        if(invoice != null)
+        {
+            detailInvoice = invoice;
+        }
+
+    }
+}
+@code{
+    private Invoice GetInvoiceFromDatabase(int? invoiceId)
+    {
+        // Sử dụng Entity Framework để lấy hóa đơn từ cơ sở dữ liệu
+        var invoice = _context.Invoice
+                    .Include(i => i.Branch)
+                    .Include(i => i.Hall)
+                    .FirstOrDefault(i => i.InvoiceID == invoiceId);
+        return invoice;
+    }
+    public async Task<byte[]> GenerateInvoiceBytesAsync(int? invoiceId)
+    {
+        var invoice = GetInvoiceFromDatabase(invoiceId);
+        var user = await _userManager.FindByIdAsync(invoice.UserId);
+        var userCurrent = await _userBlazorService.GetCurrentUser();
+        if (invoice == null)
+        {
+        }
+
+        // Lấy danh sách OrderMenu dựa trên InvoiceID
+        var orderMenus = _context.OrderMenu.Where(om => om.InvoiceID == invoiceId).ToList();
+        var orderServices = _context.OrderService.Where(om => om.InvoiceID == invoiceId).ToList();
+        int count = 1;
+        var htmlBuilder1 = new StringBuilder();
+        var htmlBuilder2 = new StringBuilder();
+        var htmlBuilder3 = new StringBuilder();
+
+        htmlBuilder3.Append("<tr>");
+        htmlBuilder3.Append("<td>" + invoice.Hall.Name + "</td>");
+        htmlBuilder3.Append("<td style='text-align: right;'>" + string.Format("{0:0,0}", invoice.Hall.Price) + " VND</td>");
+        htmlBuilder3.Append("</tr>");
+
+        foreach (var orderMenu in orderMenus)
+        {
+            var menuEntity = _context.MenuEntity.Find(orderMenu.MenuId);
+            if (menuEntity != null)
+            {
+                htmlBuilder1.Append("<tr>");
+                htmlBuilder1.Append("<td>" + count + "</td>");
+                htmlBuilder1.Append("<td>" + menuEntity.Name + "</td>");
+                htmlBuilder1.Append("<td style='text-align: right;'>" + string.Format("{0:0,0}", menuEntity.Price) + " VND</td>");
+                htmlBuilder1.Append("</tr>");
+                count++;
+            }
+        }
+        count = 1;
+        foreach (var orderService in orderServices)
+        {
+            var serviceEntity = _context.ServiceEntity.Find(orderService.ServiceId);
+            if (serviceEntity != null)
+            {
+                htmlBuilder2.Append("<tr>");
+                htmlBuilder2.Append("<td>" + count + "</td>"); // Thêm số thứ tự
+                htmlBuilder2.Append("<td>" + serviceEntity.Name + "</td>");
+                htmlBuilder2.Append("<td style='text-align: right;'>" + string.Format("{0:0,0}", serviceEntity.Price) + " VNĐ</td>");
+                htmlBuilder2.Append("</tr>");
+                count++;
+
+            }
+        }
+
+        var html = @"
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice</title>
+    <style>
+  table {
+width: 100%;
+        border-collapse: collapse;
+        border: none; /* Xóa border của table */
+    }
+
+    th, td {
+        border: none; /* Xóa border của các ô */
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+        body {
+            position: relative;
+        }
+
+        .invoice, td,th {
+            letter-spacing: 1px;
+        }
+.idinvoice{
+            letter-spacing: 0.5px;
+            position: absolute;
+            top: 10px;
+            left: 1px;
+            font-size: 13px;
+color:gray;
+}
+        .date-time {
+            letter-spacing: 0.5px;
+            position: absolute;
+            top: 10px;
+            right: 1px;
+            font-size: 13px;
+color:gray;
+
+        }
+
+
+h1, h2, h5{
+    text-align:center;
+}
+span{
+font-weight:bold;
+}
+    </style>
+</head>
+<body>
+<br/>
+    <h2 class=""invoice"">Hóa đơn thanh toán</h2>
+    <p class=""idinvoice"">Mã hóa đơn: " + invoice.InvoiceID + @"</p>
+    <p class=""invoice""><span>Email khách hàng: </span>" + user.Email + @"</p>
+    <p class=""invoice""><span>Chi nhánh: </span>" + invoice.Branch.Name + @"</p>
+    <p class=""invoice""><span>Nhân viên in hóa đơn: </span>" + userCurrent.ToString() + @"</p>
+    <p class=""date-time"">Ngày giờ: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + @"</p>
+
+
+   <h2 class=""invoice"">Sảnh đã đặt</h2>
+    <table>
+        <tr>
+            <th>Tên sảnh</th>
+            <th style='text-align: right;'>Giá</th>
+        </tr>";
+
+        html += htmlBuilder3.ToString();
+
+        html += @"
+    </table>
+
+    <h2 class=""invoice"">Danh sách món ăn đã đặt</h2>
+    <table>
+        <tr>
+            <th style='width:30px'>STT</th>
+            <th>Tên món ăn</th>
+            <th style='text-align: right;'>Giá</th>
+        </tr>";
+
+        html += htmlBuilder1.ToString();
+
+        html += @"
+    </table>
+
+    <h2 class=""invoice"">Danh sách dịch vụ đã đặt</h2>
+    <table>
+        <tr>
+            <th style='width:30px'>STT</th>
+
+            <th>Tên dịch vụ</th>
+            <th style='text-align: right;'>Giá</th>
+        </tr>";
+
+        html += htmlBuilder2.ToString();
+
+        html += @"
+    </table>
+<table>
+<tr>
+<th style='background-color:white;text-align: left;' class=""invoice"">Tổng tiền:</th>
+    <td style='color:red;text-align: right;' class=""invoice"">" + string.Format("{0:0,0}", invoice.TotalBeforeDiscount) + " VNĐ" + @"</td>
+</tr>
+<tr>
+<th style='background-color:white;text-align: left;' class=""invoice"">Tổng tiền sau khi giảm giá:</th>
+
+    <td style='color:red;text-align: right;' class=""invoice"">" + string.Format("{0:0,0}", invoice.Total) + " VNĐ" + @"</td>
+</tr>
+</table>
+<h2>~ Xin hẹn gặp lại quý khách ~</h2>
+</body>
+</html>
+";
+
+        var globalSettings = new GlobalSettings
+            {
+                ColorMode = ColorMode.Color,
+                PaperSize = PaperKind.A5,
+                Orientation = DinkToPdf.Orientation.Portrait,
+                Margins = new MarginSettings { Top = 10 },
+            };
+
+        var objectSettings = new ObjectSettings
+            {
+                PagesCount = true,
+                HtmlContent = html,
+                WebSettings = { DefaultEncoding = "utf-8" },
+                HeaderSettings = { FontName = "Tahoma", FontSize = 12, Right = "", Line = true },
+            };
+
+        var pdf = new HtmlToPdfDocument()
+            {
+                GlobalSettings = globalSettings,
+                Objects = { objectSettings }
+            };
+
+        var pdfBytes = _pdfConverter.Convert(pdf);
+
+        return pdfBytes;
+    }
+        public async Task GenerateAndDownloadInvoicePDFAsync(int? invoiceId)
+        {
+            var pdfBytes = await GenerateInvoiceBytesAsync(invoiceId);
+
+            if (pdfBytes != null && pdfBytes.Length > 0)
+            {
+                // Tạo tên file PDF dựa trên invoiceId
+                var pdfFileName = $"HoaDonNhaHang_{invoiceId}.pdf";
+
+                // Gọi hàm JavaScript để tải xuống tệp PDF
+                await jsRuntime.InvokeVoidAsync("downloadPDF", pdfBytes, pdfFileName);
+            }
+        }
+
+
+    public async Task<string> GenerateInvoicePDFAsync(int invoiceId)
+    {
+        // Tạo tên file PDF dựa trên invoiceId
+        var pdfFileName = $"HoaDonNhaHang_{invoiceId}.pdf";
+
+        // Tạo mảng byte của tệp PDF từ phương thức GenerateInvoicePDFAsync
+        byte[] pdfBytes = await GenerateInvoiceBytesAsync(invoiceId);
+
+        if (pdfBytes != null && pdfBytes.Length > 0)
+        {
+            // Lưu mảng byte vào đĩa cứng với tên file cụ thể
+            File.WriteAllBytes(pdfFileName, pdfBytes);
+
+            // Trả về tên file PDF để có thể chuyển hướng đến URL
+            return pdfFileName;
+        }
+        else
+        {
+            // Trả về null nếu không có dữ liệu tệp PDF
+            return null;
+        }
+    }
+}
 @code {
     private void NavigateToInvoiceDetail(int? invoiceId)
     {
@@ -136,10 +622,18 @@
 
     private bool FilterFunc(Invoice branch, string searchString)
     {
+
         if (string.IsNullOrWhiteSpace(searchString))
             return true;
+        var dateString = branch.InvoiceDate?.ToString("dd/MM/yyyy"); // Thay "MM/dd/yyyy" bằng định dạng ngày mong muốn
+        if (dateString.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (branch.InvoiceID.ToString().Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
         if (branch.User.Email.Contains(searchString, StringComparison.OrdinalIgnoreCase))
             return true;
+     
         return false;
     }
 }
@@ -152,46 +646,80 @@
 @code {
     MudMessageBox mbox { get; set; }
     [Inject] private IDialogService DialogService { get; set; }
-    private int branchIdToDelete;
+    private int invoiceIdToDelete;
 
-    private async void ShowConfirmModal(int branchId)
+    private async void ShowConfirmModal(int invoiceId)
     {
+        _context.ChangeTracker.Clear();
+
         // string newUrl = $"/branch-list/delete-branch/{branchId}";
         // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
-        branchIdToDelete = branchId;
+        invoiceIdToDelete = invoiceId;
         bool? result = await mbox.Show();
         if (result == true)
         {
-            // await DeleteBranch(branchIdToDelete);
-            Snackbar.Add("Đã xóa chi nhánh gòi đóa!", Severity.Success);
-            await _notiService.SendNotification(getUserCurrBlazor, "đã xóa chi nhánh");
+            await DeleteInvoice(invoiceIdToDelete);
+            await LoadBranches();
+            Snackbar.Add("Đã xóa!", Severity.Success);
         }
         else
         {
         }
-        StateHasChanged();
+        _context.ChangeTracker.Clear();
+    }
+    async Task DeleteInvoice(int invoiceId)
+    {
+        _context.ChangeTracker.Clear();
+
+        change++;
+        var invoiceToDelete = await _context.Invoice.FindAsync(invoiceId);
+        if (invoiceToDelete != null)
+        {
+            var orderMenus = _context.OrderMenu.Where(om => om.InvoiceID == invoiceId);
+            var orderServices = _context.OrderService.Where(om => om.InvoiceID == invoiceId);
+            var code = _context.InvoiceCode.Where(om => om.InvoiceId == invoiceId);
+
+            // Xóa các bản ghi OrderMenu
+            _context.OrderMenu.RemoveRange(orderMenus);
+            _context.InvoiceCode.RemoveRange(code);
+            _context.OrderService.RemoveRange(orderServices);
+
+            // Xóa hóa đơn
+            _context.Invoice.Remove(invoiceToDelete);
+
+            await _context.SaveChangesAsync();
+            change++;
+
+            await LoadBranches();
+            change++;
+            _context.ChangeTracker.Clear();
+        }
     }
 }
 
 
-
-
-
-
-
 @* init blazor *@
 @code {
+    static int change = 0;
     ApplicationUser getUserCurrBlazor;
 
     List<Branch> Branches { get; set; } = new List<Branch>();
     [Inject] private ApplicationDbContext _context { get; set; }
     string imageUrl { get; set; }
-    private List<Invoice> listBranch { get; set; } = new List<Invoice>();
+    private List<Invoice> listInvoice { get; set; } = new List<Invoice>();
   
     protected async Task LoadBranches()
     {
-        listBranch = await _context.Invoice.Include(x=>x.Branch).Include(x=>x.Hall).Include(x=> x.User).ToListAsync();
-        await _hubContext.Clients.All.SendAsync("InvoiceCreated", listBranch);
+        var listInvoice = await _context.Invoice
+       .Include(x => x.Branch)
+       .Include(x => x.Hall)
+       .Include(x => x.User)
+       .ToListAsync();
+            change++;
+
+        await _hubContext.Clients.All.SendAsync("InvoiceCreated", listInvoice);
+        change++;
+
         StateHasChanged(); // Luu data da thay doi
     }
     private HubConnection hubConnection;
@@ -203,6 +731,14 @@
             .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
             .Build();
 
+        hubConnection.On<List<Invoice>>("InvoiceCreated", signalRInvoice =>
+       {
+           InvokeAsync(() =>
+           {
+               listInvoice = signalRInvoice;
+               StateHasChanged();
+           });
+       });
 
         try
         {
@@ -219,3 +755,91 @@
     }
 
 }
+<style>
+    
+    /* CSS */
+    .invoice-container {
+        padding: 20px;
+        margin: 20px;
+        width: 100%;
+        border-radius: 0px;
+        box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+        -webkit-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+        -moz-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+        box-shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.26);
+        border: 3px solid black;
+        margin-bottom: 7px;
+    }
+
+    .menu-item, .service-item {
+        margin-bottom: 10px;
+    }
+
+    .menu-name, .service-name {
+        font-weight: bold;
+    }
+
+    .total-amount {
+        font-size: 18px;
+        color: #FF5733;
+    }
+
+    .hall-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .hall-name {
+        flex: 1; /* Tên sảnh chiếm toàn bộ không gian trái */
+    }
+
+    .hall-price {
+        flex: 1; /* Giá sảnh chiếm toàn bộ không gian phải */
+        text-align: right; /* Căn giữa bên phải */
+    }
+
+    .menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu-name {
+        flex: 1; /* Tên món ăn chiếm toàn bộ không gian bên trái */
+    }
+
+    .menu-price {
+        flex: 1; /* Giá món ăn chiếm toàn bộ không gian bên phải */
+        text-align: right; /* Căn giữa bên phải */
+    }
+
+    .service-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .service-name {
+        flex: 1; /* Tên món ăn chiếm toàn bộ không gian bên trái */
+    }
+
+    .service-price {
+        flex: 1; /* Giá món ăn chiếm toàn bộ không gian bên phải */
+        text-align: right; /* Căn giữa bên phải */
+    }
+
+    .total-amount.float-right {
+        float: right;
+        font-size: 18px;
+        color: #FF5733;
+    }
+
+    #btnExportPdf {
+        float: right;
+    }
+
+    .invoice-container {
+        margin: 0 auto;
+    }
+</style>

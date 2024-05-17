@@ -73,12 +73,12 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="Type">Type:</label>
+                <label for="Type">Chọn loại:</label>
                 <select class="form-control" @bind="permission.Type" @bind:event="oninput" @onchange="OnTypeChanged">
-                    <option value="branch">Branch</option>
-                    <option value="hall">Hall</option>
-                    <option value="menu">Menu</option>
-                    <option value="service">Service</option>
+                    <option value="branch">Chi nhánh</option>
+                    <option value="hall">Sảnh cưới</option>
+                    <option value="menu">Thực đơn</option>
+                    <option value="service">Dịch vụ</option>
                 </select>
             </div>
             <button type="submit" style="border-radius:0px;margin-top:20px;width:100%;box-shadow: -0.3rem 0.4rem 0 rgba(29, 30, 28, 0.26);background-color:white; color:black;border:3px solid black;font-weight:800" class="btn btn-primary">Lưu thay đổi</button>

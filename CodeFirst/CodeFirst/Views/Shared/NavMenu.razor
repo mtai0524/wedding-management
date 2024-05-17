@@ -10,7 +10,7 @@
     {
             <div class="nav-item px-3">
                 <NavLink class="nav-link" href="permission">
-                    <i class="fa-solid fa-shield-halved fs-6 me-3"></i> Quyền hạn
+                    <i class="fa-solid fa-shield-halved fs-6 me-3"></i> Quyền truy cập
                 </NavLink>
             </div>
             <div class="nav-item px-3">
@@ -68,7 +68,7 @@
     @if (IsInRole("admin") || IsInRole("administrator system") || IsInRole("employee"))
     {
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Admin/Invoice">
+            <NavLink class="nav-link" href="invoice">
                 <i class="fa-solid fa-file-invoice-dollar fs-6 me-3"></i> Hóa đơn
             </NavLink>
         </div>
