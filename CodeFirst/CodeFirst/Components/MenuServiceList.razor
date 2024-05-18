@@ -79,73 +79,80 @@
                             <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        @if (showAlertCreateBranch)
-                        {
-                            <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(false))">Tạo thành công!</MudAlert>
-                        }
-                        @if (showAlert)
-                        {
-                            <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" IsOpen="@showAlert" CloseIconClicked="() => showAlert = false">
-                                Vui lòng nhập đầy đủ thông tin!
-                            </MudAlert>
-                        }
+                        @if (CanAdd)
+                    {
+                        <div class="modal-body">
+                            @if (showAlertCreateBranch)
+                            {
+                                <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(false))">Tạo thành công!</MudAlert>
+                            }
+                            @if (showAlert)
+                            {
+                                <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" IsOpen="@showAlert" CloseIconClicked="() => showAlert = false">
+                                    Vui lòng nhập đầy đủ thông tin!
+                                </MudAlert>
+                            }
 
-                        <form method="post" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label for="branchName" class="form-label">Tên dịch vụ</label>
-                                <input type="text" class="form-control" id="branchName" @bind="BranchName">
-                            </div>
-                            <div class="mb-3">
-                                <label for="branchDescription" class="form-label">Mô tả</label>
-                                <textarea class="form-control" id="branchDescription" rows="3" @bind="BranchDescription"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="hallPrice" class="form-label">Giá</label>
-                                <input type="number" class="form-control" id="hallPrice" rows="3" @bind="HallPrice"></input>
-                            </div>
-                            <div class="mb-3">
-                                <label for="branchImage" class="form-label">Ảnh</label>
-                                <InputFile id="branchImage" class="form-control" OnChange="OnInputFileChange" />
-                            </div>
-                            <div class="mb-3">
-                                <label for="branchId" class="form-label">Chọn thể loại</label>
-                                <select class="form-control" id="branchId" @bind="SelectedBranchId">
-                                    @foreach (var branch in selectBranches)
-                                    {
-                                        <option value="@branch.CategoryId">@branch.Name</option>
-                                    }
-                                </select>
-                            </div>
-                        </form>
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="branchName" class="form-label">Tên dịch vụ</label>
+                                    <input type="text" class="form-control" id="branchName" @bind="BranchName">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="branchDescription" class="form-label">Mô tả</label>
+                                    <textarea class="form-control" id="branchDescription" rows="3" @bind="BranchDescription"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="hallPrice" class="form-label">Giá</label>
+                                    <input type="number" class="form-control" id="hallPrice" rows="3" @bind="HallPrice"></input>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="branchImage" class="form-label">Ảnh</label>
+                                    <InputFile id="branchImage" class="form-control" OnChange="OnInputFileChange" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="branchId" class="form-label">Chọn thể loại</label>
+                                    <select class="form-control" id="branchId" @bind="SelectedBranchId">
+                                        @foreach (var branch in selectBranches)
+                                        {
+                                            <option value="@branch.CategoryId">@branch.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" @onclick="CancelAndDelData" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
+                            <a class="btn btn-success" @onclick="CreateBranch">
+                                @if (isLoading)
+                                {
+                                    <i class="fa-solid fa-spinner fa-spin" style="color: white; margin-right:5px"></i>
+                                    <span>Đang tải... </span>
+                                }
+                                else if (isSavedSuccessfully)
+                                {
+                                    <i class="fa-solid fa-check" style="color: white; margin-right:5px"></i>
+                                    <span>Đã lưu thành công!</span>
+                                }
+                                else if (isError)
+                                {
+                                    <i class="fa-solid fa-ban" style="margin-right:5px"></i>
+                                    <span>Bị lỗi hình ảnh!</span>
+                                }
+                                else
+                                {
+                                    <i class="fa-solid fa-plus" style="color: white; margin-right:5px"></i>
+                                    <span>Lưu</span>
+                                }
+                            </a>
 
                     </div>
-                    <div class="modal-footer d-flex justify-content-between">
-                        <button type="button" class="btn btn-secondary" @onclick="CancelAndDelData" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
-                        <a class="btn btn-success" @onclick="CreateBranch">
-                            @if (isLoading)
-                            {
-                                <i class="fa-solid fa-spinner fa-spin" style="color: white; margin-right:5px"></i>
-                                <span>Đang tải... </span>
-                            }
-                            else if (isSavedSuccessfully)
-                            {
-                                <i class="fa-solid fa-check" style="color: white; margin-right:5px"></i>
-                                <span>Đã lưu thành công!</span>
-                            }
-                            else if (isError)
-                            {
-                                <i class="fa-solid fa-ban" style="margin-right:5px"></i>
-                                <span>Bị lỗi hình ảnh!</span>
-                            }
-                            else
-                            {
-                                <i class="fa-solid fa-plus" style="color: white; margin-right:5px"></i>
-                                <span>Lưu</span>
-                            }
-                        </a>
-
-                    </div>
+                    }
+                    else
+                    {
+                        <span style="color:red;margin:10px">Không có quyền thêm</span>
+                    }
                 </div>
             </div>
         </div>
