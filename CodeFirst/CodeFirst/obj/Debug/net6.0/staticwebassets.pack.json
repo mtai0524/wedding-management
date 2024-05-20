@@ -1,1475 +1,1475 @@
 {
   "Files": [
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CodeFirst.bundle.scp.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CodeFirst.bundle.scp.css",
       "PackagePath": "staticwebassets\\CodeFirst.bundle.scp.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\apexcharts.bundle.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\apexcharts.bundle.js",
       "PackagePath": "staticwebassets\\admin_assets\\bundles\\apexcharts.bundle.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\dataTables.bundle.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\dataTables.bundle.js",
       "PackagePath": "staticwebassets\\admin_assets\\bundles\\dataTables.bundle.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\libscripts.bundle.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\libscripts.bundle.js",
       "PackagePath": "staticwebassets\\admin_assets\\bundles\\libscripts.bundle.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\nestable.bundle.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\bundles\\nestable.bundle.js",
       "PackagePath": "staticwebassets\\admin_assets\\bundles\\nestable.bundle.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\login.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\login.css",
       "PackagePath": "staticwebassets\\admin_assets\\css\\login.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\my-task.style.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\my-task.style.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\css\\my-task.style.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\mystyle.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\css\\mystyle.css",
       "PackagePath": "staticwebassets\\admin_assets\\css\\mystyle.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont-1.eot",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont-1.eot",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont-1.eot"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.eot",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.eot",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont.eot"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.svg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.svg",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont.svg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.ttf",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.ttf",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont.ttf"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.woff",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\fonts\\icofont\\fonts\\icofont.woff",
       "PackagePath": "staticwebassets\\admin_assets\\fonts\\icofont\\fonts\\icofont.woff"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\ZKZg.gif",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\ZKZg.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\ZKZg.gif"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\bear-removebg.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\bear-removebg.png",
       "PackagePath": "staticwebassets\\admin_assets\\images\\bear-removebg.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cat.gif",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cat.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\cat.gif"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cf.gif",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\cf.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\cf.gif"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\change-log.svg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\change-log.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\change-log.svg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\document\\menu-close.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\document\\menu-close.png",
       "PackagePath": "staticwebassets\\admin_assets\\images\\document\\menu-close.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\document\\menu-open.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\document\\menu-open.png",
       "PackagePath": "staticwebassets\\admin_assets\\images\\document\\menu-open.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\dragonball.gif",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\dragonball.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\dragonball.gif"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\forgot-password.svg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\forgot-password.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\forgot-password.svg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\1.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\1.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\1.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\10.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\10.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\10.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\2.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\2.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\2.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\3.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\3.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\3.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\4.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\4.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\4.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\5.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\5.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\5.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\6.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\6.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\6.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\7.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\7.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\7.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\8.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\8.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\8.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\9.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\gallery\\9.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\gallery\\9.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\google.svg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\google.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\google.svg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\interview.svg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\interview.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\interview.svg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar1.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar1.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar1.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar10.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar10.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar10.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar11.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar11.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar11.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar12.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar12.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar12.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar2.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar2.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar2.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar3.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar3.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar3.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar4.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar4.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar4.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar5.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar5.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar5.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar6.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar6.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar6.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar7.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar7.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar7.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar8.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar8.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar8.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar9.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\avatar9.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\avatar9.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\profile_av.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\lg\\profile_av.png",
       "PackagePath": "staticwebassets\\admin_assets\\images\\lg\\profile_av.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\login-img.svg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\login-img.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\login-img.svg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\mario.gif",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\mario.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\mario.gif"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\no-data.svg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\no-data.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\no-data.svg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\not_found.svg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\not_found.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\not_found.svg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\pika.gif",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\pika.gif",
       "PackagePath": "staticwebassets\\admin_assets\\images\\pika.gif"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\profile_av.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\profile_av.png",
       "PackagePath": "staticwebassets\\admin_assets\\images\\profile_av.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\task-view.svg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\task-view.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\task-view.svg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\verify.svg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\verify.svg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\verify.svg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a1.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a1.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a1.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a2.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a2.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a2.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a3.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a3.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a3.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a4.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\a4.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\a4.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar1.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar1.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar1.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar10.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar10.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar10.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar11.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar11.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar11.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar12.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar12.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar12.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar2.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar2.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar2.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar3.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar3.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar3.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar4.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar4.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar4.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar5.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar5.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar5.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar6.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar6.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar6.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar7.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar7.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar7.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar8.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar8.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar8.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar9.jpg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\images\\xs\\avatar9.jpg",
       "PackagePath": "staticwebassets\\admin_assets\\images\\xs\\avatar9.jpg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\chart-apex.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\chart-apex.js",
       "PackagePath": "staticwebassets\\admin_assets\\page\\chart-apex.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\hr.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\hr.js",
       "PackagePath": "staticwebassets\\admin_assets\\page\\hr.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\index.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\index.js",
       "PackagePath": "staticwebassets\\admin_assets\\page\\index.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\task.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\page\\task.js",
       "PackagePath": "staticwebassets\\admin_assets\\page\\task.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\datatables\\dataTables.bootstrap5.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\datatables\\dataTables.bootstrap5.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\datatables\\dataTables.bootstrap5.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\datatables\\responsive.dataTables.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\datatables\\responsive.dataTables.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\datatables\\responsive.dataTables.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\fullcalendar\\main.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\fullcalendar\\main.min.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\fullcalendar\\main.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\fullcalendar\\main.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\fullcalendar\\main.min.js",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\fullcalendar\\main.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\nestable\\jquery-nestable.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\nestable\\jquery-nestable.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\nestable\\jquery-nestable.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\parsleyjs\\css\\parsley.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\parsleyjs\\css\\parsley.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\parsleyjs\\css\\parsley.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\parsleyjs\\js\\parsley.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\parsleyjs\\js\\parsley.js",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\parsleyjs\\js\\parsley.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\prism\\prism.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\prism\\prism.css",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\prism\\prism.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\prism\\prism.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\plugin\\prism\\prism.js",
       "PackagePath": "staticwebassets\\admin_assets\\plugin\\prism\\prism.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\template.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\admin_assets\\template.js",
       "PackagePath": "staticwebassets\\admin_assets\\template.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\css\\argon-dashboard.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\css\\argon-dashboard.css",
       "PackagePath": "staticwebassets\\assets_argon\\css\\argon-dashboard.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\css\\argon-dashboard.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\css\\argon-dashboard.css.map",
       "PackagePath": "staticwebassets\\assets_argon\\css\\argon-dashboard.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\css\\argon-dashboard.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\css\\argon-dashboard.min.css",
       "PackagePath": "staticwebassets\\assets_argon\\css\\argon-dashboard.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\css\\nucleo-icons.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\css\\nucleo-icons.css",
       "PackagePath": "staticwebassets\\assets_argon\\css\\nucleo-icons.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\css\\nucleo-svg.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\css\\nucleo-svg.css",
       "PackagePath": "staticwebassets\\assets_argon\\css\\nucleo-svg.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo-icons.eot",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo-icons.eot",
       "PackagePath": "staticwebassets\\assets_argon\\fonts\\nucleo-icons.eot"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo-icons.svg",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo-icons.svg",
       "PackagePath": "staticwebassets\\assets_argon\\fonts\\nucleo-icons.svg"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo-icons.ttf",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo-icons.ttf",
       "PackagePath": "staticwebassets\\assets_argon\\fonts\\nucleo-icons.ttf"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo-icons.woff",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo-icons.woff",
       "PackagePath": "staticwebassets\\assets_argon\\fonts\\nucleo-icons.woff"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo-icons.woff2",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo-icons.woff2",
       "PackagePath": "staticwebassets\\assets_argon\\fonts\\nucleo-icons.woff2"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo.eot",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo.eot",
       "PackagePath": "staticwebassets\\assets_argon\\fonts\\nucleo.eot"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo.ttf",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo.ttf",
       "PackagePath": "staticwebassets\\assets_argon\\fonts\\nucleo.ttf"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo.woff",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo.woff",
       "PackagePath": "staticwebassets\\assets_argon\\fonts\\nucleo.woff"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo.woff2",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\fonts\\nucleo.woff2",
       "PackagePath": "staticwebassets\\assets_argon\\fonts\\nucleo.woff2"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\argon-dashboard.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\argon-dashboard.js",
       "PackagePath": "staticwebassets\\assets_argon\\js\\argon-dashboard.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\argon-dashboard.js.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\argon-dashboard.js.map",
       "PackagePath": "staticwebassets\\assets_argon\\js\\argon-dashboard.js.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\argon-dashboard.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\argon-dashboard.min.js",
       "PackagePath": "staticwebassets\\assets_argon\\js\\argon-dashboard.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\core\\bootstrap.bundle.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\core\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\assets_argon\\js\\core\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\core\\bootstrap.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\core\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\assets_argon\\js\\core\\bootstrap.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\core\\popper.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\core\\popper.min.js",
       "PackagePath": "staticwebassets\\assets_argon\\js\\core\\popper.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\plugins\\Chart.extension.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\plugins\\Chart.extension.js",
       "PackagePath": "staticwebassets\\assets_argon\\js\\plugins\\Chart.extension.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\plugins\\bootstrap-notify.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\plugins\\bootstrap-notify.js",
       "PackagePath": "staticwebassets\\assets_argon\\js\\plugins\\bootstrap-notify.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\plugins\\chartjs.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\plugins\\chartjs.min.js",
       "PackagePath": "staticwebassets\\assets_argon\\js\\plugins\\chartjs.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\plugins\\perfect-scrollbar.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\plugins\\perfect-scrollbar.min.js",
       "PackagePath": "staticwebassets\\assets_argon\\js\\plugins\\perfect-scrollbar.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\plugins\\smooth-scrollbar.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\js\\plugins\\smooth-scrollbar.min.js",
       "PackagePath": "staticwebassets\\assets_argon\\js\\plugins\\smooth-scrollbar.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_alert.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_alert.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_alert.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_avatars.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_avatars.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_avatars.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_badge.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_badge.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_badge.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_breadcrumbs.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_breadcrumbs.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_breadcrumbs.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_buttons.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_buttons.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_buttons.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_cards.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_cards.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_cards.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_dark-version.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_dark-version.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_dark-version.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_dropdown.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_dropdown.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_dropdown.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_dropup.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_dropup.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_dropup.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_fixed-plugin.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_fixed-plugin.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_fixed-plugin.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_footer.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_footer.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_footer.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_forms.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_forms.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_forms.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_gradients.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_gradients.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_gradients.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_header.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_header.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_header.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_info-areas.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_info-areas.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_info-areas.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_misc.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_misc.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_misc.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_nav.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_nav.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_nav.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_navbar-vertical.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_navbar-vertical.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_navbar-vertical.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_navbar.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_navbar.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_navbar.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_pagination.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_pagination.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_pagination.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_popovers.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_popovers.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_popovers.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_progress.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_progress.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_progress.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_rtl.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_rtl.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_rtl.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_social-buttons.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_social-buttons.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_social-buttons.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_tables.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_tables.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_tables.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_tilt.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_tilt.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_tilt.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_timeline.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_timeline.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_timeline.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_tooltips.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_tooltips.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_tooltips.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_typography.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_typography.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_typography.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_utilities-extend.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_utilities-extend.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_utilities-extend.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_utilities.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_utilities.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_utilities.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_variables.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\_variables.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\_variables.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_accordion.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_accordion.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_accordion.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_alert.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_alert.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_alert.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_badge.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_badge.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_badge.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_breadcrumb.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_breadcrumb.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_breadcrumb.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_button-group.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_button-group.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_button-group.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_buttons.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_buttons.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_buttons.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_card.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_card.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_card.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_carousel.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_carousel.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_carousel.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_close.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_close.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_close.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_containers.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_containers.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_containers.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_dropdown.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_dropdown.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_dropdown.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_forms.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_forms.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_forms.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_functions.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_functions.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_functions.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_grid.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_grid.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_grid.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_helpers.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_helpers.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_helpers.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_images.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_images.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_images.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_list-group.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_list-group.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_list-group.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_maps.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_maps.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_maps.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_mixins.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_mixins.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_mixins.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_modal.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_modal.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_modal.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_nav.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_nav.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_nav.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_navbar.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_navbar.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_navbar.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_offcanvas.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_offcanvas.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_offcanvas.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_pagination.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_pagination.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_pagination.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_placeholders.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_placeholders.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_placeholders.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_popover.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_popover.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_popover.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_progress.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_progress.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_progress.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_reboot.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_reboot.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_reboot.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_root.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_root.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_root.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_spinners.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_spinners.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_spinners.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_tables.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_tables.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_tables.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_toasts.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_toasts.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_toasts.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_tooltip.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_tooltip.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_tooltip.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_transitions.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_transitions.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_transitions.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_type.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_type.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_type.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_utilities.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_utilities.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_utilities.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_variables.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_variables.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\_variables.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\bootstrap-grid.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\bootstrap-grid.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\bootstrap-grid.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\bootstrap-reboot.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\bootstrap-reboot.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\bootstrap-reboot.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\bootstrap-utilities.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\bootstrap-utilities.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\bootstrap-utilities.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\bootstrap.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\bootstrap.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\bootstrap.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_floating-labels.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_floating-labels.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_floating-labels.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-check.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-check.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-check.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-control.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-control.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-control.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-range.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-range.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-range.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-select.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-select.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-select.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-text.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-text.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_form-text.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_input-group.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_input-group.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_input-group.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_labels.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_labels.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_labels.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_validation.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_validation.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\forms\\_validation.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_clearfix.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_clearfix.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_clearfix.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_color-bg.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_color-bg.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_color-bg.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_colored-links.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_colored-links.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_colored-links.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_position.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_position.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_position.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_ratio.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_ratio.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_ratio.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_stacks.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_stacks.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_stacks.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_stretched-link.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_stretched-link.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_stretched-link.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_text-truncation.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_text-truncation.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_text-truncation.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_visually-hidden.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_visually-hidden.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_visually-hidden.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_vr.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_vr.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\helpers\\_vr.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_alert.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_alert.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_alert.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_backdrop.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_backdrop.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_backdrop.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_border-radius.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_border-radius.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_border-radius.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_box-shadow.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_box-shadow.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_box-shadow.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_breakpoints.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_breakpoints.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_breakpoints.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_buttons.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_buttons.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_buttons.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_caret.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_caret.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_caret.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_clearfix.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_clearfix.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_clearfix.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_color-scheme.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_color-scheme.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_color-scheme.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_container.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_container.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_container.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_deprecate.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_deprecate.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_deprecate.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_forms.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_forms.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_forms.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_gradients.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_gradients.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_gradients.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_grid.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_grid.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_grid.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_image.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_image.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_image.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_list-group.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_list-group.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_list-group.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_lists.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_lists.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_lists.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_pagination.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_pagination.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_pagination.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_reset-text.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_reset-text.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_reset-text.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_resize.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_resize.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_resize.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_table-variants.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_table-variants.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_table-variants.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_text-truncate.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_text-truncate.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_text-truncate.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_transition.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_transition.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_transition.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_utilities.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_utilities.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_utilities.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_visually-hidden.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_visually-hidden.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\mixins\\_visually-hidden.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\utilities\\_api.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\utilities\\_api.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\utilities\\_api.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\vendor\\_rfs.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\bootstrap\\vendor\\_rfs.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\bootstrap\\vendor\\_rfs.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\cards\\card-background.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\cards\\card-background.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\cards\\card-background.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\cards\\card-carousel.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\cards\\card-carousel.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\cards\\card-carousel.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\custom\\_styles.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\custom\\_styles.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\custom\\_styles.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\custom\\_variables.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\custom\\_variables.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\custom\\_variables.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_form-check.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_form-check.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\forms\\_form-check.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_form-select.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_form-select.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\forms\\_form-select.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_form-switch.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_form-switch.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\forms\\_form-switch.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_forms.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_forms.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\forms\\_forms.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_input-group.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_input-group.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\forms\\_input-group.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_inputs.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_inputs.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\forms\\_inputs.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_labels.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\forms\\_labels.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\forms\\_labels.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\mixins\\_badge.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\mixins\\_badge.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\mixins\\_badge.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\mixins\\_colored-shadows.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\mixins\\_colored-shadows.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\mixins\\_colored-shadows.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\mixins\\_hover.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\mixins\\_hover.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\mixins\\_hover.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\mixins\\_social-buttons.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\mixins\\_social-buttons.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\mixins\\_social-buttons.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\mixins\\mixins.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\mixins\\mixins.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\mixins\\mixins.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\_flatpickr.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\_flatpickr.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\_flatpickr.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\_nouislider.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\_nouislider.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\_nouislider.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\_perfect-scrollbar.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\_perfect-scrollbar.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\_perfect-scrollbar.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\_prism.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\_prism.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\_prism.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\plugins.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\plugins.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\plugins\\free\\plugins.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\theme.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\theme.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\theme.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_animations.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_animations.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_animations.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_avatars.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_avatars.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_avatars.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_badge.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_badge.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_badge.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_breadcrumb.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_breadcrumb.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_breadcrumb.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_cards-extend.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_cards-extend.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_cards-extend.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_cards.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_cards.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_cards.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_choices.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_choices.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_choices.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_dark-version.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_dark-version.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_dark-version.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_dropdowns.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_dropdowns.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_dropdowns.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_fixed-plugin.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_fixed-plugin.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_fixed-plugin.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_form-switch.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_form-switch.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_form-switch.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_full-calendar.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_full-calendar.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_full-calendar.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_header.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_header.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_header.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_info-areas.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_info-areas.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_info-areas.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_misc-extend.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_misc-extend.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_misc-extend.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_misc.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_misc.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_misc.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_navbar-vertical.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_navbar-vertical.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_navbar-vertical.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_navbar.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_navbar.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_navbar.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_pagination.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_pagination.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_pagination.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_rtl.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_rtl.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_rtl.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_social-buttons.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_social-buttons.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_social-buttons.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_table.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_table.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_table.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_timeline.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_timeline.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_timeline.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_utilities-extend.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_utilities-extend.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_utilities-extend.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_utilities.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_utilities.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_utilities.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_virtual-reality.scss",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\assets_argon\\scss\\argon-dashboard\\variables\\_virtual-reality.scss",
       "PackagePath": "staticwebassets\\assets_argon\\scss\\argon-dashboard\\variables\\_virtual-reality.scss"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\home.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\home.css",
       "PackagePath": "staticwebassets\\css\\home.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\mydesign.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\mydesign.css",
       "PackagePath": "staticwebassets\\css\\mydesign.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylesortable.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylesortable.css",
       "PackagePath": "staticwebassets\\css\\stylesortable.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylethongke.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\css\\stylethongke.css",
       "PackagePath": "staticwebassets\\css\\stylethongke.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\favicon.ico",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\bear.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\bear.png",
       "PackagePath": "staticwebassets\\images\\bear.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\bear2.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\bear2.png",
       "PackagePath": "staticwebassets\\images\\bear2.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\border-collie.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\border-collie.png",
       "PackagePath": "staticwebassets\\images\\border-collie.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\cat.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\cat.png",
       "PackagePath": "staticwebassets\\images\\cat.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\chicken.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\chicken.png",
       "PackagePath": "staticwebassets\\images\\chicken.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\dog.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\dog.png",
       "PackagePath": "staticwebassets\\images\\dog.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\favicon.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\favicon.png",
       "PackagePath": "staticwebassets\\images\\favicon.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\mouse_pointer.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\mouse_pointer.png",
       "PackagePath": "staticwebassets\\images\\mouse_pointer.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\mychuot.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\mychuot.png",
       "PackagePath": "staticwebassets\\images\\mychuot.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\rabbit.png",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\images\\rabbit.png",
       "PackagePath": "staticwebassets\\images\\rabbit.png"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\chat.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\chat.js",
       "PackagePath": "staticwebassets\\js\\chat.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\notification.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\notification.js",
       "PackagePath": "staticwebassets\\js\\notification.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.js",
       "PackagePath": "staticwebassets\\js\\qrcode.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\qrcode.min.js",
       "PackagePath": "staticwebassets\\js\\qrcode.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\site.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\tasktodo.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\tasktodo.js",
       "PackagePath": "staticwebassets\\js\\tasktodo.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js",
       "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\css\\bootstrap.min.css",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\css\\bootstrap.min.css"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\css\\bootstrap.min.css.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\js\\bootstrap.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.js",
       "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.min.js",
       "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.min.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.min.map",
       "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.min.map"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.js",
       "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.slim.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.min.js",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.min.js",
       "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.slim.min.js"
     },
     {
-      "Id": "T:\\SavePer\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.min.map",
+      "Id": "T:\\Nop khoa luan tot nghiep\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\vendor\\jquery\\jquery.slim.min.map",
       "PackagePath": "staticwebassets\\vendor\\jquery\\jquery.slim.min.map"
     },
     {
