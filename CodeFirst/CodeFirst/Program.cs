@@ -61,6 +61,7 @@ builder.Services.AddScoped<MyBlazorHub>(); // phải add vào mới gọi chatHu
 
 // đăng ký service
 builder.Services.AddScoped<EmployeeService>();
+builder.Services.AddScoped<GreetingService>();
 builder.Services.AddScoped<UserListService>();
 builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddScoped<ChatService>();
