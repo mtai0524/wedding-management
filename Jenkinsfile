@@ -1,33 +1,53 @@
 pipeline {
     agent any
 
-     tools {
-        // Sử dụng dotnetsdk thay vì dotNetCore
-        dotnetsdk 'dotnetcore-sdk'
+    tools {
+        dotnetsdk '6.0'
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                // Clone the repository with depth 1
+                git(url: 'https://github.com/mtai0524/Computer-Science.git', branch: 'main', depth: 1)
+            }
+        }
+        stage('Restore') {
+            steps {
+                dir('CodeFirst/CodeFirst') { // Điều chỉnh đường dẫn này
+                    sh 'dotnet restore'
+                }
+            }
+        }
         stage('Build') {
             steps {
-                echo 'Building...'
-                // Chạy lệnh để xây dựng dự án.NET
-                sh './dotnet build --configuration Release'
+                dir('CodeFirst/CodeFirst') { // Điều chỉnh đường dẫn này
+                    sh 'dotnet build --configuration Release'
+                }
             }
         }
-
         stage('Test') {
             steps {
-                echo 'Testing...'
-                // Thêm các lệnh kiểm tra nếu cần
+                dir('CodeFirst/CodeFirst') { // Điều chỉnh đường dẫn này
+                    sh 'dotnet test --configuration Release'
+                }
             }
         }
-
         stage('Publish') {
             steps {
-                echo 'Publishing...'
-                // Lệnh để xuất bản ứng dụng
-                sh './dotnet publish --configuration Release --output./publish'
+                dir('CodeFirst/CodeFirst') { // Điều chỉnh đường dẫn này
+                    sh 'dotnet publish --configuration Release --output./publish'
+                }
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'SUCCESSFUL'
+        }
+        failure {
+            echo 'FAILED'
         }
     }
 }
