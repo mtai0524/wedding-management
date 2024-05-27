@@ -3,12 +3,6 @@ pipeline {
 
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Clone the repository with depth 1
-                git(url: 'https://github.com/mtai0524/Computer-Science.git', branch: 'main', depth: 1)
-            }
-        }
         stage('Restore') {
             steps {
                 dir('CodeFirst/CodeFirst') { // Điều chỉnh đường dẫn này
