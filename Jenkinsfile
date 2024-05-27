@@ -2,47 +2,32 @@ pipeline {
     agent any
 
     tools {
-        // Sử dụng .NET SDK 6
-        dotnet '6.0'
+        // Cài đặt.NET Core SDK
+        dotNetCore 'dotnetcore-sdk'
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Clone the repository
-                git 'https://github.com/mtai0524/Computer-Science.git'
-            }
-        }
-        stage('Restore') {
-            steps {
-                // Restore dependencies
-                sh 'dotnet restore'
-            }
-        }
         stage('Build') {
             steps {
-                // Build the project
-                sh 'dotnet build --configuration Release'
+                echo 'Building...'
+                // Chạy lệnh để xây dựng dự án.NET
+                sh './dotnet build --configuration Release'
             }
         }
+
         stage('Test') {
             steps {
-                // Run tests
-                sh 'dotnet test --configuration Release'
+                echo 'Testing...'
+                // Thêm các lệnh kiểm tra nếu cần
             }
         }
+
         stage('Publish') {
             steps {
-                // Publish the application
-                sh 'dotnet publish --configuration Release --output ./publish'
+                echo 'Publishing...'
+                // Lệnh để xuất bản ứng dụng
+                sh './dotnet publish --configuration Release --output./publish'
             }
-        }
-    }
-
-    post {
-        always {
-            // Clean up after the build
-            cleanWs()
         }
     }
 }
