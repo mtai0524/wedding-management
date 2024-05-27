@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    tools {
-        // Cài đặt.NET Core SDK
-        dotNetCore 'dotnetcore-sdk'
+     tools {
+        // Sử dụng dotnetsdk thay vì dotNetCore
+        dotnetsdk 'dotnetcore-sdk'
     }
 
     stages {
