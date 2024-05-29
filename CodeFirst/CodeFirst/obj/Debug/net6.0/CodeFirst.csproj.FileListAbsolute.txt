@@ -9953,3 +9953,4 @@ T:\Nop khoa luan tot nghiep\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.
 T:\Nop khoa luan tot nghiep\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\CodeFirst.genruntimeconfig.cache
 T:\Nop khoa luan tot nghiep\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\ref\CodeFirst.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Debug\net6.0\scopedcss\Components\PermissionComponent.razor.rz.scp.css
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Debug\net6.0\appsettings.Production.json

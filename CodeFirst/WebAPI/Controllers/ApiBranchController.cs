@@ -25,6 +25,7 @@ namespace WebAPI.Controllers
             _context = context;
         }
         // GET: api/<ApiBranchController>
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Branch>>> GetUnlockedBranchesWithHalls()
         {

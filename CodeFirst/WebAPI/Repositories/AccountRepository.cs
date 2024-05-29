@@ -28,7 +28,7 @@ namespace WebAPI.Repositories
             this._cloud = cloud;
         }
 
-        public async Task<string> SignInAsync(SignInModel model)
+        public async Task<string> SignInAsync(SignInModel model) // đăng nhập
         {
             var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
 
@@ -51,7 +51,6 @@ namespace WebAPI.Repositories
             var lastName = user.LastName;
             var avatar = user.Avatar;
             var phone = user.PhoneNumber;
-
             // Thêm thông tin username và email vào danh sách claims
             var authClaims = new List<Claim>
             {
@@ -60,6 +59,7 @@ namespace WebAPI.Repositories
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.Name, firstName),
                 new Claim(ClaimTypes.Surname, lastName),
+                new Claim(ClaimTypes.Country, avatar),
             };
 
 
@@ -83,7 +83,7 @@ namespace WebAPI.Repositories
         }
 
 
-        public async Task<IdentityResult> SignUpAsync(SignUpModel model)
+        public async Task<IdentityResult> SignUpAsync(SignUpModel model) // đăng kí
         {
             if (model.Password != model.ConfirmPassword)
             {

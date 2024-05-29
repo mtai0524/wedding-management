@@ -1,33 +1,44 @@
 pipeline {
     agent any
 
+    environment {
+        DOTNET_CLI_HOME = "C:\\Program Files\\dotnet"
+    }
 
     stages {
-        stage('Restore') {
+        stage('Checkout') {
             steps {
-                dir('CodeFirst/CodeFirst') { // Điều chỉnh đường dẫn này
-                    sh 'dotnet restore'
-                }
+                checkout scm
             }
         }
+
         stage('Build') {
             steps {
-                dir('CodeFirst/CodeFirst') { // Điều chỉnh đường dẫn này
-                    sh 'dotnet build --configuration Release'
+                script {
+                    // Restoring dependencies
+                    //bat "cd ${DOTNET_CLI_HOME} && dotnet restore"
+                    bat "dotnet restore"
+
+                    // Building the application
+                    bat "dotnet build --configuration Release"
                 }
             }
         }
+
         stage('Test') {
             steps {
-                dir('CodeFirst/CodeFirst') { // Điều chỉnh đường dẫn này
-                    sh 'dotnet test --configuration Release'
+                script {
+                    // Running tests
+                    bat "dotnet test --no-restore --configuration Release"
                 }
             }
         }
+
         stage('Publish') {
             steps {
-                dir('CodeFirst/CodeFirst') { // Điều chỉnh đường dẫn này
-                    sh 'dotnet publish --configuration Release --output./publish'
+                script {
+                    // Publishing the application
+                    bat "dotnet publish --no-restore --configuration Release --output .\\publish"
                 }
             }
         }
@@ -35,10 +46,7 @@ pipeline {
 
     post {
         success {
-            echo 'SUCCESSFUL'
-        }
-        failure {
-            echo 'FAILED'
+            echo 'Build, test, and publish successful!'
         }
     }
 }

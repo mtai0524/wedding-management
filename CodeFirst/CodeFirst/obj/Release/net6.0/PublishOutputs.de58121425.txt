@@ -1,6 +1,7 @@
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\CodeFirst.exe
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\appsettings.json
+E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\appsettings.Production.json
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\libman.json
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\libwkhtmltox.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\PubTmp\Out\libwkhtmltox.dylib
