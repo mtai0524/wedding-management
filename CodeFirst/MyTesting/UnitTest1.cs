@@ -46,17 +46,17 @@ namespace MyTesting
             // Assert
             Assert.Equal("Hello, World!", result);
         }
-        [Fact]
-        public void GetGreeting_ReturnsHello()
-        {
-            // Arrange
-            var service = new GreetingService();
+        // [Fact]
+        // public void GetGreeting_ReturnsHello()
+        // {
+        //     // Arrange
+        //     var service = new GreetingService();
 
-            // Act
-            var result = service.GetGreeting();
+        //     // Act
+        //     var result = service.GetGreeting();
 
-            // Assert
-            Assert.Equal("Hello123", result); // Thay đổi giá trị mong đợi để test case fail
-        }
+        //     // Assert
+        //     Assert.Equal("Hello123", result); // Thay đổi giá trị mong đợi để test case fail
+        // }
     }
 }
