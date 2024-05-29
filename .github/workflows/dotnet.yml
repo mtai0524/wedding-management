@@ -13,7 +13,7 @@ jobs:
 
     env:
       BUILD_CONFIG: 'Release'
-      SOLUTION: 'Solution1/UnitTest.sln'
+      SOLUTION: 'CodeFirst/CodeFirst.sln'
 
     runs-on: ubuntu-latest
 
