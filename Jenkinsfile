@@ -17,10 +17,10 @@ pipeline {
                 script {
                     // Restoring dependencies
                     //bat "cd ${DOTNET_CLI_HOME} && dotnet restore"
-                    bat "dotnet restore"
+                    sh "dotnet restore"
 
                     // Building the application
-                    bat "dotnet build --configuration Release"
+                    sh "dotnet build --configuration Release"
                 }
             }
         }
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     // Running tests
-                    bat "dotnet test --no-restore --configuration Release"
+                    sh "dotnet test --no-restore --configuration Release"
                 }
             }
         }
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 script {
                     // Publishing the application
-                    bat "dotnet publish --no-restore --configuration Release --output .\\publish"
+                    sh "dotnet publish --no-restore --configuration Release --output .\\publish"
                 }
             }
         }
