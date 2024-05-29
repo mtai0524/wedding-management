@@ -2,7 +2,7 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/CodeFirst/.vs/CodeFirst/FileContentIndex
+
 /CodeFirst/.vs/ProjectEvaluation/codefirst.metadata.v7.bin
 /CodeFirst/.vs/ProjectEvaluation/codefirst.projects.v7.bin
 /CodeFirst/.vs/ProjectEvaluation
@@ -12,3 +12,142 @@
 /CodeFirst/CodeFirst/obj/Release/net6.0/staticwebassets/msbuild.CodeFirst.Microsoft.AspNetCore.StaticWebAssets.props
 /CodeFirst/CodeFirst/obj/Release/net6.0/apphost.exe
 /CodeFirst/CodeFirst/bin/Debug/net6.0/Cre
+
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono Auto Generated)
+mono_crash.*
+
+# User-specific files (VSCode)
+.vscode/
+
+# Mono auto generated files
+mono_crash.*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Folders to ignore
+.vs/
+.idea/
+.ionide/
+
+# DotNet specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+bin/
+obj/
+out/
+
+# NuGet
+*.nupkg
+# NuGet Symbol Packages
+*.snupkg
+# The packages folder can be ignored because of the presence of 'RestorePackagesPath' property in the .csproj file(s)
+packages/
+# Alternatively, to avoid ignoring packages in submodules
+# !packages/*/nupkg/
+# Uncomment if necessary however generally it will be restored
+# by the package restore step in your build pipeline
+#**/packages/*
+
+# Azure DevOps
+.vspscc
+.vssscc
+*.vspcc
+*.vssscc
+*.dtbcache.v2
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows shortcut files
+*.lnk
+
+# End of https://www.toptal.com/developers/gitignore/api/visualstudio
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono Auto Generated)
+mono_crash.*
+
+# User-specific files (VSCode)
+.vscode/
+
+# Mono auto generated files
+mono_crash.*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Folders to ignore
+.vs/
+.idea/
+.ionide/
+
+# DotNet specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+bin/
+obj/
+out/
+
+# NuGet
+*.nupkg
+# NuGet Symbol Packages
+*.snupkg
+# The packages folder can be ignored because of the presence of 'RestorePackagesPath' property in the .csproj file(s)
+packages/
+# Alternatively, to avoid ignoring packages in submodules
+# !packages/*/nupkg/
+# Uncomment if necessary however generally it will be restored
+# by the package restore step in your build pipeline
+#**/packages/*
+
+# Azure DevOps
+.vspscc
+.vssscc
+*.vspcc
+*.vssscc
+*.dtbcache.v2
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows shortcut files
+*.lnk
+
+# Rider project files
+.idea/
+.idea/**
+
+# Rider plugin files
+.idea.CodeFirst/

@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+jobs:
+  build_and_test:
+    env:
+      BUILD_CONFIG: 'Release'
+      SOLUTION: 'CodeFirst/CodeFirst.sln'
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.x
+
+    - name: Restore dependencies
+      run: dotnet restore ${{ env.SOLUTION }}
+
+    - name: Build
+      run: dotnet build ${{ env.SOLUTION }} --configuration ${{ env.BUILD_CONFIG }}
+
+    - name: Test
+      run: dotnet test ${{ env.SOLUTION }} --configuration ${{ env.BUILD_CONFIG }} --logger "trx;LogFileName=test-results.trx" || true
+
+    # Debugging step to list .trx files
+    - name: List .trx files
+      run: ls -R | grep test-results.trx
+
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: DotNET Tests
+        path: "**/test-results.trx"
+        reporter: dotnet-trx
+        fail-on-error: true
