@@ -2,7 +2,7 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/CodeFirst/.vs/CodeFirst/FileContentIndex
+
 /CodeFirst/.vs/ProjectEvaluation/codefirst.metadata.v7.bin
 /CodeFirst/.vs/ProjectEvaluation/codefirst.projects.v7.bin
 /CodeFirst/.vs/ProjectEvaluation
