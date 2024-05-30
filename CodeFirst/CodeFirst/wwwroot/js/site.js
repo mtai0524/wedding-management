@@ -541,6 +541,8 @@ $(() => {
                     $(".chatForm input[name='Message']").val('');
                     var input = document.getElementById('fileInput');
                     input.value = null;
+                    var inputRoom = document.getElementById('fileInputChatRoom');
+                    inputRoom.value = null;
                     // Ẩn toast khi gửi thành công
                     iziToast.show({
                         title: 'Đã gửi!',
@@ -596,8 +598,13 @@ $(() => {
                         fileNameDisplay.style.display = "none";
                     }
                     $(".chatFormRoom input[name='Message']").val('');
+                    var input = document.getElementById('fileInputChatRoom');
+                    input.value = null;
+
+              
+
                     iziToast.show({
-                        title: 'Đã gửi!',
+                        title: 'Đã gửi roi ne!',
                         backgroundColor: '#FFFFFF',
                         position: 'bottomLeft',
                         timeout: 2000,

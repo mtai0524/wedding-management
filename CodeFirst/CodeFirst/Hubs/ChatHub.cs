@@ -23,6 +23,34 @@ namespace CodeFirst.Hubs
             _userService = userService;
         }
 
+        public async Task SendPrivateMessage()
+        {
+            // Lấy danh sách tin nhắn từ bảng ChatPrivate
+            var chatPrivateList = await _context.Chats
+               .Select(x => new
+               {
+                   Message = x.Message,
+                   ImageChatRoom = x.ImageChatRoom
+               }) // Chỉ chọn phần nội dung của tin nhắn
+               .ToListAsync();
+
+            // Gửi mỗi tin nhắn riêng lẻ tới tất cả client đang kết nối
+            foreach (var message in chatPrivateList)
+            {
+                await Clients.All.SendAsync("ReceivePrivateMessage", message);
+            }
+        }
+        public async Task SendMessage(Message msg)
+        {
+            await Clients.All.SendAsync("ReceiveMessage2", $"{msg.User} send message {msg.Content}");
+        }
+        public async Task JoinRoom(UserConnection userConnection)
+        {
+            await Groups.AddToGroupAsync(Context.ConnectionId, userConnection.Room);
+
+            await Clients.Group(userConnection.Room).SendAsync("ReceiveMessage", "bot", $"{userConnection.User} has joined {userConnection.Room}");
+        }
+
 
         //
         //public async Task SendBranchCreatedNotification()

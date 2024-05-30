@@ -26,7 +26,7 @@ namespace CodeFirst.Data
                 Console.WriteLine(ex.Message);
             }
         }
-
+    
         public DbSet<EmployeeEntity> Employee { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<ServiceCategory> ServiceCategory { get; set; }
