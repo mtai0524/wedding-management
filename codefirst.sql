@@ -1,6 +1,6 @@
 USE [codefirst]
 GO
-/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -14,7 +14,7 @@ CREATE TABLE [dbo].[__EFMigrationsHistory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -30,7 +30,7 @@ CREATE TABLE [dbo].[AspNetRoleClaims](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -40,13 +40,14 @@ CREATE TABLE [dbo].[AspNetRoles](
 	[Name] [nvarchar](256) NULL,
 	[NormalizedName] [nvarchar](256) NULL,
 	[ConcurrencyStamp] [nvarchar](max) NULL,
+	[Discriminator] [nvarchar](max) NOT NULL,
  CONSTRAINT [PK_AspNetRoles] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -62,7 +63,7 @@ CREATE TABLE [dbo].[AspNetUserClaims](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -79,7 +80,7 @@ CREATE TABLE [dbo].[AspNetUserLogins](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -94,7 +95,7 @@ CREATE TABLE [dbo].[AspNetUserRoles](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -126,7 +127,7 @@ CREATE TABLE [dbo].[AspNetUsers](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserTokens]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[AspNetUserTokens]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -144,7 +145,7 @@ CREATE TABLE [dbo].[AspNetUserTokens](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Branch]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[Branch]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -163,7 +164,7 @@ CREATE TABLE [dbo].[Branch](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Chat]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[Chat]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -183,7 +184,7 @@ CREATE TABLE [dbo].[Chat](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ChatPrivate]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[ChatPrivate]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -201,7 +202,7 @@ CREATE TABLE [dbo].[ChatPrivate](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ChatRoom]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[ChatRoom]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -215,7 +216,7 @@ CREATE TABLE [dbo].[ChatRoom](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ChatRoomUser]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[ChatRoomUser]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -230,7 +231,7 @@ CREATE TABLE [dbo].[ChatRoomUser](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Code]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[Code]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -247,7 +248,7 @@ CREATE TABLE [dbo].[Code](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ComboMenuEntity]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[ComboMenuEntity]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -262,7 +263,7 @@ CREATE TABLE [dbo].[ComboMenuEntity](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Employee]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[Employee]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -281,7 +282,7 @@ CREATE TABLE [dbo].[Employee](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Feedback]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[Feedback]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -299,7 +300,7 @@ CREATE TABLE [dbo].[Feedback](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Hall]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[Hall]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -318,7 +319,7 @@ CREATE TABLE [dbo].[Hall](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[HubConnection]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[HubConnection]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -333,7 +334,7 @@ CREATE TABLE [dbo].[HubConnection](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Invoice]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[Invoice]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -358,7 +359,7 @@ CREATE TABLE [dbo].[Invoice](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[InvoiceCode]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[InvoiceCode]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -373,7 +374,7 @@ CREATE TABLE [dbo].[InvoiceCode](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MenuCategory]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[MenuCategory]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -388,7 +389,7 @@ CREATE TABLE [dbo].[MenuCategory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MenuEntity]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[MenuEntity]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -406,7 +407,7 @@ CREATE TABLE [dbo].[MenuEntity](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MenuItemComboMenu]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[MenuItemComboMenu]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -421,7 +422,7 @@ CREATE TABLE [dbo].[MenuItemComboMenu](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Notification]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[Notification]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -438,7 +439,7 @@ CREATE TABLE [dbo].[Notification](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OrderMenu]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[OrderMenu]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -453,7 +454,7 @@ CREATE TABLE [dbo].[OrderMenu](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OrderService]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[OrderService]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -468,7 +469,25 @@ CREATE TABLE [dbo].[OrderService](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Project]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[Permission]    Script Date: 5/30/2024 2:47:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Permission](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Type] [nvarchar](max) NULL,
+	[RoleId] [nvarchar](450) NULL,
+	[CanAdd] [bit] NULL,
+	[CanDelete] [bit] NULL,
+	[CanEdit] [bit] NULL,
+ CONSTRAINT [PK_Permission] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Project]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -484,7 +503,7 @@ CREATE TABLE [dbo].[Project](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ServiceCategory]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[ServiceCategory]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -499,7 +518,7 @@ CREATE TABLE [dbo].[ServiceCategory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ServiceEntity]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[ServiceEntity]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -517,7 +536,7 @@ CREATE TABLE [dbo].[ServiceEntity](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TaskComment]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[TaskComment]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -534,7 +553,7 @@ CREATE TABLE [dbo].[TaskComment](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TaskToDo]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[TaskToDo]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -555,7 +574,7 @@ CREATE TABLE [dbo].[TaskToDo](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserListTask]    Script Date: 5/15/2024 1:02:31 PM ******/
+/****** Object:  Table [dbo].[UserListTask]    Script Date: 5/30/2024 2:47:16 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -638,17 +657,19 @@ INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N
 INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20240512011226_removeColProject', N'7.0.11')
 INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20240512021748_changeTableNoti', N'7.0.11')
 INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20240512183503_addColInvoiceOrderStatus', N'7.0.11')
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20240516013907_PerTable', N'7.0.11')
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20240516121642_PermissionCol', N'7.0.11')
 GO
-INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'19bd9499-008b-483a-b52b-9596f89e04fc', N'employee', N'EMPLOYEE', N'b422d3c1-1af3-467a-baaa-e35e421f5066')
-INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'a64e8afb-b8c4-4a32-b79f-d4eedc9606a8', N'user', N'USER', N'38dadd99-4d95-44f1-abd3-5114a1c5d9ba')
-INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'c892040c-ec2f-44bc-a528-cddf39d00fb9', N'administrator system', N'ADMINISTRATOR SYSTEM', N'74853aa2-43bc-4ff8-ae28-e20034ef1109')
-INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'f7312e5b-b0dc-46af-b2dd-0910f7ab3a80', N'admin', N'ADMIN', N'fcb67cba-6bba-4a15-ae8c-1c0b1c8e8cff')
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp], [Discriminator]) VALUES (N'19bd9499-008b-483a-b52b-9596f89e04fc', N'employee', N'EMPLOYEE', N'b422d3c1-1af3-467a-baaa-e35e421f5066', N'')
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp], [Discriminator]) VALUES (N'a64e8afb-b8c4-4a32-b79f-d4eedc9606a8', N'user', N'USER', N'38dadd99-4d95-44f1-abd3-5114a1c5d9ba', N'')
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp], [Discriminator]) VALUES (N'c892040c-ec2f-44bc-a528-cddf39d00fb9', N'administrator system', N'ADMINISTRATOR SYSTEM', N'74853aa2-43bc-4ff8-ae28-e20034ef1109', N'')
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp], [Discriminator]) VALUES (N'f7312e5b-b0dc-46af-b2dd-0910f7ab3a80', N'admin', N'ADMIN', N'fcb67cba-6bba-4a15-ae8c-1c0b1c8e8cff', N'')
 GO
 INSERT [dbo].[AspNetUserLogins] ([LoginProvider], [ProviderKey], [ProviderDisplayName], [UserId]) VALUES (N'Facebook', N'1982040665498167', N'Facebook', N'fa3cca06-fba5-48a1-a7e0-4fb9d5b54594')
 INSERT [dbo].[AspNetUserLogins] ([LoginProvider], [ProviderKey], [ProviderDisplayName], [UserId]) VALUES (N'Google', N'115108247015046199411', N'Google', N'08f3f05d-b266-4c3e-99b4-12c0d926a8d3')
 GO
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'08f3f05d-b266-4c3e-99b4-12c0d926a8d3', N'c892040c-ec2f-44bc-a528-cddf39d00fb9')
-INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'12116240-b504-41bf-bcf6-9e906612ee3e', N'f7312e5b-b0dc-46af-b2dd-0910f7ab3a80')
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'12116240-b504-41bf-bcf6-9e906612ee3e', N'19bd9499-008b-483a-b52b-9596f89e04fc')
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'98e152ed-a5d9-4ccb-93cf-ea5edf4e067c', N'19bd9499-008b-483a-b52b-9596f89e04fc')
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'a1bf4a97-6196-416c-b55f-07ddc41ab715', N'f7312e5b-b0dc-46af-b2dd-0910f7ab3a80')
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'a733eed2-a179-4aa1-9624-3885a129c89b', N'a64e8afb-b8c4-4a32-b79f-d4eedc9606a8')
@@ -657,12 +678,12 @@ INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'fa3cca06-fba5-48a1
 GO
 INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar], [SessionId]) VALUES (N'06864e92-11bd-49fd-af39-50de16beadb4', N'codefirst@gmail.com', N'CODEFIRST@GMAIL.COM', N'codefirst@gmail.com', N'CODEFIRST@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAENXdMc/o1/V4A8fxhJNZyVcr9R9LePuMOPSZ417gzK1pjsP3oFD+Z3m5st+x29pmCg==', N'TEOHBSA7CIDTH55BPYLBVTBBXZWSQMW7', N'77159b03-d484-4aa6-83d0-ed94ab851073', NULL, 0, 0, NULL, 1, 0, N'', NULL, NULL, NULL, NULL)
 INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar], [SessionId]) VALUES (N'08f3f05d-b266-4c3e-99b4-12c0d926a8d3', N'adminsystem@gmail.com', N'ADMINSYSTEM@GMAIL.COM', N'adminsystem@gmail.com', N'ADMINSYSTEM@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAEAVKsb/MY1Fr3UWxsx6gHpyaDhjAJBYScaLFgf6oJw3xFK+h6khWlD+44hxk8DfKeQ==', N'YICEV3BF65BPJFJP6AS5IJS3A3KGOXXL', N'b28afe6d-d369-4813-9f5d-a2635a38fa61', N'0795896039', 0, 0, NULL, 1, 0, N'ApplicationUser', N'quản trị', N'hệ thống', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1713795363/wub0yg8ntipq5djjc4eu.jpg', NULL)
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar], [SessionId]) VALUES (N'12116240-b504-41bf-bcf6-9e906612ee3e', N'testchat@gmail.com', N'TESTCHAT@GMAIL.COM', N'testchat@gmail.com', N'TESTCHAT@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAENQv6gdKBBS32NvkVNJgUpDayHhL2w54HQxqID70BICqhIFTRj0KrSFW/nh77leMEg==', N'23IU7BCYHK4V2Y2H6KOBVJWYLAQBI4UY', N'27025a7a-6957-4551-8791-ebc42caf110d', NULL, 0, 0, NULL, 0, 0, N'ApplicationUser', N'chú 6', N'bán cháo', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1711173486/xgjzdekrfx7svd0tr8gb.png', NULL)
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar], [SessionId]) VALUES (N'12116240-b504-41bf-bcf6-9e906612ee3e', N'testchat@gmail.com', N'TESTCHAT@GMAIL.COM', N'testchat@gmail.com', N'TESTCHAT@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAENQv6gdKBBS32NvkVNJgUpDayHhL2w54HQxqID70BICqhIFTRj0KrSFW/nh77leMEg==', N'23IU7BCYHK4V2Y2H6KOBVJWYLAQBI4UY', N'db773fae-d97d-4bd2-a61d-98edaf50802d', NULL, 0, 0, NULL, 0, 0, N'ApplicationUser', N'chú 6', N'bán cháo', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1711173486/xgjzdekrfx7svd0tr8gb.png', NULL)
 INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar], [SessionId]) VALUES (N'98e152ed-a5d9-4ccb-93cf-ea5edf4e067c', N'testweb@zalo.com', N'TESTWEB@ZALO.COM', N'testweb@zalo.com', N'TESTWEB@ZALO.COM', 1, N'AQAAAAEAACcQAAAAEA0Z/fj6bRyF6p82LTJ0EqYgZLCHi37ONzE3rcgPI9P1xekttPLSmiLbyhguJCDLMg==', N'WL6A3HV25MZGLAVTHGL2HRVVRI3F3DFT', N'ea408a82-c8e6-4616-a872-7cd770694ed6', NULL, 0, 0, CAST(N'9999-12-31T23:59:59.9999999+00:00' AS DateTimeOffset), 1, 0, N'ApplicationUser', N'Gấu trúc', N'ẩn danh', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1709531347/jmqwdfdjj2zx88mtuocr.png', NULL)
 INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar], [SessionId]) VALUES (N'a1bf4a97-6196-416c-b55f-07ddc41ab715', N'anhbaysiu@gmail.com', N'ANHBAYSIU@GMAIL.COM', N'anhbaysiu@gmail.com', N'ANHBAYSIU@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAEMB8C3DB20yWTGYxQuwmkrAiMf6Y0is0bDcPXm2DFZ8uXL4XfRuQIobnXCq8OkzzUg==', N'P6LV75SJTJ35M6ODOOFIZG3VTVH7C3AZ', N'a5100cf4-b8c2-47c0-b42e-fd2d356e429a', NULL, 0, 0, NULL, 0, 0, N'ApplicationUser', N'anh', N'bảy', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1711267650/ks7cg9xyssthvxsry2t0.jpg', NULL)
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar], [SessionId]) VALUES (N'a733eed2-a179-4aa1-9624-3885a129c89b', N'demodoan@gmail.com', N'DEMODOAN@GMAIL.COM', N'demodoan@gmail.com', N'DEMODOAN@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAEN2IMXVsQft3xf26tXxjuSUrAnpnZ/umdBKulgB0kyxK0SF4qEiJ74YjKsJhm5CPMQ==', N'63GMH2XNOYMUVDVGRWFGCMT5LSHS4CMP', N'892427ee-0e52-4d3e-9cfd-ef3e2201dee1', N'0795896039', 0, 0, NULL, 0, 0, N'ApplicationUser', N'demo', N'đồ án', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1715572203/u57t05sarbmshenom4jn.png', NULL)
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar], [SessionId]) VALUES (N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'duaconcuagio@yahoo.com', N'DUACONCUAGIO@YAHOO.COM', N'duaconcuagio@yahoo.com', N'DUACONCUAGIO@YAHOO.COM', 1, N'AQAAAAEAACcQAAAAEEbag/LWMIyc357ssXgmD0Ss28wq4lG7Q/44bbToTcxLHgrUWQa9N+G8GSsLJKb7dA==', N'OZ25GR7CZ2BEKZVYKHXVAAMESZF75LSS', N'a0d67a7d-350e-4bfc-97cd-7b8d7475215b', N'0795896039', 0, 0, NULL, 1, 0, N'ApplicationUser', N'đấng ', N'yasuo', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1715593594/hvst8he57ypq7tpho2dz.jpg', N'983d7fce-a3c4-44e9-b00b-9f4682cd22a2')
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar], [SessionId]) VALUES (N'fa3cca06-fba5-48a1-a7e0-4fb9d5b54594', N'nguyentai24052002@gmail.com', N'NGUYENTAI24052002@GMAIL.COM', N'nguyentai24052002@gmail.com', N'NGUYENTAI24052002@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAEJa6LGrv1NLJ9iE2zUxHIENSZkCE6QJv9Gl6GSVIUj3qepOpbK95JdjVtaX9F33vPQ==', N'AP7Y5BFUZ4DPL7LVIPT5SWQOVJMZPD4T', N'2e14379f-1d5e-4961-9e77-a26903178cb8', N'0795896039', 0, 0, NULL, 1, 0, N'ApplicationUser', N'minh', N'tai', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1698337439/lmox3dywhsrbnsiv6vhq.jpg', NULL)
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar], [SessionId]) VALUES (N'a733eed2-a179-4aa1-9624-3885a129c89b', N'demodoan@gmail.com', N'DEMODOAN@GMAIL.COM', N'demodoan@gmail.com', N'DEMODOAN@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAEN2IMXVsQft3xf26tXxjuSUrAnpnZ/umdBKulgB0kyxK0SF4qEiJ74YjKsJhm5CPMQ==', N'63GMH2XNOYMUVDVGRWFGCMT5LSHS4CMP', N'892427ee-0e52-4d3e-9cfd-ef3e2201dee1', N'0795896039', 0, 0, NULL, 0, 0, N'ApplicationUser', N'demo', N'đồ án', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1716007814/qli90dbykkq1elbiffbp.png', NULL)
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar], [SessionId]) VALUES (N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'duaconcuagio@yahoo.com', N'DUACONCUAGIO@YAHOO.COM', N'duaconcuagio@yahoo.com', N'DUACONCUAGIO@YAHOO.COM', 1, N'AQAAAAEAACcQAAAAEEbag/LWMIyc357ssXgmD0Ss28wq4lG7Q/44bbToTcxLHgrUWQa9N+G8GSsLJKb7dA==', N'OZ25GR7CZ2BEKZVYKHXVAAMESZF75LSS', N'6a857ea3-f561-4bda-a1bf-4a476d8046b4', N'0795896039', 0, 0, NULL, 1, 0, N'ApplicationUser', N'đấng', N'yasuo', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1715935350/aqx0mcgfzdfgvhlhay4c.png', N'983d7fce-a3c4-44e9-b00b-9f4682cd22a2')
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Discriminator], [FirstName], [LastName], [Avatar], [SessionId]) VALUES (N'fa3cca06-fba5-48a1-a7e0-4fb9d5b54594', N'nguyentai24052002@gmail.com', N'NGUYENTAI24052002@GMAIL.COM', N'nguyentai24052002@gmail.com', N'NGUYENTAI24052002@GMAIL.COM', 1, N'AQAAAAEAACcQAAAAEJa6LGrv1NLJ9iE2zUxHIENSZkCE6QJv9Gl6GSVIUj3qepOpbK95JdjVtaX9F33vPQ==', N'AP7Y5BFUZ4DPL7LVIPT5SWQOVJMZPD4T', N'2e14379f-1d5e-4961-9e77-a26903178cb8', N'0795896039', 0, 0, NULL, 1, 0, N'ApplicationUser', N'minh', N'tai', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1716914261/td7lzwmlrswx11hjmxxj.jpg', NULL)
 GO
 INSERT [dbo].[AspNetUserTokens] ([UserId], [LoginProvider], [Name], [Value]) VALUES (N'08f3f05d-b266-4c3e-99b4-12c0d926a8d3', N'[AspNetUserStore]', N'AuthenticatorKey', N'DXCEHXIG4K7LUNXOPIM5JZUOYQEEIDHQ')
 INSERT [dbo].[AspNetUserTokens] ([UserId], [LoginProvider], [Name], [Value]) VALUES (N'08f3f05d-b266-4c3e-99b4-12c0d926a8d3', N'[AspNetUserStore]', N'RecoveryCodes', N'c3bae430;b33ead73;a79ce501;961438c8;e2a4043f;d6c80176;aa9e8793;2088799a;21af989b;eac0b84f')
@@ -675,7 +696,7 @@ SET IDENTITY_INSERT [dbo].[Branch] ON
 INSERT [dbo].[Branch] ([BranchId], [Name], [Description], [Image], [Address], [Phone], [IsLocked]) VALUES (1, N'chi nhánh 1', N'tốt', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1696885246/usdl3fs3kbj68tupmj4e.jpg', N'Sài Gòn quận tám', N'0795896039', 0)
 INSERT [dbo].[Branch] ([BranchId], [Name], [Description], [Image], [Address], [Phone], [IsLocked]) VALUES (2, N'chi nhánh 2', N'2', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1696885367/mktdvsna2ffgmkxnhe1l.jpg', N'Bình Dương', N'0795896039', 0)
 INSERT [dbo].[Branch] ([BranchId], [Name], [Description], [Image], [Address], [Phone], [IsLocked]) VALUES (3, N'chi nhánh 3', N'3', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1696947043/wcb48vniwvberzaz94nr.jpg', N'Gò Vấp', N'0795896039', 1)
-INSERT [dbo].[Branch] ([BranchId], [Name], [Description], [Image], [Address], [Phone], [IsLocked]) VALUES (1002, N'chi nhánh 4', N'4', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1696884529/ktmnhyouikzxgza8udvp.jpg', N'Đồng Tháp', N'0795896039', 0)
+INSERT [dbo].[Branch] ([BranchId], [Name], [Description], [Image], [Address], [Phone], [IsLocked]) VALUES (1002, N'chi nhánh 4', N'123', N'https://res.cloudinary.com/dl3hvap4a/image/upload/v1696884529/ktmnhyouikzxgza8udvp.jpg', N'Đồng Tháp', N'0795896039', 0)
 SET IDENTITY_INSERT [dbo].[Branch] OFF
 GO
 SET IDENTITY_INSERT [dbo].[ChatPrivate] ON 
@@ -980,6 +1001,8 @@ INSERT [dbo].[ChatPrivate] ([ChatPrivateId], [SenderUserId], [ReceiverUserId], [
 INSERT [dbo].[ChatPrivate] ([ChatPrivateId], [SenderUserId], [ReceiverUserId], [Message], [NotificationDateTime], [ImageChat]) VALUES (3546, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'chat', CAST(N'2024-05-13T16:48:45.6833460' AS DateTime2), NULL)
 INSERT [dbo].[ChatPrivate] ([ChatPrivateId], [SenderUserId], [ReceiverUserId], [Message], [NotificationDateTime], [ImageChat]) VALUES (3547, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'demo', CAST(N'2024-05-14T20:56:52.4788039' AS DateTime2), NULL)
 INSERT [dbo].[ChatPrivate] ([ChatPrivateId], [SenderUserId], [ReceiverUserId], [Message], [NotificationDateTime], [ImageChat]) VALUES (3548, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'test', CAST(N'2024-05-14T20:56:58.0060268' AS DateTime2), NULL)
+INSERT [dbo].[ChatPrivate] ([ChatPrivateId], [SenderUserId], [ReceiverUserId], [Message], [NotificationDateTime], [ImageChat]) VALUES (3549, N'a733eed2-a179-4aa1-9624-3885a129c89b', N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'chao', CAST(N'2024-05-17T01:05:12.2771963' AS DateTime2), NULL)
+INSERT [dbo].[ChatPrivate] ([ChatPrivateId], [SenderUserId], [ReceiverUserId], [Message], [NotificationDateTime], [ImageChat]) VALUES (3550, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'a733eed2-a179-4aa1-9624-3885a129c89b', N'hello', CAST(N'2024-05-17T01:05:24.6127575' AS DateTime2), NULL)
 SET IDENTITY_INSERT [dbo].[ChatPrivate] OFF
 GO
 SET IDENTITY_INSERT [dbo].[ChatRoom] ON 
@@ -1040,34 +1063,6 @@ SET IDENTITY_INSERT [dbo].[Hall] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Invoice] ON 
 
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (11025, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-20T12:04:23.4586781' AS DateTime2), CAST(N'2023-12-15T05:03:25.0000000' AS DateTime2), 200418000, NULL, NULL, NULL, NULL, NULL, N'Đã hủy đơn hàng')
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (11026, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-20T12:50:27.0437602' AS DateTime2), CAST(N'2024-10-24T05:49:54.0000000' AS DateTime2), 201700000, N'nguyen minh tai', N'hong co gi', N'0795896012', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (11027, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-20T12:53:01.7004754' AS DateTime2), CAST(N'2024-10-24T05:49:54.0000000' AS DateTime2), 201700000, N'3123', N'hong co gi', N'0795896012', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (11028, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-20T12:55:37.8160886' AS DateTime2), CAST(N'2024-10-23T05:53:45.0000000' AS DateTime2), 201538000, N'minh tai', N'', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (11029, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-20T15:05:28.1464283' AS DateTime2), CAST(N'2024-10-17T07:42:21.0000000' AS DateTime2), 203238000, N'minh tai', N'', N'1234567890', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (11030, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 3, 1, CAST(N'2023-10-20T18:04:24.0163775' AS DateTime2), CAST(N'2023-11-10T11:01:43.0000000' AS DateTime2), 51800000, N'minh tai u soi ca', N'', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (11031, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 3, 1, CAST(N'2023-10-20T18:09:57.5812435' AS DateTime2), CAST(N'2023-11-11T11:01:43.0000000' AS DateTime2), 51800000, N'minh tai u soi ca do nha', N'', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (12026, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 3, 1, CAST(N'2023-10-20T18:42:24.7815129' AS DateTime2), CAST(N'2024-11-10T11:40:49.0000000' AS DateTime2), 50600000, N'minh tai', N'', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (12027, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 3, 1, CAST(N'2023-10-20T18:47:06.7444568' AS DateTime2), CAST(N'2023-11-17T11:40:49.0000000' AS DateTime2), 50600000, N'minh tai', N'', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (12028, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2, CAST(N'2023-10-20T19:10:18.7394906' AS DateTime2), CAST(N'2023-11-17T12:09:18.0000000' AS DateTime2), 80600000, N'minh tai', N'', N'1234567890', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (13026, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2, CAST(N'2023-10-20T23:14:50.8481680' AS DateTime2), CAST(N'2024-10-20T16:13:57.0000000' AS DateTime2), 81738000, N'minh tai', N'', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (13027, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-20T23:15:09.6056146' AS DateTime2), CAST(N'2024-10-20T16:13:57.0000000' AS DateTime2), 201738000, N'minh tai', N'', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (13028, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-20T23:15:23.1008148' AS DateTime2), CAST(N'2024-10-21T16:13:57.0000000' AS DateTime2), 201738000, N'minh tai', N'', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (14026, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-21T14:20:44.2639589' AS DateTime2), CAST(N'2023-12-16T07:17:29.0000000' AS DateTime2), 131508000, N'minh tai', N'áp dụng mã giảm giá', N'0795896039', NULL, 1, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (15026, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-21T15:27:07.5756155' AS DateTime2), CAST(N'2025-10-15T07:58:57.0000000' AS DateTime2), 100310000, N'minh tai', N'trừ số lượng mã giảm giá', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (15027, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-21T15:27:27.1154099' AS DateTime2), CAST(N'2025-10-16T07:58:57.0000000' AS DateTime2), 100310000, N'minh tai', N'trừ số lượng mã giảm giá', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (15028, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-21T15:29:55.3955696' AS DateTime2), CAST(N'2025-10-17T07:58:57.0000000' AS DateTime2), 160496000, N'minh tai', N'trừ số lượng mã giảm giá', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (15029, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-21T15:41:01.6657477' AS DateTime2), CAST(N'2024-02-15T08:32:31.0000000' AS DateTime2), 173460280, N'minh tai', N'', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (16026, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-21T17:19:03.5107482' AS DateTime2), CAST(N'2024-10-11T09:53:00.0000000' AS DateTime2), 133015080, N'minh tai', N'', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (16027, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-21T17:24:39.6021344' AS DateTime2), CAST(N'2024-10-12T09:53:00.0000000' AS DateTime2), 134282280, N'minh tai', N'khánh vi tới chơi', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (17026, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2, CAST(N'2023-10-21T18:17:43.0700177' AS DateTime2), CAST(N'2026-10-21T11:17:03.4560000' AS DateTime2), 12000, N'string', N'string', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (17027, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2, CAST(N'2023-10-21T18:18:11.9784169' AS DateTime2), CAST(N'2026-11-21T11:17:03.4560000' AS DateTime2), 12000, N'string', N'string', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (17028, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2, CAST(N'2023-10-21T18:20:29.6302797' AS DateTime2), CAST(N'2026-12-21T11:17:03.4560000' AS DateTime2), 12000, N'string', N'string', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (17029, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2, CAST(N'2023-10-21T18:23:38.9143339' AS DateTime2), CAST(N'2026-01-21T11:17:03.4560000' AS DateTime2), 12000, N'string', N'string', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (17030, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2, CAST(N'2023-10-21T18:24:02.8350328' AS DateTime2), CAST(N'2026-02-21T11:17:03.4560000' AS DateTime2), 12000, N'string', N'string', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (17031, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-21T18:27:43.4444006' AS DateTime2), CAST(N'2025-10-23T11:13:27.0000000' AS DateTime2), 172378400, N'minh tai', N'test code', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (17032, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-21T18:31:46.8527302' AS DateTime2), CAST(N'2025-10-25T11:13:27.0000000' AS DateTime2), 172378400, N'minh tai', N'test code', N'0795896039', NULL, NULL, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (17033, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2, CAST(N'2023-10-21T18:32:11.5492750' AS DateTime2), CAST(N'2027-02-21T11:17:03.4560000' AS DateTime2), 12000, N'string', N'string', N'0795896039', NULL, NULL, NULL)
 INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (17034, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2023-10-21T18:34:10.3587151' AS DateTime2), CAST(N'2025-11-25T11:13:27.0000000' AS DateTime2), 172378400, N'minh tai', N'test code', N'0795896039', NULL, NULL, N'Đã hủy đơn hàng')
 INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (17035, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2, CAST(N'2023-10-21T18:35:33.9793116' AS DateTime2), CAST(N'2027-03-21T11:17:03.4560000' AS DateTime2), 12000, N'string', N'string', N'0795896039', NULL, NULL, NULL)
 INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (17036, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 3, 1, CAST(N'2023-10-21T18:37:44.1250436' AS DateTime2), CAST(N'2023-12-21T11:04:10.0000000' AS DateTime2), 50090000, N'kdjsahkdhkasj', N'test', N'0795896039', NULL, NULL, NULL)
@@ -1097,27 +1092,22 @@ INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDat
 INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24047, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2002, CAST(N'2023-11-29T20:57:04.1206853' AS DateTime2), CAST(N'2024-03-31T13:20:06.0000000' AS DateTime2), 346454400, N'gửi mail đó nha', N'hehe', N'0795896039', 433068000, NULL, NULL)
 INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24048, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2002, CAST(N'2023-11-29T21:02:30.3743723' AS DateTime2), CAST(N'2024-04-02T13:20:06.0000000' AS DateTime2), 346830400, N'gửi mail đó nha', N'hehe', N'0795896039', 433538000, NULL, NULL)
 INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24049, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2024-05-11T17:54:22.5014233' AS DateTime2), CAST(N'2026-05-13T10:53:20.0000000' AS DateTime2), 451369000, N'12312', N'312312', N'3123123123', 902738000, 1, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24050, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2024-05-11T18:12:45.3391664' AS DateTime2), CAST(N'2029-05-18T11:11:56.0000000' AS DateTime2), 450608500, N'met moi that su', N'123123', N'1234567890', 901217000, 0, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24051, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2024-05-11T18:15:12.9067243' AS DateTime2), CAST(N'2034-05-10T11:14:38.0000000' AS DateTime2), 829755360, N'met roi nha may', N'312312', N'1234567890', 901908000, 0, NULL)
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24052, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2024-05-11T18:19:31.7826450' AS DateTime2), CAST(N'2027-05-21T11:19:00.0000000' AS DateTime2), 450058500, N'demo', N'123123', N'1234567890', 900117000, 0, N'Đã hủy đơn hàng')
-INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24053, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2024-05-11T18:24:48.6863238' AS DateTime2), CAST(N'2026-05-20T11:24:15.0000000' AS DateTime2), 450434000, N'met moi', N'1312312', N'1234567890', 900868000, 1, NULL)
+INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24050, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2024-05-11T18:12:45.3391664' AS DateTime2), CAST(N'2029-05-18T11:11:56.0000000' AS DateTime2), 450608500, N'met moi that su', N'123123', N'1234567890', 901217000, 1, N'Đã hủy đơn hàng')
+INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24051, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2024-05-11T18:15:12.9067243' AS DateTime2), CAST(N'2034-05-10T11:14:38.0000000' AS DateTime2), 829755360, N'met roi nha may', N'312312', N'1234567890', 901908000, 1, N'Đã hủy đơn hàng')
+INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24053, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2024-05-11T18:24:48.6863238' AS DateTime2), CAST(N'2026-05-20T11:24:15.0000000' AS DateTime2), 450434000, N'met moi', N'1312312', N'1234567890', 900868000, 1, N'Đã hủy đơn hàng')
 INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24054, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2024-05-11T19:10:15.6272985' AS DateTime2), CAST(N'2028-05-12T12:08:11.0000000' AS DateTime2), 450989000, N'nguyen minh tai', N'1231231', N'1234567890', 901978000, 0, N'Đã hủy đơn hàng')
 INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24055, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2024-05-11T19:12:47.4244334' AS DateTime2), CAST(N'2033-05-12T12:12:04.0000000' AS DateTime2), 774607160, N'nguyen minihtai ', N'123123', N'1234567890', 900706000, 1, N'Đã hủy đơn hàng')
 INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24056, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2, CAST(N'2024-05-11T19:53:15.0090900' AS DateTime2), CAST(N'2026-05-20T12:52:24.0000000' AS DateTime2), 40990000, N'minh tai', N'12312', N'0795896039', 81980000, 1, N'Đã hủy đơn hàng')
 INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24057, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2002, CAST(N'2024-05-11T19:55:38.8155264' AS DateTime2), CAST(N'2027-05-20T12:54:55.0000000' AS DateTime2), 359849400, N'minh tai', N'1231', N'0795896039', 413620000, 1, N'Đã hủy đơn hàng')
 INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24058, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 2, CAST(N'2024-05-11T19:59:02.5228401' AS DateTime2), CAST(N'2029-05-23T12:58:21.0000000' AS DateTime2), 79541360, N'minh tai', N'1234', N'0795896039', 86458000, 1, N'Đã hủy đơn hàng')
 INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24060, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', 2, 1002, CAST(N'2024-05-13T02:33:02.4433934' AS DateTime2), CAST(N'2024-06-05T19:31:45.0000000' AS DateTime2), 829288000, N'minh tai', N'123', N'0795896039', 901400000, 1, N'Đã hủy đơn hàng')
+INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24061, N'a733eed2-a179-4aa1-9624-3885a129c89b', 2, 1002, CAST(N'2024-05-18T11:58:12.5896919' AS DateTime2), CAST(N'2024-07-27T04:57:22.0000000' AS DateTime2), 904200000, N'minh tai', N'', N'0795896039', 904200000, 0, NULL)
+INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24062, N'a733eed2-a179-4aa1-9624-3885a129c89b', 2, 1002, CAST(N'2024-05-29T00:01:46.0372456' AS DateTime2), CAST(N'2024-08-19T17:00:48.0000000' AS DateTime2), 451369000, N'123', N'123', N'0795896039', 902738000, 0, NULL)
+INSERT [dbo].[Invoice] ([InvoiceID], [UserId], [BranchId], [HallId], [InvoiceDate], [AttendanceDate], [Total], [FullName], [Note], [PhoneNumber], [TotalBeforeDiscount], [PaymentStatus], [OrderStatus]) VALUES (24063, N'a733eed2-a179-4aa1-9624-3885a129c89b', 2, 1002, CAST(N'2024-05-29T00:05:54.5403438' AS DateTime2), CAST(N'2024-08-14T17:02:02.0000000' AS DateTime2), 900218000, N'123123', N'123', N'0795896039', 900218000, 1, NULL)
 SET IDENTITY_INSERT [dbo].[Invoice] OFF
 GO
 SET IDENTITY_INSERT [dbo].[InvoiceCode] ON 
 
-INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (1003, 17029, 2004)
-INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (1004, 17030, 2004)
-INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (1005, 17030, 2004)
-INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (1006, 17030, 2004)
-INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (1009, 17033, 2004)
-INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (1010, 17033, 2004)
-INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (1011, 17033, 2004)
 INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (1013, 17035, 2004)
 INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (1014, 17037, 2004)
 INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (1015, 17038, 2004)
@@ -1167,7 +1157,6 @@ INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (8022
 INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (8023, 24049, 4003)
 INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (8024, 24050, 4003)
 INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (8025, 24051, 6003)
-INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (8026, 24052, 4003)
 INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (8027, 24053, 4003)
 INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (8028, 24055, 2004)
 INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (8029, 24056, 4003)
@@ -1175,6 +1164,7 @@ INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (8030
 INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (8031, 24057, 5004)
 INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (8032, 24058, 6003)
 INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (8034, 24060, 6003)
+INSERT [dbo].[InvoiceCode] ([InvoiceCodeId], [InvoiceId], [CodeId]) VALUES (8035, 24062, 4003)
 SET IDENTITY_INSERT [dbo].[InvoiceCode] OFF
 GO
 SET IDENTITY_INSERT [dbo].[MenuCategory] ON 
@@ -1238,89 +1228,14 @@ INSERT [dbo].[Notification] ([Id], [Message], [MessageType], [NotificationDateTi
 INSERT [dbo].[Notification] ([Id], [Message], [MessageType], [NotificationDateTime], [UserId]) VALUES (3289, N' đã cập nhật chi nhánh', N'All', CAST(N'2024-05-12T09:47:47.3115086' AS DateTime2), N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6')
 INSERT [dbo].[Notification] ([Id], [Message], [MessageType], [NotificationDateTime], [UserId]) VALUES (3290, N' đã xóa chi nhánh', N'All', CAST(N'2024-05-12T09:54:39.9795063' AS DateTime2), N'a1bf4a97-6196-416c-b55f-07ddc41ab715')
 INSERT [dbo].[Notification] ([Id], [Message], [MessageType], [NotificationDateTime], [UserId]) VALUES (3291, N' đã cập nhật chi nhánh', N'All', CAST(N'2024-05-12T11:53:12.9382789' AS DateTime2), N'a1bf4a97-6196-416c-b55f-07ddc41ab715')
+INSERT [dbo].[Notification] ([Id], [Message], [MessageType], [NotificationDateTime], [UserId]) VALUES (3292, N' đã cập nhật chi nhánh', N'All', CAST(N'2024-05-16T12:05:57.7206826' AS DateTime2), N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6')
+INSERT [dbo].[Notification] ([Id], [Message], [MessageType], [NotificationDateTime], [UserId]) VALUES (3293, N'  thêm chi nhánh mới', N'All', CAST(N'2024-05-16T23:27:10.3830044' AS DateTime2), N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6')
+INSERT [dbo].[Notification] ([Id], [Message], [MessageType], [NotificationDateTime], [UserId]) VALUES (3294, N' đã cập nhật chi nhánh', N'All', CAST(N'2024-05-16T23:27:16.0828739' AS DateTime2), N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6')
+INSERT [dbo].[Notification] ([Id], [Message], [MessageType], [NotificationDateTime], [UserId]) VALUES (3295, N' đã xóa chi nhánh', N'All', CAST(N'2024-05-16T23:27:19.8896465' AS DateTime2), N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6')
 SET IDENTITY_INSERT [dbo].[Notification] OFF
 GO
 SET IDENTITY_INSERT [dbo].[OrderMenu] ON 
 
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10049, 11025, 3)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10050, 11025, 4)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10051, 11025, 3004)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10052, 11026, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10053, 11026, 3004)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10054, 11026, 4)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10055, 11027, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10056, 11027, 3004)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10057, 11027, 4)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10058, 11028, 3)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10059, 11028, 4)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10060, 11028, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10061, 11029, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10062, 11029, 3)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10063, 11029, 4)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10064, 11030, 2)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10065, 11030, 3002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10066, 11030, 3003)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10067, 11031, 2)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10068, 11031, 3002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (10069, 11031, 3003)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (11031, 12026, 2)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (11032, 12026, 3002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (11033, 12026, 3003)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (11034, 12027, 2)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (11035, 12027, 3002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (11036, 12027, 3003)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (11037, 12028, 2)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (11038, 12028, 3002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (11039, 12028, 3003)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (12031, 13026, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (12032, 13026, 3)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (12033, 13026, 4)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (12034, 13027, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (12035, 13027, 3)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (12036, 13027, 4)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (12037, 13028, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (12038, 13028, 3)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (12039, 13028, 4)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (13031, 14026, 2)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (13032, 14026, 3002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (13033, 14026, 3003)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (13034, 14026, 2002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14031, 15026, 3002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14032, 15026, 3003)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14033, 15026, 2)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14034, 15026, 2002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14035, 15027, 3002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14036, 15027, 3003)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14037, 15027, 2)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14038, 15027, 2002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14039, 15028, 3002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14040, 15028, 3003)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14041, 15028, 2)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14042, 15028, 2002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14043, 15029, 3)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14044, 15029, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (14045, 15029, 3004)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (15031, 16026, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (15032, 16026, 3)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (15033, 16026, 4)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (15034, 16027, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (15035, 16027, 3)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (15036, 16027, 4)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (15037, 16027, 3002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (15038, 16027, 2002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (15039, 16027, 3003)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16031, 17026, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16032, 17027, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16033, 17028, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16034, 17029, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16035, 17030, 1)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16036, 17031, 2)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16037, 17031, 3002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16038, 17031, 4005)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16039, 17032, 2)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16040, 17032, 3002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16041, 17032, 4005)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16042, 17033, 1)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16043, 17034, 2)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16044, 17034, 3002)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16045, 17034, 4005)
@@ -1341,7 +1256,6 @@ INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16059, 1
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16060, 17039, 4006)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16061, 17039, 4007)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16062, 17039, 4004)
-GO
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16063, 17040, 2002)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16064, 17040, 4006)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (16065, 17040, 4007)
@@ -1421,6 +1335,7 @@ INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22060, 2
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22061, 23044, 2002)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22062, 23044, 4006)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22063, 23045, 2)
+GO
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22064, 23045, 3002)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22065, 23045, 4003)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22066, 23045, 6003)
@@ -1442,7 +1357,6 @@ INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22081, 2
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22082, 23047, 3004)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22083, 23047, 4003)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22084, 23047, 6003)
-GO
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22085, 23048, 1)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22086, 23048, 3)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (22087, 23048, 5004)
@@ -1515,9 +1429,6 @@ INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23097, 2
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23098, 24051, 4007)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23099, 24051, 4006)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23100, 24051, 3002)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23101, 24052, 3)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23102, 24052, 5012)
-INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23103, 24052, 4005)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23104, 24053, 3)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23105, 24053, 3002)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23106, 24053, 3003)
@@ -1525,6 +1436,7 @@ INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23107, 2
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23108, 24054, 3)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23109, 24054, 5006)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23110, 24054, 5007)
+GO
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23111, 24054, 5008)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23112, 24055, 3)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23113, 24055, 4)
@@ -1543,7 +1455,6 @@ INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23125, 2
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23126, 24056, 3003)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23127, 24057, 2)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23128, 24057, 4003)
-GO
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23129, 24057, 6003)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23130, 24057, 4004)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23131, 24057, 2002)
@@ -1559,28 +1470,21 @@ INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23140, 2
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23149, 24060, 2)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23150, 24060, 3002)
 INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23151, 24060, 3003)
+INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23152, 24061, 2)
+INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23153, 24061, 3002)
+INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23154, 24061, 6003)
+INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23155, 24062, 1)
+INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23156, 24062, 3)
+INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23157, 24062, 2)
+INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23158, 24062, 3002)
+INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23159, 24062, 4006)
+INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23160, 24063, 4)
+INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23161, 24063, 3)
+INSERT [dbo].[OrderMenu] ([OrderMenuId], [InvoiceID], [MenuId]) VALUES (23162, 24063, 5013)
 SET IDENTITY_INSERT [dbo].[OrderMenu] OFF
 GO
 SET IDENTITY_INSERT [dbo].[OrderService] ON 
 
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (6003, 11025, 3)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (6004, 11029, 4)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (6005, 11029, 3)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (6006, 11029, 5)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (6007, 11030, 4)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (6008, 11031, 4)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (8002, 13026, 3)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (8003, 13027, 3)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (8004, 13028, 3)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (9002, 14026, 4)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (9003, 14026, 3)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (9004, 14026, 5)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (10002, 16027, 5)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (10003, 16027, 4)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (11004, 17028, 3)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (11005, 17029, 3)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (11006, 17030, 3)
-INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (11007, 17033, 3)
 INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (11008, 17035, 3)
 INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (11009, 17038, 1005)
 INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (11010, 17038, 4)
@@ -1647,6 +1551,18 @@ INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES 
 INSERT [dbo].[OrderService] ([OrderServiceId], [InvoiceID], [ServiceId]) VALUES (18030, 24058, 5)
 SET IDENTITY_INSERT [dbo].[OrderService] OFF
 GO
+SET IDENTITY_INSERT [dbo].[Permission] ON 
+
+INSERT [dbo].[Permission] ([Id], [Type], [RoleId], [CanAdd], [CanDelete], [CanEdit]) VALUES (92, N'hall', N'c892040c-ec2f-44bc-a528-cddf39d00fb9', 1, 1, 1)
+INSERT [dbo].[Permission] ([Id], [Type], [RoleId], [CanAdd], [CanDelete], [CanEdit]) VALUES (107, N'menu', N'c892040c-ec2f-44bc-a528-cddf39d00fb9', 1, 1, 1)
+INSERT [dbo].[Permission] ([Id], [Type], [RoleId], [CanAdd], [CanDelete], [CanEdit]) VALUES (109, N'service', N'c892040c-ec2f-44bc-a528-cddf39d00fb9', 0, 0, 1)
+INSERT [dbo].[Permission] ([Id], [Type], [RoleId], [CanAdd], [CanDelete], [CanEdit]) VALUES (110, N'service', N'f7312e5b-b0dc-46af-b2dd-0910f7ab3a80', 0, 0, 0)
+INSERT [dbo].[Permission] ([Id], [Type], [RoleId], [CanAdd], [CanDelete], [CanEdit]) VALUES (114, N'branch', N'c892040c-ec2f-44bc-a528-cddf39d00fb9', 1, 0, 1)
+INSERT [dbo].[Permission] ([Id], [Type], [RoleId], [CanAdd], [CanDelete], [CanEdit]) VALUES (115, N'hall', N'f7312e5b-b0dc-46af-b2dd-0910f7ab3a80', 1, 1, 1)
+INSERT [dbo].[Permission] ([Id], [Type], [RoleId], [CanAdd], [CanDelete], [CanEdit]) VALUES (116, N'menu', N'f7312e5b-b0dc-46af-b2dd-0910f7ab3a80', 0, 0, 0)
+INSERT [dbo].[Permission] ([Id], [Type], [RoleId], [CanAdd], [CanDelete], [CanEdit]) VALUES (117, N'branch', N'f7312e5b-b0dc-46af-b2dd-0910f7ab3a80', 0, 0, 0)
+SET IDENTITY_INSERT [dbo].[Permission] OFF
+GO
 SET IDENTITY_INSERT [dbo].[Project] ON 
 
 INSERT [dbo].[Project] ([ProjectId], [Name], [CreatedAt], [UpdatedAt]) VALUES (220, N'demo', NULL, NULL)
@@ -1676,21 +1592,19 @@ SET IDENTITY_INSERT [dbo].[TaskComment] ON
 INSERT [dbo].[TaskComment] ([TaskCommentId], [TaskId], [UserId], [Comment], [CreatedAt]) VALUES (36, 1498, N'fa3cca06-fba5-48a1-a7e0-4fb9d5b54594', N'xin chào', CAST(N'2024-05-12T05:19:59.0178277' AS DateTime2))
 INSERT [dbo].[TaskComment] ([TaskCommentId], [TaskId], [UserId], [Comment], [CreatedAt]) VALUES (37, 1498, N'a733eed2-a179-4aa1-9624-3885a129c89b', N'hiện tại vấn đề an toàn thực phầm phải được đưa lên hàng đầu', CAST(N'2024-05-12T05:26:20.7946293' AS DateTime2))
 INSERT [dbo].[TaskComment] ([TaskCommentId], [TaskId], [UserId], [Comment], [CreatedAt]) VALUES (38, 1497, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'cmt', CAST(N'2024-05-13T09:56:14.6738672' AS DateTime2))
-INSERT [dbo].[TaskComment] ([TaskCommentId], [TaskId], [UserId], [Comment], [CreatedAt]) VALUES (39, 1497, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'213', CAST(N'2024-05-13T09:56:21.0517178' AS DateTime2))
-INSERT [dbo].[TaskComment] ([TaskCommentId], [TaskId], [UserId], [Comment], [CreatedAt]) VALUES (40, 1497, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'qưqe', CAST(N'2024-05-13T09:56:39.7474130' AS DateTime2))
-INSERT [dbo].[TaskComment] ([TaskCommentId], [TaskId], [UserId], [Comment], [CreatedAt]) VALUES (41, 1497, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'1323', CAST(N'2024-05-13T09:56:41.6756006' AS DateTime2))
-INSERT [dbo].[TaskComment] ([TaskCommentId], [TaskId], [UserId], [Comment], [CreatedAt]) VALUES (42, 1497, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'1223', CAST(N'2024-05-13T09:56:43.6258492' AS DateTime2))
-INSERT [dbo].[TaskComment] ([TaskCommentId], [TaskId], [UserId], [Comment], [CreatedAt]) VALUES (43, 1497, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'3123', CAST(N'2024-05-13T09:56:44.7153729' AS DateTime2))
-INSERT [dbo].[TaskComment] ([TaskCommentId], [TaskId], [UserId], [Comment], [CreatedAt]) VALUES (44, 1497, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'qewqeqwe', CAST(N'2024-05-13T09:57:13.8192922' AS DateTime2))
 INSERT [dbo].[TaskComment] ([TaskCommentId], [TaskId], [UserId], [Comment], [CreatedAt]) VALUES (45, 1495, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'ok', CAST(N'2024-05-14T13:58:32.0971841' AS DateTime2))
+INSERT [dbo].[TaskComment] ([TaskCommentId], [TaskId], [UserId], [Comment], [CreatedAt]) VALUES (58, 1498, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'demo cmt', CAST(N'2024-05-15T13:11:35.2091629' AS DateTime2))
+INSERT [dbo].[TaskComment] ([TaskCommentId], [TaskId], [UserId], [Comment], [CreatedAt]) VALUES (80, 1498, N'12116240-b504-41bf-bcf6-9e906612ee3e', N'cmt', CAST(N'2024-05-17T01:27:09.9767870' AS DateTime2))
+INSERT [dbo].[TaskComment] ([TaskCommentId], [TaskId], [UserId], [Comment], [CreatedAt]) VALUES (81, 1498, N'12116240-b504-41bf-bcf6-9e906612ee3e', N'xin chao', CAST(N'2024-05-17T01:27:13.3261836' AS DateTime2))
 SET IDENTITY_INSERT [dbo].[TaskComment] OFF
 GO
 SET IDENTITY_INSERT [dbo].[TaskToDo] ON 
 
-INSERT [dbo].[TaskToDo] ([TaskId], [Name], [Position], [ProjectId], [CreatedAt], [Priority], [UpdatedAt], [UserId], [TaskColor]) VALUES (1495, N'ngày mai nấu món mới ', 2, 1220, CAST(N'2024-05-10T18:02:19.4167409' AS DateTime2), N'task__tag--illustration', NULL, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'#d6ede2')
-INSERT [dbo].[TaskToDo] ([TaskId], [Name], [Position], [ProjectId], [CreatedAt], [Priority], [UpdatedAt], [UserId], [TaskColor]) VALUES (1496, N'nhân viên thực hiện truyền thông cho nhà hàng bằng các phương thức như dùng mạng xã hội facebook, zalo, yahoo', 0, 220, CAST(N'2024-05-12T12:10:53.8771731' AS DateTime2), N'task__tag--copyright', NULL, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'#f2dcf5')
-INSERT [dbo].[TaskToDo] ([TaskId], [Name], [Position], [ProjectId], [CreatedAt], [Priority], [UpdatedAt], [UserId], [TaskColor]) VALUES (1497, N'demo create task', 1, 1220, CAST(N'2024-05-12T12:11:07.0399592' AS DateTime2), N'task__tag--not-ready', NULL, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'#a19ec1ff')
-INSERT [dbo].[TaskToDo] ([TaskId], [Name], [Position], [ProjectId], [CreatedAt], [Priority], [UpdatedAt], [UserId], [TaskColor]) VALUES (1498, N'đảm bảo an toàn thực phầm và cải thiện dịch vụ nhà hàng', 1, 220, CAST(N'2024-05-12T12:11:50.9324390' AS DateTime2), N'task__tag--design', NULL, N'fa3cca06-fba5-48a1-a7e0-4fb9d5b54594', N'#ceecfd')
+INSERT [dbo].[TaskToDo] ([TaskId], [Name], [Position], [ProjectId], [CreatedAt], [Priority], [UpdatedAt], [UserId], [TaskColor]) VALUES (1495, N'ngày mai nấu món mới ', 0, 220, CAST(N'2024-05-10T18:02:19.4167409' AS DateTime2), N'task__tag--illustration', NULL, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'#d6ede2')
+INSERT [dbo].[TaskToDo] ([TaskId], [Name], [Position], [ProjectId], [CreatedAt], [Priority], [UpdatedAt], [UserId], [TaskColor]) VALUES (1496, N'nhân viên thực hiện truyền thông cho nhà hàng bằng các phương thức như dùng mạng xã hội facebook, zalo, yahoo', 2, 220, CAST(N'2024-05-12T12:10:53.8771731' AS DateTime2), N'task__tag--copyright', NULL, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'#f2dcf5')
+INSERT [dbo].[TaskToDo] ([TaskId], [Name], [Position], [ProjectId], [CreatedAt], [Priority], [UpdatedAt], [UserId], [TaskColor]) VALUES (1497, N'demo create task', 2, 1220, CAST(N'2024-05-12T12:11:07.0399592' AS DateTime2), N'task__tag--design', NULL, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'#ceecfd')
+INSERT [dbo].[TaskToDo] ([TaskId], [Name], [Position], [ProjectId], [CreatedAt], [Priority], [UpdatedAt], [UserId], [TaskColor]) VALUES (1498, N'đảm bảo an toàn thực phầm và cải thiện dịch vụ nhà hàng', 1, 1220, CAST(N'2024-05-12T12:11:50.9324390' AS DateTime2), N'task__tag--copyright', NULL, N'fa3cca06-fba5-48a1-a7e0-4fb9d5b54594', N'#f2dcf5')
+INSERT [dbo].[TaskToDo] ([TaskId], [Name], [Position], [ProjectId], [CreatedAt], [Priority], [UpdatedAt], [UserId], [TaskColor]) VALUES (1500, N'123', 0, 1220, CAST(N'2024-05-17T08:26:30.8838915' AS DateTime2), N'task__tag--not-ready', NULL, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6', N'#a19ec1ff')
 SET IDENTITY_INSERT [dbo].[TaskToDo] OFF
 GO
 SET IDENTITY_INSERT [dbo].[UserListTask] ON 
@@ -1698,7 +1612,13 @@ SET IDENTITY_INSERT [dbo].[UserListTask] ON
 INSERT [dbo].[UserListTask] ([UserListTaskId], [TaskId], [UserId]) VALUES (119, 1495, N'12116240-b504-41bf-bcf6-9e906612ee3e')
 INSERT [dbo].[UserListTask] ([UserListTaskId], [TaskId], [UserId]) VALUES (120, 1495, N'a733eed2-a179-4aa1-9624-3885a129c89b')
 INSERT [dbo].[UserListTask] ([UserListTaskId], [TaskId], [UserId]) VALUES (121, 1495, N'debc41d6-0223-4aaf-948a-b1c75e4b0bd6')
+INSERT [dbo].[UserListTask] ([UserListTaskId], [TaskId], [UserId]) VALUES (122, 1498, N'12116240-b504-41bf-bcf6-9e906612ee3e')
+INSERT [dbo].[UserListTask] ([UserListTaskId], [TaskId], [UserId]) VALUES (123, 1498, N'08f3f05d-b266-4c3e-99b4-12c0d926a8d3')
+INSERT [dbo].[UserListTask] ([UserListTaskId], [TaskId], [UserId]) VALUES (124, 1498, N'98e152ed-a5d9-4ccb-93cf-ea5edf4e067c')
+INSERT [dbo].[UserListTask] ([UserListTaskId], [TaskId], [UserId]) VALUES (125, 1498, N'a733eed2-a179-4aa1-9624-3885a129c89b')
 SET IDENTITY_INSERT [dbo].[UserListTask] OFF
+GO
+ALTER TABLE [dbo].[AspNetRoles] ADD  DEFAULT (N'') FOR [Discriminator]
 GO
 ALTER TABLE [dbo].[AspNetUsers] ADD  DEFAULT (N'') FOR [Discriminator]
 GO
@@ -1873,6 +1793,11 @@ ALTER TABLE [dbo].[OrderService]  WITH CHECK ADD  CONSTRAINT [FK_OrderService_Se
 REFERENCES [dbo].[ServiceEntity] ([ServiceId])
 GO
 ALTER TABLE [dbo].[OrderService] CHECK CONSTRAINT [FK_OrderService_ServiceEntity_ServiceId]
+GO
+ALTER TABLE [dbo].[Permission]  WITH CHECK ADD  CONSTRAINT [FK_Permission_AspNetRoles_RoleId] FOREIGN KEY([RoleId])
+REFERENCES [dbo].[AspNetRoles] ([Id])
+GO
+ALTER TABLE [dbo].[Permission] CHECK CONSTRAINT [FK_Permission_AspNetRoles_RoleId]
 GO
 ALTER TABLE [dbo].[ServiceEntity]  WITH CHECK ADD  CONSTRAINT [FK_ServiceEntity_ServiceCategory_CategoryId] FOREIGN KEY([CategoryId])
 REFERENCES [dbo].[ServiceCategory] ([CategoryId])
