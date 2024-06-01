@@ -22,7 +22,7 @@
 <MudSnackbarProvider />
 <PageTitle>Project management</PageTitle>
 <MudBreadcrumbs Items="_items"></MudBreadcrumbs>
-@code{
+@code {
     private List<MudBlazor.BreadcrumbItem> _items = new List<MudBlazor.BreadcrumbItem>
     {
         new MudBlazor.BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
@@ -83,11 +83,13 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-    .rz-chip{
-        width:100%;
+
+    .rz-chip {
+        width: 100%;
     }
-    .rz-chip-text{
-        width:100%;
+
+    .rz-chip-text {
+        width: 100%;
     }
 </style>
 
@@ -130,7 +132,7 @@
         int newTaskId = task.TaskId;
         userTaskList.Clear();
 
-        if(values != null)
+        if (values != null)
         {
             foreach (var item in values)
             {
@@ -144,7 +146,7 @@
             _context.UserListTask.AddRange(userTaskList);
             await _context.SaveChangesAsync();
         }
-    
+
         await LoadProject();
     }
     public async Task DeleteTask(int taskId)
@@ -161,7 +163,7 @@
                                        .Where(x => x.TaskId == taskId)
                                        .Select(x => x.UserListTaskId)
                                        .ToListAsync();
-          
+
             var taskComments = await _context.TaskComment
                                      .Where(x => x.TaskId == taskId)
                                      .ToListAsync();
@@ -268,7 +270,44 @@
         // update project
 
 }
+@code {
+    private string searchTerm;
+    private List<Project> projects { get; set; } = new List<Project>();
 
+
+    private void OnInput(ChangeEventArgs e)
+    {
+        searchTerm = e.Value.ToString();
+        if (searchTerm == "")
+        {
+            FilterProjects();
+            var baseUrl = NavigationManager.BaseUri.TrimEnd('/');
+            var updatedUrl = $"{baseUrl}/task";
+            NavigationManager.NavigateTo(updatedUrl, forceLoad: false);
+        }
+        else{
+            FilterProjects();
+            var baseUrl = NavigationManager.BaseUri.TrimEnd('/');
+            var updatedUrl = $"{baseUrl}/task?search={searchTerm}";
+            NavigationManager.NavigateTo(updatedUrl, forceLoad: false);
+        }
+    }
+
+    private void FilterProjects()
+    {
+        if (string.IsNullOrEmpty(searchTerm))
+        {
+            // Nếu searchTerm rỗng, trả về danh sách toàn bộ dự án
+            projects = projectList;
+        }
+        else
+        {
+            // Ngược lại, lọc danh sách dự án dựa trên searchTerm
+            projects = projectList.Where(p => p.Name.ToLower().Contains(searchTerm.ToLower())).ToList();
+        }
+    }
+
+}
 
 @* main UI *@
 <div class='app'>
@@ -280,92 +319,100 @@
                 <span></span>
                 <span></span>
                 <button class='project-participants__add'>Add Participant</button> *@
+                <input @bind="searchTerm" @oninput="OnInput" class="form-control" placeholder="Tìm tên dự án..." />
                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createProjectModal" @onclick="ShowAddProjectModal">Thêm dự án</button>
                 <button style="margin-left:6px" type="submit" class="btn btn-outline-primary" @onclick="UpdateStateAndSortTasks">Đồng bộ</button>
             </div>
         </div>
         <div class='project-tasks' id='project-tasks'>
-            @foreach (var project in projectList)
+            @if (projects != null && projects.Any())
             {
-                <div class="container-flex-col" @key="@project.ProjectId">
-                    <div class='project-column-heading' draggable='false'>
-                        <div style="overflow: hidden;border-radius:8px;text-overflow: ellipsis;white-space: nowrap;">
-                            <MudChip Style="max-width: 270px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap"><span style="font-size:17px">@project.Name</span></MudChip>
+                @foreach (var project in projects)
+                {
+                    <div class="container-flex-col" @key="@project.ProjectId">
+                        <div class='project-column-heading' draggable='false'>
+                            <div style="overflow: hidden;border-radius:8px;text-overflow: ellipsis;white-space: nowrap;">
+                                <MudChip Style="max-width: 270px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap"><span style="font-size:17px">@project.Name</span></MudChip>
+                            </div>
+                            <div class="dropdown">
+                                <button class='project-column-heading__options' draggable='false' id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-h" draggable='false'></i>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(51, 51, 51) 0px 0px 0px 1px;">
+                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editProjectModal" @onclick="()=> EditProject(project.ProjectId)" href="#">Cập nhật</a></li>
+                                    <li>
+                                        <a class="dropdown-item" @onclick="()=> ConfirmDeleteProject(project.ProjectId)" style="cursor: pointer;"><span style="color:red"><i class="fa-solid fa-trash"></i> Xóa dự án</span></a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="dropdown">
-                            <button class='project-column-heading__options' draggable='false' id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-ellipsis-h" draggable='false'></i>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(51, 51, 51) 0px 0px 0px 1px;">
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editProjectModal" @onclick="()=> EditProject(project.ProjectId)" href="#">Cập nhật</a></li>
-                                <li>
-                                    <a class="dropdown-item" @onclick="()=> ConfirmDeleteProject(project.ProjectId)" style="cursor: pointer;"><span style="color:red"><i class="fa-solid fa-trash"></i> Xóa dự án</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="container-task-button">
+                        <div class="container-task-button">
 
-                        <div class='project-column' data-project-id="@project.ProjectId" @key="@changeCounter">
-                            @{
-                                tasks = _taskService.GetListTaskByProjectId(project.ProjectId).OrderBy(t => t.Position).ToList();
-                            }
-                            @foreach (var task in tasks)
-                            {
-                                if (task != null)
+                            <div class='project-column' data-project-id="@project.ProjectId" @key="@changeCounter">
+                                @{
+                                    tasks = _taskService.GetListTaskByProjectId(project.ProjectId).OrderBy(t => t.Position).ToList();
+                                }
+                                @foreach (var task in tasks)
                                 {
-                                    <div class='task' draggable='true' data-task-id="@task.TaskId" @key="@task.TaskId" style="border:4px solid @task.TaskColor">
-                                        <div class='task__tags' @key="@task.TaskColor">
-                                            @if (task.Priority != null)
-                                            {
-                                                if (task.Priority.Contains("task__tag--not-ready"))
+                                    if (task != null)
+                                    {
+                                        <div class='task' draggable='true' data-task-id="@task.TaskId" @key="@task.TaskId" style="border:4px solid @task.TaskColor">
+                                            <div class='task__tags' @key="@task.TaskColor">
+                                                @if (task.Priority != null)
                                                 {
-                                                    <span class='task__tag @task.Priority' @key="@task.ProjectId">chưa bắt đầu</span>
+                                                    if (task.Priority.Contains("task__tag--not-ready"))
+                                                    {
+                                                        <span class='task__tag @task.Priority' @key="@task.ProjectId">chưa bắt đầu</span>
+                                                    }
+                                                    if (task.Priority.Contains("task__tag--illustration"))
+                                                    {
+                                                        <span class='task__tag @task.Priority' @key="@task.ProjectId">bắt đầu</span>
+                                                    }
+                                                    if (task.Priority.Contains("task__tag--copyright"))
+                                                    {
+                                                        <span class='task__tag @task.Priority' @key="@task.ProjectId">quan trọng</span>
+                                                    }
+                                                    if (task.Priority.Contains("task__tag--design"))
+                                                    {
+                                                        <span class='task__tag @task.Priority' @key="@task.ProjectId">đang làm</span>
+                                                    }
                                                 }
-                                                if (task.Priority.Contains("task__tag--illustration"))
-                                                {
-                                                    <span class='task__tag @task.Priority' @key="@task.ProjectId">bắt đầu</span>
-                                                }
-                                                if (task.Priority.Contains("task__tag--copyright"))
-                                                {
-                                                    <span class='task__tag @task.Priority' @key="@task.ProjectId">quan trọng</span>
-                                                }
-                                                if (task.Priority.Contains("task__tag--design"))
-                                                {
-                                                    <span class='task__tag @task.Priority' @key="@task.ProjectId">đang làm</span>
-                                                }
-                                            }
-                                            <div class="dropdown">
-                                                <button class='task__options' draggable='false' id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="fas fa-ellipsis-h" draggable='false'></i>
-                                                </button>
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(51, 51, 51) 0px 0px 0px 1px;">
-                                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#taskDetailsModal" @onclick="() => EditTaskToDo(task.TaskId)" href="#">Cập nhật</a></li>
-                                                    <li>
-                                                        <a class="dropdown-item" @onclick="()=> ConfirmDeleteTask(task.TaskId)" style="cursor: pointer;"><span style="color:red"><i class="fa-solid fa-trash"></i> Xóa nhiệm vụ</span></a>
-                                                    </li>
-                                                </ul>
+                                                <div class="dropdown">
+                                                    <button class='task__options' draggable='false' id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-h" draggable='false'></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px, rgb(51, 51, 51) 0px 0px 0px 1px;">
+                                                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#taskDetailsModal" @onclick="() => EditTaskToDo(task.TaskId)" href="#">Cập nhật</a></li>
+                                                        <li>
+                                                            <a class="dropdown-item" @onclick="()=> ConfirmDeleteTask(task.TaskId)" style="cursor: pointer;"><span style="color:red"><i class="fa-solid fa-trash"></i> Xóa nhiệm vụ</span></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <p>@task.Name</p>
+                                            <div class='task__stats'>
+                                                <span>
+                                                    <time datetime="2021-11-24T20:00:00">
+                                                        <i class="fas fa-flag"></i> @task.CreatedAt?.ToString("dd MM")
+                                                    </time>
+                                                </span>
+                                                <span><i class="fas fa-comment"></i> 3</span>
+                                                <span style="visibility:hidden"><i class="fas fa-paperclip"></i></span>
+                                                <span class='task__owner'><img style="width:100%;height:100%;border-radius:50%" src="@task.User.Avatar" alt="Avatar" /></span>
                                             </div>
                                         </div>
-                                        <p>@task.Name</p>
-                                        <div class='task__stats'>
-                                            <span>
-                                                <time datetime="2021-11-24T20:00:00">
-                                                    <i class="fas fa-flag"></i> @task.CreatedAt?.ToString("dd MM")
-                                                </time>
-                                            </span>
-                                            <span><i class="fas fa-comment"></i> 3</span>
-                                            <span style="visibility:hidden"><i class="fas fa-paperclip"></i></span>
-                                            <span class='task__owner'><img style="width:100%;height:100%;border-radius:50%" src="@task.User.Avatar" alt="Avatar" /></span>
-                                        </div>
-                                    </div>
+                                    }
                                 }
-                            }
+                            </div>
+                            <button class="add-task-button" data-bs-toggle="modal" data-bs-target="#taskModal" @onclick="() => ShowAddTaskModal(project.ProjectId)">+ Thêm task</button>
                         </div>
-                        <button class="add-task-button" data-bs-toggle="modal" data-bs-target="#taskModal" @onclick="() => ShowAddTaskModal(project.ProjectId)">+ Thêm task</button>
-                    </div>
 
-                </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Không tìm thấy dữ liệu !!.</p>
             }
         </div>
     </div>
@@ -455,7 +502,7 @@
                         <RadzenDropDown @bind-Value=@defaultSelectedUserIds Data=@userList TextProperty="Email" ValueProperty="Id" Name="DropDownMultipleChips" MaxSelectedLabels="6" SelectedItemsText="được chọn"
                                         Multiple=true SelectAllText="Chọn tất cả" Placeholder="Chọn thành viên tham gia" Chips=true Filterable=true
                                         Style="width: 100%;margin:0 0 0 0">
-                            <Template Context="item" >
+                            <Template Context="item">
                                 <div class="rz-chip" style="margin: 2px; padding: 2px 8px; display: inline-flex;justify-content:space-between; align-items: center;">
                                     <span style="font-size:12px;margin-right:5px">@item.Email</span>
                                     <img src="@item.Avatar" style="border-radius:5px;width: 20px; height: 20px; margin: 4px;" />
@@ -464,15 +511,15 @@
                         </RadzenDropDown>
                     </div>
 
-   @*                  @if (Users != null)
+                    @*                  @if (Users != null)
                     {
-                            @foreach (var user in Users)
-                            {
-                                <div class="rz-chip" style="margin: 2px; background-color: #f0f0f0; padding: 2px 8px; border-radius: 15px;justify-content:space-between; display: inline-flex; align-items: center;">
-                                    <span style="font-size:12px;margin-right:5px">@user.Email</span>
-                                    <img src="@user.Avatar" style="border-radius:5px;width: 20px; height: 20px; margin: 4px;" />
-                                </div> <br />
-                            }
+                    @foreach (var user in Users)
+                    {
+                    <div class="rz-chip" style="margin: 2px; background-color: #f0f0f0; padding: 2px 8px; border-radius: 15px;justify-content:space-between; display: inline-flex; align-items: center;">
+                    <span style="font-size:12px;margin-right:5px">@user.Email</span>
+                    <img src="@user.Avatar" style="border-radius:5px;width: 20px; height: 20px; margin: 4px;" />
+                    </div> <br />
+                    }
                     } *@
                     <div class="container justify-content-center mt-5 border-left border-right" style="background-color:transparent">
                         <div class="d-flex justify-content-center pt-3 pb-2">
@@ -495,7 +542,7 @@
                             </div>
 
                         </div>
-                        @if(taskCommentList != null)
+                        @if (taskCommentList != null)
                         {
                             <div class="container-comments">
                                 @foreach (var item in taskCommentList)
@@ -513,7 +560,7 @@
                                 }
                             </div>
                         }
-                        
+
                     </div>
                 </div>
             </div>
@@ -548,7 +595,7 @@
         else
         {
         }
-      
+
     }
     private string commentText { get; set; }
 
@@ -577,7 +624,7 @@
     string? updateTaskName = "";
     async Task EditTaskToDo(int taskId)
     {
-        if(defaultSelectedUserIds != null)
+        if (defaultSelectedUserIds != null)
         {
             defaultSelectedUserIds.Clear();
         }
@@ -650,13 +697,13 @@
                 _context.UserListTask.Remove(itemToRemove);
             }
 
-           
+
             await _context.SaveChangesAsync();
             Users = await _context.UserListTask
               .Where(ult => ult.TaskId == taskToDoModel.TaskId)
               .Select(ult => ult.User)
               .ToListAsync();
-        
+
             StateHasChanged();
             // Cập nhật Priority dựa trên selectedColorTask
             if (selectedColorTask.Contains("#d6ede2"))
@@ -759,13 +806,13 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="name">Name:</label>
+                    <label for="name">Tên dự án:</label>
                     <input type="text" class="form-control" id="name" @bind="projectName" required>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" @onclick="CreateProject">Create</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn btn-primary" @onclick="CreateProject">Thêm dự án</button>
             </div>
         </div>
     </div>
@@ -844,6 +891,7 @@
         tasks.Clear();
         changeCounter++;
         projectList = await _projectService.GetAllProjects();
+        projects = projectList;
         _context.SaveChanges();
         StateHasChanged();
         PreloadService.Hide();
@@ -860,7 +908,7 @@
     async Task LoadProject()
     {
         projectList = await _projectService.GetAllProjects();
-
+        projects = projectList;
         await _hubContext.Clients.All.SendAsync("ProjectCreated", projectList);
     }
     public async Task Init()
@@ -878,6 +926,14 @@
                 StateHasChanged();
             });
         });
+        hubConnection.On<List<Project>>("ProjectCreated", receivedProducts =>
+      {
+          InvokeAsync(() =>
+          {
+              projects = receivedProducts;
+              StateHasChanged();
+          });
+      });
         hubConnection.On<List<TaskComment>>("TaskCommentList", list =>
         {
             InvokeAsync(() =>
@@ -905,11 +961,11 @@
     // {
     //     if (firstRender)
     //     {
-    //         await UpdateState();
+    //         await LoadProject();
+    //         projects = projectList;
     //     }
-    //     await UpdateState();
     // }
-      [Inject] protected PreloadService PreloadService { get; set; }
+    [Inject] protected PreloadService PreloadService { get; set; }
     protected override async Task OnInitializedAsync()
     {
         var user = await _userBlazorService.GetCurrentUser();
@@ -919,11 +975,15 @@
             return;
         }
         userList = await _context.ApplicationUser.ToListAsync();
-
         currUser = await _userBlazorService.GetCurrentUser();
+     
         // Cập nhật danh sách công việc cho mỗi dự án
         await Init();
+        await LoadProject();
+
         await UpdateStateAndSortTasks();
+        projects = projectList;
+
     }
 }
 

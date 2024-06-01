@@ -52,7 +52,7 @@ namespace WebAPI.Repositories
             var avatar = user.Avatar;
             var phone = user.PhoneNumber;
             // Thêm thông tin username và email vào danh sách claims
-            var authClaims = new List<Claim>
+            var authClaims = new List<Claim> // jwt.io
             {
                 new Claim(ClaimTypes.NameIdentifier, userId),
                 new Claim(ClaimTypes.Email, model.Email),
