@@ -42,7 +42,8 @@
         new MudBlazor.BreadcrumbItem("Sảnh cưới", href: "/hall-list", icon: Icons.Material.Filled.Stadium),
     };
 }
-
+<MudTabs Elevation="1" Rounded="true" PanelClass="pa-3">
+    <MudTabPanel Text="Sảnh cưới" ToolTip="Danh sách sảnh cưới">
 
 <style>
     .btn {
@@ -113,7 +114,7 @@
                             <InputFile id="branchImage" class="form-control" OnChange="OnInputFileChange" />
                         </div>
                         <div class="mb-3">
-                            <label for="branchId" class="form-label">>Chọn chi nhánh</label>
+                            <label for="branchId" class="form-label">Chọn chi nhánh</label>
                             <select class="form-control" id="branchId" @bind="SelectedBranchId">
                                 @foreach (var branch in selectBranches)
                                 {
@@ -687,13 +688,20 @@
     [Inject] private ApplicationDbContext _context { get; set; }
     string imageUrl { get; set; }
     private List<Hall> listHall { get; set; } = new List<Hall>();
+    private List<TimeOfDay> listTimeOfDay { get; set; } = new List<TimeOfDay>();
 
     static int change = 0;
     protected async Task LoadBranches()
     {
-        listHall = await _context.Hall.ToListAsync();
-        await _hubContext.Clients.All.SendAsync("HallCreated", listHall);
+            listHall = await _context.Hall.ToListAsync();
+            await _hubContext.Clients.All.SendAsync("HallCreated", listHall);
     }
+        protected async Task LoadTimeOfDay()
+        {
+            listTimeOfDay = await _context.TimeOfDay.Include(x=> x.Hall).ToListAsync();
+            await _hubContext.Clients.All.SendAsync("TimeOfDay", listTimeOfDay);
+        }
+        private TimeOfDay timeOfDay = new TimeOfDay();
     private HubConnection hubConnection;
     string roleNameAu = "";
     bool running = false;
@@ -701,6 +709,7 @@
     bool CanEdit = false;
     bool CanDelete = false;
     string roleId = "";
+
     protected override async Task OnInitializedAsync()
     {
         getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
@@ -735,13 +744,23 @@
                 StateHasChanged();
             });
         });
-
+        hubConnection.On<List<TimeOfDay>>("TimeOfDay", signalRTimeOfDay =>
+        {
+            InvokeAsync(() =>
+            {
+                listTimeOfDay = signalRTimeOfDay;
+                StateHasChanged();
+            });
+        });
         try
         {
             await hubConnection.StartAsync();
             Console.WriteLine("SignalR connection started successfully blazor.");
             await LoadBranches();
+            await LoadTimeOfDay();
+
             running = true;
+
         }
         catch (Exception ex)
         {
@@ -751,3 +770,141 @@
         await base.OnInitializedAsync();
     }
 }
+    </MudTabPanel>
+    <MudTabPanel Text="Thời gian sảnh" ToolTip="Thời gian sảnh">
+        @code{
+        private async Task HandleValidSubmit()
+        {
+            var newTimeOfDay = new TimeOfDay
+            {
+                HallId = timeOfDay.HallId,
+                Morning = timeOfDay.Morning,
+                Afternoon = timeOfDay.Afternoon,
+                Dinner = timeOfDay.Dinner,
+            };
+            _context.TimeOfDay.Add(newTimeOfDay);
+            await _context.SaveChangesAsync();
+            await LoadTimeOfDay();
+            StateHasChanged();
+            await LoadTimeOfDay();
+            await _hubContext.Clients.All.SendAsync("TimeOfDay", listTimeOfDay);
+            StateHasChanged();
+        }
+
+        private void CancelAndDelDataTimeOfDay()
+        {
+            timeOfDay = new TimeOfDay();
+            isLoading = false;
+            isSavedSuccessfully = false;
+        }
+        }
+        <div class="modal fade" id="createTimeOfDayModal" tabindex="-1" aria-labelledby="createTimeOfDayModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createTimeOfDayModalLabel">Thêm thời gian mới</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    @if (CanAdd)
+                    {
+                        <div class="modal-body">
+
+
+                            <EditForm Model="@timeOfDay">
+                                <DataAnnotationsValidator />
+                                <ValidationSummary />
+
+                                <div class="mb-3">
+                                    <label for="hallId" class="form-label">Chọn sảnh</label>
+                                    <InputSelect id="hallId" @bind-Value="timeOfDay.HallId" class="form-control">
+                                        @foreach (var hall in listHall)
+                                        {
+                                            <option value="@hall.HallId">@hall.Name</option>
+                                        }
+                                    </InputSelect>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="morning" class="form-label">Buổi sáng</label>
+                                    <InputText id="morning" @bind-Value="timeOfDay.Morning" class="form-control" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="afternoon" class="form-label">Buổi chiều</label>
+                                    <InputText id="afternoon" @bind-Value="timeOfDay.Afternoon" class="form-control" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="dinner" class="form-label">Buổi tối</label>
+                                    <InputText id="dinner" @bind-Value="timeOfDay.Dinner" class="form-control" />
+                                </div>
+                            </EditForm>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" @onclick="CancelAndDelData" data-bs-dismiss="modal">Hủy</button>
+                            <button type="submit" @onclick="HandleValidSubmit" class="btn btn-success">
+                                @if (isLoading)
+                                {
+                                    <i class="fa-solid fa-spinner fa-spin" style="color: white; margin-right:5px"></i>
+                                    <span>Đang tải... </span>
+                                }
+                                else if (isSavedSuccessfully)
+                                {
+                                    <i class="fa-solid fa-check" style="color: white; margin-right:5px"></i>
+                                    <span>Đã lưu thành công!</span>
+                                }
+                                else
+                                {
+                                    <i class="fa-solid fa-plus" style="color: white; margin-right:5px"></i>
+                                    <span>Lưu</span>
+                                }
+                            </button>
+                        </div>
+                    }
+                    else
+                    {
+                        <span style="color:red;margin:10px">Không có quyền thêm</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+      
+        @if (running == true)
+        {
+            <AuthorizeView Context="Hall" Roles=@roleNameAu>
+                <Authorized>
+                    <a class="btn btn-primary" style="font-size:13px;padding:7px;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createTimeOfDayModal">
+                        Thêm sảnh cưới
+                    </a>
+                    <MudTable @key="@change" Items="@listTimeOfDay" Hover="true" SortLabel="Sort By" Striped="true"  Style="margin-bottom:15px">
+                        <ToolBarContent>
+                            <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách sảnh</MudText>
+                            <MudSpacer />
+                        </ToolBarContent>
+                        <HeaderContent>
+
+                            <MudTh><MudTableSortLabel SortBy="new Func<TimeOfDay, object>(x=>x.Hall.Name)">Tên sảnh</MudTableSortLabel></MudTh>
+                            <MudTh><MudTableSortLabel SortBy="new Func<TimeOfDay, object>(x=>x.Morning)">Tên sảnh</MudTableSortLabel></MudTh>
+                            <MudTh><MudTableSortLabel SortBy="new Func<TimeOfDay, object>(x=>x.Afternoon)">Giá</MudTableSortLabel></MudTh>
+                            <MudTh><MudTableSortLabel SortBy="new Func<TimeOfDay, object>(x=>x.Dinner)">Số lượng bàn</MudTableSortLabel></MudTh>
+
+                            <MudTh>Chức năng</MudTh>
+                        </HeaderContent>
+                        <RowTemplate>
+                            <MudTd DataLabel="Name">@context.Hall.Name</MudTd>
+                            <MudTd DataLabel="Name">@context.Morning</MudTd>
+                            <MudTd DataLabel="Name">@context.Afternoon</MudTd>
+                            <MudTd DataLabel="Name">@context.Dinner</MudTd>
+                        </RowTemplate>
+
+                            <PagerContent>
+                                <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
+                            </PagerContent>
+                        </MudTable>
+                    </Authorized>
+                    <NotAuthorized>
+                        <h3>You are not authorized to view this content.</h3>
+                    </NotAuthorized>
+                </AuthorizeView>
+        }
+    </MudTabPanel>
+</MudTabs>

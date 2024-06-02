@@ -1,0 +1,43 @@
+﻿@model CodeFirst.Models.Entities.TimeOfDay
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TimeOfDay</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Hall)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Hall.HallId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Morning)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Morning)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Afternoon)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Afternoon)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dinner)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dinner)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

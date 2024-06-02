@@ -62,7 +62,13 @@ namespace CodeFirst.Hubs
 
             await Clients.All.SendAsync("HallCreated", listHall);
         }
+        public async Task SendTimeOfDayCreatedNotification()
+        {
+            var listTimeOfDay = _context.TimeOfDay.ToListAsync();
 
+
+            await Clients.All.SendAsync("TimeOfDay", listTimeOfDay);
+        }
         public async Task SendMenuCreatedNotification()
         {
             var listMenu = _context.MenuEntity.ToListAsync();

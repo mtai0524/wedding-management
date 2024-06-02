@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CodeFirst.Models.Entities.TimeOfDay>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Hall)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Morning)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Afternoon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dinner)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hall.HallId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Morning)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Afternoon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dinner)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
