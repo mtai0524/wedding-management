@@ -646,21 +646,41 @@
         isSavedSuccessfully = true;
         await _notiService.SendNotification(getUserCurrBlazor, "đã cập nhật ");
         await LoadBranches();
+        await LoadTimeOfDay();
     }
 
 
-    async Task DeleteBranch(int branchId)
-    {
-        var branchToDelete = await _context.Hall.FindAsync(branchId);
-        if (branchToDelete != null)
+        async Task DeleteBranch(int branchId)
         {
+            var branchToDelete = await _context.Hall.FindAsync(branchId);
+            if (branchToDelete != null)
+            {
+            _context.ChangeTracker.Clear(); // clear tracking
+
+            // Fetch all TimeOfDay records related to the branch (hall) with AsNoTracking()
+            var timeOfDayToDelete = await _context.TimeOfDay
+            .Where(t => t.HallId == branchId)
+            .AsNoTracking() // Ensure no tracking of entities
+            .ToListAsync();
+
+            // Remove the related TimeOfDay records
+            _context.TimeOfDay.RemoveRange(timeOfDayToDelete);
+
+            // Remove the branch (hall)
             _context.Hall.Remove(branchToDelete);
+
+            // Save changes to the database
             await _context.SaveChangesAsync();
+
+            // Notify clients about the change
             await _hubContext.Clients.All.SendAsync("HallCreated", listHall);
 
+            // Reload branches to reflect the changes
             await LoadBranches();
+            }
         }
-    }
+
+
 }
 
 @* get user curr *@
@@ -773,6 +793,7 @@
     </MudTabPanel>
     <MudTabPanel Text="Thời gian sảnh" ToolTip="Thời gian sảnh">
         @code{
+            bool isSavedSuccessfully2 = false;
         private async Task HandleValidSubmit()
         {
             var newTimeOfDay = new TimeOfDay
@@ -789,13 +810,14 @@
             await LoadTimeOfDay();
             await _hubContext.Clients.All.SendAsync("TimeOfDay", listTimeOfDay);
             StateHasChanged();
+            isSavedSuccessfully2 = true;
         }
 
         private void CancelAndDelDataTimeOfDay()
         {
             timeOfDay = new TimeOfDay();
             isLoading = false;
-            isSavedSuccessfully = false;
+            isSavedSuccessfully2 = false;
         }
         }
         <div class="modal fade" id="createTimeOfDayModal" tabindex="-1" aria-labelledby="createTimeOfDayModalLabel" aria-hidden="true">
@@ -816,12 +838,15 @@
 
                                 <div class="mb-3">
                                     <label for="hallId" class="form-label">Chọn sảnh</label>
-                                    <InputSelect id="hallId" @bind-Value="timeOfDay.HallId" class="form-control">
+                                       <select class="form-control" id="hallId" @bind="timeOfDay.HallId">
+                                        <option>Chọn sảnh</option>
+
                                         @foreach (var hall in listHall)
                                         {
+
                                             <option value="@hall.HallId">@hall.Name</option>
                                         }
-                                    </InputSelect>
+                                    </select>
                                 </div>
 
                                 <div class="mb-3">
@@ -846,7 +871,7 @@
                                     <i class="fa-solid fa-spinner fa-spin" style="color: white; margin-right:5px"></i>
                                     <span>Đang tải... </span>
                                 }
-                                else if (isSavedSuccessfully)
+                                else if (isSavedSuccessfully2)
                                 {
                                     <i class="fa-solid fa-check" style="color: white; margin-right:5px"></i>
                                     <span>Đã lưu thành công!</span>
@@ -866,7 +891,170 @@
                 </div>
             </div>
         </div>
+        @code{
+            string? morning = "";
+            string? afternoon = "";
+            string? dinner = "";
+            int? updateHallId = 0;
+            TimeOfDay? timeToEdit { get; set; } = new TimeOfDay();
 
+            async Task EditTimeOfDay(int id)
+            {
+                _context.ChangeTracker.Clear(); // clear tracking
+                timeToEdit = await _context.TimeOfDay.FindAsync(id);
+                TimeOfDay? timeUpdateForm = _context.TimeOfDay.Include(x => x.Hall).FirstOrDefault(x => x.Id == id);
+                if (timeUpdateForm != null)
+                {
+                    morning = timeUpdateForm.Morning;
+                    afternoon = timeUpdateForm.Afternoon;
+                    dinner = timeUpdateForm.Dinner;
+                    updateHallId = timeUpdateForm.HallId;
+                }
+                StateHasChanged(); // Cập nhật UI
+            }
+        async Task SaveEditChangesTimeOfDay()
+        {
+            var existingTimeOfDay = _context.TimeOfDay.Local.FirstOrDefault(b => b.Id == timeToEdit.Id);
+
+           
+            if (existingTimeOfDay != null)
+            {
+
+                existingTimeOfDay.Morning = morning;
+                existingTimeOfDay.Afternoon = afternoon;
+                existingTimeOfDay.Dinner = dinner;
+            existingTimeOfDay.HallId = updateHallId;
+            }
+            else
+            {
+
+                _context.Attach(timeToEdit);
+                timeToEdit.Morning = morning;
+                timeToEdit.Afternoon = afternoon;
+                timeToEdit.Dinner = dinner;
+            timeToEdit.HallId = updateHallId;
+            }
+                Snackbar.Add("Cập nhật dữ liệu thành công!", Severity.Success);
+                _context.Update(timeToEdit);
+
+                await _context.SaveChangesAsync();
+                await LoadTimeOfDay();
+
+            }
+            private async void ShowConfirmModalTime(int branchId)
+            {
+                if (!CanDelete)
+                {
+                    await jsRuntime.InvokeVoidAsync("alert", $"Không có quyền xóa");
+                    return;
+                }
+                bool? result = await mbox.Show();
+                if (result == true)
+                {
+                    await DeleteTime(branchId);
+                    Snackbar.Add("Đã xóa!", Severity.Success);
+                }
+               
+                StateHasChanged();
+            }
+            async Task DeleteTime(int branchId)
+            {
+                var branchToDelete = await _context.TimeOfDay.FindAsync(branchId);
+                if (branchToDelete != null)
+                {
+                    _context.TimeOfDay.Remove(branchToDelete);
+                    await _context.SaveChangesAsync();
+                    await _hubContext.Clients.All.SendAsync("HallCreated", listHall);
+                    await LoadTimeOfDay();
+
+                }
+            }
+        }
+        <div class="modal fade" id="editTimeOfDayModal" tabindex="-1" aria-labelledby="editTimeOfDayModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editTimeOfDayModalLabel">Chỉnh sửa chi nhánh</h5>
+                        <button type="button" @onclick="() => CloseMe(false)" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                        </button>
+                    </div>
+                    @if (CanEdit)
+                    {
+                        <div class="modal-body">
+                            @if (showAlertCreateBranch)
+                            {
+                                <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(false))">Cập nhật chi nhánh thành công ròi nhe!</MudAlert>
+                            }
+                            @if (showAlert)
+                            {
+                                <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" IsOpen="@showAlert" CloseIconClicked="() => showAlert = false">
+                                    Vui lòng nhập đầy đủ thông tin!
+                                </MudAlert>
+
+                            }
+
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="branchName" class="form-label">morning</label>
+                                    <input type="text" class="form-control" id="branchName" @bind="morning">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="branchName" class="form-label">afternoon</label>
+                                    <input type="text" class="form-control" id="branchName" @bind="afternoon">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="branchName" class="form-label">dinner</label>
+                                    <input type="text" class="form-control" id="branchName" @bind="dinner">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="branchId" class="form-label">Chi nhánh</label>
+
+                                    <select id="hallId" class="form-control" @bind="updateHallId">
+                                        @foreach (var hall in listHall)
+                                        {
+                                            <option value="@hall.HallId">@hall.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </form>
+
+
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" @onclick="CancelAndDelData" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
+                            <a class="btn btn-success" @onclick="SaveEditChangesTimeOfDay">
+                                @if (isLoadingUpdate)
+                                {
+                                    <i class="fa-solid fa-spinner fa-spin" style="color: white; margin-right:5px"></i>
+                                    <span>Đang tải ... </span>
+                                }
+                                else if (isSavedSuccessfully)
+                                {
+                                    <i class="fa-solid fa-check" style="color: white; margin-right:5px"></i>
+                                    <span>Đã lưu thành công!</span>
+                                }
+                                else if (isError)
+                                {
+                                    <i class="fa-solid fa-ban" style="margin-right:5px"></i>
+                                    <span>Bị lỗi hình ảnh</span>
+                                }
+                                else
+                                {
+                                    <i class="fa-solid fa-plus" style="color: white; margin-right:5px"></i>
+                                    <span>Lưu</span>
+                                }
+                            </a>
+
+                        </div>
+                    }
+                    else
+                    {
+                        <span style="color:red;margin:10px">Không có quyền cập nhật</span>
+                    }
+                </div>
+            </div>
+        </div>
       
         @if (running == true)
         {
@@ -894,6 +1082,15 @@
                             <MudTd DataLabel="Name">@context.Morning</MudTd>
                             <MudTd DataLabel="Name">@context.Afternoon</MudTd>
                             <MudTd DataLabel="Name">@context.Dinner</MudTd>
+                            <MudTd>
+                                    <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Settings" Size="MudBlazor.Size.Small" Color="Color.Success" data-bs-toggle="modal" data-bs-target="#editTimeOfDayModal" OnClick="@(() => EditTimeOfDay(@context.Id))">
+                                        Sửa
+                                    </MudButton>
+                                    <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => ShowConfirmModalTime(@context.Id))">
+                                        Xóa
+                                    </MudButton>
+                            </MudTd>
+                          
                         </RowTemplate>
 
                             <PagerContent>
