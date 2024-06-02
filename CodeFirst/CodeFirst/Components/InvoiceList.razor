@@ -122,6 +122,7 @@
         <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.AttendanceDate)">Ngày đến</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.OrderStatus)">Trạng thái</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.PaymentStatus)">Thanh toán</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.TimeHall)">Ca</MudTableSortLabel></MudTh>
         <MudTh>Chức năng</MudTh>
     </HeaderContent>
     <RowTemplate>
@@ -137,6 +138,7 @@
             <MudTd DataLabel="AttendanceDate">@context.AttendanceDate?.ToString("dd/MM/yyyy")</MudTd>
             <MudTd DataLabel="OrderStatus">@context.OrderStatus</MudTd>
             <MudTd DataLabel="PaymentStatus">@((context.PaymentStatus ?? false) ? "Đã thanh toán" : "Chưa thanh toán")</MudTd>
+            <MudTd DataLabel="OrderStatus">@context.TimeHall</MudTd>
 
             <MudTd>
                 <MudButton title="Xóa hóa đơn" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@context.InvoiceID))">

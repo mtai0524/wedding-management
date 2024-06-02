@@ -22,7 +22,20 @@ namespace WebAPI.Controllers
         {
             _context = context;
         }
+        [HttpGet("/api/time/get-hall-id")]
+        public async Task<ActionResult<List<TimeOfDay>>> GetTimeOfDayByHallId(int hallId)
+        {
+            var timeOfDayList = await _context.TimeOfDay
+                .Where(t => t.HallId == hallId)
+                .ToListAsync();
 
+            if (timeOfDayList == null || !timeOfDayList.Any())
+            {
+                return NotFound();
+            }
+
+            return Ok(timeOfDayList);
+        }
 
         [HttpPost("/api/invoice/repayment/{id}")]
         public async Task<IActionResult> Repayment(int id)
@@ -88,6 +101,7 @@ namespace WebAPI.Controllers
                 PhoneNumber = request.PhoneNumber,
                 Note = request.Note,
                 PaymentStatus = false,
+                TimeHall = request.TimeHall
             };
 
           

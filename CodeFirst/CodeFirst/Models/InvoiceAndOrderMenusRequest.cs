@@ -16,5 +16,6 @@ namespace CodeFirst.Models
         public string? FullName { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Note { get; set; }
+        public string? TimeHall { get; set; }
     }
 }

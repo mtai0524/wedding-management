@@ -51,6 +51,7 @@ namespace CodeFirst.Models.Entities
 
         public bool? PaymentStatus { get; set; }
         public string? OrderStatus { get; set; }
+        public string? TimeHall { get; set; }
 
     }
 }
