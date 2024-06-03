@@ -171,6 +171,7 @@
         {
             showAlertCreateBranch = false;
             isSavedSuccessfully = false;
+            isSavedSuccessfully2 = false;
             // string newUrl = $"/branch-list";
             // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
         }
@@ -331,7 +332,8 @@
     </MudTable>
     </Authorized>
     <NotAuthorized>
-        <h3>You are not authorized to view this content.</h3>
+     <h3 style="color:red">Không có quyền truy cập</h3>
+
     </NotAuthorized>
 </AuthorizeView>
 }
@@ -821,12 +823,12 @@
             isSavedSuccessfully2 = false;
         }
         }
-        <div class="modal fade" id="createTimeOfDayModal" tabindex="-1" aria-labelledby="createTimeOfDayModalLabel" aria-hidden="true">
+        <div class="modal fade" id="createTimeOfDayModal" tabindex="-1" aria-labelledby="createTimeOfDayModalLabel" aria-hidden="true" @onclick="() => CloseMe(false)">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;">
                     <div class="modal-header">
                         <h5 class="modal-title" id="createTimeOfDayModalLabel">Thêm thời gian mới</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button @onclick="() => CloseMe(false)" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     @if (CanAdd)
                     {
@@ -865,7 +867,7 @@
                             </EditForm>
                         </div>
                         <div class="modal-footer d-flex justify-content-between">
-                            <button type="button" class="btn btn-secondary" @onclick="CancelAndDelData" data-bs-dismiss="modal">Hủy</button>
+                            <button type="button" class="btn btn-secondary" @onclick="CancelAndDelDataTime" data-bs-dismiss="modal">Hủy</button>
                             <button type="submit" @onclick="HandleValidSubmit" class="btn btn-success">
                                 @if (isLoading)
                                 {
@@ -970,6 +972,13 @@
 
                 }
             }
+        private void CancelAndDelDataTime()
+            {
+                isLoading = false;
+                timeOfDay.Morning = string.Empty;
+                timeOfDay.Afternoon = string.Empty;
+                timeOfDay.Dinner = string.Empty;
+            }
         }
         <div class="modal fade" id="editTimeOfDayModal" tabindex="-1" aria-labelledby="editTimeOfDayModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -1062,7 +1071,7 @@
             <AuthorizeView Context="Hall" Roles=@roleNameAu>
                 <Authorized>
                     <a class="btn btn-primary" style="font-size:13px;padding:7px;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createTimeOfDayModal">
-                        Thêm sảnh cưới
+                        Thêm thời gian
                     </a>
                     <MudTable @key="@change" Items="@listTimeOfDay" Hover="true" SortLabel="Sort By" Striped="true"  Style="margin-bottom:15px">
                         <ToolBarContent>
@@ -1072,9 +1081,9 @@
                         <HeaderContent>
 
                             <MudTh><MudTableSortLabel SortBy="new Func<TimeOfDay, object>(x=>x.Hall.Name)">Tên sảnh</MudTableSortLabel></MudTh>
-                            <MudTh><MudTableSortLabel SortBy="new Func<TimeOfDay, object>(x=>x.Morning)">Tên sảnh</MudTableSortLabel></MudTh>
-                            <MudTh><MudTableSortLabel SortBy="new Func<TimeOfDay, object>(x=>x.Afternoon)">Giá</MudTableSortLabel></MudTh>
-                            <MudTh><MudTableSortLabel SortBy="new Func<TimeOfDay, object>(x=>x.Dinner)">Số lượng bàn</MudTableSortLabel></MudTh>
+                            <MudTh><MudTableSortLabel SortBy="new Func<TimeOfDay, object>(x=>x.Morning)">Sáng</MudTableSortLabel></MudTh>
+                            <MudTh><MudTableSortLabel SortBy="new Func<TimeOfDay, object>(x=>x.Afternoon)">Chiều</MudTableSortLabel></MudTh>
+                            <MudTh><MudTableSortLabel SortBy="new Func<TimeOfDay, object>(x=>x.Dinner)">Tối</MudTableSortLabel></MudTh>
 
                             <MudTh>Chức năng</MudTh>
                         </HeaderContent>
@@ -1100,7 +1109,7 @@
                         </MudTable>
                     </Authorized>
                     <NotAuthorized>
-                        <h3>You are not authorized to view this content.</h3>
+                        <h3 style="color:red">Không có quyền truy cập</h3>
                     </NotAuthorized>
                 </AuthorizeView>
         }

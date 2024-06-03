@@ -267,8 +267,13 @@
         }
     }
 
-        // update project
-
+    // update project
+    private int CountCommentByTaskId(int taskId)
+    {
+        _context.ChangeTracker.Clear();
+        var countComment = _context.TaskComment.Count(tc => tc.TaskId == taskId);
+        return countComment;
+    }
 }
 
 
@@ -356,7 +361,7 @@
                                                     <i class="fas fa-flag"></i> @task.CreatedAt?.ToString("dd MM")
                                                 </time>
                                             </span>
-                                            <span><i class="fas fa-comment"></i> 3</span>
+                                            @* <span><i class="fas fa-comment"></i> @CountCommentByTaskId(@task.TaskId)</span> *@
                                             <span style="visibility:hidden"><i class="fas fa-paperclip"></i></span>
                                             <span class='task__owner'><img style="width:100%;height:100%;border-radius:50%" src="@task.User.Avatar" alt="Avatar" /></span>
                                         </div>
@@ -441,7 +446,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="taskName">Nội dung:</label>
-                    <textarea class="form-control" id="taskName" @bind="@updateTaskName" cols="200" style="height: 350px;overflow: auto;" ></textarea>
+                    <textarea class="form-control" id="taskName" @bind="@updateTaskName" cols="150" style="height: 150px;overflow: auto;" ></textarea>
 
                     <label>Chọn mức độ:</label>
                     <MudChipSet MultiSelection="false">
@@ -515,6 +520,7 @@
                                 }
                             </div>
                         }
+                        <span >Cập nhật lần cuối: @updateDateTimeNow</span>
 
                     </div>
                 </div>
@@ -577,6 +583,7 @@
 
     List<string> defaultSelectedUserIds = new List<string>();
     string? updateTaskName = "";
+    string? updateDateTimeNow = "";
     async Task EditTaskToDo(int taskId)
     {
         if (defaultSelectedUserIds != null)
@@ -607,6 +614,8 @@
         if (taskUpdateForm != null)
         {
             updateTaskName = taskUpdateForm.Name;
+            updateDateTimeNow = taskUpdateForm.UpdatedAt?.ToString("HH:mm dd/MM/yyyy");
+
         }
         taskCommentList = _context.TaskComment
                  .Where(x => x.TaskId == taskToDoModel.TaskId)
@@ -616,6 +625,7 @@
 
         await LoadProject();
     }
+
     async Task SaveEditTaskChanges()
     {
         var existingTask = _context.TaskToDo.Local.FirstOrDefault(b => b.TaskId == taskToDoModel.TaskId);
@@ -624,6 +634,8 @@
         {
             existingTask.Name = updateTaskName;
             existingTask.TaskColor = selectedColorTask;
+            existingTask.UpdatedAt = DateTime.Now;
+            updateDateTimeNow = existingTask.UpdatedAt?.ToString("HH:mm dd/MM/yyyy");
 
             // get UserTaskList by id
             var userTaskListByTaskId = _context.UserListTask.Where(x => x.TaskId == taskToDoModel.TaskId).ToList();
@@ -682,7 +694,9 @@
         else
         {
             taskToDoModel.Name = updateTaskName;
+            taskToDoModel.UpdatedAt = DateTime.Now;
             taskToDoModel.TaskColor = selectedColorTask;
+            updateDateTimeNow = taskToDoModel.UpdatedAt?.ToString("HH:mm dd/MM/yyyy");
 
             // Cập nhật Priority dựa trên selectedColorTask
             if (selectedColorTask.Contains("#d6ede2"))

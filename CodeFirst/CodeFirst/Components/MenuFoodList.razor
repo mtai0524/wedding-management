@@ -65,10 +65,6 @@
         background-color: transparent;
     }
     .mud-table{
-        box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
-        -webkit-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
-        -moz-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
-        box-shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.26);
         border: 3px solid black;
     }
 </style>
@@ -333,7 +329,8 @@
     </MudTable>
             </Authorized>
             <NotAuthorized>
-                <h3>You are not authorized to view this content.</h3>
+                     <h3 style="color:red">Không có quyền truy cập</h3>
+
             </NotAuthorized>
         </AuthorizeView>
         }
@@ -968,7 +965,8 @@
             </MudTable>
                     </Authorized>
                     <NotAuthorized>
-                        <h3>You are not authorized to view this content.</h3>
+                        <h3 style="color:red">Không có quyền truy cập</h3>
+
                     </NotAuthorized>
                 </AuthorizeView>
         }

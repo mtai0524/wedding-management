@@ -25,6 +25,8 @@
 <Preload />
 @using BlazorBootstrap
 @using System.Text
+@using System.Net.Mail
+@using System.Net
 
 <MudThemeProvider />
 <MudDialogProvider />
@@ -71,10 +73,10 @@
         background-color: transparent;
     }
 </style>
-
+@* 
 <a class="btn btn-primary" style="font-size:13px;padding:7px;background-color:#594AE2;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createBranchModal">
     Tính tiền thừa
-</a>
+</a> *@
 
 
 
@@ -106,7 +108,7 @@
 </style>
 
 
-<MudTable @key="@change" Items="@listInvoice" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Invoice,bool>(FilterFunc1)" Style="margin-bottom:15px">
+<MudTable  Items="@listInvoice" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Invoice,bool>(FilterFunc1)" Style="margin-bottom:15px">
     <ToolBarContent>
         <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách hóa đơn</MudText>
         <MudSpacer />
@@ -115,9 +117,9 @@
     <HeaderContent>
 
         <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.InvoiceID)">ID</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.Branch.Name)">Chi nhánh</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.Hall.Name)">Sảnh</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.User.Email)">Email</MudTableSortLabel></MudTh>
+        <MudTh>Chi nhánh</MudTh>
+        <MudTh>Sảnh</MudTh>
+        <MudTh>Email</MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.InvoiceDate)">Ngày đặt</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.AttendanceDate)">Ngày đến</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.OrderStatus)">Trạng thái</MudTableSortLabel></MudTh>
@@ -141,7 +143,7 @@
             <MudTd DataLabel="OrderStatus">@context.TimeHall</MudTd>
 
             <MudTd>
-                <MudButton title="Xóa hóa đơn" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@context.InvoiceID))">
+                <MudButton data-bs-toggle="modal" data-bs-target="#confirmModal" title="Xóa hóa đơn" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@context.InvoiceID))" >
                 Xóa
                 </MudButton>
         </MudTd>
@@ -153,15 +155,7 @@
     </PagerContent>
 </MudTable>
 
-@* modal delete mud blazor *@
-<MudMessageBox @ref="mbox" Title="Xác nhận xóa" CancelText="Hủy thao tác">
-    <MessageContent>
-        Dữ liệu bị xóa sẽ không thể phục hồi
-    </MessageContent>
-    <YesButton>
-        <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Xóa dữ liệu!</MudButton>
-    </YesButton>
-</MudMessageBox>
+
 
     <div class="modal fade" id="viewInvoiceModal" aria-labelledby="viewInvoiceModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -645,41 +639,95 @@ font-weight:bold;
         width: 500px;
     }
 </style>
-@code {
-    MudMessageBox mbox { get; set; }
-    [Inject] private IDialogService DialogService { get; set; }
-    private int invoiceIdToDelete;
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmModalLabel">Confirm Delete</h5>
+                <button type="button" @onclick="() => CancelDeleteInvoice()" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label for="sender">Người gửi: </label>
+                <input id="sender" type="text" placeholder="Email người gửi" @bind="emailSender" class="form-control" />
+                <br />
+                <label for="receiver">Người nhận: </label>
+                <input id="receiver" type="text" placeholder="Email người nhận" @bind="emailReceiver" class="form-control" />
+                <br />
+                <label for="email-title">Chủ đề: </label>
+                <input type="text" id="email-title" placeholder="Chủ đề" @bind=title class="form-control" />
+                <br />
+                <label for="cancel-reason">Nội dung:</label>
+                <textarea id="cancel-reason" class="form-control" @bind=content placeholder="Nhập nguyên nhân hủy đơn hàng"></textarea>
+            </div>
 
-    private async void ShowConfirmModal(int invoiceId)
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="()=> CancelDeleteInvoice()" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" @onclick="() => ConfirmDeleteTask()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private int invoiceIdToDelete;
+    string emailSender = "";
+    string emailReceiver = "";
+    string content = "";
+    string title = "";
+
+    ApplicationUser getUserInvoice{get;set;} = new ApplicationUser();
+    async Task ShowConfirmModal(int invoiceId)
     {
         _context.ChangeTracker.Clear();
 
-        // string newUrl = $"/branch-list/delete-branch/{branchId}";
-        // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
         invoiceIdToDelete = invoiceId;
-        bool? result = await mbox.Show();
-        if (result == true)
+        var invoiceToDelete = await _context.Invoice.FindAsync(invoiceIdToDelete);
+        if(invoiceToDelete != null)
         {
-            await DeleteInvoice(invoiceIdToDelete);
-            await LoadBranches();
-            Snackbar.Add("Đã xóa!", Severity.Success);
+            getUserInvoice = _context.ApplicationUser.Where(x => x.Id == invoiceToDelete.UserId).FirstOrDefault();
+
+        }
+        if(getUserInvoice != null)
+        {
+            var user = _context.ApplicationUser.Where(x => x.Id == getUserInvoice.Id).FirstOrDefault();
+            if(user != null)
+            {
+                emailReceiver = user.Email;
+            }
+        }
+        title = "THÔNG BÁO HỦY HÓA ĐƠN";
+        emailSender = getUserCurrBlazor.Email;
+    }
+    private async void CancelDeleteInvoice()
+    {
+        await jsRuntime.InvokeVoidAsync("hideBootstrapModal");
+
+    }
+    async Task ConfirmDeleteTask()
+    {
+        bool confirmed = await jsRuntime.InvokeAsync<bool>("confirm", $"Xác nhận gửi mail và xóa hóa đơn");
+        if (confirmed)
+        {
+            await DeleteInvoice();
         }
         else
         {
         }
-        _context.ChangeTracker.Clear();
     }
-    async Task DeleteInvoice(int invoiceId)
+    async Task DeleteInvoice()
     {
         _context.ChangeTracker.Clear();
 
         change++;
-        var invoiceToDelete = await _context.Invoice.FindAsync(invoiceId);
+        var invoiceToDelete = await _context.Invoice.FindAsync(invoiceIdToDelete);
         if (invoiceToDelete != null)
         {
-            var orderMenus = _context.OrderMenu.Where(om => om.InvoiceID == invoiceId);
-            var orderServices = _context.OrderService.Where(om => om.InvoiceID == invoiceId);
-            var code = _context.InvoiceCode.Where(om => om.InvoiceId == invoiceId);
+            var orderMenus = _context.OrderMenu.Where(om => om.InvoiceID == invoiceIdToDelete);
+            var orderServices = _context.OrderService.Where(om => om.InvoiceID == invoiceIdToDelete);
+            var code = _context.InvoiceCode.Where(om => om.InvoiceId == invoiceIdToDelete);
 
             // Xóa các bản ghi OrderMenu
             _context.OrderMenu.RemoveRange(orderMenus);
@@ -693,8 +741,45 @@ font-weight:bold;
             change++;
 
             await LoadBranches();
+
             change++;
             _context.ChangeTracker.Clear();
+            CancelDeleteInvoice();
+            
+
+            MailMessage mail = new MailMessage();
+            //mail.To.Add(customer.Email.ToString());
+            mail.To.Add("minhnguyen20020524@gmail.com"); // email người nhận 
+
+            mail.From = new MailAddress("duatreodaiduongden@gmail.com");// email người gửi
+            mail.Subject = title;
+            mail.Body = content;
+            mail.IsBodyHtml = true; // Bật chế độ HTML
+
+            // SmtpClient smtp = new SmtpClient("sandbox.smtp.mailtrap.io");
+            // smtp.EnableSsl = true;
+            // smtp.Port = 2525;
+            // smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            // smtp.Credentials = new NetworkCredential("f53ec0c5d129dd", "647d8437d3d40c");
+
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com"); // máy chủ smtp của google
+            smtp.EnableSsl = true;
+            smtp.Port = 587; // port client mặc định hầu như máy nào cũng vậy
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.Credentials = new NetworkCredential("duatreodaiduongden@gmail.com", "aiyt kzuj xpbq ygda"); // từ năm 2022 trở đi dùng mật khẩu do gmail cấp
+
+            try
+            {
+                smtp.Send(mail);
+                content = "";
+                title = "THÔNG BÁO HỦY HÓA ĐƠN";
+                Snackbar.Add("Đã gửi mail và xóa hóa đơn!", Severity.Success);
+
+            }
+            catch (Exception ex)
+            {
+                // Xử lý nếu
+            }
         }
     }
 }
