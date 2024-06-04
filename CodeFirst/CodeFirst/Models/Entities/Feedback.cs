@@ -9,7 +9,7 @@ namespace CodeFirst.Models.Entities
         public int FeedbackId { get; set; }
         public string? UserId { get; set; } // nhớ get set dùm
         [ForeignKey("UserId")]
-        public virtual ApplicationUser? Id { get; set; }
+        public virtual ApplicationUser? User { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime? FeedbackDate { get; set; }
 

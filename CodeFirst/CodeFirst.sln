@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirst", "CodeFirst\Code
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{BF86FCD4-B172-4221-AEA3-C3B359A8E4BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTesting", "MyTesting\MyTesting.csproj", "{E9378E3D-2DE4-4733-A865-985B00CB372B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTesting", "MyTesting\MyTesting.csproj", "{E9378E3D-2DE4-4733-A865-985B00CB372B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
