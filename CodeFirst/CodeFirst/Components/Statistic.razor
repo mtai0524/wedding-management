@@ -44,6 +44,8 @@
                         <h3 class="card-title text-white">Người dùng</h3>
                         <div class="d-inline-block">
                             <h2 class="text-white">@numberOfUsers.ToString()</h2>
+                            <p class="text-white mb-0 mt-1">Tháng @currentMonth.ToString() - Năm @currentYear.ToString()</p>
+
                         </div>
                         <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
                     </div>
@@ -54,7 +56,9 @@
                     <div class="card-body">
                         <h3 class="card-title text-white">Hóa đơn</h3>
                         <div class="d-inline-block">
-                            <h2 class="text-white"></h2>
+                            <h2 class="text-white">@numberOfInvoices.ToString()</h2>
+                            <p class="text-white mb-0 mt-1">Tháng @currentMonth.ToString() - Năm @currentYear.ToString()</p>
+
                         </div>
                         <span class="float-right display-5 opacity-5"><i class="fa-solid fa-file-invoice-dollar"></i></span>
                     </div>
@@ -65,7 +69,9 @@
                     <div class="card-body">
                         <h3 class="card-title text-white">Doanh thu</h3>
                         <div class="d-inline-block">
-                            <h3 class="text-white"></h3>
+                            <h3 class="text-white">@total?.ToString("#,##0")</h3>
+                            <p class="text-white mb-0 mt-1">Tháng @currentMonth.ToString() - Năm @currentYear.ToString()</p>
+
                         </div>
                         <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
                     </div>
@@ -76,7 +82,9 @@
                     <div class="card-body">
                         <h3 class="card-title text-white">Khách / Đơn</h3>
                         <div class="d-inline-block">
-                            <h2 class="text-white"></h2>
+                            <h2 class="text-white">@numberOfCustomers.ToString()</h2>
+                            <p class="text-white mb-0 mt-1">Tháng @currentMonth.ToString() - Năm @currentYear.ToString()</p>
+
                         </div>
                         <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
                     </div>
@@ -111,7 +119,7 @@
 
 @code {
     IEnumerable<ColorScheme> colorSchemes = Enum.GetValues(typeof(ColorScheme)).Cast<ColorScheme>();
-    ColorScheme colorScheme = ColorScheme.Palette;
+    ColorScheme colorScheme = ColorScheme.Pastel;
 
     List<DataItem> CalculateQuarterlyRevenue(int year)
     {
@@ -158,11 +166,30 @@
         public double Revenue { get; set; }
     }
     List<ApplicationUser> applicationUsers { get; set; } = new List<ApplicationUser>();
+    List<Invoice> invoices { get; set; } = new List<Invoice>();
     int numberOfUsers = 0;
+    int numberOfInvoices = 0;
+    double? total = 0;
+    int numberOfCustomers = 0;
+    int currentMonth = 0;
+    int currentYear = 0;
     protected override async Task OnInitializedAsync()
     {
         applicationUsers = dbContext.ApplicationUser.ToList();
+        invoices = dbContext.Invoice.ToList();
         numberOfUsers = applicationUsers.Count;
+        numberOfInvoices = invoices.Count;
+        total = invoices.Sum(x=> x.TotalBeforeDiscount);
+        // Lấy ngày hiện tại
+        DateTime currentDate = DateTime.Now;
 
+        // Lấy tháng và năm từ ngày hiện tại
+         currentMonth = currentDate.Month;
+         currentYear = currentDate.Year;
+
+        numberOfCustomers = dbContext.Invoice
+                .Select(i => i.UserId) // UserId của hóa đơn
+                .Distinct() // Loại trùng lặp
+                .Count(); // Đếm số lượng user
     }
 }
