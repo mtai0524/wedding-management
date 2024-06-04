@@ -314,17 +314,17 @@ namespace WebAPI.Controllers
             mail.Body = body.ToString();
             mail.IsBodyHtml = true; // Bật chế độ HTML
 
-            SmtpClient smtp = new SmtpClient("sandbox.smtp.mailtrap.io");
-            smtp.EnableSsl = true;
-            smtp.Port = 2525;
-            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtp.Credentials = new NetworkCredential("f53ec0c5d129dd", "647d8437d3d40c");
-
-            // SmtpClient smtp = new SmtpClient("smtp.gmail.com"); // máy chủ smtp của google
+            // SmtpClient smtp = new SmtpClient("sandbox.smtp.mailtrap.io");
             // smtp.EnableSsl = true;
-            // smtp.Port = 587; // port client mặc định hầu như máy nào cũng vậy
+            // smtp.Port = 2525;
             // smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-            // smtp.Credentials = new NetworkCredential("duatreodaiduongden@gmail.com", "aiyt kzuj xpbq ygda"); // từ năm 2022 trở đi dùng mật khẩu do gmail cấp 
+            // smtp.Credentials = new NetworkCredential("f53ec0c5d129dd", "647d8437d3d40c");
+
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com"); // máy chủ smtp của google
+            smtp.EnableSsl = true;
+            smtp.Port = 587; // port client mặc định hầu như máy nào cũng vậy
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.Credentials = new NetworkCredential("duatreodaiduongden@gmail.com", "aiyt kzuj xpbq ygda"); // từ năm 2022 trở đi dùng mật khẩu do gmail cấp 
 
             try
             {
