@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
         {
             var feedbacks = _context.Feedback
                         .Where(f => f.BranchId == branchId)
-                        .Include(f => f.Id) // Nạp thông tin người dùng
+                        .Include(f => f.User) // Nạp thông tin người dùng
                         .OrderByDescending(f => f.FeedbackDate) // Sắp xếp giảm dần theo FeedbackDate
                         .ToList();
 
