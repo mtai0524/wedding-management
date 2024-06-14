@@ -462,7 +462,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
             <div class="modal-header">
-                <h5 class="modal-title" id="editHallModalLabel">Chỉnh sửa chi nhánh</h5>
+                <h5 class="modal-title" id="editHallModalLabel">Chỉnh sửa sảnh cưới</h5>
                 <button type="button" @onclick="() => CloseMe(false)" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                 </button>
@@ -484,7 +484,7 @@
 
                 <form method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="branchName" class="form-label">Tên chi nhánh</label>
+                        <label for="branchName" class="form-label">Tên sảnh cưới</label>
                         <input type="text" class="form-control" id="branchName" @bind="updateBranchName">
                     </div>
                     <div class="mb-3">
@@ -984,7 +984,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editTimeOfDayModalLabel">Chỉnh sửa chi nhánh</h5>
+                        <h5 class="modal-title" id="editTimeOfDayModalLabel">Chỉnh sửa thời gian sảnh</h5>
                         <button type="button" @onclick="() => CloseMe(false)" data-bs-dismiss="modal" aria-label="Close">
                             <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                         </button>
@@ -1006,19 +1006,19 @@
 
                             <form method="post" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                    <label for="branchName" class="form-label">morning</label>
+                                    <label for="branchName" class="form-label">Sáng</label>
                                     <input type="text" class="form-control" id="branchName" @bind="morning">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="branchName" class="form-label">afternoon</label>
+                                    <label for="branchName" class="form-label">Chiều</label>
                                     <input type="text" class="form-control" id="branchName" @bind="afternoon">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="branchName" class="form-label">dinner</label>
+                                    <label for="branchName" class="form-label">Tối</label>
                                     <input type="text" class="form-control" id="branchName" @bind="dinner">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="branchId" class="form-label">Chi nhánh</label>
+                                    <label for="branchId" class="form-label">Sảnh cưới</label>
 
                                     <select id="hallId" class="form-control" @bind="updateHallId">
                                         @foreach (var hall in listHall)

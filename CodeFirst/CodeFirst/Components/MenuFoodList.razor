@@ -414,7 +414,6 @@
                 <p><strong>Tên món ăn:</strong> @branchName</p>
                 <p><strong>Giá:</strong> @price?.ToString("#,##0") VNĐ</p>
 
-                <p><strong>Số lượng bàn:</strong> @capacity</p>
                 <p><strong>Mô tả:</strong> @des</p>
                 <p><strong>Thuộc thể loại:</strong> @branchHall</p>
                 <p><strong>Hình ảnh:</strong></p>
@@ -456,7 +455,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
             <div class="modal-header">
-                <h5 class="modal-title" id="editHallModalLabel">Chỉnh sửa chi nhánh</h5>
+                <h5 class="modal-title" id="editHallModalLabel">Chỉnh sửa thực đơn</h5>
                 <button type="button" @onclick="() => CloseMe(false)" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
                 </button>
@@ -477,7 +476,7 @@
 
                 <form method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="branchName" class="form-label">Tên chi nhánh</label>
+                        <label for="branchName" class="form-label">Tên thực đơn</label>
                         <input type="text" class="form-control" id="branchName" @bind="updateBranchName">
                     </div>
                     <div class="mb-3">

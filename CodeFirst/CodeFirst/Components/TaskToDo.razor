@@ -121,6 +121,7 @@
                 Position = lastTask.Position + 1,
                 ProjectId = currentProjectId,
                 CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
                 UserId = currUser.Id,
                 Priority = selectedColor,
                 TaskColor = taskColor,
@@ -369,7 +370,7 @@
                                 }
                             }
                         </div>
-                        <button class="add-task-button" data-bs-toggle="modal" data-bs-target="#taskModal" @onclick="() => ShowAddTaskModal(project.ProjectId)">+ Thêm task</button>
+                        <button class="add-task-button" data-bs-toggle="modal" data-bs-target="#taskModal" @onclick="() => ShowAddTaskModal(project.ProjectId)">+ Thêm công việc</button>
                     </div>
 
                 </div>
