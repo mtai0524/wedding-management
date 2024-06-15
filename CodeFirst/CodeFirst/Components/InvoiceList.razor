@@ -176,7 +176,7 @@
                         </div>
 
                         <hr />
-                        <div class="d-flex flex-row">
+                        <div class="d-flex flex-row justify-content-between">
 
                             <dt class="col-sm-2">
                                 ID hóa đơn
@@ -186,7 +186,7 @@
                         </dd>
                     </div>
 
-                    <div class="d-flex flex-row">
+                    <div class="d-flex flex-row justify-content-between">
                         <dt class="col-sm-2">Email</dt>
                         <dd class="col-sm-10">
                             @(string.IsNullOrEmpty(detailInvoice?.User?.Email) ? "Empty" : detailInvoice.User.Email)
@@ -194,7 +194,7 @@
                     </div>
 
 
-                    <div class="d-flex flex-row">
+                    <div class="d-flex flex-row justify-content-between">
                         <dt class="col-sm-2">
                             Họ tên
                         </dt>
@@ -202,7 +202,7 @@
                             @(string.IsNullOrEmpty(detailInvoice?.User?.LastName) ? "Empty" : detailInvoice.User.LastName) @(string.IsNullOrEmpty(detailInvoice?.User?.FirstName) ? "Empty" : detailInvoice.User.FirstName)
                         </dd>
                     </div>
-                    <div class="d-flex flex-row">
+                    <div class="d-flex flex-row justify-content-between">
                         <dt class="col-sm-2">
                             Số điện thoại
                         </dt>
@@ -210,7 +210,7 @@
                             @detailInvoice.PhoneNumber
                         </dd>
                     </div>
-                    <div class="d-flex flex-row">
+                    <div class="d-flex flex-row justify-content-between">
                         <dt class="col-sm-2">
                             Ghi chú
                         </dt>
@@ -219,7 +219,7 @@
                         </dd>
                     </div>
 
-                    <div class="d-flex flex-row">
+                    <div class="d-flex flex-row justify-content-between">
                         <dt class="col-sm-2">
                             Ngày đặt hóa đơn
                         </dt>
@@ -228,7 +228,7 @@
                         </dd>
                     </div>
 
-                    <div class="d-flex flex-row">
+                    <div class="d-flex flex-row justify-content-between">
                         <dt class="col-sm-2">
                             Ngày đến tham dự
                         </dt>
@@ -237,7 +237,7 @@
                         </dd>
                     </div>
 
-                    <div class="d-flex flex-row">
+                    <div class="d-flex flex-row justify-content-between">
                         <dt class="col-sm-2">
                             Chi nhánh
                         </dt>
@@ -249,12 +249,12 @@
                         </dd>
                     </div>
 
-                    <div class="d-flex flex-row">
+                    <div class="d-flex flex-row justify-content-between ">
                         <dt class="col-sm-2">
                             Sảnh cưới
                         </dt>
                         <dd class="col-sm-10">
-                            <div class="hall-info">
+                            <div class="hall-info w-100">
                                 <div class="hall-name">  @(string.IsNullOrEmpty(detailInvoice?.Hall?.Name) ? "Empty" : detailInvoice.Hall.Name)</div>
                                 <div class="hall-price">
                                     <div class="hall-price">
@@ -309,7 +309,7 @@
                             }
                         }
                     </dd>
-                    <div class="d-flex flex-row">
+                    <div class="d-flex flex-row justify-content-between">
                         <dt class="col-sm-2">
                             Tổng thanh toán
                         </dt>
@@ -318,7 +318,7 @@
                         </dd>
                     </div>
 
-                    <div class="d-flex flex-row">
+                    <div class="d-flex flex-row justify-content-between">
                         <dt class="col-sm-2">
                             Tổng sau khi giảm
                         </dt>

@@ -724,11 +724,7 @@ label i {
             color: #000;
         }
 
-.sorting-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 
 .sorting-options-left {
     display: flex;
@@ -758,15 +754,30 @@ label i {
         color: #333;
     }
 
+
 .feedback-list {
-    width: 60%;
+    flex: 1 1 100%; /* Grow to fill available space, and take 100% width on wrap */
+    margin-bottom: 20px; /* Space at the bottom when it wraps */
 }
 
-
-.content-container {
-    display: flex;
-    flex-direction: row;
+.branch-averages {
+    flex: 1 1 100%; /* Same as feedback-list to take 100% width on wrap */
 }
+@media (min-width: 992px) { /* Large screens */
+    .content-container {
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* 6:3 ratio */
+    }
+
+    .feedback-list {
+        flex: none; /* Reset flex properties */
+    }
+
+    .branch-averages {
+        flex: none; /* Reset flex properties */
+    }
+}
+
 
 li {
     list-style-type: none;
