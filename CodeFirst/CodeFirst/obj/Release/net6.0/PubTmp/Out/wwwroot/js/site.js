@@ -11,7 +11,7 @@ $(() => {
     }).catch(function (err) {
         return console.error(err.toString());
     });
-   
+
     connection.on("GetChatRoomSignalR", function (createRoom) {
         getChatRooms();
         JustGetChatRoom();
@@ -67,7 +67,7 @@ $(() => {
                     LoadChatData(chatRoomId);
                     LoadChatDataToChatBox(chatRoomId);
                     $('.chatRoomId').val(chatRoomId);
-                 
+
                 });
                 //$('.chat-room-item:first').trigger('click');
 
@@ -77,7 +77,7 @@ $(() => {
             }
         });
     }
-    
+
 
 
     function JustGetChatRoom() {
@@ -119,7 +119,7 @@ $(() => {
 
 
     $(document).ready(function () {
-        $(document).on('submit','#updateChatForm', function (event) {
+        $(document).on('submit', '#updateChatForm', function (event) {
             event.preventDefault();
 
             var chatRoomId = $('.chatRoomId').val();
@@ -191,8 +191,8 @@ $(() => {
         });
 
 
-        
-       
+
+
 
         getChatRooms();
     });
@@ -223,7 +223,7 @@ $(() => {
                 // Trigger param
                 if (triggerChatRoomId !== null) {
                     $('.chat-room-item[data-id="' + triggerChatRoomId + '"]').trigger('click');
-                } 
+                }
             },
             error: function (error) {
                 console.error('Error:', error);
@@ -532,7 +532,7 @@ $(() => {
                     console.log("Message sent successfully!");
                     console.log(response);
 
-                   
+
 
                     var fileNameDisplay = document.getElementById("fileNameDisplay");
                     if (fileNameDisplay) {
@@ -541,6 +541,8 @@ $(() => {
                     $(".chatForm input[name='Message']").val('');
                     var input = document.getElementById('fileInput');
                     input.value = null;
+                    var inputRoom = document.getElementById('fileInputChatRoom');
+                    inputRoom.value = null;
                     // Ẩn toast khi gửi thành công
                     iziToast.show({
                         title: 'Đã gửi!',
@@ -555,7 +557,7 @@ $(() => {
                         pauseOnHover: true,
                     });
                     scrollToBottomWhenSendMessage();
-             
+
                 },
                 error: function (xhr, status, error) {
                     console.error("AJAX Error:", error);
@@ -569,7 +571,7 @@ $(() => {
 
     $(document).ready(function () {
         $(".chatFormRoom").submit(function (e) {
-            e.preventDefault(); 
+            e.preventDefault();
             iziToast.show({
                 title: 'Đang gửi...',
                 backgroundColor: '#FFFFFF',
@@ -586,7 +588,7 @@ $(() => {
 
             $.ajax({
                 url: $(this).attr('action'),
-                type: $(this).attr('method'), 
+                type: $(this).attr('method'),
                 data: formData,
                 success: function (response) {
                     console.log("Message sent successfully!");
@@ -596,8 +598,13 @@ $(() => {
                         fileNameDisplay.style.display = "none";
                     }
                     $(".chatFormRoom input[name='Message']").val('');
+                    var input = document.getElementById('fileInputChatRoom');
+                    input.value = null;
+
+
+
                     iziToast.show({
-                        title: 'Đã gửi!',
+                        title: 'Đã gửi roi ne!',
                         backgroundColor: '#FFFFFF',
                         position: 'bottomLeft',
                         timeout: 2000,
@@ -671,7 +678,7 @@ $(() => {
                         <div class="flex-fill ms-2">
                             <p class="d-flex justify-content-between mb-0">
                                 <span class="font-weight-bold">${senderFirstName} ${senderLastName} </span>
-                                <small>${v.NotificationDateTime}</small>
+                                <small style="font-size:0.9rem; color:gray">${v.NotificationDateTime}</small>
                             </p>
                             <span>${v.Message} </span>
                         </div>
@@ -688,7 +695,7 @@ $(() => {
             }
         });
     }
-    var isTyping = false; 
+    var isTyping = false;
 
     document.querySelector('.btn-chat').addEventListener('click', function () {
         isTyping = false;
@@ -764,7 +771,7 @@ $(() => {
 
     // xử lý trong phần private
     document.getElementById('input-chat-private').addEventListener('input', function () {
-        var messageInput = this.value.trim(); 
+        var messageInput = this.value.trim();
         if (messageInput == '') {
             isTyping = false;
             connection.invoke("NotifyTyping", false, receiverUserId).catch(function (err) {
@@ -861,7 +868,7 @@ $(() => {
                         });
 
                         var imgDiv = $("<div>").css({
-                            "float": "right", 
+                            "float": "right",
                             "margin-left": "20px"
                         });
 
@@ -871,7 +878,7 @@ $(() => {
                             alt: senderName,
                             width: "40",
                             height: "40",
-                        }).css("float", "right"); 
+                        }).css("float", "right");
 
                         imgDiv.append(avatarImg);
                         chatMessageRightDiv.append(imgDiv);
@@ -952,7 +959,7 @@ $(() => {
 
     connection.on("UpdateUsersOfflineList", function (userList) {
         var listGroupOnline = document.querySelector('.list-group-offline');
-        listGroupOnline.innerHTML = ""; 
+        listGroupOnline.innerHTML = "";
         var chatroomname = document.querySelector('.chat-name');
         var chatroomnamemini = document.querySelector('.chat-name-mini');
 
@@ -1016,7 +1023,7 @@ $(() => {
             avatarImg.alt = item.firstName ? item.lastName : "hehe";
             avatarImg.width = "40";
             avatarImg.height = "40";
-            avatarImg.title = item.email;
+            //avatarImg.title = item.email;
 
             var flexGrowContainer = document.createElement("div");
             flexGrowContainer.classList.add("flex-grow-1", "ml-3");
@@ -1126,7 +1133,7 @@ $(() => {
             avatarImg.alt = item.username ? item.username : "hehe";
             avatarImg.width = "40";
             avatarImg.height = "40";
-            avatarImg.title = item.email;
+            //avatarImg.title = item.email;
             avatarImg.appendChild(spanStatus);
             var emailPopup = document.createElement("div");
             emailPopup.classList.add("email-popup");

@@ -88,7 +88,6 @@ namespace WebAPI.Controllers
             {
                 return BadRequest(new { message = "Đã có hóa đơn được tạo trong cùng một ngày, cùng chi nhánh và cùng sảnh." });
             }
-            // Tạo một đối tượng Invoice từ dữ liệu gửi từ React
             var invoice = new Invoice
             {
                 UserId = request.UserId,
@@ -100,17 +99,13 @@ namespace WebAPI.Controllers
                 FullName = request.FullName,
                 PhoneNumber = request.PhoneNumber,
                 Note = request.Note,
-                PaymentStatus = false,
+                PaymentStatus = true,
                 TimeHall = request.TimeHall
             };
 
-          
 
-
-            // Kiểm tra ngày AttendanceDate
             if (request.AttendanceDate.HasValue)
             {
-                // Kiểm tra nếu AttendanceDate cách ngày hiện tại ít nhất 20 ngày
                 TimeSpan difference = request.AttendanceDate.Value - DateTime.Now;
                 if (difference.Days < 20)
                 {
@@ -119,7 +114,6 @@ namespace WebAPI.Controllers
                 invoice.AttendanceDate = request.AttendanceDate;
             }
 
-            // Thêm đối tượng Invoice vào DbContext và lưu vào cơ sở dữ liệu
             _context.Invoice.Add(invoice);
             await _context.SaveChangesAsync();
 
@@ -131,7 +125,6 @@ namespace WebAPI.Controllers
             _context.Projects.Add(newProjectByInvoice);
             await _context.SaveChangesAsync();
 
-            // Tạo danh sách các món đã đặt từ dữ liệu gửi từ React
             var orderMenus = request.OrderMenus.Select(orderMenu => new OrderMenu
             {
                 InvoiceID = invoice.InvoiceID, // Liên kết với hóa đơn mới tạo
@@ -139,7 +132,6 @@ namespace WebAPI.Controllers
             }).ToList();
 
 
-            // Thêm danh sách các món đã đặt vào DbContext và lưu vào cơ sở dữ liệu
             _context.OrderMenu.AddRange(orderMenus);
             await _context.SaveChangesAsync();
 
@@ -149,14 +141,12 @@ namespace WebAPI.Controllers
                 ServiceId = orderService.ServiceId
             }).ToList();
 
-            // Thêm danh sách các món đã đặt vào DbContext và lưu vào cơ sở dữ liệu
             _context.OrderService.AddRange(orderServices);
             await _context.SaveChangesAsync();
             SendMail(request, invoice, orderMenus, orderServices);
 
 
-            //if (request.InvoiceCode != null && request.InvoiceCode.Any())
-            //{
+         
             // Tạo danh sách các đối tượng InvoiceCode và thêm thông tin mã giảm giá
             var invoiceCodes = request.InvoiceCodeRequest.Select(codeId => new InvoiceCode
             {
@@ -164,7 +154,6 @@ namespace WebAPI.Controllers
                 CodeId = codeId.CodeId
             }).ToList();
 
-            // Thêm danh sách các InvoiceCode vào DbContext và lưu vào cơ sở dữ liệu
             _context.InvoiceCode.AddRange(invoiceCodes);
             await _context.SaveChangesAsync();
             //}
@@ -178,10 +167,6 @@ namespace WebAPI.Controllers
             try
             {
                 var paymentUrl = "http://localhost:3000/payment-success";
-                var getInvoice = _context.Invoice.FirstOrDefault(x => x.InvoiceID == _currentInvoiceId);
-                getInvoice.PaymentStatus = true;
-                _context.Update(getInvoice);
-                _context.SaveChanges();
                 return RedirectPermanent(paymentUrl);
             }
             catch (Exception ex)
@@ -193,10 +178,9 @@ namespace WebAPI.Controllers
         [HttpGet("booked-hall")]
         public IActionResult GetBookedHalls()
         {
-            // Lấy ngày hiện tại
             var currentDate = DateTime.Now.Date;
 
-            // Truy vấn cơ sở dữ liệu để lấy danh sách các sảnh đã có người đặt từ ngày hiện tại trở về sau và sắp xếp theo AttendanceDate tăng dần
+            // sắp xếp theo AttendanceDate tăng dần
             var bookedHalls = _context.Invoice
                 .Where(i => i.HallId != null && i.AttendanceDate >= currentDate)
                 .Select(i => new

@@ -85,3 +85,4 @@ T:\Test\Computer-Science\CodeFirst\bin\Debug\zh-Hant\Microsoft.CodeAnalysis.CSha
 T:\Test\Computer-Science\CodeFirst\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 T:\Test\Computer-Science\CodeFirst\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 T:\Test\Computer-Science\CodeFirst\obj\Debug\docker-compose.dcproj.CopyComplete
+E:\Computer-Science\CodeFirst\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

@@ -3114,3 +3114,4 @@ T:\SavePer\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\CodeFirst.gen
 T:\SavePer\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\ref\CodeFirst.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\scopedcss\Components\PermissionComponent.razor.rz.scp.css
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\appsettings.Production.json
+E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\Cre\cre.json

@@ -770,11 +770,11 @@ label i {
     }
 
     .feedback-list {
-        flex: none; /* Reset flex properties */
+        flex: none; /* Reset flex  */
     }
 
     .branch-averages {
-        flex: none; /* Reset flex properties */
+        flex: none; /* Reset flex  */
     }
 }
 

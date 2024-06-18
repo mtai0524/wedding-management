@@ -61,7 +61,7 @@ function DisplayGeneralNotificationUserOnline(message, title) {
             timeout: 4000,
             close: true,
             theme: 'light',
-            iconUrl:'https://static-00.iconduck.com/assets.00/user-online-icon-512x512-7yugpwo5.png',
+            iconUrl:'https://cdn-icons-png.freepik.com/256/11762/11762483.png?semt=ais_hybrid',
             progressBar: true,
             animateInside: true,
             pauseOnHover: true,

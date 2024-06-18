@@ -1,9 +1,11 @@
 ﻿using CodeFirst.Data;
 using CodeFirst.Models;
 using CodeFirst.Models.Entities;
+using CodeFirst.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using WebAPI.Repositories;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -25,7 +27,46 @@ namespace WebAPI.Controllers
             _context = context;
         }
 
-        // GET: api/<ApiHallController>
+
+        [HttpGet("/api/getsuggesthall/{branchid}/{numberOfTables}/{cost}")]
+        public async Task<IActionResult> GetSuggestedHalls(int branchid, int numberOfTables,  double cost)
+        {
+            try
+            {
+                // Query to filter halls based on branchId, numberOfTables, and cost
+                if(numberOfTables == null)
+                {
+                    numberOfTables = 0;
+                }
+                var filteredHalls = await _context.Hall
+                    .Where(h => h.BranchId == branchid && h.Capacity >= numberOfTables && h.Price <= cost)
+                    .ToListAsync();
+
+                return Ok(filteredHalls);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+
+        [HttpGet("/api/get-hall-by-branchid/{branchid}")]
+        public IActionResult GetHallByBranchId(int branchid)
+        {
+            var listHallByBranchId = _context.Hall.Where(x => x.BranchId == branchid)
+            .Select(hall => new
+            {
+                hall.HallId,
+                hall.Name,
+                hall.Description,
+                hall.Image,
+                hall.Price,
+                hall.Capacity,
+            }).ToList();
+            return Ok(listHallByBranchId);
+        }
+
 
         [HttpGet]
         public IActionResult GetAllHalls()
