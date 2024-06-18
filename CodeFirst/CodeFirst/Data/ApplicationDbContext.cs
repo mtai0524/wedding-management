@@ -57,5 +57,6 @@ namespace CodeFirst.Data
         public DbSet<CodeFirst.Models.Entities.TaskComment> TaskComment { get; set; }
         public DbSet<Permission> Permission { get; set; }
         public DbSet<TimeOfDay> TimeOfDay { get; set; }
+        public DbSet<Wallet> Wallet { get; set; }
     }
 }

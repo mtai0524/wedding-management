@@ -17,5 +17,6 @@ namespace CodeFirst.Models
         public string? PhoneNumber { get; set; }
         public string? Note { get; set; }
         public string? TimeHall { get; set; }
+        public bool? PaymentWallet { get; set; }
     }
 }

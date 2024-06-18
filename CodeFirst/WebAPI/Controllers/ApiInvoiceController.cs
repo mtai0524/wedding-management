@@ -37,6 +37,17 @@ namespace WebAPI.Controllers
             return Ok(timeOfDayList);
         }
 
+        //[HttpPost("/api/invoice/payment-wallet/{id}")]
+        //public async Task<IActionResult> PaymentWallet(int id)
+        //{
+        //    var invoice = _context.Invoice.FirstOrDefault(x => x.InvoiceID == id);
+        //    var user = _context.ApplicationUser.Where(x => x.Id == invoice.UserId).FirstOrDefault();
+
+        //    _currentInvoiceId = invoice.InvoiceID;
+
+        //    return Ok(new { message = "Đã thanh toán bằng coin" });
+        //}
+
         [HttpPost("/api/invoice/repayment/{id}")]
         public async Task<IActionResult> Repayment(int id)
         {
@@ -46,11 +57,46 @@ namespace WebAPI.Controllers
             return Ok(new { message = "Đã hủy đơn hàng" });
         }
 
+        [HttpGet("/api/wallet/{userId}")]
+        public async Task<IActionResult> WalletByUserId(string userId)
+        {
+            var wallet = await _context.Wallet.Where(x=> x.UserId == userId).FirstOrDefaultAsync();
+            return Ok(wallet);
+        }
+
         [HttpPost("/api/invoice/cancel/{id}")]
         public async Task<IActionResult> CancelOrder(int id)
         {
             var invoice = _context.Invoice.FirstOrDefault(x => x.InvoiceID == id);
+            if (invoice == null)
+            {
+                return NotFound(new { message = "Không tìm thấy hóa đơn" });
+            }
             invoice.OrderStatus = "Đã hủy đơn hàng";
+
+            var existingWallet = await _context.Wallet.Where(x => x.UserId == invoice.UserId).FirstOrDefaultAsync();
+          
+
+            if(invoice.PaymentStatus == true)
+            {
+                if (existingWallet != null)
+                {
+                    existingWallet.Coin += invoice.Total;
+                    _context.Update(existingWallet);
+                }
+                else
+                {
+                    var wallet = new Wallet()
+                    {
+                        UserId = invoice.UserId,
+                        Coin = invoice.Total,
+                    };
+                    _context.Add(wallet);
+                }
+                
+                await _context.SaveChangesAsync();
+            }
+           
 
             _context.Update(invoice);
             await _context.SaveChangesAsync();
@@ -103,7 +149,7 @@ namespace WebAPI.Controllers
                 TimeHall = request.TimeHall
             };
 
-
+          
             if (request.AttendanceDate.HasValue)
             {
                 TimeSpan difference = request.AttendanceDate.Value - DateTime.Now;
@@ -114,9 +160,33 @@ namespace WebAPI.Controllers
                 invoice.AttendanceDate = request.AttendanceDate;
             }
 
+
+            // Xử lý thanh toán qua ví
+            if (request.PaymentWallet == true)
+            {
+                var existingWallet = await _context.Wallet.FirstOrDefaultAsync(x => x.UserId == invoice.UserId);
+
+                if (existingWallet != null)
+                {
+                    if (existingWallet.Coin < invoice.Total)
+                    {
+                        invoice.PaymentWallet = false;
+                        return BadRequest(new { message = "Số dư trong ví không đủ để thanh toán." });
+                    }
+                    invoice.PaymentWallet = true;
+                    existingWallet.Coin -= invoice.Total;
+                    _context.Update(existingWallet);
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    return BadRequest(new { message = "Không tìm thấy ví cho người dùng." });
+                }
+            }
+
+
             _context.Invoice.Add(invoice);
             await _context.SaveChangesAsync();
-
 
             var newProjectByInvoice = new Project
             {
