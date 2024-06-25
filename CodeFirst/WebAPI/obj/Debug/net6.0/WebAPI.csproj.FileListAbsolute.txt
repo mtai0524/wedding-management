@@ -6666,5 +6666,4 @@ T:\SavePer\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 T:\SavePer\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
 T:\SavePer\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
 E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\appsettings.Production.json
-E:\Computer-Science\CodeFirst\WebAPI\bin\Debug\net6.0\Cre\cre.json
 E:\Computer-Science\CodeFirst\WebAPI\obj\Debug\net6.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs

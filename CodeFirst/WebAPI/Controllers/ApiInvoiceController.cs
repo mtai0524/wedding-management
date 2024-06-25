@@ -48,12 +48,69 @@ namespace WebAPI.Controllers
         //    return Ok(new { message = "Đã thanh toán bằng coin" });
         //}
 
-        [HttpPost("/api/invoice/repayment/{id}")]
+        [HttpPost("/api/invoice/repayment-compelete-wallet/{id}")]
+        public async Task<IActionResult> RepaymentCompeleteWallet(int id)
+        {
+            var invoice = _context.Invoice.FirstOrDefault(x => x.InvoiceID == id);
+            if (invoice != null)
+            {
+                _currentInvoiceId = invoice.InvoiceID;
+                invoice.PaymentStatus = true;
+                invoice.PaymentCompleteWallet = true;
+
+
+                var existingWallet = await _context.Wallet.Where(x => x.UserId == invoice.UserId).FirstOrDefaultAsync();
+
+
+                if (existingWallet != null)
+                {
+                    if (existingWallet.Coin == null)
+                    {
+                        existingWallet.Coin = 0;
+                    }
+                    if (existingWallet.Coin < (invoice.Total / 2))
+                    {
+                        return BadRequest(new { message = "Số dư trong ví không đủ để thanh toán." });
+                    }
+                    existingWallet.Coin -= (invoice.Total - invoice.DepositPayment);
+                    _context.Update(existingWallet);
+                }
+
+                _context.Update(invoice);
+                await _context.SaveChangesAsync();
+            }
+
+
+            return Ok(new { message = "Đã hủy đơn hàng" });
+        }
+
+        [HttpPost("/api/invoice/repayment-compelete/{id}")]
+        public async Task<IActionResult> RepaymentCompelete(int id)
+        {
+            var invoice = _context.Invoice.FirstOrDefault(x => x.InvoiceID == id);
+            if (invoice != null)
+            {
+                _currentInvoiceId = invoice.InvoiceID;
+                invoice.PaymentStatus = true;
+                _context.Update(invoice);
+                await _context.SaveChangesAsync();
+            }
+
+
+            return Ok(new { message = "Đã hủy đơn hàng" });
+        }
+
+        [HttpPost("/api/invoice/check-repayment/{id}")]
         public async Task<IActionResult> Repayment(int id)
         {
             var invoice =  _context.Invoice.FirstOrDefault(x => x.InvoiceID == id);
-            _currentInvoiceId = invoice.InvoiceID;
-
+            if(invoice != null)
+            {
+                if (!string.IsNullOrEmpty(invoice.OrderStatus))
+                {
+                    return BadRequest(new { message = "Đã hủy đơn nên không thể thanh toán đầy đủ" });
+                }
+            }
             return Ok(new { message = "Đã hủy đơn hàng" });
         }
 
@@ -75,24 +132,26 @@ namespace WebAPI.Controllers
             invoice.OrderStatus = "Đã hủy đơn hàng";
 
             var existingWallet = await _context.Wallet.Where(x => x.UserId == invoice.UserId).FirstOrDefaultAsync();
-          
+            var coinAmount = (bool)invoice.PaymentStatus ? invoice.Total : invoice.DepositPayment;
 
-            if(invoice.PaymentStatus == true)
+
+            if (existingWallet != null)
             {
-                if (existingWallet != null)
+                if(existingWallet.Coin == null)
                 {
-                    existingWallet.Coin += invoice.Total;
-                    _context.Update(existingWallet);
+                    existingWallet.Coin = 0;
                 }
-                else
+                existingWallet.Coin += coinAmount;
+                _context.Update(existingWallet);
+            }
+            else
                 {
                     var wallet = new Wallet()
                     {
                         UserId = invoice.UserId,
-                        Coin = invoice.Total,
+                        Coin = coinAmount,
                     };
                     _context.Add(wallet);
-                }
                 
                 await _context.SaveChangesAsync();
             }
@@ -145,8 +204,9 @@ namespace WebAPI.Controllers
                 FullName = request.FullName,
                 PhoneNumber = request.PhoneNumber,
                 Note = request.Note,
-                PaymentStatus = true,
-                TimeHall = request.TimeHall
+                PaymentStatus = false,
+                TimeHall = request.TimeHall,
+                DepositPayment = request.DepositPayment,
             };
 
           
@@ -168,13 +228,13 @@ namespace WebAPI.Controllers
 
                 if (existingWallet != null)
                 {
-                    if (existingWallet.Coin < invoice.Total)
+                    if (existingWallet.Coin < (invoice.Total / 2))
                     {
                         invoice.PaymentWallet = false;
                         return BadRequest(new { message = "Số dư trong ví không đủ để thanh toán." });
                     }
                     invoice.PaymentWallet = true;
-                    existingWallet.Coin -= invoice.Total;
+                    existingWallet.Coin -= ((invoice.Total)/2);
                     _context.Update(existingWallet);
                     await _context.SaveChangesAsync();
                 }

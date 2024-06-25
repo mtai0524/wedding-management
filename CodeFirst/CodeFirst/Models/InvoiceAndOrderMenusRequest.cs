@@ -18,5 +18,8 @@ namespace CodeFirst.Models
         public string? Note { get; set; }
         public string? TimeHall { get; set; }
         public bool? PaymentWallet { get; set; }
+        public double? DepositPayment { get; set; }
+
+
     }
 }

@@ -53,6 +53,8 @@ namespace CodeFirst.Models.Entities
         public string? OrderStatus { get; set; }
         public string? TimeHall { get; set; }
         public bool? PaymentWallet { get; set; }
+        public double? DepositPayment { get; set; }
+        public bool? PaymentCompleteWallet { get; set; }
 
     }
 }
