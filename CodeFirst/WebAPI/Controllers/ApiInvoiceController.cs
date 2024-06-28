@@ -169,11 +169,13 @@ namespace WebAPI.Controllers
             var existingInvoice = _context.Invoice.FirstOrDefault(i =>
                 i.AttendanceDate.Value.Date == request.AttendanceDate.Date &&
                 i.BranchId == request.BranchId &&
-                i.HallId == request.HallId);
+                i.HallId == request.HallId && 
+                i.TimeHall == request.TimeHall && string.IsNullOrEmpty(i.OrderStatus)
+               );
 
             if (existingInvoice != null)
             {
-                return BadRequest(new { message = "Chi nhánh và sảnh ngày hôm đó đã có người đặt" });
+                return BadRequest(new { message = "Chi nhánh, sảnh và buổi đến tham gia đã có người đặt" });
             }
 
             return Ok(new { message = "Không có hóa đơn trùng." });
@@ -188,7 +190,8 @@ namespace WebAPI.Controllers
                 .FirstOrDefault(i => i.AttendanceDate.HasValue &&
                     i.AttendanceDate.Value.Date == request.AttendanceDate.Value.Date &&
                     i.BranchId == request.BranchId &&
-                    i.HallId == request.HallId);
+                    i.HallId == request.HallId && i.TimeHall == request.TimeHall
+                    && string.IsNullOrEmpty(i.OrderStatus));
             if (existingInvoice != null)
             {
                 return BadRequest(new { message = "Đã có hóa đơn được tạo trong cùng một ngày, cùng chi nhánh và cùng sảnh." });
