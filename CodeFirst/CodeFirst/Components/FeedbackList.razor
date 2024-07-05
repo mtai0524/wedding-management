@@ -2,15 +2,23 @@
 @using System.Globalization
 @inject NavigationManager Navigation
 @inject HttpClient Http
-@implements IDisposable
 
-@* Add necessary using directives *@
 @using CodeFirst.Data
 @using CodeFirst.Models.Entities
 @using System.Linq
 @using Microsoft.EntityFrameworkCore
-
-<PageTitle>Danh sách phản hồi người dùng</PageTitle>
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+@code {
+    private List<MudBlazor.BreadcrumbItem> _items = new List<MudBlazor.BreadcrumbItem>
+    {
+        new MudBlazor.BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
+        new MudBlazor.BreadcrumbItem("Phản hồi", href: "/feedback-list", icon: Icons.Material.Filled.Feedback),
+    };
+}
+<PageTitle>Feedback list</PageTitle>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
@@ -200,8 +208,5 @@
         StateHasChanged();
     }
 
-    public void Dispose()
-    {
-        // Implement IDisposable if necessary
-    }
+    
 }
