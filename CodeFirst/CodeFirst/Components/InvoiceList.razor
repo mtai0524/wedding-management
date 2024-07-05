@@ -119,12 +119,13 @@
         <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.InvoiceID)">ID</MudTableSortLabel></MudTh>
         <MudTh>Chi nhánh</MudTh>
         <MudTh>Sảnh</MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.TimeHall)">Ca</MudTableSortLabel></MudTh>
         <MudTh>Email</MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.InvoiceDate)">Ngày đặt</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.AttendanceDate)">Ngày đến</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.OrderStatus)">Trạng thái</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.PaymentStatus)">Thanh toán</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.TimeHall)">Ca</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.PaymentWallet)">Đặt cọc</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Invoice, object>(x=>x.PaymentCompleteWallet)">Thanh toán</MudTableSortLabel></MudTh>
         <MudTh>Chức năng</MudTh>
     </HeaderContent>
     <RowTemplate>
@@ -135,13 +136,43 @@
         </MudTd>
             <MudTd DataLabel="Branch">@context.Branch.Name</MudTd>
             <MudTd DataLabel="Hall">@context.Hall.Name</MudTd>
+            <MudTd DataLabel="TimeHall">@context.TimeHall</MudTd>
+
             <MudTd DataLabel="Email">@context.User.Email</MudTd>
             <MudTd DataLabel="InvoiceDate">@context.InvoiceDate?.ToString("dd/MM/yyyy")</MudTd>
             <MudTd DataLabel="AttendanceDate">@context.AttendanceDate?.ToString("dd/MM/yyyy")</MudTd>
-            <MudTd DataLabel="OrderStatus">@context.OrderStatus</MudTd>
-            <MudTd DataLabel="PaymentStatus">@((context.PaymentStatus ?? false) ? "Đã thanh toán" : "Chưa thanh toán")</MudTd>
-            <MudTd DataLabel="OrderStatus">@context.TimeHall</MudTd>
+            <MudTd DataLabel="OrderStatus">
+                @if (string.IsNullOrEmpty(context.OrderStatus))
+                {
+                    <MudChip Size="MudBlazor.Size.Small" T="string" Variant="MudBlazor.Variant.Text" Color="Color.Success">Đơn hàng đang đặt</MudChip>
+                }
+                else
+                {
+                <MudChip Size="MudBlazor.Size.Small" T="string" Variant="MudBlazor.Variant.Text" Color="Color.Error">@context.OrderStatus</MudChip>
+                }
+            </MudTd>
+            <MudTd DataLabel="PaymentWallet">
+            @if (context.PaymentWallet == true)
+            {
+                <MudChip  Size="MudBlazor.Size.Small" T="string" Variant="MudBlazor.Variant.Filled" Color="Color.Dark">Đặt cọc với ví</MudChip>
+            }
+            else
+            {
+                <MudChip Size="MudBlazor.Size.Small" T="string" Variant="MudBlazor.Variant.Filled" Color="Color.Success">Đặt cọc với VNPAY</MudChip>
+            }
 
+            </MudTd>
+        <MudTd DataLabel="PaymentCompleteWallet">
+            @if (context.PaymentCompleteWallet == true)
+            {
+                <MudChip Size="MudBlazor.Size.Small" T="string" Variant="MudBlazor.Variant.Filled" Color="Color.Dark">Thanh toán với ví</MudChip>
+            }
+            else
+            {
+                <MudChip Size="MudBlazor.Size.Small" T="string" Variant="MudBlazor.Variant.Filled" Color="Color.Success">Thanh toán với VNPAY</MudChip>
+            }
+
+        </MudTd>
             <MudTd>
                 <MudButton data-bs-toggle="modal" data-bs-target="#confirmModal" title="Xóa hóa đơn" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@context.InvoiceID))" >
                 Xóa

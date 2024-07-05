@@ -5,6 +5,23 @@
 @using CodeFirst.Models
 @using CodeFirst.Models.Entities
 @inject ApplicationDbContext dbContext
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+@code {
+    private List<MudBlazor.BreadcrumbItem> _items = new List<MudBlazor.BreadcrumbItem>
+    {
+        new MudBlazor.BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
+        new MudBlazor.BreadcrumbItem("Thống kê", href: "/statistic", icon: Icons.Material.Filled.BarChart),
+    };
+}
+<PageTitle>Statistic</PageTitle>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+<h1>Thống kê số liệu</h1>
 <style>
     .card {
         border-radius: 13px;
@@ -102,8 +119,8 @@
             </Template>
         </RadzenDropDown>
     </RadzenCard>
-    <div class="row my-5">
-        <div class="col-sm-12 col-lg-8" style="border:2px solid #e8e9eb; border-radius:0px;box-shadow: -0.3rem 0.4rem 0 rgba(29, 30, 28, 0.26);border:3px solid black">
+    <div class="row my-5 d-flex justify-content-center">
+        <div style="border:2px solid #e8e9eb; border-radius:0px;box-shadow: -0.3rem 0.4rem 0 rgba(29, 30, 28, 0.26);border:3px solid black">
             <RadzenChart ColorScheme="@colorScheme">
                 @foreach (var year in Enumerable.Range(2019, 8))
                 {
@@ -114,6 +131,8 @@
                 <RadzenValueAxis Formatter="@FormatAsUSD" />
             </RadzenChart>
         </div>
+        <h4 style="margin-top:9px;text-align:center">Biểu đồ thống kê doanh thu mỗi quý theo từng năm</h4>
+
     </div>
 </div>
 
