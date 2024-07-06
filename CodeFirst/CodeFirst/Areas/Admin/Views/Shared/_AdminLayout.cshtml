@@ -243,12 +243,7 @@
 
                                             </div>
                                             <div class="more-options fa-lg">
-                                                <button style="margin-right:5px" class="btn-phone" title="Start a voice call">
-                                                    <i class="fa-solid fa-phone" style="color: #ffffff;"></i>
-                                                </button>
-                                                <button style="margin-right:5px" class="btn-video ml-3" title="Start a video call">
-                                                    <i class="fa-solid fa-video" style="color: #ffffff;"></i>
-                                                </button>
+                                                
                                                 <button style="margin-right:5px" data-bs-toggle="modal" data-bs-target="#infoModal" class="btn-information ml-3">
                                                     <i class="fa-solid fa-info" style="color: #ffffff;"></i>
                                                 </button>
@@ -369,8 +364,8 @@
 
 
     <input type="checkbox" id="click">
-    <label class="floatting-btn" for="click" style="z-index:99;background-color:#808080">
-        <i class="fa-regular fa-comment-dots" style="z-index:999999;color:white; background-color:#808080"></i>
+    <label class="floatting-btn" for="click" style="z-index:99;background: linear-gradient(120deg, #2c74e8, #b3c7e8);border:2px solid #3F3F41">
+        <i class="fa-regular fa-comment-dots" style="z-index:999999;color:white"></i>
 
         <i class="fas fa-times" style="z-index:999999;color:white"></i>
     </label>
@@ -401,8 +396,8 @@
         <form class="chatForm" id="privateChatFormMini" asp-controller="ChatPrivate" asp-action="SendPrivateMessage" method="post">
             <input type="hidden" name="ReceiverUserId" class="receiverUserId" value="" />
             <div class="input-group" style="border-radius:0px !important;margin-top:20px">
-                <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;border-radius:0px !important;" type="text" class="form-control input-current-user" placeholder="Nhập tin nhắn">
-                <button style="color:white;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success btn-chat-mini"><i class="fa-solid fa-paper-plane"></i> </button>
+                <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;border-radius:0px !important;" type="text" class="form-control input-current-user" placeholder="Nhập tin nhắn...">
+                <button style="background-color:#2c74e8;color:white;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success btn-chat-mini"><i class="fa-solid fa-paper-plane"></i> </button>
             </div>
         </form>
 
@@ -410,8 +405,8 @@
             <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
 
             <div class="input-group" style="margin-top:20px;border-radius:0px !important">
-                <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;border-radius:0px !important" type="text" class="form-control input-current-user" placeholder="Nhập tin nhắn">
-                <button style="color:white;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success btn-chat-mini"><i class="fa-solid fa-paper-plane"></i> </button>
+                <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;border-radius:0px !important" type="text" class="form-control input-current-user" placeholder="Nhập tin nhắn...">
+                <button style="background-color:#2c74e8;color:white;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success btn-chat-mini"><i class="fa-solid fa-paper-plane"></i> </button>
             </div>
         </form>
     </div>

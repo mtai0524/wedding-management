@@ -48,6 +48,12 @@ namespace CodeFirst.Hubs
             await Clients.All.SendAsync("BranchCreated", listBranch);
         }
 
+        public async Task SendPromotionCreatedNotification()
+        {
+            var listPromotion = await _context.Code.ToListAsync();
+            await Clients.All.SendAsync("PromotionCreated", listPromotion);
+        }
+
         public async Task SendInvoiceNotification()
         {
             var listInvoice = _context.Invoice.ToListAsync();

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "05/Xditx3eOkVxg77EMyXNtJCitx9iUTcxBx4FuhUg4=",
+  "Hash": "ihZVJ0GY8BKonfU99LDY/l6xyuDaII8MRmoZxRnYIL0=",
   "Source": "CodeFirst",
   "BasePath": "_content/CodeFirst",
   "Mode": "Default",
@@ -7957,6 +7957,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\rabbit.png"
+    },
+    {
+      "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\blazorjs.js",
+      "SourceId": "CodeFirst",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\",
+      "BasePath": "_content/CodeFirst",
+      "RelativePath": "js/blazorjs.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\blazorjs.js"
     },
     {
       "Identity": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\chat.js",
