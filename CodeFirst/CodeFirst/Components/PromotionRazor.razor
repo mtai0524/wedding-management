@@ -1,0 +1,353 @@
+﻿@page "/promotion-list"
+
+<PageTitle>Promotion list</PageTitle>
+<Preload />
+@using BlazorBootstrap
+@using CodeFirst.Data
+@using CodeFirst.Hubs
+@using CodeFirst.Models
+@using CodeFirst.Models.Entities
+@using CodeFirst.Service
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.SignalR
+@using Microsoft.AspNetCore.SignalR.Client
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+@inject ISnackbar SnackbarService
+@inject ISnackbar Snackbar
+@inject IHubContext<MyBlazorHub> _hubContext
+@inject CodeFirst.Service.NotificationService _notiService
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject UserBlazorService _userBlazorService
+@inject UserListService _userListService
+@inject AuthorizeService _authorizeService
+@inject RoleManager<IdentityRole> RoleManager
+@inject UserManager<ApplicationUser> _userManager
+@inject IJSRuntime JSRuntime
+
+@code {
+    [Inject] protected PreloadService PreloadService { get; set; }
+
+    private List<MudBlazor.BreadcrumbItem> _items = new List<MudBlazor.BreadcrumbItem>
+    {
+        new MudBlazor.BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
+        new MudBlazor.BreadcrumbItem("Mã khuyến mãi", href: "/promotion-list", icon: Icons.Material.Filled.ConfirmationNumber),
+    };
+}
+
+@* create promotion random *@
+<div class="modal fade" id="promoCodeModal" tabindex="-1" role="dialog" aria-labelledby="promoCodeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="promoCodeModalLabel">Tạo mã khuyến mãi</h5>
+                <button type="button" class="close" aria-label="Close" id="closeIconPromoCodeModal" style="border-color:transparent;background-color:transparent;outline:none">
+                    <span aria-hidden="true"><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #e62719;"></i></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Mã khuyến mãi mới: <span id="promoCode"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="closePromoCodeModal" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="generatePromoCode">Tạo mã</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code{
+    private bool showAlertCreateBranch = false;
+    private bool showAlert = false;
+    bool isSavedSuccessfully = false;
+    bool isLoading = false;
+    bool isError = false;
+    private async Task CloseMe(bool value)
+    {
+        if (!value)
+        {
+            showAlertCreateBranch = false;
+            isSavedSuccessfully = false;
+        }
+    }
+
+    private void ShowAlerts()
+    {
+        showAlertCreateBranch = true;
+    }
+     private void CancelAndDelData()
+    {
+        isLoading = false;
+        CodeString = string.Empty;
+        Discount = 0;
+        Quantity = 0;
+        showAlert = false;
+        isError = false;
+    }
+}
+@* modal create *@
+
+<div class="modal fade" id="createBranchModal" tabindex="-1" aria-labelledby="createBranchModalLabel" aria-hidden="true" @onclick="() => CloseMe(false)">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createBranchModalLabel">Thêm mã khuyến mãi</h5>
+                <button type="button" @onclick="() => CloseMe(false)" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                    @if (showAlertCreateBranch)
+                    {
+                        <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(false))">Tạo mã khuyến mãi thành công!</MudAlert>
+                    }
+                    @if (showAlert)
+                    {
+                        <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" IsOpen="@showAlert" CloseIconClicked="() => showAlert = false">
+                            Vui lòng nhập đầy đủ thông tin!
+                        </MudAlert>
+
+                    }
+
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="mb-3" style="position:relative">
+                            <label for="CodeString" class="form-label">Mã giảm giá</label>
+                            <input type="text" class="form-control" id="CodeString" @bind="CodeString">
+                            <a type="button" class="btn btn-primary" @onclick="CreateCodeString" style="position:absolute; top:29px; right:0">Tạo mã giảm giá</a>
+                        </div>
+                         <div class="mb-3">
+                                <label for="CodeString" class="form-label">Phần trăm giảm giá</label>
+                            <input type="number" max="100" class="form-control" id="Discount" @bind="Discount">
+                         </div>
+                        <div class="mb-3">
+                                <label for="Quantity" class="form-label">Số lượng mã</label>
+                            <input type="number"  class="form-control" id="Quantity" @bind="Quantity">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ExpirationDate" class="form-label">Ngày hết hạn</label>
+                            <input type="datetime-local" class="form-control" id="ExpirationDate" @bind="ExpirationDate">
+                        </div>
+                       
+                    </form>
+                
+            </div>
+
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary" @onclick="CancelAndDelData" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
+                    <a class="btn btn-success" @onclick="CreatePromotion">
+                        @if (isLoading)
+                        {
+                            <i class="fa-solid fa-spinner fa-spin" style="color: white; margin-right:5px"></i>
+                            <span>Đang tải ... </span>
+                        }
+                        else if (isSavedSuccessfully)
+                        {
+                            <i class="fa-solid fa-check" style="color: white; margin-right:5px"></i>
+                            <span>Đã lưu thành công!</span>
+                        }
+                        else
+                        {
+                            <i class="fa-solid fa-plus" style="color: white; margin-right:5px"></i>
+                            <span style="color:white">Lưu</span>
+                        }
+                    </a>
+
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+@code{
+    private string? CodeString { get; set; }
+    private double? Discount { get; set; }
+    private int? Quantity { get; set; }
+    private DateTime? ExpirationDate { get; set; }
+    private string codeStringGenarate { get; set; }
+    private async Task CreatePromotion()
+    {
+        isLoading = true;
+        if (string.IsNullOrEmpty(CodeString) || string.IsNullOrEmpty(Discount.ToString()) || string.IsNullOrEmpty(Quantity.ToString()) || string.IsNullOrEmpty(ExpirationDate.ToString()))
+        {
+            showAlert = true;
+            isLoading = false;
+            return;
+        }
+        isLoading = true;
+
+        Code newPromotion = new Code
+        {
+            CodeString = CodeString,
+            Discount = Discount,
+            Quantity = Quantity,
+            ExpirationDate = ExpirationDate,
+        };
+        await _context.Code.AddAsync(newPromotion);
+        await _context.SaveChangesAsync();
+        isSavedSuccessfully = true;
+        isLoading = false;
+
+        await InvokeAsync(StateHasChanged);
+        await LoadPromotions();
+    }
+
+    private async Task CreateCodeString()
+    {
+        codeStringGenarate = await JSRuntime.InvokeAsync<string>("blazorjs.generateRandomCode");
+        CodeString = codeStringGenarate;
+        await InvokeAsync(StateHasChanged);
+    }
+
+}
+
+@* main ui *@
+@if (running == true)
+{
+            <a class="btn btn-primary" style="font-size:13px;padding:7px;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createBranchModal">
+                Thêm mã khuyến mãi
+            </a>
+    <MudTable Items="@listPromotion" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Code,bool>(FilterFunc1)" Style="margin-bottom:15px">
+        <ToolBarContent>
+            <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách mã khuyến mãi</MudText>
+            <MudSpacer />
+            <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm mã giảm giá" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh><MudTableSortLabel SortBy="new Func<Code, object>(x=>x.CodeString)">Mã khuyến mãi</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<Code, object>(x=>x.Discount)">Giảm giá</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<Code, object>(x=>x.Quantity)">Số lượng</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<Code, object>(x=>x.ExpirationDate)">Ngày hết hạn</MudTableSortLabel></MudTh>
+            <MudTh>Chức năng</MudTh>
+        </HeaderContent>
+        <RowTemplate Context="promotion">
+            <MudTd DataLabel="CodeString"><span style="padding:10px;background-color:#2f2f2fff;color:yellow;border-radius:6px">@promotion.CodeString</span></MudTd>
+
+                <MudTd DataLabel="Discount">@promotion.Discount%</MudTd>
+                <MudTd DataLabel="Quantity">@promotion.Quantity</MudTd>
+                <MudTd DataLabel="ExpirationDate">@promotion.ExpirationDate?.ToString("dd/MM/yyyy HH:mm")</MudTd>
+                <MudTd>
+                    <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@promotion.CodeId))">
+                        Xóa
+                    </MudButton>
+                </MudTd>
+
+        </RowTemplate>
+
+        <PagerContent>
+            <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
+        </PagerContent>
+    </MudTable>
+ 
+}
+@* modal delete mud blazor *@
+<MudMessageBox @ref="mbox" Title="Xác nhận xóa" CancelText="Hủy thao tác">
+    <MessageContent>
+        Dữ liệu bị xóa sẽ không thể phục hồi
+    </MessageContent>
+    <YesButton>
+        <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Xóa dữ liệu!</MudButton>
+    </YesButton>
+</MudMessageBox>
+@code{
+    MudMessageBox mbox { get; set; }
+    [Inject] private IDialogService DialogService { get; set; }
+    private async void ShowConfirmModal(int promotionId)
+    {
+        bool? result = await mbox.Show();
+        if (result == true)
+        {
+            await DeletePromtion(promotionId);
+            Snackbar.Add("Đã xóa!", Severity.Success);
+        }
+        else
+        {
+        }
+        StateHasChanged();
+    }
+
+    async Task DeletePromtion(int promotionId)
+    {
+        var promotion = await _context.Code.FindAsync(promotionId);
+        if (promotion != null)
+        {
+            _context.Code.Remove(promotion);
+            await _context.SaveChangesAsync();
+            await LoadPromotions();
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+}
+@code {
+    private string searchString1 = "";
+    private bool FilterFunc1(Code promotion) => FilterFunc(promotion, searchString1);
+
+    private bool FilterFunc(Code promotion, string searchString)
+    {
+        if (string.IsNullOrWhiteSpace(searchString))
+            return true;
+        if (promotion.CodeString.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        return false;
+    }
+}
+
+@code {
+    ApplicationUser getUserCurrBlazor;
+    private HubConnection hubConnection;
+    private List<Code> listPromotion { get; set; } = new List<Code>();
+    [Inject] private ApplicationDbContext _context { get; set; }
+    bool running = false;
+
+    protected async Task LoadPromotions()
+    {
+        var promotionService = new PromotionService(_context);
+        listPromotion = await promotionService.GetPromotionsAsync();
+        await _hubContext.Clients.All.SendAsync("PromotionCreated", listPromotion);
+        StateHasChanged(); // Luu data da thay doi
+        await InvokeAsync(StateHasChanged);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
+        if (getUserCurrBlazor == null)
+        {
+            NavigationManager.NavigateTo("/Identity/Account/Login?ReturnUrl=%2F");
+            return;
+        }
+        running = true;
+        hubConnection = new HubConnectionBuilder()
+            // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/myBlazorHub")) // docker
+            .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
+            .Build();
+
+        hubConnection.On<List<Code>>("PromotionCreated", receivedProducts =>
+        {
+            InvokeAsync(() =>
+            {
+                listPromotion = receivedProducts;
+                StateHasChanged();
+            });
+        });
+
+        try
+        {
+            await hubConnection.StartAsync();
+            Console.WriteLine("SignalR connection started successfully blazor.");
+            await LoadPromotions();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error starting SignalR connection: {ex.Message}");
+        }
+
+        await base.OnInitializedAsync();
+    }
+}
