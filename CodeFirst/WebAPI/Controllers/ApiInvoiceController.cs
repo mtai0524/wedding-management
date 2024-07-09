@@ -299,7 +299,8 @@ namespace WebAPI.Controllers
         {
             try
             {
-                var paymentUrl = "http://localhost:3000/payment-success";
+                //var paymentUrl = "http://localhost:3000/payment-success";
+                var paymentUrl = "https://wedding-palace-webapp.onrender.com/payment-success";
                 return RedirectPermanent(paymentUrl);
             }
             catch (Exception ex)
