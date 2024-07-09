@@ -1173,6 +1173,10 @@
       "PackagePath": "staticwebassets\\images\\rabbit.png"
     },
     {
+      "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\blazorjs.js",
+      "PackagePath": "staticwebassets\\js\\blazorjs.js"
+    },
+    {
       "Id": "E:\\Computer-Science\\CodeFirst\\CodeFirst\\wwwroot\\js\\chat.js",
       "PackagePath": "staticwebassets\\js\\chat.js"
     },

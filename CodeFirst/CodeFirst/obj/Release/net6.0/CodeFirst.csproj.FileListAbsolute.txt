@@ -597,11 +597,9 @@ E:\Source code do an hien tai\AspNetCore\Computer-Science\CodeFirst\CodeFirst\ob
 E:\Source code do an hien tai\AspNetCore\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\CodeFirst.pdb
 E:\Source code do an hien tai\AspNetCore\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\CodeFirst.genruntimeconfig.cache
 E:\Source code do an hien tai\AspNetCore\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\ref\CodeFirst.dll
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\appsettings.Development.json
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\libwkhtmltox.dll
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\libwkhtmltox.dylib
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\libwkhtmltox.so
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\appsettings.json
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\libman.json
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\CodeFirst.staticwebassets.runtime.json
 E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\CodeFirst.exe
@@ -3113,5 +3111,3 @@ T:\SavePer\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\CodeFirst.pdb
 T:\SavePer\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\CodeFirst.genruntimeconfig.cache
 T:\SavePer\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\ref\CodeFirst.dll
 E:\Computer-Science\CodeFirst\CodeFirst\obj\Release\net6.0\scopedcss\Components\PermissionComponent.razor.rz.scp.css
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\appsettings.Production.json
-E:\Computer-Science\CodeFirst\CodeFirst\bin\Release\net6.0\Cre\cre.json
