@@ -20,7 +20,7 @@ namespace WebAPI.Controllers
         public IActionResult GetFeedbacksByBranch(int branchId)
         {
             var feedbacks = _context.Feedback
-                        .Where(f => f.BranchId == branchId)
+                        .Where(f => f.BranchId == branchId && f.isShowFeedback == true)
                         .Include(f => f.User) // Nạp thông tin người dùng
                         .OrderByDescending(f => f.FeedbackDate) // Sắp xếp giảm dần theo FeedbackDate
                         .ToList();
@@ -49,7 +49,8 @@ namespace WebAPI.Controllers
                     FeedbackDate = DateTime.Now, // Đặt ngày phản hồi thành ngày hiện tại
                     Content = feedbackModel.Content,
                     Rating = feedbackModel.Rating,
-                    BranchId = feedbackModel.BranchId
+                    BranchId = feedbackModel.BranchId,
+                    isShowFeedback = true,
                 };
 
                 // Thêm đối tượng phản hồi mới vào cơ sở dữ liệu

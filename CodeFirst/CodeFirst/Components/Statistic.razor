@@ -131,7 +131,7 @@
                 <RadzenValueAxis Formatter="@FormatAsUSD" />
             </RadzenChart>
         </div>
-        <h4 style="margin-top:9px;text-align:center">Biểu đồ thống kê doanh thu mỗi quý theo từng năm</h4>
+        <h4 style="margin-top:9px;text-align:center"><i style="margin-right:5px" class="fa-solid fa-chart-column"></i> Biểu đồ thống kê doanh thu mỗi quý theo từng năm</h4>
 
     </div>
 </div>
@@ -144,16 +144,13 @@
     {
         var quarterlyRevenue = new List<DataItem>();
 
-        // Loop through each quarter of the year
         for (var quarter = 1; quarter <= 4; quarter++)
         {
-            // Calculate the start and end dates of the quarter
             var startDate = new DateTime(year, (quarter - 1) * 3 + 1, 1);
             var endDate = startDate.AddMonths(3).AddDays(-1);
 
-            // Query invoices within the specified quarter
             var revenue = dbContext.Invoice
-                .Where(i => i.AttendanceDate.HasValue && i.AttendanceDate.Value >= startDate && i.AttendanceDate.Value <= endDate)
+                .Where(i => i.AttendanceDate.HasValue && i.AttendanceDate.Value >= startDate && i.AttendanceDate.Value <= endDate && string.IsNullOrEmpty(i.OrderStatus))
                 .Sum(i => i.Total ?? 0);
 
             quarterlyRevenue.Add(new DataItem
@@ -198,7 +195,7 @@
         invoices = dbContext.Invoice.ToList();
         numberOfUsers = applicationUsers.Count;
         numberOfInvoices = invoices.Count;
-        total = invoices.Sum(x=> x.TotalBeforeDiscount);
+        total = invoices.Where(x => string.IsNullOrEmpty(x.OrderStatus)).Sum(x => x.TotalBeforeDiscount);
         // Lấy ngày hiện tại
         DateTime currentDate = DateTime.Now;
 

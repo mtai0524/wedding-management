@@ -26,7 +26,11 @@
 @inject UserListService userService
 @inject RoleManager<IdentityRole> _roleManager
 @inject IHubContext<MyBlazorHub> _hubContext
+@inject UserBlazorService _userBlazorService
+
 @using BlazorBootstrap
+@using System.Net.Mail
+@using System.Net
 <Preload />
 
 <PageTitle>Users management</PageTitle>
@@ -246,7 +250,7 @@
 
     private List<string> allRoles = new List<string>(); // List chứa tất cả các vai trò
     [Inject] protected PreloadService PreloadService { get; set; }
-
+    ApplicationUser getUserCurrBlazor;
     protected async Task LoadBranches()
     {
 
@@ -272,6 +276,7 @@
         await base.OnInitializedAsync();
         var allRoles = await _roleManager.Roles.Select(r => r.Name).ToListAsync();
         this.allRoles = allRoles;
+        getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
     }
     private HubConnection hubConnection;
 
@@ -302,8 +307,8 @@
         await base.OnInitializedAsync();
     }
 
-     string selectedRole { get; set; }
-     string userIdToUpdateRole { get; set; } = "";
+    string selectedRole { get; set; }
+    string userIdToUpdateRole { get; set; } = "";
 
     private async Task ShowUpdateRoleModal(string userId)
     {
@@ -344,7 +349,39 @@
             await ChangeUserRole(userIdToUpdateRole, selectedRole);
         }
     }
+    private async Task SendMail(string title, string content, string noti, string toEmail, string fromEmail)
+    {
+        MailMessage mail = new MailMessage();
+        //mail.To.Add(customer.Email.ToString());
+        mail.To.Add(toEmail); // email người nhận
 
+        mail.From = new MailAddress(fromEmail);// email người gửi
+                                                          
+        mail.Subject = title;
+        mail.Body = content;
+        mail.IsBodyHtml = true;
+
+        SmtpClient smtp = new SmtpClient("sandbox.smtp.mailtrap.io");
+        smtp.EnableSsl = true;
+        smtp.Port = 2525;
+        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+        smtp.Credentials = new NetworkCredential("f53ec0c5d129dd", "647d8437d3d40c");
+
+        // SmtpClient smtp = new SmtpClient("smtp.gmail.com"); // máy chủ smtp của google
+        // smtp.EnableSsl = true;
+        // smtp.Port = 587; // port client mặc định hầu như máy nào cũng vậy
+        // smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+        // smtp.Credentials = new NetworkCredential("duatreodaiduongden@gmail.com", "aiyt kzuj xpbq ygda"); // từ năm 2022 trở đi dùng mật khẩu do gmail cấp
+
+        try
+        {
+            smtp.Send(mail);
+            Snackbar.Add(noti, Severity.Success);
+        }
+        catch (Exception ex)
+        {
+        }
+    }
     public async Task LockUser(string userId)
     {
         var user = await _userManager.FindByIdAsync(userId);
@@ -359,6 +396,8 @@
             await _userManager.SetLockoutEnabledAsync(user, true);
             await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.MaxValue);
             Snackbar.Add("Đã khóa tài khoản!", Severity.Warning);
+
+            await SendMail("THÔNG BÁO KHÓA TÀI KHOẢN", $"Tài khoản {user.Email} đã bị quản trị hệ thống khóa", "Đã gửi mail đến tài khoản người dùng bị khóa!", user.Email, getUserCurrBlazor.Email);
         }
         else
         {
@@ -377,7 +416,7 @@
             user.LockoutEnd = null;
             await _userManager.UpdateAsync(user); // cập nhật thay đổi dạng bất đồng bộ
             Snackbar.Add("Đã mở khóa tài khoản!", Severity.Success);
-
+            await SendMail("THÔNG BÁO MỞ KHÓA TÀI KHOẢN", $"Tài khoản {user.Email} đã được mở khóa do quản trị hệ thống", "Đã gửi mail đến tài khoản người dùng mở khóa!", user.Email, getUserCurrBlazor.Email);
         }
         else
         {

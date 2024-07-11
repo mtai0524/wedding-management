@@ -24,7 +24,12 @@ namespace CodeFirst.Hubs
             _userManager = userManager;
         }
 
+        public async Task FeedbackList()
+        {
+            List<Feedback> feedbacks = await _context.Feedback.ToListAsync();
 
+            await Clients.All.SendAsync("FeedbackList", feedbacks);
+        }
 
         public async Task SendProjectCreatedNotification()
         {

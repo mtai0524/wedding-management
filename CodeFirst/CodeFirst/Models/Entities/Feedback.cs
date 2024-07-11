@@ -18,5 +18,8 @@ namespace CodeFirst.Models.Entities
         public int? BranchId { get; set; } // Thêm BranchId
         [ForeignKey("BranchId")]
         public virtual Branch? Branch { get; set; } // Thêm liên kết đến Branch
+
+        public bool? isShowFeedback { get; set; }
+
     }
 }

@@ -2,10 +2,15 @@
 @using System.Globalization
 @inject NavigationManager Navigation
 @inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject IHubContext<MyBlazorHub> _hubContext
 
 @using CodeFirst.Data
+@using CodeFirst.Hubs
 @using CodeFirst.Models.Entities
 @using System.Linq
+@using Microsoft.AspNetCore.SignalR
+@using Microsoft.AspNetCore.SignalR.Client
 @using Microsoft.EntityFrameworkCore
 <MudThemeProvider />
 <MudDialogProvider />
@@ -98,6 +103,18 @@
                                 @item.Branch.Name
                             </div>
                         </div>
+                        <div class="branch-name" >
+                            <button @onclick="() => HiddenFeedback(item.FeedbackId)" style="color:white" >
+                                @if ((bool)item.isShowFeedback)
+                                {
+                                    <span  class="btn btn-primary">Ẩn phản hồi</span>
+                                }
+                                else
+                                {
+                                    <span style="color:white" class="btn btn-info">Hiển thị phản hồi</span>
+                                }
+                            </button>
+                        </div>
                     </div>
 
                 }
@@ -138,21 +155,72 @@
     private List<Branch> branches = new();
     private string selectedSortOption = "dateAsc";
     private string searchKeyword = "";
+    static  int change = 0;
     private Dictionary<string, (double totalRating, int numberOfRatings)> branchRatings = new();
     private List<Feedback> filteredFeedbacks => GetFilteredFeedbacks();
     [Inject] private ApplicationDbContext _context { get; set; }
     private string selectedBranchId = "all"; // Using "all" to represent all branches
 
+
+    private HubConnection hubConnection;
+
+    public async Task Init()
+    {
+        hubConnection = new HubConnectionBuilder()
+           // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/myBlazorHub")) // docker
+           .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
+           .Build();
+
+        hubConnection.On<List<Feedback>>("FeedbackList", list =>
+        {
+            InvokeAsync(() =>
+            {
+                feedbacks = list;
+                StateHasChanged();
+            });
+        });
+        try
+        {
+            await hubConnection.StartAsync();
+            await LoadDataAsync();
+        }
+        catch (Exception ex)
+        {
+        }
+        await base.OnInitializedAsync();
+    }
+
     protected override async Task OnInitializedAsync()
     {
+        await Init();
         await LoadDataAsync();
         CalculateBranchRatings();
+    }
+
+
+
+    private async Task HiddenFeedback(int feedbackId)
+    {
+        _context.ChangeTracker.Clear();
+
+        var feedback = await _context.Feedback.Where(x => x.FeedbackId == feedbackId).FirstOrDefaultAsync();
+        if (feedback != null)
+        {
+            feedback.isShowFeedback = !feedback.isShowFeedback; // Đảo ngược giá trị
+            _context.Update(feedback);
+            await _context.SaveChangesAsync();
+            change++;
+            await InvokeAsync(StateHasChanged);
+            await LoadDataAsync();
+
+        }
     }
 
     private async Task LoadDataAsync()
     {
         feedbacks = await _context.Feedback.Include(x => x.Branch).Include(x => x.User).ToListAsync();
         branches = await _context.Branch.ToListAsync();
+        await _hubContext.Clients.All.SendAsync("FeedbackList", feedbacks);
     }
 
     private void CalculateBranchRatings()

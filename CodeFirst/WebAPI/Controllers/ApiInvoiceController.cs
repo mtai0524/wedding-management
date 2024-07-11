@@ -301,8 +301,8 @@ namespace WebAPI.Controllers
         {
             try
             {
-                //var paymentUrl = "http://localhost:3000/payment-success";
-                var paymentUrl = "https://wedding-palace-webapp.onrender.com/payment-success";
+                var paymentUrl = "http://localhost:3000/payment-success";
+                //var paymentUrl = "https://wedding-palace-webapp.onrender.com/payment-success";
                 return RedirectPermanent(paymentUrl);
             }
             catch (Exception ex)
@@ -318,13 +318,14 @@ namespace WebAPI.Controllers
 
             // sắp xếp theo AttendanceDate tăng dần
             var bookedHalls = _context.Invoice
-                .Where(i => i.HallId != null && i.AttendanceDate >= currentDate)
+                .Where(i => i.HallId != null && i.AttendanceDate >= currentDate && string.IsNullOrEmpty(i.OrderStatus))
                 .Select(i => new
                 {
                     HallId = i.HallId,
                     HallName = i.Hall.Name,
                     BranchName = i.Branch.Name,
-                    BookingDate = i.AttendanceDate
+                    BookingDate = i.AttendanceDate,
+                    TimeHall = i.TimeHall
                 })
                 .OrderBy(i => i.BookingDate)
                 .ToList();
@@ -418,7 +419,7 @@ namespace WebAPI.Controllers
 
             body.AppendLine("<footer style=\"margin-top:20px;background: #262626; color: white; padding: 20px 0;\">");
             body.AppendLine("<div class=\"container\">");
-            body.AppendLine("<p>&copy; 2023 Khóa luận Khoa Học Máy Tính. </p>");
+            body.AppendLine("<p>&copy; 2024 Khóa luận Khoa Học Máy Tính. </p>");
             body.AppendLine("</div>");
             body.AppendLine("</footer>");
 
@@ -543,7 +544,7 @@ namespace WebAPI.Controllers
 
             body.AppendLine("<footer style=\"margin-top:20px;background: #262626; color: white; padding: 20px 0;\">");
             body.AppendLine("<div class=\"container\">");
-            body.AppendLine("<p>&copy; 2023 Khóa luận Khoa Học Máy Tính. </p>");
+            body.AppendLine("<p>&copy; 2024 Khóa luận Khoa Học Máy Tính. </p>");
             body.AppendLine("</div>");
             body.AppendLine("</footer>");
 

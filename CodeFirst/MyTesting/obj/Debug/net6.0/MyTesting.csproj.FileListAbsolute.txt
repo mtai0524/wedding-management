@@ -711,4 +711,3 @@ E:\Computer-Science\CodeFirst\MyTesting\obj\Debug\net6.0\MyTesting.pdb
 E:\Computer-Science\CodeFirst\MyTesting\obj\Debug\net6.0\MyTesting.genruntimeconfig.cache
 E:\Computer-Science\CodeFirst\MyTesting\obj\Debug\net6.0\ref\MyTesting.dll
 E:\Computer-Science\CodeFirst\MyTesting\bin\Debug\net6.0\appsettings.Production.json
-E:\Computer-Science\CodeFirst\MyTesting\bin\Debug\net6.0\Cre\cre.json
