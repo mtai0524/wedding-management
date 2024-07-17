@@ -75,14 +75,14 @@
                                     <div class="form-check d-flex justify-content-between" style="margin-top:-10px">
                                         <div>
                                             <input class="form-check-input" type="checkbox" id="showPasswordCheckbox">
-                                            <label class="form-check-label" for="showPasswordCheckbox">Hiển thị mật khẩu</label>
+                                            <label style="color:#71748E;font-size:13px" for="showPasswordCheckbox">Hiển thị mật khẩu</label>
                                         </div>
                                         <div>
                                             <a id="forgot-password" class="text-primary text-sm text-gradient font-weight-bold custom-link" asp-page="./ForgotPassword">Quên mật khẩu?</a>
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <button type="submit" id="btn-login" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Đăng nhập</button>
+                                        <button type="submit" id="btn-login" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0" style="border-radius:4px; color:white">Đăng nhập</button>
                                     </div>
                                     <div id="error-message" class="text-danger mt-2" style="display: none;">Sai mật khẩu hoặc tên người dùng!</div>
                                     <div id="validation-summary" class="alert alert-danger mt-2" role="alert" style="display: none;"></div>
@@ -138,7 +138,6 @@
         if (!email || !password) {
             e.preventDefault();
             validationSummary.innerText = 'Email và mật khẩu không được để trống!';
-            validationSummary.style.color = 'white';
             validationSummary.style.display = 'block';
             return;
         }
