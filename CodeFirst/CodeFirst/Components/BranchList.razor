@@ -1,0 +1,802 @@
+﻿@page "/branch-list"
+@using CloudinaryDotNet
+@using CloudinaryDotNet.Actions
+@using CodeFirst.Data
+@using CodeFirst.Hubs
+@using CodeFirst.Models
+@using CodeFirst.Models.Entities
+@using CodeFirst.Service
+@inherits Microsoft.AspNetCore.Components.ComponentBase
+@inject NavigationManager NavigationManager
+@inject IJSRuntime jsRuntime
+@inject CloudinaryService _cloudinaryService;
+@using Microsoft.AspNetCore.Components.Forms
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.SignalR
+@using Microsoft.AspNetCore.SignalR.Client
+@using Microsoft.EntityFrameworkCore
+@using System.Security.Claims
+<PageTitle>Branches management</PageTitle>
+<Preload />
+@using BlazorBootstrap
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+@inject ISnackbar SnackbarService
+@inject ISnackbar Snackbar
+@inject IHubContext<MyBlazorHub> _hubContext
+@inject CodeFirst.Service.NotificationService _notiService
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject UserBlazorService _userBlazorService
+@inject UserListService _userListService
+@inject AuthorizeService _authorizeService
+@inject RoleManager<IdentityRole> RoleManager
+@inject UserManager<ApplicationUser> _userManager
+
+@code {
+    [Inject] protected PreloadService PreloadService { get; set; }
+
+    private List<MudBlazor.BreadcrumbItem> _items = new List<MudBlazor.BreadcrumbItem>
+    {
+        new MudBlazor.BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
+        new MudBlazor.BreadcrumbItem("Chi nhánh", href: "/branch-list", icon: Icons.Material.Filled.LocationCity),
+    };
+}
+
+
+<style>
+    .btn {
+        color: white;
+        margin-left: 5px;
+        outline: none;
+    }
+
+        .btn:hover {
+            color: white;
+        }
+
+    i {
+        margin-right: 3px;
+    }
+
+    label:hover {
+        background-color: transparent;
+    }
+</style>
+
+
+@code {
+    private async Task OnCreateBranchClick()
+    {
+        string newUrl = $"/branch-list/create-branch";
+        await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
+    }
+    private async Task OnDeleteBranchClick(int branchId)
+    {
+        string newUrl = $"/branch-list/delete-branch/{branchId}";
+        await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
+    }
+}
+
+
+
+<div class="modal fade" id="createBranchModal" tabindex="-1" aria-labelledby="createBranchModalLabel" aria-hidden="true" @onclick="() => CloseMe(false)">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createBranchModalLabel">Thêm chi nhánh mới</h5>
+                <button type="button" @onclick="() => CloseMe(false)" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                @if (CanAdd)
+                {
+
+                    @if (showAlertCreateBranch)
+                    {
+                        <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(false))">Tạo chi nhánh thành công !</MudAlert>
+                    }
+                    @if (showAlert)
+                    {
+                        <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" IsOpen="@showAlert" CloseIconClicked="() => showAlert = false">
+                            Vui lòng nhập đầy đủ thông tin!
+                        </MudAlert>
+
+                    }
+
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="branchName" class="form-label">Tên chi nhánh</label>
+                            <input type="text" class="form-control" id="branchName" @bind="BranchName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="branchDescription" class="form-label">Mô tả</label>
+                            <textarea class="form-control" id="branchDescription" rows="3" @bind="BranchDescription"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="branchImage" class="form-label">Ảnh</label>
+                            <InputFile id="branchImage" class="form-control" OnChange="OnInputFileChange" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="branchAddress" class="form-label">Địa chỉ</label>
+                            <input type="text" class="form-control" id="branchAddress" @bind="BranchAddress">
+                        </div>
+                        <div class="mb-3">
+                            <label for="branchPhone" class="form-label">Điện thoại</label>
+                            <input type="text" class="form-control" id="branchPhone" @bind="BranchPhone">
+                        </div>
+                    </form>
+                }
+                else
+                {
+                    <span style="color:red">Không có quyền thêm</span>
+                }
+            </div>
+            @if (CanAdd)
+            {
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary" @onclick="CancelAndDelData" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
+                    <a class="btn btn-success" @onclick="CreateBranch">
+                        @if (isLoading)
+                        {
+                            <i class="fa-solid fa-spinner fa-spin" style="color: white; margin-right:5px"></i>
+                            <span>Chờ chút xíu đang tải nè ... </span>
+                        }
+                        else if (isSavedSuccessfully)
+                        {
+                            <i class="fa-solid fa-check" style="color: white; margin-right:5px"></i>
+                            <span>Đã lưu thành công!</span>
+                        }
+                        else if (isError)
+                        {
+                            <i class="fa-solid fa-ban" style="margin-right:5px"></i>
+                            <span>Bị lỗi hình ảnh ròi!</span>
+                        }
+                        else
+                        {
+                            <i class="fa-solid fa-plus" style="color: white; margin-right:5px"></i>
+                            <span>Lưu</span>
+                        }
+                    </a>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@* alert *@
+@code {
+    private bool showAlertCreateBranch = false;
+
+    private async Task CloseMe(bool value)
+    {
+        if (!value)
+        {
+            showAlertCreateBranch = false;
+            isSavedSuccessfully = false;
+            // string newUrl = $"/branch-list";
+            // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
+        }
+    }
+
+    private void ShowAlerts()
+    {
+        showAlertCreateBranch = true;
+    }
+}
+
+
+
+
+@* create branch code behind *@
+@code {
+    private string? BranchName { get; set; }
+    private string? BranchDescription { get; set; }
+    private string? BranchAddress { get; set; }
+    private string? BranchPhone { get; set; }
+    private bool showAlert = false;
+    private IBrowserFile BranchImageFile { get; set; }
+    string imgURL = "";
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        BranchImageFile = e.File;
+    }
+    bool isLoading = false;
+    bool isSavedSuccessfully = false;
+    bool isError = false;
+
+    private async Task CreateBranch()
+    {
+        if (string.IsNullOrWhiteSpace(BranchName) || string.IsNullOrWhiteSpace(BranchDescription)
+             || BranchImageFile == null)
+        {
+            showAlert = true;
+            return;
+        }
+        else
+        {
+            if (BranchImageFile != null)
+            {
+                isLoading = true;
+                Snackbar.Add("Đang tải dữ liệu!", Severity.Info);
+                imgURL = await _cloudinaryService.UploadImageAsyncBlazor(BranchImageFile);
+            }
+            isLoading = true;
+
+            if (!string.IsNullOrEmpty(imgURL))
+            {
+                isLoading = true;
+
+                Branch newBranch = new Branch
+                    {
+                        Name = BranchName,
+                        Description = BranchDescription,
+                        Image = imgURL,
+                        Address = BranchAddress,
+                        Phone = BranchPhone
+                    };
+
+                _context.Branch.Add(newBranch);
+                await _context.SaveChangesAsync();
+                await LoadBranches();
+                StateHasChanged();
+                ShowAlerts();
+                Snackbar.Add("Tải dữ liệu thành công!", Severity.Success);
+                await _notiService.SendNotification(getUserCurrBlazor, " thêm chi nhánh mới");
+                isLoading = false;
+                isSavedSuccessfully = true;
+                BranchName = string.Empty;
+                BranchDescription = string.Empty;
+                BranchAddress = string.Empty;
+                BranchPhone = string.Empty;
+                BranchImageFile = null;
+                showAlert = false;
+                isError = false;
+                await jsRuntime.InvokeVoidAsync("clearInputFileText", "branchImage");
+                await LoadBranches();
+                StateHasChanged();
+                await Task.Delay(3000);
+                await LoadBranches();
+            }
+            else
+            {
+                isLoading = false;
+                isError = true;
+                Snackbar.Add("Tải dữ liệu thất bại!", Severity.Error);
+            }
+        }
+
+    }
+
+
+    private void CancelAndDelData()
+    {
+        isLoading = false;
+        BranchName = string.Empty;
+        BranchDescription = string.Empty;
+        BranchAddress = string.Empty;
+        BranchPhone = string.Empty;
+        BranchImageFile = null;
+        showAlert = false;
+        isError = false;
+    }
+}
+@if(running == true)
+{
+    
+<AuthorizeView Roles=@roleNameAu>
+    <Authorized>
+
+        <a class="btn btn-primary" style="font-size:13px;padding:7px;margin-bottom:15px " data-bs-toggle="modal" data-bs-target="#createBranchModal">
+            Thêm chi nhánh
+        </a>
+       <MudTable Items="@listBranch" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<Branch,bool>(FilterFunc1)" Style="margin-bottom:15px">
+    <ToolBarContent>
+        <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách chi nhánh</MudText>
+        <MudSpacer />
+        <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm tên chi nhánh, địa chỉ" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
+    </ToolBarContent>
+    <HeaderContent>
+   
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Name)">Tên chi nhánh</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Description)">Mô tả</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Branch, object>(x=>x.Phone)">Số điện thoại</MudTableSortLabel></MudTh>
+        <MudTh>Hình ảnh</MudTh>
+        <MudTh>Chức năng</MudTh>
+    </HeaderContent>
+   <RowTemplate Context="branch">
+    <MudTd  DataLabel="Name">@branch.Name</MudTd>
+    <MudTd DataLabel="Address">@branch.Address</MudTd>
+    <MudTd DataLabel="Phone">@branch.Phone</MudTd>
+    <MudTd DataLabel="Image">
+
+                <MudImage Src="@branch.Image" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-lg" />
+    </MudTd>
+    <MudTd>
+        <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Settings" Size="MudBlazor.Size.Small" Color="Color.Success" data-bs-toggle="modal" data-bs-target="#editBranchModal" OnClick="@(() => EditBranch(@branch.BranchId))">
+            Sửa
+        </MudButton>
+                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#viewBranchModal" OnClick="@(() => ShowDetails(@branch.BranchId))">
+            Chi tiết
+        </MudButton>
+                <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.DeleteForever" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => ShowConfirmModal(@branch.BranchId))">
+            Xóa
+        </MudButton>
+
+                @if (@branch.IsLocked)
+            {
+                <MudButton Style="margin-left:5px" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Lock" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => UnlockBranch(branch.BranchId))">
+                    Mở khóa
+                </MudButton>
+            }
+            else
+            {
+                <MudButton Style="margin-left:5px" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.LockOpen" Size="MudBlazor.Size.Small" Color="Color.Success" OnClick="@(() => LockBranch(branch.BranchId))">
+                 Khóa
+                </MudButton>
+            }
+    </MudTd>
+
+</RowTemplate>
+
+        <PagerContent>
+            <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang"  PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
+        </PagerContent>
+    </MudTable>
+    </Authorized>
+    <NotAuthorized>
+            <h3 style="color:red">Không có quyền truy cập</h3>
+
+    </NotAuthorized>
+</AuthorizeView>
+}
+
+@* modal delete mud blazor *@
+<MudMessageBox @ref="mbox" Title="Xác nhận xóa" CancelText="Hủy thao tác">
+    <MessageContent>
+        Dữ liệu bị xóa sẽ không thể phục hồi
+    </MessageContent>
+    <YesButton>
+        <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Error" StartIcon="@Icons.Material.Filled.DeleteForever">Xóa dữ liệu!</MudButton>
+    </YesButton>
+</MudMessageBox>
+@code {
+    private string searchString1 = "";
+    private bool FilterFunc1(Branch branch) => FilterFunc(branch, searchString1);
+
+    private bool FilterFunc(Branch branch, string searchString)
+    {
+        if (string.IsNullOrWhiteSpace(searchString))
+            return true;
+        if (branch.Name.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (branch.Address.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        return false;
+    }
+}
+<style>
+    .mud-dialog-width-sm {
+        max-width: 1200px;
+        width: 500px;
+    }
+</style>
+@code {
+    MudMessageBox mbox { get; set; }
+    [Inject] private IDialogService DialogService { get; set; }
+    private int branchIdToDelete;
+
+    private async void ShowConfirmModal(int branchId)
+    {
+        // string newUrl = $"/branch-list/delete-branch/{branchId}";
+        // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
+        branchIdToDelete = branchId;
+        if (!CanDelete)
+        {
+            await jsRuntime.InvokeVoidAsync("alert", $"Không có quyền xóa");
+            return;
+        }
+        bool? result = await mbox.Show();
+        if (result == true)
+        {
+            await DeleteBranch(branchIdToDelete);
+            Snackbar.Add("Đã xóa chi nhánh gòi đóa!", Severity.Success);
+            await _notiService.SendNotification(getUserCurrBlazor, "đã xóa chi nhánh");
+        }
+        else
+        {
+        }
+        StateHasChanged();
+    }
+}
+
+
+<div class="modal fade" id="viewBranchModal" tabindex="-1" aria-labelledby="viewBranchModalLabel" aria-hidden="true" @onclick="() => CloseMe(false)">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewBranchModalLabel">Chi tiết chi nhánh</h5>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Hiển thị thông tin chi nhánh -->
+                <p><strong>Tên chi nhánh:</strong> @branchName</p>
+                <p><strong>Số điện thoại:</strong> @phone</p>
+                <p><strong>Địa chỉ:</strong> @address</p>
+                <p><strong>Mô tả:</strong> @des</p>
+                <p><strong>Hình ảnh:</strong></p>
+                <img src="@img" class="img-fluid" style="max-height: 300px; width: 100%;" alt="Hình ảnh chi nhánh" />
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* view details branch code behind *@
+@code {
+    @* view details branch code behind *@
+    string? branchName = "";
+    string? des = "";
+    string? phone = "";
+    string? address = "";
+    string? img = "";
+    async Task ShowDetails(int branchId)
+    {
+        Branch? branch = _context.Branch.FirstOrDefault(x => x.BranchId == branchId);
+        if (branch != null)
+        {
+            branchName = branch.Name;
+            des = branch.Description;
+            phone = branch.Phone;
+            address = branch.Address;
+            img = branch.Image;
+        }
+        // string newUrl = $"/branch-list/detail-branch/{branch.BranchId}";
+        // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
+    }
+}
+
+
+<div class="modal fade" id="editBranchModal" tabindex="-1" aria-labelledby="editBranchModalLabel" aria-hidden="true" @onclick="() => CloseMe(false)">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editBranchModalLabel">Chỉnh sửa chi nhánh</h5>
+                <button type="button" @onclick="() => CloseMe(false)" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                </button>
+            </div>
+            @if (CanEdit)
+            {
+            <div class="modal-body">
+                @if (showAlertCreateBranch)
+                {
+                    <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(false))">Cập nhật chi nhánh thành công ròi nhe!</MudAlert>
+                }
+                @if (showAlert)
+                {
+                    <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" IsOpen="@showAlert" CloseIconClicked="() => showAlert = false">
+                        Vui lòng nhập đầy đủ thông tin!
+                    </MudAlert>
+
+                }
+
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="branchName" class="form-label">Tên chi nhánh</label>
+                        <input type="text" class="form-control" id="branchName" @bind="updateBranchName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="branchDescription" class="form-label">Mô tả</label>
+                        <textarea class="form-control" id="branchDescription" rows="3" @bind="updateDes"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="branchImageUpdate" class="form-label">Ảnh</label>
+                        <InputFile id="branchImageUpdate" class="form-control" OnChange="OnInputFileChange" />
+                    </div>
+                    @if (!string.IsNullOrEmpty(imageUrl))
+                    {
+                        <div class="mb-3">
+                            <img src="@imageUrl" alt="Branch Image" style="width: 100%;max-height:300px" />
+                        </div>
+                    }
+                    <div class="mb-3">
+                        <label for="branchAddress" class="form-label">Địa chỉ</label>
+                        <input type="text" class="form-control" id="branchAddress" @bind="updateAddress">
+                    </div>
+                    <div class="mb-3">
+                        <label for="branchPhone" class="form-label">Điện thoại</label>
+                        <input type="text" class="form-control" id="branchPhone" @bind="updatePhone">
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary" @onclick="CancelAndDelData" data-bs-toggle="tooltip" data-bs-placement="left" title="Xóa dữ liệu và đóng form" data-bs-dismiss="modal"><i class="fa-solid fa-caret-left" style="margin-right:5px"></i> Hủy</button>
+                <a class="btn btn-success" @onclick="SaveEditChanges">
+                    @if (isLoadingUpdate)
+                    {
+                        <i class="fa-solid fa-spinner fa-spin" style="color: white; margin-right:5px"></i>
+                        <span>Chờ chút xíu đang tải nè ... </span>
+                    }
+                    else if (isSavedSuccessfully)
+                    {
+                        <i class="fa-solid fa-check" style="color: white; margin-right:5px"></i>
+                        <span>Đã lưu thành công!</span>
+                    }
+                    else if (isError)
+                    {
+                        <i class="fa-solid fa-ban" style="margin-right:5px"></i>
+                        <span>Bị lỗi hình ảnh ròi!</span>
+                    }
+                    else
+                    {
+                        <i class="fa-solid fa-plus" style="color: white; margin-right:5px"></i>
+                        <span>Lưu</span>
+                    }
+                </a>
+
+                </div>
+            }
+            else
+            {
+                <span style="color:red;margin:10px">Không có quyền cập nhật</span>
+            }
+        </div>
+
+    </div>
+</div>
+
+@* update branch code behind *@
+@code {
+    @* update branch code behind *@
+    Branch? branchToEdit { get; set; } = new Branch();
+
+    bool isLoadingUpdate = false;
+    // void GetImage(int branchId)
+    // {
+    //     Branch branch = _context.Branch.FirstOrDefault(b => b.BranchId == branchId);
+    //     if (branch != null)
+    //     {
+    //         imageUrl = branch.Image;
+    //     }
+    // }
+    string? updateBranchName = "";
+    string? updateDes = "";
+    string? updatePhone = "";
+    string? updateAddress = "";
+    string? updateImg = "";
+
+    async Task EditBranch(int branchId)
+    {
+        branchToEdit = await _context.Branch.FindAsync(branchId);
+        Branch? branchUpdateForm = _context.Branch.FirstOrDefault(x => x.BranchId == branchId);
+        if (branchUpdateForm != null)
+        {
+            updateBranchName = branchUpdateForm.Name;
+            updateDes = branchUpdateForm.Description;
+            updatePhone = branchUpdateForm.Phone;
+            updateAddress = branchUpdateForm.Address;
+            updateImg = branchUpdateForm.Image;
+        }
+        await LoadBranches();
+        BranchImageFile = null;
+        StateHasChanged(); // Cập nhật UI
+        await jsRuntime.InvokeVoidAsync("clearInputFileText", "branchImageUpdate");
+        // string newUrl = $"/branch-list/edit-branch/{branchId}";
+        // await jsRuntime.InvokeVoidAsync("history.pushState", null, null, newUrl);
+    }
+    async Task SaveEditChanges()
+    {
+        var existingBranch = _context.Branch.Local.FirstOrDefault(b => b.BranchId == branchToEdit.BranchId);
+
+        string editImgUrl = "";
+        if (BranchImageFile != null)
+        {
+            isLoadingUpdate = true;
+            Snackbar.Add("Đang tải dữ liệu!", Severity.Info);
+            editImgUrl = await _cloudinaryService.UploadImageAsyncBlazor(BranchImageFile);
+        }
+        else if (BranchImageFile == null)
+        {
+            editImgUrl = branchToEdit.Image;
+        }
+        isLoadingUpdate = true;
+        if (existingBranch != null)
+        {
+            isLoadingUpdate = true;
+
+            existingBranch.Name = updateBranchName;
+            existingBranch.Description = updateDes;
+            existingBranch.Address = updateAddress;
+            existingBranch.Phone = updatePhone;
+            existingBranch.Image = editImgUrl;
+        }
+        else
+        {
+            isLoadingUpdate = true;
+
+            _context.Attach(branchToEdit);
+            branchToEdit.Name = updateBranchName;
+            branchToEdit.Description = updateDes;
+            branchToEdit.Address = updateAddress;
+            branchToEdit.Phone = updatePhone;
+            branchToEdit.Image = editImgUrl;
+        }
+        ShowAlerts();
+        Snackbar.Add("Cập nhật dữ liệu thành công!", Severity.Success);
+        _context.Update(branchToEdit);
+
+        await _context.SaveChangesAsync();
+        isLoadingUpdate = false;
+
+        isSavedSuccessfully = true;
+        await _notiService.SendNotification(getUserCurrBlazor, "đã cập nhật chi nhánh");
+
+        await LoadBranches();
+    }
+
+
+
+    async Task DeleteBranch(int branchId)
+    {
+        var branchToDelete = await _context.Branch.FindAsync(branchId);
+        if (branchToDelete != null)
+        {
+            var hallsToDelete = await _context.Hall.Where(h => h.BranchId == branchId).ToListAsync();
+            var feedBackList = await _context.Feedback.Where(h => h.BranchId == branchId).ToListAsync();
+
+            _context.Hall.RemoveRange(hallsToDelete);
+            _context.Feedback.RemoveRange(feedBackList);
+            _context.Branch.Remove(branchToDelete);
+            await _context.SaveChangesAsync();
+            await LoadBranches();
+        }
+    }
+}
+
+@* get user curr *@
+@* @code{
+    ApplicationUser getUserCurr;
+
+    AuthenticationState authState;
+    string userCurrId;
+    async Task<ApplicationUser> GetUserCurr()
+    {
+        authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        ClaimsPrincipal user = authState.User;
+        userCurrId = user.FindFirstValue(ClaimTypes.NameIdentifier);
+        getUserCurr = _context.ApplicationUser.FirstOrDefault(x => x.Id == userCurrId);
+        return getUserCurr;
+    }
+} *@
+
+
+@* init blazor *@
+@code {
+    string roleNameAu = "";
+    bool running = false;
+    ApplicationUser getUserCurrBlazor;
+
+    List<Branch> Branches { get; set; } = new List<Branch>();
+    [Inject] private ApplicationDbContext _context { get; set; }
+    string imageUrl { get; set; }
+    private List<Branch> listBranch { get; set; } = new List<Branch>();
+    protected async Task LoadBranchesHasPreLoad()
+    {
+        PreloadService.Show(SpinnerColor.Light, "Đang nạp dữ liệu...");
+
+        var branchService = new BranchService(_context);
+        listBranch = await branchService.GetBranchesAsync();
+        await _hubContext.Clients.All.SendAsync("BranchCreated", listBranch);
+        StateHasChanged(); // Luu data da thay doi
+        PreloadService.Hide();
+    }
+    protected async Task LoadBranches()
+    {
+
+        var branchService = new BranchService(_context);
+        listBranch = await branchService.GetBranchesAsync();
+        await _hubContext.Clients.All.SendAsync("BranchCreated", listBranch);
+        StateHasChanged(); // Luu data da thay doi
+    }
+    private HubConnection hubConnection;
+    bool CanAdd = false;
+    bool CanEdit = false;
+    bool CanDelete = false;
+    string roleId = "";
+    protected override async Task OnInitializedAsync()
+    {
+        getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
+        if (getUserCurrBlazor == null)
+        {
+            NavigationManager.NavigateTo("/Identity/Account/Login?ReturnUrl=%2F");
+            return;
+        }
+
+        roleId = await _authorizeService.GetRoleId(getUserCurrBlazor);
+        var permissions = await _context.Permission
+            .Where(p => p.RoleId == roleId && p.Type == "branch")
+            .ToListAsync();
+        CanAdd = permissions.Any(p => p.CanAdd);
+        CanEdit = permissions.Any(p => p.CanEdit);
+        CanDelete = permissions.Any(p => p.CanDelete);
+
+
+
+        roleNameAu = await _authorizeService.UserHasPermission("branch");
+        running = true;
+        await LoadBranchesHasPreLoad();
+        hubConnection = new HubConnectionBuilder()
+            // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/myBlazorHub")) // docker
+            .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
+            .Build();
+
+        hubConnection.On<List<Branch>>("BranchCreated", receivedProducts =>
+        {
+            InvokeAsync(() =>
+            {
+                listBranch = receivedProducts;
+                StateHasChanged();
+            });
+        });
+
+        try
+        {
+            await hubConnection.StartAsync();
+            Console.WriteLine("SignalR connection started successfully blazor.");
+            await LoadBranches();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error starting SignalR connection: {ex.Message}");
+        }
+
+        await base.OnInitializedAsync();
+    }
+
+
+
+    async Task UnlockBranch(int branchId)
+    {
+        var branch = _context.Branch.Find(branchId);
+
+        if (branch != null)
+        {
+            branch.IsLocked = false; // Mở khóa chi nhánh
+            _context.Entry(branch).State = EntityState.Modified;
+            _context.SaveChanges();
+            await LoadBranches();
+            Snackbar.Add("Đã mở khóa chi nhánh!", Severity.Normal);
+
+        }
+    }
+
+    async Task LockBranch(int branchId)
+    {
+        var branch = _context.Branch.Find(branchId);
+
+        if (branch != null)
+        {
+            branch.IsLocked = true; // Tạm khóa chi nhánh
+            _context.Entry(branch).State = EntityState.Modified;
+            _context.SaveChanges();
+            await LoadBranches();
+            Snackbar.Add("Đã khóa chi nhánh!", Severity.Normal);
+
+        }
+    }
+}

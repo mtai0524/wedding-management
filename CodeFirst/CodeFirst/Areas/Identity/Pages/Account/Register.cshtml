@@ -1,0 +1,234 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Đăng ký tài khoản";
+    Layout = "~/Views/Shared/_EmptyLayout.cshtml";
+}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets_argon/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/assets_argon/img/favicon.png">
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="~/admin_assets/css/login.css" rel="stylesheet" />
+    <link href="~/assets_argon/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="~/assets_argon/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="~/assets_argon/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="~/assets_argon/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+
+</head>
+
+
+<style>
+    .fa-facebook {
+        color: #1775F1;
+        font-size: 30px;
+    }
+
+
+    body {
+        overflow: hidden;
+    }
+
+    .avatar-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .avatar-option {
+        display: none; /* ẩn dấu tròn của radio button */
+    }
+
+    .avatar-option-label {
+        cursor: pointer;
+        margin: 10px;
+    }
+
+        .avatar-option-label img {
+            border-radius: 50%;
+            border: 3px solid transparent;
+            width: 55px;
+            height: 55px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            padding: 4px;
+        }
+
+    .avatar-option:checked + .avatar-option-label img {
+        border: 2px dashed gray;
+        transform: scale(1.2);
+    }
+    .btn{
+        background-color: #666DE4;
+        outline:none;
+    }
+}
+
+</style>
+<main class="main-content mt-0">
+    <section>
+        <div class="page-header min-vh-100">
+            <div class="container">
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div class="col-xl-5 col-lg-5 col-md-7 d-flex justify-content-center mx-lg-0 mx-auto" style="border:2px solid #e8e9eb; box-shadow: -6px 6px 0px 0px #21242b;border:2px solid #21242b">
+                        <div class="card card-plain" >
+                            <div class="card-header pb-0 text-start">
+                                <h4 class="font-weight-bolder">Đăng kí</h4>
+                                <p class="mb-0">Vui lòng nhập đầy đủ thông tin đăng kí tài khoản</p>
+                            </div>
+
+                            <div class="card-body">
+                                <form id="account" method="post" enctype="multipart/form-data">
+                                    <div class="mb-4">
+                                        <input asp-for="Input.Email" class="form-control form-control-lg" placeholder="Email" autocomplete="username" aria-required="true" />
+                                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-4">
+                                        <input asp-for="Input.Password" class="form-control form-control-lg" placeholder="Mật khẩu" autocomplete="current-password" aria-required="true" />
+                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                      
+                                    </div>
+                                    <div class="mb-4">
+                                        <input asp-for="Input.ConfirmPassword" class="form-control form-control-lg" placeholder="Xác nhận mật khẩu" autocomplete="new-password" aria-required="true">
+                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-check" style="margin-top:-10px">
+                                        <input class="form-check-input" type="checkbox" id="showPasswordCheckbox">
+                                        <label style="color:#71748E;font-size:13px" for="showPasswordCheckbox">Hiển thị mật khẩu</label>
+
+                                    </div>
+                                    <p class="mb-4 text-sm text-center" >Chọn ảnh đại diện</p>
+                                    <div class="avatar-container" style="margin-top:-20px">
+                                        <input type="radio" id="avatar1" class="avatar-option" name="avatar" value="https://res.cloudinary.com/dl3hvap4a/image/upload/v1709805941/fnkwupnbqhyopurmgyof.png" onclick="selectAvatar('https://res.cloudinary.com/dl3hvap4a/image/upload/v1709805941/fnkwupnbqhyopurmgyof.png')" checked>
+                                        <label for="avatar1" class="avatar-option-label">
+                                            <img src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1709805941/fnkwupnbqhyopurmgyof.png" alt="Avatar 1">
+                                        </label>
+
+                                        <input type="radio" id="avatar2" class="avatar-option" name="avatar" value="https://res.cloudinary.com/dl3hvap4a/image/upload/v1709471156/b8wbfalr15d6lmo2gdfi.png" onclick="selectAvatar('https://res.cloudinary.com/dl3hvap4a/image/upload/v1709471156/b8wbfalr15d6lmo2gdfi.png')">
+                                        <label for="avatar2" class="avatar-option-label"><img src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1709471156/b8wbfalr15d6lmo2gdfi.png" alt="Avatar 2"></label>
+
+                                        <input type="radio" id="avatar3" class="avatar-option" name="avatar" value="https://res.cloudinary.com/dl3hvap4a/image/upload/v1709531347/jmqwdfdjj2zx88mtuocr.png" onclick="selectAvatar('https://res.cloudinary.com/dl3hvap4a/image/upload/v1709531347/jmqwdfdjj2zx88mtuocr.png')">
+                                        <label for="avatar3" class="avatar-option-label"><img src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1709531347/jmqwdfdjj2zx88mtuocr.png" alt="Avatar 3"></label>
+
+                                        <input type="radio" id="avatar4" class="avatar-option" name="avatar" value="https://res.cloudinary.com/dl3hvap4a/image/upload/v1709531543/krxdydqhecwpqambcz8n.png" onclick="selectAvatar('https://res.cloudinary.com/dl3hvap4a/image/upload/v1709531543/krxdydqhecwpqambcz8n.png')">
+                                        <label for="avatar4" class="avatar-option-label"><img src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1709531543/krxdydqhecwpqambcz8n.png" alt="Avatar 4"></label>
+
+                                        <input type="radio" id="avatar5" class="avatar-option" name="avatar" value="https://res.cloudinary.com/dl3hvap4a/image/upload/v1709532210/xfsyu2bpevfm5vwyf613.png" onclick="selectAvatar('https://res.cloudinary.com/dl3hvap4a/image/upload/v1709532210/xfsyu2bpevfm5vwyf613.png')">
+                                        <label for="avatar5" class="avatar-option-label"><img src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1709532210/xfsyu2bpevfm5vwyf613.png" alt="Avatar 5"></label>
+                                    </div>
+
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0" style="border-radius:4px; color:white">Đăng kí</button>
+                                    </div>
+                                </form>
+                            </div>
+                         
+                            <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                <p class="mb-4 text-sm mx-auto">
+                                    Đã có tài khoản?
+                                    <a class="text-primary text-gradient font-weight-bold custom-link" asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Đăng nhập</a>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-center mb-3 mt-2 text-sm">Đăng kí khác</p>
+                                @{
+                                        @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+                                    {
+                                            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                                <div class="row mx-auto justify-content-center">
+                                                    <div class="col-3">
+                                                        <button style="margin-bottom:20px; background-color:transparent; border:none; outline:none" type="submit" class="d-flex justify-content-center align-items-center w-100" name="provider" value="Facebook" title="Log in using your Facebook account">
+                                                            <i class="fab fa-facebook" style="margin-right: 5px;"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <button style="margin-bottom:20px;background-color:transparent; border:none; outline:none" type="submit" class="d-flex justify-content-center align-items-center w-100" name="provider" value="Google" title="Log in using your Google account">
+                                                            <img width="30" height="30" style="margin-right: 5px;" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+</main>
+@* <script>
+    function updateImage(radioButton) {
+        if (radioButton.checked) {
+            var imageUrl = radioButton.value;
+            // Tìm input file và gán giá trị là đường dẫn của hình ảnh đã chọn
+            document.getElementById("customFile").value = imageUrl;
+            console.log(imageUrl);
+        }
+    }
+</script> *@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var showPasswordCheckbox = document.getElementById('showPasswordCheckbox');
+        showPasswordCheckbox.addEventListener('change', function () {
+            var passwordInput = document.getElementById('Input_Password');
+            var confirmPasswordInput = document.getElementById('Input_ConfirmPassword');
+            if (showPasswordCheckbox.checked) {
+                passwordInput.type = 'text';
+                confirmPasswordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+                confirmPasswordInput.type = 'password';
+            }
+        });
+    });
+</script>
+
+<!--   Core JS Files   -->
+<script src="~/assets_argon/js/core/popper.min.js"></script>
+<script src="~/assets_argon/js/core/bootstrap.min.js"></script>
+<script src="~/assets_argon/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="~/assets_argon/js/plugins/smooth-scrollbar.min.js"></script>
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+    window.onload = function () {
+        // Tìm phần tử HTML có lớp 'content'
+        var content = document.querySelector('.main-content');
+
+        // Thêm thuộc tính overflow-y: scroll để cuộn nội dung khi cần
+        content.style.overflowY = 'hidden';
+
+        // Đảm bảo rằng nội dung không vượt quá chiều rộng của trang
+        content.style.maxHeight = '100vh';
+    };
+
+
+</script>
+
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="~/assets_argon/js/argon-dashboard.min.js?v=2.0.4"></script>

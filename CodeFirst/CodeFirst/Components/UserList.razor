@@ -1,0 +1,428 @@
+﻿@page "/user-list"
+@using CloudinaryDotNet
+@using CloudinaryDotNet.Actions
+@using CodeFirst.Data
+@using CodeFirst.Hubs
+@using CodeFirst.Models
+@using CodeFirst.Models.Entities
+@using CodeFirst.Service
+@inherits Microsoft.AspNetCore.Components.ComponentBase
+@inject NavigationManager NavigationManager
+@inject IJSRuntime jsRuntime
+@inject CloudinaryService _cloudinaryService;
+@using Microsoft.AspNetCore.Components.Forms
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.SignalR
+@using Microsoft.AspNetCore.SignalR.Client
+@using Microsoft.EntityFrameworkCore
+@inject ISnackbar SnackbarService
+@inject ISnackbar Snackbar
+@inject IHubContext<ChatHub> _hubContext
+@inject UserManager<ApplicationUser> _userManager
+@inject CodeFirst.Service.NotificationService _notiService
+@inject NavigationManager NavigationManager
+@inject UserListService userService
+@inject RoleManager<IdentityRole> _roleManager
+@inject IHubContext<MyBlazorHub> _hubContext
+@inject UserBlazorService _userBlazorService
+
+@using BlazorBootstrap
+@using System.Net.Mail
+@using System.Net
+<Preload />
+
+<PageTitle>Users management</PageTitle>
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+
+
+@code {
+    private List<MudBlazor.BreadcrumbItem> _items = new List<MudBlazor.BreadcrumbItem>
+    {
+        new MudBlazor.BreadcrumbItem("Trang chủ", href: "/", icon: Icons.Material.Filled.Home),
+        new MudBlazor.BreadcrumbItem("Người dùng", href: "/user-list", icon: Icons.Material.Filled.People),
+    };
+}
+
+@code {
+    private string searchString1 = "";
+    private bool FilterFunc1(ApplicationUserWithRole applicationUser) => FilterFunc(applicationUser, searchString1);
+
+    private bool FilterFunc(ApplicationUserWithRole applicationUser, string searchString)
+    {
+        if (string.IsNullOrWhiteSpace(searchString))
+            return true;
+        if (applicationUser.Role.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (applicationUser.Email.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (applicationUser.FullName.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        return false;
+    }
+}
+<AuthorizeView Roles="administrator system">
+    <Authorized Context="authContext">
+<MudTable Items="@listUser" Hover="true" SortLabel="Sort By" Striped="true" Filter="new Func<ApplicationUserWithRole,bool>(FilterFunc1)" Style="margin-bottom:15px">
+    <ToolBarContent>
+        <MudText Style="font-family:Mali" Typo="Typo.h6">Danh sách người dùng</MudText>
+        <MudSpacer />
+        <MudTextField @bind-Value="searchString1" Placeholder="Tìm kiếm tên người dùng, email, vai trò" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="MudBlazor.Size.Medium" Class="mt-0"></MudTextField>
+
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>Người dùng</MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ApplicationUserWithRole, object>(x=>x.Role)">Vai trò</MudTableSortLabel></MudTh>
+
+        <MudTh><MudTableSortLabel SortBy="new Func<ApplicationUserWithRole, object>(x=>x.PhoneNumber)">Số điện thoại</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ApplicationUserWithRole, object>(x=>x.LockoutEnd)">Tình trạng</MudTableSortLabel></MudTh>
+        <MudTh>Chức năng</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Người dùng">
+            <div class="d-flex flex-row" onclick="ShowDetails(@context.UserId)">
+                <MudImage Src="@context.Avatar" Width="50" Height="50" Alt="Swedish Farm House" Elevation="25" Class="rounded-lg" />
+                <div class="d-flex flex-column justify-content-center ml-5" onclick="ShowDetails(@context.UserId)">
+                    <h6 class="mb-0 text-sm"> @context.FullName</h6>
+                    <p class="text-xs text-secondary mb-0"> @context.Email</p>
+                </div>
+            </div>
+        </MudTd>
+        <MudTd DataLabel="Vai trò">@context.Role</MudTd>
+
+            <MudTd DataLabel="Số điện thoại">@context.PhoneNumber</MudTd>
+            <MudTd DataLabel="Tình trạng">
+                @if (context.LockoutEnd.HasValue && context.LockoutEnd > DateTimeOffset.UtcNow)
+            {
+                <MudChip Color="Color.Error" Icon="@Icons.Material.Filled.Dangerous" IconColor="Color.Surface" Size="MudBlazor.Size.Small">
+                    Đang bị khóa
+                </MudChip>
+            }
+            else
+            {
+                <MudChip Icon="@Icons.Material.Filled.VerifiedUser" Color="Color.Success" Size="MudBlazor.Size.Small">
+                    Không bị khóa
+                </MudChip>
+            }
+        </MudTd>
+        <MudTd>
+            <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.People" Size="MudBlazor.Size.Small" Color="Color.Dark" data-bs-toggle="modal" data-bs-target="#updateRoleModal" OnClick="@(() => ShowUpdateRoleModal(@context.UserId))">
+                Chuyển vai trò
+            </MudButton>
+
+            <MudButton Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Info" Size="MudBlazor.Size.Small" Color="Color.Info" data-bs-toggle="modal" data-bs-target="#detailUserModal" OnClick="@(() => ShowDetails(@context.UserId))">
+                Chi tiết
+            </MudButton>
+            @if (context.LockoutEnd.HasValue && context.LockoutEnd > DateTimeOffset.UtcNow)
+            {
+                <MudButton Style="margin-left:5px" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.LockOpen" Size="MudBlazor.Size.Small" Color="Color.Success" OnClick="@(() => UnlockUser(@context.UserId))">
+                    Mở khóa
+                </MudButton>
+            }
+            else
+            {
+
+                <MudButton Style="margin-left:5px" Variant="MudBlazor.Variant.Outlined" StartIcon="@Icons.Material.Filled.Lock" Size="MudBlazor.Size.Small" Color="Color.Error" OnClick="@(() => LockUser(@context.UserId))">
+                    Khóa
+                </MudButton>
+            }
+
+
+        </MudTd>
+
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager RowsPerPageString="Số dòng mỗi trang" InfoFormat="{first_item}-{last_item} trong {all_items} trang" PageSizeOptions="new int[] { 5, 10, 25 ,50, 100 }" />
+    </PagerContent>
+</MudTable>
+    </Authorized>
+    <NotAuthorized Context="notAuthContext">
+        <h3>You are not authorized to view this content.</h3>
+    </NotAuthorized>
+</AuthorizeView>
+
+<div class="modal fade" id="detailUserModal" tabindex="-1" aria-labelledby="detailUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailUserModalLabel">Thông tin người dùng</h5>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Hiển thị thông tin chi nhánh -->
+                <p><strong>Tên người dùng:</strong> @userName</p>
+                <p><strong>Email:</strong> @email</p>
+                <p><strong>Vai trò:</strong> @role</p>
+                <p><strong>Số điện thoại:</strong> @phone</p>
+                <p>
+                    <strong>Tình trạng: </strong>
+                    @if (status.HasValue)
+                    {
+                        <MudChip Color="Color.Error" Icon="@Icons.Material.Filled.Dangerous" IconColor="Color.Surface" Size="MudBlazor.Size.Small">
+                            Đang bị khóa
+                        </MudChip>
+                    }
+                    else
+                    {
+                        <MudChip Icon="@Icons.Material.Filled.VerifiedUser" Color="Color.Success" Size="MudBlazor.Size.Small">
+                            Không bị khóa
+                        </MudChip>
+                    }
+
+                </p>
+
+                <p><strong>Hình ảnh:</strong></p>
+                <div class="image-user-container d-flex justity-content-center">
+                    <img src="@avatar" class="img-fluid" style="height: 200px; border-radius:8px;border:1px solid transparent;width: 200px;margin: 0 auto;" alt="Hình ảnh chi nhánh" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+    @* view details branch code behind *@
+    string? userName = "";
+    string? email = "";
+    string? phone = "";
+    string? role = "";
+    string? avatar = "";
+    DateTimeOffset? status = null;
+    async Task ShowDetails(string userId)
+    {
+        ApplicationUser? userFindByUserId = _context.ApplicationUser.FirstOrDefault(x => x.Id == userId);
+        var userWithRole = await userService.GetRoleUserAsync(userId);
+        if (userFindByUserId != null)
+        {
+            userName = userFindByUserId.FirstName + " " + userFindByUserId.LastName;
+            email = userFindByUserId.Email;
+            phone = !string.IsNullOrEmpty(userFindByUserId.PhoneNumber) ? userFindByUserId.PhoneNumber : "chưa nhập...";
+            role = userWithRole.FirstOrDefault();
+            avatar = userFindByUserId.Avatar;
+            status = userFindByUserId.LockoutEnd;
+        }
+    }
+}
+
+
+<div class="modal fade" id="updateRoleModal" tabindex="-1" aria-labelledby="updateRoleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateRoleModalLabel">Chỉnh sửa vai trò</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="selectedRole" class="form-label">Chọn vai trò mới:</label>
+                        <select class="form-select" id="selectedRole" @bind="selectedRole">
+                            @foreach (var role in allRoles)
+                            {
+                                <option value="@role">@role</option>
+                            }
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary" @onclick="UpdateUserRole">Lưu thay đổi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    private List<ApplicationUserWithRole> listUser { get; set; } = new List<ApplicationUserWithRole>();
+    ApplicationUser applicationUser { get; set; } = new ApplicationUser();
+    [Inject] private ApplicationDbContext _context { get; set; }
+
+    private List<string> allRoles = new List<string>(); // List chứa tất cả các vai trò
+    [Inject] protected PreloadService PreloadService { get; set; }
+    ApplicationUser getUserCurrBlazor;
+    protected async Task LoadBranches()
+    {
+
+        listUser = await userService.GetListUserAndRole();
+        await _hubContext.Clients.All.SendAsync("ApplicationUserWithRoleSignalR", listUser);
+        StateHasChanged();
+
+    }
+    protected async Task LoadBranchesHasPreload()
+    {
+        PreloadService.Show(SpinnerColor.Light, "Đang nạp dữ liệu...");
+
+        listUser = await userService.GetListUserAndRole();
+        await _hubContext.Clients.All.SendAsync("ApplicationUserWithRoleSignalR", listUser);
+        StateHasChanged();
+        PreloadService.Hide();
+
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        await Init();
+        await LoadBranchesHasPreload();
+        await base.OnInitializedAsync();
+        var allRoles = await _roleManager.Roles.Select(r => r.Name).ToListAsync();
+        this.allRoles = allRoles;
+        getUserCurrBlazor = await _userBlazorService.GetCurrentUser();
+    }
+    private HubConnection hubConnection;
+
+    public async Task Init()
+    {
+        hubConnection = new HubConnectionBuilder()
+           // .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost/myBlazorHub")) // docker
+           .WithUrl(NavigationManager.ToAbsoluteUri("/myBlazorHub"))
+           .Build();
+
+        hubConnection.On<List<ApplicationUserWithRole>>("ApplicationUserWithRoleSignalR", list =>
+        {
+            InvokeAsync(() =>
+            {
+                listUser = list;
+                StateHasChanged();
+            });
+        });
+        try
+        {
+            await hubConnection.StartAsync();
+            await LoadBranches();
+
+        }
+        catch (Exception ex)
+        {
+        }
+        await base.OnInitializedAsync();
+    }
+
+    string selectedRole { get; set; }
+    string userIdToUpdateRole { get; set; } = "";
+
+    private async Task ShowUpdateRoleModal(string userId)
+    {
+        selectedRole = await userService.GetRoleUserByUserId(userId); 
+        userIdToUpdateRole = userId;
+    }
+    public async Task ChangeUserRole(string userId, string newRole)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user != null)
+        {
+            // Xác định vai trò cũ của người dùng
+            var oldRole = await _userManager.GetRolesAsync(user);
+            if (oldRole.Any() && newRole != oldRole.FirstOrDefault())
+            {
+                if (oldRole.Contains("administrator system"))
+                {
+                    Snackbar.Add("Không thể thay đổi vai trò của tài khoản quản trị hệ thống!", Severity.Error);
+                    return;
+                }
+                // Loại bỏ vai trò cũ
+                await _userManager.RemoveFromRoleAsync(user, oldRole.FirstOrDefault());
+                // Thêm vai trò mới
+                await _userManager.AddToRoleAsync(user, newRole);
+                Snackbar.Add("Vai trò người dùng đã được cập nhật!", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add("Vai trò không thay đổi!", Severity.Info);
+            }
+            await LoadBranches(); // Tải lại danh sách người dùng sau khi thay đổi vai trò
+        }
+    }
+    private async Task UpdateUserRole()
+    {
+        if (!string.IsNullOrEmpty(userIdToUpdateRole) && !string.IsNullOrEmpty(selectedRole))
+        {
+            await ChangeUserRole(userIdToUpdateRole, selectedRole);
+        }
+    }
+    private async Task SendMail(string title, string content, string noti, string toEmail, string fromEmail)
+    {
+        MailMessage mail = new MailMessage();
+        //mail.To.Add(customer.Email.ToString());
+        mail.To.Add(toEmail); // email người nhận
+
+        mail.From = new MailAddress(fromEmail);// email người gửi
+                                                          
+        mail.Subject = title;
+        mail.Body = content;
+        mail.IsBodyHtml = true;
+
+        SmtpClient smtp = new SmtpClient("sandbox.smtp.mailtrap.io");
+        smtp.EnableSsl = true;
+        smtp.Port = 2525;
+        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+        smtp.Credentials = new NetworkCredential("f53ec0c5d129dd", "647d8437d3d40c");
+
+        // SmtpClient smtp = new SmtpClient("smtp.gmail.com"); // máy chủ smtp của google
+        // smtp.EnableSsl = true;
+        // smtp.Port = 587; // port client mặc định hầu như máy nào cũng vậy
+        // smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+        // smtp.Credentials = new NetworkCredential("duatreodaiduongden@gmail.com", "aiyt kzuj xpbq ygda"); // từ năm 2022 trở đi dùng mật khẩu do gmail cấp
+
+        try
+        {
+            smtp.Send(mail);
+            Snackbar.Add(noti, Severity.Success);
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+    public async Task LockUser(string userId)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user != null && !user.LockoutEnd.HasValue)
+        {
+            var getRole = await _userManager.GetRolesAsync(user);
+            if (getRole.Contains("administrator system"))
+            {
+                Snackbar.Add("Không thể khóa tài khoản quản trị hệ thống!", Severity.Error);
+                return;
+            }
+            await _userManager.SetLockoutEnabledAsync(user, true);
+            await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.MaxValue);
+            Snackbar.Add("Đã khóa tài khoản!", Severity.Warning);
+
+            await SendMail("THÔNG BÁO KHÓA TÀI KHOẢN", $"Tài khoản {user.Email} đã bị quản trị hệ thống khóa", "Đã gửi mail đến tài khoản người dùng bị khóa!", user.Email, getUserCurrBlazor.Email);
+        }
+        else
+        {
+            Snackbar.Add("Tài khoản đã bị khóa rồi!", Severity.Info);
+        }
+
+        await LoadBranches();
+    }
+    public async Task UnlockUser(string userId)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user != null && user.LockoutEnd.HasValue)
+        {
+            await _userManager.SetLockoutEnabledAsync(user, false);
+            await _userManager.ResetAccessFailedCountAsync(user);
+            user.LockoutEnd = null;
+            await _userManager.UpdateAsync(user); // cập nhật thay đổi dạng bất đồng bộ
+            Snackbar.Add("Đã mở khóa tài khoản!", Severity.Success);
+            await SendMail("THÔNG BÁO MỞ KHÓA TÀI KHOẢN", $"Tài khoản {user.Email} đã được mở khóa do quản trị hệ thống", "Đã gửi mail đến tài khoản người dùng mở khóa!", user.Email, getUserCurrBlazor.Email);
+        }
+        else
+        {
+            Snackbar.Add("Tài khoản đã mở khóa rồi!", Severity.Info);
+
+        }
+
+        await LoadBranches();
+    }
+}

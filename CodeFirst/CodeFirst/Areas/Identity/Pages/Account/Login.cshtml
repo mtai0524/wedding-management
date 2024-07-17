@@ -1,0 +1,181 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Đăng nhập";
+    Layout = "~/Views/Shared/_EmptyLayout.cshtml";
+}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets_argon/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/assets_argon/img/favicon.png">
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="~/admin_assets/css/login.css" rel="stylesheet" />
+    <link href="~/assets_argon/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="~/assets_argon/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="~/assets_argon/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="~/assets_argon/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+
+</head>
+
+
+<style>
+    .fa-facebook {
+        color: #1775F1;
+        font-size: 30px;
+    }
+
+    .loading-cursor {
+        cursor: wait; 
+    }
+    body {
+        overflow: hidden;
+    }
+
+    
+</style>
+<!--   Core JS Files   -->
+<script src="~/assets_argon/js/core/popper.min.js"></script>
+<script src="~/assets_argon/js/core/bootstrap.min.js"></script>
+<script src="~/assets_argon/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="~/assets_argon/js/plugins/smooth-scrollbar.min.js"></script>
+
+<main class="main-content mt-0">
+    <section>
+        <div class="page-header min-vh-100">
+            <div class="container-fluid">
+                <div class="row d-flex p-2 align-items-center justify-content-center">
+                    <div class="col-xl-5 col-lg-5 col-md-7 d-flex justify-content-center mx-lg-0 mx-auto" style="border:2px solid #e8e9eb; box-shadow: -6px 6px 0px 0px #21242b;border:2px solid #21242b">
+                        <div class="card card-plain">
+                            <div class="card-header pb-0 text-start">
+                                <h4 class="font-weight-bolder">Đăng nhập</h4>
+                                <p class="mb-0">Vui lòng nhập email và mật khẩu để đăng nhập</p>
+                            </div>
+                            <div class="card-body">
+                                <form id="account" method="post">
+                                    <div class="mb-3">
+                                        <input id="emailInput" asp-for="Input.Email" class="form-control form-control-lg" placeholder="Email" autocomplete="username" aria-required="true" value="duaconcuagio@yahoo.com">
+                                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input id="passwordInput" asp-for="Input.Password" class="form-control form-control-lg" placeholder="Mật khẩu" autocomplete="current-password" aria-required="true" value="Tai12345." />
+                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-check d-flex justify-content-between" style="margin-top:-10px">
+                                        <div>
+                                            <input class="form-check-input" type="checkbox" id="showPasswordCheckbox">
+                                            <label style="color:#71748E;font-size:13px" for="showPasswordCheckbox">Hiển thị mật khẩu</label>
+                                        </div>
+                                        <div>
+                                            <a id="forgot-password" class="text-primary text-sm text-gradient font-weight-bold custom-link" asp-page="./ForgotPassword">Quên mật khẩu?</a>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" id="btn-login" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0" style="border-radius:4px; color:white">Đăng nhập</button>
+                                    </div>
+                                    <div id="error-message" class="text-danger mt-2" style="display: none;">Sai mật khẩu hoặc tên người dùng!</div>
+                                    <div id="validation-summary" class="alert alert-danger mt-2" role="alert" style="display: none;"></div>
+                                </form>
+                            </div>
+                            <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                <p class="mb-4 text-sm mx-auto">
+                                    Chưa đăng kí tài khoản?
+                                    <a class="text-primary text-gradient font-weight-bold custom-link" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Đăng kí</a>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-center mb-3 mt-2">Đăng nhập khác</p>
+                                @{
+                                    if ((Model.ExternalLogins?.Count ?? 0) > 0)
+                                    {
+                                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                            <div class="row mx-auto justify-content-center">
+                                                <div class="col-3">
+                                                    <button style="margin-bottom:20px; background-color:transparent; border:none; outline:none" type="submit" class="d-flex justify-content-center align-items-center w-100" name="provider" value="Facebook" title="Log in using your Facebook account">
+                                                        <i class="fab fa-facebook" style="margin-right: 5px;"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="col-3">
+                                                    <button style="margin-bottom:20px;background-color:transparent; border:none; outline:none" type="submit" class="d-flex justify-content-center align-items-center w-100" name="provider" value="Google" title="Log in using your Google account">
+                                                        <img width="30" height="30" style="margin-right: 5px;" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo" />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    var emailInput = document.getElementById("emailInput");
+    var btnLogin = document.getElementById('btn-login');
+    var validationSummary = document.getElementById('validation-summary');
+
+    // Focus vào trường input
+    emailInput.focus();
+
+    btnLogin.addEventListener('click', function (e) {
+        var email = document.getElementById('emailInput').value;
+        var password = document.getElementById('passwordInput').value;
+        if (!email || !password) {
+            e.preventDefault();
+            validationSummary.innerText = 'Email và mật khẩu không được để trống!';
+            validationSummary.style.display = 'block';
+            return;
+        }
+
+        this.innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
+        this.classList.add('loading-cursor');
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var showPasswordCheckbox = document.getElementById('showPasswordCheckbox');
+        var passwordInput = document.getElementById('passwordInput');
+
+        showPasswordCheckbox.addEventListener('change', function () {
+            passwordInput.type = this.checked ? 'text' : 'password';
+        });
+    });
+</script>
+
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+    window.onload = function () {
+        var content = document.querySelector('.main-content');
+
+        content.style.overflowY = 'hidden';
+
+        content.style.maxHeight = '100vh';
+    };
+
+
+</script>
+
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="~/assets_argon/js/argon-dashboard.min.js?v=2.0.4"></script>

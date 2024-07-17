@@ -1,0 +1,824 @@
+﻿@using CodeFirst.Views.Shared
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var isAuthenticated = User.Identity.IsAuthenticated;
+    var avatarUrl = isAuthenticated ? (await UserManager.GetUserAsync(User))?.Avatar : "https://i.pinimg.com/236x/e1/6c/70/e16c704fc0b655e553dd7a1a8a00475d.jpg";
+}
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Quản lý nhà hàng tiệc cưới</title>
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/icofont@1.0.0/dist/icofont.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/admin_assets/css/mystyle.css" />
+    <link rel="stylesheet" href="~/css/mydesign.css" asp-append-version="true" />
+    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/admin_assets/css/my-task.style.min.css">
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <base href="~/" />
+    <component type="typeof(Microsoft.AspNetCore.Components.Web.HeadOutlet)"
+               render-mode="ServerPrerendered" />
+    <link href='https://fonts.googleapis.com/css?family=Syne Mono' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Patrick Hand SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Mali' rel='stylesheet'>
+    <link href="~/css/stylesortable.css" rel="stylesheet" />
+    <link href="~/css/home.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
+    <style>
+        body {
+            background-color:white !important;        
+        }
+        .fc-daygrid-event-harness, .fc-event-title, .fc-event-time{
+            font-size:1.3rem;
+        }
+        .fc-daygrid-event-harness{
+            background-color: #80807aff;
+            margin:5px;
+            border-radius:4px;
+            border:1px solid black !important;
+        }
+        .fc-event-main{
+            border:4px solid black !important;
+        }
+       .fc-timeGridWeek-view{
+            border-radius: 8px;
+            box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);
+       }
+
+        .mud-table, .fc-view-harness {
+            border-radius:0px;
+            box-shadow: -0.3rem 0.4rem 0 rgba(29, 30, 28, 0.26);
+            border: 3px solid black;
+            margin-bottom:7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal fade" id="customConfirmModal" tabindex="-1" role="dialog" aria-labelledby="customConfirmModalLabel" aria-hidden="true" style=" z-index:10000001;background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog" role="document" style="margin-top:70px;  z-index:10000001">
+            <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; z-index:10000001">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="customConfirmModalLabel"><span style="font-weight:800;color:red;">Xóa nhóm chat?</span></h5>
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="overflow:hidden !important">
+                    Sau khi xóa sẽ không thể khôi phục
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i style="color:white;margin-right:5px" class="fa-solid fa-caret-left"></i>Hủy</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn"><i style="color:white;margin-right:5px" class="fa-solid fa-trash"></i><span style="color:white">Xóa</span> </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true" style=" z-index:10000000;background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog" role="document" style="margin-top:100px;  z-index:10000000">
+            <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; z-index:10000000">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="infoModalLabel">
+                        <div class="head-text">
+                            Thông tin phòng chat
+                        </div>
+                    </h1>
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="overflow:hidden !important">
+                    <div class="container p-0">
+                        <div class="card chat-container">
+                            <form class="chatForm" id="updateChatForm" asp-controller="ChatRoom" asp-action="UpdateChatRoom" method="post">
+                                <label>Tên nhóm chat:</label>
+                                <div class="d-flex justify-content-between">
+                                    <input style="width:60%" type="hidden" name="ChatRoomId" class="chatRoomId" value="">
+                                    <input type="text" class="form-control chatRoomNameToUpdate">
+                                    <button type="submit" class="btn btn-success">Lưu</button>
+                                </div>
+                            </form>
+
+
+                            <div class="modal-footer d-flex justify-content-end">
+                                <form class="chatForm" id="deleteChatForm" asp-controller="Chat" asp-action="DeleteChatRoom" method="post">
+                                    <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
+                                    <button class="btn btn-danger delete-chat-btn"><i style="color:white;margin-right:5px" class="fa-solid fa-trash"></i><span style="color:white">Xóa nhóm chat</span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true" style=" z-index:10000000;background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog" role="document" style="margin-top:100px;  z-index:10000000">
+            <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; z-index:10000000">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="infoModalLabel">
+                        <div class="head-text">
+                            Thông tin phòng chat
+                        </div>
+                    </h1>
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="overflow:hidden !important">
+                    <div class="container p-0">
+                        <div class="card chat-container">
+                            <form class="chatForm" id="updateChatForm" asp-controller="ChatRoom" asp-action="UpdateChatRoom" method="post">
+                                <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
+                                Tên nhóm chat: <input type="text" class="form-control chatRoomNameToUpdate">
+                                <button style="background-color:#3F3F41;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-chat"><i style="color:#F2F2F3;font-size:20px;padding-right:40px;padding-left:40px" class="fa-solid fa-paper-plane"></i></button>
+                            </form>
+                            <div class="modal-footer d-flex justify-content-end">
+                                <form class="chatForm" id="deleteChatForm" asp-controller="Chat" asp-action="DeleteChatRoom" method="post">
+                                    <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
+                                    <button class="btn btn-danger delete-chat-btn"><i style="color:white;margin-right:5px" class="fa-solid fa-trash"></i><span style="color:white">Xóa nhóm chat</span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    @* modal chat *@
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl modal-chat-main" style="height:80vh">
+            <div class="modal-content h-100" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        <div class="head-text">
+                        </div>
+                    </h1>
+                    <button style="background-color: transparent;outline: none;border:none;position: absolute;top:20px;left:1rem" data-bs-toggle="modal" data-bs-target="#createChatRoomModal"><i class="fa-solid fa-plus" style="margin-right:9px"></i>Thêm phòng chat</button>
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                    </button>
+                </div>
+
+                <div class="modal-body" style="overflow-y: auto;">
+                    <div class="container p-0">
+                        <div class="card chat-container">
+                            <div class="row g-0">
+                                <div class="col-12 col-lg-5 col-xl-3 list-group-container" style="border-right:1px solid #EEEEEE">
+                                    <div style="border-right: 1px solid #EEEEEE;" class="px-4 d-none d-md-block">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <input type="text" class="form-control my-3 search-list-user-chat" placeholder="Tìm ai dị...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-user-status">
+                                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button" type="button" style="background-color:#3F3F41;color:white" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                                        <span style="color:white">Nhóm chat</span>
+                                                    </button>
+                                                </h2>
+                                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                                                    <div class="accordion-body">
+                                                        <div class="list-room-chat">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" style="background-color:#3F3F41" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                                        <span style="color:white">Thành viên</span>
+                                                    </button>
+                                                </h2>
+                                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                                                    <div class="accordion-body">
+                                                        <div class="list-group-online">
+                                                        </div>
+                                                        <div class="list-group-offline">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="d-block d-lg-none mt-1 mb-0">
+                                </div>
+                                <div class="col-12 col-lg-7 col-xl-9">
+                                    <div class="py-2 px-4 border-bottom d-none d-lg-block" style="background-color:#3F3F41;">
+                                        <div class="d-flex align-items-center py-1">
+                                            <div class="position-relative ">
+                                                <img class="rounded-circle mr-1 avatar-user-current-chat" style="outline:3px solid #F2F2F3;visibility:hidden;margin-top:15px" width="50" height="50">
+                                            </div>
+                                            <div class="flex-grow-1 pl-3">
+                                                <strong class="chat-name" style="color: #ffffff;font-size:20px;margin-bottom:10px"></strong><br />
+                                                <strong class="user-current-chat" style="color: #ffffff;"></strong>
+                                                <div class="my message dot-chat-container" style="visibility:hidden">
+                                                    <span class="jumping-dots">
+                                                        <span class="dot-1"></span>
+                                                        <span class="dot-2"></span>
+                                                        <span class="dot-3"></span>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+                                            <div class="more-options fa-lg">
+                                                
+                                                <button style="margin-right:5px" data-bs-toggle="modal" data-bs-target="#infoModal" class="btn-information ml-3">
+                                                    <i class="fa-solid fa-info" style="color: #ffffff;"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="position-relative">
+                                        <div class="chat-messages-list-room p-4">
+                                        </div>
+                                        <div class="chat-messages-list p-4">
+                                        </div>
+                                    </div>
+
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="contaniner-input-chat" class="modal-footer" style="margin-left: 275px; height: 120px;">
+                    <div class="flex-grow-0  border-top" style="margin-bottom:10px;">
+                        <div class="d-flex" style="margin-left:30px; height:15px">
+                            <strong class="user-current-chatmini" style="color: #3F3F41;margin-right:10px;"></strong>
+                            <div class="my message dot-chatmini-container" style="visibility:hidden;">
+                                <span class="jumping-dots">
+                                    <span class="dot-1" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
+                                    <span class="dot-2" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
+                                    <span class="dot-3" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="chatForm" id="publicChatForm" asp-controller="Chat" asp-action="SendMessages" method="post" >
+                        <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
+                        <div class="input-group" style="width:100%; padding:7px; position: relative; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; border-radius: 5px;">
+                            <input name="Message" style="max-width: calc(100% - 60px); border: none; border-radius: inherit; background-color: transparent; word-wrap: break-word; word-break: break-all; height: auto; min-height: 30px;" type="text" class="form-control" placeholder="Nhập tin nhắn ở đây...">
+                             <input type="file" name="file" id="fileInputChatRoom" style="display: none;" onchange="displayFileName(this)" />
+                            <button style="margin-right:15px;padding-right:10px" id="customFileButtonChatRoom" type="button">
+                                <i style="font-size:15px" class="fa-solid fa-image"></i>
+                            </button>
+                            <button id="publicChatButton" type="submit" style="width: 30px; position: absolute; top: 50%; right: 2%; transform: translateY(-50%); border: none; background-color: transparent; z-index: 1;"><i style="color:#40a2f2ff; font-size: 15px; padding-right: 10px; z-index: 10000;" class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                    <form class="chatForm" id="privateChatForm" asp-controller="ChatPrivate" asp-action="SendPrivateMessage" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="ReceiverUserId" class="receiverUserId" value="" />
+                        <div class="input-group"  style="width:100%; padding:7px; position: relative; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; border-radius: 5px;">
+                            <input  name="Message" id="input-chat-private" style="resize: none;max-width: calc(100% - 60px); border: none; border-radius: inherit; background-color: transparent; word-wrap: break-word; word-break: break-all; height: auto; min-height: 30px;" type="text" class="form-control" placeholder="Nhập tin nhắn ở đây..."/>
+                            <input type="file" name="file" id="fileInput" style="display: none;" onchange="displayFileName(this)" />
+                            <button style="margin-right:15px;padding-right:10px" id="customFileButton" type="button">
+                                <i style="font-size:15px" class="fa-solid fa-image"></i>
+                            </button>
+                            <button id="privateChatButton" type="submit" style="width: 30px; position: absolute; top: 50%; right: 2%; transform: translateY(-50%); border: none; background-color: transparent; z-index: 1;"><i style="color:#40a2f2ff; font-size: 15px; padding-right: 10px; z-index: 10000;" class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                    <span id="fileNameDisplay" style="display: none;"></span>
+             
+                </div>
+
+            
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="createChatRoomModal" tabindex="-1" role="dialog" aria-labelledby="createChatRoomModal" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog" role="document" style="margin-top:100px">
+            <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="createChatRoomModalLabel">
+                        <div class="head-text">
+                            Tạo phòng chat
+                        </div>
+                    </h1>
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="overflow:hidden !important">
+                    <div class="container p-0">
+                        <div class="card chat-container">
+                            <!-- Các phần khác của modal -->
+                            <div class="modal-footer">
+                                <form class="createChatRoomFormMinhTai">
+                                    <div class="d-flex justify-content-between">
+                                        <input type="text" style="width:60%" id="chatRoomName" placeholder="Nhập tên phòng chat" required>
+                                        <br />
+                                        <button type="submit" class="btn btn-success">Tạo phòng chat</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 600px;" role="document">
+            <div class="modal-content" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Hình ảnh</h5>
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-circle-xmark" style="font-size:30px;color: #c50202;"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="overflow:hidden !important">
+                    <img id="modalImage" class="img-fluid" src="" alt="Hình ảnh" style="width:100%">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <input type="checkbox" id="click">
+    <label class="floatting-btn" for="click" style="z-index:99;background: linear-gradient(120deg, #2c74e8, #b3c7e8);border:2px solid #3F3F41">
+        <i class="fa-regular fa-comment-dots" style="z-index:999999;color:white"></i>
+
+        <i class="fas fa-times" style="z-index:999999;color:white"></i>
+    </label>
+    <div class="wrapper" style="border-radius:4px !important">
+        <div style="border-radius:0px !important;background-color:#3F3F41" class="head-text d-flex justify-content-center">
+            <div>
+                <strong class="chat-name-mini" style="color: #ffffff;font-size:1rem;margin-bottom:10px"></strong><br />
+            </div>
+            <div>
+                <button style="background-color: transparent;outline: none;border:none;position: absolute;top:20px;left:1rem" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+            </div>
+        </div>
+        <div class="chat-box-private">
+        </div>
+        <div class="chat-box">
+        </div>
+
+        <div class="d-flex" style="margin-left:30px; height:5px;border-radius:0px !important">
+            <strong class="user-current-chatmini" style="color: #3F3F41;margin-right:10px;"></strong>
+            <div class="my message dot-chatmini-container" style="visibility:hidden;">
+                <span class="jumping-dots">
+                    <span class="dot-1" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
+                    <span class="dot-2" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
+                    <span class="dot-3" style="background-color:#3F3F41 !important; font-size:2px !important"></span>
+                </span>
+            </div>
+        </div>
+        <form class="chatForm" id="privateChatFormMini" asp-controller="ChatPrivate" asp-action="SendPrivateMessage" method="post">
+            <input type="hidden" name="ReceiverUserId" class="receiverUserId" value="" />
+            <div class="input-group" style="border-radius:0px !important;margin-top:20px">
+                <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;border-radius:0px !important;" type="text" class="form-control input-current-user" placeholder="Nhập tin nhắn...">
+                <button style="background-color:#2c74e8;color:white;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success btn-chat-mini"><i class="fa-solid fa-paper-plane"></i> </button>
+            </div>
+        </form>
+
+        <form class="chatForm" id="publicChatFormMini" asp-controller="Chat" asp-action="SendMessages" method="post">
+            <input type="hidden" name="ChatRoomId" class="chatRoomId" value="">
+
+            <div class="input-group" style="margin-top:20px;border-radius:0px !important">
+                <input name="Message" style="padding:20px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;border-radius:0px !important" type="text" class="form-control input-current-user" placeholder="Nhập tin nhắn...">
+                <button style="background-color:#2c74e8;color:white;margin-left:5px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" type="submit" class="btn btn-success btn-chat-mini"><i class="fa-solid fa-paper-plane"></i> </button>
+            </div>
+        </form>
+    </div>
+
+    <div id="mytask-layout" class="theme-indigo" style="background-color:white">
+        <div class="loading-spinner" id="loading-spinner">
+            <img src="https://res.cloudinary.com/dl3hvap4a/image/upload/v1721198272/cf_ayugnz.gif" class="spinner-image" alt="Loading..." />
+        </div>
+
+        @* <div class="form-check theme-switch float-button">
+        <input class="form-check-input" type="checkbox" id="theme-switch">
+        <label class="form-check-label" for="theme-switch">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+        </label>
+        </div> *@
+        @(await Html.RenderComponentAsync<MainLayout>(RenderMode.Server))
+        @* @await Html.PartialAsync("_SideBarPartialView.cshtml") *@
+        <!-- main body area -->
+        <div class="main px-lg-4 px-md-4">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <!-- Body: Header -->
+                    <div class="header">
+                        <nav class="navbar py-4">
+                            <div class="container-xxl d-flex align-items-center justify-content-end">
+                                <!-- header rightbar icon -->
+                                <div class="h-right d-flex align-items-center " style="z-index:1">
+                                    <div class="d-flex">
+                                        <div class="avatar-list avatar-list-stacked px-3">
+                                        </div>
+                                    </div>
+                                    <div class="dropdown notifications zindex-popover">
+                                        <a class="nav-link dropdown-toggle pulse" href="#" role="button" data-bs-toggle="dropdown" onclick="hideNotificationCount()">
+                                            <span class="icon-container">
+                                                <i class="icofont-alarm fs-5"></i>
+
+
+                                                <span class="notification-count badge-count"></span>
+                                            </span>
+                                            <span class="pulse-ring"></span>
+                                        </a>
+
+                                        <div id="NotificationsDiv" class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-sm-end p-0 m-0">
+                                            <div class="card border-0 w380">
+                                                <div class="card-header border-0 p-3">
+                                                    <h5 class="mb-0 font-weight-light d-flex justify-content-between">
+                                                        <span>Thông báo</span>
+                                                        <span class="badge-count text-white"></span>
+                                                    </h5>
+                                                </div>
+                                                <div class="tab-content card-body">
+                                                    <div class="tab-pane fade show active">
+                                                        <ul id="notification-list" class="list-unstyled list mb-0">
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                @* <a class="card-footer text-center border-top-0" href="#"> View all notifications</a> *@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
+                                        @if (SignInManager.IsSignedIn(User))
+                                        {
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                var user = await UserManager.GetUserAsync(User);
+                                                var userRoles = await UserManager.GetRolesAsync(user);
+                                                var rolesAsString = string.Join(", ", userRoles);
+                                                if (user != null)
+                                                {
+                                                    <div class="u-info me-2">
+                                                        <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">@user.FirstName @user.LastName</span></p>
+                                                        <small>@rolesAsString</small>
+                                                    </div>
+                                                    <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
+                                                        <img class="avatar lg rounded-circle img-thumbnail" src="@avatarUrl" alt="profile">
+                                                    </a>
+                                                    <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
+                                                        <div class="card border-0 w280">
+                                                            <div class="card-body pb-0">
+                                                                <div class="d-flex py-1">
+                                                                    <img class="avatar rounded-circle" src="@avatarUrl" alt="profile">
+                                                                    <div class="flex-fill ms-3">
+                                                                        <p class="mb-0"><span class="font-weight-bold">@user.FirstName @user.LastName</span></p>
+                                                                        <small class="">@user.UserName</small>
+                                                                    </div>
+                                                                </div>
+                                                                <div><hr class="dropdown-divider border-dark"></div>
+                                                            </div>
+                                                            <div class="list-group m-2 ">
+                                                                <a style="outline:none;" asp-area="Identity" asp-page="/Account/Manage/Index" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-info-circle fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px;display: inline !important;">Thông tin của tôi</span></i></a>
+
+                                                                <a style="outline:none;" asp-area="Identity" asp-page="/Account/Manage/ChangePassword" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-key fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Đổi mật khẩu</span></i></a>
+
+                                                                <a style="outline:none;" asp-area="" asp-controller="Home" asp-action="Index" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-home fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Về trang chủ</span></i></a>
+                                                                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                                    <button style="outline:none;" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Đăng xuất</span></i></button>
+                                                                </form>
+                                                                <div><hr class="dropdown-divider border-dark"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            var defaultAvatarUrl = "https://i.pinimg.com/236x/e1/6c/70/e16c704fc0b655e553dd7a1a8a00475d.jpg"; // Đường dẫn đến ảnh mặc định
+                                            var adminUsername = "admin";
+
+                                            <div class="u-info me-2">
+                                                <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">@adminUsername</span></p>
+                                                <small>user</small>
+                                            </div>
+                                            <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
+                                                <img class="avatar lg rounded-circle img-thumbnail" src="@defaultAvatarUrl" alt="profile">
+                                            </a>
+                                            <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
+                                                <div class="card border-0 w280">
+                                                    <div class="card-body pb-0">
+                                                        <div class="d-flex py-1">
+                                                            <img class="avatar rounded-circle" src="@avatarUrl" alt="profile">
+                                                            <div class="flex-fill ms-3">
+                                                                <p class="mb-0"><span class="font-weight-bold">user</span></p>
+                                                                <small class="">user</small>
+                                                            </div>
+                                                        </div>
+                                                        <div><hr class="dropdown-divider border-dark"></div>
+                                                    </div>
+                                                    <div class="list-group m-2 ">
+                                                        <a style="outline:none;" asp-area="" asp-controller="Home" asp-action="Index" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-home fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Về trang chủ</span></i></a>
+                                                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                            <button style="outline:none;" type="submit" class="list-group-item list-group-item-action border-0 "><i class="icofont-login fs-6 me-3"><span style="font-size:15px;font-family:Arial;margin-left:15px">Đăng nhập</span></i></button>
+                                                        </form>
+                                                        <div><hr class="dropdown-divider border-dark"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+
+                                <!-- menu toggler -->
+                                <button id="btn-show-navbar" class="navbar-toggler p-0 border-0 menu-toggle order-2" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
+                                    <span class="fa fa-bars"></span>
+                                </button>
+
+
+                               
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                @RenderBody()
+
+            </div>
+        </div>
+        <script src="_content/MudBlazor/MudBlazor.min.js"></script>
+
+        <base href="~/" />
+        <script src="_framework/blazor.server.js"></script>
+        <script src="_content/Microsoft.AspNetCore.Components.Web.Extensions/script.js"></script>
+        @* jquery vào để dùng chức năng submit mà k load trang*@
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script type="text/javascript">
+       
+
+
+            function displayFileName(input) {
+                const fileNameDisplay = document.getElementById('fileNameDisplay');
+                const fileName = input.files[0].name;
+                fileNameDisplay.innerText = fileName;
+                fileNameDisplay.style.display = 'block';
+            }
+
+            $('body').on('click', '.chat-image', function () {
+                var imageUrl = $(this).attr('src');
+                showModalWithImage(imageUrl);
+            });
+
+            function showModalWithImage(imageUrl) {
+                $('#modalImage').attr('src', imageUrl);
+                $('#imageModal').modal('show');
+            }
+
+
+            document.getElementById('customFileButton').addEventListener('click', function () {
+                document.getElementById('fileInput').click();
+            });
+            document.getElementById('customFileButtonChatRoom').addEventListener('click', function () {
+                document.getElementById('fileInputChatRoom').click(); 
+            });
+
+            $('.chat-messages-list').css('display', 'none');
+            $('.chat-box').css('display', 'none');
+            $(document).ready(function () {
+                $(document).on('click', '.selected-room', function () {
+                    $('.chat-messages-list').hide();
+                    $('.chat-messages-list-room').show();
+                    $('.chat-box').show();
+                    $('.chat-box-private').hide();
+
+                });
+
+                $('.list-group-online, .list-group-offline').on('click', function () {
+                    $('.chat-messages-list-room').hide();
+                    $('.chat-messages-list').show();
+
+                    $('.chat-box').hide();
+                    $('.chat-box-private').show();
+                });
+            });
+
+
+
+
+            $(document).ready(function () {
+                $('.list-group-item').on('click', function () {
+                    $('.list-group-item').removeClass('selected-item');
+                    $(this).addClass('selected-item');
+                });
+            });
+
+            $(document).ready(function () {
+                $('#privateChatFormMini').hide();
+                $('#publicChatForm').hide();
+                $('.list-group-offline').on('click', function () {
+                    $('#publicChatForm').hide();
+                    $('#privateChatForm').show();
+                    $('#privateChatFormMini').show();
+                    $('#publicChatFormMini').hide();
+                });
+                $('.list-group-online').on('click', function () {
+                    $('#publicChatForm').hide();
+                    $('#privateChatForm').show();
+                    $('#privateChatFormMini').show();
+                    $('#publicChatFormMini').hide();
+                });
+                $('.list-room-chat').on('click', function () {
+                    $('#publicChatForm').show();
+                    $('#privateChatForm').hide();
+
+                    $('#privateChatFormMini').hide();
+                    $('#publicChatFormMini').show();
+                });
+            });
+
+            
+
+
+            $(document).ready(function () {
+                var isModalVisible = false;
+                var isCollapse = false;
+
+                $(document).on('keydown', function (event) {
+                    if (isModalVisible && event.altKey && event.key.toLowerCase() === 'c') {
+                        // Đóng modal
+                        $('#exampleModal').modal('hide');
+                        isModalVisible = false;
+                    } else if (!isModalVisible && event.altKey && event.key.toLowerCase() === 'c') {
+                        $('#exampleModal').modal('show');
+                        isModalVisible = true;
+                    }
+
+                    if (event.altKey && event.key.toLowerCase() === 'q') {
+                        // Hiển thị hoặc ẩn tất cả các accordion
+                        $('.accordion-collapse').toggleClass('show collapse');
+                    }
+                });
+            });
+ 
+
+
+            document.querySelector('.search-list-user-chat').addEventListener('input', function () {
+                var searchValue = this.value.toLowerCase();
+
+                var userList = document.querySelectorAll('.list-group-item');
+                userList.forEach(function (user) {
+                    var username = user.querySelector('.username').textContent.toLowerCase()
+                    if (username.includes(searchValue)) {
+                        user.style.display = 'block';
+                    } else {
+                        user.style.display = 'none';
+                    }
+                });
+            });
+
+
+
+
+            const themeSwitch = document.getElementById('theme-switch');
+
+            themeSwitch.addEventListener('change', function () {
+                const moonIcon = document.querySelector('.fa-moon');
+                const sunIcon = document.querySelector('.fa-sun');
+
+                if (this.checked) {
+                    moonIcon.style.display = 'none';
+                    sunIcon.style.display = 'inline';
+                } else {
+                    moonIcon.style.display = 'inline';
+                    sunIcon.style.display = 'none';
+                }
+            });
+
+
+            // let isClicked = localStorage.getItem('isClicked') === 'true';
+
+            // function hideNotificationCount() {
+            //     // Cập nhật trạng thái
+            //     isClicked = true;
+            //     localStorage.setItem('isClicked', 'true');
+
+            //     // Ẩn notification-count
+            //     const notificationCount = document.querySelector('.notification-count');
+            //     notificationCount.style.visibility = 'hidden';
+
+            // }
+
+            // // Hiển thị notification-count dựa trên trạng thái
+            // const notificationCount = document.querySelector('.notification-count');
+            // if (isClicked) {
+            //     notificationCount.style.visibility = 'hidden';
+            // } else {
+            //     notificationCount.style.visibility = 'visible';
+            // }
+
+            // function getRandomImageUrl(width, height) {
+            //     return `https://picsum.photos/${width}/${height}?random=${Math.floor(Math.random() * 1000)}`;
+            // }
+            // var numberOfImages = 3;
+            // var avatarList = document.querySelector('.avatar-list');
+
+            // for (var i = 0; i < numberOfImages; i++) {
+            //     var img = document.createElement('img');
+            //     img.classList.add('avatar', 'rounded-circle');
+            //     img.src = getRandomImageUrl(50, 50);
+            //     img.alt = 'Avatar';
+            //     avatarList.appendChild(img);
+            // }
+
+
+            // (function () {
+            //     var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            //     s1.async = true;
+            //     s1.src = 'https://embed.tawk.to/654a847da84dd54dc489870d/1helhb2rj';
+            //     s1.charset = 'UTF-8';
+            //     s1.setAttribute('crossorigin', '*');
+            //     s0.parentNode.insertBefore(s1, s0);
+            // })();
+
+        </script>
+        <!-- Thêm các tệp CSS và JS của iziToast -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" integrity="sha512-R3PiqjPUr7Ys9/+ZoOkIYft6PkaP0a+KbPlpJDt1QXZlGK1x6/vYsbAq+uH6q/3BUb3QQvnyxxLW4mV4VRRb0w==" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-4PsbzoOXvoWyhW9vhv5V5JpOZsmWOFmMl3TG2m1FO4a66cTymIi6JfJd5qDXE+xKW6fFn1Tc/G0P6tBBfWSDBw==" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="~/js/notification.js"></script>
+        @* signalR *@
+        <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+        <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+        <a href="~/lib/microsoft/signalr/dist/browser/signalr.min.js.map"></a>
+
+
+        <script src="~/admin_assets/bundles/libscripts.bundle.js"></script>
+        <script src="~/admin_assets/bundles/apexcharts.bundle.js"></script>
+        <script src="~/admin_assets/page/hr.js"></script>
+        <script src="~/admin_assets/template.js"></script>
+        <script src="~/js/qrcode.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js" integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="~/js/site.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        @* ajax *@
+        @await RenderSectionAsync("Scripts", required: false)
+
+        <script>
+            window.addEventListener("load", function () {
+                var spinner = document.getElementById("loading-spinner");
+                setTimeout(function () {
+                    spinner.style.display = "none";
+                }, 10);
+            });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+        <script src="~/js/tasktodo.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/js/multi-select-tag.js"></script>
+
+      @*   <script>
+            window.__lc = window.__lc || {};
+            window.__lc.license = 18027936;
+            window.__lc.integration_name = "manual_onboarding";
+            ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+        </script>
+        <noscript><a href="https://www.livechat.com/chat-with/18027936/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+ *@
+
+</body>
+
+</html> 
