@@ -101,14 +101,6 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 // Cấu hình tài khoản Cloudinary
 var configuration = builder.Configuration;
 
-var cloudName = configuration["Cloudinary:CloudName"];
-var apiKey = configuration["Cloudinary:ApiKey"];
-var apiSecret = configuration["Cloudinary:ApiSecret"];
-
-var cloudinaryAccount = new Account(cloudName, apiKey, apiSecret);
-var cloudinary = new Cloudinary(cloudinaryAccount);
-
-builder.Services.AddSingleton(cloudinary);
 
 builder.Services.AddAuthentication()
 .AddFacebook(facebookOptions =>

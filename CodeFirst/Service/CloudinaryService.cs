@@ -8,9 +8,15 @@ namespace CodeFirst.Service
     {
         private readonly Cloudinary _cloudinary;
 
-        public CloudinaryService(Cloudinary cloudinary)
+        public CloudinaryService()
         {
-            _cloudinary = cloudinary;
+            // Cấu hình trực tiếp thông tin tài khoản Cloudinary
+            Account account = new Account(
+                "dl3hvap4a",
+                "834354428788744",
+                "lv7zI6VPru0YhHwUPQsru318SOE");
+
+            _cloudinary = new Cloudinary(account);
         }
         public async Task<string> UploadImageByString(string imageUrl)
         {
