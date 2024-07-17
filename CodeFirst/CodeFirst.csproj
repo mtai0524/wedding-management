@@ -15,9 +15,6 @@
 	  <Content Remove="package-lock.json" />
 	  <Content Remove="package.json" />
 	</ItemGroup>
-	<PropertyGroup>
-		<EnableDefaultContentItems>false</EnableDefaultContentItems>
-	</PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="Blazor.Bootstrap" Version="2.2.1" />
@@ -63,10 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="launchSettings.json" />
-    <None Include="wwwroot\*" />
   </ItemGroup>
 	<ItemGroup>
 		<UpToDateCheckBuilt Include="wwwroot/css/site.css" Set="Css" />
 	</ItemGroup>
-
+	<ItemGroup>
+		<Content Include="wwwroot\**\*">
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
+	</ItemGroup>
 </Project>
