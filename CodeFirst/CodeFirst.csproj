@@ -73,15 +73,15 @@
     <None Include="wwwroot\vendor\jquery\jquery.slim.min.js" />
     <None Include="wwwroot\vendor\jquery\jquery.slim.min.map" />
     <None Include="wwwroot\admin_assets\css\my-task.style.min.css" />
-	  <None Include="wwwroot\**\*" /> <!--them tat cat folder trong wwwroot vao deploy-->
+	  <None Include="wwwroot\**\*" />
+	  <None Include="wwwroot\*" />
+  <None Include="wwwroot\**">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 	<ItemGroup>
 		<UpToDateCheckBuilt Include="wwwroot/css/site.css" Set="Css" />
 	</ItemGroup>
-	<PropertyGroup>
-
-<EnableDefaultContentItems>false</EnableDefaultContentItems>
-</PropertyGroup>
 <ItemGroup>
     <Content Include="wwwroot\**\*">
       <CopyToPublishDirectory>Always</CopyToPublishDirectory>
