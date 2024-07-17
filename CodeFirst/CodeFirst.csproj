@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <EnableDefaultContentItems>false</EnableDefaultContentItems>
   </PropertyGroup>
 	<PropertyGroup>
 		<UserSecretsId>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</UserSecretsId>
