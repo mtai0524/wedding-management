@@ -20,7 +20,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-
+*.vs
 # User-specific files (Mono Auto Generated)
 mono_crash.*
 
@@ -151,3 +151,83 @@ $RECYCLE.BIN/
 
 # Rider plugin files
 .idea.CodeFirst/
+
+
+# Thư mục build
+bin/
+obj/
+
+# Thư mục cấu hình người dùng (đôi khi được tạo bởi IDE)
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Các tệp tạm thời
+*.tmp
+*.log
+
+# Thư mục package (node_modules nếu bạn sử dụng npm)
+node_modules/
+
+# Tệp lock
+package-lock.json
+yarn.lock
+
+# Thư mục phân phối
+dist/
+build/
+
+# Thư mục debug và release
+Debug/
+Release/
+
+# Thư mục lưu trữ tạm thời khác
+tmp/
+temp/
+
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# Visual Studio
+.vs/
+
+# Fleet
+.fleet/
+
+# Code Rush
+.cr/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
