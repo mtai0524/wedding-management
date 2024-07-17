@@ -105,15 +105,15 @@ var configuration = builder.Configuration;
 builder.Services.AddAuthentication()
 .AddFacebook(facebookOptions =>
 {
-    facebookOptions.AppId = configuration["Authentication:Facebook:AppId"];
-    facebookOptions.AppSecret = configuration["Authentication:Facebook:AppSecret"];
+    facebookOptions.AppId = "639089565030347";
+    facebookOptions.AppSecret = "15619dffd1e454f5666acdfbb27298f1";
     facebookOptions.CallbackPath = "/signin-facebook";
 })
 
 .AddGoogle(googleOptions =>
 {
-    googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
-    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+    googleOptions.ClientId = "506848528097-gf73lrq2ar8pib97i9o9etvg3ler4ag0.apps.googleusercontent.com";
+    googleOptions.ClientSecret = "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";
 });
 
 //builder.Services.AddAuthentication().AddFacebook(option =>
