@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="launchSettings.json" />
-    <None Include="wwwroot\*" />
   </ItemGroup>
 	<ItemGroup>
 		<UpToDateCheckBuilt Include="wwwroot/css/site.css" Set="Css" />
