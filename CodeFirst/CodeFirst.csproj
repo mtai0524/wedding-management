@@ -60,14 +60,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="launchSettings.json" />
-    <None Include="wwwroot\lib\microsoft\signalr\dist\browser\signalr.js" />
-  <None Include="wwwroot\**">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="wwwroot\*" />
   </ItemGroup>
 	<ItemGroup>
 		<UpToDateCheckBuilt Include="wwwroot/css/site.css" Set="Css" />
 	</ItemGroup>
-
+	
+    <ItemGroup>
+	    <Content Include="wwwroot\**\*">
+		    <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+	    </Content>
+	</ItemGroup>
 
 </Project>
