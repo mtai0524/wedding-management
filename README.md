@@ -13,7 +13,7 @@
 
 ## Project hosting
 
-- **[http://aspnetcore123-001-site1.jtempurl.com/](http://aspnetcore123-001-site1.jtempurl.com/)**
+- **[https://administrator-wedding-palace.somee.com](https://administrator-wedding-palace.somee.com)**
 
 ## User Interface
 
