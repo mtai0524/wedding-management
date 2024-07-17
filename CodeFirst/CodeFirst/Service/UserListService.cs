@@ -59,7 +59,6 @@ namespace CodeFirst.Service
 
             var userRoles = await _userManager.GetRolesAsync(userFindByUserId);
 
-            // Join the roles into a single string, separated by commas
             return (List<string>)userRoles;
         }
 

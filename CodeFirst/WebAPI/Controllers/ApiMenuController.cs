@@ -49,17 +49,16 @@ namespace WebAPI.Controllers
             try
             {
                 var menuItems = await _context.MenuEntity
-                    .Include(menu => menu.MenuCategory) // Include MenuCategory
+                    .Include(menu => menu.MenuCategory) 
                     .ToListAsync();
 
-                // Map the result to a DTO if needed to shape the response
                 var result = menuItems.Select(menu => new
                 {
                     MenuId = menu.MenuId,
                     Name = menu.Name,
                     Price = menu.Price,
                     Description = menu.Description,
-                    CategoryName = menu.MenuCategory?.Name, // Get the name from MenuCategory
+                    CategoryName = menu.MenuCategory?.Name, 
                     Image = menu.Image
                 });
 

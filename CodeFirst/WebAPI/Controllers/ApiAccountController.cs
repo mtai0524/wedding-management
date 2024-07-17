@@ -30,7 +30,6 @@ namespace WebAPI.Controllers
         [HttpPost("Update")]
         public async Task<IActionResult> UpdateProfile([FromBody] UserProfile profileData)
         {
-            // Find the user by email or another unique identifier
             var user = await _context.ApplicationUser.FirstOrDefaultAsync(u => u.Email == profileData.Email);
 
             if (user == null)
@@ -38,7 +37,6 @@ namespace WebAPI.Controllers
                 return NotFound("User not found.");
             }
 
-            // Update the user's information
             user.FirstName = profileData.FirstName;
             user.LastName = profileData.LastName;
             user.Email = profileData.Email;
@@ -86,19 +84,15 @@ namespace WebAPI.Controllers
             }
            
 
-
-            // Save the changes to the database
             _context.ApplicationUser.Update(user);
             await _context.SaveChangesAsync();
 
-            // Return the user's avatar URL or any other relevant information
             return Ok(new { avatar = user.Avatar });
         }
 
         [HttpGet("GetAvatar")]
         public async Task<IActionResult> GetAvatarAsync([FromQuery] string id)
         {
-            // Find the user by email
             var user = await _context.ApplicationUser.FirstOrDefaultAsync(u => u.Id == id);
 
             if (user == null)
@@ -106,14 +100,12 @@ namespace WebAPI.Controllers
                 return NotFound("User not found.");
             }
 
-            // Return the user's avatar URL
             return Ok(new { avatar = user.Avatar });
         }
 
         [HttpGet("GetInFoUserById")]
         public async Task<IActionResult> GetInFoUserById([FromQuery] string id)
         {
-            // Find the user by email
             var user = await _context.ApplicationUser.FirstOrDefaultAsync(u => u.Id == id);
 
             if (user == null)
@@ -121,7 +113,6 @@ namespace WebAPI.Controllers
                 return NotFound("User not found.");
             }
 
-            // Return the user's avatar URL
             return Ok(new { firstName = user.FirstName, lastName = user.LastName, email = user.Email, phone = user.PhoneNumber});
         }
 
@@ -152,8 +143,6 @@ namespace WebAPI.Controllers
         [HttpPost("GetUserInfo")]
         public async Task<IActionResult> GetUserInfoAsync([FromBody] string email)
         {
-            // Sử dụng email để truy vấn thông tin người dùng
-
             var user = await _context.ApplicationUser.FirstOrDefaultAsync(u => u.Email == email);
 
             if (user == null)
@@ -161,7 +150,6 @@ namespace WebAPI.Controllers
                 return null; // Trả về null nếu không tìm thấy thông tin người dùng
             }
 
-            // Chuyển đổi thông tin người dùng thành đối tượng UserInfo
             var userInfo = new ApplicationUser
             {
                 Id = user.Id,
@@ -170,15 +158,14 @@ namespace WebAPI.Controllers
                 LastName = user.LastName,
                 Email = user.Email,
                 Avatar = user.Avatar,
-                //Thêm các thuộc tính khác từ đối tượng User
             };
 
             if (userInfo == null)
             {
-                return NotFound(); // Trả về 404 nếu không tìm thấy thông tin người dùng
+                return NotFound();
             }
 
-            return Ok(userInfo); // Trả về thông tin người dùng nếu tìm thấy
+            return Ok(userInfo); 
         }
 
     }

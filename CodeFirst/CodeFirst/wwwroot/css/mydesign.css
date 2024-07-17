@@ -320,15 +320,15 @@ body {
 }
 
 .btn {
-    transition: transform 0.5s ease !important; /* Tăng thời gian chuyển đổi */
+    transition: transform 0.5s ease !important;
 }
 
     .btn:hover {
-        transform: scale(0.95) !important; /* Giảm tỷ lệ khi hover */
+        transform: scale(0.95) !important;
     }
 
 .fa-brands {
-    font-size: 24px !important; /* Độ lớn của biểu tượng */
+    font-size: 24px !important;
 }
 
 .form-floating {
@@ -336,15 +336,14 @@ body {
 }
 
 .form-floating input:focus {
-    border-color: rgb(178, 178, 178); /* Màu đậm màu xanh dương */
-    box-shadow: 0 0 0 0.25rem rgb(63, 56, 57); /* Hiệu ứng đổ bóng */
+    border-color: rgb(178, 178, 178); 
+    box-shadow: 0 0 0 0.25rem rgb(63, 56, 57);
 }
 
-/* Chỉnh đường viền ngoài của input */
 .form-floating input, button {
-    outline-color: black; /* Đặt màu đường viền, ví dụ: đen */
-    outline-style: solid; /* Đặt kiểu đường viền, ví dụ: đứng (solid) */
-    outline-width: 2px; /* Đặt độ dày của đường viền, ví dụ: 2px */
+    outline-color: black;
+    outline-style: solid;
+    outline-width: 2px;
 }
 
 label, h2 {
@@ -352,57 +351,53 @@ label, h2 {
     color: black;
 }
 #logout:hover {
-    color: white; /* Đổi màu chữ thành màu trắng */
-    background-color: black; /* Đổi màu nền thành màu đen */
-    transition: all 0.3s ease; /* Thêm hiệu ứng chuyển đổi màu */
+    color: white;
+    background-color: black;
+    transition: all 0.3s ease;
 }
 #logout {
     margin-right: 10px;
-    outline-color: black; /* Đặt màu đường viền, ví dụ: đen */
-    outline-style: solid; /* Đặt kiểu đường viền, ví dụ: đứng (solid) */
+    outline-color: black;
+    outline-style: solid;
     outline-width: 2px;
 }
 .form-floating {
     margin-bottom: 10px;
 }
-/* CSS cho hiệu ứng đường line xuất hiện từ trái qua phải */
 .custom-link {
     text-decoration: none;
-    color: #666DE4; /* Màu chữ ban đầu */
-    position: relative; /* Để làm việc với ::before pseudo-element */
-    transition: color 0.5s; /* Hiệu ứng chuyển đổi màu chữ */
+    color: #666DE4; 
+    position: relative; 
+    transition: color 0.5s; 
 }
 .textcolor {
     text-decoration: none;
     color: #DC3545;
 }
 .custom-link::before {
-    content: ""; /* Thêm nội dung trống cho pseudo-element */
+    content: ""; 
     position: absolute;
-    bottom: -2px; /* Vị trí bên dưới văn bản */
+    bottom: -2px; 
     left: 0;
-    width: 0; /* Bắt đầu với độ dài 0 */
-    height: 1px; /* Độ dày và chiều cao của đường line */
-    background-color: #666DE4; /* Màu đường line */
-    transition: width 0.3s; /* Hiệu ứng chuyển đổi độ dài đường line */
+    width: 0; 
+    height: 1px;
+    background-color: #666DE4; 
+    transition: width 0.3s; 
 }
 
 .custom-link:hover {
-    color: #666DE4; /* Màu chữ khi di chuột qua */
+    color: #666DE4;
 }
 
 .custom-link:hover::before {
-    width: 100%; /* Khi di chuột qua, đường line sẽ mở rộng từ trái qua phải */
+    width: 100%; 
 }
 
 .custom-checkbox input[type="checkbox"] {
-    border: 1px solid #000; /* Đường viền đen 1px */
-    /* Các thuộc tính CSS khác cho checkbox */
+    border: 1px solid #000;
 }
 .custom-checkbox input[type="checkbox"]:checked {
-    /* Màu nền cho checkbox khi được chọn */
     background-color: black;
-    /* Các thuộc tính CSS khác cho checkbox khi được chọn */
 }
 
 .center-div {

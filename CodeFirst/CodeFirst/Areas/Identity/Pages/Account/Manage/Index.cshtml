@@ -11,37 +11,33 @@
     var user = await UserManager.GetUserAsync(User);
 }
 <style>
-    /* CSS cho container chứa biểu mẫu và hình ảnh */
     .flex-container {
         display: flex;
-        flex-direction: row; /* Sắp xếp theo hàng ngang */
-        justify-content: space-between; /* Canh giữa giữa các phần tử con và đặt khoảng trống ở giữa */
+        flex-direction: row;
+        justify-content: space-between;
     }
 
-    /* CSS cho biểu mẫu */
     #profile-form {
-        flex: 1; /* Biểu mẫu tự mở rộng để lấp đầy không gian còn lại */
-        margin-right: 20px; /* Khoảng cách giữa biểu mẫu và hình ảnh */
+        flex: 1;
+        margin-right: 20px;
     }
 
-    /* CSS cho hình ảnh */
     .image-container {
-        flex: 1; /* Hình ảnh tự mở rộng để lấp đầy không gian còn lại */
+        flex: 1;
         text-align: center;
     }
 
-    /* CSS để điều chỉnh kích thước ảnh */
     .rounded-image {
         margin-top:40px;
         border: 3px solid #000;
         border-radius: 50%;
         width: 90%;
-        max-width: 350px; /* Điều chỉnh kích thước tối đa của ảnh */
+        max-width: 350px;
     }
 
     input:disabled {
-        background-color: #ccc !important; /* Đặt màu nền là màu xám (#ccc) cho các trường nhập bị vô hiệu hóa */
-        color: #666; /* Đặt màu chữ là màu xám đậm (#666) cho các trường nhập bị vô hiệu hóa (tuỳ chọn) */
+        background-color: #ccc !important;
+        color: #666;
     }
 </style>
 <h3>@ViewData["Title"]</h3>

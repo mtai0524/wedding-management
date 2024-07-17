@@ -25,7 +25,6 @@ namespace CodeFirst.Hubs
 
         public async Task SendPrivateMessage()
         {
-            // Lấy danh sách tin nhắn từ bảng ChatPrivate
             var chatPrivateList = await _context.Chats
                .Select(x => new
                {
@@ -34,7 +33,7 @@ namespace CodeFirst.Hubs
                }) // Chỉ chọn phần nội dung của tin nhắn
                .ToListAsync();
 
-            // Gửi mỗi tin nhắn riêng lẻ tới tất cả client đang kết nối
+            // Gửi mỗi tin nhắn riêng tới tất cả client đang kết nối
             foreach (var message in chatPrivateList)
             {
                 await Clients.All.SendAsync("ReceivePrivateMessage", message);

@@ -56,7 +56,7 @@
         <div class="page-header min-vh-100">
             <div class="container-fluid">
                 <div class="row d-flex p-2 align-items-center justify-content-center">
-                    <div class="col-xl-5 col-lg-5 col-md-7 d-flex justify-content-center mx-lg-0 mx-auto" style="border:2px solid #e8e9eb; border-radius:0px; box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);-webkit-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);-moz-box-shadow: 9px 4px 7px -5px rgba(0,0,0,0.47);box-shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.26);border:3px solid black;">
+                    <div class="col-xl-5 col-lg-5 col-md-7 d-flex justify-content-center mx-lg-0 mx-auto" style="border:2px solid #e8e9eb; box-shadow: -6px 6px 0px 0px #21242b;border:2px solid #21242b">
                         <div class="card card-plain">
                             <div class="card-header pb-0 text-start">
                                 <h4 class="font-weight-bolder">Đăng nhập</h4>
@@ -165,13 +165,10 @@
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
     window.onload = function () {
-        // Tìm phần tử HTML có lớp 'content'
         var content = document.querySelector('.main-content');
 
-        // Thêm thuộc tính overflow-y: scroll để cuộn nội dung khi cần
         content.style.overflowY = 'scroll';
 
-        // Đảm bảo rằng nội dung không vượt quá chiều rộng của trang
         content.style.maxHeight = '100vh';
     };
 

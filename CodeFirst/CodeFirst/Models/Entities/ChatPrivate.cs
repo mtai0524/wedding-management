@@ -11,11 +11,11 @@ namespace CodeFirst.Models.Entities
 
         public string? SenderUserId { get; set; } // Id của người gửi
         [ForeignKey("SenderUserId")]
-        public virtual ApplicationUser? SenderUser { get; set; } // Navigation property cho người gửi
+        public virtual ApplicationUser? SenderUser { get; set; } 
 
         public string? ReceiverUserId { get; set; } // Id của người nhận
         [ForeignKey("ReceiverUserId")]
-        public virtual ApplicationUser? ReceiverUser { get; set; } // Navigation property cho người nhận
+        public virtual ApplicationUser? ReceiverUser { get; set; } 
 
         public string Message { get; set; } = null!;
         public string? ImageChat { get; set; } = null;

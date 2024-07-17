@@ -1,13 +1,13 @@
 ﻿@media only screen and (max-width: 600px) {
     .container {
-        max-width: 95%; /* Container sẽ đặt chiều rộng tối đa là 100% trên các màn hình nhỏ */
+        max-width: 95%;
     }
 
     .second {
-        max-width: 95%; /* Container sẽ đặt chiều rộng tối đa là 100% trên các màn hình nhỏ */
+        max-width: 95%;
     }
     .addtxt {
-        max-width: 260px; /* Container sẽ đặt chiều rộng tối đa là 100% trên các màn hình nhỏ */
+        max-width: 260px;
     }
 }
 
@@ -140,7 +140,6 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-    /* background: transparent; */
 }
 :root {
     --bg: #ebf0f7;
@@ -519,4 +518,3 @@ h1 {
     }
 }
 
-/*# sourceMappingURL=style.css.map */

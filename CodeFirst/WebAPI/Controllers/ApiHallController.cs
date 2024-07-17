@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using WebAPI.Repositories;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebAPI.Controllers
 {
@@ -33,7 +32,6 @@ namespace WebAPI.Controllers
         {
             try
             {
-                // Query to filter halls based on branchId, numberOfTables, and cost
                 if(numberOfTables == null)
                 {
                     numberOfTables = 0;
@@ -71,7 +69,6 @@ namespace WebAPI.Controllers
         [HttpGet]
         public IActionResult GetAllHalls()
         {
-            // Lấy danh sách tất cả các Hall kèm theo thông tin Name của Branch
             var halls = _context.Hall
                 .Select(hall => new
                 {
@@ -81,11 +78,11 @@ namespace WebAPI.Controllers
                     hall.Image,
                     hall.Price,
                     hall.Capacity,
-                    BranchName = hall.Branch != null ? hall.Branch.Name : null // Lấy tên của Branch hoặc null nếu không có Branch
+                    BranchName = hall.Branch != null ? hall.Branch.Name : null 
                 })
                 .ToList();
 
-            return Ok(halls); // Trả về danh sách thông tin Hall và BranchName
+            return Ok(halls); 
         }
 
       

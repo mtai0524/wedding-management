@@ -94,7 +94,7 @@ namespace WebAPI.Controllers
             _context.ServiceEntity.Add(service);
             await _context.SaveChangesAsync();
 
-            return Ok(service); // Trả về menu đã được lưu vào cơ sở dữ liệu (hoặc thông tin thành công khác).
+            return Ok(service); 
         }
 
         // PUT api/<ApiServiceController>/5

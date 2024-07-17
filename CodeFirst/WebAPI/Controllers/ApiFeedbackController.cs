@@ -42,18 +42,16 @@ namespace WebAPI.Controllers
                     return BadRequest("Dữ liệu phản hồi không hợp lệ");
                 }
 
-                // Tạo một đối tượng Feedback từ dữ liệu đầu vào
                 var feedback = new Feedback
                 {
                     UserId = feedbackModel.UserId,
-                    FeedbackDate = DateTime.Now, // Đặt ngày phản hồi thành ngày hiện tại
+                    FeedbackDate = DateTime.Now, 
                     Content = feedbackModel.Content,
                     Rating = feedbackModel.Rating,
                     BranchId = feedbackModel.BranchId,
                     isShowFeedback = true,
                 };
 
-                // Thêm đối tượng phản hồi mới vào cơ sở dữ liệu
                 _context.Feedback.Add(feedback);
                 _context.SaveChanges();
 

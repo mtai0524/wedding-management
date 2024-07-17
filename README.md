@@ -1,4 +1,4 @@
-# Manage Wedding Restaurant :house::sunflower:
+# Wedding Palace - Adminitrastor page :house::sunflower:
 
 ---
 
@@ -7,6 +7,7 @@
 - **Backend**: `ASP.NET CORE 6` `Blazor Server` `Web API`
 - **Frontend**: `ReactJS`
 - **Database**: `SQL Server`
+- **Tools**: `Mailtrap.io` `SignalR` `Docker Compose` `Google Calendar API` `Cloudinary`
 
 ---
 
@@ -22,7 +23,27 @@
 
 - **Register and login**
 
-  ![Register](./Images/register.png) ![Login](./Images/login.png)
+  ![Register](./Images/register_page.png) ![Login](./Images/login_page.png)
+
+- **Project manager**
+
+  ![Dashboard](./Images/task.png)
+
+- **Authorized Roles**
+
+  ![Dashboard](./Images/role.png)
+
+- **Chat realtime**
+
+  ![Dashboard](./Images/chat-ui.png)
+
+---
+
+## Setup environment
+
+- **SDK net core 6**
+- **Server Management Studio 2019**
+- **Visual Studio 2022**
 
 ---
 
@@ -42,7 +63,7 @@
 
     - Double click **`CodeFirst.sln`** to open project
 
-      ![Tree project](./Images/run_project.png) ![Tree project](./Images/code2022.png)
+      ![Tree project](./Images/run_project.png)
 
     - Open file `appsetting.json` and change **`Server name`**
 
