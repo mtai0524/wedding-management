@@ -39,7 +39,7 @@ builder.Services.AddBlazorBootstrap();
 // Add services to the container.
 builder.Services.AddSignalR();
 
-var connectionString = builder.Configuration.GetConnectionString("CodeFirst");
+var connectionString ="workstation id=codefirst.mssql.somee.com; packet size = 4096; user id = mycalendar_SQLLogin_1; pwd = 6bf72qnb69; data source = codefirst.mssql.somee.com; persist security info=False; initial catalog = codefirst; TrustServerCertificate = True";
 
 //docker
 
