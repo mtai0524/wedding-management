@@ -132,12 +132,12 @@ builder.Services.AddAuthentication()
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
-    options.Password.RequiredLength = 6; // Điều chỉnh độ dài mật khẩu tối thiểu
-    options.Password.RequireLowercase = true; // Yêu cầu ký tự thường
-    options.Password.RequireUppercase = true; // Yêu cầu ký tự hoa
-    options.Password.RequireDigit = true; // Yêu cầu chứa ít nhất một số
-    options.Password.RequireNonAlphanumeric = true; // Yêu cầu ký tự đặc biệt
-    options.SignIn.RequireConfirmedEmail = true; // Yêu cầu xác nhận email trước khi đặt lại mật khẩu
+    options.Password.RequiredLength = 3; // Điều chỉnh độ dài mật khẩu tối thiểu
+    options.Password.RequireLowercase = false; // Yêu cầu ký tự thường
+    options.Password.RequireUppercase = false; // Yêu cầu ký tự hoa
+    options.Password.RequireDigit = false; // Yêu cầu chứa ít nhất một số
+    options.Password.RequireNonAlphanumeric = false; // Yêu cầu ký tự đặc biệt
+    options.SignIn.RequireConfirmedEmail = false; // Yêu cầu xác nhận email trước khi đặt lại mật khẩu
 });
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -146,7 +146,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Lockout.MaxFailedAccessAttempts = 5;
     options.Lockout.AllowedForNewUsers = true;
     // Cấu hình đặc điểm gửi email
-    options.SignIn.RequireConfirmedEmail = true;
+    options.SignIn.RequireConfirmedEmail = false;
     options.User.RequireUniqueEmail = true;
 });
 //builder.Services.Configure<SecurityStampValidatorOptions>(opt =>

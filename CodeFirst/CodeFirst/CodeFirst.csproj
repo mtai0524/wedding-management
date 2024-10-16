@@ -15,6 +15,7 @@
 	  <Content Remove="package.json" />
 	</ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="Blazor.Bootstrap" Version="2.2.0" />
     <PackageReference Include="CloudinaryDotNet" Version="1.22.0" />
     <PackageReference Include="DinkToPdf" Version="1.0.8" />

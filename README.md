@@ -13,7 +13,8 @@
 
 ## Project hosting
 
-- **[https://administrator-wedding-palace.somee.com](https://administrator-wedding-palace.somee.com)**
+- **[https://wedding-restaurant-manager.runasp.net](https://wedding-restaurant-manager.runasp.net)** - Live demo Adminitrastor
+- **[https://wedding-palace.onrender.com/](https://wedding-palace.onrender.com)** - Live demo Customer
 
 ## User Interface
 

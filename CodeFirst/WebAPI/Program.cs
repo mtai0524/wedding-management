@@ -78,11 +78,9 @@ builder.Services.AddSignalR();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
+
     app.UseSwagger();
     app.UseSwaggerUI();
-}
 app.MapHub<ChatHub>("/chatHub");
 
 app.UseHttpsRedirection();
